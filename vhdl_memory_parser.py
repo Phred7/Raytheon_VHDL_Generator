@@ -5,10 +5,21 @@
 # Dr. Brock LaMeres
 # Written by Blake Stanger and Walker Ward
 ###############################
-
+import logging
 import sys
+import os
 
-debug: bool = True
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
+
+def remove_last_generated_files() -> None:
+    directory = r'C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl'
+    for file in os.listdir(directory):
+        if file.endswith(".vhd"):
+            os.remove(f"{directory}\\{file}")
+            logger.debug(f'Removed {file}')
+
 
 def main() -> None:
     """
@@ -24,6 +35,9 @@ def main() -> None:
         - create the architecture (specific to each computer)
             - read in the disassembly text file
             - 'match and modify'
+                - select the correct dictionary for this computer
+                - split each line into an array of chars
+                - modify the generated ROM based on this computer
             - (begin postamble)
             - IRQ Vectors
             - LOCAL_EN proc
@@ -35,7 +49,10 @@ def main() -> None:
     TODO: Create pydocs for each method
     TODO: Refactor methods
     TODO: link CCS and pycharm workspaces
+    TODO: stop using the global mem start
     """
+    remove_last_generated_files()
+
     pass
 
 
