@@ -8,22 +8,70 @@
 import logging
 import sys
 import os
+from logging import Logger
+from typing import TextIO
 
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logger: Logger = logging.getLogger(__name__)
 
 
 def remove_last_generated_files() -> None:
-    directory = r'C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl'
+    """
+    Removes the files generated in the last run of main.
+    - Removes all files with the vhd file extension
+    :return: None.
+    """
+    # C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\
+    directory: str = rf'{os.getcwd()}\generated_vhdl'
     for file in os.listdir(directory):
         if file.endswith(".vhd"):
             os.remove(f"{directory}\\{file}")
-            logger.debug(f'Removed {file}')
+            logger.info(f'Removed {file}')
+
+
+def generate_vhd_packages() -> None:
+    """
+    Generated the vhd package for each computer.
+    :return: None.
+    """
+    packages_list: list[str] = ["baseline_package", "high_roller_package", "lowlife_package"]
+    for package_name in packages_list:
+        original_stdout: TextIO = sys.stdout
+        with open(f"{os.getcwd()}\\generated_vhdl\\{package_name}.vhd", "a+") as vhd_package_file:
+            sys.stdout = vhd_package_file
+            vhd_package_constants_str: str
+            if "high_roller" in package_name:
+                vhd_package_constants = """constant FORMAT_2 : integer := 3;
+    constant JMP1 : integer := 4;
+    constant JMP2 : integer := 5;
+    constant MOV : integer := 6;
+    constant OFFSET : integer := 2;"""
+            elif "low_life" in package_name:
+                vhd_package_constants = """constant FORMAT_2 : integer := 15;
+    constant JMP1 : integer := 0;
+    constant JMP2 : integer := 1;
+    constant MOV : integer := 2;
+    constant OFFSET : integer := -2;"""
+            else:
+                vhd_package_constants = """constant FORMAT_2 : integer := 1;
+    constant JMP1 : integer := 2;
+    constant JMP2 : integer := 3;
+    constant MOV : integer := 4;
+    constant OFFSET : integer := 0;"""
+
+            print(f"""library IEEE;
+    use IEEE.std_logic_1164.all;
+    use IEEE.numeric_std.all;
+    package {package_name} is
+    {vhd_package_constants}
+    end {package_name};""")
+
+            vhd_package_file.close()
+            logger.info(f'Generated {package_name}.vhd')
 
 
 def main() -> None:
     """
-    TODO: add cleanup for last run
     TODO: add malicious check for MSP430 output binaries to workflow
     generate the baseline, highroller and lowlife package files
         - open the correct file (type_package.vhd)
@@ -52,6 +100,7 @@ def main() -> None:
     TODO: stop using the global mem start
     """
     remove_last_generated_files()
+    generate_vhd_packages()
 
     pass
 
