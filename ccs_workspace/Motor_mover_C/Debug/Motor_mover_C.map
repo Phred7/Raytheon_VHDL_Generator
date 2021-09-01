@@ -1,7 +1,7 @@
 ******************************************************************************
                   MSP430 Linker PC v20.2.5                     
 ******************************************************************************
->> Linked Thu Aug 26 12:41:16 2021
+>> Linked Wed Sep  1 10:07:09 2021
 
 OUTPUT FILE NAME:   <Motor_mover_C.out>
 ENTRY POINT SYMBOL: "_c_int00_noinit_noargs_mpu"  address: 000080c0

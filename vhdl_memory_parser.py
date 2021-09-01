@@ -21,7 +21,6 @@ def remove_last_generated_files() -> None:
     - Removes all files with the vhd file extension
     :return: None.
     """
-    # C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\
     directory: str = rf'{os.getcwd()}\generated_vhdl'
     for file in os.listdir(directory):
         if file.endswith(".vhd"):
@@ -34,8 +33,8 @@ def generate_vhd_packages() -> None:
     Generated the vhd package for each computer.
     :return: None.
     """
-    packages_list: list[str] = ["baseline_package", "high_roller_package", "lowlife_package"]
-    for package_name in packages_list:
+    package_name_list: list[str] = ["baseline_package", "high_roller_package", "lowlife_package"]
+    for package_name in package_name_list:
         original_stdout: TextIO = sys.stdout
         with open(f"{os.getcwd()}\\generated_vhdl\\{package_name}.vhd", "a+") as vhd_package_file:
             sys.stdout = vhd_package_file
@@ -67,7 +66,53 @@ def generate_vhd_packages() -> None:
     end {package_name};""")
 
             vhd_package_file.close()
+            sys.stdout = original_stdout
             logger.info(f'Generated {package_name}.vhd')
+
+
+def generate_vhd_memory() -> None:
+    memory_start: int = 32768
+    computer_name_list: list[str] = ["baseline", "high_roller", "lowlife"]
+    for computer_name in computer_name_list:
+        original_stdout: TextIO = sys.stdout
+        with open(f"{os.getcwd()}\\generated_vhdl\\{computer_name}_memory.vhd", "a+") as vhd_memory_file:
+            sys.stdout = vhd_memory_file
+            print(get_vhdl_memory_libraries())
+            print(get_vhdl_memory_entity(computer_name))
+            print(get_vhdl_memory_architecture(computer_name))
+            print(get_vhdl_memory_rom_type(), end="")
+            sys.stdout = original_stdout
+            logger.info(f'Generated {computer_name}_memory.vhd')
+
+
+def get_vhdl_memory_libraries() -> str:
+    return """library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;\n\n"""
+
+
+def get_vhdl_memory_entity(computer_name: str) -> str:
+    return f"""entity {computer_name} is
+    port ( clk	: in	std_logic;
+         MAB		: in	std_logic_vector(15 downto 0);
+         MDB_in  	: out	std_logic_vector(15 downto 0);
+         MDB_out  	: in	std_logic_vector(15 downto 0);
+         write	    : in	std_logic);
+end entity\n"""
+
+
+def get_vhdl_memory_architecture(computer_name: str) -> str:
+    return f"""architecture {computer_name}_arch of {computer_name} is\n"""
+
+
+def get_vhdl_memory_rom_type() -> str:
+    return """type rom_type is array (32768 to 65535) of std_logic_vector(7 downto 0);  -- this is MAB: x8000 to xFFFF
+    
+constant ROM : rom_type :=("""
+
+
+def get_vhdl_memory_rom_asm() -> str:
+    pass
 
 
 def main() -> None:
@@ -101,6 +146,7 @@ def main() -> None:
     """
     remove_last_generated_files()
     generate_vhd_packages()
+    generate_vhd_memory()
 
     pass
 
