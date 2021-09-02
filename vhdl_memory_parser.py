@@ -11,7 +11,7 @@ import os
 from logging import Logger
 from typing import TextIO
 
-import disassembler
+import ccs_disassembler
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger: Logger = logging.getLogger(__name__)
@@ -117,6 +117,7 @@ constant ROM : rom_type :=("""
 def get_vhdl_memory_rom_asm(computer_name: str) -> str:
     memory_start: int = 32768
     computer_mnemonic_dictionary: {str, str} = get_computer_mnemonic_dictionary(computer_name)
+
     return ""
 
 
@@ -169,7 +170,7 @@ def get_vhdl_memory_rom_process() -> str:
 
 
 def get_computer_mnemonic_dictionary(computer_name: str) -> {str, str}:
-    if computer_name is "high_roller":
+    if computer_name == "high_roller":
         return {"RRC.W": "3",#3
                "RRC.B": "3",
                "SWP.B": "3",
@@ -234,7 +235,7 @@ def get_computer_mnemonic_dictionary(computer_name: str) -> {str, str}:
                "XOR.B": "0",#0
                "AND.W": "1",#1
                "AND.B": "1"}
-    elif computer_name is "low_life":
+    elif computer_name == "low_life":
         return {"RRC.W": "F",
                "RRC.B": "F",
                "SWP.B": "F",
@@ -399,7 +400,7 @@ def main() -> None:
     TODO: link CCS and pycharm workspaces
     TODO: stop using the global mem start
     """
-    #disassembler.main()
+    disassembler.main()
     remove_last_generated_files()
     generate_vhd_packages()
     generate_vhd_memory()

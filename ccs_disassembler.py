@@ -1,5 +1,5 @@
 ###############################
-# VHDL Memory Parser
+# CCS Disassembler
 # For Raytheon Research Project
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
