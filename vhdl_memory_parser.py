@@ -79,6 +79,7 @@ def generate_vhd_memory() -> None:
             print(get_vhdl_memory_libraries())
             print(get_vhdl_memory_entity(computer_name))
             print(get_vhdl_memory_architecture(computer_name), end="")
+            vhd_memory_file.close()
             sys.stdout = original_stdout
             logger.info(f'Generated {computer_name}_memory.vhd')
 
@@ -90,19 +91,20 @@ use IEEE.numeric_std.all;\n\n"""
 
 
 def get_vhdl_memory_entity(computer_name: str) -> str:
-    return f"""entity {computer_name} is
+    return f"""entity {computer_name}_memory is
     port ( clk	: in	std_logic;
          MAB		: in	std_logic_vector(15 downto 0);
          MDB_in  	: out	std_logic_vector(15 downto 0);
          MDB_out  	: in	std_logic_vector(15 downto 0);
          write	    : in	std_logic);
-end entity\n"""
+end entity;\n"""
 
 
 def get_vhdl_memory_architecture(computer_name: str) -> str:
-    return f"""architecture {computer_name}_arch of {computer_name} is\n
+    return f"""architecture {computer_name}_memory_arch of {computer_name}_memory is\n
 {get_vhdl_memory_rom_type()}{get_vhdl_memory_rom_asm(computer_name)}
-{get_vhdl_irq_vectors()}
+{get_vhdl_irq_vectors()}\n
+    signal EN : std_logic;\n
 {get_vhdl_local_en_process()}\n
 {get_vhdl_memory_rom_process()}\n\n
 end architecture;"""
@@ -115,10 +117,47 @@ constant ROM : rom_type :=("""
 
 
 def get_vhdl_memory_rom_asm(computer_name: str) -> str:
-    memory_start: int = 32768
+    current_program_memory: int = 32768
     computer_mnemonic_dictionary: {str, str} = get_computer_mnemonic_dictionary(computer_name)
+    disassembler_output_file_name: str = "generated_disassembly.txt"
+    disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly"
+    generated_rom_asm_str: str = ""
+    logger.info(f"Reading in lines from {disassembler_output_file_name} for {computer_name}")
+    for line in open(f"{disassembler_output_file_directory}\\{disassembler_output_file_name}", 'r').readlines():
+        unmodified_line: str = line
+        line_str_list: list[str] = line.split(' ')
+        if len(line_str_list) >= 15:
+            if line_str_list[14] in computer_mnemonic_dictionary.keys():
+                if computer_name != "baseline":
+                    opcode_hex_chars: list[str] = list(line_str_list[1])
+                    opcode_hex_chars[2] = computer_mnemonic_dictionary.get(line_str_list[14])
+                    line_str_list[1] = ''.join(opcode_hex_chars)
+                    line = ''.join(line_str_list)
+                memory_indent: str = "\t\t\t\t\t\t   "
+                generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else memory_indent}{current_program_memory} => x\"{line[8]}{line[9]}\",\t-- {unmodified_line}"""
+                current_program_memory += 1
+                generated_rom_asm_str += f"""{memory_indent}{current_program_memory} => x\"{line[10]}{line[11]}\",\n"""
+                current_program_memory += 1
+                if "SR" in unmodified_line:
+                    logger.info("Reached SR in generated_disassembly.txt")
+                    return generated_rom_asm_str
 
-    return ""
+                #TODO: add support for opcodes without mnemonics. EX: 008004: 805A
+                #TODO: resolve baseline package does not have correct vals in dict
+
+                # split line[1] into a list[char]
+                # replace list[char][2] with the key specified by computer_mnemonic_dictionary
+                # assemble (join) the list[char] into a str
+                # reassemble the line (should be str rather than list[str] with the str generated from list[char] (line[1] = joined list[char])
+                # take the reassembled line (line) and break it into list[char]
+                # kingston is the last char of the 4 char hex code (should be at line[11] if not then at line[12]
+                # if the line is the end of main or the usable program mem return otherwise... while line is not the end of the usable content
+                #   append a newline to the return: f"{memory_number} => x{'"'}{line[8]}{line[9]}{'"'},{designated space, maybe \t}-- {entire unmodified line as comment}"
+                #   inc memory_number
+                #   append a newline to the return: f"{memory_number} => x{'"'}{line[10]}{kingston or line[11] ternary... if line[11] is " " then line[12]}{'"'},{designated space, maybe \t}"
+                #   inc memory_number
+                #   if SR in unmodified line exit the loop
+
 
 
 def get_vhdl_irq_vectors() -> str:
@@ -131,8 +170,6 @@ def get_vhdl_irq_vectors() -> str:
 
 def get_vhdl_local_en_process() -> str:
     return """
-    signal EN : std_logic;
-
     begin
     -- Note 1:  The bus system uses a 16-bit Address (MAB)
     --          This address size can access locations from x0000 to xFFFF
@@ -253,7 +290,7 @@ def get_computer_mnemonic_dictionary(computer_name: str) -> {str, str}:
                "JC": "0",
                "JN": "1",
                "JGE": "1",
-               "JL": "1 ",
+               "JL": "1", #modified from "1 "
                "JMP": "1", #ones
                "CLR.W": "2",
                "BR.W": "2",
@@ -318,7 +355,7 @@ def get_computer_mnemonic_dictionary(computer_name: str) -> {str, str}:
                "JC": "2",
                "JN": "3",
                "JGE": "3",
-               "JL": "3 ",
+               "JL": "3", #modified from "3 "
                "JMP": "3",
                "CLR.W": "4",
                "BR.W": "4",
@@ -351,7 +388,7 @@ def get_computer_mnemonic_dictionary(computer_name: str) -> {str, str}:
                "DADC.W": "A",
                "DADC.B": "A",
                "BIT.W": "B",
-               "BIT.B": "B",
+               "BIT.B": "B", #TODO This is wrong
                "CLRC.W": "C",
                "CLRN.W": "C",
                "CLRZ.W": "C",
@@ -400,12 +437,10 @@ def main() -> None:
     TODO: link CCS and pycharm workspaces
     TODO: stop using the global mem start
     """
-    disassembler.main()
+    #ccs_disassembler.main()
     remove_last_generated_files()
     generate_vhd_packages()
     generate_vhd_memory()
-
-    pass
 
 
 if __name__ == '__main__':

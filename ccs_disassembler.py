@@ -27,7 +27,7 @@ def main() -> None:
     disassembler_executable: str = r'dis430.exe'
     disassembler_input_file_name: str = "Motor_mover_C.out"
     disassembler_input_file_directory: str = rf"{os.getcwd()}\ccs_workspace\Motor_mover_C\Debug"
-    disassembler_output_file_name: str = "Motor_mover_C_dis.txt"
+    disassembler_output_file_name: str = "generated_disassembly.txt"
     disassembler_output_file_directory: str =rf"{os.getcwd()}\generated_disassembly"
 
     if not os.path.exists(rf"{disassembler_input_file_directory}\{disassembler_input_file_name}"):

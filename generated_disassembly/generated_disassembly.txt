@@ -1,0 +1,310 @@
+
+TEXT Section .text, 0xc0 bytes at 0x00008000
+008000:              main:
+008000:              .text:main:
+008000: 2182             SUB.W   #4,SP
+008002: B240             MOV.W   #0x5a80,&WDTCTL_L
+008004: 805A            
+008006: CC01            
+008008: 92C3             BIC.W   #1,&PM5CTL0_L
+00800a: 3001            
+00800c: F2D0             BIS.B   #0x0010,&P1DIR
+00800e: 1000            
+008010: 0402            
+008012:              $C$L1:
+008012: F2D0             BIS.B   #0x0010,&P1OUT
+008014: 1000            
+008016: 0202            
+008018: B140             MOV.W   #0x0fff,0x0000(SP)
+00801a: FF0F            
+00801c: 0000            
+00801e: 8193             TST.W   0x0000(SP)
+008020: 0000            
+008022: 1034             JGE     ($C$L5)
+008024:              $C$L2:
+008024: B140             MOV.W   #0x0fff,0x0002(SP)
+008026: FF0F            
+008028: 0200            
+00802a: 8193             TST.W   0x0002(SP)
+00802c: 0200            
+00802e: 0534             JGE     ($C$L4)
+008030:              $C$L3:
+008030: 9183             DEC.W   0x0002(SP)
+008032: 0200            
+008034: 8193             TST.W   0x0002(SP)
+008036: 0200            
+008038: FB3B             JL      ($C$L3)
+00803a:              $C$L4:
+00803a: 9183             DEC.W   0x0000(SP)
+00803c: 0000            
+00803e: 8193             TST.W   0x0000(SP)
+008040: 0000            
+008042: F03B             JL      ($C$L2)
+008044:              $C$L5:
+008044: F2F0             AND.B   #0x00ef,&P1OUT
+008046: EF00            
+008048: 0202            
+00804a: B140             MOV.W   #0x0fff,0x0000(SP)
+00804c: FF0F            
+00804e: 0000            
+008050: 8193             TST.W   0x0000(SP)
+008052: 0000            
+008054: DE37             JGE     ($C$L1)
+008056:              $C$L6:
+008056: B140             MOV.W   #0x0fff,0x0002(SP)
+008058: FF0F            
+00805a: 0200            
+00805c: 8193             TST.W   0x0002(SP)
+00805e: 0200            
+008060: 0534             JGE     ($C$L8)
+008062:              $C$L7:
+008062: 9183             DEC.W   0x0002(SP)
+008064: 0200            
+008066: 8193             TST.W   0x0002(SP)
+008068: 0200            
+00806a: FB3B             JL      ($C$L7)
+00806c:              $C$L8:
+00806c: 9183             DEC.W   0x0000(SP)
+00806e: 0000            
+008070: 8193             TST.W   0x0000(SP)
+008072: 0000            
+008074: F03B             JL      ($C$L6)
+008076: CD3F             JMP     ($C$L1)
+008078: 0343             NOP     
+00807a:              __mpu_init:
+00807a:              .text:__mpu_init:
+00807a: 3180             SUB.W   #0x0006,SP
+00807c: 0600            
+00807e: 3E40             MOV.W   #0x0000,R14
+008080: 0000            
+008082: 3EF0             AND.W   #0x003f,R14
+008084: 3F00            
+008086: 814E             MOV.W   R14,0x0000(SP)
+008088: 0000            
+00808a: 3F40             MOV.W   #0x0001,R15
+00808c: 0100            
+00808e: 1FF3             AND.W   #1,R15
+008090: 814F             MOV.W   R15,0x0002(SP)
+008092: 0200            
+008094: 3D40             MOV.W   #0x0001,R13
+008096: 0100            
+008098: 1DF3             AND.W   #1,R13
+00809a: 814D             MOV.W   R13,0x0004(SP)
+00809c: 0400            
+00809e: 5E06             RLAM.W  #2,R14
+0080a0: 5F02             RLAM.W  #1,R15
+0080a2: 0FDE             BIS.W   R14,R15
+0080a4: 1FD1             BIS.W   0x0004(SP),R15
+0080a6: 0400            
+0080a8: 3FD0             BIS.W   #0xa500,R15
+0080aa: 00A5            
+0080ac: 824F             MOV.W   R15,&SYSCFG0_L
+0080ae: 6001            
+0080b0: 3150             ADD.W   #0x0006,SP
+0080b2: 0600            
+0080b4: 1001             RETA    
+0080b6:              abort:
+0080b6:              C$$EXIT:
+0080b6:              .text:abort:
+0080b6: 0343             NOP     
+0080b8:              $C$L1:
+0080b8: FF3F             JMP     ($C$L1)
+0080ba: 0343             NOP     
+0080bc:              _system_pre_init:
+0080bc:              .text:_system_pre_init:
+0080bc: 1C43             MOV.W   #1,R12
+0080be: 1001             RETA    
+
+TEXT Section .text:_isr, 0x20 bytes at 0x000080c0
+0080c0:              _c_int00_noinit_noargs_mpu:
+0080c0:              .text:_isr:_c_int00_noinit_noargs_mpu:
+0080c0:              .text:_isr:
+0080c0: 3140             MOV.W   #0x3000,SP
+0080c2: 0030            
+0080c4: B013             CALLA   #__mpu_init
+0080c6: 7A80            
+0080c8: B013             CALLA   #_system_pre_init
+0080ca: BC80            
+0080cc: 0C43             CLR.W   R12
+0080ce: B013             CALLA   #main
+0080d0: 0080            
+0080d2: 1C43             MOV.W   #1,R12
+0080d4: B013             CALLA   #abort
+0080d6: B680            
+0080d8:              __TI_ISR_TRAP:
+0080d8:              .text:_isr:__TI_ISR_TRAP:
+0080d8: 32D0             BIS.W   #0x0010,SR
+0080da: 1000            
+0080dc: FD3F             JMP     (__TI_ISR_TRAP)
+0080de: 0343             NOP     
+
+DATA Section PORT4, 0x2 bytes at 0x0000ffce
+00ffce:              __TI_int22:
+00ffce:              .int22:
+00ffce:              PORT4:
+00ffce: 80d8             .word 0x80d8
+
+DATA Section PORT3, 0x2 bytes at 0x0000ffd0
+00ffd0:              __TI_int23:
+00ffd0:              .int23:
+00ffd0:              PORT3:
+00ffd0: 80d8             .word 0x80d8
+
+DATA Section PORT2, 0x2 bytes at 0x0000ffd2
+00ffd2:              __TI_int24:
+00ffd2:              .int24:
+00ffd2:              PORT2:
+00ffd2: 80d8             .word 0x80d8
+
+DATA Section PORT1, 0x2 bytes at 0x0000ffd4
+00ffd4:              __TI_int25:
+00ffd4:              .int25:
+00ffd4:              PORT1:
+00ffd4: 80d8             .word 0x80d8
+
+DATA Section SAC1_SAC3, 0x2 bytes at 0x0000ffd6
+00ffd6:              __TI_int26:
+00ffd6:              .int26:
+00ffd6:              SAC1_SAC3:
+00ffd6: 80d8             .word 0x80d8
+
+DATA Section SAC0_SAC2, 0x2 bytes at 0x0000ffd8
+00ffd8:              __TI_int27:
+00ffd8:              .int27:
+00ffd8:              SAC0_SAC2:
+00ffd8: 80d8             .word 0x80d8
+
+DATA Section ECOMP0_ECOMP1, 0x2 bytes at 0x0000ffda
+00ffda:              __TI_int28:
+00ffda:              .int28:
+00ffda:              ECOMP0_ECOMP1:
+00ffda: 80d8             .word 0x80d8
+
+DATA Section ADC, 0x2 bytes at 0x0000ffdc
+00ffdc:              __TI_int29:
+00ffdc:              .int29:
+00ffdc:              ADC:
+00ffdc: 80d8             .word 0x80d8
+
+DATA Section EUSCI_B1, 0x2 bytes at 0x0000ffde
+00ffde:              __TI_int30:
+00ffde:              .int30:
+00ffde:              EUSCI_B1:
+00ffde: 80d8             .word 0x80d8
+
+DATA Section EUSCI_B0, 0x2 bytes at 0x0000ffe0
+00ffe0:              __TI_int31:
+00ffe0:              .int31:
+00ffe0:              EUSCI_B0:
+00ffe0: 80d8             .word 0x80d8
+
+DATA Section EUSCI_A1, 0x2 bytes at 0x0000ffe2
+00ffe2:              __TI_int32:
+00ffe2:              .int32:
+00ffe2:              EUSCI_A1:
+00ffe2: 80d8             .word 0x80d8
+
+DATA Section EUSCI_A0, 0x2 bytes at 0x0000ffe4
+00ffe4:              __TI_int33:
+00ffe4:              .int33:
+00ffe4:              EUSCI_A0:
+00ffe4: 80d8             .word 0x80d8
+
+DATA Section WDT, 0x2 bytes at 0x0000ffe6
+00ffe6:              __TI_int34:
+00ffe6:              .int34:
+00ffe6:              WDT:
+00ffe6: 80d8             .word 0x80d8
+
+DATA Section RTC, 0x2 bytes at 0x0000ffe8
+00ffe8:              __TI_int35:
+00ffe8:              .int35:
+00ffe8:              RTC:
+00ffe8: 80d8             .word 0x80d8
+
+DATA Section TIMER3_B1, 0x2 bytes at 0x0000ffea
+00ffea:              __TI_int36:
+00ffea:              .int36:
+00ffea:              TIMER3_B1:
+00ffea: 80d8             .word 0x80d8
+
+DATA Section TIMER3_B0, 0x2 bytes at 0x0000ffec
+00ffec:              __TI_int37:
+00ffec:              .int37:
+00ffec:              TIMER3_B0:
+00ffec: 80d8             .word 0x80d8
+
+DATA Section TIMER2_B1, 0x2 bytes at 0x0000ffee
+00ffee:              __TI_int38:
+00ffee:              .int38:
+00ffee:              TIMER2_B1:
+00ffee: 80d8             .word 0x80d8
+
+DATA Section TIMER2_B0, 0x2 bytes at 0x0000fff0
+00fff0:              __TI_int39:
+00fff0:              .int39:
+00fff0:              TIMER2_B0:
+00fff0: 80d8             .word 0x80d8
+
+DATA Section TIMER1_B1, 0x2 bytes at 0x0000fff2
+00fff2:              __TI_int40:
+00fff2:              .int40:
+00fff2:              TIMER1_B1:
+00fff2: 80d8             .word 0x80d8
+
+DATA Section TIMER1_B0, 0x2 bytes at 0x0000fff4
+00fff4:              __TI_int41:
+00fff4:              .int41:
+00fff4:              TIMER1_B0:
+00fff4: 80d8             .word 0x80d8
+
+DATA Section TIMER0_B1, 0x2 bytes at 0x0000fff6
+00fff6:              __TI_int42:
+00fff6:              .int42:
+00fff6:              TIMER0_B1:
+00fff6: 80d8             .word 0x80d8
+
+DATA Section TIMER0_B0, 0x2 bytes at 0x0000fff8
+00fff8:              __TI_int43:
+00fff8:              .int43:
+00fff8:              TIMER0_B0:
+00fff8: 80d8             .word 0x80d8
+
+DATA Section UNMI, 0x2 bytes at 0x0000fffa
+00fffa:              __TI_int44:
+00fffa:              .int44:
+00fffa:              UNMI:
+00fffa: 80d8             .word 0x80d8
+
+DATA Section SYSNMI, 0x2 bytes at 0x0000fffc
+00fffc:              __TI_int45:
+00fffc:              .int45:
+00fffc:              SYSNMI:
+00fffc: 80d8             .word 0x80d8
+
+DATA Section .reset, 0x2 bytes at 0x0000fffe
+00fffe:              _reset_vector:
+00fffe:              .reset:
+00fffe: 80c0             .word 0x80c0
+
+DATA Section $fill000, 0x4 bytes at 0x0000ff80
+00ff80:              $fill000:
+00ff80: ffff             .word 0xffff
+00ff82: ffff             .word 0xffff
+
+DATA Section $fill001, 0x4 bytes at 0x0000ff84
+00ff84:              $fill001:
+00ff84: ffff             .word 0xffff
+00ff86: ffff             .word 0xffff
+
+DATA Section $fill002, 0x2 bytes at 0x0000ff88
+00ff88:              $fill002:
+00ff88: ffff             .word 0xffff
+
+DATA Section $fill003, 0x2 bytes at 0x0000ff8a
+00ff8a:              $fill003:
+00ff8a: ffff             .word 0xffff
+
+DATA Section $fill004, 0x2 bytes at 0x0000ffa0
+00ffa0:              $fill004:
+00ffa0: ffff             .word 0xffff
