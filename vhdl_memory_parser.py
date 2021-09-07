@@ -462,6 +462,7 @@ def get_computer_name_list() -> list[str]:
 def main() -> None:
     """
     TODO: add malicious check for MSP430 output binaries to workflow
+    TODO: for pique-bin.properties... the project.root is the binary file to run against. Should be run prior to disassembly.
     generate the baseline, highroller and lowlife package files
         - open the correct file (type_package.vhd)
         - append the imports and constants depending on package type
