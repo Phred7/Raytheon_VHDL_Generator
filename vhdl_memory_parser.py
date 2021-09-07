@@ -450,6 +450,10 @@ def get_computer_mnemonic_dictionary(computer_name: str) -> {str, str}:
 
 
 def get_computer_name_list() -> list[str]:
+    """
+    Gets the names of each computer as a list.
+    :return: str List of each computer.
+    """
     return ["baseline", "high_roller", "lowlife"]
 
 
@@ -474,13 +478,7 @@ def main() -> None:
             - LOCAL_EN proc
             - MEMORY_ROW proc
         - end architecture
-    TODO: Remove disassembly text file
     TODO: Comment and document code
-    TODO: Make code more readable and reusable
-    TODO: Create pydocs for each method
-    TODO: Refactor methods
-    TODO: link CCS and pycharm workspaces
-    TODO: stop using the global mem start
     """
     #ccs_disassembler.main()
     remove_last_generated_vhd_files()
