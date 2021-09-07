@@ -26,7 +26,7 @@ def main() -> None:
     disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
     disassembler_executable: str = r'dis430.exe'
     disassembler_input_file_name: str = "Motor_mover_C.out"
-    disassembler_input_file_directory: str = rf"{os.getcwd()}\ccs_workspace\Motor_mover_C\Debug"
+    disassembler_input_file_directory: str = rf"{os.getcwd()}\ccs_workspace\{disassembler_input_file_name}\Debug"
     disassembler_output_file_name: str = "generated_disassembly.txt"
     disassembler_output_file_directory: str =rf"{os.getcwd()}\generated_disassembly"
 
