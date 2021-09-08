@@ -17,5 +17,12 @@ Each MSP430 implements an opcode unique to itself for each mnemonic
 ## Environments
 ### Pycharm
 ### Code Composer Studio (CCS)
+## How to Use
 ## Dependencies
 ## Helpful Links
+## Credits
+For Raytheon
+Montana State Universiry Software Engineering Lab (MSU SEL)
+Dr. Clem Izurieta
+Dr. Brock LaMeres
+Written by Blake Stanger and Walker Ward
