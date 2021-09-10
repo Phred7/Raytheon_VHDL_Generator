@@ -23,7 +23,7 @@
 ## Helpful Links
 ## Credits
 - For Raytheon
-- Montana State University Software Engineering Lab (MSU SEL)
+- Montana State University Software Engineering Lab ([MSU SEL](https://github.com/MSUSEL))
 - Dr. Clem Izurieta
 - Dr. Brock LaMeres
 - Written by Blake Stanger and Walker Ward
