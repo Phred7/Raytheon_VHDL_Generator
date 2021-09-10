@@ -30,7 +30,7 @@ def remove_last_generated_vhd_files() -> None:
             logger.info(f'Removed {file}')
 
 
-def generate_vhd_packages() -> None:
+def generate_vhdl_packages() -> None:
     """
     Generates the vhdl package for each computer to its respective output file.
     :return: None.
@@ -481,11 +481,11 @@ def main() -> None:
             - LOCAL_EN proc
             - MEMORY_ROW proc
         - end architecture
-    TODO: Comment and document code
+    TODO: Document code
     """
     # ccs_disassembler.main()
     remove_last_generated_vhd_files()
-    generate_vhd_packages()
+    generate_vhdl_packages()
     generate_vhdl_memory()
 
 
