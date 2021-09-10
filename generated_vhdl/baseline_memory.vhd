@@ -217,7 +217,7 @@ constant ROM : rom_type :=(32768 => x"21",		-- 008000: 2182             SUB.W   
 						   32967 => x"80",
 						   32968 => x"32",		-- 0080d8: 32D0             BIS.W   #0x0010,SR
 						   32969 => x"D0",
-        -- IRQ Vectors
+        -- IRQ Vectors (Interrupts)
                            65534 =>  x"00",		-- Reset Vector = xFFFE:xFFFF
                            65535 =>  x"80",		--  Startup Value = x8000
 

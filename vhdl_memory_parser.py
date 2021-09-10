@@ -208,7 +208,7 @@ def get_vhdl_memory_rom_asm(computer_name: str) -> str:
 
 
 def get_vhdl_irq_vectors() -> str:
-    return """        -- IRQ Vectors
+    return """        -- IRQ Vectors (Interrupts)
                            65534 =>  x"00",\t\t-- Reset Vector = xFFFE:xFFFF
                            65535 =>  x"80",\t\t--  Startup Value = x8000
 
