@@ -15,7 +15,7 @@
 - Current Accomplishments
   - VHDL generated for soft processor on FPGA.
   - FPGA simulates 3 unique MSP430's and can the ASM as a MSP430 would.
-  - Each simulated MSP430 has a unique instruction set.
+  - Each simulated MSP430 has a unique instruction set. (but not randomized)
 
 [comment]: <> (- What it actually does: )
 [comment]: <> (- Generates 3 unique vhdl rom memory files from a c or ASM's binary for 3 unique MSP430's simulated on 3 FPGA's)
@@ -26,18 +26,8 @@ Generating VHDL for soft processor on FPGA.
  2. Attach the MSP430.
  3. Debug the program in CCS.
  4. Stop the debugger.
- 5. Run ccs_disassembler.py. The following steps are automated.
-    1. Locate the .out file generated on debug by the MSP430: `<project_directory>\Debug\<project_name>.out`.
-       - This is the binary for the MSP430.
-    2. Execute the command `dis430.exe <input_file_name>.txt <output_file_name>.txt`.
-       - This command generates a new text file with the name specified by `<output_file_name>`.
-       - This file contains ASM for the MSP430.
- 6. Run vhdl_memory_parser.py. The following steps are automated.
-    1. Removing files from the last run.
-    2. Generating vhdl packages uniquely for each computer.
-       - Includes imports and constants depending on computer name.
-    3. Generating vhdl memory uniquely for each computer.
-       - Includes imports, packages, libraries, entity and architecture (ROM and processes).
+ 5. Run ccs_disassembler.py. 
+ 6. Run vhdl_memory_parser.py. 
  7. Implement each generated vhdl file on an FPGA.
     - This effectively simulates 3 MSP430's with unique and randomized instruction sets.
 
@@ -72,6 +62,7 @@ Steps
 ### Future features
 - Implementation of [pique-bin](https://github.com/MSUSEL/msusel-pique) in ccs_disassembler workflow.
 - Inject common malware into binary file.
+  - Generate infected VHDL and VHDL that removes the infection.
 - Malware detection, mitigation and remediation.
 ## Environments
 ### Pycharm

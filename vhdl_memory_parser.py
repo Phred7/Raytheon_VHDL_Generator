@@ -242,6 +242,11 @@ def get_vhdl_memory_rom_process() -> str:
 
 
 def get_computer_mnemonic_dictionary(computer_name: str) -> {str, str}:
+    """
+
+    :param computer_name:
+    :return:
+    """
     if computer_name == "high_roller":
         return {"RRC.W": "3",  # 3
                 "RRC.B": "3",
