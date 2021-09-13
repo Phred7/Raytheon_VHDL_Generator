@@ -196,6 +196,10 @@ def get_vhdl_memory_rom_asm(computer_name: str) -> str:
 
 
 def get_vhdl_irq_vectors() -> str:
+    """
+    Gets the str representation of the vhdl irq vectors (interrupts).
+    :return: str representation of the vhdl irq vectors (interrupts).
+    """
     return """        -- IRQ Vectors (Interrupts)
                            65534 =>  x"00",\t\t-- Reset Vector = xFFFE:xFFFF
                            65535 =>  x"80",\t\t--  Startup Value = x8000
@@ -204,6 +208,10 @@ def get_vhdl_irq_vectors() -> str:
 
 
 def get_vhdl_local_en_process() -> str:
+    """
+    Gets the str representation of the vhdl local en process.
+    :return: str representation of the vhdl local en process.
+    """
     return """
     begin
     -- Note 1:  The bus system uses a 16-bit Address (MAB)
@@ -224,6 +232,10 @@ def get_vhdl_local_en_process() -> str:
 
 
 def get_vhdl_memory_rom_process() -> str:
+    """
+    Gets the str representation of the vhdl memory rom process.
+    :return: str representation of the vhdl memory rom process.
+    """
     return """
     -- Note 2:  The bus system uses a 16-bit Address (MAB)
     --          The MDB_out is also provided as a 16-bit word
@@ -243,9 +255,10 @@ def get_vhdl_memory_rom_process() -> str:
 
 def get_computer_mnemonic_dictionary(computer_name: str) -> {str, str}:
     """
+    Gets the computer_mnemonic_dictionary for the computer with the name specified by computer_name.
 
-    :param computer_name:
-    :return:
+    :param computer_name: str name of the computer to get the computer_mnemonic_dictionary for.
+    :return: computer_mnemonic_dictionary for the computer with name computer_name.
     """
     if computer_name == "high_roller":
         return {"RRC.W": "3",  # 3
