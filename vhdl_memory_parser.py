@@ -172,18 +172,6 @@ def get_vhdl_memory_rom_asm(computer_name: str) -> str:
     :param computer_name: str name of the computer to generate the vhdl memory rom asm for.
     :return: str representation of vhdl memory rom asm (program memory).
     """
-    # split line[1] into a list[char]
-    # replace list[char][2] with the key specified by computer_mnemonic_dictionary
-    # assemble (join) the list[char] into a str
-    # reassemble the line (should be str rather than list[str] with the str generated from list[char] (line[1] = joined list[char])
-    # take the reassembled line (line) and break it into list[char]
-    # kingston is the last char of the 4 char hex code (should be at line[11] if not then at line[12]
-    # if the line is the end of main or the usable program mem return otherwise... while line is not the end of the usable content
-    #   append a newline to the return: f"{memory_number} => x{'"'}{line[8]}{line[9]}{'"'},{designated space, maybe \t}-- {entire unmodified line as comment}"
-    #   inc memory_number
-    #   append a newline to the return: f"{memory_number} => x{'"'}{line[10]}{kingston or line[11] ternary... if line[11] is " " then line[12]}{'"'},{designated space, maybe \t}"
-    #   inc memory_number
-    #   if SR in unmodified line exit the loop
     current_program_memory: int = 32768
     computer_mnemonic_dictionary: {str, str} = get_computer_mnemonic_dictionary(computer_name)
     disassembler_output_file_name: str = "generated_disassembly.txt"
@@ -435,7 +423,7 @@ def get_computer_mnemonic_dictionary(computer_name: str) -> {str, str}:
                 "DADC.W": "A",
                 "DADC.B": "A",
                 "BIT.W": "B",
-                "BIT.B": "B",  # TODO This is wrong
+                "BIT.B": "B",  # TODO: This is wrong
                 "CLRC.W": "C",
                 "CLRN.W": "C",
                 "CLRZ.W": "C",
@@ -461,27 +449,15 @@ def get_computer_name_list() -> list[str]:
 
 def main() -> None:
     """
-    TODO: add malicious check for MSP430 output binaries to workflow
-    TODO: for pique-bin.properties... the project.root is the binary file to run against. Should be run prior to disassembly.
-    generate the baseline, highroller and lowlife package files
-        - open the correct file (type_package.vhd)
-        - append the imports and constants depending on package type
-    generate the baseline, highroller and lowlife memory files
-        - (begin preamble)
-        - append imports and packages
-        - create the entity (specific to each computer)
-        - create the architecture (specific to each computer)
-            - read in the disassembly text file
-            - 'match and modify'
-                - select the correct dictionary for this computer
-                - split each line into an array of chars
-                - modify the generated ROM based on this computer
-            - (begin postamble)
-            - IRQ Vectors
-            - LOCAL_EN proc
-            - MEMORY_ROW proc
-        - end architecture
-    TODO: Document code
+    TODO: One-click runs whole workflow?
+    TODO: Command line arguments?
+    TODO: Make an executable?
+    TODO: Inject malware into binary to test PIQUE-bin and FPGA's mitigation and remediation
+    TODO: PIQUE-bin: add check for malicious code in binary from MSP430 debugger to workflow
+    calls ccs_disassembler.main()
+    removes all files generated in last execution.
+    generates the baseline, high_roller and lowlife package files.
+    generates the baseline, high_roller and lowlife memory files.
     """
     # ccs_disassembler.main()
     remove_last_generated_vhd_files()
