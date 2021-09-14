@@ -23,18 +23,22 @@ def check_malware(binary_file_directory: str, binary_file_name: str) -> float:
     # subprocess.call(['java', '-jar', 'jarname.jar', arg_variable1, arg_variableN]) - datasciencelearner.com
     pique_bin_jar_file_name: str = "msusel-pique-bin-0.0.1"
     pique_bin_properties_file_name: str = "pique-bin.properties"
-    pique_bin_jar_file_directory: str = f"{os.getcwd()}\PIQUE-Bin\\"
+    pique_bin_jar_file_directory: str = f"{os.getcwd()}\PIQUE-Bin-Jar\\"
     with open(f"{pique_bin_jar_file_directory}{pique_bin_properties_file_name}", "r") as pique_bin_properties:
         replacement_pique_bin_file_text: str = ""
         for line in pique_bin_properties:
             if "project.root=" in line:
-                line = f"project.root=./{binary_file_directory}{binary_file_name}\n"
+                # line = f"project.root=./{binary_file_directory}\\{binary_file_name}\n"
+                line = f"project.root=./{binary_file_name}\n"
             replacement_pique_bin_file_text = replacement_pique_bin_file_text + line
         pique_bin_properties.close()
         with open(f"{pique_bin_jar_file_directory}{pique_bin_properties_file_name}", "w") as pique_bin_properties_replacement:
             pique_bin_properties_replacement.write(replacement_pique_bin_file_text)
             pique_bin_properties_replacement.close()
-    return subprocess.call(['java', '-jar', f"{pique_bin_jar_file_directory}{pique_bin_jar_file_name}.jar"])
+    os.chdir(pique_bin_jar_file_directory)
+    print(os.getcwd())
+    return subprocess.call(['java', '-jar', f"{pique_bin_jar_file_name}.jar"])
+    #return subprocess.call(['java', '-cp', f"{pique_bin_jar_file_directory}{pique_bin_jar_file_name}.jar"])
     pass
 
 
@@ -59,8 +63,8 @@ def main() -> None:
     if not os.path.exists(rf"{disassembler_input_file_directory}\{disassembler_input_file_name}"):
         raise OSError(rf"{disassembler_input_file_directory}\{disassembler_input_file_name} does not exist")
 
-    # pique_result: float = check_malware(disassembler_input_file_directory, disassembler_input_file_name)
-    # logger.info(pique_result)
+    pique_result: float = check_malware(disassembler_input_file_directory, disassembler_input_file_name)
+    logger.info(pique_result)
 
     if os.path.exists(rf"{disassembler_output_file_directory}\{disassembler_output_file_name}"):
         os.remove(rf"{disassembler_output_file_directory}\{disassembler_output_file_name}")
