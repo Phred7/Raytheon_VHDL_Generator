@@ -29,7 +29,9 @@ def check_malware(binary_file_directory: str, binary_file_name: str) -> float:
         for line in pique_bin_properties:
             if "project.root=" in line:
                 # line = f"project.root=./{binary_file_directory}\\{binary_file_name}\n"
-                line = f"project.root=./{binary_file_name}\n"
+                # line = f"project.root=./{binary_file_name}\n"
+                # line = "project.root=./busybox-1.30.1_lite_busybox_unstripped_x86_64"
+                pass
             replacement_pique_bin_file_text = replacement_pique_bin_file_text + line
         pique_bin_properties.close()
         with open(f"{pique_bin_jar_file_directory}{pique_bin_properties_file_name}", "w") as pique_bin_properties_replacement:
@@ -60,16 +62,20 @@ def main() -> None:
     disassembler_output_file_name: str = "generated_disassembly.txt"
     disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly"
 
+    # Check if the disassembler input exists.
     if not os.path.exists(rf"{disassembler_input_file_directory}\{disassembler_input_file_name}"):
         raise OSError(rf"{disassembler_input_file_directory}\{disassembler_input_file_name} does not exist")
 
+    # Run PIQUE-bin.
     pique_result: float = check_malware(disassembler_input_file_directory, disassembler_input_file_name)
     logger.info(pique_result)
 
+    # Check if the output file already exists. If it exists delete in.
     if os.path.exists(rf"{disassembler_output_file_directory}\{disassembler_output_file_name}"):
         os.remove(rf"{disassembler_output_file_directory}\{disassembler_output_file_name}")
         logger.info(rf"Removed {disassembler_output_file_directory}\{disassembler_output_file_name}")
 
+    # Call the disassembler.
     disassembler_exit_status: int = os.system(
         rf"{disassembler_directory}\{disassembler_executable} {disassembler_input_file_directory}\{disassembler_input_file_name} {disassembler_output_file_directory}\{disassembler_output_file_name}")
     logger.debug(f"Disassembler exist status: {disassembler_exit_status}")
