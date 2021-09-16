@@ -7,8 +7,10 @@
 ###############################
 import logging
 import os
+import shutil
 import subprocess
 from logging import Logger
+from typing import List
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger: Logger = logging.getLogger(__name__)
@@ -19,29 +21,75 @@ def inject_malware_into_binary() -> None:
     pass
 
 
-def check_malware(binary_file_directory: str, binary_file_name: str) -> float:
-    # subprocess.call(['java', '-jar', 'jarname.jar', arg_variable1, arg_variableN]) - datasciencelearner.com
+def pique_bin(binary_file_directory: str, binary_file_name: str) -> float:
+    pique_bin_package_directory: str = f"{os.getcwd()}\PIQUE-Bin-Jar\\"
+    pique_exit_status: int = check_malware(binary_file_directory=binary_file_directory,
+                                           binary_file_name=binary_file_name,
+                                           pique_bin_directory=pique_bin_package_directory)
+    logger.debug(f"PIQUE-Bin exist status: {pique_exit_status}")
+    if pique_exit_status != 0:
+        raise OSError(
+            f"PIQUE-Bin failed to run on {binary_file_name} with exit status {pique_exit_status}")
+    else:
+        logger.info(f'PIQUE-Bin successfully ran on {binary_file_name}')
+    return pique_score(binary_file_name, pique_bin_package_directory)
+
+
+def check_malware(binary_file_directory: str, binary_file_name: str, pique_bin_directory: str) -> int:
     pique_bin_jar_file_name: str = "msusel-pique-bin-0.0.1"
     pique_bin_properties_file_name: str = "pique-bin.properties"
-    pique_bin_jar_file_directory: str = f"{os.getcwd()}\PIQUE-Bin-Jar\\"
-    with open(f"{pique_bin_jar_file_directory}{pique_bin_properties_file_name}", "r") as pique_bin_properties:
-        replacement_pique_bin_file_text: str = ""
+
+    shutil.copy(f"{binary_file_directory}\\{binary_file_name}", f"{pique_bin_directory}")
+    file_should_exist(binary_file_directory, binary_file_name)
+
+    replacement_pique_bin_file_text: str = ""
+    with open(f"{pique_bin_directory}{pique_bin_properties_file_name}", "r") as pique_bin_properties:
         for line in pique_bin_properties:
             if "project.root=" in line:
-                # line = f"project.root=./{binary_file_directory}\\{binary_file_name}\n"
-                # line = f"project.root=./{binary_file_name}\n"
-                # line = "project.root=./busybox-1.30.1_lite_busybox_unstripped_x86_64"
-                pass
+                line = f"project.root=./{binary_file_name}\n"
             replacement_pique_bin_file_text = replacement_pique_bin_file_text + line
         pique_bin_properties.close()
-        with open(f"{pique_bin_jar_file_directory}{pique_bin_properties_file_name}", "w") as pique_bin_properties_replacement:
-            pique_bin_properties_replacement.write(replacement_pique_bin_file_text)
-            pique_bin_properties_replacement.close()
-    os.chdir(pique_bin_jar_file_directory)
+
+    with open(f"{pique_bin_directory}{pique_bin_properties_file_name}", "w") as pique_bin_properties_replacement:
+        pique_bin_properties_replacement.write(replacement_pique_bin_file_text)
+        pique_bin_properties_replacement.close()
+
+    os.chdir(pique_bin_directory)
     print(os.getcwd())
     return subprocess.call(['java', '-jar', f"{pique_bin_jar_file_name}.jar"])
-    #return subprocess.call(['java', '-cp', f"{pique_bin_jar_file_directory}{pique_bin_jar_file_name}.jar"])
-    pass
+
+
+def pique_score(binary_file_name: str, pique_bin_directory: str) -> float:
+    pique_output_file_directory: str = f"{pique_bin_directory}out"
+    pique_output_file: str = f"{binary_file_name}_compact_evalResults.json"
+
+    file_should_exist(pique_output_file_directory, pique_output_file)
+
+    with open(f"{pique_output_file_directory}\\{pique_output_file}", "r") as pique_bin_output:
+        binary_security_quality_reached: bool = False
+        binary_security_quality_line: str = ""
+        for line in pique_bin_output:
+            if "\"Binary Security Quality\": {" in line:
+                binary_security_quality_reached = True
+            elif binary_security_quality_reached == True and "\"value\":" in line:
+                binary_security_quality_line = line
+                break
+        pique_bin_output.close()
+        binary_security_quality: float = float(binary_security_quality_line.replace('"value": ', '').replace(',', ''))
+    return binary_security_quality
+
+
+def file_should_exist(file_directory: str, file: str) -> int:
+    """
+    Returns 0 if file exists. Otherwise raises OSError.
+    :param file_directory:
+    :param file:
+    :raises OSError:
+    :return:
+    """
+    if not os.path.exists(f"{file_directory}\\{file}"):
+        raise OSError(f"{file_directory}\\{file} does not exist")
+    return 0
 
 
 def main() -> None:
@@ -63,12 +111,10 @@ def main() -> None:
     disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly"
 
     # Check if the disassembler input exists.
-    if not os.path.exists(rf"{disassembler_input_file_directory}\{disassembler_input_file_name}"):
-        raise OSError(rf"{disassembler_input_file_directory}\{disassembler_input_file_name} does not exist")
+    file_should_exist(disassembler_input_file_directory, disassembler_input_file_name)
 
     # Run PIQUE-bin.
-    pique_result: float = check_malware(disassembler_input_file_directory, disassembler_input_file_name)
-    logger.info(pique_result)
+    pique_bin(disassembler_input_file_directory, disassembler_input_file_name)
 
     # Check if the output file already exists. If it exists delete in.
     if os.path.exists(rf"{disassembler_output_file_directory}\{disassembler_output_file_name}"):
