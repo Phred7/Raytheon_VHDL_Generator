@@ -25,11 +25,13 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 ; Main loop here
 ;-------------------------------------------------------------------------------
 init:
+
+
+mov_w:
 			mov.w	#02000h, R4		; use immediate to init R4 with val
 			mov.w	R4, R5			; init R5 with val of R4
 			mov.w	#Var1, R6		; init R6 with addr of Var1
 
-main:
 			mov.w	&02000h, R7		; use absolute to put the val at the addr 2000h into R7
 			mov.w	Con2, R8		; use symbolic to put contents of Con2 into R8
 			mov.w	0(R4), R9		; use indexed to copy val of Con1 into R9 using R4

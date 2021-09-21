@@ -22,6 +22,12 @@ def inject_malware_into_binary() -> None:
 
 
 def pique_bin(binary_file_directory: str, binary_file_name: str) -> float:
+    """
+    Runs PIQUE-Bin on the binary file with the name binary_file_name and returns the generated Binary Security Quality of that binary file.
+    :param binary_file_directory: Location of the file with the name binary_file_name.
+    :param binary_file_name: Name of the binary file to run PIQUE-Bin on.
+    :return: Float representing the Binary Security Quality of the binary file specified by binary_file_name at the directory binary_file_directory.
+    """
     pique_bin_package_directory: str = f"{os.getcwd()}\PIQUE-Bin-Jar\\"
     pique_exit_status: int = check_malware(binary_file_directory=binary_file_directory,
                                            binary_file_name=binary_file_name,
@@ -36,6 +42,13 @@ def pique_bin(binary_file_directory: str, binary_file_name: str) -> float:
 
 
 def check_malware(binary_file_directory: str, binary_file_name: str, pique_bin_directory: str) -> int:
+    """
+    Implements PIQUE-Bin to generate the Binary Security Quality of a binary file.
+    :param binary_file_directory: Location of the file with the name binary_file_name.
+    :param binary_file_name: Name of the binary file to run PIQUE-Bin on.
+    :param pique_bin_directory: PIQUE_Bin directory in the file system. Ex: Location of dir PIQUE-Bin-Jar/.
+    :return: 0 if PIQUE-Bin ran successfully. Otherwise another int.
+    """
     pique_bin_jar_file_name: str = "msusel-pique-bin-0.0.1"
     pique_bin_properties_file_name: str = "pique-bin.properties"
 
@@ -60,6 +73,12 @@ def check_malware(binary_file_directory: str, binary_file_name: str, pique_bin_d
 
 
 def pique_score(binary_file_name: str, pique_bin_directory: str) -> float:
+    """
+    Returns the Binary Security Quality of the binary file parsed by PIQUE-Bin.
+    :param binary_file_name: Name of the binary file that was parsed by PIQUE-Bin.
+    :param pique_bin_directory: PIQUE_Bin directory in the file system. Ex: Location of dir PIQUE-Bin-Jar/.
+    :return: Float representing the Binary Security Quality of the binary file specified by binary_file_name.
+    """
     pique_output_file_directory: str = f"{pique_bin_directory}out"
     pique_output_file: str = f"{binary_file_name}_compact_evalResults.json"
 
@@ -82,10 +101,10 @@ def pique_score(binary_file_name: str, pique_bin_directory: str) -> float:
 def file_should_exist(file_directory: str, file: str) -> int:
     """
     Returns 0 if file exists. Otherwise raises OSError.
-    :param file_directory:
-    :param file:
-    :raises OSError:
-    :return:
+    :param file_directory: Location of directory containing the File file.
+    :param file: The name of the File file that should exist.
+    :raises OSError: If file does not exist.
+    :return: O if the files exists.
     """
     if not os.path.exists(f"{file_directory}\\{file}"):
         raise OSError(f"{file_directory}\\{file} does not exist")
