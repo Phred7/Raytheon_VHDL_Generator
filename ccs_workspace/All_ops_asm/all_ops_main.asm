@@ -26,7 +26,9 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 ;-------------------------------------------------------------------------------
 init:
 
-main:
+
+main: 					; for each instruction they can be implemnted with 7 addr'ing modes. Not all can be modes can be implemented in the dst.
+
 
 movement:
 				mov.w	#02000h, R4		; use immediate to init R4 with val
@@ -42,34 +44,25 @@ movement:
 
 manipulation:
 
-
-program_flow:
-
-
-stack:
-
-
-subroutine:
-
-;Add.w-------------------------------------------------------------------------
+;add.w-------------------------------------------------------------------------
 
 				add.w	R4, R5
 				add.w	R5, Const2
 
-;Addc.w----------------------------------------------------------------------
+;addc.w----------------------------------------------------------------------
 
 				addc.w	R4, R5
 				addc.w	R5, Const2
 
-;Sub.w------------------------------------------------------------------------
+;sub.w------------------------------------------------------------------------
 
 				sub.w 	R4, R5
 
-;Subc.w--------------------------------------------
+;subc.w--------------------------------------------
 
 				subc.w	R5,	R6
 
-;Inc-----------------------------------------------
+;inc-----------------------------------------------
 
 				inc		R4
 
@@ -81,25 +74,25 @@ subroutine:
 
 	   			dec		R4
 
-;Decd------------------------------------------------------------
+;decd------------------------------------------------------------
 
 				decd	R4
 
-;Inv.b-----------------------------------------------------------
+;inv.b-----------------------------------------------------------
 
 				inv.b	R4
 
-;And.b-----------------------------------------------------------
+;and.b-----------------------------------------------------------
 
 				mov.b	#10101010b, R4
 				and.b	#01010101b, R4
 
-;Or.b--------------------------------------------------------------
+;or.b--------------------------------------------------------------
 
 				mov.b	#10101010b, R4
 				or.b	#01010101b, R4
 
-;Xor.b------------------------------------------------------------
+;xor.b------------------------------------------------------------
 
 				mov.b	#10101010b, R4
 				xor.b	#01010101b, R4
@@ -157,9 +150,18 @@ subroutine:
 				rrc.b	R8
 				rrc.b	R8
 
+program_flow:
+
 ;jmp-------------------------------------------------------------------------------
 				mov.w	#0, R4
 				jmp		do_this_1st
+
+
+stack:
+
+
+subroutine:
+
 
 do_this_1st:
 				jmp		main
@@ -172,20 +174,22 @@ do_this_1st:
 			.data									; allocate variables in data memory
 			.retain									; keep these statements even if not used
 
-Const1:		.short 0AAAAh					;@2000h
-Const2:		.short 0AAA1h 					;@2002h
-Const3:		.short 0ABABh					;@2004
-Const4:		.short 0CBCBh					;@2006
-Const5:		.short 4321h					;@2008h
-Const6:		.short 0CCCCh 					;@2010h
-Const7:		.short 0ABABh					;@2012h
-Const8:		.short 0CBCBh					;@2014h
-Const9:		.short 01234h					;@2016h
-Const10:	.short 0CCCCh 					;@2018h
-Const11:	.short 0ABABh					;@2020h
-Const12:	.short 0CBCBh					;@2022h
-
+Con1:		.short	0ACEDh
+Con2:		.short	0BEEFh
 Var1:		.space	28
+
+Const1:		.short 0AAAAh
+Const2:		.short 0AAA1h
+Const3:		.short 0ABABh
+Const4:		.short 0CBCBh
+Const5:		.short 4321h
+Const6:		.short 0CCCCh
+Const7:		.short 0ABABh
+Const8:		.short 0CBCBh
+Const9:		.short 01234h
+Const10:	.short 0CCCCh
+Const11:	.short 0ABABh
+Const12:	.short 0CBCBh
 
                                             
 
