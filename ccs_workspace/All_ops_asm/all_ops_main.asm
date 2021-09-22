@@ -46,8 +46,13 @@ manipulation:
 
 ;add.w-------------------------------------------------------------------------
 
-				add.w	R4, R5
-				add.w	R5, Const2
+				add.w	R4, Const2
+				add.w	&02000h, R5
+				mov.w	#02000h, R4
+				mov.w   #Var1, R6
+				add.w	0(R4), 4(R6)
+				add.w	#Con1, #Var1
+				add.w	@R5+, R6
 
 ;addc.w----------------------------------------------------------------------
 
@@ -146,7 +151,7 @@ manipulation:
 				clrc
 				mov.b	#00000001b, R8
 
-				rrc.b	R8	;
+				rrc.b	R8
 				rrc.b	R8
 				rrc.b	R8
 
