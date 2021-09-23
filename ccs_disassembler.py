@@ -95,6 +95,9 @@ def pique_score(binary_file_name: str, pique_bin_directory: str) -> float:
                 break
         pique_bin_output.close()
         binary_security_quality: float = float(binary_security_quality_line.replace('"value": ', '').replace(',', ''))
+        if binary_security_quality > 0.999999:
+            logger.error(
+                f"The calculated Binary Security Quality suggests that Docker is not running: {binary_security_quality}")
     return binary_security_quality
 
 
@@ -133,7 +136,8 @@ def main() -> None:
     file_should_exist(disassembler_input_file_directory, disassembler_input_file_name)
 
     # Run PIQUE-bin.
-    logger.info(f"PIQUE-Bin Binary Security Quality: {pique_bin(disassembler_input_file_directory, disassembler_input_file_name)}")
+    logger.info(
+        f"PIQUE-Bin Binary Security Quality: {pique_bin(disassembler_input_file_directory, disassembler_input_file_name)}")
 
     # Check if the output file already exists. If it exists delete in.
     if os.path.exists(rf"{disassembler_output_file_directory}\{disassembler_output_file_name}"):
