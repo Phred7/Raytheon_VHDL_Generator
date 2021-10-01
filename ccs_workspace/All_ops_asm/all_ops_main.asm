@@ -25,15 +25,15 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 ; Main loop here
 ;-------------------------------------------------------------------------------
 init:
+				mov.w	#02000h, R4		; use immediate to init R4 with val
+				mov.w	R4, R5			; init R5 with val of R4
+				mov.w	#Var1, R6		; init R6 with addr of Var1
 
 
 main: 					; for each instruction they can be implemnted with 7 addr'ing modes. Not all can be modes can be implemented in the dst.
 
 
 movement:
-				mov.w	#02000h, R4		; use immediate to init R4 with val
-				mov.w	R4, R5			; init R5 with val of R4
-				mov.w	#Var1, R6		; init R6 with addr of Var1
 
 				mov.w	&02000h, R7		; use absolute to put the val at the addr 2000h into R7
 				mov.w	Con2, R8		; use symbolic to put contents of Con2 into R8
@@ -58,30 +58,79 @@ manipulation:
 
 				addc.w	R4, R5
 				addc.w	R5, Const2
+				addc.w	&02000h, R5
+				mov.w	#02000h, R4
+				mov.w   #Var1, R6
+				addc.w	0(R4), 4(R6)
+				addc.w	#Con1, #Var1
+				addc.w	@R5+, R6
 
 ;sub.w------------------------------------------------------------------------
 
 				sub.w 	R4, R5
+				sub.w	R4, Const2
+				sub.w	&02000h, R5
+				mov.w	#02000h, R4
+				mov.w   #Var1, R6
+				sub.w	0(R4), 4(R6)
+				sub.w	#Con1, #Var1
+				sub.w	@R5+, R6
 
 ;subc.w--------------------------------------------
 
 				subc.w	R5,	R6
+				subc.w	R4, Const2
+				subc.w	&02000h, R5
+				mov.w	#02000h, R4
+				mov.w   #Var1, R6
+				subc.w	0(R4), 4(R6)
+				subc.w	#Con1, #Var1
+				subc.w	@R5+, R6
 
 ;inc-----------------------------------------------
 
 				inc		R4
+				inc		Const2
+				inc		&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				inc		#Var1
+				inc		4(R4)
+				inc		@R4+
+
 
 ;incd------------------------------------------------------------
 
 				incd	R4
+				incd	Const2
+				incd	&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				incd	#Var1
+				incd	4(R4)
+				incd	@R4+
 
 ;dec----------------------------------------------------------------
 
 	   			dec		R4
+				dec		Const2
+				dec		&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				dec		#Var1
+				dec		4(R4)
+				dec		@R4+
 
 ;decd------------------------------------------------------------
 
 				decd	R4
+				decd	Const2
+				decd	&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				decd	#Var1
+				decd	4(R4)
+				decd	@R4+
 
 ;inv.b-----------------------------------------------------------
 
@@ -154,6 +203,19 @@ manipulation:
 				rrc.b	R8
 				rrc.b	R8
 				rrc.b	R8
+
+clears:
+				clrc
+				clrn
+				clrz
+
+				mov.w	00011100b, R10
+				clr		R10
+				clr		#Var1
+				clr		&02000h
+				mov.w	02000h, R10
+				clr		2(R10)
+				clr		@R10+
 
 program_flow:
 
