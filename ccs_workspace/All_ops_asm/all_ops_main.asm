@@ -46,12 +46,13 @@ manipulation:
 
 ;add.w-------------------------------------------------------------------------
 
+				mov.w	#02000h, R4
 				add.w	R4, Const2
 				add.w	&02000h, R5
 				mov.w	#02000h, R4
 				mov.w   #Var1, R6
 				add.w	0(R4), 4(R6)
-				add.w	#Con1, #Var1
+				add.w	#Con1, Var1
 				add.w	@R5+, R6
 
 ;addc.w----------------------------------------------------------------------
@@ -62,7 +63,7 @@ manipulation:
 				mov.w	#02000h, R4
 				mov.w   #Var1, R6
 				addc.w	0(R4), 4(R6)
-				addc.w	#Con1, #Var1
+				addc.w	#Con1, Var1
 				addc.w	@R5+, R6
 
 ;sub.w------------------------------------------------------------------------
@@ -73,7 +74,7 @@ manipulation:
 				mov.w	#02000h, R4
 				mov.w   #Var1, R6
 				sub.w	0(R4), 4(R6)
-				sub.w	#Con1, #Var1
+				sub.w	#Con1, Var1
 				sub.w	@R5+, R6
 
 ;subc.w--------------------------------------------
@@ -84,7 +85,7 @@ manipulation:
 				mov.w	#02000h, R4
 				mov.w   #Var1, R6
 				subc.w	0(R4), 4(R6)
-				subc.w	#Con1, #Var1
+				subc.w	#Con1, Var1
 				subc.w	@R5+, R6
 
 ;inc-----------------------------------------------
@@ -94,9 +95,8 @@ manipulation:
 				inc		&02000h
 				mov.w	#02000h, Var1
 				mov.w	#02000h, R4
-				inc		#Var1
+				inc		Var1
 				inc		4(R4)
-				inc		@R4+
 
 
 ;incd------------------------------------------------------------
@@ -106,9 +106,8 @@ manipulation:
 				incd	&02000h
 				mov.w	#02000h, Var1
 				mov.w	#02000h, R4
-				incd	#Var1
+				incd	Var1
 				incd	4(R4)
-				incd	@R4+
 
 ;dec----------------------------------------------------------------
 
@@ -117,9 +116,8 @@ manipulation:
 				dec		&02000h
 				mov.w	#02000h, Var1
 				mov.w	#02000h, R4
-				dec		#Var1
+				dec		Var1
 				dec		4(R4)
-				dec		@R4+
 
 ;decd------------------------------------------------------------
 
@@ -128,37 +126,77 @@ manipulation:
 				decd	&02000h
 				mov.w	#02000h, Var1
 				mov.w	#02000h, R4
-				decd	#Var1
+				decd	Var1
 				decd	4(R4)
-				decd	@R4+
 
-;inv.b-----------------------------------------------------------
+;inv-----------------------------------------------------------
 
+				mov.b	#01001110b, R4
 				inv.b	R4
+				mov.w	#Const10, R4
+				inv 	R4
+				inv		&02020h
+				inv		Const10
+				mov.w	#Const10, R4
+				inv		2(R4)
 
-;and.b-----------------------------------------------------------
+;and-----------------------------------------------------------
 
 				mov.b	#10101010b, R4
-				and.b	#01010101b, R4
+				and.b	#00001111b, R4
+				and.w 	R4, R5
+				and.w	R4, Const2
+				and.w	&02000h, R5
+				mov.w	#02000h, R4
+				mov.w   #Var1, R6
+				and.w	0(R4), 4(R6)
+				and.w	#Con1, Var1
+				and.w	@R5+, R6
 
-;or.b--------------------------------------------------------------
+
+;or--------------------------------------------------------------
 
 				mov.b	#10101010b, R4
-				or.b	#01010101b, R4
+				or.b	#00001111, R4
+				or.w	R4, R5
+				or.w	R4, Const2
+				or.w	&02000h, R5
+				or.w	#02000h, R4
+				or.w   #Var1, R6
+				or.w	0(R4), 4(R6)
+				or.w	#Con1, Var1
+				or.w	@R5+, R6
 
-;xor.b------------------------------------------------------------
+;xor------------------------------------------------------------
 
 				mov.b	#10101010b, R4
 				xor.b	#01010101b, R4
+				xor.w	R5,	R6
+				xor.w	R4, Const2
+				xor.w	&02000h, R5
+				mov.w	#02000h, R4
+				mov.w   #Var1, R6
+				xor.w	0(R4), 4(R6)
+				xor.w	#Con1, Var1
+				xor.w	@R5+, R6
 
 ;bis.b--------------------------------------------------------------------------
 
-				mov.b	#00000000b, R4
-				bis.b	#00011000b, R4
+				mov.b	#10101010b, R4
+				bis.b	#00001111, R4
+				bis.w 	R4, R5
+				bis.w	R4, Const2
+				bis.w	&02000h, R5
+				bis.w	#02000h, R4
+				bis.w   #Var1, R6
+				bis.w	0(R4), 4(R6)
+				bis.w	#Con1, Var1
+				bis.w	@R5+, R6
 
 ;bic.b-------------------------------------------------------------------------------
 
 				bic.b	#00011000b, R4
+
 
 ;cmp.b----------------------------------------------------------------
 				mov.b	#99, R5
@@ -209,13 +247,12 @@ clears:
 				clrn
 				clrz
 
-				mov.w	00011100b, R10
+				mov.w	#00011100b, R10
 				clr		R10
-				clr		#Var1
+				clr		Var1
 				clr		&02000h
-				mov.w	02000h, R10
+				mov.w	#02000h, R10
 				clr		2(R10)
-				clr		@R10+
 
 program_flow:
 
