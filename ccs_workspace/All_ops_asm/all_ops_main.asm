@@ -29,10 +29,27 @@ init:
 				mov.w	R4, R5			; init R5 with val of R4
 				mov.w	#Var1, R6		; init R6 with addr of Var1
 
+				bic.b	#BIT1, &P4DIR			; set P4.1 as input - SW1
+				bis.b	#BIT1, &P4REN			; EN pull up/down
+				bis.b	#BIT1, &P4OUT			; pull-up res.
+				bic.b	#11111111b, &P4IFG		; clear interrupt flags on P4
+				bis.b   #BIT1, &P4IES			; set as falling edge (high->low)
+				bis.b	#BIT1, &P4IE			; assert local interrupt enable
 
-main: 					; for each instruction they can be implemnted with 7 addr'ing modes. Not all can be modes can be implemented in the dst.
+				nop
+				bis.w	#GIE, SR				; assert global interrupt flag
+				nop
+				dint							; clear global interrupt flag
+				nop
+				eint							; assert global interrupt flag
+				nop
+
+				bic.b	#LOCKLPM5, &PM5CTL0		; disable DIO low-power default
+
+main:
 
 
+; data manipulation instructions
 movement:
 
 				mov.w	&02000h, R7		; use absolute to put the val at the addr 2000h into R7
@@ -42,6 +59,7 @@ movement:
 				mov.w	@R5+, R11		; use auto-increment to copy Con2 into R11
 				mov.w	2(R4), 4(R6)	; use indexed to copy Con2 into 3rd word of Var1 using R4 and R6 which contain addrs to Con1 and Var1 respectively
 
+; data manipulation instructions
 manipulation:
 
 ;add.w-------------------------------------------------------------------------
@@ -66,6 +84,18 @@ manipulation:
 				addc.w	#Con1, Var1
 				addc.w	@R5+, R6
 
+;adc.w----------------------------------------------------------------------
+
+				setc
+				adc.w	R4
+				adc.w	Const2
+				adc.w	&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				setc
+				adc.w	Var1
+				adc.w	4(R4)
+
 ;sub.w------------------------------------------------------------------------
 
 				sub.w 	R4, R5
@@ -87,6 +117,43 @@ manipulation:
 				subc.w	0(R4), 4(R6)
 				subc.w	#Con1, Var1
 				subc.w	@R5+, R6
+
+;sbc.w----------------------------------------------------------------------
+
+				setc
+				sbc.w	R4
+				sbc.w	Const2
+				sbc.w	&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				setc
+				sbc.w	Var1
+				sbc.w	4(R4)
+
+;dadd-----------------------------------------------
+
+				setc
+				dadd.w 	R4, R5
+				dadd.w	R4, Const2
+				dadd.w	&02000h, R5
+				mov.w	#02000h, R4
+				mov.w   #Var1, R6
+				setc
+				dadd.w	0(R4), 4(R6)
+				dadd.w	#Con1, Var1
+				dadd.w	@R5+, R6
+
+;dadc-----------------------------------------------
+
+				setc
+				dadc.w	R4
+				dadc.w	Const2
+				dadc.w	&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				setc
+				dadc.w	Var1
+				dadc.w	4(R4)
 
 ;inc-----------------------------------------------
 
@@ -206,6 +273,18 @@ manipulation:
 				bic.w	#Con1, Var1
 				bic.w	@R5+, R6
 
+;bit-------------------------------------------------------------------------------
+
+				mov.b	#10101010b, R4
+				bit.b	#00011000b, R4
+				bit.w 	R4, R5
+				bit.w	R4, Const2
+				bit.w	&02000h, R5
+				mov.w	#02000h, R4
+				mov.w   #Var1, R6
+				bit.w	0(R4), 4(R6)
+				bit.w	#Con1, Var1
+				bit.w	@R5+, R6
 
 ;cmp----------------------------------------------------------------
 
@@ -229,6 +308,14 @@ manipulation:
 				tst.b	R6
 				tst.b	R7
 
+				tst.w	R4
+				tst.w	Const2
+				tst.w	&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				tst.w	Var1
+				tst.w	4(R4)
+
 
 ;rla.b---------------------------------------------------------------------------
 
@@ -236,10 +323,27 @@ manipulation:
 				rla.b	R4
 				rla.b	R4
 
+				rla.w	R4
+				rla.w	Const2
+				rla.w	&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				rla.w	Var1
+				rla.w	4(R4)
+
 ;rrc.b-------------------------------------------------------------------------------
 
+				mov.b	#000100000b, R4
 				rra.b	R4
 				rra.b	R4
+
+				rra.w	R4
+				rra.w	Const2
+				rra.w	&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				rra.w	Var1
+				rra.w	4(R4)
 
 ;rlc.b-------------------------------------------------------------------------------
 
@@ -248,7 +352,14 @@ manipulation:
 
 				rlc.b	R7
 				rlc.b	R7
-				rlc.b	R7
+
+				rlc.w	R4
+				rlc.w	Const2
+				rlc.w	&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				rlc.w	Var1
+				rlc.w	4(R4)
 
 ;rrc.b------------------------------------------------------------------------------
 
@@ -257,9 +368,49 @@ manipulation:
 
 				rrc.b	R8
 				rrc.b	R8
-				rrc.b	R8
 
-clears:
+				rrc.w	R4
+				rrc.w	Const2
+				rrc.w	&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				rrc.w	Var1
+				rrc.w	4(R4)
+
+;swpb------------------------------------------------------------------------------
+
+				mov.w	#000FFh, R4
+				swpb	R4
+				swpb	Const2
+				swpb	&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				swpb	Var1
+				swpb	4(R4)
+
+;sxt------------------------------------------------------------------------------
+
+				mov.w	#000FFh, R4
+				sxt		R4
+				sxt		Const2
+				sxt		&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				sxt		Var1
+				sxt		4(R4)
+
+;-------------- END manipulation --------------
+
+; clear instructions
+sr_flags:
+;setx------------------------------------------------------------------------------
+
+				setc
+				setn
+				setz
+
+;clrx------------------------------------------------------------------------------
+
 				clrc
 				clrn
 				clrz
@@ -271,22 +422,88 @@ clears:
 				mov.w	#02000h, R10
 				clr		2(R10)
 
+
+; program flow instructions
 program_flow:
 
 ;jmp-------------------------------------------------------------------------------
-				mov.w	#0, R4
-				jmp		do_this_1st
+;jc-------------------------------------------------------------------------------
+;jhs-------------------------------------------------------------------------------
+;jeq-------------------------------------------------------------------------------
+;jz-------------------------------------------------------------------------------
+;jge-------------------------------------------------------------------------------
+;jl-------------------------------------------------------------------------------
+;jmp-------------------------------------------------------------------------------
+;jn-------------------------------------------------------------------------------
+;jnc-------------------------------------------------------------------------------
+;jlo-------------------------------------------------------------------------------
+;jne-------------------------------------------------------------------------------
+;jnz-------------------------------------------------------------------------------
+;br-------------------------------------------------------------------------------
 
-
+; stack instructions
 stack:
+;push.b-------------------------------------------------------------------------------
+
+				mov.w	#000FFh, R4
+				push.w	#0F0F0h
+				push.w 	R4
+				push.w	&02000h
+				mov.w	#02000h, R4
+				push.w	0(R4)
+				push.w	#Con1
+				push.w	@R5+
+
+;pop.b--------------------------------------------------------------------------------
+
+				pop.w	R4
+				pop.w	Const2
+				pop.w	&02000h
+				mov.w	#02000h, Var1
+				mov.w	#02000h, R4
+				pop.w	Var1
+				pop.w	4(R4)
+				pop.w	R4
 
 
+; subroutine isntructions
 subroutine:
 
+;call-------------------------------------------------------------------------------
 
-do_this_1st:
+				mov.w	#00h, R5
+				mov.w	#add_3, R4
+				mov.w	#add_3, Var1
+				call	#add_3
+				call	R4
+				call	Var1
+				call	#08382h
+
+
+
 				jmp		main
 				nop
+
+;-------------- END MAIN --------------
+
+;-------------------------------------------------------------------------------
+; Subroutines
+;-------------------------------------------------------------------------------
+add_3:
+
+			add.w	#03h, R5
+			ret
+
+;-------------------------------------------------------------------------------
+; Interrupt Service Routines
+;-------------------------------------------------------------------------------
+
+; Service SW1
+press_SW_1:
+			xor.b	#BIT6, &P6OUT
+			bic.b	#BIT1, &P4IFG
+     		reti
+;-------------- END press_SW_1 --------------
 
 ;-------------------------------------------------------------------------------
 ; Memory Allocation
@@ -326,3 +543,6 @@ Const12:	.short 0CBCBh
             .sect   ".reset"                ; MSP430 RESET Vector
             .short  RESET
             
+            .sect 	".int22"
+            .short	press_SW_1
+

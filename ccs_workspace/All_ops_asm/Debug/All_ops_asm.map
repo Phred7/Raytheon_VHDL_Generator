@@ -1,7 +1,7 @@
 ******************************************************************************
                   MSP430 Linker PC v20.2.5                     
 ******************************************************************************
->> Linked Fri Oct  8 10:44:44 2021
+>> Linked Thu Oct 14 11:33:12 2021
 
 OUTPUT FILE NAME:   <All_ops_asm.out>
 ENTRY POINT SYMBOL: "RESET"  address: 00008000
@@ -17,7 +17,7 @@ MEMORY CONFIGURATION
   TLVMEM                00001a00   00000200  00000000  00000200  RWIX
   BOOTCODE              00001c00   00000400  00000000  00000400  RWIX
   RAM                   00002000   00001000  00000038  00000fc8  RWIX
-  FRAM                  00008000   00007f80  0000026c  00007d14  RWIX
+  FRAM                  00008000   00007f80  00000482  00007afe  RWIX
   JTAGSIGNATURE         0000ff80   00000004  00000004  00000000  RWIX  ffff 
   BSLSIGNATURE          0000ff84   00000004  00000004  00000000  RWIX  ffff 
   BSLCONFIGURATIONSIGNA 0000ff88   00000002  00000002  00000000  RWIX  ffff 
@@ -103,12 +103,12 @@ section   page    origin      length       input sections
 
 .const     0    00008000    00000000     UNINITIALIZED
 
-.text      0    00008000    00000264     
-                  00008000    00000264     all_ops_main.obj (.text)
+.text      0    00008000    0000047a     
+                  00008000    0000047a     all_ops_main.obj (.text)
 
 .text:_isr 
-*          0    00008264    00000008     
-                  00008264    00000008     rts430x_sc_sd_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
+*          0    0000847a    00000008     
+                  0000847a    00000008     rts430x_sc_sd_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
 
 .data      0    00002000    00000038     
                   00002000    00000038     all_ops_main.obj (.data)
@@ -116,7 +116,7 @@ section   page    origin      length       input sections
 .stack     0    00003000    00000000     
 
 PORT4      0    0000ffce    00000002     
-                  0000ffce    00000002     rts430x_sc_sd_eabi.lib : int22.asm.obj (.int22)
+                  0000ffce    00000002     all_ops_main.obj (.int22)
 
 PORT3      0    0000ffd0    00000002     
                   0000ffd0    00000002     rts430x_sc_sd_eabi.lib : int23.asm.obj (.int23)
@@ -221,13 +221,12 @@ MODULE SUMMARY
        Module             code   ro data   rw data
        ------             ----   -------   -------
     .\
-       all_ops_main.obj   612    2         56     
+       all_ops_main.obj   1146   4         56     
     +--+------------------+------+---------+---------+
-       Total:             612    2         56     
+       Total:             1146   4         56     
                                                   
     C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\lib\rts430x_sc_sd_eabi.lib
        isr_trap.asm.obj   8      0         0      
-       int22.asm.obj      0      2         0      
        int23.asm.obj      0      2         0      
        int24.asm.obj      0      2         0      
        int25.asm.obj      0      2         0      
@@ -252,10 +251,10 @@ MODULE SUMMARY
        int44.asm.obj      0      2         0      
        int45.asm.obj      0      2         0      
     +--+------------------+------+---------+---------+
-       Total:             8      48        0      
+       Total:             8      46        0      
                                                   
     +--+------------------+------+---------+---------+
-       Grand Total:       620    50        56     
+       Grand Total:       1154   50        56     
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
@@ -1171,7 +1170,7 @@ address   name
 000001cc  WDTCTL_L                       
 00003000  __STACK_END                    
 00000000  __STACK_SIZE                   
-00008264  __TI_ISR_TRAP                  
+0000847a  __TI_ISR_TRAP                  
 0000ffce  __TI_int22                     
 0000ffd0  __TI_int23                     
 0000ffd2  __TI_int24                     
@@ -2127,7 +2126,7 @@ address   name
 00008000  RESET                          
 00008000  fram_rw_start                  
 00008000  fram_rx_start                  
-00008264  __TI_ISR_TRAP                  
+0000847a  __TI_ISR_TRAP                  
 0000ffce  __TI_int22                     
 0000ffd0  __TI_int23                     
 0000ffd2  __TI_int24                     
