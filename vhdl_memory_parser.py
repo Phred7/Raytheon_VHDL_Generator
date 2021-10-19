@@ -40,7 +40,7 @@ def generate_vhdl_packages() -> None:
         with open(f"{os.getcwd()}\\generated_vhdl\\{computer_name}_package.vhd", "a+") as vhdl_package_file:
             sys.stdout = vhdl_package_file
             vhd_package_constants_str: str
-            if "high_roller" in computer_name:
+            if "highroller" in computer_name:
                 vhd_package_constants = """constant FORMAT_2 : integer := 3;
     constant JMP1 : integer := 4;
     constant JMP2 : integer := 5;
@@ -260,7 +260,7 @@ def get_computer_mnemonic_dictionary(computer_name: str) -> {str, str}:
     :param computer_name: str name of the computer to get the computer_mnemonic_dictionary for.
     :return: computer_mnemonic_dictionary for the computer with name computer_name.
     """
-    if computer_name == "high_roller":
+    if computer_name == "highroller":
         return {"RRC.W": "3",  # 3
                 "RRC.B": "3",
                 "SWP.B": "3",
@@ -462,7 +462,7 @@ def get_computer_name_list() -> list[str]:
     Gets the names of each computer as a list.
     :return: str List of each computer.
     """
-    return ["baseline", "high_roller", "lowlife"]
+    return ["baseline", "highroller", "lowlife"]
 
 
 def main() -> None:
@@ -474,11 +474,11 @@ def main() -> None:
     TODO: PIQUE-bin: add check for malicious code in binary from MSP430 debugger to workflow
     calls ccs_disassembler.main()
     removes all files generated in last execution.
-    generates the baseline, high_roller and lowlife package files.
-    generates the baseline, high_roller and lowlife memory files.
+    generates the baseline, highroller and lowlife package files.
+    generates the baseline, highroller and lowlife memory files.
     """
-    # ccs_disassembler.main()
     remove_last_generated_vhd_files()
+    ccs_disassembler.disassemble()
     generate_vhdl_packages()
     generate_vhdl_memory()
 
