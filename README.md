@@ -67,18 +67,18 @@ Steps
 ## Environments
 ### Pycharm
 ### Code Composer Studio (CCS)
-From branch Walker_Dev of \SP_430_Soft_Core\ the following from \MSP_430_Soft_Core\ccs_settings and copy into {ti_install}\ti\ccs{version_number}\ccs\ccs_base\msp430\include
-  [Custom MSP compiler files (header files, linker files. etc.)]
-  colt430fr2355.cmd
-  colt430fr2355.h
-  lnk_colt430fr2355.cmd
-  msp430.h
-Create a project using custom MSP as the target device
-Prop. -> build -> compiler -> proc options -> silicon version = msp
-Prop. -> build -> compiler -> predefined symbols -> add Pre-define NAME: __COLT430FR2355__
-Prop. -> build -> compiler -> adv. -> Assembler Options -> ‘check’ keep the generated asm lang.
-Prop. -> general -> linker cmd file = lnk_colt430fr2355.cmd
-Copy target config directory from another CCS projec of the same language to this projcet
+- From branch Walker_Dev of \SP_430_Soft_Core\ the following from \MSP_430_Soft_Core\ccs_settings\ and copy into {ti_install_location}\ti\ccs{version_number}\ccs\ccs_base\msp430\include
+  - [Custom MSP compiler files (header files, linker files. etc.)]
+  - colt430fr2355.cmd
+  - colt430fr2355.h
+  - lnk_colt430fr2355.cmd
+  - msp430.h
+- Create a project using custom MSP as the target device
+- Prop. -> build -> compiler -> proc options -> silicon version = msp
+- Prop. -> build -> compiler -> predefined symbols -> add Pre-define NAME: __COLT430FR2355__
+- Prop. -> build -> compiler -> adv. -> Assembler Options -> ‘check’ keep the generated asm lang.
+- Prop. -> general -> linker cmd file = lnk_colt430fr2355.cmd
+- Copy target config directory from another CCS project of the same language to this project
 ## Hardware
 ### The MSP430FR2355
 ## Dependencies
