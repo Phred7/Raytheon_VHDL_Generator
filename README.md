@@ -79,6 +79,7 @@ Steps
 - Prop. -> build -> compiler -> adv. -> Assembler Options -> ‘check’ keep the generated asm lang.
 - Prop. -> general -> linker cmd file = lnk_colt430fr2355.cmd
 - Copy target config directory from another CCS project of the same language to this project
+- Note: It may be possible to automate this process using the CCS API
 ## Hardware
 ### The MSP430FR2355
 ## Dependencies
