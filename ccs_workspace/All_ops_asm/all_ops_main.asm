@@ -349,7 +349,6 @@ manipulation:
 
 				clrc
 				mov.b	#10000000b, R7
-
 				rlc.b	R7
 				rlc.b	R7
 
