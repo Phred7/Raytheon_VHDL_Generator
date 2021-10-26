@@ -137,8 +137,8 @@ def disassemble() -> None:
     file_should_exist(disassembler_input_file_directory, disassembler_input_file_name)
 
     # Run PIQUE-bin.
-    logger.info(
-        f"PIQUE-Bin Binary Security Quality: {pique_bin(disassembler_input_file_directory, disassembler_input_file_name)}")
+    # logger.info(
+    #    f"PIQUE-Bin Binary Security Quality: {pique_bin(disassembler_input_file_directory, disassembler_input_file_name)}")
 
     # Check if the output file already exists. If it exists delete in.
     if os.path.exists(rf"{disassembler_output_file_directory}\{disassembler_output_file_name}"):
