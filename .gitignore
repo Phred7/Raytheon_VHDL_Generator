@@ -147,3 +147,5 @@ PIQUE-Bin-Jar/
 PIQUE-Bin-Jar.zip
 *.pyc
 *.pyc
+__pycache__/ccs_disassembler.cpython-39.pyc
+__pycache__/computer_mnemonic_dictionary.cpython-39.pyc
