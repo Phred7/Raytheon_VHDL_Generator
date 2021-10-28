@@ -145,3 +145,4 @@ PIQUE-Bin/msusel-pique-bin-0.0.1.jar
 PIQUE-Bin/
 PIQUE-Bin-Jar/
 PIQUE-Bin-Jar.zip
+*.pyc

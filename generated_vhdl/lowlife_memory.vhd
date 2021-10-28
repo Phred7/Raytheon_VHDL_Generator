@@ -1055,20 +1055,6 @@ constant ROM : rom_type :=(32768 => x"31",		-- 008000: 3140             MOV.W   
 						   33805 => x"23",
 						   33806 => x"02",		-- 00840e: 0200            
 						   33807 => x"00",
-<<<<<<< Updated upstream
-						   33808 => x"F2",		-- 0084ea: F2E0             XOR.B   #0x0040,&P6OUT
-						   33809 => x"C0",
-						   33810 => x"40",		-- 0084ec: 4000            
-						   33811 => x"00",
-						   33812 => x"43",		-- 0084ee: 4302            
-						   33813 => x"02",
-						   33814 => x"E2",		-- 0084f0: E2C3             BIC.B   #2,&P4IFG
-						   33815 => x"A3",
-						   33816 => x"3D",		-- 0084f2: 3D02            
-						   33817 => x"02",
-						   33818 => x"32",		-- 0084f6: 32D0             BIS.W   #0x0010,SR
-						   33819 => x"B0",
-=======
 						   33808 => x"00",		-- UnrecognizedInstructionError: Replaced with NOP
 						   33809 => x"23",
 						   33810 => x"00",		-- UnrecognizedInstructionError: Replaced with NOP
@@ -1289,7 +1275,6 @@ constant ROM : rom_type :=(32768 => x"31",		-- 008000: 3140             MOV.W   
 						   34025 => x"23",
 						   34026 => x"32",		-- 0084ea: 32D0             BIS.W   #0x0010,SR
 						   34027 => x"B0",
->>>>>>> Stashed changes
         -- IRQ Vectors (Interrupts)
                            65534 =>  x"00",		-- Reset Vector = xFFFE:xFFFF
                            65535 =>  x"80",		--  Startup Value = x8000

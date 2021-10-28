@@ -2,7 +2,7 @@ class ComputerMnemonicDictionary:
         """
         RRC.W   xx10
         RRC.B   xx10
-        SWP.B   xx10
+        SWPB    xx10
         RRA.W   xx11
         RRA.B   xx11
         SXT.W   xx11
