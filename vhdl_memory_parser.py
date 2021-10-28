@@ -206,7 +206,7 @@ def get_vhdl_memory_rom_asm(computer_name: str) -> str:
         elif current_program_memory > 32777 and len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()) and (":" not in line_str_list[14]):
             logger.error(
                 f"{UnrecognizedInstructionError.__name__}: The instruction {line_str_list[14]} in the generated disassembly was not recognized by the ComputerMnemonicDictionary. Replaced with NOP")
-            generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else memory_indent}{current_program_memory} => x\"{nop_opcode[0]}{line[1]}\",\t\t-- {UnrecognizedInstructionError.__name__}: Replaced with NOP\n"""  # -- #\t\t--
+            generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else memory_indent}{current_program_memory} => x\"{nop_opcode[0]}{nop_opcode[1]}\",\t\t-- {UnrecognizedInstructionError.__name__}: Replaced with NOP\n"""  # -- #\t\t--
             current_program_memory += 1
             generated_rom_asm_str += f"""{memory_indent}{current_program_memory} => x\"{computer_mnemonic_dictionary.get("NOP")}{nop_opcode[3]}\",\n"""
             current_program_memory += 1
