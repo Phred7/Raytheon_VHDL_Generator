@@ -12,7 +12,7 @@ import subprocess
 from logging import Logger
 from typing import List
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger: Logger = logging.getLogger(__name__)
 
 
@@ -38,7 +38,7 @@ def pique_bin(binary_file_directory: str, binary_file_name: str) -> float:
             f"PIQUE-Bin failed to run on {binary_file_name} with exit status {pique_exit_status}")
     else:
         logger.info(f'PIQUE-Bin successfully ran on {binary_file_name}')
-    return pique_score(binary_file_name, pique_bin_package_directory)
+    return pique_bin_score(binary_file_name, pique_bin_package_directory)
 
 
 def check_malware(binary_file_directory: str, binary_file_name: str, pique_bin_directory: str) -> int:
@@ -72,19 +72,19 @@ def check_malware(binary_file_directory: str, binary_file_name: str, pique_bin_d
     return subprocess.call(['java', '-jar', f"{pique_bin_jar_file_name}.jar"])
 
 
-def pique_score(binary_file_name: str, pique_bin_directory: str) -> float:
+def pique_bin_score(binary_file_name: str, pique_bin_directory: str) -> float:
     """
     Returns the Binary Security Quality of the binary file parsed by PIQUE-Bin.
     :param binary_file_name: Name of the binary file that was parsed by PIQUE-Bin.
     :param pique_bin_directory: PIQUE_Bin directory in the file system. Ex: Location of dir PIQUE-Bin-Jar/.
     :return: Float representing the Binary Security Quality of the binary file specified by binary_file_name.
     """
-    pique_output_file_directory: str = f"{pique_bin_directory}out"
-    pique_output_file: str = f"{binary_file_name}_compact_evalResults.json"
+    pique_bin_output_file_directory: str = f"{pique_bin_directory}out"
+    pique_bin_output_file: str = f"{binary_file_name}_compact_evalResults.json"
 
-    file_should_exist(pique_output_file_directory, pique_output_file)
+    file_should_exist(pique_bin_output_file_directory, pique_bin_output_file)
 
-    with open(f"{pique_output_file_directory}\\{pique_output_file}", "r") as pique_bin_output:
+    with open(f"{pique_bin_output_file_directory}\\{pique_bin_output_file}", "r") as pique_bin_output:
         binary_security_quality_reached: bool = False
         binary_security_quality_line: str = ""
         for line in pique_bin_output:
@@ -97,7 +97,7 @@ def pique_score(binary_file_name: str, pique_bin_directory: str) -> float:
         binary_security_quality: float = float(binary_security_quality_line.replace('"value": ', '').replace(',', ''))
         if binary_security_quality > 0.999999:
             logger.error(
-                f"The calculated Binary Security Quality suggests that Docker is not running: {binary_security_quality}")
+                f"The calculated Binary Security Quality suggests that Docker is not running or another error exists: {binary_security_quality}")
     return binary_security_quality
 
 
@@ -127,7 +127,7 @@ def disassemble() -> None:
     """
     disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
     disassembler_executable: str = r'dis430.exe'
-    disassembler_input_file_name: str = 'All_ops_asm.out'  # "Motor_mover_C.out"
+    disassembler_input_file_name: str = "All_msp_operations.out"  # "All_ops_asm.out'  # "Motor_mover_C.out" # "test.out" # "test_ASM.out" # "All_msp_operations.out"
     disassembler_input_file_directory: str = rf"{os.getcwd()}\ccs_workspace\{disassembler_input_file_name.replace('.out', '')}\Debug"
     disassembler_output_file_name: str = "generated_disassembly.txt"
     disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly"

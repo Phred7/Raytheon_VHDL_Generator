@@ -25,9 +25,9 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 ; Main loop here
 ;-------------------------------------------------------------------------------
 init:
-				mov.w	#02000h, R4				; use immediate to init R4 with val
-				mov.w	R4, R5					; init R5 with val of R4
-				mov.w	#Var1, R6				; init R6 with addr of Var1
+				mov.w	#02000h, R4		; use immediate to init R4 with val
+				mov.w	R4, R5			; init R5 with val of R4
+				mov.w	#Var1, R6		; init R6 with addr of Var1
 
 				bic.b	#BIT1, &P4DIR			; set P4.1 as input - SW1
 				bis.b	#BIT1, &P4REN			; EN pull up/down
@@ -331,7 +331,7 @@ manipulation:
 				rla.w	Var1
 				rla.w	4(R4)
 
-;rrc.b-------------------------------------------------------------------------------
+;rra.b-------------------------------------------------------------------------------
 
 				mov.b	#000100000b, R4
 				rra.b	R4
