@@ -193,7 +193,8 @@ def get_vhdl_memory_rom_asm(computer_name: str) -> str:
         if len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()):
             if f"{line_str_list[14]}.W" in computer_mnemonic_dictionary.keys():
                 line_str_list[14] = f"{line_str_list[14]}.W"
-        if (len(line_str_list) >= 15 and line_str_list[14] in computer_mnemonic_dictionary.keys()) or len(line_str_list) == 14:
+        if (len(line_str_list) >= 15 and line_str_list[14] in computer_mnemonic_dictionary.keys()) or len(
+                line_str_list) == 14:
             if computer_name != "baseline" and len(line_str_list) != 14:
                 line = translate_opcode_with_mnemonic_dictionary(line_str_list, computer_mnemonic_dictionary)
             generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else memory_indent}{current_program_memory} => x\"{line[8]}{line[9]}\",\t\t-- {unmodified_line}"""  # -- #\t\t--
@@ -203,7 +204,8 @@ def get_vhdl_memory_rom_asm(computer_name: str) -> str:
             if "SR" in unmodified_line:
                 logger.debug("Reached SR in generated_disassembly.txt")
                 return generated_rom_asm_str
-        elif current_program_memory > 32777 and len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()) and (":" not in line_str_list[14]):
+        elif current_program_memory > 32777 and len(line_str_list) >= 15 and not (
+                line_str_list[14] in computer_mnemonic_dictionary.keys()) and (":" not in line_str_list[14]):
             logger.error(
                 f"{UnrecognizedInstructionError.__name__}: The instruction {line_str_list[14]} in the generated disassembly was not recognized by the ComputerMnemonicDictionary. Replaced with NOP")
             generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else memory_indent}{current_program_memory} => x\"{nop_opcode[0]}{nop_opcode[1]}\",\t\t-- {UnrecognizedInstructionError.__name__}: Replaced with NOP\n"""  # -- #\t\t--
@@ -212,7 +214,6 @@ def get_vhdl_memory_rom_asm(computer_name: str) -> str:
             current_program_memory += 1
         else:
             pass
-
 
 
 def get_vhdl_irq_vectors() -> str:

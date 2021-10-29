@@ -14,7 +14,7 @@ class ComputerMnemonicDictionary:
         JNZ     FE23 or 0020
         JEQ     FE27 or 0024
         JZ      FE27 or 0024
-        JLO     FE2B or 0028
+        JLO     FE2B or 0028#
         JNC     FE2B or 0028
         JC      FE2F or 002C
         JHS     FE2F or 002C#
@@ -70,8 +70,8 @@ class ComputerMnemonicDictionary:
         CLRZ    22C3#
         BIC.W   xxCx
         BIC.B   xxCx
-        DINT    32C2
-        EINT    32D2
+        DINT    32C2#
+        EINT    32D2#
         BIS.W   xxDx
         BIS.B   xxDx
         SETC    12D3#
@@ -84,36 +84,9 @@ class ComputerMnemonicDictionary:
         AND.W   xxFx
         AND.B   xxFx
     """
-    """
-        "SWPB": "1",
-        "SXT": "1",
-        "RETI": "1",
-        "CALL": "1",
-        "JHS": "2",
-        "CLR.B": "4", 
-        "BR": "4",
-        "POP.W": "4",
-        "POP.B": "4",
-        "RET": "4",
-        "RLA.W": "5",
-        "RLA.B": "5",
-        "RLC.W": "6",
-        "RLC.B": "6",
-        "SBC.W": "7",
-        "SBC.B": "7",
-        "TST.B": "9",
-        "CLRC": "C",
-        "CLRN": "C",
-        "CLRZ": "C",
-        "SETC": "D",
-        "SETN": "D",
-        "SETZ": "D",
-        "INV.W": "E",
-        "INV.B": "E",
-    """
 
     @staticmethod
-    def baseline() -> {str, str}:  # 82
+    def baseline() -> {str, str}:  # 82 instructions
         return {"RRC.W": "1",
                 "RRC.B": "1",
                 "SWPB": "1",
@@ -199,30 +172,37 @@ class ComputerMnemonicDictionary:
                 "AND.B": "F"}
 
     @staticmethod
-    def lowlife() -> {str, str}:
+    def lowlife() -> {str, str}:  # 82 instructions
         return {"RRC.W": "F",
                 "RRC.B": "F",
                 "SWPB": "F",
                 "RRA.W": "F",
                 "RRA.B": "F",
-                "SXT.W": "F",
+                "SXT": "F",
                 "PUSH.W": "F",
                 "PUSH.B": "F",
-                "RETI.W": "F",
+                "RETI": "F",
+                "CALL": "F",
                 "JNE": "0",
                 "JNZ": "0",
                 "JEQ": "0",
                 "JZ": "0",
+                "JLO": "0",
                 "JNC": "0",
                 "JC": "0",
+                "JHS": "0",
                 "JN": "1",
                 "JGE": "1",
-                "JL": "1",  # modified from "1 "
+                "JL": "1",
                 "JMP": "1",  # ones
                 "CLR.W": "2",
-                "BR.W": "2",
+                "CLR.B": "2",
+                "BR": "2",
                 "MOV.W": "2",
                 "MOV.B": "2",
+                "POP.W": "2",
+                "POP.B": "2",
+                "RET": "2",
                 "NOP": "2",
                 "INC.W": "3",
                 "INC.B": "3",
@@ -230,12 +210,18 @@ class ComputerMnemonicDictionary:
                 "INCD.B": "3",
                 "ADD.W": "3",
                 "ADD.B": "3",
+                "RLA.W": "3",
+                "RLA.B": "3",
                 "ADDC.W": "4",
                 "ADDC.B": "4",
                 "ADC.W": "4",
                 "ADC.B": "4",
+                "RLC.W": "4",
+                "RLC.B": "4",
                 "SUBC.W": "5",
                 "SUBC.B": "5",
+                "SBC.W": "5",
+                "SBC.B": "5",
                 "DEC.W": "6",
                 "DEC.B": "6",
                 "DECD.W": "6",
@@ -243,91 +229,116 @@ class ComputerMnemonicDictionary:
                 "SUB.W": "6",
                 "SUB.B": "6",
                 "CMP.W": "7",
-                "TST.W": "7",
                 "CMP.B": "7",
+                "TST.W": "7",
+                "TST.B": "7",
                 "DADD.W": "8",
                 "DADD.B": "8",
                 "DADC.W": "8",
                 "DADC.B": "8",
                 "BIT.W": "9",
                 "BIT.B": "9",
-                "CLRC.W": "A",
-                "CLRN.W": "A",
-                "CLRZ.W": "A",
+                "CLRC": "A",
+                "CLRN": "A",
+                "CLRZ": "A",
                 "BIC.W": "A",
                 "BIC.B": "A",
-                "DINT.W": "A",
-                "EINT.W": "B",
+                "DINT": "A",
+                "EINT": "B",
                 "BIS.W": "B",
                 "BIS.B": "B",
+                "SETC": "B",
+                "SETN": "B",
+                "SETZ": "B",
                 "XOR.W": "C",
                 "XOR.B": "C",
+                "INV.W": "C",
+                "INV.B": "C",
                 "AND.W": "D",
                 "AND.B": "D"}
 
     @staticmethod
-    def highroller() -> {str, str}:
-        return {"RRC.W": "3",  # 3
+    def highroller() -> {str, str}:  # 82 instructions
+        return {"RRC.W": "3",   # 3
                 "RRC.B": "3",
                 "SWPB": "3",
                 "RRA.W": "3",
                 "RRA.B": "3",
-                "SXT.W": "3",
+                "SXT": "3",
                 "PUSH.W": "3",
                 "PUSH.B": "3",
-                "RETI.W": "3",  # 3
-                "JNE": "4",
+                "RETI": "3",
+                "CALL": "3",
+                "JNE": "4",     # 4
                 "JNZ": "4",
                 "JEQ": "4",
                 "JZ": "4",
+                "JLO": "4",
                 "JNC": "4",
-                "JC": "4",  # 4
-                "JN": "5",
+                "JC": "4",
+                "JHS": "4",
+                "JN": "5",      # 5
                 "JGE": "5",
                 "JL": "5",
-                "JMP": "5",  # 5
-                "CLR.W": "6",
-                "BR.W": "6",
+                "JMP": "5",
+                "CLR.W": "6",   # 6
+                "CLR.B": "6",
+                "BR": "6",
                 "MOV.W": "6",
                 "MOV.B": "6",
-                "NOP": "6",  # 6
-                "INC.W": "7",
+                "POP.W": "6",
+                "POP.B": "6",
+                "RET": "6",
+                "NOP": "6",
+                "INC.W": "7",   # 7
                 "INC.B": "7",
                 "INCD.W": "7",
                 "INCD.B": "7",
                 "ADD.W": "7",
-                "ADD.B": "7",  # 7
-                "ADDC.W": "8",
+                "ADD.B": "7",
+                "RLA.W": "7",
+                "RLA.B": "7",
+                "ADDC.W": "8",  # 8
                 "ADDC.B": "8",
                 "ADC.W": "8",
-                "ADC.B": "8",  # 8
-                "SUBC.W": "9",
-                "SUBC.B": "9",  # 9
-                "DEC.W": "A",
+                "ADC.B": "8",
+                "RLC.W": "8",
+                "RLC.B": "8",
+                "SUBC.W": "9",  # 9
+                "SUBC.B": "9",
+                "SBC.W": "9",
+                "SBC.B": "9",
+                "DEC.W": "A",   # A
                 "DEC.B": "A",
                 "DECD.W": "A",
                 "DECD.B": "A",
                 "SUB.W": "A",
-                "SUB.B": "A",  # A
-                "CMP.W": "B",
+                "SUB.B": "A",
+                "CMP.W": "B",   # B
+                "CMP.B": "B",
                 "TST.W": "B",
-                "CMP.B": "B",  # B
+                "TST.B": "B",
                 "DADD.W": "C",
                 "DADD.B": "C",
                 "DADC.W": "C",
-                "DADC.B": "C",  # C
-                "BIT.W": "D",
-                "BIT.B": "D",  # D
-                "CLRC.W": "E",
-                "CLRN.W": "E",
-                "CLRZ.W": "E",
+                "DADC.B": "C",
+                "BIT.W": "D",   # D
+                "BIT.B": "D",
+                "CLRC": "E",    # E
+                "CLRN": "E",
+                "CLRZ": "E",
                 "BIC.W": "E",
                 "BIC.B": "E",
-                "DINT.W": "E",  # E
-                "EINT.W": "F",
+                "DINT": "E",
+                "EINT": "F",    # F
                 "BIS.W": "F",
-                "BIS.B": "F",  # F
-                "XOR.W": "0",
-                "XOR.B": "0",  # 0
-                "AND.W": "1",  # 1
+                "BIS.B": "F",
+                "SETC": "F",
+                "SETN": "F",
+                "SETZ": "F",
+                "XOR.W": "0",   # 0
+                "XOR.B": "0",
+                "INV.W": "0",
+                "INV.B": "0",
+                "AND.W": "1",   # 1
                 "AND.B": "1"}
