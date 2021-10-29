@@ -2,34 +2,34 @@ class ComputerMnemonicDictionary:
     """ 82 instructions
         RRC.W   xx10
         RRC.B   xx10
-        SWPB    xx10#
+        SWPB    xx10
         RRA.W   xx11
         RRA.B   xx11
-        SXT     xx11#
+        SXT     xx11
         PUSH.W  xx12
         PUSH.B  xx12
-        RETI    xx12#
-        CALL    B012?#
+        RETI    xx12
+        CALL    B012?
         JNE     FE23 or 0020
         JNZ     FE23 or 0020
         JEQ     FE27 or 0024
         JZ      FE27 or 0024
-        JLO     FE2B or 0028#
+        JLO     FE2B or 0028
         JNC     FE2B or 0028
         JC      FE2F or 002C
-        JHS     FE2F or 002C#
+        JHS     FE2F or 002C
         JN      FE33 or 0030
         JGE     FE37 or 0034
         JL      FD3B or 0038
         JMP     FD3F or 003C
         CLR.W   xx43
-        CLR.B   xx4x#
-        BR      xx4x#
+        CLR.B   xx4x
+        BR      xx4x
         MOV.W   B040 or 3440
         MOV.B   xx4x
-        POP.W   xx4x#
-        POP.B   xx4x#
-        RET     xx4x#
+        POP.W   xx4x
+        POP.B   xx4x
+        RET     xx4x
         NOP     0343
         INC.W   xx53
         INC.B   xx5x
@@ -37,18 +37,18 @@ class ComputerMnemonicDictionary:
         INCD.B  xx5x
         ADD.W   xx5x
         ADD.B   xx5x
-        RLA.W   xx5x#
-        RLA.B   xx5x#
+        RLA.W   xx5x
+        RLA.B   xx5x
         ADDC.W  xx6x
         ADDC.B  xx6x
         ADC.W   xx6x
         ADC.B   xx6x
-        RLC.W   xx6x#
-        RLC.B   xx6x#
+        RLC.W   xx6x
+        RLC.B   xx6x
         SUBC.W  xx7x
         SUBC.B  xx7x
-        SBC.W   xx7x#
-        SBC.B   xx7x#
+        SBC.W   xx7x
+        SBC.B   xx7x
         DEC.W   xx8x
         DEC.B   xx8x
         DECD.W  xx8x
@@ -58,29 +58,29 @@ class ComputerMnemonicDictionary:
         CMP.W   xx9x
         CMP.B   xx9x
         TST.W   xx9x
-        TST.B   xx9x#
+        TST.B   xx9x
         DADD.W  xxAx
         DADD.B  xxAx
         DADC.W  xxAx
         DADC.B  xxAx
         BIT.W   xxBx
         BIT.B   xxBx
-        CLRC    12C3#
-        CLRN    22C2#
-        CLRZ    22C3#
+        CLRC    12C3
+        CLRN    22C2
+        CLRZ    22C3
         BIC.W   xxCx
         BIC.B   xxCx
-        DINT    32C2#
-        EINT    32D2#
+        DINT    32C2
+        EINT    32D2
         BIS.W   xxDx
         BIS.B   xxDx
-        SETC    12D3#
-        SETN    22D2#
-        SETZ    22D3#
+        SETC    12D3
+        SETN    22D2
+        SETZ    22D3
         XOR.W   xxEx
         XOR.B   xxEx
-        INV.W   xxEx#
-        INV.B   xxEx#
+        INV.W   xxEx
+        INV.B   xxEx
         AND.W   xxFx
         AND.B   xxFx
     """
