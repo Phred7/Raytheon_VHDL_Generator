@@ -86,6 +86,20 @@ Steps
 ## Hardware
 ### The MSP430FR2355
 ## Dependencies
+### DriverLib
+- In CCS goto Window -> Preferences and search Products. Ensure "Search for products each time CCS starts" is enabled.
+- Close CCS (all instances).
+- Install MSP430Ware into the directory C:\ti\
+- Open CCS. May ask to install software.
+- Naviagate to Products again. Now MSP430Ware and MSP430 DriverLib should appear in the 'Discovered Products' category.
+- Create a new project using a MSP430FR2355 (not custom) and select one of the DriverLib examples.
+- Build the project.
+- Customize all project settings (defined in "Code Composer Studio (CCS)" section.
+- Empty the driverlib file in this project root.
+- Copy the directory C:\ti\MSP430Ware_3_80_14_01\driverlib\driverlib\MSP430FR2xx_4xx\ into this project root at project_root\driverlib\MSP430FR2xx_4xx\.
+- Navigate to Prop. -> build -> compiler -> include options -> add ${PROJECT_ROOT}/driverlib/MSP430FR2xx_4xx betwwen ${PROJECT_ROOT} and ${CG_TOOL_ROOT}/include
+- Double check all other custom settings
+- Build project
 ## Helpful Links
 ## Credits
 - For Raytheon
