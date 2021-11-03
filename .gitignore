@@ -152,4 +152,6 @@ __pycache__/computer_mnemonic_dictionary.cpython-39.pyc
 *.pma
 *.pyc
 ccs_workspace/test_C/driverlib/MSP430FR2xx_4xx/
+ccs_workspace\test_C\driverlib\MSP430FR2xx_4xx\
 ccs_workspace/.jxbrowser.userdata/
+ccs_workspace\.jxbrowser.userdata\
