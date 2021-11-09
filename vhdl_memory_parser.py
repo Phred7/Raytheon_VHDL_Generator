@@ -10,6 +10,8 @@ import sys
 import os
 from logging import Logger
 from typing import TextIO
+
+import package_zipper
 from computer_mnemonic_dictionary import ComputerMnemonicDictionary
 
 import ccs_disassembler
@@ -34,6 +36,9 @@ def remove_last_generated_vhd_files() -> None:
         if file.endswith(".vhd"):
             os.remove(f"{directory}\\{file}")
             logger.info(f'Removed {file}')
+        elif file == "generated_disassembly.txt":
+            os.remove(f"{directory}\\{file}")
+            logger.info(f'Removed {file} from \\generated_vhdl\\')
 
 
 def generate_vhdl_packages() -> None:
@@ -310,9 +315,10 @@ def main() -> None:
     generates the baseline, highroller and lowlife memory files.
     """
     remove_last_generated_vhd_files()
-    # ccs_disassembler.disassemble()
+    ccs_disassembler.disassemble(pique_bool=False)
     generate_vhdl_packages()
     generate_vhdl_memory()
+    package_zipper.zip_vhdl(zip_file_name="zipper")
 
 
 if __name__ == '__main__':

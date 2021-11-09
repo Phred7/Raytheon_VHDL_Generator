@@ -2,7 +2,7 @@
 <link_info>
    <banner>MSP430 Linker PC v20.2.5.LTS</banner>
    <copyright>Copyright (c) 2003-2018 Texas Instruments Incorporated</copyright>
-   <link_time>0x6171a69f</link_time>
+   <link_time>0x6182acdb</link_time>
    <link_errors>0x0</link_errors>
    <output_file>All_msp_operations.out</output_file>
    <entry_point>
@@ -13,8 +13,8 @@
       <input_file id="fl-2">
          <path>.\</path>
          <kind>object</kind>
-         <file>main.obj</file>
-         <name>main.obj</name>
+         <file>msp_ops_main.obj</file>
+         <name>msp_ops_main.obj</name>
       </input_file>
       <input_file id="fl-6">
          <kind>object</kind>
@@ -392,33 +392,33 @@
          <name>.debug_info</name>
          <load_address>0x0</load_address>
          <run_address>0x0</run_address>
-         <size>0x128</size>
+         <size>0x138</size>
          <input_file_ref idref="fl-2"/>
       </object_component>
-      <object_component id="oc-414">
+      <object_component id="oc-416">
          <name>.debug_info</name>
-         <load_address>0x128</load_address>
-         <run_address>0x128</run_address>
+         <load_address>0x138</load_address>
+         <run_address>0x138</run_address>
          <size>0x10f</size>
          <input_file_ref idref="fl-35"/>
       </object_component>
       <object_component id="oc-46d">
          <name>.debug_info</name>
-         <load_address>0x237</load_address>
-         <run_address>0x237</run_address>
+         <load_address>0x247</load_address>
+         <run_address>0x247</run_address>
          <size>0xcd</size>
       </object_component>
       <object_component id="oc-6a">
          <name>.debug_line</name>
          <load_address>0x0</load_address>
          <run_address>0x0</run_address>
-         <size>0x1a6</size>
+         <size>0x1ae</size>
          <input_file_ref idref="fl-2"/>
       </object_component>
-      <object_component id="oc-417">
+      <object_component id="oc-414">
          <name>.debug_line</name>
-         <load_address>0x1a6</load_address>
-         <run_address>0x1a6</run_address>
+         <load_address>0x1ae</load_address>
+         <run_address>0x1ae</run_address>
          <size>0x3d</size>
          <input_file_ref idref="fl-35"/>
       </object_component>
@@ -449,7 +449,7 @@
          <size>0x20</size>
          <input_file_ref idref="fl-2"/>
       </object_component>
-      <object_component id="oc-416">
+      <object_component id="oc-415">
          <name>.debug_aranges</name>
          <load_address>0x20</load_address>
          <run_address>0x20</run_address>
@@ -460,13 +460,13 @@
          <name>.debug_pubnames</name>
          <load_address>0x0</load_address>
          <run_address>0x0</run_address>
-         <size>0x2b</size>
+         <size>0x33</size>
          <input_file_ref idref="fl-2"/>
       </object_component>
-      <object_component id="oc-415">
+      <object_component id="oc-417">
          <name>.debug_pubnames</name>
-         <load_address>0x2b</load_address>
-         <run_address>0x2b</run_address>
+         <load_address>0x33</load_address>
+         <run_address>0x33</run_address>
          <size>0x2b</size>
          <input_file_ref idref="fl-35"/>
       </object_component>
@@ -1080,10 +1080,10 @@
          <name>.debug_info</name>
          <load_address>0x0</load_address>
          <run_address>0x0</run_address>
-         <size>0x304</size>
+         <size>0x314</size>
          <contents>
             <object_component_ref idref="oc-67"/>
-            <object_component_ref idref="oc-414"/>
+            <object_component_ref idref="oc-416"/>
             <object_component_ref idref="oc-46d"/>
          </contents>
       </logical_group>
@@ -1091,10 +1091,10 @@
          <name>.debug_line</name>
          <load_address>0x0</load_address>
          <run_address>0x0</run_address>
-         <size>0x1e3</size>
+         <size>0x1eb</size>
          <contents>
             <object_component_ref idref="oc-6a"/>
-            <object_component_ref idref="oc-417"/>
+            <object_component_ref idref="oc-414"/>
          </contents>
       </logical_group>
       <logical_group id="lg-465" display="never" color="cyan">
@@ -1115,17 +1115,17 @@
          <size>0x40</size>
          <contents>
             <object_component_ref idref="oc-68"/>
-            <object_component_ref idref="oc-416"/>
+            <object_component_ref idref="oc-415"/>
          </contents>
       </logical_group>
       <logical_group id="lg-469" display="never" color="cyan">
          <name>.debug_pubnames</name>
          <load_address>0x0</load_address>
          <run_address>0x0</run_address>
-         <size>0x56</size>
+         <size>0x5e</size>
          <contents>
             <object_component_ref idref="oc-69"/>
-            <object_component_ref idref="oc-415"/>
+            <object_component_ref idref="oc-417"/>
          </contents>
       </logical_group>
       <logical_group id="lg-46f" display="no" color="cyan">

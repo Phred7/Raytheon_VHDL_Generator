@@ -10,7 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./main.obj" \
+"./msp_ops_main.obj" \
 "../lnk_colt430fr2355.cmd" \
 $(GEN_CMDS__FLAG) \
 
@@ -153,9 +153,9 @@ All_msp_operations.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" 
-	-$(RM) "main.asm" 
-	-$(RM) "main.d" 
+	-$(RM) "msp_ops_main.obj" 
+	-$(RM) "msp_ops_main.asm" 
+	-$(RM) "msp_ops_main.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

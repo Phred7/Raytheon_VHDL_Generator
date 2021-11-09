@@ -145,7 +145,14 @@ PIQUE-Bin/msusel-pique-bin-0.0.1.jar
 PIQUE-Bin/
 PIQUE-Bin-Jar/
 PIQUE-Bin-Jar.zip
-*.pyc
+*.cpython-39.pyc
 *.pyc
 __pycache__/ccs_disassembler.cpython-39.pyc
 __pycache__/computer_mnemonic_dictionary.cpython-39.pyc
+*.pma
+ccs_workspace/test_C/driverlib/MSP430FR2xx_4xx/
+ccs_workspace\test_C\driverlib\MSP430FR2xx_4xx\
+ccs_workspace/.jxbrowser.userdata/
+ccs_workspace\.jxbrowser.userdata\
+ccs_workspace\.metadata\
+ccs_workspace/.metadata/
