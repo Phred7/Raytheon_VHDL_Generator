@@ -9,21 +9,21 @@ CMD_SRCS += \
 ../lnk_colt430fr2355.cmd 
 
 ASM_SRCS += \
-../main.asm 
+../msp_ops_main.asm 
 
 OBJS += \
-./main.obj 
+./msp_ops_main.obj 
 
 ASM_DEPS += \
-./main.d 
+./msp_ops_main.d 
 
 OBJS__QUOTED += \
-"main.obj" 
+"msp_ops_main.obj" 
 
 ASM_DEPS__QUOTED += \
-"main.d" 
+"msp_ops_main.d" 
 
 ASM_SRCS__QUOTED += \
-"../main.asm" 
+"../msp_ops_main.asm" 
 
 

@@ -310,7 +310,7 @@ def main() -> None:
     generates the baseline, highroller and lowlife memory files.
     """
     remove_last_generated_vhd_files()
-    # ccs_disassembler.disassemble()
+    ccs_disassembler.disassemble(pique_bool=False)
     generate_vhdl_packages()
     generate_vhdl_memory()
 
