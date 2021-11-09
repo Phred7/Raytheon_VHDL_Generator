@@ -9,6 +9,7 @@ import logging
 import os
 import shutil
 import subprocess
+from contextlib import contextmanager
 from logging import Logger
 from typing import List
 
@@ -67,9 +68,21 @@ def check_malware(binary_file_directory: str, binary_file_name: str, pique_bin_d
         pique_bin_properties_replacement.write(replacement_pique_bin_file_text)
         pique_bin_properties_replacement.close()
 
-    os.chdir(pique_bin_directory)
-    print(os.getcwd())
-    return subprocess.call(['java', '-jar', f"{pique_bin_jar_file_name}.jar"])
+    pique_bin_return_code: int
+    with change_dir(pique_bin_directory):
+        pique_bin_return_code = subprocess.call(['java', '-jar', f"{pique_bin_jar_file_name}.jar"])
+    return pique_bin_return_code
+
+
+@contextmanager
+def change_dir(destination: str) -> None:
+    cwd: str = ""
+    try:
+        cwd = os.getcwd()
+        os.chdir(destination)
+        yield
+    finally:
+        os.chdir(cwd)
 
 
 def pique_bin_score(binary_file_name: str, pique_bin_directory: str) -> float:
@@ -131,7 +144,6 @@ def disassemble(*, pique_bool: bool = True) -> None:
     disassembler_input_file_directory: str = rf"{os.getcwd()}\ccs_workspace\{disassembler_input_file_name.replace('.out', '')}\Debug"
     disassembler_output_file_name: str = "generated_disassembly.txt"
     disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly"
-    cwd: str = (os.getcwd())
 
     # Check if the disassembler input exists.
     file_should_exist(disassembler_input_file_directory, disassembler_input_file_name)
@@ -139,13 +151,12 @@ def disassemble(*, pique_bool: bool = True) -> None:
     # Run PIQUE-bin.
     if pique_bool:
         logger.info(
-           f"PIQUE-Bin Binary Security Quality: {pique_bin(disassembler_input_file_directory, disassembler_input_file_name)}")
+            f"PIQUE-Bin Binary Security Quality: {pique_bin(disassembler_input_file_directory, disassembler_input_file_name)}")
 
     # Check if the output file already exists. If it exists delete in.
     if os.path.exists(rf"{disassembler_output_file_directory}\{disassembler_output_file_name}"):
         os.remove(rf"{disassembler_output_file_directory}\{disassembler_output_file_name}")
         logger.info(rf"Removed {disassembler_output_file_directory}\{disassembler_output_file_name}")
-    os.chdir(cwd)
 
     # Call the disassembler.
     disassembler_exit_status: int = os.system(
