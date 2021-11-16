@@ -49,6 +49,7 @@ def zip_vhdl(zip_file_name: str = "zip") -> None:
             if file_should_exist(disassembly_file_directory, disassembly_file):
                 vhdl_zip_file.write(f"{disassembly_file}")
                 logger.info(f'Zipped {disassembly_file}')
+    logger.info(f'Created zip {zip_file_name} in {os.getcwd()}\\{vhdl_directory}')
     return None
 
 

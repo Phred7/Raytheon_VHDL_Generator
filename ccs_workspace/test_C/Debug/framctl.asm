@@ -1,15 +1,15 @@
 ;******************************************************************************
 ;* MSP430 G3 C/C++ Codegen                                              PC v20.2.5.LTS *
-;* Date/Time created: Wed Nov  3 09:47:44 2021                                *
+;* Date/Time created: Tue Nov  9 15:10:35 2021                                *
 ;******************************************************************************
 	.compiler_opts --abi=eabi --diag_wrap=off --hll_source=on --mem_model:code=small --mem_model:data=small --object_format=elf --silicon_version=msp --symdebug:dwarf --symdebug:dwarf_version=3 
 
 $C$DW$CU	.dwtag  DW_TAG_compile_unit
-	.dwattr $C$DW$CU, DW_AT_name("../driverlib/MSP430FR5xx_6xx/framctl.c")
+	.dwattr $C$DW$CU, DW_AT_name("../driverlib/MSP430FR2xx_4xx/framctl.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TI MSP430 G3 C/C++ Codegen PC v20.2.5.LTS Copyright (c) 2003-2018 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
 	.dwattr $C$DW$CU, DW_AT_comp_dir("C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\Debug")
-;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{59D5B5E2-369C-44D7-8C0B-6550A3228F79} 
+;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{156E7548-E306-442E-8A15-97DD07FC87EF} 
 	.sect	".text:FRAMCtl_write8"
 	.clink
 	.global	FRAMCtl_write8
@@ -20,14 +20,14 @@ $C$DW$1	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$1, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("FRAMCtl_write8")
 	.dwattr $C$DW$1, DW_AT_external
-	.dwattr $C$DW$1, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
+	.dwattr $C$DW$1, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
 	.dwattr $C$DW$1, DW_AT_TI_begin_line(0x15)
 	.dwattr $C$DW$1, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$1, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
+	.dwattr $C$DW$1, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
 	.dwattr $C$DW$1, DW_AT_decl_line(0x15)
 	.dwattr $C$DW$1, DW_AT_decl_column(0x06)
-	.dwattr $C$DW$1, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 25,column 1,is_stmt,address FRAMCtl_write8,isa 0
+	.dwattr $C$DW$1, DW_AT_TI_max_frame_size(0x0a)
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 25,column 1,is_stmt,address FRAMCtl_write8,isa 0
 
 	.dwfde $C$DW$CIE, FRAMCtl_write8
 $C$DW$2	.dwtag  DW_TAG_formal_parameter
@@ -54,14 +54,14 @@ $C$DW$4	.dwtag  DW_TAG_formal_parameter
 ;*                                                                           *
 ;*   Regs Modified     : SP,SR,r13,r14,r15                                   *
 ;*   Regs Used         : SP,SR,r12,r13,r14,r15                               *
-;*   Local Frame Size  : 0 Args + 6 Auto + 0 Save = 6 byte                   *
+;*   Local Frame Size  : 0 Args + 8 Auto + 0 Save = 8 byte                   *
 ;*****************************************************************************
 FRAMCtl_write8:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-        SUB.W     #6,SP                 ; [] 
-	.dwcfi	cfa_offset, 8
+        SUB.W     #8,SP                 ; [] 
+	.dwcfi	cfa_offset, 10
 $C$DW$5	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$5, DW_AT_name("dataPtr")
 	.dwattr $C$DW$5, DW_AT_TI_symbol_name("dataPtr")
@@ -80,52 +80,77 @@ $C$DW$7	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$7, DW_AT_type(*$C$DW$T$27)
 	.dwattr $C$DW$7, DW_AT_location[DW_OP_breg1 4]
 
+$C$DW$8	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$8, DW_AT_name("state")
+	.dwattr $C$DW$8, DW_AT_TI_symbol_name("state")
+	.dwattr $C$DW$8, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$8, DW_AT_location[DW_OP_breg1 6]
+
+$C$DW$9	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$9, DW_AT_name("wp")
+	.dwattr $C$DW$9, DW_AT_TI_symbol_name("wp")
+	.dwattr $C$DW$9, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$9, DW_AT_location[DW_OP_breg1 7]
+
         MOV.W     r14,4(SP)             ; [] |25| 
         MOV.W     r13,2(SP)             ; [] |25| 
         MOV.W     r12,0(SP)             ; [] |25| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 26,column 12,is_stmt,isa 0
-        TST.W     4(SP)                 ; [] |26| 
-        JEQ       $C$L2                 ; [] |26| 
-                                          ; [] |26| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 27,column 19,is_stmt,isa 0
+        MOV.B     &0x160,6(SP)          ; [] |27| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 29,column 16,is_stmt,isa 0
+        MOV.B     #3,7(SP)              ; [] |29| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 35,column 5,is_stmt,isa 0
+        MOV.B     7(SP),r14             ; [] |35| 
+        MOV.B     6(SP),r15             ; [] |35| 
+        BIC.W     r14,r15               ; [] |35| 
+        OR.W      #42240,r15            ; [] |35| 
+        MOV.W     r15,&0x160            ; [] |35| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 40,column 12,is_stmt,isa 0
+        TST.W     4(SP)                 ; [] |40| 
+        JEQ       $C$L2                 ; [] |40| 
+                                          ; [] |40| 
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L1
 ;*
-;*   Loop source line                : 26
-;*   Loop closing brace source line  : 31
+;*   Loop source line                : 40
+;*   Loop closing brace source line  : 45
 ;*   Known Minimum Trip Count        : 1
 ;*   Known Maximum Trip Count        : 4294967295
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L1:    
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 29,column 9,is_stmt,isa 0
-        MOV.W     0(SP),r15             ; [] |29| 
-        MOV.B     @r15+,r13             ; [] |29| 
-        MOV.W     r15,0(SP)             ; [] |29| 
-        MOV.W     2(SP),r14             ; [] |29| 
-        MOV.W     r14,r15               ; [] |29| 
-        ADD.W     #1,r15                ; [] |29| 
-        MOV.W     r15,2(SP)             ; [] |29| 
-        MOV.B     r13,0(r14)            ; [] |29| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 30,column 9,is_stmt,isa 0
-        SUB.W     #1,4(SP)              ; [] |30| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 26,column 12,is_stmt,isa 0
-        TST.W     4(SP)                 ; [] |26| 
-        JNE       $C$L1                 ; [] |26| 
-                                          ; [] |26| 
-;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 32,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 43,column 9,is_stmt,isa 0
+        MOV.W     0(SP),r15             ; [] |43| 
+        MOV.B     @r15+,r13             ; [] |43| 
+        MOV.W     r15,0(SP)             ; [] |43| 
+        MOV.W     2(SP),r14             ; [] |43| 
+        MOV.W     r14,r15               ; [] |43| 
+        ADD.W     #1,r15                ; [] |43| 
+        MOV.W     r15,2(SP)             ; [] |43| 
+        MOV.B     r13,0(r14)            ; [] |43| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 44,column 9,is_stmt,isa 0
+        SUB.W     #1,4(SP)              ; [] |44| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 40,column 12,is_stmt,isa 0
+        TST.W     4(SP)                 ; [] |40| 
+        JNE       $C$L1                 ; [] |40| 
+                                          ; [] |40| 
 ;* --------------------------------------------------------------------------*
 $C$L2:    
-        ADD.W     #6,SP                 ; [] 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 49,column 5,is_stmt,isa 0
+        MOV.B     6(SP),r15             ; [] |49| 
+        OR.W      #42240,r15            ; [] |49| 
+        MOV.W     r15,&0x160            ; [] |49| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 53,column 1,is_stmt,isa 0
+        ADD.W     #8,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
-$C$DW$8	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$8, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$8, DW_AT_TI_return
+$C$DW$10	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$10, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$10, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$1, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$1, DW_AT_TI_end_line(0x20)
+	.dwattr $C$DW$1, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$1, DW_AT_TI_end_line(0x35)
 	.dwattr $C$DW$1, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$1
@@ -134,39 +159,39 @@ $C$DW$8	.dwtag  DW_TAG_TI_branch
 	.clink
 	.global	FRAMCtl_write16
 
-$C$DW$9	.dwtag  DW_TAG_subprogram
-	.dwattr $C$DW$9, DW_AT_name("FRAMCtl_write16")
-	.dwattr $C$DW$9, DW_AT_low_pc(FRAMCtl_write16)
-	.dwattr $C$DW$9, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$9, DW_AT_TI_symbol_name("FRAMCtl_write16")
-	.dwattr $C$DW$9, DW_AT_external
-	.dwattr $C$DW$9, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$9, DW_AT_TI_begin_line(0x22)
-	.dwattr $C$DW$9, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$9, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$9, DW_AT_decl_line(0x22)
-	.dwattr $C$DW$9, DW_AT_decl_column(0x06)
-	.dwattr $C$DW$9, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 36,column 1,is_stmt,address FRAMCtl_write16,isa 0
+$C$DW$11	.dwtag  DW_TAG_subprogram
+	.dwattr $C$DW$11, DW_AT_name("FRAMCtl_write16")
+	.dwattr $C$DW$11, DW_AT_low_pc(FRAMCtl_write16)
+	.dwattr $C$DW$11, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$11, DW_AT_TI_symbol_name("FRAMCtl_write16")
+	.dwattr $C$DW$11, DW_AT_external
+	.dwattr $C$DW$11, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$11, DW_AT_TI_begin_line(0x37)
+	.dwattr $C$DW$11, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$11, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$11, DW_AT_decl_line(0x37)
+	.dwattr $C$DW$11, DW_AT_decl_column(0x06)
+	.dwattr $C$DW$11, DW_AT_TI_max_frame_size(0x0a)
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 57,column 1,is_stmt,address FRAMCtl_write16,isa 0
 
 	.dwfde $C$DW$CIE, FRAMCtl_write16
-$C$DW$10	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$10, DW_AT_name("dataPtr")
-	.dwattr $C$DW$10, DW_AT_TI_symbol_name("dataPtr")
-	.dwattr $C$DW$10, DW_AT_type(*$C$DW$T$29)
-	.dwattr $C$DW$10, DW_AT_location[DW_OP_reg12]
-
-$C$DW$11	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$11, DW_AT_name("framPtr")
-	.dwattr $C$DW$11, DW_AT_TI_symbol_name("framPtr")
-	.dwattr $C$DW$11, DW_AT_type(*$C$DW$T$29)
-	.dwattr $C$DW$11, DW_AT_location[DW_OP_reg13]
-
 $C$DW$12	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$12, DW_AT_name("numberOfWords")
-	.dwattr $C$DW$12, DW_AT_TI_symbol_name("numberOfWords")
-	.dwattr $C$DW$12, DW_AT_type(*$C$DW$T$27)
-	.dwattr $C$DW$12, DW_AT_location[DW_OP_reg14]
+	.dwattr $C$DW$12, DW_AT_name("dataPtr")
+	.dwattr $C$DW$12, DW_AT_TI_symbol_name("dataPtr")
+	.dwattr $C$DW$12, DW_AT_type(*$C$DW$T$29)
+	.dwattr $C$DW$12, DW_AT_location[DW_OP_reg12]
+
+$C$DW$13	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$13, DW_AT_name("framPtr")
+	.dwattr $C$DW$13, DW_AT_TI_symbol_name("framPtr")
+	.dwattr $C$DW$13, DW_AT_type(*$C$DW$T$29)
+	.dwattr $C$DW$13, DW_AT_location[DW_OP_reg13]
+
+$C$DW$14	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$14, DW_AT_name("numberOfWords")
+	.dwattr $C$DW$14, DW_AT_TI_symbol_name("numberOfWords")
+	.dwattr $C$DW$14, DW_AT_type(*$C$DW$T$27)
+	.dwattr $C$DW$14, DW_AT_location[DW_OP_reg14]
 
 
 ;*****************************************************************************
@@ -174,119 +199,144 @@ $C$DW$12	.dwtag  DW_TAG_formal_parameter
 ;*                                                                           *
 ;*   Regs Modified     : SP,SR,r13,r14,r15                                   *
 ;*   Regs Used         : SP,SR,r12,r13,r14,r15                               *
-;*   Local Frame Size  : 0 Args + 6 Auto + 0 Save = 6 byte                   *
+;*   Local Frame Size  : 0 Args + 8 Auto + 0 Save = 8 byte                   *
 ;*****************************************************************************
 FRAMCtl_write16:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-        SUB.W     #6,SP                 ; [] 
-	.dwcfi	cfa_offset, 8
-$C$DW$13	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$13, DW_AT_name("dataPtr")
-	.dwattr $C$DW$13, DW_AT_TI_symbol_name("dataPtr")
-	.dwattr $C$DW$13, DW_AT_type(*$C$DW$T$29)
-	.dwattr $C$DW$13, DW_AT_location[DW_OP_breg1 0]
-
-$C$DW$14	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$14, DW_AT_name("framPtr")
-	.dwattr $C$DW$14, DW_AT_TI_symbol_name("framPtr")
-	.dwattr $C$DW$14, DW_AT_type(*$C$DW$T$29)
-	.dwattr $C$DW$14, DW_AT_location[DW_OP_breg1 2]
-
+        SUB.W     #8,SP                 ; [] 
+	.dwcfi	cfa_offset, 10
 $C$DW$15	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$15, DW_AT_name("numberOfWords")
-	.dwattr $C$DW$15, DW_AT_TI_symbol_name("numberOfWords")
-	.dwattr $C$DW$15, DW_AT_type(*$C$DW$T$27)
-	.dwattr $C$DW$15, DW_AT_location[DW_OP_breg1 4]
+	.dwattr $C$DW$15, DW_AT_name("dataPtr")
+	.dwattr $C$DW$15, DW_AT_TI_symbol_name("dataPtr")
+	.dwattr $C$DW$15, DW_AT_type(*$C$DW$T$29)
+	.dwattr $C$DW$15, DW_AT_location[DW_OP_breg1 0]
 
-        MOV.W     r14,4(SP)             ; [] |36| 
-        MOV.W     r13,2(SP)             ; [] |36| 
-        MOV.W     r12,0(SP)             ; [] |36| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 37,column 12,is_stmt,isa 0
-        TST.W     4(SP)                 ; [] |37| 
-        JEQ       $C$L4                 ; [] |37| 
-                                          ; [] |37| 
+$C$DW$16	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$16, DW_AT_name("framPtr")
+	.dwattr $C$DW$16, DW_AT_TI_symbol_name("framPtr")
+	.dwattr $C$DW$16, DW_AT_type(*$C$DW$T$29)
+	.dwattr $C$DW$16, DW_AT_location[DW_OP_breg1 2]
+
+$C$DW$17	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$17, DW_AT_name("numberOfWords")
+	.dwattr $C$DW$17, DW_AT_TI_symbol_name("numberOfWords")
+	.dwattr $C$DW$17, DW_AT_type(*$C$DW$T$27)
+	.dwattr $C$DW$17, DW_AT_location[DW_OP_breg1 4]
+
+$C$DW$18	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$18, DW_AT_name("state")
+	.dwattr $C$DW$18, DW_AT_TI_symbol_name("state")
+	.dwattr $C$DW$18, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$18, DW_AT_location[DW_OP_breg1 6]
+
+$C$DW$19	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$19, DW_AT_name("wp")
+	.dwattr $C$DW$19, DW_AT_TI_symbol_name("wp")
+	.dwattr $C$DW$19, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$19, DW_AT_location[DW_OP_breg1 7]
+
+        MOV.W     r14,4(SP)             ; [] |57| 
+        MOV.W     r13,2(SP)             ; [] |57| 
+        MOV.W     r12,0(SP)             ; [] |57| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 59,column 19,is_stmt,isa 0
+        MOV.B     &0x160,6(SP)          ; [] |59| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 61,column 16,is_stmt,isa 0
+        MOV.B     #3,7(SP)              ; [] |61| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 67,column 5,is_stmt,isa 0
+        MOV.B     7(SP),r14             ; [] |67| 
+        MOV.B     6(SP),r15             ; [] |67| 
+        BIC.W     r14,r15               ; [] |67| 
+        OR.W      #42240,r15            ; [] |67| 
+        MOV.W     r15,&0x160            ; [] |67| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 72,column 12,is_stmt,isa 0
+        TST.W     4(SP)                 ; [] |72| 
+        JEQ       $C$L4                 ; [] |72| 
+                                          ; [] |72| 
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L3
 ;*
-;*   Loop source line                : 37
-;*   Loop closing brace source line  : 42
+;*   Loop source line                : 72
+;*   Loop closing brace source line  : 77
 ;*   Known Minimum Trip Count        : 1
 ;*   Known Maximum Trip Count        : 4294967295
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L3:    
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 40,column 9,is_stmt,isa 0
-        MOV.W     0(SP),r15             ; [] |40| 
-        MOV.W     @r15+,r13             ; [] |40| 
-        MOV.W     r15,0(SP)             ; [] |40| 
-        MOV.W     2(SP),r14             ; [] |40| 
-        MOV.W     r14,r15               ; [] |40| 
-        ADD.W     #2,r15                ; [] |40| 
-        MOV.W     r15,2(SP)             ; [] |40| 
-        MOV.W     r13,0(r14)            ; [] |40| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 41,column 9,is_stmt,isa 0
-        SUB.W     #1,4(SP)              ; [] |41| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 37,column 12,is_stmt,isa 0
-        TST.W     4(SP)                 ; [] |37| 
-        JNE       $C$L3                 ; [] |37| 
-                                          ; [] |37| 
-;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 43,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 75,column 9,is_stmt,isa 0
+        MOV.W     0(SP),r15             ; [] |75| 
+        MOV.W     @r15+,r13             ; [] |75| 
+        MOV.W     r15,0(SP)             ; [] |75| 
+        MOV.W     2(SP),r14             ; [] |75| 
+        MOV.W     r14,r15               ; [] |75| 
+        ADD.W     #2,r15                ; [] |75| 
+        MOV.W     r15,2(SP)             ; [] |75| 
+        MOV.W     r13,0(r14)            ; [] |75| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 76,column 9,is_stmt,isa 0
+        SUB.W     #1,4(SP)              ; [] |76| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 72,column 12,is_stmt,isa 0
+        TST.W     4(SP)                 ; [] |72| 
+        JNE       $C$L3                 ; [] |72| 
+                                          ; [] |72| 
 ;* --------------------------------------------------------------------------*
 $C$L4:    
-        ADD.W     #6,SP                 ; [] 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 81,column 5,is_stmt,isa 0
+        MOV.B     6(SP),r15             ; [] |81| 
+        OR.W      #42240,r15            ; [] |81| 
+        MOV.W     r15,&0x160            ; [] |81| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 85,column 1,is_stmt,isa 0
+        ADD.W     #8,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
-$C$DW$16	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$16, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$16, DW_AT_TI_return
+$C$DW$20	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$20, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$20, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$9, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$9, DW_AT_TI_end_line(0x2b)
-	.dwattr $C$DW$9, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$11, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$11, DW_AT_TI_end_line(0x55)
+	.dwattr $C$DW$11, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$9
+	.dwendtag $C$DW$11
 
 	.sect	".text:FRAMCtl_write32"
 	.clink
 	.global	FRAMCtl_write32
 
-$C$DW$17	.dwtag  DW_TAG_subprogram
-	.dwattr $C$DW$17, DW_AT_name("FRAMCtl_write32")
-	.dwattr $C$DW$17, DW_AT_low_pc(FRAMCtl_write32)
-	.dwattr $C$DW$17, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$17, DW_AT_TI_symbol_name("FRAMCtl_write32")
-	.dwattr $C$DW$17, DW_AT_external
-	.dwattr $C$DW$17, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$17, DW_AT_TI_begin_line(0x2d)
-	.dwattr $C$DW$17, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$17, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$17, DW_AT_decl_line(0x2d)
-	.dwattr $C$DW$17, DW_AT_decl_column(0x06)
-	.dwattr $C$DW$17, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 47,column 1,is_stmt,address FRAMCtl_write32,isa 0
+$C$DW$21	.dwtag  DW_TAG_subprogram
+	.dwattr $C$DW$21, DW_AT_name("FRAMCtl_write32")
+	.dwattr $C$DW$21, DW_AT_low_pc(FRAMCtl_write32)
+	.dwattr $C$DW$21, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$21, DW_AT_TI_symbol_name("FRAMCtl_write32")
+	.dwattr $C$DW$21, DW_AT_external
+	.dwattr $C$DW$21, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$21, DW_AT_TI_begin_line(0x57)
+	.dwattr $C$DW$21, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$21, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$21, DW_AT_decl_line(0x57)
+	.dwattr $C$DW$21, DW_AT_decl_column(0x06)
+	.dwattr $C$DW$21, DW_AT_TI_max_frame_size(0x0a)
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 89,column 1,is_stmt,address FRAMCtl_write32,isa 0
 
 	.dwfde $C$DW$CIE, FRAMCtl_write32
-$C$DW$18	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$18, DW_AT_name("dataPtr")
-	.dwattr $C$DW$18, DW_AT_TI_symbol_name("dataPtr")
-	.dwattr $C$DW$18, DW_AT_type(*$C$DW$T$33)
-	.dwattr $C$DW$18, DW_AT_location[DW_OP_reg12]
+$C$DW$22	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$22, DW_AT_name("dataPtr")
+	.dwattr $C$DW$22, DW_AT_TI_symbol_name("dataPtr")
+	.dwattr $C$DW$22, DW_AT_type(*$C$DW$T$33)
+	.dwattr $C$DW$22, DW_AT_location[DW_OP_reg12]
 
-$C$DW$19	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$19, DW_AT_name("framPtr")
-	.dwattr $C$DW$19, DW_AT_TI_symbol_name("framPtr")
-	.dwattr $C$DW$19, DW_AT_type(*$C$DW$T$33)
-	.dwattr $C$DW$19, DW_AT_location[DW_OP_reg13]
+$C$DW$23	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$23, DW_AT_name("framPtr")
+	.dwattr $C$DW$23, DW_AT_TI_symbol_name("framPtr")
+	.dwattr $C$DW$23, DW_AT_type(*$C$DW$T$33)
+	.dwattr $C$DW$23, DW_AT_location[DW_OP_reg13]
 
-$C$DW$20	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$20, DW_AT_name("count")
-	.dwattr $C$DW$20, DW_AT_TI_symbol_name("count")
-	.dwattr $C$DW$20, DW_AT_type(*$C$DW$T$27)
-	.dwattr $C$DW$20, DW_AT_location[DW_OP_reg14]
+$C$DW$24	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$24, DW_AT_name("count")
+	.dwattr $C$DW$24, DW_AT_TI_symbol_name("count")
+	.dwattr $C$DW$24, DW_AT_type(*$C$DW$T$27)
+	.dwattr $C$DW$24, DW_AT_location[DW_OP_reg14]
 
 
 ;*****************************************************************************
@@ -294,121 +344,146 @@ $C$DW$20	.dwtag  DW_TAG_formal_parameter
 ;*                                                                           *
 ;*   Regs Modified     : SP,SR,r12,r13,r14,r15                               *
 ;*   Regs Used         : SP,SR,r12,r13,r14,r15                               *
-;*   Local Frame Size  : 0 Args + 6 Auto + 0 Save = 6 byte                   *
+;*   Local Frame Size  : 0 Args + 8 Auto + 0 Save = 8 byte                   *
 ;*****************************************************************************
 FRAMCtl_write32:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-        SUB.W     #6,SP                 ; [] 
-	.dwcfi	cfa_offset, 8
-$C$DW$21	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$21, DW_AT_name("dataPtr")
-	.dwattr $C$DW$21, DW_AT_TI_symbol_name("dataPtr")
-	.dwattr $C$DW$21, DW_AT_type(*$C$DW$T$33)
-	.dwattr $C$DW$21, DW_AT_location[DW_OP_breg1 0]
+        SUB.W     #8,SP                 ; [] 
+	.dwcfi	cfa_offset, 10
+$C$DW$25	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$25, DW_AT_name("dataPtr")
+	.dwattr $C$DW$25, DW_AT_TI_symbol_name("dataPtr")
+	.dwattr $C$DW$25, DW_AT_type(*$C$DW$T$33)
+	.dwattr $C$DW$25, DW_AT_location[DW_OP_breg1 0]
 
-$C$DW$22	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$22, DW_AT_name("framPtr")
-	.dwattr $C$DW$22, DW_AT_TI_symbol_name("framPtr")
-	.dwattr $C$DW$22, DW_AT_type(*$C$DW$T$33)
-	.dwattr $C$DW$22, DW_AT_location[DW_OP_breg1 2]
+$C$DW$26	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$26, DW_AT_name("framPtr")
+	.dwattr $C$DW$26, DW_AT_TI_symbol_name("framPtr")
+	.dwattr $C$DW$26, DW_AT_type(*$C$DW$T$33)
+	.dwattr $C$DW$26, DW_AT_location[DW_OP_breg1 2]
 
-$C$DW$23	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$23, DW_AT_name("count")
-	.dwattr $C$DW$23, DW_AT_TI_symbol_name("count")
-	.dwattr $C$DW$23, DW_AT_type(*$C$DW$T$27)
-	.dwattr $C$DW$23, DW_AT_location[DW_OP_breg1 4]
+$C$DW$27	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$27, DW_AT_name("count")
+	.dwattr $C$DW$27, DW_AT_TI_symbol_name("count")
+	.dwattr $C$DW$27, DW_AT_type(*$C$DW$T$27)
+	.dwattr $C$DW$27, DW_AT_location[DW_OP_breg1 4]
 
-        MOV.W     r14,4(SP)             ; [] |47| 
-        MOV.W     r13,2(SP)             ; [] |47| 
-        MOV.W     r12,0(SP)             ; [] |47| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 48,column 12,is_stmt,isa 0
-        TST.W     4(SP)                 ; [] |48| 
-        JEQ       $C$L6                 ; [] |48| 
-                                          ; [] |48| 
+$C$DW$28	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$28, DW_AT_name("state")
+	.dwattr $C$DW$28, DW_AT_TI_symbol_name("state")
+	.dwattr $C$DW$28, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$28, DW_AT_location[DW_OP_breg1 6]
+
+$C$DW$29	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$29, DW_AT_name("wp")
+	.dwattr $C$DW$29, DW_AT_TI_symbol_name("wp")
+	.dwattr $C$DW$29, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$29, DW_AT_location[DW_OP_breg1 7]
+
+        MOV.W     r14,4(SP)             ; [] |89| 
+        MOV.W     r13,2(SP)             ; [] |89| 
+        MOV.W     r12,0(SP)             ; [] |89| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 91,column 19,is_stmt,isa 0
+        MOV.B     &0x160,6(SP)          ; [] |91| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 93,column 16,is_stmt,isa 0
+        MOV.B     #3,7(SP)              ; [] |93| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 99,column 5,is_stmt,isa 0
+        MOV.B     7(SP),r14             ; [] |99| 
+        MOV.B     6(SP),r15             ; [] |99| 
+        BIC.W     r14,r15               ; [] |99| 
+        OR.W      #42240,r15            ; [] |99| 
+        MOV.W     r15,&0x160            ; [] |99| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 104,column 12,is_stmt,isa 0
+        TST.W     4(SP)                 ; [] |104| 
+        JEQ       $C$L6                 ; [] |104| 
+                                          ; [] |104| 
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L5
 ;*
-;*   Loop source line                : 48
-;*   Loop closing brace source line  : 53
+;*   Loop source line                : 104
+;*   Loop closing brace source line  : 109
 ;*   Known Minimum Trip Count        : 1
 ;*   Known Maximum Trip Count        : 4294967295
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L5:    
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 51,column 9,is_stmt,isa 0
-        MOV.W     0(SP),r15             ; [] |51| 
-        MOV.W     @r15+,r12             ; [] |51| 
-        MOV.W     @r15+,r13             ; [] |51| 
-        MOV.W     r15,0(SP)             ; [] |51| 
-        MOV.W     2(SP),r14             ; [] |51| 
-        MOV.W     r14,r15               ; [] |51| 
-        ADD.W     #4,r15                ; [] |51| 
-        MOV.W     r15,2(SP)             ; [] |51| 
-        MOV.W     r12,0(r14)            ; [] |51| 
-        MOV.W     r13,2(r14)            ; [] |51| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 52,column 9,is_stmt,isa 0
-        SUB.W     #1,4(SP)              ; [] |52| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 48,column 12,is_stmt,isa 0
-        TST.W     4(SP)                 ; [] |48| 
-        JNE       $C$L5                 ; [] |48| 
-                                          ; [] |48| 
-;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 54,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 107,column 9,is_stmt,isa 0
+        MOV.W     0(SP),r15             ; [] |107| 
+        MOV.W     @r15+,r12             ; [] |107| 
+        MOV.W     @r15+,r13             ; [] |107| 
+        MOV.W     r15,0(SP)             ; [] |107| 
+        MOV.W     2(SP),r14             ; [] |107| 
+        MOV.W     r14,r15               ; [] |107| 
+        ADD.W     #4,r15                ; [] |107| 
+        MOV.W     r15,2(SP)             ; [] |107| 
+        MOV.W     r12,0(r14)            ; [] |107| 
+        MOV.W     r13,2(r14)            ; [] |107| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 108,column 9,is_stmt,isa 0
+        SUB.W     #1,4(SP)              ; [] |108| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 104,column 12,is_stmt,isa 0
+        TST.W     4(SP)                 ; [] |104| 
+        JNE       $C$L5                 ; [] |104| 
+                                          ; [] |104| 
 ;* --------------------------------------------------------------------------*
 $C$L6:    
-        ADD.W     #6,SP                 ; [] 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 113,column 5,is_stmt,isa 0
+        MOV.B     6(SP),r15             ; [] |113| 
+        OR.W      #42240,r15            ; [] |113| 
+        MOV.W     r15,&0x160            ; [] |113| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 117,column 1,is_stmt,isa 0
+        ADD.W     #8,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
-$C$DW$24	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$24, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$24, DW_AT_TI_return
+$C$DW$30	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$30, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$30, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$17, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$17, DW_AT_TI_end_line(0x36)
-	.dwattr $C$DW$17, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$21, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$21, DW_AT_TI_end_line(0x75)
+	.dwattr $C$DW$21, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$17
+	.dwendtag $C$DW$21
 
 	.sect	".text:FRAMCtl_fillMemory32"
 	.clink
 	.global	FRAMCtl_fillMemory32
 
-$C$DW$25	.dwtag  DW_TAG_subprogram
-	.dwattr $C$DW$25, DW_AT_name("FRAMCtl_fillMemory32")
-	.dwattr $C$DW$25, DW_AT_low_pc(FRAMCtl_fillMemory32)
-	.dwattr $C$DW$25, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$25, DW_AT_TI_symbol_name("FRAMCtl_fillMemory32")
-	.dwattr $C$DW$25, DW_AT_external
-	.dwattr $C$DW$25, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$25, DW_AT_TI_begin_line(0x38)
-	.dwattr $C$DW$25, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$25, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$25, DW_AT_decl_line(0x38)
-	.dwattr $C$DW$25, DW_AT_decl_column(0x06)
-	.dwattr $C$DW$25, DW_AT_TI_max_frame_size(0x0a)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 60,column 1,is_stmt,address FRAMCtl_fillMemory32,isa 0
+$C$DW$31	.dwtag  DW_TAG_subprogram
+	.dwattr $C$DW$31, DW_AT_name("FRAMCtl_fillMemory32")
+	.dwattr $C$DW$31, DW_AT_low_pc(FRAMCtl_fillMemory32)
+	.dwattr $C$DW$31, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$31, DW_AT_TI_symbol_name("FRAMCtl_fillMemory32")
+	.dwattr $C$DW$31, DW_AT_external
+	.dwattr $C$DW$31, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$31, DW_AT_TI_begin_line(0x77)
+	.dwattr $C$DW$31, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$31, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$31, DW_AT_decl_line(0x77)
+	.dwattr $C$DW$31, DW_AT_decl_column(0x06)
+	.dwattr $C$DW$31, DW_AT_TI_max_frame_size(0x0c)
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 123,column 1,is_stmt,address FRAMCtl_fillMemory32,isa 0
 
 	.dwfde $C$DW$CIE, FRAMCtl_fillMemory32
-$C$DW$26	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$26, DW_AT_name("value")
-	.dwattr $C$DW$26, DW_AT_TI_symbol_name("value")
-	.dwattr $C$DW$26, DW_AT_type(*$C$DW$T$32)
-	.dwattr $C$DW$26, DW_AT_location[DW_OP_reg12]
+$C$DW$32	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$32, DW_AT_name("value")
+	.dwattr $C$DW$32, DW_AT_TI_symbol_name("value")
+	.dwattr $C$DW$32, DW_AT_type(*$C$DW$T$32)
+	.dwattr $C$DW$32, DW_AT_location[DW_OP_reg12]
 
-$C$DW$27	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$27, DW_AT_name("framPtr")
-	.dwattr $C$DW$27, DW_AT_TI_symbol_name("framPtr")
-	.dwattr $C$DW$27, DW_AT_type(*$C$DW$T$33)
-	.dwattr $C$DW$27, DW_AT_location[DW_OP_reg14]
+$C$DW$33	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$33, DW_AT_name("framPtr")
+	.dwattr $C$DW$33, DW_AT_TI_symbol_name("framPtr")
+	.dwattr $C$DW$33, DW_AT_type(*$C$DW$T$33)
+	.dwattr $C$DW$33, DW_AT_location[DW_OP_reg14]
 
-$C$DW$28	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$28, DW_AT_name("count")
-	.dwattr $C$DW$28, DW_AT_TI_symbol_name("count")
-	.dwattr $C$DW$28, DW_AT_type(*$C$DW$T$27)
-	.dwattr $C$DW$28, DW_AT_location[DW_OP_reg15]
+$C$DW$34	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$34, DW_AT_name("count")
+	.dwattr $C$DW$34, DW_AT_TI_symbol_name("count")
+	.dwattr $C$DW$34, DW_AT_type(*$C$DW$T$27)
+	.dwattr $C$DW$34, DW_AT_location[DW_OP_reg15]
 
 
 ;*****************************************************************************
@@ -416,106 +491,131 @@ $C$DW$28	.dwtag  DW_TAG_formal_parameter
 ;*                                                                           *
 ;*   Regs Modified     : SP,SR,r14,r15                                       *
 ;*   Regs Used         : SP,SR,r12,r13,r14,r15                               *
-;*   Local Frame Size  : 0 Args + 8 Auto + 0 Save = 8 byte                   *
+;*   Local Frame Size  : 0 Args + 10 Auto + 0 Save = 10 byte                 *
 ;*****************************************************************************
 FRAMCtl_fillMemory32:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-        SUB.W     #8,SP                 ; [] 
-	.dwcfi	cfa_offset, 10
-$C$DW$29	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$29, DW_AT_name("value")
-	.dwattr $C$DW$29, DW_AT_TI_symbol_name("value")
-	.dwattr $C$DW$29, DW_AT_type(*$C$DW$T$32)
-	.dwattr $C$DW$29, DW_AT_location[DW_OP_breg1 0]
+        SUB.W     #10,SP                ; [] 
+	.dwcfi	cfa_offset, 12
+$C$DW$35	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$35, DW_AT_name("value")
+	.dwattr $C$DW$35, DW_AT_TI_symbol_name("value")
+	.dwattr $C$DW$35, DW_AT_type(*$C$DW$T$32)
+	.dwattr $C$DW$35, DW_AT_location[DW_OP_breg1 0]
 
-$C$DW$30	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$30, DW_AT_name("framPtr")
-	.dwattr $C$DW$30, DW_AT_TI_symbol_name("framPtr")
-	.dwattr $C$DW$30, DW_AT_type(*$C$DW$T$33)
-	.dwattr $C$DW$30, DW_AT_location[DW_OP_breg1 4]
+$C$DW$36	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$36, DW_AT_name("framPtr")
+	.dwattr $C$DW$36, DW_AT_TI_symbol_name("framPtr")
+	.dwattr $C$DW$36, DW_AT_type(*$C$DW$T$33)
+	.dwattr $C$DW$36, DW_AT_location[DW_OP_breg1 4]
 
-$C$DW$31	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$31, DW_AT_name("count")
-	.dwattr $C$DW$31, DW_AT_TI_symbol_name("count")
-	.dwattr $C$DW$31, DW_AT_type(*$C$DW$T$27)
-	.dwattr $C$DW$31, DW_AT_location[DW_OP_breg1 6]
+$C$DW$37	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$37, DW_AT_name("count")
+	.dwattr $C$DW$37, DW_AT_TI_symbol_name("count")
+	.dwattr $C$DW$37, DW_AT_type(*$C$DW$T$27)
+	.dwattr $C$DW$37, DW_AT_location[DW_OP_breg1 6]
 
-        MOV.W     r15,6(SP)             ; [] |60| 
-        MOV.W     r14,4(SP)             ; [] |60| 
-        MOV.W     r12,0(SP)             ; [] |60| 
-        MOV.W     r13,2(SP)             ; [] |60| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 61,column 12,is_stmt,isa 0
-        TST.W     6(SP)                 ; [] |61| 
-        JEQ       $C$L8                 ; [] |61| 
-                                          ; [] |61| 
+$C$DW$38	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$38, DW_AT_name("state")
+	.dwattr $C$DW$38, DW_AT_TI_symbol_name("state")
+	.dwattr $C$DW$38, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$38, DW_AT_location[DW_OP_breg1 8]
+
+$C$DW$39	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$39, DW_AT_name("wp")
+	.dwattr $C$DW$39, DW_AT_TI_symbol_name("wp")
+	.dwattr $C$DW$39, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$39, DW_AT_location[DW_OP_breg1 9]
+
+        MOV.W     r15,6(SP)             ; [] |123| 
+        MOV.W     r14,4(SP)             ; [] |123| 
+        MOV.W     r12,0(SP)             ; [] |123| 
+        MOV.W     r13,2(SP)             ; [] |123| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 125,column 19,is_stmt,isa 0
+        MOV.B     &0x160,8(SP)          ; [] |125| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 127,column 16,is_stmt,isa 0
+        MOV.B     #3,9(SP)              ; [] |127| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 133,column 5,is_stmt,isa 0
+        MOV.B     9(SP),r14             ; [] |133| 
+        MOV.B     8(SP),r15             ; [] |133| 
+        BIC.W     r14,r15               ; [] |133| 
+        OR.W      #42240,r15            ; [] |133| 
+        MOV.W     r15,&0x160            ; [] |133| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 138,column 12,is_stmt,isa 0
+        TST.W     6(SP)                 ; [] |138| 
+        JEQ       $C$L8                 ; [] |138| 
+                                          ; [] |138| 
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L7
 ;*
-;*   Loop source line                : 61
-;*   Loop closing brace source line  : 66
+;*   Loop source line                : 138
+;*   Loop closing brace source line  : 143
 ;*   Known Minimum Trip Count        : 1
 ;*   Known Maximum Trip Count        : 4294967295
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L7:    
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 64,column 9,is_stmt,isa 0
-        MOV.W     4(SP),r14             ; [] |64| 
-        MOV.W     r14,r15               ; [] |64| 
-        ADD.W     #4,r15                ; [] |64| 
-        MOV.W     r15,4(SP)             ; [] |64| 
-        MOV.W     0(SP),0(r14)          ; [] |64| 
-        MOV.W     2(SP),2(r14)          ; [] |64| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 65,column 9,is_stmt,isa 0
-        SUB.W     #1,6(SP)              ; [] |65| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 61,column 12,is_stmt,isa 0
-        TST.W     6(SP)                 ; [] |61| 
-        JNE       $C$L7                 ; [] |61| 
-                                          ; [] |61| 
-;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 67,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 141,column 9,is_stmt,isa 0
+        MOV.W     4(SP),r14             ; [] |141| 
+        MOV.W     r14,r15               ; [] |141| 
+        ADD.W     #4,r15                ; [] |141| 
+        MOV.W     r15,4(SP)             ; [] |141| 
+        MOV.W     0(SP),0(r14)          ; [] |141| 
+        MOV.W     2(SP),2(r14)          ; [] |141| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 142,column 9,is_stmt,isa 0
+        SUB.W     #1,6(SP)              ; [] |142| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 138,column 12,is_stmt,isa 0
+        TST.W     6(SP)                 ; [] |138| 
+        JNE       $C$L7                 ; [] |138| 
+                                          ; [] |138| 
 ;* --------------------------------------------------------------------------*
 $C$L8:    
-        ADD.W     #8,SP                 ; [] 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 147,column 5,is_stmt,isa 0
+        MOV.B     8(SP),r15             ; [] |147| 
+        OR.W      #42240,r15            ; [] |147| 
+        MOV.W     r15,&0x160            ; [] |147| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 151,column 1,is_stmt,isa 0
+        ADD.W     #10,SP                ; [] 
 	.dwcfi	cfa_offset, 2
-$C$DW$32	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$32, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$32, DW_AT_TI_return
+$C$DW$40	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$40, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$40, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$25, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$25, DW_AT_TI_end_line(0x43)
-	.dwattr $C$DW$25, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$31, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$31, DW_AT_TI_end_line(0x97)
+	.dwattr $C$DW$31, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$25
+	.dwendtag $C$DW$31
 
 	.sect	".text:FRAMCtl_enableInterrupt"
 	.clink
 	.global	FRAMCtl_enableInterrupt
 
-$C$DW$33	.dwtag  DW_TAG_subprogram
-	.dwattr $C$DW$33, DW_AT_name("FRAMCtl_enableInterrupt")
-	.dwattr $C$DW$33, DW_AT_low_pc(FRAMCtl_enableInterrupt)
-	.dwattr $C$DW$33, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$33, DW_AT_TI_symbol_name("FRAMCtl_enableInterrupt")
-	.dwattr $C$DW$33, DW_AT_external
-	.dwattr $C$DW$33, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$33, DW_AT_TI_begin_line(0x45)
-	.dwattr $C$DW$33, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$33, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$33, DW_AT_decl_line(0x45)
-	.dwattr $C$DW$33, DW_AT_decl_column(0x06)
-	.dwattr $C$DW$33, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 70,column 1,is_stmt,address FRAMCtl_enableInterrupt,isa 0
+$C$DW$41	.dwtag  DW_TAG_subprogram
+	.dwattr $C$DW$41, DW_AT_name("FRAMCtl_enableInterrupt")
+	.dwattr $C$DW$41, DW_AT_low_pc(FRAMCtl_enableInterrupt)
+	.dwattr $C$DW$41, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$41, DW_AT_TI_symbol_name("FRAMCtl_enableInterrupt")
+	.dwattr $C$DW$41, DW_AT_external
+	.dwattr $C$DW$41, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$41, DW_AT_TI_begin_line(0x99)
+	.dwattr $C$DW$41, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$41, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$41, DW_AT_decl_line(0x99)
+	.dwattr $C$DW$41, DW_AT_decl_column(0x06)
+	.dwattr $C$DW$41, DW_AT_TI_max_frame_size(0x06)
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 154,column 1,is_stmt,address FRAMCtl_enableInterrupt,isa 0
 
 	.dwfde $C$DW$CIE, FRAMCtl_enableInterrupt
-$C$DW$34	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$34, DW_AT_name("interruptMask")
-	.dwattr $C$DW$34, DW_AT_TI_symbol_name("interruptMask")
-	.dwattr $C$DW$34, DW_AT_type(*$C$DW$T$27)
-	.dwattr $C$DW$34, DW_AT_location[DW_OP_reg12]
+$C$DW$42	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$42, DW_AT_name("interruptMask")
+	.dwattr $C$DW$42, DW_AT_TI_symbol_name("interruptMask")
+	.dwattr $C$DW$42, DW_AT_type(*$C$DW$T$27)
+	.dwattr $C$DW$42, DW_AT_location[DW_OP_reg12]
 
 
 ;*****************************************************************************
@@ -531,68 +631,68 @@ FRAMCtl_enableInterrupt:
 	.dwcfi	save_reg_to_mem, 16, -2
         SUB.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 6
-$C$DW$35	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$35, DW_AT_name("interruptMask")
-	.dwattr $C$DW$35, DW_AT_TI_symbol_name("interruptMask")
-	.dwattr $C$DW$35, DW_AT_type(*$C$DW$T$27)
-	.dwattr $C$DW$35, DW_AT_location[DW_OP_breg1 0]
+$C$DW$43	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$43, DW_AT_name("interruptMask")
+	.dwattr $C$DW$43, DW_AT_TI_symbol_name("interruptMask")
+	.dwattr $C$DW$43, DW_AT_type(*$C$DW$T$27)
+	.dwattr $C$DW$43, DW_AT_location[DW_OP_breg1 0]
 
-$C$DW$36	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$36, DW_AT_name("waitSelection")
-	.dwattr $C$DW$36, DW_AT_TI_symbol_name("waitSelection")
-	.dwattr $C$DW$36, DW_AT_type(*$C$DW$T$24)
-	.dwattr $C$DW$36, DW_AT_location[DW_OP_breg1 2]
+$C$DW$44	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$44, DW_AT_name("waitSelection")
+	.dwattr $C$DW$44, DW_AT_TI_symbol_name("waitSelection")
+	.dwattr $C$DW$44, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$44, DW_AT_location[DW_OP_breg1 2]
 
-        MOV.W     r12,0(SP)             ; [] |70| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 73,column 5,is_stmt,isa 0
-        MOV.B     &0x1a0,2(SP)          ; [] |73| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 75,column 5,is_stmt,isa 0
-        MOV.B     2(SP),r15             ; [] |75| 
-        OR.W      #42240,r15            ; [] |75| 
-        MOV.W     r15,&0x1a0            ; [] |75| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 78,column 5,is_stmt,isa 0
-        OR.W      0(SP),&0x1a4          ; [] |78| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 79,column 1,is_stmt,isa 0
+        MOV.W     r12,0(SP)             ; [] |154| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 157,column 5,is_stmt,isa 0
+        MOV.B     &0x1a0,2(SP)          ; [] |157| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 159,column 5,is_stmt,isa 0
+        MOV.B     2(SP),r15             ; [] |159| 
+        OR.W      #42240,r15            ; [] |159| 
+        MOV.W     r15,&0x1a0            ; [] |159| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 162,column 5,is_stmt,isa 0
+        OR.W      0(SP),&0x1a4          ; [] |162| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 163,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
-$C$DW$37	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$37, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$37, DW_AT_TI_return
+$C$DW$45	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$45, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$45, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$33, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$33, DW_AT_TI_end_line(0x4f)
-	.dwattr $C$DW$33, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$41, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$41, DW_AT_TI_end_line(0xa3)
+	.dwattr $C$DW$41, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$33
+	.dwendtag $C$DW$41
 
 	.sect	".text:FRAMCtl_getInterruptStatus"
 	.clink
 	.global	FRAMCtl_getInterruptStatus
 
-$C$DW$38	.dwtag  DW_TAG_subprogram
-	.dwattr $C$DW$38, DW_AT_name("FRAMCtl_getInterruptStatus")
-	.dwattr $C$DW$38, DW_AT_low_pc(FRAMCtl_getInterruptStatus)
-	.dwattr $C$DW$38, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$38, DW_AT_TI_symbol_name("FRAMCtl_getInterruptStatus")
-	.dwattr $C$DW$38, DW_AT_external
-	.dwattr $C$DW$38, DW_AT_type(*$C$DW$T$24)
-	.dwattr $C$DW$38, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$38, DW_AT_TI_begin_line(0x51)
-	.dwattr $C$DW$38, DW_AT_TI_begin_column(0x09)
-	.dwattr $C$DW$38, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$38, DW_AT_decl_line(0x51)
-	.dwattr $C$DW$38, DW_AT_decl_column(0x09)
-	.dwattr $C$DW$38, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 82,column 1,is_stmt,address FRAMCtl_getInterruptStatus,isa 0
+$C$DW$46	.dwtag  DW_TAG_subprogram
+	.dwattr $C$DW$46, DW_AT_name("FRAMCtl_getInterruptStatus")
+	.dwattr $C$DW$46, DW_AT_low_pc(FRAMCtl_getInterruptStatus)
+	.dwattr $C$DW$46, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$46, DW_AT_TI_symbol_name("FRAMCtl_getInterruptStatus")
+	.dwattr $C$DW$46, DW_AT_external
+	.dwattr $C$DW$46, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$46, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$46, DW_AT_TI_begin_line(0xa5)
+	.dwattr $C$DW$46, DW_AT_TI_begin_column(0x09)
+	.dwattr $C$DW$46, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$46, DW_AT_decl_line(0xa5)
+	.dwattr $C$DW$46, DW_AT_decl_column(0x09)
+	.dwattr $C$DW$46, DW_AT_TI_max_frame_size(0x04)
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 166,column 1,is_stmt,address FRAMCtl_getInterruptStatus,isa 0
 
 	.dwfde $C$DW$CIE, FRAMCtl_getInterruptStatus
-$C$DW$39	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$39, DW_AT_name("interruptFlagMask")
-	.dwattr $C$DW$39, DW_AT_TI_symbol_name("interruptFlagMask")
-	.dwattr $C$DW$39, DW_AT_type(*$C$DW$T$27)
-	.dwattr $C$DW$39, DW_AT_location[DW_OP_reg12]
+$C$DW$47	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$47, DW_AT_name("interruptFlagMask")
+	.dwattr $C$DW$47, DW_AT_TI_symbol_name("interruptFlagMask")
+	.dwattr $C$DW$47, DW_AT_type(*$C$DW$T$27)
+	.dwattr $C$DW$47, DW_AT_location[DW_OP_reg12]
 
 
 ;*****************************************************************************
@@ -608,56 +708,56 @@ FRAMCtl_getInterruptStatus:
 	.dwcfi	save_reg_to_mem, 16, -2
         SUB.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 4
-$C$DW$40	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$40, DW_AT_name("interruptFlagMask")
-	.dwattr $C$DW$40, DW_AT_TI_symbol_name("interruptFlagMask")
-	.dwattr $C$DW$40, DW_AT_type(*$C$DW$T$27)
-	.dwattr $C$DW$40, DW_AT_location[DW_OP_breg1 0]
+$C$DW$48	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$48, DW_AT_name("interruptFlagMask")
+	.dwattr $C$DW$48, DW_AT_TI_symbol_name("interruptFlagMask")
+	.dwattr $C$DW$48, DW_AT_type(*$C$DW$T$27)
+	.dwattr $C$DW$48, DW_AT_location[DW_OP_breg1 0]
 
-        MOV.W     r12,0(SP)             ; [] |82| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 83,column 2,is_stmt,isa 0
-        MOV.W     &0x1a6,r12            ; [] |83| 
-        AND.B     0(SP),r12             ; [] |83| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 84,column 1,is_stmt,isa 0
+        MOV.W     r12,0(SP)             ; [] |166| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 167,column 2,is_stmt,isa 0
+        MOV.W     &0x1a6,r12            ; [] |167| 
+        AND.B     0(SP),r12             ; [] |167| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 168,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
-$C$DW$41	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$41, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$41, DW_AT_TI_return
+$C$DW$49	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$49, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$49, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$38, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$38, DW_AT_TI_end_line(0x54)
-	.dwattr $C$DW$38, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$46, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$46, DW_AT_TI_end_line(0xa8)
+	.dwattr $C$DW$46, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$38
+	.dwendtag $C$DW$46
 
 	.sect	".text:FRAMCtl_disableInterrupt"
 	.clink
 	.global	FRAMCtl_disableInterrupt
 
-$C$DW$42	.dwtag  DW_TAG_subprogram
-	.dwattr $C$DW$42, DW_AT_name("FRAMCtl_disableInterrupt")
-	.dwattr $C$DW$42, DW_AT_low_pc(FRAMCtl_disableInterrupt)
-	.dwattr $C$DW$42, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$42, DW_AT_TI_symbol_name("FRAMCtl_disableInterrupt")
-	.dwattr $C$DW$42, DW_AT_external
-	.dwattr $C$DW$42, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$42, DW_AT_TI_begin_line(0x56)
-	.dwattr $C$DW$42, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$42, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$42, DW_AT_decl_line(0x56)
-	.dwattr $C$DW$42, DW_AT_decl_column(0x06)
-	.dwattr $C$DW$42, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 87,column 1,is_stmt,address FRAMCtl_disableInterrupt,isa 0
+$C$DW$50	.dwtag  DW_TAG_subprogram
+	.dwattr $C$DW$50, DW_AT_name("FRAMCtl_disableInterrupt")
+	.dwattr $C$DW$50, DW_AT_low_pc(FRAMCtl_disableInterrupt)
+	.dwattr $C$DW$50, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$50, DW_AT_TI_symbol_name("FRAMCtl_disableInterrupt")
+	.dwattr $C$DW$50, DW_AT_external
+	.dwattr $C$DW$50, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$50, DW_AT_TI_begin_line(0xaa)
+	.dwattr $C$DW$50, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$50, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$50, DW_AT_decl_line(0xaa)
+	.dwattr $C$DW$50, DW_AT_decl_column(0x06)
+	.dwattr $C$DW$50, DW_AT_TI_max_frame_size(0x06)
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 171,column 1,is_stmt,address FRAMCtl_disableInterrupt,isa 0
 
 	.dwfde $C$DW$CIE, FRAMCtl_disableInterrupt
-$C$DW$43	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$43, DW_AT_name("interruptMask")
-	.dwattr $C$DW$43, DW_AT_TI_symbol_name("interruptMask")
-	.dwattr $C$DW$43, DW_AT_type(*$C$DW$T$27)
-	.dwattr $C$DW$43, DW_AT_location[DW_OP_reg12]
+$C$DW$51	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$51, DW_AT_name("interruptMask")
+	.dwattr $C$DW$51, DW_AT_TI_symbol_name("interruptMask")
+	.dwattr $C$DW$51, DW_AT_type(*$C$DW$T$27)
+	.dwattr $C$DW$51, DW_AT_location[DW_OP_reg12]
 
 
 ;*****************************************************************************
@@ -673,67 +773,67 @@ FRAMCtl_disableInterrupt:
 	.dwcfi	save_reg_to_mem, 16, -2
         SUB.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 6
-$C$DW$44	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$44, DW_AT_name("interruptMask")
-	.dwattr $C$DW$44, DW_AT_TI_symbol_name("interruptMask")
-	.dwattr $C$DW$44, DW_AT_type(*$C$DW$T$27)
-	.dwattr $C$DW$44, DW_AT_location[DW_OP_breg1 0]
+$C$DW$52	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$52, DW_AT_name("interruptMask")
+	.dwattr $C$DW$52, DW_AT_TI_symbol_name("interruptMask")
+	.dwattr $C$DW$52, DW_AT_type(*$C$DW$T$27)
+	.dwattr $C$DW$52, DW_AT_location[DW_OP_breg1 0]
 
-$C$DW$45	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$45, DW_AT_name("waitSelection")
-	.dwattr $C$DW$45, DW_AT_TI_symbol_name("waitSelection")
-	.dwattr $C$DW$45, DW_AT_type(*$C$DW$T$24)
-	.dwattr $C$DW$45, DW_AT_location[DW_OP_breg1 2]
+$C$DW$53	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$53, DW_AT_name("waitSelection")
+	.dwattr $C$DW$53, DW_AT_TI_symbol_name("waitSelection")
+	.dwattr $C$DW$53, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$53, DW_AT_location[DW_OP_breg1 2]
 
-        MOV.W     r12,0(SP)             ; [] |87| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 90,column 2,is_stmt,isa 0
-        MOV.B     &0x1a0,2(SP)          ; [] |90| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 92,column 2,is_stmt,isa 0
-        MOV.B     2(SP),r15             ; [] |92| 
-        OR.W      #42240,r15            ; [] |92| 
-        MOV.W     r15,&0x1a0            ; [] |92| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 94,column 5,is_stmt,isa 0
-        BIC.W     0(SP),&0x1a4          ; [] |94| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 95,column 1,is_stmt,isa 0
+        MOV.W     r12,0(SP)             ; [] |171| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 174,column 2,is_stmt,isa 0
+        MOV.B     &0x1a0,2(SP)          ; [] |174| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 176,column 2,is_stmt,isa 0
+        MOV.B     2(SP),r15             ; [] |176| 
+        OR.W      #42240,r15            ; [] |176| 
+        MOV.W     r15,&0x1a0            ; [] |176| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 178,column 5,is_stmt,isa 0
+        BIC.W     0(SP),&0x1a4          ; [] |178| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 179,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
-$C$DW$46	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$46, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$46, DW_AT_TI_return
+$C$DW$54	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$54, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$54, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$42, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$42, DW_AT_TI_end_line(0x5f)
-	.dwattr $C$DW$42, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$50, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$50, DW_AT_TI_end_line(0xb3)
+	.dwattr $C$DW$50, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$42
+	.dwendtag $C$DW$50
 
 	.sect	".text:FRAMCtl_configureWaitStateControl"
 	.clink
 	.global	FRAMCtl_configureWaitStateControl
 
-$C$DW$47	.dwtag  DW_TAG_subprogram
-	.dwattr $C$DW$47, DW_AT_name("FRAMCtl_configureWaitStateControl")
-	.dwattr $C$DW$47, DW_AT_low_pc(FRAMCtl_configureWaitStateControl)
-	.dwattr $C$DW$47, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$47, DW_AT_TI_symbol_name("FRAMCtl_configureWaitStateControl")
-	.dwattr $C$DW$47, DW_AT_external
-	.dwattr $C$DW$47, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$47, DW_AT_TI_begin_line(0x61)
-	.dwattr $C$DW$47, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$47, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$47, DW_AT_decl_line(0x61)
-	.dwattr $C$DW$47, DW_AT_decl_column(0x06)
-	.dwattr $C$DW$47, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 98,column 1,is_stmt,address FRAMCtl_configureWaitStateControl,isa 0
+$C$DW$55	.dwtag  DW_TAG_subprogram
+	.dwattr $C$DW$55, DW_AT_name("FRAMCtl_configureWaitStateControl")
+	.dwattr $C$DW$55, DW_AT_low_pc(FRAMCtl_configureWaitStateControl)
+	.dwattr $C$DW$55, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$55, DW_AT_TI_symbol_name("FRAMCtl_configureWaitStateControl")
+	.dwattr $C$DW$55, DW_AT_external
+	.dwattr $C$DW$55, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$55, DW_AT_TI_begin_line(0xb5)
+	.dwattr $C$DW$55, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$55, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$55, DW_AT_decl_line(0xb5)
+	.dwattr $C$DW$55, DW_AT_decl_column(0x06)
+	.dwattr $C$DW$55, DW_AT_TI_max_frame_size(0x04)
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 182,column 1,is_stmt,address FRAMCtl_configureWaitStateControl,isa 0
 
 	.dwfde $C$DW$CIE, FRAMCtl_configureWaitStateControl
-$C$DW$48	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$48, DW_AT_name("waitState")
-	.dwattr $C$DW$48, DW_AT_TI_symbol_name("waitState")
-	.dwattr $C$DW$48, DW_AT_type(*$C$DW$T$24)
-	.dwattr $C$DW$48, DW_AT_location[DW_OP_reg12]
+$C$DW$56	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$56, DW_AT_name("waitState")
+	.dwattr $C$DW$56, DW_AT_TI_symbol_name("waitState")
+	.dwattr $C$DW$56, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$56, DW_AT_location[DW_OP_reg12]
 
 
 ;*****************************************************************************
@@ -749,69 +849,69 @@ FRAMCtl_configureWaitStateControl:
 	.dwcfi	save_reg_to_mem, 16, -2
         SUB.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 4
-$C$DW$49	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$49, DW_AT_name("waitState")
-	.dwattr $C$DW$49, DW_AT_TI_symbol_name("waitState")
-	.dwattr $C$DW$49, DW_AT_type(*$C$DW$T$24)
-	.dwattr $C$DW$49, DW_AT_location[DW_OP_breg1 0]
+$C$DW$57	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$57, DW_AT_name("waitState")
+	.dwattr $C$DW$57, DW_AT_TI_symbol_name("waitState")
+	.dwattr $C$DW$57, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$57, DW_AT_location[DW_OP_breg1 0]
 
-$C$DW$50	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$50, DW_AT_name("tempVariable")
-	.dwattr $C$DW$50, DW_AT_TI_symbol_name("tempVariable")
-	.dwattr $C$DW$50, DW_AT_type(*$C$DW$T$24)
-	.dwattr $C$DW$50, DW_AT_location[DW_OP_breg1 1]
+$C$DW$58	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$58, DW_AT_name("tempVariable")
+	.dwattr $C$DW$58, DW_AT_TI_symbol_name("tempVariable")
+	.dwattr $C$DW$58, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$58, DW_AT_location[DW_OP_breg1 1]
 
-        MOV.B     r12,0(SP)             ; [] |98| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 99,column 23,is_stmt,isa 0
-        MOV.B     &0x1a0,1(SP)          ; [] |99| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 100,column 2,is_stmt,isa 0
-        AND.B     #143,1(SP)            ; [] |100| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 101,column 2,is_stmt,isa 0
-        OR.B      0(SP),1(SP)           ; [] |101| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 102,column 2,is_stmt,isa 0
-        MOV.B     1(SP),r15             ; [] |102| 
-        OR.W      #42240,r15            ; [] |102| 
-        MOV.W     r15,&0x1a0            ; [] |102| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 103,column 1,is_stmt,isa 0
+        MOV.B     r12,0(SP)             ; [] |182| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 183,column 23,is_stmt,isa 0
+        MOV.B     &0x1a0,1(SP)          ; [] |183| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 184,column 2,is_stmt,isa 0
+        AND.B     #143,1(SP)            ; [] |184| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 185,column 2,is_stmt,isa 0
+        OR.B      0(SP),1(SP)           ; [] |185| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 186,column 2,is_stmt,isa 0
+        MOV.B     1(SP),r15             ; [] |186| 
+        OR.W      #42240,r15            ; [] |186| 
+        MOV.W     r15,&0x1a0            ; [] |186| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 187,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
-$C$DW$51	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$51, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$51, DW_AT_TI_return
+$C$DW$59	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$59, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$59, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$47, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$47, DW_AT_TI_end_line(0x67)
-	.dwattr $C$DW$47, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$55, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$55, DW_AT_TI_end_line(0xbb)
+	.dwattr $C$DW$55, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$47
+	.dwendtag $C$DW$55
 
 	.sect	".text:FRAMCtl_delayPowerUpFromLPM"
 	.clink
 	.global	FRAMCtl_delayPowerUpFromLPM
 
-$C$DW$52	.dwtag  DW_TAG_subprogram
-	.dwattr $C$DW$52, DW_AT_name("FRAMCtl_delayPowerUpFromLPM")
-	.dwattr $C$DW$52, DW_AT_low_pc(FRAMCtl_delayPowerUpFromLPM)
-	.dwattr $C$DW$52, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$52, DW_AT_TI_symbol_name("FRAMCtl_delayPowerUpFromLPM")
-	.dwattr $C$DW$52, DW_AT_external
-	.dwattr $C$DW$52, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$52, DW_AT_TI_begin_line(0x69)
-	.dwattr $C$DW$52, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$52, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$52, DW_AT_decl_line(0x69)
-	.dwattr $C$DW$52, DW_AT_decl_column(0x06)
-	.dwattr $C$DW$52, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 106,column 1,is_stmt,address FRAMCtl_delayPowerUpFromLPM,isa 0
+$C$DW$60	.dwtag  DW_TAG_subprogram
+	.dwattr $C$DW$60, DW_AT_name("FRAMCtl_delayPowerUpFromLPM")
+	.dwattr $C$DW$60, DW_AT_low_pc(FRAMCtl_delayPowerUpFromLPM)
+	.dwattr $C$DW$60, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$60, DW_AT_TI_symbol_name("FRAMCtl_delayPowerUpFromLPM")
+	.dwattr $C$DW$60, DW_AT_external
+	.dwattr $C$DW$60, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$60, DW_AT_TI_begin_line(0xbd)
+	.dwattr $C$DW$60, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$60, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$60, DW_AT_decl_line(0xbd)
+	.dwattr $C$DW$60, DW_AT_decl_column(0x06)
+	.dwattr $C$DW$60, DW_AT_TI_max_frame_size(0x04)
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 190,column 1,is_stmt,address FRAMCtl_delayPowerUpFromLPM,isa 0
 
 	.dwfde $C$DW$CIE, FRAMCtl_delayPowerUpFromLPM
-$C$DW$53	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$53, DW_AT_name("delayStatus")
-	.dwattr $C$DW$53, DW_AT_TI_symbol_name("delayStatus")
-	.dwattr $C$DW$53, DW_AT_type(*$C$DW$T$24)
-	.dwattr $C$DW$53, DW_AT_location[DW_OP_reg12]
+$C$DW$61	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$61, DW_AT_name("delayStatus")
+	.dwattr $C$DW$61, DW_AT_TI_symbol_name("delayStatus")
+	.dwattr $C$DW$61, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$61, DW_AT_location[DW_OP_reg12]
 
 
 ;*****************************************************************************
@@ -827,43 +927,43 @@ FRAMCtl_delayPowerUpFromLPM:
 	.dwcfi	save_reg_to_mem, 16, -2
         SUB.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 4
-$C$DW$54	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$54, DW_AT_name("delayStatus")
-	.dwattr $C$DW$54, DW_AT_TI_symbol_name("delayStatus")
-	.dwattr $C$DW$54, DW_AT_type(*$C$DW$T$24)
-	.dwattr $C$DW$54, DW_AT_location[DW_OP_breg1 0]
+$C$DW$62	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$62, DW_AT_name("delayStatus")
+	.dwattr $C$DW$62, DW_AT_TI_symbol_name("delayStatus")
+	.dwattr $C$DW$62, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$62, DW_AT_location[DW_OP_breg1 0]
 
-$C$DW$55	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$55, DW_AT_name("waitSelection")
-	.dwattr $C$DW$55, DW_AT_TI_symbol_name("waitSelection")
-	.dwattr $C$DW$55, DW_AT_type(*$C$DW$T$24)
-	.dwattr $C$DW$55, DW_AT_location[DW_OP_breg1 1]
+$C$DW$63	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$63, DW_AT_name("waitSelection")
+	.dwattr $C$DW$63, DW_AT_TI_symbol_name("waitSelection")
+	.dwattr $C$DW$63, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$63, DW_AT_location[DW_OP_breg1 1]
 
-        MOV.B     r12,0(SP)             ; [] |106| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 110,column 5,is_stmt,isa 0
-        MOV.B     &0x1a0,1(SP)          ; [] |110| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 113,column 5,is_stmt,isa 0
-        MOV.B     1(SP),r15             ; [] |113| 
-        OR.W      #42240,r15            ; [] |113| 
-        MOV.W     r15,&0x1a0            ; [] |113| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 115,column 2,is_stmt,isa 0
-        BIC.B     #2,&0x1a4             ; [] |115| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 116,column 2,is_stmt,isa 0
-        OR.B      0(SP),&0x1a4          ; [] |116| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/framctl.c",line 118,column 1,is_stmt,isa 0
+        MOV.B     r12,0(SP)             ; [] |190| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 194,column 5,is_stmt,isa 0
+        MOV.B     &0x1a0,1(SP)          ; [] |194| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 197,column 5,is_stmt,isa 0
+        MOV.B     1(SP),r15             ; [] |197| 
+        OR.W      #42240,r15            ; [] |197| 
+        MOV.W     r15,&0x1a0            ; [] |197| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 199,column 2,is_stmt,isa 0
+        BIC.B     #2,&0x1a4             ; [] |199| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 200,column 2,is_stmt,isa 0
+        OR.B      0(SP),&0x1a4          ; [] |200| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/framctl.c",line 202,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
-$C$DW$56	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$56, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$56, DW_AT_TI_return
+$C$DW$64	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$64, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$64, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$52, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/framctl.c")
-	.dwattr $C$DW$52, DW_AT_TI_end_line(0x76)
-	.dwattr $C$DW$52, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$60, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/framctl.c")
+	.dwattr $C$DW$60, DW_AT_TI_end_line(0xca)
+	.dwattr $C$DW$60, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$52
+	.dwendtag $C$DW$60
 
 
 ;******************************************************************************
@@ -883,25 +983,25 @@ $C$DW$56	.dwtag  DW_TAG_TI_branch
 
 $C$DW$T$21	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$21, DW_AT_byte_size(0x10)
-$C$DW$57	.dwtag  DW_TAG_member
-	.dwattr $C$DW$57, DW_AT_type(*$C$DW$T$14)
-	.dwattr $C$DW$57, DW_AT_name("__max_align1")
-	.dwattr $C$DW$57, DW_AT_TI_symbol_name("__max_align1")
-	.dwattr $C$DW$57, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
-	.dwattr $C$DW$57, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$57, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
-	.dwattr $C$DW$57, DW_AT_decl_line(0x7b)
-	.dwattr $C$DW$57, DW_AT_decl_column(0x0c)
+$C$DW$65	.dwtag  DW_TAG_member
+	.dwattr $C$DW$65, DW_AT_type(*$C$DW$T$14)
+	.dwattr $C$DW$65, DW_AT_name("__max_align1")
+	.dwattr $C$DW$65, DW_AT_TI_symbol_name("__max_align1")
+	.dwattr $C$DW$65, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+	.dwattr $C$DW$65, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$65, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
+	.dwattr $C$DW$65, DW_AT_decl_line(0x7b)
+	.dwattr $C$DW$65, DW_AT_decl_column(0x0c)
 
-$C$DW$58	.dwtag  DW_TAG_member
-	.dwattr $C$DW$58, DW_AT_type(*$C$DW$T$18)
-	.dwattr $C$DW$58, DW_AT_name("__max_align2")
-	.dwattr $C$DW$58, DW_AT_TI_symbol_name("__max_align2")
-	.dwattr $C$DW$58, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
-	.dwattr $C$DW$58, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$58, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
-	.dwattr $C$DW$58, DW_AT_decl_line(0x7c)
-	.dwattr $C$DW$58, DW_AT_decl_column(0x0e)
+$C$DW$66	.dwtag  DW_TAG_member
+	.dwattr $C$DW$66, DW_AT_type(*$C$DW$T$18)
+	.dwattr $C$DW$66, DW_AT_name("__max_align2")
+	.dwattr $C$DW$66, DW_AT_TI_symbol_name("__max_align2")
+	.dwattr $C$DW$66, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
+	.dwattr $C$DW$66, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$66, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
+	.dwattr $C$DW$66, DW_AT_decl_line(0x7c)
+	.dwattr $C$DW$66, DW_AT_decl_column(0x0e)
 
 	.dwattr $C$DW$T$21, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
 	.dwattr $C$DW$T$21, DW_AT_decl_line(0x7a)
@@ -1990,73 +2090,73 @@ $C$DW$CIE	.dwcie 16
 ;* DWARF REGISTER MAP                                          *
 ;***************************************************************
 
-$C$DW$59	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$59, DW_AT_name("PC")
-	.dwattr $C$DW$59, DW_AT_location[DW_OP_reg0]
-
-$C$DW$60	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$60, DW_AT_name("SP")
-	.dwattr $C$DW$60, DW_AT_location[DW_OP_reg1]
-
-$C$DW$61	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$61, DW_AT_name("SR")
-	.dwattr $C$DW$61, DW_AT_location[DW_OP_reg2]
-
-$C$DW$62	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$62, DW_AT_name("CG")
-	.dwattr $C$DW$62, DW_AT_location[DW_OP_reg3]
-
-$C$DW$63	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$63, DW_AT_name("r4")
-	.dwattr $C$DW$63, DW_AT_location[DW_OP_reg4]
-
-$C$DW$64	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$64, DW_AT_name("r5")
-	.dwattr $C$DW$64, DW_AT_location[DW_OP_reg5]
-
-$C$DW$65	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$65, DW_AT_name("r6")
-	.dwattr $C$DW$65, DW_AT_location[DW_OP_reg6]
-
-$C$DW$66	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$66, DW_AT_name("r7")
-	.dwattr $C$DW$66, DW_AT_location[DW_OP_reg7]
-
 $C$DW$67	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$67, DW_AT_name("r8")
-	.dwattr $C$DW$67, DW_AT_location[DW_OP_reg8]
+	.dwattr $C$DW$67, DW_AT_name("PC")
+	.dwattr $C$DW$67, DW_AT_location[DW_OP_reg0]
 
 $C$DW$68	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$68, DW_AT_name("r9")
-	.dwattr $C$DW$68, DW_AT_location[DW_OP_reg9]
+	.dwattr $C$DW$68, DW_AT_name("SP")
+	.dwattr $C$DW$68, DW_AT_location[DW_OP_reg1]
 
 $C$DW$69	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$69, DW_AT_name("r10")
-	.dwattr $C$DW$69, DW_AT_location[DW_OP_reg10]
+	.dwattr $C$DW$69, DW_AT_name("SR")
+	.dwattr $C$DW$69, DW_AT_location[DW_OP_reg2]
 
 $C$DW$70	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$70, DW_AT_name("r11")
-	.dwattr $C$DW$70, DW_AT_location[DW_OP_reg11]
+	.dwattr $C$DW$70, DW_AT_name("CG")
+	.dwattr $C$DW$70, DW_AT_location[DW_OP_reg3]
 
 $C$DW$71	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$71, DW_AT_name("r12")
-	.dwattr $C$DW$71, DW_AT_location[DW_OP_reg12]
+	.dwattr $C$DW$71, DW_AT_name("r4")
+	.dwattr $C$DW$71, DW_AT_location[DW_OP_reg4]
 
 $C$DW$72	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$72, DW_AT_name("r13")
-	.dwattr $C$DW$72, DW_AT_location[DW_OP_reg13]
+	.dwattr $C$DW$72, DW_AT_name("r5")
+	.dwattr $C$DW$72, DW_AT_location[DW_OP_reg5]
 
 $C$DW$73	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$73, DW_AT_name("r14")
-	.dwattr $C$DW$73, DW_AT_location[DW_OP_reg14]
+	.dwattr $C$DW$73, DW_AT_name("r6")
+	.dwattr $C$DW$73, DW_AT_location[DW_OP_reg6]
 
 $C$DW$74	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$74, DW_AT_name("r15")
-	.dwattr $C$DW$74, DW_AT_location[DW_OP_reg15]
+	.dwattr $C$DW$74, DW_AT_name("r7")
+	.dwattr $C$DW$74, DW_AT_location[DW_OP_reg7]
 
 $C$DW$75	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$75, DW_AT_name("CIE_RETA")
-	.dwattr $C$DW$75, DW_AT_location[DW_OP_reg16]
+	.dwattr $C$DW$75, DW_AT_name("r8")
+	.dwattr $C$DW$75, DW_AT_location[DW_OP_reg8]
+
+$C$DW$76	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$76, DW_AT_name("r9")
+	.dwattr $C$DW$76, DW_AT_location[DW_OP_reg9]
+
+$C$DW$77	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$77, DW_AT_name("r10")
+	.dwattr $C$DW$77, DW_AT_location[DW_OP_reg10]
+
+$C$DW$78	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$78, DW_AT_name("r11")
+	.dwattr $C$DW$78, DW_AT_location[DW_OP_reg11]
+
+$C$DW$79	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$79, DW_AT_name("r12")
+	.dwattr $C$DW$79, DW_AT_location[DW_OP_reg12]
+
+$C$DW$80	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$80, DW_AT_name("r13")
+	.dwattr $C$DW$80, DW_AT_location[DW_OP_reg13]
+
+$C$DW$81	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$81, DW_AT_name("r14")
+	.dwattr $C$DW$81, DW_AT_location[DW_OP_reg14]
+
+$C$DW$82	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$82, DW_AT_name("r15")
+	.dwattr $C$DW$82, DW_AT_location[DW_OP_reg15]
+
+$C$DW$83	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$83, DW_AT_name("CIE_RETA")
+	.dwattr $C$DW$83, DW_AT_location[DW_OP_reg16]
 
 	.dwendtag $C$DW$CU
 

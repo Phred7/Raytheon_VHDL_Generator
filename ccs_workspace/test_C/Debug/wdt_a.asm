@@ -1,15 +1,15 @@
 ;******************************************************************************
 ;* MSP430 G3 C/C++ Codegen                                              PC v20.2.5.LTS *
-;* Date/Time created: Wed Nov  3 09:47:45 2021                                *
+;* Date/Time created: Tue Nov  9 15:10:37 2021                                *
 ;******************************************************************************
 	.compiler_opts --abi=eabi --diag_wrap=off --hll_source=on --mem_model:code=small --mem_model:data=small --object_format=elf --silicon_version=msp --symdebug:dwarf --symdebug:dwarf_version=3 
 
 $C$DW$CU	.dwtag  DW_TAG_compile_unit
-	.dwattr $C$DW$CU, DW_AT_name("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$CU, DW_AT_name("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TI MSP430 G3 C/C++ Codegen PC v20.2.5.LTS Copyright (c) 2003-2018 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
 	.dwattr $C$DW$CU, DW_AT_comp_dir("C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\Debug")
-;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{F5F991B5-23D2-4A03-A258-4D92EFC71E84} 
+;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{B1DEE5E9-2D95-40E9-BB44-D0435E99B61A} 
 	.sect	".text:WDT_A_hold"
 	.clink
 	.global	WDT_A_hold
@@ -20,14 +20,14 @@ $C$DW$1	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$1, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("WDT_A_hold")
 	.dwattr $C$DW$1, DW_AT_external
-	.dwattr $C$DW$1, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$1, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$1, DW_AT_TI_begin_line(0x15)
 	.dwattr $C$DW$1, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$1, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$1, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$1, DW_AT_decl_line(0x15)
 	.dwattr $C$DW$1, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$1, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 22,column 1,is_stmt,address WDT_A_hold,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 22,column 1,is_stmt,address WDT_A_hold,isa 0
 
 	.dwfde $C$DW$CIE, WDT_A_hold
 $C$DW$2	.dwtag  DW_TAG_formal_parameter
@@ -63,16 +63,16 @@ $C$DW$4	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$4, DW_AT_location[DW_OP_breg1 2]
 
         MOV.W     r12,0(SP)             ; [] |22| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 24,column 26,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 24,column 26,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |24| 
         MOV.W     @r15,r14              ; [] |24| 
         OR.B      #128,r14              ; [] |24| 
         MOV.B     r14,2(SP)             ; [] |24| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 27,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 27,column 5,is_stmt,isa 0
         MOV.B     2(SP),r14             ; [] |27| 
         ADD.W     #23040,r14            ; [] |27| 
         MOV.W     r14,0(r15)            ; [] |27| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 28,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 28,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$5	.dwtag  DW_TAG_TI_branch
@@ -81,7 +81,7 @@ $C$DW$5	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$1, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$1, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$1, DW_AT_TI_end_line(0x1c)
 	.dwattr $C$DW$1, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -97,14 +97,14 @@ $C$DW$6	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$6, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$6, DW_AT_TI_symbol_name("WDT_A_start")
 	.dwattr $C$DW$6, DW_AT_external
-	.dwattr $C$DW$6, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$6, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$6, DW_AT_TI_begin_line(0x1e)
 	.dwattr $C$DW$6, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$6, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$6, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$6, DW_AT_decl_line(0x1e)
 	.dwattr $C$DW$6, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$6, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 31,column 1,is_stmt,address WDT_A_start,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 31,column 1,is_stmt,address WDT_A_start,isa 0
 
 	.dwfde $C$DW$CIE, WDT_A_start
 $C$DW$7	.dwtag  DW_TAG_formal_parameter
@@ -140,16 +140,16 @@ $C$DW$9	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$9, DW_AT_location[DW_OP_breg1 2]
 
         MOV.W     r12,0(SP)             ; [] |31| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 33,column 26,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 33,column 26,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |33| 
         MOV.W     @r15,r14              ; [] |33| 
         AND.B     #127,r14              ; [] |33| 
         MOV.B     r14,2(SP)             ; [] |33| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 36,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 36,column 5,is_stmt,isa 0
         MOV.B     2(SP),r14             ; [] |36| 
         ADD.W     #23040,r14            ; [] |36| 
         MOV.W     r14,0(r15)            ; [] |36| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 37,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 37,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$10	.dwtag  DW_TAG_TI_branch
@@ -158,7 +158,7 @@ $C$DW$10	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$6, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$6, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$6, DW_AT_TI_end_line(0x25)
 	.dwattr $C$DW$6, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -174,14 +174,14 @@ $C$DW$11	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$11, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$11, DW_AT_TI_symbol_name("WDT_A_resetTimer")
 	.dwattr $C$DW$11, DW_AT_external
-	.dwattr $C$DW$11, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$11, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$11, DW_AT_TI_begin_line(0x27)
 	.dwattr $C$DW$11, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$11, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$11, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$11, DW_AT_decl_line(0x27)
 	.dwattr $C$DW$11, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$11, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 40,column 1,is_stmt,address WDT_A_resetTimer,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 40,column 1,is_stmt,address WDT_A_resetTimer,isa 0
 
 	.dwfde $C$DW$CIE, WDT_A_resetTimer
 $C$DW$12	.dwtag  DW_TAG_formal_parameter
@@ -217,16 +217,16 @@ $C$DW$14	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$14, DW_AT_location[DW_OP_breg1 2]
 
         MOV.W     r12,0(SP)             ; [] |40| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 42,column 26,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 42,column 26,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |42| 
         MOV.W     @r15,r14              ; [] |42| 
         OR.B      #8,r14                ; [] |42| 
         MOV.B     r14,2(SP)             ; [] |42| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 45,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 45,column 5,is_stmt,isa 0
         MOV.B     2(SP),r14             ; [] |45| 
         ADD.W     #23040,r14            ; [] |45| 
         MOV.W     r14,0(r15)            ; [] |45| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 46,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 46,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$15	.dwtag  DW_TAG_TI_branch
@@ -235,7 +235,7 @@ $C$DW$15	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$11, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$11, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$11, DW_AT_TI_end_line(0x2e)
 	.dwattr $C$DW$11, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -251,14 +251,14 @@ $C$DW$16	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$16, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$16, DW_AT_TI_symbol_name("WDT_A_initWatchdogTimer")
 	.dwattr $C$DW$16, DW_AT_external
-	.dwattr $C$DW$16, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$16, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$16, DW_AT_TI_begin_line(0x30)
 	.dwattr $C$DW$16, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$16, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$16, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$16, DW_AT_decl_line(0x30)
 	.dwattr $C$DW$16, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$16, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 51,column 1,is_stmt,address WDT_A_initWatchdogTimer,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 51,column 1,is_stmt,address WDT_A_initWatchdogTimer,isa 0
 
 	.dwfde $C$DW$CIE, WDT_A_initWatchdogTimer
 $C$DW$17	.dwtag  DW_TAG_formal_parameter
@@ -314,14 +314,14 @@ $C$DW$22	.dwtag  DW_TAG_variable
         MOV.B     r14,3(SP)             ; [] |51| 
         MOV.B     r13,2(SP)             ; [] |51| 
         MOV.W     r12,0(SP)             ; [] |51| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 52,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 52,column 5,is_stmt,isa 0
         MOV.B     2(SP),r15             ; [] |52| 
         MOV.B     3(SP),r14             ; [] |52| 
         ADD.W     r15,r14               ; [] |52| 
         ADD.W     #23176,r14            ; [] |52| 
         MOV.W     0(SP),r15             ; [] |52| 
         MOV.W     r14,0(r15)            ; [] |52| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 54,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 54,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$23	.dwtag  DW_TAG_TI_branch
@@ -330,7 +330,7 @@ $C$DW$23	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$16, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$16, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$16, DW_AT_TI_end_line(0x36)
 	.dwattr $C$DW$16, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -346,14 +346,14 @@ $C$DW$24	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$24, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$24, DW_AT_TI_symbol_name("WDT_A_initIntervalTimer")
 	.dwattr $C$DW$24, DW_AT_external
-	.dwattr $C$DW$24, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$24, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$24, DW_AT_TI_begin_line(0x38)
 	.dwattr $C$DW$24, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$24, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$24, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$24, DW_AT_decl_line(0x38)
 	.dwattr $C$DW$24, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$24, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 59,column 1,is_stmt,address WDT_A_initIntervalTimer,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 59,column 1,is_stmt,address WDT_A_initIntervalTimer,isa 0
 
 	.dwfde $C$DW$CIE, WDT_A_initIntervalTimer
 $C$DW$25	.dwtag  DW_TAG_formal_parameter
@@ -409,14 +409,14 @@ $C$DW$30	.dwtag  DW_TAG_variable
         MOV.B     r14,3(SP)             ; [] |59| 
         MOV.B     r13,2(SP)             ; [] |59| 
         MOV.W     r12,0(SP)             ; [] |59| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 60,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 60,column 5,is_stmt,isa 0
         MOV.B     2(SP),r15             ; [] |60| 
         MOV.B     3(SP),r14             ; [] |60| 
         ADD.W     r15,r14               ; [] |60| 
         ADD.W     #23192,r14            ; [] |60| 
         MOV.W     0(SP),r15             ; [] |60| 
         MOV.W     r14,0(r15)            ; [] |60| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/wdt_a.c",line 62,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/wdt_a.c",line 62,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$31	.dwtag  DW_TAG_TI_branch
@@ -425,7 +425,7 @@ $C$DW$31	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$24, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/wdt_a.c")
+	.dwattr $C$DW$24, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/wdt_a.c")
 	.dwattr $C$DW$24, DW_AT_TI_end_line(0x3e)
 	.dwattr $C$DW$24, DW_AT_TI_end_column(0x01)
 	.dwendentry

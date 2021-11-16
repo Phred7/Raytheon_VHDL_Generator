@@ -1,15 +1,15 @@
 ;******************************************************************************
 ;* MSP430 G3 C/C++ Codegen                                              PC v20.2.5.LTS *
-;* Date/Time created: Wed Nov  3 09:47:46 2021                                *
+;* Date/Time created: Tue Nov  9 15:10:35 2021                                *
 ;******************************************************************************
 	.compiler_opts --abi=eabi --diag_wrap=off --hll_source=on --mem_model:code=small --mem_model:data=small --object_format=elf --silicon_version=msp --symdebug:dwarf --symdebug:dwarf_version=3 
 
 $C$DW$CU	.dwtag  DW_TAG_compile_unit
-	.dwattr $C$DW$CU, DW_AT_name("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$CU, DW_AT_name("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TI MSP430 G3 C/C++ Codegen PC v20.2.5.LTS Copyright (c) 2003-2018 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
 	.dwattr $C$DW$CU, DW_AT_comp_dir("C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\Debug")
-;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{5A62281D-2462-4A84-90FC-D3FDC2EA5F91} 
+;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{4D1892F0-F427-4D4E-A41F-4D96B877C203} 
 	.sect	".text:EUSCI_B_I2C_initMaster"
 	.clink
 	.global	EUSCI_B_I2C_initMaster
@@ -20,14 +20,14 @@ $C$DW$1	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$1, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("EUSCI_B_I2C_initMaster")
 	.dwattr $C$DW$1, DW_AT_external
-	.dwattr $C$DW$1, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$1, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$1, DW_AT_TI_begin_line(0x15)
 	.dwattr $C$DW$1, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$1, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$1, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$1, DW_AT_decl_line(0x15)
 	.dwattr $C$DW$1, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$1, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 24,column 1,is_stmt,address EUSCI_B_I2C_initMaster,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 24,column 1,is_stmt,address EUSCI_B_I2C_initMaster,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_initMaster
 $C$DW$2	.dwtag  DW_TAG_formal_parameter
@@ -76,34 +76,34 @@ $C$DW$6	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |24| 
         MOV.W     r12,0(SP)             ; [] |24| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 28,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 28,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |28| 
         MOV.W     #1,0(r15)             ; [] |28| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 31,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 31,column 5,is_stmt,isa 0
         MOV.W     #2,r15                ; [] |31| 
         ADD.W     0(SP),r15             ; [] |31| 
         AND.W     #65523,0(r15)         ; [] |31| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 32,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 32,column 5,is_stmt,isa 0
         MOV.W     #2,r15                ; [] |32| 
         ADD.W     0(SP),r15             ; [] |32| 
         MOV.W     2(SP),r14             ; [] |32| 
         MOV.B     11(r14),r14           ; [] |32| 
         OR.W      r14,0(r15)            ; [] |32| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 35,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 35,column 5,is_stmt,isa 0
         MOV.W     2(SP),r15             ; [] |35| 
         MOV.B     10(r15),r15           ; [] |35| 
         MOV.W     0(SP),r14             ; [] |35| 
         MOV.W     r15,10(r14)           ; [] |35| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 42,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 42,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |42| 
         OR.W      #3840,0(r15)          ; [] |42| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 45,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 45,column 5,is_stmt,isa 0
         MOV.W     0(SP),r14             ; [] |45| 
         MOV.W     2(SP),r15             ; [] |45| 
         MOV.B     @r15,r15              ; [] |45| 
         ADD.W     #1,r15                ; [] |45| 
         OR.W      r15,0(r14)            ; [] |45| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 53,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 53,column 5,is_stmt,isa 0
         MOV.W     2(SP),r15             ; [] |53| 
         MOV.W     2(r15),r12            ; [] |53| 
         MOV.W     4(r15),r13            ; [] |53| 
@@ -117,10 +117,10 @@ $C$DW$7	.dwtag  DW_TAG_TI_branch
         CALL      #__mspabi_divul       ; [] |53| 
                                           ; [] |53| 
         MOV.W     r12,4(SP)             ; [] |53| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 54,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 54,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |54| 
         MOV.W     4(SP),6(r15)          ; [] |54| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 55,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 55,column 1,is_stmt,isa 0
         ADD.W     #6,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$8	.dwtag  DW_TAG_TI_branch
@@ -129,7 +129,7 @@ $C$DW$8	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$1, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$1, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$1, DW_AT_TI_end_line(0x37)
 	.dwattr $C$DW$1, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -145,14 +145,14 @@ $C$DW$9	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$9, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$9, DW_AT_TI_symbol_name("EUSCI_B_I2C_initSlave")
 	.dwattr $C$DW$9, DW_AT_external
-	.dwattr $C$DW$9, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$9, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$9, DW_AT_TI_begin_line(0x39)
 	.dwattr $C$DW$9, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$9, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$9, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$9, DW_AT_decl_line(0x39)
 	.dwattr $C$DW$9, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$9, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 60,column 1,is_stmt,address EUSCI_B_I2C_initSlave,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 60,column 1,is_stmt,address EUSCI_B_I2C_initSlave,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_initSlave
 $C$DW$10	.dwtag  DW_TAG_formal_parameter
@@ -195,23 +195,23 @@ $C$DW$13	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |60| 
         MOV.W     r12,0(SP)             ; [] |60| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 62,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 62,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |62| 
         OR.W      #1,0(r15)             ; [] |62| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 65,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 65,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |65| 
         AND.W     #63487,0(r15)         ; [] |65| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 68,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 68,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |68| 
         OR.W      #1792,0(r15)          ; [] |68| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 71,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 71,column 5,is_stmt,isa 0
         MOV.W     2(SP),r15             ; [] |71| 
         MOV.B     @r15,r14              ; [] |71| 
         ADD.W     2(r15),r14            ; [] |71| 
         MOV.B     1(r15),r15            ; [] |71| 
         ADD.W     0(SP),r15             ; [] |71| 
         MOV.W     r14,20(r15)           ; [] |71| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 73,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 73,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$14	.dwtag  DW_TAG_TI_branch
@@ -220,7 +220,7 @@ $C$DW$14	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$9, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$9, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$9, DW_AT_TI_end_line(0x49)
 	.dwattr $C$DW$9, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -236,14 +236,14 @@ $C$DW$15	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$15, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$15, DW_AT_TI_symbol_name("EUSCI_B_I2C_enable")
 	.dwattr $C$DW$15, DW_AT_external
-	.dwattr $C$DW$15, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$15, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$15, DW_AT_TI_begin_line(0x4b)
 	.dwattr $C$DW$15, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$15, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$15, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$15, DW_AT_decl_line(0x4b)
 	.dwattr $C$DW$15, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$15, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 76,column 1,is_stmt,address EUSCI_B_I2C_enable,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 76,column 1,is_stmt,address EUSCI_B_I2C_enable,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_enable
 $C$DW$16	.dwtag  DW_TAG_formal_parameter
@@ -273,10 +273,10 @@ $C$DW$17	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$17, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |76| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 78,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 78,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |78| 
         BIC.W     #1,0(r15)             ; [] |78| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 79,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 79,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$18	.dwtag  DW_TAG_TI_branch
@@ -285,7 +285,7 @@ $C$DW$18	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$15, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$15, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$15, DW_AT_TI_end_line(0x4f)
 	.dwattr $C$DW$15, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -301,14 +301,14 @@ $C$DW$19	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$19, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$19, DW_AT_TI_symbol_name("EUSCI_B_I2C_disable")
 	.dwattr $C$DW$19, DW_AT_external
-	.dwattr $C$DW$19, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$19, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$19, DW_AT_TI_begin_line(0x51)
 	.dwattr $C$DW$19, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$19, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$19, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$19, DW_AT_decl_line(0x51)
 	.dwattr $C$DW$19, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$19, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 82,column 1,is_stmt,address EUSCI_B_I2C_disable,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 82,column 1,is_stmt,address EUSCI_B_I2C_disable,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_disable
 $C$DW$20	.dwtag  DW_TAG_formal_parameter
@@ -338,10 +338,10 @@ $C$DW$21	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$21, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |82| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 84,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 84,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |84| 
         OR.W      #1,0(r15)             ; [] |84| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 85,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 85,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$22	.dwtag  DW_TAG_TI_branch
@@ -350,7 +350,7 @@ $C$DW$22	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$19, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$19, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$19, DW_AT_TI_end_line(0x55)
 	.dwattr $C$DW$19, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -366,14 +366,14 @@ $C$DW$23	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$23, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$23, DW_AT_TI_symbol_name("EUSCI_B_I2C_setSlaveAddress")
 	.dwattr $C$DW$23, DW_AT_external
-	.dwattr $C$DW$23, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$23, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$23, DW_AT_TI_begin_line(0x57)
 	.dwattr $C$DW$23, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$23, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$23, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$23, DW_AT_decl_line(0x57)
 	.dwattr $C$DW$23, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$23, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 90,column 1,is_stmt,address EUSCI_B_I2C_setSlaveAddress,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 90,column 1,is_stmt,address EUSCI_B_I2C_setSlaveAddress,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_setSlaveAddress
 $C$DW$24	.dwtag  DW_TAG_formal_parameter
@@ -416,10 +416,10 @@ $C$DW$27	.dwtag  DW_TAG_variable
 
         MOV.B     r13,2(SP)             ; [] |90| 
         MOV.W     r12,0(SP)             ; [] |90| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 92,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 92,column 5,is_stmt,isa 0
         MOV.B     2(SP),r15             ; [] |92| 
         MOV.W     r15,32(r12)           ; [] |92| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 93,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 93,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$28	.dwtag  DW_TAG_TI_branch
@@ -428,7 +428,7 @@ $C$DW$28	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$23, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$23, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$23, DW_AT_TI_end_line(0x5d)
 	.dwattr $C$DW$23, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -444,14 +444,14 @@ $C$DW$29	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$29, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$29, DW_AT_TI_symbol_name("EUSCI_B_I2C_setMode")
 	.dwattr $C$DW$29, DW_AT_external
-	.dwattr $C$DW$29, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$29, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$29, DW_AT_TI_begin_line(0x5f)
 	.dwattr $C$DW$29, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$29, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$29, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$29, DW_AT_decl_line(0x5f)
 	.dwattr $C$DW$29, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$29, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 98,column 1,is_stmt,address EUSCI_B_I2C_setMode,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 98,column 1,is_stmt,address EUSCI_B_I2C_setMode,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_setMode
 $C$DW$30	.dwtag  DW_TAG_formal_parameter
@@ -494,13 +494,13 @@ $C$DW$33	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |98| 
         MOV.W     r12,0(SP)             ; [] |98| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 99,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 99,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |99| 
         AND.W     #65519,0(r15)         ; [] |99| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 100,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 100,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |100| 
         OR.W      2(SP),0(r15)          ; [] |100| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 101,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 101,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$34	.dwtag  DW_TAG_TI_branch
@@ -509,7 +509,7 @@ $C$DW$34	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$29, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$29, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$29, DW_AT_TI_end_line(0x65)
 	.dwattr $C$DW$29, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -526,14 +526,14 @@ $C$DW$35	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$35, DW_AT_TI_symbol_name("EUSCI_B_I2C_getMode")
 	.dwattr $C$DW$35, DW_AT_external
 	.dwattr $C$DW$35, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$35, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$35, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$35, DW_AT_TI_begin_line(0x67)
 	.dwattr $C$DW$35, DW_AT_TI_begin_column(0x09)
-	.dwattr $C$DW$35, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$35, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$35, DW_AT_decl_line(0x67)
 	.dwattr $C$DW$35, DW_AT_decl_column(0x09)
 	.dwattr $C$DW$35, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 104,column 1,is_stmt,address EUSCI_B_I2C_getMode,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 104,column 1,is_stmt,address EUSCI_B_I2C_getMode,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_getMode
 $C$DW$36	.dwtag  DW_TAG_formal_parameter
@@ -563,11 +563,11 @@ $C$DW$37	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$37, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |104| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 106,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 106,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |106| 
         MOV.W     @r15,r12              ; [] |106| 
         AND.B     #16,r12               ; [] |106| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 108,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 108,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$38	.dwtag  DW_TAG_TI_branch
@@ -576,7 +576,7 @@ $C$DW$38	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$35, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$35, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$35, DW_AT_TI_end_line(0x6c)
 	.dwattr $C$DW$35, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -592,14 +592,14 @@ $C$DW$39	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$39, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$39, DW_AT_TI_symbol_name("EUSCI_B_I2C_slavePutData")
 	.dwattr $C$DW$39, DW_AT_external
-	.dwattr $C$DW$39, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$39, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$39, DW_AT_TI_begin_line(0x6e)
 	.dwattr $C$DW$39, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$39, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$39, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$39, DW_AT_decl_line(0x6e)
 	.dwattr $C$DW$39, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$39, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 113,column 1,is_stmt,address EUSCI_B_I2C_slavePutData,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 113,column 1,is_stmt,address EUSCI_B_I2C_slavePutData,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_slavePutData
 $C$DW$40	.dwtag  DW_TAG_formal_parameter
@@ -642,10 +642,10 @@ $C$DW$43	.dwtag  DW_TAG_variable
 
         MOV.B     r13,2(SP)             ; [] |113| 
         MOV.W     r12,0(SP)             ; [] |113| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 115,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 115,column 5,is_stmt,isa 0
         MOV.B     2(SP),r15             ; [] |115| 
         MOV.W     r15,14(r12)           ; [] |115| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 116,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 116,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$44	.dwtag  DW_TAG_TI_branch
@@ -654,7 +654,7 @@ $C$DW$44	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$39, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$39, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$39, DW_AT_TI_end_line(0x74)
 	.dwattr $C$DW$39, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -671,14 +671,14 @@ $C$DW$45	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$45, DW_AT_TI_symbol_name("EUSCI_B_I2C_slaveGetData")
 	.dwattr $C$DW$45, DW_AT_external
 	.dwattr $C$DW$45, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$45, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$45, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$45, DW_AT_TI_begin_line(0x76)
 	.dwattr $C$DW$45, DW_AT_TI_begin_column(0x09)
-	.dwattr $C$DW$45, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$45, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$45, DW_AT_decl_line(0x76)
 	.dwattr $C$DW$45, DW_AT_decl_column(0x09)
 	.dwattr $C$DW$45, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 119,column 1,is_stmt,address EUSCI_B_I2C_slaveGetData,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 119,column 1,is_stmt,address EUSCI_B_I2C_slaveGetData,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_slaveGetData
 $C$DW$46	.dwtag  DW_TAG_formal_parameter
@@ -708,10 +708,10 @@ $C$DW$47	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$47, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |119| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 121,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 121,column 5,is_stmt,isa 0
         MOV.W     12(r12),r12           ; [] |121| 
         MOV.B     r12,r12               ; [] |121| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 122,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 122,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$48	.dwtag  DW_TAG_TI_branch
@@ -720,7 +720,7 @@ $C$DW$48	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$45, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$45, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$45, DW_AT_TI_end_line(0x7a)
 	.dwattr $C$DW$45, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -737,14 +737,14 @@ $C$DW$49	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$49, DW_AT_TI_symbol_name("EUSCI_B_I2C_isBusBusy")
 	.dwattr $C$DW$49, DW_AT_external
 	.dwattr $C$DW$49, DW_AT_type(*$C$DW$T$34)
-	.dwattr $C$DW$49, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$49, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$49, DW_AT_TI_begin_line(0x7c)
 	.dwattr $C$DW$49, DW_AT_TI_begin_column(0x0a)
-	.dwattr $C$DW$49, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$49, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$49, DW_AT_decl_line(0x7c)
 	.dwattr $C$DW$49, DW_AT_decl_column(0x0a)
 	.dwattr $C$DW$49, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 125,column 1,is_stmt,address EUSCI_B_I2C_isBusBusy,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 125,column 1,is_stmt,address EUSCI_B_I2C_isBusBusy,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_isBusBusy
 $C$DW$50	.dwtag  DW_TAG_formal_parameter
@@ -774,11 +774,11 @@ $C$DW$51	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$51, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |125| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 127,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 127,column 5,is_stmt,isa 0
         MOV.W     #16,r15               ; [] |127| 
         AND.W     8(r12),r15            ; [] |127| 
         MOV.W     r15,r12               ; [] |127| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 128,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 128,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$52	.dwtag  DW_TAG_TI_branch
@@ -787,7 +787,7 @@ $C$DW$52	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$49, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$49, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$49, DW_AT_TI_end_line(0x80)
 	.dwattr $C$DW$49, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -804,14 +804,14 @@ $C$DW$53	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$53, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterIsStopSent")
 	.dwattr $C$DW$53, DW_AT_external
 	.dwattr $C$DW$53, DW_AT_type(*$C$DW$T$34)
-	.dwattr $C$DW$53, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$53, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$53, DW_AT_TI_begin_line(0x82)
 	.dwattr $C$DW$53, DW_AT_TI_begin_column(0x0a)
-	.dwattr $C$DW$53, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$53, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$53, DW_AT_decl_line(0x82)
 	.dwattr $C$DW$53, DW_AT_decl_column(0x0a)
 	.dwattr $C$DW$53, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 131,column 1,is_stmt,address EUSCI_B_I2C_masterIsStopSent,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 131,column 1,is_stmt,address EUSCI_B_I2C_masterIsStopSent,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterIsStopSent
 $C$DW$54	.dwtag  DW_TAG_formal_parameter
@@ -841,11 +841,11 @@ $C$DW$55	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$55, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |131| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 132,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 132,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |132| 
         MOV.W     #4,r12                ; [] |132| 
         AND.W     @r15,r12              ; [] |132| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 133,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 133,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$56	.dwtag  DW_TAG_TI_branch
@@ -854,7 +854,7 @@ $C$DW$56	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$53, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$53, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$53, DW_AT_TI_end_line(0x85)
 	.dwattr $C$DW$53, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -871,14 +871,14 @@ $C$DW$57	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$57, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterIsStartSent")
 	.dwattr $C$DW$57, DW_AT_external
 	.dwattr $C$DW$57, DW_AT_type(*$C$DW$T$34)
-	.dwattr $C$DW$57, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$57, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$57, DW_AT_TI_begin_line(0x87)
 	.dwattr $C$DW$57, DW_AT_TI_begin_column(0x0a)
-	.dwattr $C$DW$57, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$57, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$57, DW_AT_decl_line(0x87)
 	.dwattr $C$DW$57, DW_AT_decl_column(0x0a)
 	.dwattr $C$DW$57, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 136,column 1,is_stmt,address EUSCI_B_I2C_masterIsStartSent,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 136,column 1,is_stmt,address EUSCI_B_I2C_masterIsStartSent,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterIsStartSent
 $C$DW$58	.dwtag  DW_TAG_formal_parameter
@@ -908,11 +908,11 @@ $C$DW$59	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$59, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |136| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 137,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 137,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |137| 
         MOV.W     #2,r12                ; [] |137| 
         AND.W     @r15,r12              ; [] |137| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 138,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 138,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$60	.dwtag  DW_TAG_TI_branch
@@ -921,7 +921,7 @@ $C$DW$60	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$57, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$57, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$57, DW_AT_TI_end_line(0x8a)
 	.dwattr $C$DW$57, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -937,14 +937,14 @@ $C$DW$61	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$61, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$61, DW_AT_TI_symbol_name("EUSCI_B_I2C_enableInterrupt")
 	.dwattr $C$DW$61, DW_AT_external
-	.dwattr $C$DW$61, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$61, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$61, DW_AT_TI_begin_line(0x8c)
 	.dwattr $C$DW$61, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$61, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$61, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$61, DW_AT_decl_line(0x8c)
 	.dwattr $C$DW$61, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$61, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 143,column 1,is_stmt,address EUSCI_B_I2C_enableInterrupt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 143,column 1,is_stmt,address EUSCI_B_I2C_enableInterrupt,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_enableInterrupt
 $C$DW$62	.dwtag  DW_TAG_formal_parameter
@@ -987,11 +987,11 @@ $C$DW$65	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |143| 
         MOV.W     r12,0(SP)             ; [] |143| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 145,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 145,column 5,is_stmt,isa 0
         MOV.W     #42,r15               ; [] |145| 
         ADD.W     0(SP),r15             ; [] |145| 
         OR.W      2(SP),0(r15)          ; [] |145| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 146,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 146,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$66	.dwtag  DW_TAG_TI_branch
@@ -1000,7 +1000,7 @@ $C$DW$66	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$61, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$61, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$61, DW_AT_TI_end_line(0x92)
 	.dwattr $C$DW$61, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1016,14 +1016,14 @@ $C$DW$67	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$67, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$67, DW_AT_TI_symbol_name("EUSCI_B_I2C_disableInterrupt")
 	.dwattr $C$DW$67, DW_AT_external
-	.dwattr $C$DW$67, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$67, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$67, DW_AT_TI_begin_line(0x94)
 	.dwattr $C$DW$67, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$67, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$67, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$67, DW_AT_decl_line(0x94)
 	.dwattr $C$DW$67, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$67, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 151,column 1,is_stmt,address EUSCI_B_I2C_disableInterrupt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 151,column 1,is_stmt,address EUSCI_B_I2C_disableInterrupt,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_disableInterrupt
 $C$DW$68	.dwtag  DW_TAG_formal_parameter
@@ -1066,11 +1066,11 @@ $C$DW$71	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |151| 
         MOV.W     r12,0(SP)             ; [] |151| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 153,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 153,column 5,is_stmt,isa 0
         MOV.W     #42,r15               ; [] |153| 
         ADD.W     0(SP),r15             ; [] |153| 
         BIC.W     2(SP),0(r15)          ; [] |153| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 154,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 154,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$72	.dwtag  DW_TAG_TI_branch
@@ -1079,7 +1079,7 @@ $C$DW$72	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$67, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$67, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$67, DW_AT_TI_end_line(0x9a)
 	.dwattr $C$DW$67, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1095,14 +1095,14 @@ $C$DW$73	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$73, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$73, DW_AT_TI_symbol_name("EUSCI_B_I2C_clearInterrupt")
 	.dwattr $C$DW$73, DW_AT_external
-	.dwattr $C$DW$73, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$73, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$73, DW_AT_TI_begin_line(0x9c)
 	.dwattr $C$DW$73, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$73, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$73, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$73, DW_AT_decl_line(0x9c)
 	.dwattr $C$DW$73, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$73, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 159,column 1,is_stmt,address EUSCI_B_I2C_clearInterrupt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 159,column 1,is_stmt,address EUSCI_B_I2C_clearInterrupt,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_clearInterrupt
 $C$DW$74	.dwtag  DW_TAG_formal_parameter
@@ -1145,11 +1145,11 @@ $C$DW$77	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |159| 
         MOV.W     r12,0(SP)             ; [] |159| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 161,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 161,column 5,is_stmt,isa 0
         MOV.W     #44,r15               ; [] |161| 
         ADD.W     0(SP),r15             ; [] |161| 
         BIC.W     2(SP),0(r15)          ; [] |161| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 162,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 162,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$78	.dwtag  DW_TAG_TI_branch
@@ -1158,7 +1158,7 @@ $C$DW$78	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$73, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$73, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$73, DW_AT_TI_end_line(0xa2)
 	.dwattr $C$DW$73, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1175,14 +1175,14 @@ $C$DW$79	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$79, DW_AT_TI_symbol_name("EUSCI_B_I2C_getInterruptStatus")
 	.dwattr $C$DW$79, DW_AT_external
 	.dwattr $C$DW$79, DW_AT_type(*$C$DW$T$34)
-	.dwattr $C$DW$79, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$79, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$79, DW_AT_TI_begin_line(0xa4)
 	.dwattr $C$DW$79, DW_AT_TI_begin_column(0x0a)
-	.dwattr $C$DW$79, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$79, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$79, DW_AT_decl_line(0xa4)
 	.dwattr $C$DW$79, DW_AT_decl_column(0x0a)
 	.dwattr $C$DW$79, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 167,column 1,is_stmt,address EUSCI_B_I2C_getInterruptStatus,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 167,column 1,is_stmt,address EUSCI_B_I2C_getInterruptStatus,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_getInterruptStatus
 $C$DW$80	.dwtag  DW_TAG_formal_parameter
@@ -1225,10 +1225,10 @@ $C$DW$83	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |167| 
         MOV.W     r12,0(SP)             ; [] |167| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 169,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 169,column 5,is_stmt,isa 0
         AND.W     44(r12),r13           ; [] |169| 
         MOV.W     r13,r12               ; [] |169| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 170,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 170,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$84	.dwtag  DW_TAG_TI_branch
@@ -1237,7 +1237,7 @@ $C$DW$84	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$79, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$79, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$79, DW_AT_TI_end_line(0xaa)
 	.dwattr $C$DW$79, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1253,14 +1253,14 @@ $C$DW$85	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$85, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$85, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterSendSingleByte")
 	.dwattr $C$DW$85, DW_AT_external
-	.dwattr $C$DW$85, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$85, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$85, DW_AT_TI_begin_line(0xac)
 	.dwattr $C$DW$85, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$85, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$85, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$85, DW_AT_decl_line(0xac)
 	.dwattr $C$DW$85, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$85, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 175,column 1,is_stmt,address EUSCI_B_I2C_masterSendSingleByte,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 175,column 1,is_stmt,address EUSCI_B_I2C_masterSendSingleByte,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterSendSingleByte
 $C$DW$86	.dwtag  DW_TAG_formal_parameter
@@ -1309,18 +1309,18 @@ $C$DW$90	.dwtag  DW_TAG_variable
 
         MOV.B     r13,4(SP)             ; [] |175| 
         MOV.W     r12,0(SP)             ; [] |175| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 177,column 25,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 177,column 25,is_stmt,isa 0
         MOV.W     #2,r15                ; [] |177| 
         AND.W     42(r12),r15           ; [] |177| 
         MOV.W     r15,2(SP)             ; [] |177| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 180,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 180,column 5,is_stmt,isa 0
         MOV.W     #42,r15               ; [] |180| 
         ADD.W     0(SP),r15             ; [] |180| 
         BIC.W     #2,0(r15)             ; [] |180| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 183,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 183,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |183| 
         OR.W      #18,0(r15)            ; [] |183| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 186,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 186,column 5,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L1
 ;*
@@ -1331,16 +1331,16 @@ $C$DW$90	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L1:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 186,column 12,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 186,column 12,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |186| 
         BIT.W     #2,44(r15)            ; [] |186| 
         JEQ       $C$L1                 ; [] |186| 
                                           ; [] |186| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 189,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 189,column 5,is_stmt,isa 0
         MOV.B     4(SP),r14             ; [] |189| 
         MOV.W     r14,14(r15)           ; [] |189| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 192,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 192,column 5,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L2
 ;*
@@ -1351,24 +1351,24 @@ $C$L1:
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L2:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 192,column 12,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 192,column 12,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |192| 
         BIT.W     #2,44(r15)            ; [] |192| 
         JEQ       $C$L2                 ; [] |192| 
                                           ; [] |192| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 195,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 195,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |195| 
         OR.W      #4,0(r15)             ; [] |195| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 198,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 198,column 5,is_stmt,isa 0
         MOV.W     #44,r15               ; [] |198| 
         ADD.W     0(SP),r15             ; [] |198| 
         BIC.W     #2,0(r15)             ; [] |198| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 201,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 201,column 5,is_stmt,isa 0
         MOV.W     #42,r15               ; [] |201| 
         ADD.W     0(SP),r15             ; [] |201| 
         OR.W      2(SP),0(r15)          ; [] |201| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 202,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 202,column 1,is_stmt,isa 0
         ADD.W     #6,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$91	.dwtag  DW_TAG_TI_branch
@@ -1377,7 +1377,7 @@ $C$DW$91	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$85, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$85, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$85, DW_AT_TI_end_line(0xca)
 	.dwattr $C$DW$85, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1394,14 +1394,14 @@ $C$DW$92	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$92, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterReceiveSingleByte")
 	.dwattr $C$DW$92, DW_AT_external
 	.dwattr $C$DW$92, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$92, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$92, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$92, DW_AT_TI_begin_line(0xcc)
 	.dwattr $C$DW$92, DW_AT_TI_begin_column(0x09)
-	.dwattr $C$DW$92, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$92, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$92, DW_AT_decl_line(0xcc)
 	.dwattr $C$DW$92, DW_AT_decl_column(0x09)
 	.dwattr $C$DW$92, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 205,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveSingleByte,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 205,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveSingleByte,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterReceiveSingleByte
 $C$DW$93	.dwtag  DW_TAG_formal_parameter
@@ -1431,13 +1431,13 @@ $C$DW$94	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$94, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |205| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 207,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 207,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |207| 
         AND.W     #65519,0(r15)         ; [] |207| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 210,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 210,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |210| 
         OR.W      #2,0(r15)             ; [] |210| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 213,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 213,column 5,is_stmt,isa 0
         MOV.W     #2,r14                ; [] |213| 
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L3
@@ -1454,9 +1454,9 @@ $C$L3:
         JNE       $C$L3                 ; [] |213| 
                                           ; [] |213| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 216,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 216,column 5,is_stmt,isa 0
         OR.W      #4,0(r15)             ; [] |216| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 219,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 219,column 5,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L4
 ;*
@@ -1467,16 +1467,16 @@ $C$L3:
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L4:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 219,column 12,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 219,column 12,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |219| 
         BIT.W     #1,44(r15)            ; [] |219| 
         JEQ       $C$L4                 ; [] |219| 
                                           ; [] |219| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 222,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 222,column 5,is_stmt,isa 0
         MOV.W     12(r15),r12           ; [] |222| 
         MOV.B     r12,r12               ; [] |222| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 223,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 223,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$95	.dwtag  DW_TAG_TI_branch
@@ -1485,7 +1485,7 @@ $C$DW$95	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$92, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$92, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$92, DW_AT_TI_end_line(0xdf)
 	.dwattr $C$DW$92, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1502,14 +1502,14 @@ $C$DW$96	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$96, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterSendSingleByteWithTimeout")
 	.dwattr $C$DW$96, DW_AT_external
 	.dwattr $C$DW$96, DW_AT_type(*$C$DW$T$157)
-	.dwattr $C$DW$96, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$96, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$96, DW_AT_TI_begin_line(0xe1)
 	.dwattr $C$DW$96, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$96, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$96, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$96, DW_AT_decl_line(0xe1)
 	.dwattr $C$DW$96, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$96, DW_AT_TI_max_frame_size(0x10)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 229,column 1,is_stmt,address EUSCI_B_I2C_masterSendSingleByteWithTimeout,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 229,column 1,is_stmt,address EUSCI_B_I2C_masterSendSingleByteWithTimeout,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterSendSingleByteWithTimeout
 $C$DW$97	.dwtag  DW_TAG_formal_parameter
@@ -1578,21 +1578,21 @@ $C$DW$104	.dwtag  DW_TAG_variable
         MOV.W     r15,2(SP)             ; [] |229| 
         MOV.B     r13,12(SP)            ; [] |229| 
         MOV.W     r12,8(SP)             ; [] |229| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 231,column 23,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 231,column 23,is_stmt,isa 0
         MOV.W     0(SP),4(SP)           ; [] |231| 
         MOV.W     2(SP),6(SP)           ; [] |231| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 234,column 25,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 234,column 25,is_stmt,isa 0
         MOV.W     #2,r15                ; [] |234| 
         AND.W     42(r12),r15           ; [] |234| 
         MOV.W     r15,10(SP)            ; [] |234| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 237,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 237,column 5,is_stmt,isa 0
         MOV.W     #42,r15               ; [] |237| 
         ADD.W     8(SP),r15             ; [] |237| 
         BIC.W     #2,0(r15)             ; [] |237| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 240,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 240,column 5,is_stmt,isa 0
         MOV.W     8(SP),r15             ; [] |240| 
         OR.W      #18,0(r15)            ; [] |240| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 243,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 243,column 5,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L5
 ;*
@@ -1603,7 +1603,7 @@ $C$DW$104	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L5:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 243,column 12,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 243,column 12,is_stmt,isa 0
         MOV.W     8(SP),r15             ; [] |243| 
         BIT.W     #2,44(r15)            ; [] |243| 
         JNE       $C$L6                 ; [] |243| 
@@ -1619,7 +1619,7 @@ $C$L5:
                                           ; [] |243| 
 ;* --------------------------------------------------------------------------*
 $C$L6:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 246,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 246,column 5,is_stmt,isa 0
         TST.W     2(SP)                 ; [] |246| 
         JNE       $C$L7                 ; [] |246| 
                                           ; [] |246| 
@@ -1628,16 +1628,16 @@ $C$L6:
         JNE       $C$L7                 ; [] |246| 
                                           ; [] |246| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 247,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 247,column 9,is_stmt,isa 0
         MOV.B     #0,r12                ; [] |247| 
         JMP       $C$L11                ; [] |247| 
                                           ; [] |247| 
 ;* --------------------------------------------------------------------------*
 $C$L7:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 251,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 251,column 5,is_stmt,isa 0
         MOV.B     12(SP),r14            ; [] |251| 
         MOV.W     r14,14(r15)           ; [] |251| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 254,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 254,column 5,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L8
 ;*
@@ -1648,7 +1648,7 @@ $C$L7:
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L8:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 254,column 12,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 254,column 12,is_stmt,isa 0
         MOV.W     8(SP),r15             ; [] |254| 
         BIT.W     #2,44(r15)            ; [] |254| 
         JNE       $C$L9                 ; [] |254| 
@@ -1664,7 +1664,7 @@ $C$L8:
                                           ; [] |254| 
 ;* --------------------------------------------------------------------------*
 $C$L9:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 257,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 257,column 5,is_stmt,isa 0
         TST.W     6(SP)                 ; [] |257| 
         JNE       $C$L10                ; [] |257| 
                                           ; [] |257| 
@@ -1673,28 +1673,28 @@ $C$L9:
         JNE       $C$L10                ; [] |257| 
                                           ; [] |257| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 258,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 258,column 9,is_stmt,isa 0
         MOV.B     #0,r12                ; [] |258| 
         JMP       $C$L11                ; [] |258| 
                                           ; [] |258| 
 ;* --------------------------------------------------------------------------*
 $C$L10:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 262,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 262,column 5,is_stmt,isa 0
         MOV.W     8(SP),r15             ; [] |262| 
         OR.W      #4,0(r15)             ; [] |262| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 265,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 265,column 5,is_stmt,isa 0
         MOV.W     #44,r15               ; [] |265| 
         ADD.W     8(SP),r15             ; [] |265| 
         BIC.W     #2,0(r15)             ; [] |265| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 268,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 268,column 5,is_stmt,isa 0
         MOV.W     #42,r15               ; [] |268| 
         ADD.W     8(SP),r15             ; [] |268| 
         OR.W      10(SP),0(r15)         ; [] |268| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 270,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 270,column 5,is_stmt,isa 0
         MOV.B     #1,r12                ; [] |270| 
 ;* --------------------------------------------------------------------------*
 $C$L11:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 271,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 271,column 1,is_stmt,isa 0
         ADD.W     #14,SP                ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$105	.dwtag  DW_TAG_TI_branch
@@ -1703,7 +1703,7 @@ $C$DW$105	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$96, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$96, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$96, DW_AT_TI_end_line(0x10f)
 	.dwattr $C$DW$96, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1719,14 +1719,14 @@ $C$DW$106	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$106, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$106, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterSendMultiByteStart")
 	.dwattr $C$DW$106, DW_AT_external
-	.dwattr $C$DW$106, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$106, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$106, DW_AT_TI_begin_line(0x111)
 	.dwattr $C$DW$106, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$106, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$106, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$106, DW_AT_decl_line(0x111)
 	.dwattr $C$DW$106, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$106, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 276,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteStart,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 276,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteStart,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterSendMultiByteStart
 $C$DW$107	.dwtag  DW_TAG_formal_parameter
@@ -1775,18 +1775,18 @@ $C$DW$111	.dwtag  DW_TAG_variable
 
         MOV.B     r13,4(SP)             ; [] |276| 
         MOV.W     r12,0(SP)             ; [] |276| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 278,column 25,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 278,column 25,is_stmt,isa 0
         MOV.W     #2,r15                ; [] |278| 
         AND.W     42(r12),r15           ; [] |278| 
         MOV.W     r15,2(SP)             ; [] |278| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 281,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 281,column 5,is_stmt,isa 0
         MOV.W     #42,r15               ; [] |281| 
         ADD.W     0(SP),r15             ; [] |281| 
         BIC.W     #2,0(r15)             ; [] |281| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 284,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 284,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |284| 
         OR.W      #18,0(r15)            ; [] |284| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 287,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 287,column 5,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L12
 ;*
@@ -1797,20 +1797,20 @@ $C$DW$111	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L12:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 287,column 12,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 287,column 12,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |287| 
         BIT.W     #2,44(r15)            ; [] |287| 
         JEQ       $C$L12                ; [] |287| 
                                           ; [] |287| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 290,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 290,column 5,is_stmt,isa 0
         MOV.B     4(SP),r14             ; [] |290| 
         MOV.W     r14,14(r15)           ; [] |290| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 293,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 293,column 5,is_stmt,isa 0
         MOV.W     #42,r15               ; [] |293| 
         ADD.W     0(SP),r15             ; [] |293| 
         OR.W      2(SP),0(r15)          ; [] |293| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 294,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 294,column 1,is_stmt,isa 0
         ADD.W     #6,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$112	.dwtag  DW_TAG_TI_branch
@@ -1819,7 +1819,7 @@ $C$DW$112	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$106, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$106, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$106, DW_AT_TI_end_line(0x126)
 	.dwattr $C$DW$106, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1836,14 +1836,14 @@ $C$DW$113	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$113, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterSendMultiByteStartWithTimeout")
 	.dwattr $C$DW$113, DW_AT_external
 	.dwattr $C$DW$113, DW_AT_type(*$C$DW$T$157)
-	.dwattr $C$DW$113, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$113, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$113, DW_AT_TI_begin_line(0x128)
 	.dwattr $C$DW$113, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$113, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$113, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$113, DW_AT_decl_line(0x128)
 	.dwattr $C$DW$113, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$113, DW_AT_TI_max_frame_size(0x0c)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 300,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteStartWithTimeout,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 300,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteStartWithTimeout,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterSendMultiByteStartWithTimeout
 $C$DW$114	.dwtag  DW_TAG_formal_parameter
@@ -1906,18 +1906,18 @@ $C$DW$120	.dwtag  DW_TAG_variable
         MOV.W     r15,2(SP)             ; [] |300| 
         MOV.B     r13,8(SP)             ; [] |300| 
         MOV.W     r12,4(SP)             ; [] |300| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 302,column 25,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 302,column 25,is_stmt,isa 0
         MOV.W     #2,r15                ; [] |302| 
         AND.W     42(r12),r15           ; [] |302| 
         MOV.W     r15,6(SP)             ; [] |302| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 305,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 305,column 5,is_stmt,isa 0
         MOV.W     #42,r15               ; [] |305| 
         ADD.W     4(SP),r15             ; [] |305| 
         BIC.W     #2,0(r15)             ; [] |305| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 308,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 308,column 5,is_stmt,isa 0
         MOV.W     4(SP),r15             ; [] |308| 
         OR.W      #18,0(r15)            ; [] |308| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 311,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 311,column 5,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L13
 ;*
@@ -1928,7 +1928,7 @@ $C$DW$120	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L13:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 311,column 12,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 311,column 12,is_stmt,isa 0
         MOV.W     4(SP),r15             ; [] |311| 
         BIT.W     #2,44(r15)            ; [] |311| 
         JNE       $C$L14                ; [] |311| 
@@ -1944,7 +1944,7 @@ $C$L13:
                                           ; [] |311| 
 ;* --------------------------------------------------------------------------*
 $C$L14:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 314,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 314,column 5,is_stmt,isa 0
         TST.W     2(SP)                 ; [] |314| 
         JNE       $C$L15                ; [] |314| 
                                           ; [] |314| 
@@ -1953,24 +1953,24 @@ $C$L14:
         JNE       $C$L15                ; [] |314| 
                                           ; [] |314| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 315,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 315,column 9,is_stmt,isa 0
         MOV.B     #0,r12                ; [] |315| 
         JMP       $C$L16                ; [] |315| 
                                           ; [] |315| 
 ;* --------------------------------------------------------------------------*
 $C$L15:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 319,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 319,column 5,is_stmt,isa 0
         MOV.B     8(SP),r14             ; [] |319| 
         MOV.W     r14,14(r15)           ; [] |319| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 322,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 322,column 5,is_stmt,isa 0
         MOV.W     #42,r15               ; [] |322| 
         ADD.W     4(SP),r15             ; [] |322| 
         OR.W      6(SP),0(r15)          ; [] |322| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 324,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 324,column 5,is_stmt,isa 0
         MOV.B     #1,r12                ; [] |324| 
 ;* --------------------------------------------------------------------------*
 $C$L16:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 325,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 325,column 1,is_stmt,isa 0
         ADD.W     #10,SP                ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$121	.dwtag  DW_TAG_TI_branch
@@ -1979,7 +1979,7 @@ $C$DW$121	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$113, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$113, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$113, DW_AT_TI_end_line(0x145)
 	.dwattr $C$DW$113, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1995,14 +1995,14 @@ $C$DW$122	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$122, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$122, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterSendMultiByteNext")
 	.dwattr $C$DW$122, DW_AT_external
-	.dwattr $C$DW$122, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$122, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$122, DW_AT_TI_begin_line(0x147)
 	.dwattr $C$DW$122, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$122, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$122, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$122, DW_AT_decl_line(0x147)
 	.dwattr $C$DW$122, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$122, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 330,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteNext,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 330,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteNext,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterSendMultiByteNext
 $C$DW$123	.dwtag  DW_TAG_formal_parameter
@@ -2045,12 +2045,12 @@ $C$DW$126	.dwtag  DW_TAG_variable
 
         MOV.B     r13,2(SP)             ; [] |330| 
         MOV.W     r12,0(SP)             ; [] |330| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 332,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 332,column 5,is_stmt,isa 0
         BIT.W     #2,42(r12)            ; [] |332| 
         JNE       $C$L18                ; [] |332| 
                                           ; [] |332| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 334,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 334,column 9,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L17
 ;*
@@ -2061,16 +2061,16 @@ $C$DW$126	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L17:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 334,column 16,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 334,column 16,is_stmt,isa 0
         BIT.W     #2,44(r12)            ; [] |334| 
         JEQ       $C$L17                ; [] |334| 
                                           ; [] |334| 
 ;* --------------------------------------------------------------------------*
 $C$L18:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 338,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 338,column 5,is_stmt,isa 0
         MOV.B     2(SP),r15             ; [] |338| 
         MOV.W     r15,14(r12)           ; [] |338| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 339,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 339,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$127	.dwtag  DW_TAG_TI_branch
@@ -2079,7 +2079,7 @@ $C$DW$127	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$122, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$122, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$122, DW_AT_TI_end_line(0x153)
 	.dwattr $C$DW$122, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2096,14 +2096,14 @@ $C$DW$128	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$128, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterSendMultiByteNextWithTimeout")
 	.dwattr $C$DW$128, DW_AT_external
 	.dwattr $C$DW$128, DW_AT_type(*$C$DW$T$157)
-	.dwattr $C$DW$128, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$128, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$128, DW_AT_TI_begin_line(0x155)
 	.dwattr $C$DW$128, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$128, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$128, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$128, DW_AT_decl_line(0x155)
 	.dwattr $C$DW$128, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$128, DW_AT_TI_max_frame_size(0x0a)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 345,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteNextWithTimeout,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 345,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteNextWithTimeout,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterSendMultiByteNextWithTimeout
 $C$DW$129	.dwtag  DW_TAG_formal_parameter
@@ -2160,12 +2160,12 @@ $C$DW$134	.dwtag  DW_TAG_variable
         MOV.W     r15,2(SP)             ; [] |345| 
         MOV.B     r13,6(SP)             ; [] |345| 
         MOV.W     r12,4(SP)             ; [] |345| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 347,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 347,column 5,is_stmt,isa 0
         BIT.W     #2,42(r12)            ; [] |347| 
         JNE       $C$L21                ; [] |347| 
                                           ; [] |347| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 349,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 349,column 9,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L19
 ;*
@@ -2176,7 +2176,7 @@ $C$DW$134	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L19:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 349,column 16,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 349,column 16,is_stmt,isa 0
         BIT.W     #2,44(r12)            ; [] |349| 
         JNE       $C$L20                ; [] |349| 
                                           ; [] |349| 
@@ -2191,7 +2191,7 @@ $C$L19:
                                           ; [] |349| 
 ;* --------------------------------------------------------------------------*
 $C$L20:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 352,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 352,column 9,is_stmt,isa 0
         TST.W     2(SP)                 ; [] |352| 
         JNE       $C$L21                ; [] |352| 
                                           ; [] |352| 
@@ -2200,20 +2200,20 @@ $C$L20:
         JNE       $C$L21                ; [] |352| 
                                           ; [] |352| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 353,column 13,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 353,column 13,is_stmt,isa 0
         MOV.B     #0,r12                ; [] |353| 
         JMP       $C$L22                ; [] |353| 
                                           ; [] |353| 
 ;* --------------------------------------------------------------------------*
 $C$L21:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 358,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 358,column 5,is_stmt,isa 0
         MOV.B     6(SP),r15             ; [] |358| 
         MOV.W     r15,14(r12)           ; [] |358| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 360,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 360,column 5,is_stmt,isa 0
         MOV.B     #1,r12                ; [] |360| 
 ;* --------------------------------------------------------------------------*
 $C$L22:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 361,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 361,column 1,is_stmt,isa 0
         ADD.W     #8,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$135	.dwtag  DW_TAG_TI_branch
@@ -2222,7 +2222,7 @@ $C$DW$135	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$128, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$128, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$128, DW_AT_TI_end_line(0x169)
 	.dwattr $C$DW$128, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2238,14 +2238,14 @@ $C$DW$136	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$136, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$136, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterSendMultiByteFinish")
 	.dwattr $C$DW$136, DW_AT_external
-	.dwattr $C$DW$136, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$136, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$136, DW_AT_TI_begin_line(0x16b)
 	.dwattr $C$DW$136, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$136, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$136, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$136, DW_AT_decl_line(0x16b)
 	.dwattr $C$DW$136, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$136, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 366,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteFinish,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 366,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteFinish,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterSendMultiByteFinish
 $C$DW$137	.dwtag  DW_TAG_formal_parameter
@@ -2288,12 +2288,12 @@ $C$DW$140	.dwtag  DW_TAG_variable
 
         MOV.B     r13,2(SP)             ; [] |366| 
         MOV.W     r12,0(SP)             ; [] |366| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 368,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 368,column 5,is_stmt,isa 0
         BIT.W     #2,42(r12)            ; [] |368| 
         JNE       $C$L24                ; [] |368| 
                                           ; [] |368| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 370,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 370,column 9,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L23
 ;*
@@ -2304,16 +2304,16 @@ $C$DW$140	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L23:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 370,column 16,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 370,column 16,is_stmt,isa 0
         BIT.W     #2,44(r12)            ; [] |370| 
         JEQ       $C$L23                ; [] |370| 
                                           ; [] |370| 
 ;* --------------------------------------------------------------------------*
 $C$L24:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 374,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 374,column 5,is_stmt,isa 0
         MOV.B     2(SP),r15             ; [] |374| 
         MOV.W     r15,14(r12)           ; [] |374| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 377,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 377,column 5,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L25
 ;*
@@ -2324,16 +2324,16 @@ $C$L24:
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L25:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 377,column 12,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 377,column 12,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |377| 
         BIT.W     #2,44(r15)            ; [] |377| 
         JEQ       $C$L25                ; [] |377| 
                                           ; [] |377| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 380,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 380,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |380| 
         OR.W      #4,0(r15)             ; [] |380| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 381,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 381,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$141	.dwtag  DW_TAG_TI_branch
@@ -2342,7 +2342,7 @@ $C$DW$141	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$136, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$136, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$136, DW_AT_TI_end_line(0x17d)
 	.dwattr $C$DW$136, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2359,14 +2359,14 @@ $C$DW$142	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$142, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterSendMultiByteFinishWithTimeout")
 	.dwattr $C$DW$142, DW_AT_external
 	.dwattr $C$DW$142, DW_AT_type(*$C$DW$T$157)
-	.dwattr $C$DW$142, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$142, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$142, DW_AT_TI_begin_line(0x17f)
 	.dwattr $C$DW$142, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$142, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$142, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$142, DW_AT_decl_line(0x17f)
 	.dwattr $C$DW$142, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$142, DW_AT_TI_max_frame_size(0x0e)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 387,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteFinishWithTimeout,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 387,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteFinishWithTimeout,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterSendMultiByteFinishWithTimeout
 $C$DW$143	.dwtag  DW_TAG_formal_parameter
@@ -2429,15 +2429,15 @@ $C$DW$149	.dwtag  DW_TAG_variable
         MOV.W     r15,2(SP)             ; [] |387| 
         MOV.B     r13,10(SP)            ; [] |387| 
         MOV.W     r12,8(SP)             ; [] |387| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 388,column 23,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 388,column 23,is_stmt,isa 0
         MOV.W     0(SP),4(SP)           ; [] |388| 
         MOV.W     2(SP),6(SP)           ; [] |388| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 391,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 391,column 5,is_stmt,isa 0
         BIT.W     #2,42(r12)            ; [] |391| 
         JNE       $C$L28                ; [] |391| 
                                           ; [] |391| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 393,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 393,column 9,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L26
 ;*
@@ -2448,7 +2448,7 @@ $C$DW$149	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L26:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 393,column 16,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 393,column 16,is_stmt,isa 0
         BIT.W     #2,44(r12)            ; [] |393| 
         JNE       $C$L27                ; [] |393| 
                                           ; [] |393| 
@@ -2463,7 +2463,7 @@ $C$L26:
                                           ; [] |393| 
 ;* --------------------------------------------------------------------------*
 $C$L27:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 396,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 396,column 9,is_stmt,isa 0
         TST.W     2(SP)                 ; [] |396| 
         JNE       $C$L28                ; [] |396| 
                                           ; [] |396| 
@@ -2472,16 +2472,16 @@ $C$L27:
         JNE       $C$L28                ; [] |396| 
                                           ; [] |396| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 397,column 13,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 397,column 13,is_stmt,isa 0
         MOV.B     #0,r12                ; [] |397| 
         JMP       $C$L32                ; [] |397| 
                                           ; [] |397| 
 ;* --------------------------------------------------------------------------*
 $C$L28:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 402,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 402,column 5,is_stmt,isa 0
         MOV.B     10(SP),r15            ; [] |402| 
         MOV.W     r15,14(r12)           ; [] |402| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 405,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 405,column 5,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L29
 ;*
@@ -2492,7 +2492,7 @@ $C$L28:
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L29:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 405,column 12,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 405,column 12,is_stmt,isa 0
         MOV.W     8(SP),r15             ; [] |405| 
         BIT.W     #2,44(r15)            ; [] |405| 
         JNE       $C$L30                ; [] |405| 
@@ -2508,7 +2508,7 @@ $C$L29:
                                           ; [] |405| 
 ;* --------------------------------------------------------------------------*
 $C$L30:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 408,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 408,column 5,is_stmt,isa 0
         TST.W     6(SP)                 ; [] |408| 
         JNE       $C$L31                ; [] |408| 
                                           ; [] |408| 
@@ -2517,20 +2517,20 @@ $C$L30:
         JNE       $C$L31                ; [] |408| 
                                           ; [] |408| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 409,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 409,column 9,is_stmt,isa 0
         MOV.B     #0,r12                ; [] |409| 
         JMP       $C$L32                ; [] |409| 
                                           ; [] |409| 
 ;* --------------------------------------------------------------------------*
 $C$L31:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 413,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 413,column 5,is_stmt,isa 0
         MOV.W     8(SP),r15             ; [] |413| 
         OR.W      #4,0(r15)             ; [] |413| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 415,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 415,column 5,is_stmt,isa 0
         MOV.B     #1,r12                ; [] |415| 
 ;* --------------------------------------------------------------------------*
 $C$L32:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 416,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 416,column 1,is_stmt,isa 0
         ADD.W     #12,SP                ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$150	.dwtag  DW_TAG_TI_branch
@@ -2539,7 +2539,7 @@ $C$DW$150	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$142, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$142, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$142, DW_AT_TI_end_line(0x1a0)
 	.dwattr $C$DW$142, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2555,14 +2555,14 @@ $C$DW$151	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$151, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$151, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterSendStart")
 	.dwattr $C$DW$151, DW_AT_external
-	.dwattr $C$DW$151, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$151, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$151, DW_AT_TI_begin_line(0x1a2)
 	.dwattr $C$DW$151, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$151, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$151, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$151, DW_AT_decl_line(0x1a2)
 	.dwattr $C$DW$151, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$151, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 419,column 1,is_stmt,address EUSCI_B_I2C_masterSendStart,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 419,column 1,is_stmt,address EUSCI_B_I2C_masterSendStart,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterSendStart
 $C$DW$152	.dwtag  DW_TAG_formal_parameter
@@ -2592,10 +2592,10 @@ $C$DW$153	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$153, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |419| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 420,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 420,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |420| 
         OR.W      #2,0(r15)             ; [] |420| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 421,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 421,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$154	.dwtag  DW_TAG_TI_branch
@@ -2604,7 +2604,7 @@ $C$DW$154	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$151, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$151, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$151, DW_AT_TI_end_line(0x1a5)
 	.dwattr $C$DW$151, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2620,14 +2620,14 @@ $C$DW$155	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$155, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$155, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterSendMultiByteStop")
 	.dwattr $C$DW$155, DW_AT_external
-	.dwattr $C$DW$155, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$155, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$155, DW_AT_TI_begin_line(0x1a7)
 	.dwattr $C$DW$155, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$155, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$155, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$155, DW_AT_decl_line(0x1a7)
 	.dwattr $C$DW$155, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$155, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 424,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteStop,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 424,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteStop,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterSendMultiByteStop
 $C$DW$156	.dwtag  DW_TAG_formal_parameter
@@ -2657,12 +2657,12 @@ $C$DW$157	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$157, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |424| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 426,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 426,column 5,is_stmt,isa 0
         BIT.W     #2,42(r12)            ; [] |426| 
         JNE       $C$L34                ; [] |426| 
                                           ; [] |426| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 428,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 428,column 9,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L33
 ;*
@@ -2673,16 +2673,16 @@ $C$DW$157	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L33:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 428,column 16,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 428,column 16,is_stmt,isa 0
         BIT.W     #2,44(r12)            ; [] |428| 
         JEQ       $C$L33                ; [] |428| 
                                           ; [] |428| 
 ;* --------------------------------------------------------------------------*
 $C$L34:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 432,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 432,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |432| 
         OR.W      #4,0(r15)             ; [] |432| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 433,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 433,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$158	.dwtag  DW_TAG_TI_branch
@@ -2691,7 +2691,7 @@ $C$DW$158	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$155, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$155, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$155, DW_AT_TI_end_line(0x1b1)
 	.dwattr $C$DW$155, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2708,14 +2708,14 @@ $C$DW$159	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$159, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterSendMultiByteStopWithTimeout")
 	.dwattr $C$DW$159, DW_AT_external
 	.dwattr $C$DW$159, DW_AT_type(*$C$DW$T$157)
-	.dwattr $C$DW$159, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$159, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$159, DW_AT_TI_begin_line(0x1b3)
 	.dwattr $C$DW$159, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$159, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$159, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$159, DW_AT_decl_line(0x1b3)
 	.dwattr $C$DW$159, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$159, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 437,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteStopWithTimeout,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 437,column 1,is_stmt,address EUSCI_B_I2C_masterSendMultiByteStopWithTimeout,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterSendMultiByteStopWithTimeout
 $C$DW$160	.dwtag  DW_TAG_formal_parameter
@@ -2759,12 +2759,12 @@ $C$DW$163	.dwtag  DW_TAG_variable
         MOV.W     r13,0(SP)             ; [] |437| 
         MOV.W     r14,2(SP)             ; [] |437| 
         MOV.W     r12,4(SP)             ; [] |437| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 439,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 439,column 5,is_stmt,isa 0
         BIT.W     #2,42(r12)            ; [] |439| 
         JNE       $C$L37                ; [] |439| 
                                           ; [] |439| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 441,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 441,column 9,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L35
 ;*
@@ -2775,7 +2775,7 @@ $C$DW$163	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L35:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 441,column 16,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 441,column 16,is_stmt,isa 0
         BIT.W     #2,44(r12)            ; [] |441| 
         JNE       $C$L36                ; [] |441| 
                                           ; [] |441| 
@@ -2790,7 +2790,7 @@ $C$L35:
                                           ; [] |441| 
 ;* --------------------------------------------------------------------------*
 $C$L36:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 444,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 444,column 9,is_stmt,isa 0
         TST.W     2(SP)                 ; [] |444| 
         JNE       $C$L37                ; [] |444| 
                                           ; [] |444| 
@@ -2799,20 +2799,20 @@ $C$L36:
         JNE       $C$L37                ; [] |444| 
                                           ; [] |444| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 445,column 13,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 445,column 13,is_stmt,isa 0
         MOV.B     #0,r12                ; [] |445| 
         JMP       $C$L38                ; [] |445| 
                                           ; [] |445| 
 ;* --------------------------------------------------------------------------*
 $C$L37:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 450,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 450,column 5,is_stmt,isa 0
         MOV.W     4(SP),r15             ; [] |450| 
         OR.W      #4,0(r15)             ; [] |450| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 452,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 452,column 5,is_stmt,isa 0
         MOV.B     #1,r12                ; [] |452| 
 ;* --------------------------------------------------------------------------*
 $C$L38:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 453,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 453,column 1,is_stmt,isa 0
         ADD.W     #6,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$164	.dwtag  DW_TAG_TI_branch
@@ -2821,7 +2821,7 @@ $C$DW$164	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$159, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$159, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$159, DW_AT_TI_end_line(0x1c5)
 	.dwattr $C$DW$159, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2837,14 +2837,14 @@ $C$DW$165	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$165, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$165, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterReceiveStart")
 	.dwattr $C$DW$165, DW_AT_external
-	.dwattr $C$DW$165, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$165, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$165, DW_AT_TI_begin_line(0x1c7)
 	.dwattr $C$DW$165, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$165, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$165, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$165, DW_AT_decl_line(0x1c7)
 	.dwattr $C$DW$165, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$165, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 456,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveStart,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 456,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveStart,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterReceiveStart
 $C$DW$166	.dwtag  DW_TAG_formal_parameter
@@ -2874,13 +2874,13 @@ $C$DW$167	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$167, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |456| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 458,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 458,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |458| 
         AND.W     #65519,0(r15)         ; [] |458| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 460,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 460,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |460| 
         OR.W      #2,0(r15)             ; [] |460| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 461,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 461,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$168	.dwtag  DW_TAG_TI_branch
@@ -2889,7 +2889,7 @@ $C$DW$168	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$165, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$165, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$165, DW_AT_TI_end_line(0x1cd)
 	.dwattr $C$DW$165, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2906,14 +2906,14 @@ $C$DW$169	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$169, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterReceiveMultiByteNext")
 	.dwattr $C$DW$169, DW_AT_external
 	.dwattr $C$DW$169, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$169, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$169, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$169, DW_AT_TI_begin_line(0x1cf)
 	.dwattr $C$DW$169, DW_AT_TI_begin_column(0x09)
-	.dwattr $C$DW$169, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$169, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$169, DW_AT_decl_line(0x1cf)
 	.dwattr $C$DW$169, DW_AT_decl_column(0x09)
 	.dwattr $C$DW$169, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 464,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveMultiByteNext,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 464,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveMultiByteNext,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterReceiveMultiByteNext
 $C$DW$170	.dwtag  DW_TAG_formal_parameter
@@ -2943,10 +2943,10 @@ $C$DW$171	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$171, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |464| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 465,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 465,column 5,is_stmt,isa 0
         MOV.W     12(r12),r12           ; [] |465| 
         MOV.B     r12,r12               ; [] |465| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 466,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 466,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$172	.dwtag  DW_TAG_TI_branch
@@ -2955,7 +2955,7 @@ $C$DW$172	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$169, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$169, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$169, DW_AT_TI_end_line(0x1d2)
 	.dwattr $C$DW$169, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2972,14 +2972,14 @@ $C$DW$173	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$173, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterReceiveMultiByteFinish")
 	.dwattr $C$DW$173, DW_AT_external
 	.dwattr $C$DW$173, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$173, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$173, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$173, DW_AT_TI_begin_line(0x1d4)
 	.dwattr $C$DW$173, DW_AT_TI_begin_column(0x09)
-	.dwattr $C$DW$173, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$173, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$173, DW_AT_decl_line(0x1d4)
 	.dwattr $C$DW$173, DW_AT_decl_column(0x09)
 	.dwattr $C$DW$173, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 469,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveMultiByteFinish,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 469,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveMultiByteFinish,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterReceiveMultiByteFinish
 $C$DW$174	.dwtag  DW_TAG_formal_parameter
@@ -3009,10 +3009,10 @@ $C$DW$175	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$175, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |469| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 471,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 471,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |471| 
         OR.W      #4,0(r15)             ; [] |471| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 474,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 474,column 5,is_stmt,isa 0
         JMP       $C$L40                ; [] |474| 
                                           ; [] |474| 
 ;* --------------------------------------------------------------------------*
@@ -3026,7 +3026,7 @@ $C$DW$175	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L39:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 477,column 12,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 477,column 12,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |477| 
         BIT.W     #1,44(r15)            ; [] |477| 
         JEQ       $C$L39                ; [] |477| 
@@ -3035,18 +3035,18 @@ $C$L39:
 ;*   BEGIN LOOP $C$L40
 ;* --------------------------------------------------------------------------*
 $C$L40:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 474,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 474,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |474| 
         MOV.W     #4,r14                ; [] |474| 
         BIT.W     @r15,r14              ; [] |474| 
         JNE       $C$L39                ; [] |474| 
                                           ; [] |474| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 481,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 481,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |481| 
         MOV.W     12(r15),r12           ; [] |481| 
         MOV.B     r12,r12               ; [] |481| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 482,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 482,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$176	.dwtag  DW_TAG_TI_branch
@@ -3055,7 +3055,7 @@ $C$DW$176	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$173, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$173, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$173, DW_AT_TI_end_line(0x1e2)
 	.dwattr $C$DW$173, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -3072,14 +3072,14 @@ $C$DW$177	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$177, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterReceiveMultiByteFinishWithTimeout")
 	.dwattr $C$DW$177, DW_AT_external
 	.dwattr $C$DW$177, DW_AT_type(*$C$DW$T$157)
-	.dwattr $C$DW$177, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$177, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$177, DW_AT_TI_begin_line(0x1e4)
 	.dwattr $C$DW$177, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$177, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$177, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$177, DW_AT_decl_line(0x1e4)
 	.dwattr $C$DW$177, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$177, DW_AT_TI_max_frame_size(0x0e)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 488,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveMultiByteFinishWithTimeout,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 488,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveMultiByteFinishWithTimeout,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterReceiveMultiByteFinishWithTimeout
 $C$DW$178	.dwtag  DW_TAG_formal_parameter
@@ -3142,13 +3142,13 @@ $C$DW$184	.dwtag  DW_TAG_variable
         MOV.W     r15,2(SP)             ; [] |488| 
         MOV.W     r13,10(SP)            ; [] |488| 
         MOV.W     r12,8(SP)             ; [] |488| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 489,column 23,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 489,column 23,is_stmt,isa 0
         MOV.W     0(SP),4(SP)           ; [] |489| 
         MOV.W     2(SP),6(SP)           ; [] |489| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 492,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 492,column 5,is_stmt,isa 0
         MOV.W     8(SP),r15             ; [] |492| 
         OR.W      #4,0(r15)             ; [] |492| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 495,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 495,column 5,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L41
 ;*
@@ -3159,7 +3159,7 @@ $C$DW$184	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L41:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 495,column 12,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 495,column 12,is_stmt,isa 0
         MOV.W     8(SP),r15             ; [] |495| 
         MOV.W     #4,r14                ; [] |495| 
         BIT.W     @r15,r14              ; [] |495| 
@@ -3176,7 +3176,7 @@ $C$L41:
                                           ; [] |495| 
 ;* --------------------------------------------------------------------------*
 $C$L42:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 498,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 498,column 5,is_stmt,isa 0
         TST.W     2(SP)                 ; [] |498| 
         JNE       $C$L43                ; [] |498| 
                                           ; [] |498| 
@@ -3185,7 +3185,7 @@ $C$L42:
         JNE       $C$L43                ; [] |498| 
                                           ; [] |498| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 499,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 499,column 9,is_stmt,isa 0
         MOV.B     #0,r12                ; [] |499| 
         JMP       $C$L46                ; [] |499| 
                                           ; [] |499| 
@@ -3200,7 +3200,7 @@ $C$L42:
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L43:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 503,column 12,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 503,column 12,is_stmt,isa 0
         MOV.W     8(SP),r15             ; [] |503| 
         BIT.W     #1,44(r15)            ; [] |503| 
         JNE       $C$L44                ; [] |503| 
@@ -3216,7 +3216,7 @@ $C$L43:
                                           ; [] |503| 
 ;* --------------------------------------------------------------------------*
 $C$L44:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 506,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 506,column 5,is_stmt,isa 0
         TST.W     6(SP)                 ; [] |506| 
         JNE       $C$L45                ; [] |506| 
                                           ; [] |506| 
@@ -3225,20 +3225,20 @@ $C$L44:
         JNE       $C$L45                ; [] |506| 
                                           ; [] |506| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 507,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 507,column 9,is_stmt,isa 0
         MOV.B     #0,r12                ; [] |507| 
         JMP       $C$L46                ; [] |507| 
                                           ; [] |507| 
 ;* --------------------------------------------------------------------------*
 $C$L45:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 512,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 512,column 5,is_stmt,isa 0
         MOV.W     10(SP),r14            ; [] |512| 
         MOV.B     12(r15),0(r14)        ; [] |512| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 514,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 514,column 5,is_stmt,isa 0
         MOV.B     #1,r12                ; [] |514| 
 ;* --------------------------------------------------------------------------*
 $C$L46:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 515,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 515,column 1,is_stmt,isa 0
         ADD.W     #12,SP                ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$185	.dwtag  DW_TAG_TI_branch
@@ -3247,7 +3247,7 @@ $C$DW$185	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$177, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$177, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$177, DW_AT_TI_end_line(0x203)
 	.dwattr $C$DW$177, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -3263,14 +3263,14 @@ $C$DW$186	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$186, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$186, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterReceiveMultiByteStop")
 	.dwattr $C$DW$186, DW_AT_external
-	.dwattr $C$DW$186, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$186, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$186, DW_AT_TI_begin_line(0x205)
 	.dwattr $C$DW$186, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$186, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$186, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$186, DW_AT_decl_line(0x205)
 	.dwattr $C$DW$186, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$186, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 518,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveMultiByteStop,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 518,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveMultiByteStop,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterReceiveMultiByteStop
 $C$DW$187	.dwtag  DW_TAG_formal_parameter
@@ -3300,10 +3300,10 @@ $C$DW$188	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$188, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |518| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 520,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 520,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |520| 
         OR.W      #4,0(r15)             ; [] |520| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 521,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 521,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$189	.dwtag  DW_TAG_TI_branch
@@ -3312,7 +3312,7 @@ $C$DW$189	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$186, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$186, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$186, DW_AT_TI_end_line(0x209)
 	.dwattr $C$DW$186, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -3328,14 +3328,14 @@ $C$DW$190	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$190, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$190, DW_AT_TI_symbol_name("EUSCI_B_I2C_enableMultiMasterMode")
 	.dwattr $C$DW$190, DW_AT_external
-	.dwattr $C$DW$190, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$190, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$190, DW_AT_TI_begin_line(0x20b)
 	.dwattr $C$DW$190, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$190, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$190, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$190, DW_AT_decl_line(0x20b)
 	.dwattr $C$DW$190, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$190, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 524,column 1,is_stmt,address EUSCI_B_I2C_enableMultiMasterMode,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 524,column 1,is_stmt,address EUSCI_B_I2C_enableMultiMasterMode,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_enableMultiMasterMode
 $C$DW$191	.dwtag  DW_TAG_formal_parameter
@@ -3365,13 +3365,13 @@ $C$DW$192	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$192, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |524| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 525,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 525,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |525| 
         OR.W      #1,0(r15)             ; [] |525| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 526,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 526,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |526| 
         OR.W      #8192,0(r15)          ; [] |526| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 527,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 527,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$193	.dwtag  DW_TAG_TI_branch
@@ -3380,7 +3380,7 @@ $C$DW$193	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$190, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$190, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$190, DW_AT_TI_end_line(0x20f)
 	.dwattr $C$DW$190, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -3396,14 +3396,14 @@ $C$DW$194	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$194, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$194, DW_AT_TI_symbol_name("EUSCI_B_I2C_disableMultiMasterMode")
 	.dwattr $C$DW$194, DW_AT_external
-	.dwattr $C$DW$194, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$194, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$194, DW_AT_TI_begin_line(0x211)
 	.dwattr $C$DW$194, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$194, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$194, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$194, DW_AT_decl_line(0x211)
 	.dwattr $C$DW$194, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$194, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 530,column 1,is_stmt,address EUSCI_B_I2C_disableMultiMasterMode,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 530,column 1,is_stmt,address EUSCI_B_I2C_disableMultiMasterMode,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_disableMultiMasterMode
 $C$DW$195	.dwtag  DW_TAG_formal_parameter
@@ -3433,13 +3433,13 @@ $C$DW$196	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$196, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |530| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 532,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 532,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |532| 
         OR.W      #1,0(r15)             ; [] |532| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 533,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 533,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |533| 
         AND.W     #57343,0(r15)         ; [] |533| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 534,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 534,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$197	.dwtag  DW_TAG_TI_branch
@@ -3448,7 +3448,7 @@ $C$DW$197	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$194, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$194, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$194, DW_AT_TI_end_line(0x216)
 	.dwattr $C$DW$194, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -3465,14 +3465,14 @@ $C$DW$198	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$198, DW_AT_TI_symbol_name("EUSCI_B_I2C_masterReceiveSingle")
 	.dwattr $C$DW$198, DW_AT_external
 	.dwattr $C$DW$198, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$198, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$198, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$198, DW_AT_TI_begin_line(0x218)
 	.dwattr $C$DW$198, DW_AT_TI_begin_column(0x09)
-	.dwattr $C$DW$198, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$198, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$198, DW_AT_decl_line(0x218)
 	.dwattr $C$DW$198, DW_AT_decl_column(0x09)
 	.dwattr $C$DW$198, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 537,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveSingle,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 537,column 1,is_stmt,address EUSCI_B_I2C_masterReceiveSingle,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_masterReceiveSingle
 $C$DW$199	.dwtag  DW_TAG_formal_parameter
@@ -3502,12 +3502,12 @@ $C$DW$200	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$200, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |537| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 539,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 539,column 5,is_stmt,isa 0
         BIT.W     #1,42(r12)            ; [] |539| 
         JNE       $C$L48                ; [] |539| 
                                           ; [] |539| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 540,column 9,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 540,column 9,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L47
 ;*
@@ -3518,16 +3518,16 @@ $C$DW$200	.dwtag  DW_TAG_variable
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L47:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 540,column 15,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 540,column 15,is_stmt,isa 0
         BIT.W     #1,44(r12)            ; [] |540| 
         JEQ       $C$L47                ; [] |540| 
                                           ; [] |540| 
 ;* --------------------------------------------------------------------------*
 $C$L48:    
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 544,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 544,column 5,is_stmt,isa 0
         MOV.W     12(r12),r12           ; [] |544| 
         MOV.B     r12,r12               ; [] |544| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 545,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 545,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$201	.dwtag  DW_TAG_TI_branch
@@ -3536,7 +3536,7 @@ $C$DW$201	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$198, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$198, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$198, DW_AT_TI_end_line(0x221)
 	.dwattr $C$DW$198, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -3553,14 +3553,14 @@ $C$DW$202	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$202, DW_AT_TI_symbol_name("EUSCI_B_I2C_getReceiveBufferAddress")
 	.dwattr $C$DW$202, DW_AT_external
 	.dwattr $C$DW$202, DW_AT_type(*$C$DW$T$25)
-	.dwattr $C$DW$202, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$202, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$202, DW_AT_TI_begin_line(0x223)
 	.dwattr $C$DW$202, DW_AT_TI_begin_column(0x0a)
-	.dwattr $C$DW$202, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$202, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$202, DW_AT_decl_line(0x223)
 	.dwattr $C$DW$202, DW_AT_decl_column(0x0a)
 	.dwattr $C$DW$202, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 548,column 1,is_stmt,address EUSCI_B_I2C_getReceiveBufferAddress,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 548,column 1,is_stmt,address EUSCI_B_I2C_getReceiveBufferAddress,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_getReceiveBufferAddress
 $C$DW$203	.dwtag  DW_TAG_formal_parameter
@@ -3590,11 +3590,11 @@ $C$DW$204	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$204, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |548| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 549,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 549,column 5,is_stmt,isa 0
         MOV.W     #12,r12               ; [] |549| 
         ADD.W     0(SP),r12             ; [] |549| 
         MOV.W     #0,r13                ; [] |549| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 550,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 550,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$205	.dwtag  DW_TAG_TI_branch
@@ -3603,7 +3603,7 @@ $C$DW$205	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$202, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$202, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$202, DW_AT_TI_end_line(0x226)
 	.dwattr $C$DW$202, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -3620,14 +3620,14 @@ $C$DW$206	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$206, DW_AT_TI_symbol_name("EUSCI_B_I2C_getTransmitBufferAddress")
 	.dwattr $C$DW$206, DW_AT_external
 	.dwattr $C$DW$206, DW_AT_type(*$C$DW$T$25)
-	.dwattr $C$DW$206, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$206, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$206, DW_AT_TI_begin_line(0x228)
 	.dwattr $C$DW$206, DW_AT_TI_begin_column(0x0a)
-	.dwattr $C$DW$206, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$206, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$206, DW_AT_decl_line(0x228)
 	.dwattr $C$DW$206, DW_AT_decl_column(0x0a)
 	.dwattr $C$DW$206, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 553,column 1,is_stmt,address EUSCI_B_I2C_getTransmitBufferAddress,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 553,column 1,is_stmt,address EUSCI_B_I2C_getTransmitBufferAddress,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_I2C_getTransmitBufferAddress
 $C$DW$207	.dwtag  DW_TAG_formal_parameter
@@ -3657,11 +3657,11 @@ $C$DW$208	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$208, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |553| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 554,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 554,column 5,is_stmt,isa 0
         MOV.W     #14,r12               ; [] |554| 
         ADD.W     0(SP),r12             ; [] |554| 
         MOV.W     #0,r13                ; [] |554| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 555,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 555,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$209	.dwtag  DW_TAG_TI_branch
@@ -3670,32 +3670,32 @@ $C$DW$209	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$206, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$206, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$206, DW_AT_TI_end_line(0x22b)
 	.dwattr $C$DW$206, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$206
 
-	.sect	".text:EUSCI_B_I2C_setTimeout"
+	.sect	".text:EUSCI_B_I2C_remapPins"
 	.clink
-	.global	EUSCI_B_I2C_setTimeout
+	.global	EUSCI_B_I2C_remapPins
 
 $C$DW$210	.dwtag  DW_TAG_subprogram
-	.dwattr $C$DW$210, DW_AT_name("EUSCI_B_I2C_setTimeout")
-	.dwattr $C$DW$210, DW_AT_low_pc(EUSCI_B_I2C_setTimeout)
+	.dwattr $C$DW$210, DW_AT_name("EUSCI_B_I2C_remapPins")
+	.dwattr $C$DW$210, DW_AT_low_pc(EUSCI_B_I2C_remapPins)
 	.dwattr $C$DW$210, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$210, DW_AT_TI_symbol_name("EUSCI_B_I2C_setTimeout")
+	.dwattr $C$DW$210, DW_AT_TI_symbol_name("EUSCI_B_I2C_remapPins")
 	.dwattr $C$DW$210, DW_AT_external
-	.dwattr $C$DW$210, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$210, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$210, DW_AT_TI_begin_line(0x22c)
 	.dwattr $C$DW$210, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$210, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
+	.dwattr $C$DW$210, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
 	.dwattr $C$DW$210, DW_AT_decl_line(0x22c)
 	.dwattr $C$DW$210, DW_AT_decl_column(0x06)
-	.dwattr $C$DW$210, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 557,column 1,is_stmt,address EUSCI_B_I2C_setTimeout,isa 0
+	.dwattr $C$DW$210, DW_AT_TI_max_frame_size(0x06)
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 557,column 1,is_stmt,address EUSCI_B_I2C_remapPins,isa 0
 
-	.dwfde $C$DW$CIE, EUSCI_B_I2C_setTimeout
+	.dwfde $C$DW$CIE, EUSCI_B_I2C_remapPins
 $C$DW$211	.dwtag  DW_TAG_formal_parameter
 	.dwattr $C$DW$211, DW_AT_name("baseAddress")
 	.dwattr $C$DW$211, DW_AT_TI_symbol_name("baseAddress")
@@ -3703,10 +3703,97 @@ $C$DW$211	.dwtag  DW_TAG_formal_parameter
 	.dwattr $C$DW$211, DW_AT_location[DW_OP_reg12]
 
 $C$DW$212	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$212, DW_AT_name("timeout")
-	.dwattr $C$DW$212, DW_AT_TI_symbol_name("timeout")
-	.dwattr $C$DW$212, DW_AT_type(*$C$DW$T$34)
+	.dwattr $C$DW$212, DW_AT_name("pinsSelect")
+	.dwattr $C$DW$212, DW_AT_TI_symbol_name("pinsSelect")
+	.dwattr $C$DW$212, DW_AT_type(*$C$DW$T$23)
 	.dwattr $C$DW$212, DW_AT_location[DW_OP_reg13]
+
+
+;*****************************************************************************
+;* FUNCTION NAME: EUSCI_B_I2C_remapPins                                      *
+;*                                                                           *
+;*   Regs Modified     : SP,SR,r12                                           *
+;*   Regs Used         : SP,SR,r12,r13                                       *
+;*   Local Frame Size  : 0 Args + 4 Auto + 0 Save = 4 byte                   *
+;*****************************************************************************
+EUSCI_B_I2C_remapPins:
+;* --------------------------------------------------------------------------*
+	.dwcfi	cfa_offset, 2
+	.dwcfi	save_reg_to_mem, 16, -2
+        SUB.W     #4,SP                 ; [] 
+	.dwcfi	cfa_offset, 6
+$C$DW$213	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$213, DW_AT_name("baseAddress")
+	.dwattr $C$DW$213, DW_AT_TI_symbol_name("baseAddress")
+	.dwattr $C$DW$213, DW_AT_type(*$C$DW$T$34)
+	.dwattr $C$DW$213, DW_AT_location[DW_OP_breg1 0]
+
+$C$DW$214	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$214, DW_AT_name("pinsSelect")
+	.dwattr $C$DW$214, DW_AT_TI_symbol_name("pinsSelect")
+	.dwattr $C$DW$214, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$214, DW_AT_location[DW_OP_breg1 2]
+
+        MOV.B     r13,2(SP)             ; [] |557| 
+        MOV.W     r12,0(SP)             ; [] |557| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 559,column 5,is_stmt,isa 0
+        AND.W     #63487,&0x164         ; [] |559| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 560,column 5,is_stmt,isa 0
+        MOV.B     2(SP),r12             ; [] |560| 
+$C$DW$215	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$215, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$215, DW_AT_name("__mspabi_slli_11")
+	.dwattr $C$DW$215, DW_AT_TI_call
+
+        CALL      #__mspabi_slli_11     ; [] |560| 
+                                          ; [] |560| 
+        OR.W      r12,&0x164            ; [] |560| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 565,column 1,is_stmt,isa 0
+        ADD.W     #4,SP                 ; [] 
+	.dwcfi	cfa_offset, 2
+$C$DW$216	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$216, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$216, DW_AT_TI_return
+
+        RET       ; [] 
+        ; [] 
+	.dwattr $C$DW$210, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
+	.dwattr $C$DW$210, DW_AT_TI_end_line(0x235)
+	.dwattr $C$DW$210, DW_AT_TI_end_column(0x01)
+	.dwendentry
+	.dwendtag $C$DW$210
+
+	.sect	".text:EUSCI_B_I2C_setTimeout"
+	.clink
+	.global	EUSCI_B_I2C_setTimeout
+
+$C$DW$217	.dwtag  DW_TAG_subprogram
+	.dwattr $C$DW$217, DW_AT_name("EUSCI_B_I2C_setTimeout")
+	.dwattr $C$DW$217, DW_AT_low_pc(EUSCI_B_I2C_setTimeout)
+	.dwattr $C$DW$217, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$217, DW_AT_TI_symbol_name("EUSCI_B_I2C_setTimeout")
+	.dwattr $C$DW$217, DW_AT_external
+	.dwattr $C$DW$217, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
+	.dwattr $C$DW$217, DW_AT_TI_begin_line(0x237)
+	.dwattr $C$DW$217, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$217, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
+	.dwattr $C$DW$217, DW_AT_decl_line(0x237)
+	.dwattr $C$DW$217, DW_AT_decl_column(0x06)
+	.dwattr $C$DW$217, DW_AT_TI_max_frame_size(0x08)
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 568,column 1,is_stmt,address EUSCI_B_I2C_setTimeout,isa 0
+
+	.dwfde $C$DW$CIE, EUSCI_B_I2C_setTimeout
+$C$DW$218	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$218, DW_AT_name("baseAddress")
+	.dwattr $C$DW$218, DW_AT_TI_symbol_name("baseAddress")
+	.dwattr $C$DW$218, DW_AT_type(*$C$DW$T$34)
+	.dwattr $C$DW$218, DW_AT_location[DW_OP_reg12]
+
+$C$DW$219	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$219, DW_AT_name("timeout")
+	.dwattr $C$DW$219, DW_AT_TI_symbol_name("timeout")
+	.dwattr $C$DW$219, DW_AT_type(*$C$DW$T$34)
+	.dwattr $C$DW$219, DW_AT_location[DW_OP_reg13]
 
 
 ;*****************************************************************************
@@ -3722,59 +3809,60 @@ EUSCI_B_I2C_setTimeout:
 	.dwcfi	save_reg_to_mem, 16, -2
         SUB.W     #6,SP                 ; [] 
 	.dwcfi	cfa_offset, 8
-$C$DW$213	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$213, DW_AT_name("baseAddress")
-	.dwattr $C$DW$213, DW_AT_TI_symbol_name("baseAddress")
-	.dwattr $C$DW$213, DW_AT_type(*$C$DW$T$34)
-	.dwattr $C$DW$213, DW_AT_location[DW_OP_breg1 0]
+$C$DW$220	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$220, DW_AT_name("baseAddress")
+	.dwattr $C$DW$220, DW_AT_TI_symbol_name("baseAddress")
+	.dwattr $C$DW$220, DW_AT_type(*$C$DW$T$34)
+	.dwattr $C$DW$220, DW_AT_location[DW_OP_breg1 0]
 
-$C$DW$214	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$214, DW_AT_name("timeout")
-	.dwattr $C$DW$214, DW_AT_TI_symbol_name("timeout")
-	.dwattr $C$DW$214, DW_AT_type(*$C$DW$T$34)
-	.dwattr $C$DW$214, DW_AT_location[DW_OP_breg1 2]
+$C$DW$221	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$221, DW_AT_name("timeout")
+	.dwattr $C$DW$221, DW_AT_TI_symbol_name("timeout")
+	.dwattr $C$DW$221, DW_AT_type(*$C$DW$T$34)
+	.dwattr $C$DW$221, DW_AT_location[DW_OP_breg1 2]
 
-$C$DW$215	.dwtag  DW_TAG_variable
-	.dwattr $C$DW$215, DW_AT_name("tempUCBxCTLW0")
-	.dwattr $C$DW$215, DW_AT_TI_symbol_name("tempUCBxCTLW0")
-	.dwattr $C$DW$215, DW_AT_type(*$C$DW$T$34)
-	.dwattr $C$DW$215, DW_AT_location[DW_OP_breg1 4]
+$C$DW$222	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$222, DW_AT_name("tempUCBxCTLW0")
+	.dwattr $C$DW$222, DW_AT_TI_symbol_name("tempUCBxCTLW0")
+	.dwattr $C$DW$222, DW_AT_type(*$C$DW$T$34)
+	.dwattr $C$DW$222, DW_AT_location[DW_OP_breg1 4]
 
-        MOV.W     r13,2(SP)             ; [] |557| 
-        MOV.W     r12,0(SP)             ; [] |557| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 561,column 5,is_stmt,isa 0
-        MOV.W     0(SP),r15             ; [] |561| 
-        MOV.W     @r15,4(SP)            ; [] |561| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 563,column 5,is_stmt,isa 0
-        OR.W      #1,0(r15)             ; [] |563| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 566,column 5,is_stmt,isa 0
-        MOV.W     0(SP),r15             ; [] |566| 
-        MOV.W     #65343,r14            ; [] |566| 
-        AND.W     2(r15),r14            ; [] |566| 
-        OR.W      2(SP),r14             ; [] |566| 
-        MOV.W     r14,2(r15)            ; [] |566| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 569,column 5,is_stmt,isa 0
-        MOV.W     0(SP),r15             ; [] |569| 
-        MOV.W     4(SP),0(r15)          ; [] |569| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_i2c.c",line 570,column 1,is_stmt,isa 0
+        MOV.W     r13,2(SP)             ; [] |568| 
+        MOV.W     r12,0(SP)             ; [] |568| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 572,column 5,is_stmt,isa 0
+        MOV.W     0(SP),r15             ; [] |572| 
+        MOV.W     @r15,4(SP)            ; [] |572| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 574,column 5,is_stmt,isa 0
+        OR.W      #1,0(r15)             ; [] |574| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 577,column 5,is_stmt,isa 0
+        MOV.W     0(SP),r15             ; [] |577| 
+        MOV.W     #65343,r14            ; [] |577| 
+        AND.W     2(r15),r14            ; [] |577| 
+        OR.W      2(SP),r14             ; [] |577| 
+        MOV.W     r14,2(r15)            ; [] |577| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 580,column 5,is_stmt,isa 0
+        MOV.W     0(SP),r15             ; [] |580| 
+        MOV.W     4(SP),0(r15)          ; [] |580| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c",line 581,column 1,is_stmt,isa 0
         ADD.W     #6,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
-$C$DW$216	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$216, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$216, DW_AT_TI_return
+$C$DW$223	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$223, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$223, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$210, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_i2c.c")
-	.dwattr $C$DW$210, DW_AT_TI_end_line(0x23a)
-	.dwattr $C$DW$210, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$217, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c")
+	.dwattr $C$DW$217, DW_AT_TI_end_line(0x245)
+	.dwattr $C$DW$217, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$210
+	.dwendtag $C$DW$217
 
 ;*****************************************************************************
 ;* UNDEFINED EXTERNAL REFERENCES                                             *
 ;*****************************************************************************
 	.global	__mspabi_divul
+	.global	__mspabi_slli_11
 
 ;******************************************************************************
 ;* BUILD ATTRIBUTES                                                           *
@@ -3793,25 +3881,25 @@ $C$DW$216	.dwtag  DW_TAG_TI_branch
 
 $C$DW$T$21	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$21, DW_AT_byte_size(0x10)
-$C$DW$217	.dwtag  DW_TAG_member
-	.dwattr $C$DW$217, DW_AT_type(*$C$DW$T$14)
-	.dwattr $C$DW$217, DW_AT_name("__max_align1")
-	.dwattr $C$DW$217, DW_AT_TI_symbol_name("__max_align1")
-	.dwattr $C$DW$217, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
-	.dwattr $C$DW$217, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$217, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
-	.dwattr $C$DW$217, DW_AT_decl_line(0x7b)
-	.dwattr $C$DW$217, DW_AT_decl_column(0x0c)
+$C$DW$224	.dwtag  DW_TAG_member
+	.dwattr $C$DW$224, DW_AT_type(*$C$DW$T$14)
+	.dwattr $C$DW$224, DW_AT_name("__max_align1")
+	.dwattr $C$DW$224, DW_AT_TI_symbol_name("__max_align1")
+	.dwattr $C$DW$224, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+	.dwattr $C$DW$224, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$224, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
+	.dwattr $C$DW$224, DW_AT_decl_line(0x7b)
+	.dwattr $C$DW$224, DW_AT_decl_column(0x0c)
 
-$C$DW$218	.dwtag  DW_TAG_member
-	.dwattr $C$DW$218, DW_AT_type(*$C$DW$T$18)
-	.dwattr $C$DW$218, DW_AT_name("__max_align2")
-	.dwattr $C$DW$218, DW_AT_TI_symbol_name("__max_align2")
-	.dwattr $C$DW$218, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
-	.dwattr $C$DW$218, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$218, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
-	.dwattr $C$DW$218, DW_AT_decl_line(0x7c)
-	.dwattr $C$DW$218, DW_AT_decl_column(0x0e)
+$C$DW$225	.dwtag  DW_TAG_member
+	.dwattr $C$DW$225, DW_AT_type(*$C$DW$T$18)
+	.dwattr $C$DW$225, DW_AT_name("__max_align2")
+	.dwattr $C$DW$225, DW_AT_TI_symbol_name("__max_align2")
+	.dwattr $C$DW$225, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
+	.dwattr $C$DW$225, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$225, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
+	.dwattr $C$DW$225, DW_AT_decl_line(0x7c)
+	.dwattr $C$DW$225, DW_AT_decl_column(0x0e)
 
 	.dwattr $C$DW$T$21, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
 	.dwattr $C$DW$T$21, DW_AT_decl_line(0x7a)
@@ -3830,57 +3918,57 @@ $C$DW$T$28	.dwtag  DW_TAG_typedef
 $C$DW$T$26	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$26, DW_AT_name("EUSCI_B_I2C_initMasterParam")
 	.dwattr $C$DW$T$26, DW_AT_byte_size(0x0c)
-$C$DW$219	.dwtag  DW_TAG_member
-	.dwattr $C$DW$219, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$219, DW_AT_name("selectClockSource")
-	.dwattr $C$DW$219, DW_AT_TI_symbol_name("selectClockSource")
-	.dwattr $C$DW$219, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
-	.dwattr $C$DW$219, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$219, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_i2c.h")
-	.dwattr $C$DW$219, DW_AT_decl_line(0x26)
-	.dwattr $C$DW$219, DW_AT_decl_column(0x0d)
+$C$DW$226	.dwtag  DW_TAG_member
+	.dwattr $C$DW$226, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$226, DW_AT_name("selectClockSource")
+	.dwattr $C$DW$226, DW_AT_TI_symbol_name("selectClockSource")
+	.dwattr $C$DW$226, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+	.dwattr $C$DW$226, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$226, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h")
+	.dwattr $C$DW$226, DW_AT_decl_line(0x28)
+	.dwattr $C$DW$226, DW_AT_decl_column(0x0d)
 
-$C$DW$220	.dwtag  DW_TAG_member
-	.dwattr $C$DW$220, DW_AT_type(*$C$DW$T$25)
-	.dwattr $C$DW$220, DW_AT_name("i2cClk")
-	.dwattr $C$DW$220, DW_AT_TI_symbol_name("i2cClk")
-	.dwattr $C$DW$220, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
-	.dwattr $C$DW$220, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$220, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_i2c.h")
-	.dwattr $C$DW$220, DW_AT_decl_line(0x29)
-	.dwattr $C$DW$220, DW_AT_decl_column(0x0e)
+$C$DW$227	.dwtag  DW_TAG_member
+	.dwattr $C$DW$227, DW_AT_type(*$C$DW$T$25)
+	.dwattr $C$DW$227, DW_AT_name("i2cClk")
+	.dwattr $C$DW$227, DW_AT_TI_symbol_name("i2cClk")
+	.dwattr $C$DW$227, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+	.dwattr $C$DW$227, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$227, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h")
+	.dwattr $C$DW$227, DW_AT_decl_line(0x2b)
+	.dwattr $C$DW$227, DW_AT_decl_column(0x0e)
 
-$C$DW$221	.dwtag  DW_TAG_member
-	.dwattr $C$DW$221, DW_AT_type(*$C$DW$T$25)
-	.dwattr $C$DW$221, DW_AT_name("dataRate")
-	.dwattr $C$DW$221, DW_AT_TI_symbol_name("dataRate")
-	.dwattr $C$DW$221, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
-	.dwattr $C$DW$221, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$221, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_i2c.h")
-	.dwattr $C$DW$221, DW_AT_decl_line(0x2e)
-	.dwattr $C$DW$221, DW_AT_decl_column(0x0e)
+$C$DW$228	.dwtag  DW_TAG_member
+	.dwattr $C$DW$228, DW_AT_type(*$C$DW$T$25)
+	.dwattr $C$DW$228, DW_AT_name("dataRate")
+	.dwattr $C$DW$228, DW_AT_TI_symbol_name("dataRate")
+	.dwattr $C$DW$228, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+	.dwattr $C$DW$228, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$228, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h")
+	.dwattr $C$DW$228, DW_AT_decl_line(0x30)
+	.dwattr $C$DW$228, DW_AT_decl_column(0x0e)
 
-$C$DW$222	.dwtag  DW_TAG_member
-	.dwattr $C$DW$222, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$222, DW_AT_name("byteCounterThreshold")
-	.dwattr $C$DW$222, DW_AT_TI_symbol_name("byteCounterThreshold")
-	.dwattr $C$DW$222, DW_AT_data_member_location[DW_OP_plus_uconst 0xa]
-	.dwattr $C$DW$222, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$222, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_i2c.h")
-	.dwattr $C$DW$222, DW_AT_decl_line(0x30)
-	.dwattr $C$DW$222, DW_AT_decl_column(0x0d)
+$C$DW$229	.dwtag  DW_TAG_member
+	.dwattr $C$DW$229, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$229, DW_AT_name("byteCounterThreshold")
+	.dwattr $C$DW$229, DW_AT_TI_symbol_name("byteCounterThreshold")
+	.dwattr $C$DW$229, DW_AT_data_member_location[DW_OP_plus_uconst 0xa]
+	.dwattr $C$DW$229, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$229, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h")
+	.dwattr $C$DW$229, DW_AT_decl_line(0x32)
+	.dwattr $C$DW$229, DW_AT_decl_column(0x0d)
 
-$C$DW$223	.dwtag  DW_TAG_member
-	.dwattr $C$DW$223, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$223, DW_AT_name("autoSTOPGeneration")
-	.dwattr $C$DW$223, DW_AT_TI_symbol_name("autoSTOPGeneration")
-	.dwattr $C$DW$223, DW_AT_data_member_location[DW_OP_plus_uconst 0xb]
-	.dwattr $C$DW$223, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$223, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_i2c.h")
-	.dwattr $C$DW$223, DW_AT_decl_line(0x36)
-	.dwattr $C$DW$223, DW_AT_decl_column(0x0d)
+$C$DW$230	.dwtag  DW_TAG_member
+	.dwattr $C$DW$230, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$230, DW_AT_name("autoSTOPGeneration")
+	.dwattr $C$DW$230, DW_AT_TI_symbol_name("autoSTOPGeneration")
+	.dwattr $C$DW$230, DW_AT_data_member_location[DW_OP_plus_uconst 0xb]
+	.dwattr $C$DW$230, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$230, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h")
+	.dwattr $C$DW$230, DW_AT_decl_line(0x38)
+	.dwattr $C$DW$230, DW_AT_decl_column(0x0d)
 
-	.dwattr $C$DW$T$26, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_i2c.h")
+	.dwattr $C$DW$T$26, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h")
 	.dwattr $C$DW$T$26, DW_AT_decl_line(0x20)
 	.dwattr $C$DW$T$26, DW_AT_decl_column(0x10)
 	.dwendtag $C$DW$T$26
@@ -3889,8 +3977,8 @@ $C$DW$T$29	.dwtag  DW_TAG_typedef
 	.dwattr $C$DW$T$29, DW_AT_name("EUSCI_B_I2C_initMasterParam")
 	.dwattr $C$DW$T$29, DW_AT_type(*$C$DW$T$26)
 	.dwattr $C$DW$T$29, DW_AT_language(DW_LANG_C)
-	.dwattr $C$DW$T$29, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_i2c.h")
-	.dwattr $C$DW$T$29, DW_AT_decl_line(0x37)
+	.dwattr $C$DW$T$29, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h")
+	.dwattr $C$DW$T$29, DW_AT_decl_line(0x39)
 	.dwattr $C$DW$T$29, DW_AT_decl_column(0x03)
 
 $C$DW$T$30	.dwtag  DW_TAG_pointer_type
@@ -3901,38 +3989,38 @@ $C$DW$T$30	.dwtag  DW_TAG_pointer_type
 $C$DW$T$27	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$27, DW_AT_name("EUSCI_B_I2C_initSlaveParam")
 	.dwattr $C$DW$T$27, DW_AT_byte_size(0x06)
-$C$DW$224	.dwtag  DW_TAG_member
-	.dwattr $C$DW$224, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$224, DW_AT_name("slaveAddress")
-	.dwattr $C$DW$224, DW_AT_TI_symbol_name("slaveAddress")
-	.dwattr $C$DW$224, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
-	.dwattr $C$DW$224, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$224, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_i2c.h")
-	.dwattr $C$DW$224, DW_AT_decl_line(0x40)
-	.dwattr $C$DW$224, DW_AT_decl_column(0x0d)
+$C$DW$231	.dwtag  DW_TAG_member
+	.dwattr $C$DW$231, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$231, DW_AT_name("slaveAddress")
+	.dwattr $C$DW$231, DW_AT_TI_symbol_name("slaveAddress")
+	.dwattr $C$DW$231, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+	.dwattr $C$DW$231, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$231, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h")
+	.dwattr $C$DW$231, DW_AT_decl_line(0x42)
+	.dwattr $C$DW$231, DW_AT_decl_column(0x0d)
 
-$C$DW$225	.dwtag  DW_TAG_member
-	.dwattr $C$DW$225, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$225, DW_AT_name("slaveAddressOffset")
-	.dwattr $C$DW$225, DW_AT_TI_symbol_name("slaveAddressOffset")
-	.dwattr $C$DW$225, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
-	.dwattr $C$DW$225, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$225, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_i2c.h")
-	.dwattr $C$DW$225, DW_AT_decl_line(0x47)
-	.dwattr $C$DW$225, DW_AT_decl_column(0x0d)
+$C$DW$232	.dwtag  DW_TAG_member
+	.dwattr $C$DW$232, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$232, DW_AT_name("slaveAddressOffset")
+	.dwattr $C$DW$232, DW_AT_TI_symbol_name("slaveAddressOffset")
+	.dwattr $C$DW$232, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+	.dwattr $C$DW$232, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$232, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h")
+	.dwattr $C$DW$232, DW_AT_decl_line(0x49)
+	.dwattr $C$DW$232, DW_AT_decl_column(0x0d)
 
-$C$DW$226	.dwtag  DW_TAG_member
-	.dwattr $C$DW$226, DW_AT_type(*$C$DW$T$25)
-	.dwattr $C$DW$226, DW_AT_name("slaveOwnAddressEnable")
-	.dwattr $C$DW$226, DW_AT_TI_symbol_name("slaveOwnAddressEnable")
-	.dwattr $C$DW$226, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
-	.dwattr $C$DW$226, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$226, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_i2c.h")
-	.dwattr $C$DW$226, DW_AT_decl_line(0x4c)
-	.dwattr $C$DW$226, DW_AT_decl_column(0x0e)
+$C$DW$233	.dwtag  DW_TAG_member
+	.dwattr $C$DW$233, DW_AT_type(*$C$DW$T$25)
+	.dwattr $C$DW$233, DW_AT_name("slaveOwnAddressEnable")
+	.dwattr $C$DW$233, DW_AT_TI_symbol_name("slaveOwnAddressEnable")
+	.dwattr $C$DW$233, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+	.dwattr $C$DW$233, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$233, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h")
+	.dwattr $C$DW$233, DW_AT_decl_line(0x4e)
+	.dwattr $C$DW$233, DW_AT_decl_column(0x0e)
 
-	.dwattr $C$DW$T$27, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_i2c.h")
-	.dwattr $C$DW$T$27, DW_AT_decl_line(0x3e)
+	.dwattr $C$DW$T$27, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h")
+	.dwattr $C$DW$T$27, DW_AT_decl_line(0x40)
 	.dwattr $C$DW$T$27, DW_AT_decl_column(0x10)
 	.dwendtag $C$DW$T$27
 
@@ -3940,8 +4028,8 @@ $C$DW$T$31	.dwtag  DW_TAG_typedef
 	.dwattr $C$DW$T$31, DW_AT_name("EUSCI_B_I2C_initSlaveParam")
 	.dwattr $C$DW$T$31, DW_AT_type(*$C$DW$T$27)
 	.dwattr $C$DW$T$31, DW_AT_language(DW_LANG_C)
-	.dwattr $C$DW$T$31, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_i2c.h")
-	.dwattr $C$DW$T$31, DW_AT_decl_line(0x4d)
+	.dwattr $C$DW$T$31, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h")
+	.dwattr $C$DW$T$31, DW_AT_decl_line(0x4f)
 	.dwattr $C$DW$T$31, DW_AT_decl_column(0x03)
 
 $C$DW$T$32	.dwtag  DW_TAG_pointer_type
@@ -5019,73 +5107,73 @@ $C$DW$CIE	.dwcie 16
 ;* DWARF REGISTER MAP                                          *
 ;***************************************************************
 
-$C$DW$227	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$227, DW_AT_name("PC")
-	.dwattr $C$DW$227, DW_AT_location[DW_OP_reg0]
-
-$C$DW$228	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$228, DW_AT_name("SP")
-	.dwattr $C$DW$228, DW_AT_location[DW_OP_reg1]
-
-$C$DW$229	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$229, DW_AT_name("SR")
-	.dwattr $C$DW$229, DW_AT_location[DW_OP_reg2]
-
-$C$DW$230	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$230, DW_AT_name("CG")
-	.dwattr $C$DW$230, DW_AT_location[DW_OP_reg3]
-
-$C$DW$231	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$231, DW_AT_name("r4")
-	.dwattr $C$DW$231, DW_AT_location[DW_OP_reg4]
-
-$C$DW$232	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$232, DW_AT_name("r5")
-	.dwattr $C$DW$232, DW_AT_location[DW_OP_reg5]
-
-$C$DW$233	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$233, DW_AT_name("r6")
-	.dwattr $C$DW$233, DW_AT_location[DW_OP_reg6]
-
 $C$DW$234	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$234, DW_AT_name("r7")
-	.dwattr $C$DW$234, DW_AT_location[DW_OP_reg7]
+	.dwattr $C$DW$234, DW_AT_name("PC")
+	.dwattr $C$DW$234, DW_AT_location[DW_OP_reg0]
 
 $C$DW$235	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$235, DW_AT_name("r8")
-	.dwattr $C$DW$235, DW_AT_location[DW_OP_reg8]
+	.dwattr $C$DW$235, DW_AT_name("SP")
+	.dwattr $C$DW$235, DW_AT_location[DW_OP_reg1]
 
 $C$DW$236	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$236, DW_AT_name("r9")
-	.dwattr $C$DW$236, DW_AT_location[DW_OP_reg9]
+	.dwattr $C$DW$236, DW_AT_name("SR")
+	.dwattr $C$DW$236, DW_AT_location[DW_OP_reg2]
 
 $C$DW$237	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$237, DW_AT_name("r10")
-	.dwattr $C$DW$237, DW_AT_location[DW_OP_reg10]
+	.dwattr $C$DW$237, DW_AT_name("CG")
+	.dwattr $C$DW$237, DW_AT_location[DW_OP_reg3]
 
 $C$DW$238	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$238, DW_AT_name("r11")
-	.dwattr $C$DW$238, DW_AT_location[DW_OP_reg11]
+	.dwattr $C$DW$238, DW_AT_name("r4")
+	.dwattr $C$DW$238, DW_AT_location[DW_OP_reg4]
 
 $C$DW$239	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$239, DW_AT_name("r12")
-	.dwattr $C$DW$239, DW_AT_location[DW_OP_reg12]
+	.dwattr $C$DW$239, DW_AT_name("r5")
+	.dwattr $C$DW$239, DW_AT_location[DW_OP_reg5]
 
 $C$DW$240	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$240, DW_AT_name("r13")
-	.dwattr $C$DW$240, DW_AT_location[DW_OP_reg13]
+	.dwattr $C$DW$240, DW_AT_name("r6")
+	.dwattr $C$DW$240, DW_AT_location[DW_OP_reg6]
 
 $C$DW$241	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$241, DW_AT_name("r14")
-	.dwattr $C$DW$241, DW_AT_location[DW_OP_reg14]
+	.dwattr $C$DW$241, DW_AT_name("r7")
+	.dwattr $C$DW$241, DW_AT_location[DW_OP_reg7]
 
 $C$DW$242	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$242, DW_AT_name("r15")
-	.dwattr $C$DW$242, DW_AT_location[DW_OP_reg15]
+	.dwattr $C$DW$242, DW_AT_name("r8")
+	.dwattr $C$DW$242, DW_AT_location[DW_OP_reg8]
 
 $C$DW$243	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$243, DW_AT_name("CIE_RETA")
-	.dwattr $C$DW$243, DW_AT_location[DW_OP_reg16]
+	.dwattr $C$DW$243, DW_AT_name("r9")
+	.dwattr $C$DW$243, DW_AT_location[DW_OP_reg9]
+
+$C$DW$244	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$244, DW_AT_name("r10")
+	.dwattr $C$DW$244, DW_AT_location[DW_OP_reg10]
+
+$C$DW$245	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$245, DW_AT_name("r11")
+	.dwattr $C$DW$245, DW_AT_location[DW_OP_reg11]
+
+$C$DW$246	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$246, DW_AT_name("r12")
+	.dwattr $C$DW$246, DW_AT_location[DW_OP_reg12]
+
+$C$DW$247	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$247, DW_AT_name("r13")
+	.dwattr $C$DW$247, DW_AT_location[DW_OP_reg13]
+
+$C$DW$248	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$248, DW_AT_name("r14")
+	.dwattr $C$DW$248, DW_AT_location[DW_OP_reg14]
+
+$C$DW$249	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$249, DW_AT_name("r15")
+	.dwattr $C$DW$249, DW_AT_location[DW_OP_reg15]
+
+$C$DW$250	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$250, DW_AT_name("CIE_RETA")
+	.dwattr $C$DW$250, DW_AT_location[DW_OP_reg16]
 
 	.dwendtag $C$DW$CU
 

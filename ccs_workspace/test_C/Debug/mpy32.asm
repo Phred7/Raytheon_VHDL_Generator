@@ -1,15 +1,15 @@
 ;******************************************************************************
 ;* MSP430 G3 C/C++ Codegen                                              PC v20.2.5.LTS *
-;* Date/Time created: Wed Nov  3 09:47:44 2021                                *
+;* Date/Time created: Tue Nov  9 15:10:36 2021                                *
 ;******************************************************************************
 	.compiler_opts --abi=eabi --diag_wrap=off --hll_source=on --mem_model:code=small --mem_model:data=small --object_format=elf --silicon_version=msp --symdebug:dwarf --symdebug:dwarf_version=3 
 
 $C$DW$CU	.dwtag  DW_TAG_compile_unit
-	.dwattr $C$DW$CU, DW_AT_name("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$CU, DW_AT_name("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TI MSP430 G3 C/C++ Codegen PC v20.2.5.LTS Copyright (c) 2003-2018 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
 	.dwattr $C$DW$CU, DW_AT_comp_dir("C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\Debug")
-;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{3531660B-0BF0-4A21-BAF0-B2406D1FE15E} 
+;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{9FE2DA10-0C15-4B84-A550-0C07FC87EA20} 
 	.sect	".text:MPY32_setWriteDelay"
 	.clink
 	.global	MPY32_setWriteDelay
@@ -20,14 +20,14 @@ $C$DW$1	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$1, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("MPY32_setWriteDelay")
 	.dwattr $C$DW$1, DW_AT_external
-	.dwattr $C$DW$1, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$1, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$1, DW_AT_TI_begin_line(0x15)
 	.dwattr $C$DW$1, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$1, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$1, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$1, DW_AT_decl_line(0x15)
 	.dwattr $C$DW$1, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$1, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 22,column 1,is_stmt,address MPY32_setWriteDelay,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 22,column 1,is_stmt,address MPY32_setWriteDelay,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_setWriteDelay
 $C$DW$2	.dwtag  DW_TAG_formal_parameter
@@ -57,11 +57,11 @@ $C$DW$3	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$3, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |22| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 23,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 23,column 5,is_stmt,isa 0
         AND.W     #64767,&0x4ec         ; [] |23| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 24,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 24,column 5,is_stmt,isa 0
         OR.W      0(SP),&0x4ec          ; [] |24| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 25,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 25,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$4	.dwtag  DW_TAG_TI_branch
@@ -70,7 +70,7 @@ $C$DW$4	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$1, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$1, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$1, DW_AT_TI_end_line(0x19)
 	.dwattr $C$DW$1, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -86,14 +86,14 @@ $C$DW$5	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$5, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$5, DW_AT_TI_symbol_name("MPY32_enableSaturationMode")
 	.dwattr $C$DW$5, DW_AT_external
-	.dwattr $C$DW$5, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$5, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$5, DW_AT_TI_begin_line(0x1b)
 	.dwattr $C$DW$5, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$5, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$5, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$5, DW_AT_decl_line(0x1b)
 	.dwattr $C$DW$5, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$5, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 28,column 1,is_stmt,address MPY32_enableSaturationMode,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 28,column 1,is_stmt,address MPY32_enableSaturationMode,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_enableSaturationMode
 
@@ -108,16 +108,16 @@ MPY32_enableSaturationMode:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 29,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 29,column 5,is_stmt,isa 0
         OR.B      #8,&0x4ec             ; [] |29| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 30,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 30,column 1,is_stmt,isa 0
 $C$DW$6	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$6, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$6, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$5, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$5, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$5, DW_AT_TI_end_line(0x1e)
 	.dwattr $C$DW$5, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -133,14 +133,14 @@ $C$DW$7	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$7, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$7, DW_AT_TI_symbol_name("MPY32_disableSaturationMode")
 	.dwattr $C$DW$7, DW_AT_external
-	.dwattr $C$DW$7, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$7, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$7, DW_AT_TI_begin_line(0x20)
 	.dwattr $C$DW$7, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$7, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$7, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$7, DW_AT_decl_line(0x20)
 	.dwattr $C$DW$7, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$7, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 33,column 1,is_stmt,address MPY32_disableSaturationMode,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 33,column 1,is_stmt,address MPY32_disableSaturationMode,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_disableSaturationMode
 
@@ -155,16 +155,16 @@ MPY32_disableSaturationMode:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 34,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 34,column 5,is_stmt,isa 0
         BIC.B     #8,&0x4ec             ; [] |34| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 35,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 35,column 1,is_stmt,isa 0
 $C$DW$8	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$8, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$8, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$7, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$7, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$7, DW_AT_TI_end_line(0x23)
 	.dwattr $C$DW$7, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -181,14 +181,14 @@ $C$DW$9	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$9, DW_AT_TI_symbol_name("MPY32_getSaturationMode")
 	.dwattr $C$DW$9, DW_AT_external
 	.dwattr $C$DW$9, DW_AT_type(*$C$DW$T$28)
-	.dwattr $C$DW$9, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$9, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$9, DW_AT_TI_begin_line(0x25)
 	.dwattr $C$DW$9, DW_AT_TI_begin_column(0x09)
-	.dwattr $C$DW$9, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$9, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$9, DW_AT_decl_line(0x25)
 	.dwattr $C$DW$9, DW_AT_decl_column(0x09)
 	.dwattr $C$DW$9, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 38,column 1,is_stmt,address MPY32_getSaturationMode,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 38,column 1,is_stmt,address MPY32_getSaturationMode,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_getSaturationMode
 
@@ -203,17 +203,17 @@ MPY32_getSaturationMode:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 39,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 39,column 5,is_stmt,isa 0
         MOV.W     #8,r12                ; [] |39| 
         AND.B     &0x4ec,r12            ; [] |39| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 40,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 40,column 1,is_stmt,isa 0
 $C$DW$10	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$10, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$10, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$9, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$9, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$9, DW_AT_TI_end_line(0x28)
 	.dwattr $C$DW$9, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -229,14 +229,14 @@ $C$DW$11	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$11, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$11, DW_AT_TI_symbol_name("MPY32_enableFractionalMode")
 	.dwattr $C$DW$11, DW_AT_external
-	.dwattr $C$DW$11, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$11, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$11, DW_AT_TI_begin_line(0x2a)
 	.dwattr $C$DW$11, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$11, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$11, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$11, DW_AT_decl_line(0x2a)
 	.dwattr $C$DW$11, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$11, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 43,column 1,is_stmt,address MPY32_enableFractionalMode,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 43,column 1,is_stmt,address MPY32_enableFractionalMode,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_enableFractionalMode
 
@@ -251,16 +251,16 @@ MPY32_enableFractionalMode:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 44,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 44,column 5,is_stmt,isa 0
         OR.B      #4,&0x4ec             ; [] |44| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 45,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 45,column 1,is_stmt,isa 0
 $C$DW$12	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$12, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$12, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$11, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$11, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$11, DW_AT_TI_end_line(0x2d)
 	.dwattr $C$DW$11, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -276,14 +276,14 @@ $C$DW$13	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$13, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$13, DW_AT_TI_symbol_name("MPY32_disableFractionalMode")
 	.dwattr $C$DW$13, DW_AT_external
-	.dwattr $C$DW$13, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$13, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$13, DW_AT_TI_begin_line(0x2f)
 	.dwattr $C$DW$13, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$13, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$13, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$13, DW_AT_decl_line(0x2f)
 	.dwattr $C$DW$13, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$13, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 48,column 1,is_stmt,address MPY32_disableFractionalMode,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 48,column 1,is_stmt,address MPY32_disableFractionalMode,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_disableFractionalMode
 
@@ -298,16 +298,16 @@ MPY32_disableFractionalMode:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 49,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 49,column 5,is_stmt,isa 0
         BIC.B     #4,&0x4ec             ; [] |49| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 50,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 50,column 1,is_stmt,isa 0
 $C$DW$14	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$14, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$14, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$13, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$13, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$13, DW_AT_TI_end_line(0x32)
 	.dwattr $C$DW$13, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -324,14 +324,14 @@ $C$DW$15	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$15, DW_AT_TI_symbol_name("MPY32_getFractionalMode")
 	.dwattr $C$DW$15, DW_AT_external
 	.dwattr $C$DW$15, DW_AT_type(*$C$DW$T$28)
-	.dwattr $C$DW$15, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$15, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$15, DW_AT_TI_begin_line(0x34)
 	.dwattr $C$DW$15, DW_AT_TI_begin_column(0x09)
-	.dwattr $C$DW$15, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$15, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$15, DW_AT_decl_line(0x34)
 	.dwattr $C$DW$15, DW_AT_decl_column(0x09)
 	.dwattr $C$DW$15, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 53,column 1,is_stmt,address MPY32_getFractionalMode,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 53,column 1,is_stmt,address MPY32_getFractionalMode,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_getFractionalMode
 
@@ -346,17 +346,17 @@ MPY32_getFractionalMode:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 54,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 54,column 5,is_stmt,isa 0
         MOV.W     #4,r12                ; [] |54| 
         AND.B     &0x4ec,r12            ; [] |54| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 55,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 55,column 1,is_stmt,isa 0
 $C$DW$16	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$16, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$16, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$15, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$15, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$15, DW_AT_TI_end_line(0x37)
 	.dwattr $C$DW$15, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -372,14 +372,14 @@ $C$DW$17	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$17, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$17, DW_AT_TI_symbol_name("MPY32_setOperandOne8Bit")
 	.dwattr $C$DW$17, DW_AT_external
-	.dwattr $C$DW$17, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$17, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$17, DW_AT_TI_begin_line(0x39)
 	.dwattr $C$DW$17, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$17, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$17, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$17, DW_AT_decl_line(0x39)
 	.dwattr $C$DW$17, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$17, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 59,column 1,is_stmt,address MPY32_setOperandOne8Bit,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 59,column 1,is_stmt,address MPY32_setOperandOne8Bit,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_setOperandOne8Bit
 $C$DW$18	.dwtag  DW_TAG_formal_parameter
@@ -422,10 +422,10 @@ $C$DW$21	.dwtag  DW_TAG_variable
 
         MOV.B     r13,1(SP)             ; [] |59| 
         MOV.B     r12,0(SP)             ; [] |59| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 60,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 60,column 5,is_stmt,isa 0
         MOV.B     0(SP),r15             ; [] |60| 
         MOV.B     1(SP),1216(r15)       ; [] |60| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 61,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 61,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$22	.dwtag  DW_TAG_TI_branch
@@ -434,7 +434,7 @@ $C$DW$22	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$17, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$17, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$17, DW_AT_TI_end_line(0x3d)
 	.dwattr $C$DW$17, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -450,14 +450,14 @@ $C$DW$23	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$23, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$23, DW_AT_TI_symbol_name("MPY32_setOperandOne16Bit")
 	.dwattr $C$DW$23, DW_AT_external
-	.dwattr $C$DW$23, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$23, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$23, DW_AT_TI_begin_line(0x3f)
 	.dwattr $C$DW$23, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$23, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$23, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$23, DW_AT_decl_line(0x3f)
 	.dwattr $C$DW$23, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$23, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 65,column 1,is_stmt,address MPY32_setOperandOne16Bit,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 65,column 1,is_stmt,address MPY32_setOperandOne16Bit,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_setOperandOne16Bit
 $C$DW$24	.dwtag  DW_TAG_formal_parameter
@@ -500,10 +500,10 @@ $C$DW$27	.dwtag  DW_TAG_variable
 
         MOV.W     r13,0(SP)             ; [] |65| 
         MOV.B     r12,2(SP)             ; [] |65| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 66,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 66,column 5,is_stmt,isa 0
         MOV.B     2(SP),r15             ; [] |66| 
         MOV.W     0(SP),1216(r15)       ; [] |66| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 67,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 67,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$28	.dwtag  DW_TAG_TI_branch
@@ -512,7 +512,7 @@ $C$DW$28	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$23, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$23, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$23, DW_AT_TI_end_line(0x43)
 	.dwattr $C$DW$23, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -528,14 +528,14 @@ $C$DW$29	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$29, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$29, DW_AT_TI_symbol_name("MPY32_setOperandOne24Bit")
 	.dwattr $C$DW$29, DW_AT_external
-	.dwattr $C$DW$29, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$29, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$29, DW_AT_TI_begin_line(0x45)
 	.dwattr $C$DW$29, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$29, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$29, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$29, DW_AT_decl_line(0x45)
 	.dwattr $C$DW$29, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$29, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 71,column 1,is_stmt,address MPY32_setOperandOne24Bit,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 71,column 1,is_stmt,address MPY32_setOperandOne24Bit,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_setOperandOne24Bit
 $C$DW$30	.dwtag  DW_TAG_formal_parameter
@@ -579,15 +579,15 @@ $C$DW$33	.dwtag  DW_TAG_variable
         MOV.W     r13,0(SP)             ; [] |71| 
         MOV.W     r14,2(SP)             ; [] |71| 
         MOV.B     r12,4(SP)             ; [] |71| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 72,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 72,column 5,is_stmt,isa 0
         RLA.B     4(SP)                 ; [] |72| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 73,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 73,column 5,is_stmt,isa 0
         MOV.B     4(SP),r15             ; [] |73| 
         MOV.W     0(SP),1232(r15)       ; [] |73| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 74,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 74,column 5,is_stmt,isa 0
         MOV.B     4(SP),r15             ; [] |74| 
         MOV.B     2(SP),1234(r15)       ; [] |74| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 75,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 75,column 1,is_stmt,isa 0
         ADD.W     #6,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$34	.dwtag  DW_TAG_TI_branch
@@ -596,7 +596,7 @@ $C$DW$34	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$29, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$29, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$29, DW_AT_TI_end_line(0x4b)
 	.dwattr $C$DW$29, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -612,14 +612,14 @@ $C$DW$35	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$35, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$35, DW_AT_TI_symbol_name("MPY32_setOperandOne32Bit")
 	.dwattr $C$DW$35, DW_AT_external
-	.dwattr $C$DW$35, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$35, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$35, DW_AT_TI_begin_line(0x4d)
 	.dwattr $C$DW$35, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$35, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$35, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$35, DW_AT_decl_line(0x4d)
 	.dwattr $C$DW$35, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$35, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 79,column 1,is_stmt,address MPY32_setOperandOne32Bit,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 79,column 1,is_stmt,address MPY32_setOperandOne32Bit,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_setOperandOne32Bit
 $C$DW$36	.dwtag  DW_TAG_formal_parameter
@@ -663,15 +663,15 @@ $C$DW$39	.dwtag  DW_TAG_variable
         MOV.W     r13,0(SP)             ; [] |79| 
         MOV.W     r14,2(SP)             ; [] |79| 
         MOV.B     r12,4(SP)             ; [] |79| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 80,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 80,column 5,is_stmt,isa 0
         RLA.B     4(SP)                 ; [] |80| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 81,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 81,column 5,is_stmt,isa 0
         MOV.B     4(SP),r15             ; [] |81| 
         MOV.W     0(SP),1232(r15)       ; [] |81| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 82,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 82,column 5,is_stmt,isa 0
         MOV.B     4(SP),r15             ; [] |82| 
         MOV.W     2(SP),1234(r15)       ; [] |82| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 83,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 83,column 1,is_stmt,isa 0
         ADD.W     #6,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$40	.dwtag  DW_TAG_TI_branch
@@ -680,7 +680,7 @@ $C$DW$40	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$35, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$35, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$35, DW_AT_TI_end_line(0x53)
 	.dwattr $C$DW$35, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -696,14 +696,14 @@ $C$DW$41	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$41, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$41, DW_AT_TI_symbol_name("MPY32_setOperandTwo8Bit")
 	.dwattr $C$DW$41, DW_AT_external
-	.dwattr $C$DW$41, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$41, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$41, DW_AT_TI_begin_line(0x55)
 	.dwattr $C$DW$41, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$41, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$41, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$41, DW_AT_decl_line(0x55)
 	.dwattr $C$DW$41, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$41, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 86,column 1,is_stmt,address MPY32_setOperandTwo8Bit,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 86,column 1,is_stmt,address MPY32_setOperandTwo8Bit,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_setOperandTwo8Bit
 $C$DW$42	.dwtag  DW_TAG_formal_parameter
@@ -733,9 +733,9 @@ $C$DW$43	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$43, DW_AT_location[DW_OP_breg1 0]
 
         MOV.B     r12,0(SP)             ; [] |86| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 87,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 87,column 5,is_stmt,isa 0
         MOV.B     0(SP),&0x4c8          ; [] |87| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 88,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 88,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$44	.dwtag  DW_TAG_TI_branch
@@ -744,7 +744,7 @@ $C$DW$44	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$41, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$41, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$41, DW_AT_TI_end_line(0x58)
 	.dwattr $C$DW$41, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -760,14 +760,14 @@ $C$DW$45	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$45, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$45, DW_AT_TI_symbol_name("MPY32_setOperandTwo16Bit")
 	.dwattr $C$DW$45, DW_AT_external
-	.dwattr $C$DW$45, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$45, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$45, DW_AT_TI_begin_line(0x5a)
 	.dwattr $C$DW$45, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$45, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$45, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$45, DW_AT_decl_line(0x5a)
 	.dwattr $C$DW$45, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$45, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 91,column 1,is_stmt,address MPY32_setOperandTwo16Bit,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 91,column 1,is_stmt,address MPY32_setOperandTwo16Bit,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_setOperandTwo16Bit
 $C$DW$46	.dwtag  DW_TAG_formal_parameter
@@ -797,9 +797,9 @@ $C$DW$47	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$47, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |91| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 92,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 92,column 5,is_stmt,isa 0
         MOV.W     0(SP),&0x4c8          ; [] |92| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 93,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 93,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$48	.dwtag  DW_TAG_TI_branch
@@ -808,7 +808,7 @@ $C$DW$48	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$45, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$45, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$45, DW_AT_TI_end_line(0x5d)
 	.dwattr $C$DW$45, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -824,14 +824,14 @@ $C$DW$49	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$49, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$49, DW_AT_TI_symbol_name("MPY32_setOperandTwo24Bit")
 	.dwattr $C$DW$49, DW_AT_external
-	.dwattr $C$DW$49, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$49, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$49, DW_AT_TI_begin_line(0x5f)
 	.dwattr $C$DW$49, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$49, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$49, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$49, DW_AT_decl_line(0x5f)
 	.dwattr $C$DW$49, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$49, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 96,column 1,is_stmt,address MPY32_setOperandTwo24Bit,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 96,column 1,is_stmt,address MPY32_setOperandTwo24Bit,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_setOperandTwo24Bit
 $C$DW$50	.dwtag  DW_TAG_formal_parameter
@@ -862,11 +862,11 @@ $C$DW$51	.dwtag  DW_TAG_variable
 
         MOV.W     r12,0(SP)             ; [] |96| 
         MOV.W     r13,2(SP)             ; [] |96| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 97,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 97,column 5,is_stmt,isa 0
         MOV.W     0(SP),&0x4e0          ; [] |97| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 98,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 98,column 5,is_stmt,isa 0
         MOV.B     2(SP),&0x4e2          ; [] |98| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 99,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 99,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$52	.dwtag  DW_TAG_TI_branch
@@ -875,7 +875,7 @@ $C$DW$52	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$49, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$49, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$49, DW_AT_TI_end_line(0x63)
 	.dwattr $C$DW$49, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -891,14 +891,14 @@ $C$DW$53	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$53, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$53, DW_AT_TI_symbol_name("MPY32_setOperandTwo32Bit")
 	.dwattr $C$DW$53, DW_AT_external
-	.dwattr $C$DW$53, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$53, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$53, DW_AT_TI_begin_line(0x65)
 	.dwattr $C$DW$53, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$53, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$53, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$53, DW_AT_decl_line(0x65)
 	.dwattr $C$DW$53, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$53, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 102,column 1,is_stmt,address MPY32_setOperandTwo32Bit,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 102,column 1,is_stmt,address MPY32_setOperandTwo32Bit,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_setOperandTwo32Bit
 $C$DW$54	.dwtag  DW_TAG_formal_parameter
@@ -929,11 +929,11 @@ $C$DW$55	.dwtag  DW_TAG_variable
 
         MOV.W     r12,0(SP)             ; [] |102| 
         MOV.W     r13,2(SP)             ; [] |102| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 103,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 103,column 5,is_stmt,isa 0
         MOV.W     0(SP),&0x4e0          ; [] |103| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 104,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 104,column 5,is_stmt,isa 0
         MOV.W     2(SP),&0x4e2          ; [] |104| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 105,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 105,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$56	.dwtag  DW_TAG_TI_branch
@@ -942,7 +942,7 @@ $C$DW$56	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$53, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$53, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$53, DW_AT_TI_end_line(0x69)
 	.dwattr $C$DW$53, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -959,14 +959,14 @@ $C$DW$57	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$57, DW_AT_TI_symbol_name("MPY32_getResult")
 	.dwattr $C$DW$57, DW_AT_external
 	.dwattr $C$DW$57, DW_AT_type(*$C$DW$T$37)
-	.dwattr $C$DW$57, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$57, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$57, DW_AT_TI_begin_line(0x6b)
 	.dwattr $C$DW$57, DW_AT_TI_begin_column(0x0a)
-	.dwattr $C$DW$57, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$57, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$57, DW_AT_decl_line(0x6b)
 	.dwattr $C$DW$57, DW_AT_decl_column(0x0a)
 	.dwattr $C$DW$57, DW_AT_TI_max_frame_size(0x0a)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 108,column 1,is_stmt,address MPY32_getResult,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 108,column 1,is_stmt,address MPY32_getResult,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_getResult
 
@@ -989,12 +989,12 @@ $C$DW$58	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$58, DW_AT_type(*$C$DW$T$37)
 	.dwattr $C$DW$58, DW_AT_location[DW_OP_breg1 0]
 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 111,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 111,column 5,is_stmt,isa 0
         MOV.W     &0x4e4,0(SP)          ; [] |111| 
         MOV.W     #0,2(SP)              ; [] |111| 
         MOV.W     #0,4(SP)              ; [] |111| 
         MOV.W     #0,6(SP)              ; [] |111| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 112,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 112,column 5,is_stmt,isa 0
         MOV.W     &0x4e6,r15            ; [] |112| 
         MOV.W     #0,r12                ; [] |112| 
         MOV.W     #0,r13                ; [] |112| 
@@ -1004,7 +1004,7 @@ $C$DW$58	.dwtag  DW_TAG_variable
         ADDC.W    r14,2(SP)             ; [] |112| 
         ADDC.W    r12,4(SP)             ; [] |112| 
         ADDC.W    r13,6(SP)             ; [] |112| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 113,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 113,column 5,is_stmt,isa 0
         MOV.W     &0x4e8,r15            ; [] |113| 
         MOV.W     r15,r14               ; [] |113| 
         MOV.W     #0,r15                ; [] |113| 
@@ -1012,7 +1012,7 @@ $C$DW$58	.dwtag  DW_TAG_variable
         ADDC.W    r12,2(SP)             ; [] |113| 
         ADDC.W    r14,4(SP)             ; [] |113| 
         ADDC.W    r13,6(SP)             ; [] |113| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 114,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 114,column 5,is_stmt,isa 0
         MOV.W     &0x4ea,r15            ; [] |114| 
         MOV.W     r15,r14               ; [] |114| 
         MOV.W     #0,r15                ; [] |114| 
@@ -1020,12 +1020,12 @@ $C$DW$58	.dwtag  DW_TAG_variable
         ADDC.W    r12,2(SP)             ; [] |114| 
         ADDC.W    r13,4(SP)             ; [] |114| 
         ADDC.W    r14,6(SP)             ; [] |114| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 115,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 115,column 5,is_stmt,isa 0
         MOV.W     0(SP),r12             ; [] |115| 
         MOV.W     2(SP),r13             ; [] |115| 
         MOV.W     4(SP),r14             ; [] |115| 
         MOV.W     6(SP),r15             ; [] |115| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 116,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 116,column 1,is_stmt,isa 0
         ADD.W     #8,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$59	.dwtag  DW_TAG_TI_branch
@@ -1034,7 +1034,7 @@ $C$DW$59	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$57, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$57, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$57, DW_AT_TI_end_line(0x74)
 	.dwattr $C$DW$57, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1051,14 +1051,14 @@ $C$DW$60	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$60, DW_AT_TI_symbol_name("MPY32_getSumExtension")
 	.dwattr $C$DW$60, DW_AT_external
 	.dwattr $C$DW$60, DW_AT_type(*$C$DW$T$24)
-	.dwattr $C$DW$60, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$60, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$60, DW_AT_TI_begin_line(0x76)
 	.dwattr $C$DW$60, DW_AT_TI_begin_column(0x0a)
-	.dwattr $C$DW$60, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$60, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$60, DW_AT_decl_line(0x76)
 	.dwattr $C$DW$60, DW_AT_decl_column(0x0a)
 	.dwattr $C$DW$60, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 119,column 1,is_stmt,address MPY32_getSumExtension,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 119,column 1,is_stmt,address MPY32_getSumExtension,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_getSumExtension
 
@@ -1073,16 +1073,16 @@ MPY32_getSumExtension:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 120,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 120,column 5,is_stmt,isa 0
         MOV.W     &0x4ce,r12            ; [] |120| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 121,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 121,column 1,is_stmt,isa 0
 $C$DW$61	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$61, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$61, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$60, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$60, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$60, DW_AT_TI_end_line(0x79)
 	.dwattr $C$DW$60, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1099,14 +1099,14 @@ $C$DW$62	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$62, DW_AT_TI_symbol_name("MPY32_getCarryBitValue")
 	.dwattr $C$DW$62, DW_AT_external
 	.dwattr $C$DW$62, DW_AT_type(*$C$DW$T$24)
-	.dwattr $C$DW$62, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$62, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$62, DW_AT_TI_begin_line(0x7b)
 	.dwattr $C$DW$62, DW_AT_TI_begin_column(0x0a)
-	.dwattr $C$DW$62, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$62, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$62, DW_AT_decl_line(0x7b)
 	.dwattr $C$DW$62, DW_AT_decl_column(0x0a)
 	.dwattr $C$DW$62, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 124,column 1,is_stmt,address MPY32_getCarryBitValue,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 124,column 1,is_stmt,address MPY32_getCarryBitValue,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_getCarryBitValue
 
@@ -1121,17 +1121,17 @@ MPY32_getCarryBitValue:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 125,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 125,column 5,is_stmt,isa 0
         MOV.W     #1,r12                ; [] |125| 
         OR.W      &0x4ec,r12            ; [] |125| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 126,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 126,column 1,is_stmt,isa 0
 $C$DW$63	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$63, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$63, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$62, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$62, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$62, DW_AT_TI_end_line(0x7e)
 	.dwattr $C$DW$62, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1147,14 +1147,14 @@ $C$DW$64	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$64, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$64, DW_AT_TI_symbol_name("MPY32_clearCarryBitValue")
 	.dwattr $C$DW$64, DW_AT_external
-	.dwattr $C$DW$64, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$64, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$64, DW_AT_TI_begin_line(0x7f)
 	.dwattr $C$DW$64, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$64, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$64, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$64, DW_AT_decl_line(0x7f)
 	.dwattr $C$DW$64, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$64, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 128,column 1,is_stmt,address MPY32_clearCarryBitValue,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 128,column 1,is_stmt,address MPY32_clearCarryBitValue,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_clearCarryBitValue
 
@@ -1169,16 +1169,16 @@ MPY32_clearCarryBitValue:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 129,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 129,column 5,is_stmt,isa 0
         BIC.W     #1,&0x4ec             ; [] |129| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 130,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 130,column 1,is_stmt,isa 0
 $C$DW$65	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$65, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$65, DW_AT_TI_return
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$64, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$64, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$64, DW_AT_TI_end_line(0x82)
 	.dwattr $C$DW$64, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1194,14 +1194,14 @@ $C$DW$66	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$66, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$66, DW_AT_TI_symbol_name("MPY32_preloadResult")
 	.dwattr $C$DW$66, DW_AT_external
-	.dwattr $C$DW$66, DW_AT_TI_begin_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$66, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$66, DW_AT_TI_begin_line(0x83)
 	.dwattr $C$DW$66, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$66, DW_AT_decl_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$66, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$66, DW_AT_decl_line(0x83)
 	.dwattr $C$DW$66, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$66, DW_AT_TI_max_frame_size(0x0a)
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 132,column 1,is_stmt,address MPY32_preloadResult,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 132,column 1,is_stmt,address MPY32_preloadResult,isa 0
 
 	.dwfde $C$DW$CIE, MPY32_preloadResult
 $C$DW$67	.dwtag  DW_TAG_formal_parameter
@@ -1234,15 +1234,15 @@ $C$DW$68	.dwtag  DW_TAG_variable
         MOV.W     r13,2(SP)             ; [] |132| 
         MOV.W     r14,4(SP)             ; [] |132| 
         MOV.W     r15,6(SP)             ; [] |132| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 133,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 133,column 5,is_stmt,isa 0
         MOV.W     0(SP),&0x4e4          ; [] |133| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 134,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 134,column 5,is_stmt,isa 0
         MOV.W     2(SP),&0x4e6          ; [] |134| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 135,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 135,column 5,is_stmt,isa 0
         MOV.W     4(SP),&0x4e8          ; [] |135| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 136,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 136,column 5,is_stmt,isa 0
         MOV.W     6(SP),&0x4ea          ; [] |136| 
-	.dwpsn	file "../driverlib/MSP430FR5xx_6xx/mpy32.c",line 137,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/mpy32.c",line 137,column 1,is_stmt,isa 0
         ADD.W     #8,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$69	.dwtag  DW_TAG_TI_branch
@@ -1251,7 +1251,7 @@ $C$DW$69	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$66, DW_AT_TI_end_file("../driverlib/MSP430FR5xx_6xx/mpy32.c")
+	.dwattr $C$DW$66, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/mpy32.c")
 	.dwattr $C$DW$66, DW_AT_TI_end_line(0x89)
 	.dwattr $C$DW$66, DW_AT_TI_end_column(0x01)
 	.dwendentry

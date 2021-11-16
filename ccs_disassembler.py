@@ -140,7 +140,7 @@ def disassemble(*, pique_bool: bool = True) -> None:
     """
     disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
     disassembler_executable: str = r'dis430.exe'
-    disassembler_input_file_name: str = "test_C.out"  # "test_colt_C.out"  # "All_ops_asm.out'  # "Motor_mover_C.out" # "test.out" # "test_ASM.out" # "All_msp_operations.out"
+    disassembler_input_file_name: str = "All_msp_operations.out" # "test_C.out"  # "test_colt_C.out"  # "All_ops_asm.out'  # "Motor_mover_C.out" # "test.out" # "test_ASM.out" # "All_msp_operations.out"
     disassembler_input_file_directory: str = rf"{os.getcwd()}\ccs_workspace\{disassembler_input_file_name.replace('.out', '')}\Debug"
     disassembler_output_file_name: str = "generated_disassembly.txt"
     disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly"

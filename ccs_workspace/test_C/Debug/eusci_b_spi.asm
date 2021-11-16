@@ -1,15 +1,15 @@
 ;******************************************************************************
 ;* MSP430 G3 C/C++ Codegen                                              PC v20.2.5.LTS *
-;* Date/Time created: Wed Nov  3 09:47:46 2021                                *
+;* Date/Time created: Tue Nov  9 15:10:35 2021                                *
 ;******************************************************************************
 	.compiler_opts --abi=eabi --diag_wrap=off --hll_source=on --mem_model:code=small --mem_model:data=small --object_format=elf --silicon_version=msp --symdebug:dwarf --symdebug:dwarf_version=3 
 
 $C$DW$CU	.dwtag  DW_TAG_compile_unit
-	.dwattr $C$DW$CU, DW_AT_name("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$CU, DW_AT_name("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TI MSP430 G3 C/C++ Codegen PC v20.2.5.LTS Copyright (c) 2003-2018 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
 	.dwattr $C$DW$CU, DW_AT_comp_dir("C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\Debug")
-;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{EA5C2F15-7FF0-4D7E-B0EA-E4F7FC69290B} 
+;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{2BEEA1AB-55D2-426F-A970-45F46F57E0B8} 
 	.sect	".text:EUSCI_B_SPI_initMaster"
 	.clink
 	.global	EUSCI_B_SPI_initMaster
@@ -20,14 +20,14 @@ $C$DW$1	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$1, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("EUSCI_B_SPI_initMaster")
 	.dwattr $C$DW$1, DW_AT_external
-	.dwattr $C$DW$1, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$1, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$1, DW_AT_TI_begin_line(0x15)
 	.dwattr $C$DW$1, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$1, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$1, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$1, DW_AT_decl_line(0x15)
 	.dwattr $C$DW$1, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$1, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 23,column 1,is_stmt,address EUSCI_B_SPI_initMaster,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 23,column 1,is_stmt,address EUSCI_B_SPI_initMaster,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_initMaster
 $C$DW$2	.dwtag  DW_TAG_formal_parameter
@@ -70,21 +70,21 @@ $C$DW$5	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |23| 
         MOV.W     r12,0(SP)             ; [] |23| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 25,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 25,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |25| 
         OR.W      #1,0(r15)             ; [] |25| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 28,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 28,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |28| 
         AND.W     #255,0(r15)           ; [] |28| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 32,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 32,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |32| 
         AND.W     #65343,0(r15)         ; [] |32| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 35,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 35,column 5,is_stmt,isa 0
         MOV.W     0(SP),r14             ; [] |35| 
         MOV.W     2(SP),r15             ; [] |35| 
         MOV.B     @r15,r15              ; [] |35| 
         OR.W      r15,0(r14)            ; [] |35| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 37,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 37,column 5,is_stmt,isa 0
         MOV.W     2(SP),r15             ; [] |37| 
         MOV.W     2(r15),r12            ; [] |37| 
         MOV.W     4(r15),r13            ; [] |37| 
@@ -99,7 +99,7 @@ $C$DW$6	.dwtag  DW_TAG_TI_branch
                                           ; [] |37| 
         MOV.W     0(SP),r15             ; [] |37| 
         MOV.W     r12,6(r15)            ; [] |37| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 47,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 47,column 5,is_stmt,isa 0
         MOV.W     0(SP),r14             ; [] |47| 
         MOV.W     2(SP),r15             ; [] |47| 
         MOV.W     12(r15),r13           ; [] |47| 
@@ -108,7 +108,7 @@ $C$DW$6	.dwtag  DW_TAG_TI_branch
         ADD.W     16(r15),r13           ; [] |47| 
         ADD.W     #2304,r13             ; [] |47| 
         OR.W      r13,0(r14)            ; [] |47| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 55,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 55,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$7	.dwtag  DW_TAG_TI_branch
@@ -117,7 +117,7 @@ $C$DW$7	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$1, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$1, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$1, DW_AT_TI_end_line(0x37)
 	.dwattr $C$DW$1, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -133,14 +133,14 @@ $C$DW$8	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$8, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$8, DW_AT_TI_symbol_name("EUSCI_B_SPI_select4PinFunctionality")
 	.dwattr $C$DW$8, DW_AT_external
-	.dwattr $C$DW$8, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$8, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$8, DW_AT_TI_begin_line(0x39)
 	.dwattr $C$DW$8, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$8, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$8, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$8, DW_AT_decl_line(0x39)
 	.dwattr $C$DW$8, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$8, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 60,column 1,is_stmt,address EUSCI_B_SPI_select4PinFunctionality,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 60,column 1,is_stmt,address EUSCI_B_SPI_select4PinFunctionality,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_select4PinFunctionality
 $C$DW$9	.dwtag  DW_TAG_formal_parameter
@@ -183,13 +183,13 @@ $C$DW$12	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |60| 
         MOV.W     r12,0(SP)             ; [] |60| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 61,column 3,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 61,column 3,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |61| 
         BIC.W     #2,0(r15)             ; [] |61| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 62,column 3,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 62,column 3,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |62| 
         OR.W      2(SP),0(r15)          ; [] |62| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 63,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 63,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$13	.dwtag  DW_TAG_TI_branch
@@ -198,7 +198,7 @@ $C$DW$13	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$8, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$8, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$8, DW_AT_TI_end_line(0x3f)
 	.dwattr $C$DW$8, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -214,14 +214,14 @@ $C$DW$14	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$14, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$14, DW_AT_TI_symbol_name("EUSCI_B_SPI_changeMasterClock")
 	.dwattr $C$DW$14, DW_AT_external
-	.dwattr $C$DW$14, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$14, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$14, DW_AT_TI_begin_line(0x41)
 	.dwattr $C$DW$14, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$14, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$14, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$14, DW_AT_decl_line(0x41)
 	.dwattr $C$DW$14, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$14, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 67,column 1,is_stmt,address EUSCI_B_SPI_changeMasterClock,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 67,column 1,is_stmt,address EUSCI_B_SPI_changeMasterClock,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_changeMasterClock
 $C$DW$15	.dwtag  DW_TAG_formal_parameter
@@ -264,10 +264,10 @@ $C$DW$18	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |67| 
         MOV.W     r12,0(SP)             ; [] |67| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 69,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 69,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |69| 
         OR.W      #1,0(r15)             ; [] |69| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 71,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 71,column 5,is_stmt,isa 0
         MOV.W     2(SP),r15             ; [] |71| 
         MOV.W     @r15,r12              ; [] |71| 
         MOV.W     2(r15),r13            ; [] |71| 
@@ -282,10 +282,10 @@ $C$DW$19	.dwtag  DW_TAG_TI_branch
                                           ; [] |71| 
         MOV.W     0(SP),r15             ; [] |71| 
         MOV.W     r12,6(r15)            ; [] |71| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 75,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 75,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |75| 
         BIC.W     #1,0(r15)             ; [] |75| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 76,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 76,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$20	.dwtag  DW_TAG_TI_branch
@@ -294,7 +294,7 @@ $C$DW$20	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$14, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$14, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$14, DW_AT_TI_end_line(0x4c)
 	.dwattr $C$DW$14, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -310,14 +310,14 @@ $C$DW$21	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$21, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$21, DW_AT_TI_symbol_name("EUSCI_B_SPI_initSlave")
 	.dwattr $C$DW$21, DW_AT_external
-	.dwattr $C$DW$21, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$21, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$21, DW_AT_TI_begin_line(0x4e)
 	.dwattr $C$DW$21, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$21, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$21, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$21, DW_AT_decl_line(0x4e)
 	.dwattr $C$DW$21, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$21, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 79,column 1,is_stmt,address EUSCI_B_SPI_initSlave,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 79,column 1,is_stmt,address EUSCI_B_SPI_initSlave,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_initSlave
 $C$DW$22	.dwtag  DW_TAG_formal_parameter
@@ -360,13 +360,13 @@ $C$DW$25	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |79| 
         MOV.W     r12,0(SP)             ; [] |79| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 81,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 81,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |81| 
         OR.W      #1,0(r15)             ; [] |81| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 84,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 84,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |84| 
         AND.W     #511,0(r15)           ; [] |84| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 93,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 93,column 5,is_stmt,isa 0
         MOV.W     0(SP),r14             ; [] |93| 
         MOV.W     2(SP),r15             ; [] |93| 
         MOV.W     4(r15),r13            ; [] |93| 
@@ -375,7 +375,7 @@ $C$DW$25	.dwtag  DW_TAG_variable
         ADD.W     6(r15),r13            ; [] |93| 
         ADD.W     #256,r13              ; [] |93| 
         OR.W      r13,0(r14)            ; [] |93| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 99,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 99,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$26	.dwtag  DW_TAG_TI_branch
@@ -384,7 +384,7 @@ $C$DW$26	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$21, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$21, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$21, DW_AT_TI_end_line(0x63)
 	.dwattr $C$DW$21, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -400,14 +400,14 @@ $C$DW$27	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$27, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$27, DW_AT_TI_symbol_name("EUSCI_B_SPI_changeClockPhasePolarity")
 	.dwattr $C$DW$27, DW_AT_external
-	.dwattr $C$DW$27, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$27, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$27, DW_AT_TI_begin_line(0x65)
 	.dwattr $C$DW$27, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$27, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$27, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$27, DW_AT_decl_line(0x65)
 	.dwattr $C$DW$27, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$27, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 105,column 1,is_stmt,address EUSCI_B_SPI_changeClockPhasePolarity,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 105,column 1,is_stmt,address EUSCI_B_SPI_changeClockPhasePolarity,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_changeClockPhasePolarity
 $C$DW$28	.dwtag  DW_TAG_formal_parameter
@@ -463,21 +463,21 @@ $C$DW$33	.dwtag  DW_TAG_variable
         MOV.W     r14,4(SP)             ; [] |105| 
         MOV.W     r13,2(SP)             ; [] |105| 
         MOV.W     r12,0(SP)             ; [] |105| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 107,column 3,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 107,column 3,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |107| 
         OR.W      #1,0(r15)             ; [] |107| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 109,column 3,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 109,column 3,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |109| 
         AND.W     #16383,0(r15)         ; [] |109| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 111,column 3,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 111,column 3,is_stmt,isa 0
         MOV.W     0(SP),r14             ; [] |111| 
         MOV.W     4(SP),r15             ; [] |111| 
         ADD.W     2(SP),r15             ; [] |111| 
         OR.W      r15,0(r14)            ; [] |111| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 117,column 3,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 117,column 3,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |117| 
         BIC.W     #1,0(r15)             ; [] |117| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 118,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 118,column 1,is_stmt,isa 0
         ADD.W     #6,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$34	.dwtag  DW_TAG_TI_branch
@@ -486,7 +486,7 @@ $C$DW$34	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$27, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$27, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$27, DW_AT_TI_end_line(0x76)
 	.dwattr $C$DW$27, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -502,14 +502,14 @@ $C$DW$35	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$35, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$35, DW_AT_TI_symbol_name("EUSCI_B_SPI_transmitData")
 	.dwattr $C$DW$35, DW_AT_external
-	.dwattr $C$DW$35, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$35, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$35, DW_AT_TI_begin_line(0x78)
 	.dwattr $C$DW$35, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$35, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$35, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$35, DW_AT_decl_line(0x78)
 	.dwattr $C$DW$35, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$35, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 123,column 1,is_stmt,address EUSCI_B_SPI_transmitData,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 123,column 1,is_stmt,address EUSCI_B_SPI_transmitData,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_transmitData
 $C$DW$36	.dwtag  DW_TAG_formal_parameter
@@ -552,10 +552,10 @@ $C$DW$39	.dwtag  DW_TAG_variable
 
         MOV.B     r13,2(SP)             ; [] |123| 
         MOV.W     r12,0(SP)             ; [] |123| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 124,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 124,column 5,is_stmt,isa 0
         MOV.B     2(SP),r15             ; [] |124| 
         MOV.W     r15,14(r12)           ; [] |124| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 125,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 125,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$40	.dwtag  DW_TAG_TI_branch
@@ -564,7 +564,7 @@ $C$DW$40	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$35, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$35, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$35, DW_AT_TI_end_line(0x7d)
 	.dwattr $C$DW$35, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -581,14 +581,14 @@ $C$DW$41	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$41, DW_AT_TI_symbol_name("EUSCI_B_SPI_receiveData")
 	.dwattr $C$DW$41, DW_AT_external
 	.dwattr $C$DW$41, DW_AT_type(*$C$DW$T$26)
-	.dwattr $C$DW$41, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$41, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$41, DW_AT_TI_begin_line(0x7f)
 	.dwattr $C$DW$41, DW_AT_TI_begin_column(0x09)
-	.dwattr $C$DW$41, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$41, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$41, DW_AT_decl_line(0x7f)
 	.dwattr $C$DW$41, DW_AT_decl_column(0x09)
 	.dwattr $C$DW$41, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 128,column 1,is_stmt,address EUSCI_B_SPI_receiveData,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 128,column 1,is_stmt,address EUSCI_B_SPI_receiveData,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_receiveData
 $C$DW$42	.dwtag  DW_TAG_formal_parameter
@@ -618,10 +618,10 @@ $C$DW$43	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$43, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |128| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 129,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 129,column 5,is_stmt,isa 0
         MOV.W     12(r12),r12           ; [] |129| 
         MOV.B     r12,r12               ; [] |129| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 130,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 130,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$44	.dwtag  DW_TAG_TI_branch
@@ -630,7 +630,7 @@ $C$DW$44	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$41, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$41, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$41, DW_AT_TI_end_line(0x82)
 	.dwattr $C$DW$41, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -646,14 +646,14 @@ $C$DW$45	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$45, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$45, DW_AT_TI_symbol_name("EUSCI_B_SPI_enableInterrupt")
 	.dwattr $C$DW$45, DW_AT_external
-	.dwattr $C$DW$45, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$45, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$45, DW_AT_TI_begin_line(0x84)
 	.dwattr $C$DW$45, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$45, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$45, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$45, DW_AT_decl_line(0x84)
 	.dwattr $C$DW$45, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$45, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 135,column 1,is_stmt,address EUSCI_B_SPI_enableInterrupt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 135,column 1,is_stmt,address EUSCI_B_SPI_enableInterrupt,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_enableInterrupt
 $C$DW$46	.dwtag  DW_TAG_formal_parameter
@@ -696,11 +696,11 @@ $C$DW$49	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |135| 
         MOV.W     r12,0(SP)             ; [] |135| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 136,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 136,column 5,is_stmt,isa 0
         MOV.W     #42,r15               ; [] |136| 
         ADD.W     0(SP),r15             ; [] |136| 
         OR.W      2(SP),0(r15)          ; [] |136| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 137,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 137,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$50	.dwtag  DW_TAG_TI_branch
@@ -709,7 +709,7 @@ $C$DW$50	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$45, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$45, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$45, DW_AT_TI_end_line(0x89)
 	.dwattr $C$DW$45, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -725,14 +725,14 @@ $C$DW$51	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$51, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$51, DW_AT_TI_symbol_name("EUSCI_B_SPI_disableInterrupt")
 	.dwattr $C$DW$51, DW_AT_external
-	.dwattr $C$DW$51, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$51, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$51, DW_AT_TI_begin_line(0x8b)
 	.dwattr $C$DW$51, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$51, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$51, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$51, DW_AT_decl_line(0x8b)
 	.dwattr $C$DW$51, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$51, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 142,column 1,is_stmt,address EUSCI_B_SPI_disableInterrupt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 142,column 1,is_stmt,address EUSCI_B_SPI_disableInterrupt,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_disableInterrupt
 $C$DW$52	.dwtag  DW_TAG_formal_parameter
@@ -775,11 +775,11 @@ $C$DW$55	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |142| 
         MOV.W     r12,0(SP)             ; [] |142| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 143,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 143,column 5,is_stmt,isa 0
         MOV.W     #42,r15               ; [] |143| 
         ADD.W     0(SP),r15             ; [] |143| 
         BIC.W     2(SP),0(r15)          ; [] |143| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 144,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 144,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$56	.dwtag  DW_TAG_TI_branch
@@ -788,7 +788,7 @@ $C$DW$56	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$51, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$51, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$51, DW_AT_TI_end_line(0x90)
 	.dwattr $C$DW$51, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -805,14 +805,14 @@ $C$DW$57	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$57, DW_AT_TI_symbol_name("EUSCI_B_SPI_getInterruptStatus")
 	.dwattr $C$DW$57, DW_AT_external
 	.dwattr $C$DW$57, DW_AT_type(*$C$DW$T$26)
-	.dwattr $C$DW$57, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$57, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$57, DW_AT_TI_begin_line(0x92)
 	.dwattr $C$DW$57, DW_AT_TI_begin_column(0x09)
-	.dwattr $C$DW$57, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$57, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$57, DW_AT_decl_line(0x92)
 	.dwattr $C$DW$57, DW_AT_decl_column(0x09)
 	.dwattr $C$DW$57, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 149,column 1,is_stmt,address EUSCI_B_SPI_getInterruptStatus,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 149,column 1,is_stmt,address EUSCI_B_SPI_getInterruptStatus,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_getInterruptStatus
 $C$DW$58	.dwtag  DW_TAG_formal_parameter
@@ -855,10 +855,10 @@ $C$DW$61	.dwtag  DW_TAG_variable
 
         MOV.B     r13,2(SP)             ; [] |149| 
         MOV.W     r12,0(SP)             ; [] |149| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 150,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 150,column 5,is_stmt,isa 0
         MOV.W     44(r12),r12           ; [] |150| 
         AND.B     2(SP),r12             ; [] |150| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 151,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 151,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$62	.dwtag  DW_TAG_TI_branch
@@ -867,7 +867,7 @@ $C$DW$62	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$57, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$57, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$57, DW_AT_TI_end_line(0x97)
 	.dwattr $C$DW$57, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -883,14 +883,14 @@ $C$DW$63	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$63, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$63, DW_AT_TI_symbol_name("EUSCI_B_SPI_clearInterrupt")
 	.dwattr $C$DW$63, DW_AT_external
-	.dwattr $C$DW$63, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$63, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$63, DW_AT_TI_begin_line(0x99)
 	.dwattr $C$DW$63, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$63, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$63, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$63, DW_AT_decl_line(0x99)
 	.dwattr $C$DW$63, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$63, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 156,column 1,is_stmt,address EUSCI_B_SPI_clearInterrupt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 156,column 1,is_stmt,address EUSCI_B_SPI_clearInterrupt,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_clearInterrupt
 $C$DW$64	.dwtag  DW_TAG_formal_parameter
@@ -933,11 +933,11 @@ $C$DW$67	.dwtag  DW_TAG_variable
 
         MOV.W     r13,2(SP)             ; [] |156| 
         MOV.W     r12,0(SP)             ; [] |156| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 157,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 157,column 5,is_stmt,isa 0
         MOV.W     #44,r15               ; [] |157| 
         ADD.W     0(SP),r15             ; [] |157| 
         BIC.W     2(SP),0(r15)          ; [] |157| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 158,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 158,column 1,is_stmt,isa 0
         ADD.W     #4,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$68	.dwtag  DW_TAG_TI_branch
@@ -946,7 +946,7 @@ $C$DW$68	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$63, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$63, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$63, DW_AT_TI_end_line(0x9e)
 	.dwattr $C$DW$63, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -962,14 +962,14 @@ $C$DW$69	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$69, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$69, DW_AT_TI_symbol_name("EUSCI_B_SPI_enable")
 	.dwattr $C$DW$69, DW_AT_external
-	.dwattr $C$DW$69, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$69, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$69, DW_AT_TI_begin_line(0xa0)
 	.dwattr $C$DW$69, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$69, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$69, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$69, DW_AT_decl_line(0xa0)
 	.dwattr $C$DW$69, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$69, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 161,column 1,is_stmt,address EUSCI_B_SPI_enable,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 161,column 1,is_stmt,address EUSCI_B_SPI_enable,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_enable
 $C$DW$70	.dwtag  DW_TAG_formal_parameter
@@ -999,10 +999,10 @@ $C$DW$71	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$71, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |161| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 163,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 163,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |163| 
         BIC.W     #1,0(r15)             ; [] |163| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 164,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 164,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$72	.dwtag  DW_TAG_TI_branch
@@ -1011,7 +1011,7 @@ $C$DW$72	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$69, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$69, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$69, DW_AT_TI_end_line(0xa4)
 	.dwattr $C$DW$69, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1027,14 +1027,14 @@ $C$DW$73	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$73, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$73, DW_AT_TI_symbol_name("EUSCI_B_SPI_disable")
 	.dwattr $C$DW$73, DW_AT_external
-	.dwattr $C$DW$73, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$73, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$73, DW_AT_TI_begin_line(0xa6)
 	.dwattr $C$DW$73, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$73, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$73, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$73, DW_AT_decl_line(0xa6)
 	.dwattr $C$DW$73, DW_AT_decl_column(0x06)
 	.dwattr $C$DW$73, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 167,column 1,is_stmt,address EUSCI_B_SPI_disable,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 167,column 1,is_stmt,address EUSCI_B_SPI_disable,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_disable
 $C$DW$74	.dwtag  DW_TAG_formal_parameter
@@ -1064,10 +1064,10 @@ $C$DW$75	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$75, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |167| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 169,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 169,column 5,is_stmt,isa 0
         MOV.W     0(SP),r15             ; [] |169| 
         OR.W      #1,0(r15)             ; [] |169| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 170,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 170,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$76	.dwtag  DW_TAG_TI_branch
@@ -1076,7 +1076,7 @@ $C$DW$76	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$73, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$73, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$73, DW_AT_TI_end_line(0xaa)
 	.dwattr $C$DW$73, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1093,14 +1093,14 @@ $C$DW$77	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$77, DW_AT_TI_symbol_name("EUSCI_B_SPI_getReceiveBufferAddress")
 	.dwattr $C$DW$77, DW_AT_external
 	.dwattr $C$DW$77, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$77, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$77, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$77, DW_AT_TI_begin_line(0xac)
 	.dwattr $C$DW$77, DW_AT_TI_begin_column(0x0a)
-	.dwattr $C$DW$77, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$77, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$77, DW_AT_decl_line(0xac)
 	.dwattr $C$DW$77, DW_AT_decl_column(0x0a)
 	.dwattr $C$DW$77, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 173,column 1,is_stmt,address EUSCI_B_SPI_getReceiveBufferAddress,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 173,column 1,is_stmt,address EUSCI_B_SPI_getReceiveBufferAddress,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_getReceiveBufferAddress
 $C$DW$78	.dwtag  DW_TAG_formal_parameter
@@ -1130,11 +1130,11 @@ $C$DW$79	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$79, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |173| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 174,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 174,column 5,is_stmt,isa 0
         MOV.W     #12,r12               ; [] |174| 
         ADD.W     0(SP),r12             ; [] |174| 
         MOV.W     #0,r13                ; [] |174| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 175,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 175,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$80	.dwtag  DW_TAG_TI_branch
@@ -1143,7 +1143,7 @@ $C$DW$80	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$77, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$77, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$77, DW_AT_TI_end_line(0xaf)
 	.dwattr $C$DW$77, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1160,14 +1160,14 @@ $C$DW$81	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$81, DW_AT_TI_symbol_name("EUSCI_B_SPI_getTransmitBufferAddress")
 	.dwattr $C$DW$81, DW_AT_external
 	.dwattr $C$DW$81, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$81, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$81, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$81, DW_AT_TI_begin_line(0xb1)
 	.dwattr $C$DW$81, DW_AT_TI_begin_column(0x0a)
-	.dwattr $C$DW$81, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$81, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$81, DW_AT_decl_line(0xb1)
 	.dwattr $C$DW$81, DW_AT_decl_column(0x0a)
 	.dwattr $C$DW$81, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 178,column 1,is_stmt,address EUSCI_B_SPI_getTransmitBufferAddress,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 178,column 1,is_stmt,address EUSCI_B_SPI_getTransmitBufferAddress,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_getTransmitBufferAddress
 $C$DW$82	.dwtag  DW_TAG_formal_parameter
@@ -1197,11 +1197,11 @@ $C$DW$83	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$83, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |178| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 179,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 179,column 5,is_stmt,isa 0
         MOV.W     #14,r12               ; [] |179| 
         ADD.W     0(SP),r12             ; [] |179| 
         MOV.W     #0,r13                ; [] |179| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 180,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 180,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$84	.dwtag  DW_TAG_TI_branch
@@ -1210,7 +1210,7 @@ $C$DW$84	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$81, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$81, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$81, DW_AT_TI_end_line(0xb4)
 	.dwattr $C$DW$81, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1227,14 +1227,14 @@ $C$DW$85	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$85, DW_AT_TI_symbol_name("EUSCI_B_SPI_isBusy")
 	.dwattr $C$DW$85, DW_AT_external
 	.dwattr $C$DW$85, DW_AT_type(*$C$DW$T$28)
-	.dwattr $C$DW$85, DW_AT_TI_begin_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$85, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$85, DW_AT_TI_begin_line(0xb6)
 	.dwattr $C$DW$85, DW_AT_TI_begin_column(0x0a)
-	.dwattr $C$DW$85, DW_AT_decl_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$85, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$85, DW_AT_decl_line(0xb6)
 	.dwattr $C$DW$85, DW_AT_decl_column(0x0a)
 	.dwattr $C$DW$85, DW_AT_TI_max_frame_size(0x04)
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 183,column 1,is_stmt,address EUSCI_B_SPI_isBusy,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 183,column 1,is_stmt,address EUSCI_B_SPI_isBusy,isa 0
 
 	.dwfde $C$DW$CIE, EUSCI_B_SPI_isBusy
 $C$DW$86	.dwtag  DW_TAG_formal_parameter
@@ -1264,11 +1264,11 @@ $C$DW$87	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$87, DW_AT_location[DW_OP_breg1 0]
 
         MOV.W     r12,0(SP)             ; [] |183| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 185,column 5,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 185,column 5,is_stmt,isa 0
         MOV.W     #1,r15                ; [] |185| 
         AND.W     8(r12),r15            ; [] |185| 
         MOV.W     r15,r12               ; [] |185| 
-	.dwpsn	file "../driverlib/MSP430i2xx/eusci_b_spi.c",line 186,column 1,is_stmt,isa 0
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 186,column 1,is_stmt,isa 0
         ADD.W     #2,SP                 ; [] 
 	.dwcfi	cfa_offset, 2
 $C$DW$88	.dwtag  DW_TAG_TI_branch
@@ -1277,16 +1277,104 @@ $C$DW$88	.dwtag  DW_TAG_TI_branch
 
         RET       ; [] 
         ; [] 
-	.dwattr $C$DW$85, DW_AT_TI_end_file("../driverlib/MSP430i2xx/eusci_b_spi.c")
+	.dwattr $C$DW$85, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
 	.dwattr $C$DW$85, DW_AT_TI_end_line(0xba)
 	.dwattr $C$DW$85, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$85
 
+	.sect	".text:EUSCI_B_SPI_remapPins"
+	.clink
+	.global	EUSCI_B_SPI_remapPins
+
+$C$DW$89	.dwtag  DW_TAG_subprogram
+	.dwattr $C$DW$89, DW_AT_name("EUSCI_B_SPI_remapPins")
+	.dwattr $C$DW$89, DW_AT_low_pc(EUSCI_B_SPI_remapPins)
+	.dwattr $C$DW$89, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$89, DW_AT_TI_symbol_name("EUSCI_B_SPI_remapPins")
+	.dwattr $C$DW$89, DW_AT_external
+	.dwattr $C$DW$89, DW_AT_TI_begin_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
+	.dwattr $C$DW$89, DW_AT_TI_begin_line(0xbc)
+	.dwattr $C$DW$89, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$89, DW_AT_decl_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
+	.dwattr $C$DW$89, DW_AT_decl_line(0xbc)
+	.dwattr $C$DW$89, DW_AT_decl_column(0x06)
+	.dwattr $C$DW$89, DW_AT_TI_max_frame_size(0x06)
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 189,column 1,is_stmt,address EUSCI_B_SPI_remapPins,isa 0
+
+	.dwfde $C$DW$CIE, EUSCI_B_SPI_remapPins
+$C$DW$90	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$90, DW_AT_name("baseAddress")
+	.dwattr $C$DW$90, DW_AT_TI_symbol_name("baseAddress")
+	.dwattr $C$DW$90, DW_AT_type(*$C$DW$T$28)
+	.dwattr $C$DW$90, DW_AT_location[DW_OP_reg12]
+
+$C$DW$91	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$91, DW_AT_name("pinsSelect")
+	.dwattr $C$DW$91, DW_AT_TI_symbol_name("pinsSelect")
+	.dwattr $C$DW$91, DW_AT_type(*$C$DW$T$26)
+	.dwattr $C$DW$91, DW_AT_location[DW_OP_reg13]
+
+
+;*****************************************************************************
+;* FUNCTION NAME: EUSCI_B_SPI_remapPins                                      *
+;*                                                                           *
+;*   Regs Modified     : SP,SR,r12                                           *
+;*   Regs Used         : SP,SR,r12,r13                                       *
+;*   Local Frame Size  : 0 Args + 4 Auto + 0 Save = 4 byte                   *
+;*****************************************************************************
+EUSCI_B_SPI_remapPins:
+;* --------------------------------------------------------------------------*
+	.dwcfi	cfa_offset, 2
+	.dwcfi	save_reg_to_mem, 16, -2
+        SUB.W     #4,SP                 ; [] 
+	.dwcfi	cfa_offset, 6
+$C$DW$92	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$92, DW_AT_name("baseAddress")
+	.dwattr $C$DW$92, DW_AT_TI_symbol_name("baseAddress")
+	.dwattr $C$DW$92, DW_AT_type(*$C$DW$T$28)
+	.dwattr $C$DW$92, DW_AT_location[DW_OP_breg1 0]
+
+$C$DW$93	.dwtag  DW_TAG_variable
+	.dwattr $C$DW$93, DW_AT_name("pinsSelect")
+	.dwattr $C$DW$93, DW_AT_TI_symbol_name("pinsSelect")
+	.dwattr $C$DW$93, DW_AT_type(*$C$DW$T$26)
+	.dwattr $C$DW$93, DW_AT_location[DW_OP_breg1 2]
+
+        MOV.B     r13,2(SP)             ; [] |189| 
+        MOV.W     r12,0(SP)             ; [] |189| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 191,column 5,is_stmt,isa 0
+        AND.W     #63487,&0x164         ; [] |191| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 192,column 5,is_stmt,isa 0
+        MOV.B     2(SP),r12             ; [] |192| 
+$C$DW$94	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$94, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$94, DW_AT_name("__mspabi_slli_11")
+	.dwattr $C$DW$94, DW_AT_TI_call
+
+        CALL      #__mspabi_slli_11     ; [] |192| 
+                                          ; [] |192| 
+        OR.W      r12,&0x164            ; [] |192| 
+	.dwpsn	file "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c",line 197,column 1,is_stmt,isa 0
+        ADD.W     #4,SP                 ; [] 
+	.dwcfi	cfa_offset, 2
+$C$DW$95	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$95, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$95, DW_AT_TI_return
+
+        RET       ; [] 
+        ; [] 
+	.dwattr $C$DW$89, DW_AT_TI_end_file("../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c")
+	.dwattr $C$DW$89, DW_AT_TI_end_line(0xc5)
+	.dwattr $C$DW$89, DW_AT_TI_end_column(0x01)
+	.dwendentry
+	.dwendtag $C$DW$89
+
 ;*****************************************************************************
 ;* UNDEFINED EXTERNAL REFERENCES                                             *
 ;*****************************************************************************
 	.global	__mspabi_divul
+	.global	__mspabi_slli_11
 
 ;******************************************************************************
 ;* BUILD ATTRIBUTES                                                           *
@@ -1305,25 +1393,25 @@ $C$DW$88	.dwtag  DW_TAG_TI_branch
 
 $C$DW$T$21	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$21, DW_AT_byte_size(0x10)
-$C$DW$89	.dwtag  DW_TAG_member
-	.dwattr $C$DW$89, DW_AT_type(*$C$DW$T$14)
-	.dwattr $C$DW$89, DW_AT_name("__max_align1")
-	.dwattr $C$DW$89, DW_AT_TI_symbol_name("__max_align1")
-	.dwattr $C$DW$89, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
-	.dwattr $C$DW$89, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$89, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
-	.dwattr $C$DW$89, DW_AT_decl_line(0x7b)
-	.dwattr $C$DW$89, DW_AT_decl_column(0x0c)
+$C$DW$96	.dwtag  DW_TAG_member
+	.dwattr $C$DW$96, DW_AT_type(*$C$DW$T$14)
+	.dwattr $C$DW$96, DW_AT_name("__max_align1")
+	.dwattr $C$DW$96, DW_AT_TI_symbol_name("__max_align1")
+	.dwattr $C$DW$96, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+	.dwattr $C$DW$96, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$96, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
+	.dwattr $C$DW$96, DW_AT_decl_line(0x7b)
+	.dwattr $C$DW$96, DW_AT_decl_column(0x0c)
 
-$C$DW$90	.dwtag  DW_TAG_member
-	.dwattr $C$DW$90, DW_AT_type(*$C$DW$T$18)
-	.dwattr $C$DW$90, DW_AT_name("__max_align2")
-	.dwattr $C$DW$90, DW_AT_TI_symbol_name("__max_align2")
-	.dwattr $C$DW$90, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
-	.dwattr $C$DW$90, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$90, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
-	.dwattr $C$DW$90, DW_AT_decl_line(0x7c)
-	.dwattr $C$DW$90, DW_AT_decl_column(0x0e)
+$C$DW$97	.dwtag  DW_TAG_member
+	.dwattr $C$DW$97, DW_AT_type(*$C$DW$T$18)
+	.dwattr $C$DW$97, DW_AT_name("__max_align2")
+	.dwattr $C$DW$97, DW_AT_TI_symbol_name("__max_align2")
+	.dwattr $C$DW$97, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
+	.dwattr $C$DW$97, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$97, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
+	.dwattr $C$DW$97, DW_AT_decl_line(0x7c)
+	.dwattr $C$DW$97, DW_AT_decl_column(0x0e)
 
 	.dwattr $C$DW$T$21, DW_AT_decl_file("C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include/sys/_types.h")
 	.dwattr $C$DW$T$21, DW_AT_decl_line(0x7a)
@@ -1342,28 +1430,28 @@ $C$DW$T$31	.dwtag  DW_TAG_typedef
 $C$DW$T$24	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$24, DW_AT_name("EUSCI_B_SPI_changeMasterClockParam")
 	.dwattr $C$DW$T$24, DW_AT_byte_size(0x08)
-$C$DW$91	.dwtag  DW_TAG_member
-	.dwattr $C$DW$91, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$91, DW_AT_name("clockSourceFrequency")
-	.dwattr $C$DW$91, DW_AT_TI_symbol_name("clockSourceFrequency")
-	.dwattr $C$DW$91, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
-	.dwattr $C$DW$91, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$91, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$91, DW_AT_decl_line(0x67)
-	.dwattr $C$DW$91, DW_AT_decl_column(0x0e)
+$C$DW$98	.dwtag  DW_TAG_member
+	.dwattr $C$DW$98, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$98, DW_AT_name("clockSourceFrequency")
+	.dwattr $C$DW$98, DW_AT_TI_symbol_name("clockSourceFrequency")
+	.dwattr $C$DW$98, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+	.dwattr $C$DW$98, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$98, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$98, DW_AT_decl_line(0x69)
+	.dwattr $C$DW$98, DW_AT_decl_column(0x0e)
 
-$C$DW$92	.dwtag  DW_TAG_member
-	.dwattr $C$DW$92, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$92, DW_AT_name("desiredSpiClock")
-	.dwattr $C$DW$92, DW_AT_TI_symbol_name("desiredSpiClock")
-	.dwattr $C$DW$92, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
-	.dwattr $C$DW$92, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$92, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$92, DW_AT_decl_line(0x69)
-	.dwattr $C$DW$92, DW_AT_decl_column(0x0e)
+$C$DW$99	.dwtag  DW_TAG_member
+	.dwattr $C$DW$99, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$99, DW_AT_name("desiredSpiClock")
+	.dwattr $C$DW$99, DW_AT_TI_symbol_name("desiredSpiClock")
+	.dwattr $C$DW$99, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+	.dwattr $C$DW$99, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$99, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$99, DW_AT_decl_line(0x6b)
+	.dwattr $C$DW$99, DW_AT_decl_column(0x0e)
 
-	.dwattr $C$DW$T$24, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$T$24, DW_AT_decl_line(0x65)
+	.dwattr $C$DW$T$24, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$T$24, DW_AT_decl_line(0x67)
 	.dwattr $C$DW$T$24, DW_AT_decl_column(0x10)
 	.dwendtag $C$DW$T$24
 
@@ -1371,8 +1459,8 @@ $C$DW$T$32	.dwtag  DW_TAG_typedef
 	.dwattr $C$DW$T$32, DW_AT_name("EUSCI_B_SPI_changeMasterClockParam")
 	.dwattr $C$DW$T$32, DW_AT_type(*$C$DW$T$24)
 	.dwattr $C$DW$T$32, DW_AT_language(DW_LANG_C)
-	.dwattr $C$DW$T$32, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$T$32, DW_AT_decl_line(0x6a)
+	.dwattr $C$DW$T$32, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$T$32, DW_AT_decl_line(0x6c)
 	.dwattr $C$DW$T$32, DW_AT_decl_column(0x03)
 
 $C$DW$T$33	.dwtag  DW_TAG_pointer_type
@@ -1383,77 +1471,77 @@ $C$DW$T$33	.dwtag  DW_TAG_pointer_type
 $C$DW$T$29	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$29, DW_AT_name("EUSCI_B_SPI_initMasterParam")
 	.dwattr $C$DW$T$29, DW_AT_byte_size(0x12)
-$C$DW$93	.dwtag  DW_TAG_member
-	.dwattr $C$DW$93, DW_AT_type(*$C$DW$T$26)
-	.dwattr $C$DW$93, DW_AT_name("selectClockSource")
-	.dwattr $C$DW$93, DW_AT_TI_symbol_name("selectClockSource")
-	.dwattr $C$DW$93, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
-	.dwattr $C$DW$93, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$93, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$93, DW_AT_decl_line(0x26)
-	.dwattr $C$DW$93, DW_AT_decl_column(0x0d)
+$C$DW$100	.dwtag  DW_TAG_member
+	.dwattr $C$DW$100, DW_AT_type(*$C$DW$T$26)
+	.dwattr $C$DW$100, DW_AT_name("selectClockSource")
+	.dwattr $C$DW$100, DW_AT_TI_symbol_name("selectClockSource")
+	.dwattr $C$DW$100, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+	.dwattr $C$DW$100, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$100, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$100, DW_AT_decl_line(0x28)
+	.dwattr $C$DW$100, DW_AT_decl_column(0x0d)
 
-$C$DW$94	.dwtag  DW_TAG_member
-	.dwattr $C$DW$94, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$94, DW_AT_name("clockSourceFrequency")
-	.dwattr $C$DW$94, DW_AT_TI_symbol_name("clockSourceFrequency")
-	.dwattr $C$DW$94, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
-	.dwattr $C$DW$94, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$94, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$94, DW_AT_decl_line(0x28)
-	.dwattr $C$DW$94, DW_AT_decl_column(0x0e)
+$C$DW$101	.dwtag  DW_TAG_member
+	.dwattr $C$DW$101, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$101, DW_AT_name("clockSourceFrequency")
+	.dwattr $C$DW$101, DW_AT_TI_symbol_name("clockSourceFrequency")
+	.dwattr $C$DW$101, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+	.dwattr $C$DW$101, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$101, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$101, DW_AT_decl_line(0x2a)
+	.dwattr $C$DW$101, DW_AT_decl_column(0x0e)
 
-$C$DW$95	.dwtag  DW_TAG_member
-	.dwattr $C$DW$95, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$95, DW_AT_name("desiredSpiClock")
-	.dwattr $C$DW$95, DW_AT_TI_symbol_name("desiredSpiClock")
-	.dwattr $C$DW$95, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
-	.dwattr $C$DW$95, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$95, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$95, DW_AT_decl_line(0x2a)
-	.dwattr $C$DW$95, DW_AT_decl_column(0x0e)
+$C$DW$102	.dwtag  DW_TAG_member
+	.dwattr $C$DW$102, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$102, DW_AT_name("desiredSpiClock")
+	.dwattr $C$DW$102, DW_AT_TI_symbol_name("desiredSpiClock")
+	.dwattr $C$DW$102, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+	.dwattr $C$DW$102, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$102, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$102, DW_AT_decl_line(0x2c)
+	.dwattr $C$DW$102, DW_AT_decl_column(0x0e)
 
-$C$DW$96	.dwtag  DW_TAG_member
-	.dwattr $C$DW$96, DW_AT_type(*$C$DW$T$28)
-	.dwattr $C$DW$96, DW_AT_name("msbFirst")
-	.dwattr $C$DW$96, DW_AT_TI_symbol_name("msbFirst")
-	.dwattr $C$DW$96, DW_AT_data_member_location[DW_OP_plus_uconst 0xa]
-	.dwattr $C$DW$96, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$96, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$96, DW_AT_decl_line(0x2f)
-	.dwattr $C$DW$96, DW_AT_decl_column(0x0e)
+$C$DW$103	.dwtag  DW_TAG_member
+	.dwattr $C$DW$103, DW_AT_type(*$C$DW$T$28)
+	.dwattr $C$DW$103, DW_AT_name("msbFirst")
+	.dwattr $C$DW$103, DW_AT_TI_symbol_name("msbFirst")
+	.dwattr $C$DW$103, DW_AT_data_member_location[DW_OP_plus_uconst 0xa]
+	.dwattr $C$DW$103, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$103, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$103, DW_AT_decl_line(0x31)
+	.dwattr $C$DW$103, DW_AT_decl_column(0x0e)
 
-$C$DW$97	.dwtag  DW_TAG_member
-	.dwattr $C$DW$97, DW_AT_type(*$C$DW$T$28)
-	.dwattr $C$DW$97, DW_AT_name("clockPhase")
-	.dwattr $C$DW$97, DW_AT_TI_symbol_name("clockPhase")
-	.dwattr $C$DW$97, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
-	.dwattr $C$DW$97, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$97, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$97, DW_AT_decl_line(0x34)
-	.dwattr $C$DW$97, DW_AT_decl_column(0x0e)
+$C$DW$104	.dwtag  DW_TAG_member
+	.dwattr $C$DW$104, DW_AT_type(*$C$DW$T$28)
+	.dwattr $C$DW$104, DW_AT_name("clockPhase")
+	.dwattr $C$DW$104, DW_AT_TI_symbol_name("clockPhase")
+	.dwattr $C$DW$104, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
+	.dwattr $C$DW$104, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$104, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$104, DW_AT_decl_line(0x36)
+	.dwattr $C$DW$104, DW_AT_decl_column(0x0e)
 
-$C$DW$98	.dwtag  DW_TAG_member
-	.dwattr $C$DW$98, DW_AT_type(*$C$DW$T$28)
-	.dwattr $C$DW$98, DW_AT_name("clockPolarity")
-	.dwattr $C$DW$98, DW_AT_TI_symbol_name("clockPolarity")
-	.dwattr $C$DW$98, DW_AT_data_member_location[DW_OP_plus_uconst 0xe]
-	.dwattr $C$DW$98, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$98, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$98, DW_AT_decl_line(0x39)
-	.dwattr $C$DW$98, DW_AT_decl_column(0x0e)
+$C$DW$105	.dwtag  DW_TAG_member
+	.dwattr $C$DW$105, DW_AT_type(*$C$DW$T$28)
+	.dwattr $C$DW$105, DW_AT_name("clockPolarity")
+	.dwattr $C$DW$105, DW_AT_TI_symbol_name("clockPolarity")
+	.dwattr $C$DW$105, DW_AT_data_member_location[DW_OP_plus_uconst 0xe]
+	.dwattr $C$DW$105, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$105, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$105, DW_AT_decl_line(0x3b)
+	.dwattr $C$DW$105, DW_AT_decl_column(0x0e)
 
-$C$DW$99	.dwtag  DW_TAG_member
-	.dwattr $C$DW$99, DW_AT_type(*$C$DW$T$28)
-	.dwattr $C$DW$99, DW_AT_name("spiMode")
-	.dwattr $C$DW$99, DW_AT_TI_symbol_name("spiMode")
-	.dwattr $C$DW$99, DW_AT_data_member_location[DW_OP_plus_uconst 0x10]
-	.dwattr $C$DW$99, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$99, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$99, DW_AT_decl_line(0x3f)
-	.dwattr $C$DW$99, DW_AT_decl_column(0x0e)
+$C$DW$106	.dwtag  DW_TAG_member
+	.dwattr $C$DW$106, DW_AT_type(*$C$DW$T$28)
+	.dwattr $C$DW$106, DW_AT_name("spiMode")
+	.dwattr $C$DW$106, DW_AT_TI_symbol_name("spiMode")
+	.dwattr $C$DW$106, DW_AT_data_member_location[DW_OP_plus_uconst 0x10]
+	.dwattr $C$DW$106, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$106, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$106, DW_AT_decl_line(0x41)
+	.dwattr $C$DW$106, DW_AT_decl_column(0x0e)
 
-	.dwattr $C$DW$T$29, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
+	.dwattr $C$DW$T$29, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
 	.dwattr $C$DW$T$29, DW_AT_decl_line(0x20)
 	.dwattr $C$DW$T$29, DW_AT_decl_column(0x10)
 	.dwendtag $C$DW$T$29
@@ -1462,8 +1550,8 @@ $C$DW$T$34	.dwtag  DW_TAG_typedef
 	.dwattr $C$DW$T$34, DW_AT_name("EUSCI_B_SPI_initMasterParam")
 	.dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$29)
 	.dwattr $C$DW$T$34, DW_AT_language(DW_LANG_C)
-	.dwattr $C$DW$T$34, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$T$34, DW_AT_decl_line(0x40)
+	.dwattr $C$DW$T$34, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$T$34, DW_AT_decl_line(0x42)
 	.dwattr $C$DW$T$34, DW_AT_decl_column(0x03)
 
 $C$DW$T$35	.dwtag  DW_TAG_pointer_type
@@ -1474,48 +1562,48 @@ $C$DW$T$35	.dwtag  DW_TAG_pointer_type
 $C$DW$T$30	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$30, DW_AT_name("EUSCI_B_SPI_initSlaveParam")
 	.dwattr $C$DW$T$30, DW_AT_byte_size(0x08)
-$C$DW$100	.dwtag  DW_TAG_member
-	.dwattr $C$DW$100, DW_AT_type(*$C$DW$T$28)
-	.dwattr $C$DW$100, DW_AT_name("msbFirst")
-	.dwattr $C$DW$100, DW_AT_TI_symbol_name("msbFirst")
-	.dwattr $C$DW$100, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
-	.dwattr $C$DW$100, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$100, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$100, DW_AT_decl_line(0x4c)
-	.dwattr $C$DW$100, DW_AT_decl_column(0x0e)
+$C$DW$107	.dwtag  DW_TAG_member
+	.dwattr $C$DW$107, DW_AT_type(*$C$DW$T$28)
+	.dwattr $C$DW$107, DW_AT_name("msbFirst")
+	.dwattr $C$DW$107, DW_AT_TI_symbol_name("msbFirst")
+	.dwattr $C$DW$107, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+	.dwattr $C$DW$107, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$107, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$107, DW_AT_decl_line(0x4e)
+	.dwattr $C$DW$107, DW_AT_decl_column(0x0e)
 
-$C$DW$101	.dwtag  DW_TAG_member
-	.dwattr $C$DW$101, DW_AT_type(*$C$DW$T$28)
-	.dwattr $C$DW$101, DW_AT_name("clockPhase")
-	.dwattr $C$DW$101, DW_AT_TI_symbol_name("clockPhase")
-	.dwattr $C$DW$101, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
-	.dwattr $C$DW$101, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$101, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$101, DW_AT_decl_line(0x51)
-	.dwattr $C$DW$101, DW_AT_decl_column(0x0e)
+$C$DW$108	.dwtag  DW_TAG_member
+	.dwattr $C$DW$108, DW_AT_type(*$C$DW$T$28)
+	.dwattr $C$DW$108, DW_AT_name("clockPhase")
+	.dwattr $C$DW$108, DW_AT_TI_symbol_name("clockPhase")
+	.dwattr $C$DW$108, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+	.dwattr $C$DW$108, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$108, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$108, DW_AT_decl_line(0x53)
+	.dwattr $C$DW$108, DW_AT_decl_column(0x0e)
 
-$C$DW$102	.dwtag  DW_TAG_member
-	.dwattr $C$DW$102, DW_AT_type(*$C$DW$T$28)
-	.dwattr $C$DW$102, DW_AT_name("clockPolarity")
-	.dwattr $C$DW$102, DW_AT_TI_symbol_name("clockPolarity")
-	.dwattr $C$DW$102, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
-	.dwattr $C$DW$102, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$102, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$102, DW_AT_decl_line(0x56)
-	.dwattr $C$DW$102, DW_AT_decl_column(0x0e)
+$C$DW$109	.dwtag  DW_TAG_member
+	.dwattr $C$DW$109, DW_AT_type(*$C$DW$T$28)
+	.dwattr $C$DW$109, DW_AT_name("clockPolarity")
+	.dwattr $C$DW$109, DW_AT_TI_symbol_name("clockPolarity")
+	.dwattr $C$DW$109, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+	.dwattr $C$DW$109, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$109, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$109, DW_AT_decl_line(0x58)
+	.dwattr $C$DW$109, DW_AT_decl_column(0x0e)
 
-$C$DW$103	.dwtag  DW_TAG_member
-	.dwattr $C$DW$103, DW_AT_type(*$C$DW$T$28)
-	.dwattr $C$DW$103, DW_AT_name("spiMode")
-	.dwattr $C$DW$103, DW_AT_TI_symbol_name("spiMode")
-	.dwattr $C$DW$103, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
-	.dwattr $C$DW$103, DW_AT_accessibility(DW_ACCESS_public)
-	.dwattr $C$DW$103, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$103, DW_AT_decl_line(0x5c)
-	.dwattr $C$DW$103, DW_AT_decl_column(0x0e)
+$C$DW$110	.dwtag  DW_TAG_member
+	.dwattr $C$DW$110, DW_AT_type(*$C$DW$T$28)
+	.dwattr $C$DW$110, DW_AT_name("spiMode")
+	.dwattr $C$DW$110, DW_AT_TI_symbol_name("spiMode")
+	.dwattr $C$DW$110, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+	.dwattr $C$DW$110, DW_AT_accessibility(DW_ACCESS_public)
+	.dwattr $C$DW$110, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$110, DW_AT_decl_line(0x5e)
+	.dwattr $C$DW$110, DW_AT_decl_column(0x0e)
 
-	.dwattr $C$DW$T$30, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$T$30, DW_AT_decl_line(0x47)
+	.dwattr $C$DW$T$30, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$T$30, DW_AT_decl_line(0x49)
 	.dwattr $C$DW$T$30, DW_AT_decl_column(0x10)
 	.dwendtag $C$DW$T$30
 
@@ -1523,8 +1611,8 @@ $C$DW$T$36	.dwtag  DW_TAG_typedef
 	.dwattr $C$DW$T$36, DW_AT_name("EUSCI_B_SPI_initSlaveParam")
 	.dwattr $C$DW$T$36, DW_AT_type(*$C$DW$T$30)
 	.dwattr $C$DW$T$36, DW_AT_language(DW_LANG_C)
-	.dwattr $C$DW$T$36, DW_AT_decl_file("..\driverlib\MSP430i2xx\eusci_b_spi.h")
-	.dwattr $C$DW$T$36, DW_AT_decl_line(0x5d)
+	.dwattr $C$DW$T$36, DW_AT_decl_file("..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h")
+	.dwattr $C$DW$T$36, DW_AT_decl_line(0x5f)
 	.dwattr $C$DW$T$36, DW_AT_decl_column(0x03)
 
 $C$DW$T$37	.dwtag  DW_TAG_pointer_type
@@ -2593,73 +2681,73 @@ $C$DW$CIE	.dwcie 16
 ;* DWARF REGISTER MAP                                          *
 ;***************************************************************
 
-$C$DW$104	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$104, DW_AT_name("PC")
-	.dwattr $C$DW$104, DW_AT_location[DW_OP_reg0]
-
-$C$DW$105	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$105, DW_AT_name("SP")
-	.dwattr $C$DW$105, DW_AT_location[DW_OP_reg1]
-
-$C$DW$106	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$106, DW_AT_name("SR")
-	.dwattr $C$DW$106, DW_AT_location[DW_OP_reg2]
-
-$C$DW$107	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$107, DW_AT_name("CG")
-	.dwattr $C$DW$107, DW_AT_location[DW_OP_reg3]
-
-$C$DW$108	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$108, DW_AT_name("r4")
-	.dwattr $C$DW$108, DW_AT_location[DW_OP_reg4]
-
-$C$DW$109	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$109, DW_AT_name("r5")
-	.dwattr $C$DW$109, DW_AT_location[DW_OP_reg5]
-
-$C$DW$110	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$110, DW_AT_name("r6")
-	.dwattr $C$DW$110, DW_AT_location[DW_OP_reg6]
-
 $C$DW$111	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$111, DW_AT_name("r7")
-	.dwattr $C$DW$111, DW_AT_location[DW_OP_reg7]
+	.dwattr $C$DW$111, DW_AT_name("PC")
+	.dwattr $C$DW$111, DW_AT_location[DW_OP_reg0]
 
 $C$DW$112	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$112, DW_AT_name("r8")
-	.dwattr $C$DW$112, DW_AT_location[DW_OP_reg8]
+	.dwattr $C$DW$112, DW_AT_name("SP")
+	.dwattr $C$DW$112, DW_AT_location[DW_OP_reg1]
 
 $C$DW$113	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$113, DW_AT_name("r9")
-	.dwattr $C$DW$113, DW_AT_location[DW_OP_reg9]
+	.dwattr $C$DW$113, DW_AT_name("SR")
+	.dwattr $C$DW$113, DW_AT_location[DW_OP_reg2]
 
 $C$DW$114	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$114, DW_AT_name("r10")
-	.dwattr $C$DW$114, DW_AT_location[DW_OP_reg10]
+	.dwattr $C$DW$114, DW_AT_name("CG")
+	.dwattr $C$DW$114, DW_AT_location[DW_OP_reg3]
 
 $C$DW$115	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$115, DW_AT_name("r11")
-	.dwattr $C$DW$115, DW_AT_location[DW_OP_reg11]
+	.dwattr $C$DW$115, DW_AT_name("r4")
+	.dwattr $C$DW$115, DW_AT_location[DW_OP_reg4]
 
 $C$DW$116	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$116, DW_AT_name("r12")
-	.dwattr $C$DW$116, DW_AT_location[DW_OP_reg12]
+	.dwattr $C$DW$116, DW_AT_name("r5")
+	.dwattr $C$DW$116, DW_AT_location[DW_OP_reg5]
 
 $C$DW$117	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$117, DW_AT_name("r13")
-	.dwattr $C$DW$117, DW_AT_location[DW_OP_reg13]
+	.dwattr $C$DW$117, DW_AT_name("r6")
+	.dwattr $C$DW$117, DW_AT_location[DW_OP_reg6]
 
 $C$DW$118	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$118, DW_AT_name("r14")
-	.dwattr $C$DW$118, DW_AT_location[DW_OP_reg14]
+	.dwattr $C$DW$118, DW_AT_name("r7")
+	.dwattr $C$DW$118, DW_AT_location[DW_OP_reg7]
 
 $C$DW$119	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$119, DW_AT_name("r15")
-	.dwattr $C$DW$119, DW_AT_location[DW_OP_reg15]
+	.dwattr $C$DW$119, DW_AT_name("r8")
+	.dwattr $C$DW$119, DW_AT_location[DW_OP_reg8]
 
 $C$DW$120	.dwtag  DW_TAG_TI_assign_register
-	.dwattr $C$DW$120, DW_AT_name("CIE_RETA")
-	.dwattr $C$DW$120, DW_AT_location[DW_OP_reg16]
+	.dwattr $C$DW$120, DW_AT_name("r9")
+	.dwattr $C$DW$120, DW_AT_location[DW_OP_reg9]
+
+$C$DW$121	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$121, DW_AT_name("r10")
+	.dwattr $C$DW$121, DW_AT_location[DW_OP_reg10]
+
+$C$DW$122	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$122, DW_AT_name("r11")
+	.dwattr $C$DW$122, DW_AT_location[DW_OP_reg11]
+
+$C$DW$123	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$123, DW_AT_name("r12")
+	.dwattr $C$DW$123, DW_AT_location[DW_OP_reg12]
+
+$C$DW$124	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$124, DW_AT_name("r13")
+	.dwattr $C$DW$124, DW_AT_location[DW_OP_reg13]
+
+$C$DW$125	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$125, DW_AT_name("r14")
+	.dwattr $C$DW$125, DW_AT_location[DW_OP_reg14]
+
+$C$DW$126	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$126, DW_AT_name("r15")
+	.dwattr $C$DW$126, DW_AT_location[DW_OP_reg15]
+
+$C$DW$127	.dwtag  DW_TAG_TI_assign_register
+	.dwattr $C$DW$127, DW_AT_name("CIE_RETA")
+	.dwattr $C$DW$127, DW_AT_location[DW_OP_reg16]
 
 	.dwendtag $C$DW$CU
 

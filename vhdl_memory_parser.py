@@ -318,7 +318,7 @@ def main() -> None:
     ccs_disassembler.disassemble(pique_bool=False)
     generate_vhdl_packages()
     generate_vhdl_memory()
-    package_zipper.zip_vhdl(zip_file_name="zipper")
+    package_zipper.zip_vhdl(zip_file_name="generated_vhdl_all_operations_11_12_2021")
 
 
 if __name__ == '__main__':
