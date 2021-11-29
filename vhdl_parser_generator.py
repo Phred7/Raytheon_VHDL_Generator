@@ -13,8 +13,7 @@ from typing import TextIO
 
 import package_zipper
 from computer_mnemonic_dictionary import ComputerMnemonicDictionary
-
-import disassembler
+from disassembler import Disassembler
 
 
 class VHDLParserGenerator:
@@ -297,24 +296,24 @@ constant ROM : rom_type :=("""
         """
         return ["baseline", "highroller", "lowlife"]
 
+    def generate_vhdl(self, *, detection: bool = False):
+        self.remove_last_generated_vhd_files()
+        # detection.detect() # TODO implement detection.detect() and call when detection is True
+        disassembler: Disassembler = Disassembler()
+        disassembler.disassemble(pique_bool=False)
+        self.generate_vhdl_packages()
+        self.generate_vhdl_memory()
+
 
 def main() -> None:
     """
-    TODO: One-click runs whole workflow?
-    TODO: Command line arguments?
-    TODO: Make an executable?
-    TODO: Inject malware into binary to test PIQUE-bin and FPGA's mitigation and remediation
-    TODO: PIQUE-bin: add check for malicious code in binary from MSP430 debugger to workflow
     calls ccs_disassembler.main()
     removes all files generated in last execution.
     generates the baseline, highroller and lowlife package files.
     generates the baseline, highroller and lowlife memory files.
     """
     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
-    vhdl_parser_generator.remove_last_generated_vhd_files()
-    ccs_disassembler.disassemble(pique_bool=False)
-    vhdl_parser_generator.generate_vhdl_packages()
-    vhdl_parser_generator.generate_vhdl_memory()
+    vhdl_parser_generator.generate_vhdl()
     package_zipper.zip_vhdl(zip_file_name="generated_vhdl_all_operations_11_29_2021_test_classification")
 
 
