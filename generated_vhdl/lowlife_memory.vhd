@@ -1282,7 +1282,7 @@ constant ROM : rom_type :=(32768 => x"31",		-- 008000: 3140             MOV.W   
                            others => x"00");
 
     signal EN : std_logic;
-
+    
     begin
     -- Note 1:  The bus system uses a 16-bit Address (MAB)
     --          This address size can access locations from x0000 to xFFFF
@@ -1292,15 +1292,15 @@ constant ROM : rom_type :=(32768 => x"31",		-- 008000: 3140             MOV.W   
     --          will only assert when MAB is within x8000 to xFFFF.
 
      LOCAL_EN : process (MAB) 
-       begin
+     begin
          if ( (to_integer(unsigned(MAB)) >= 32768) and (to_integer(unsigned(MAB)) <= 65535)) then
            EN <= '1';
          else 
            EN <= '0';
-        end if;
-      end process;
+         end if;
+     end process;
 
-
+    
     -- Note 2:  The bus system uses a 16-bit Address (MAB)
     --          The MDB_out is also provided as a 16-bit word
     --          However, the memory array is actually built as 8-bit bytes.
@@ -1308,13 +1308,13 @@ constant ROM : rom_type :=(32768 => x"31",		-- 008000: 3140             MOV.W   
     --                                                 or  = ROM(MAB);1) : ROM(MAB)
 
     MEMORY_ROM : process (clk) 
-     begin
+    begin
         if (rising_edge(clk)) then
             if (EN='1' and write='0') then                      
               MDB_in <= ROM(to_integer(unsigned(MAB)) + 1 ) & ROM(to_integer(unsigned(MAB))); 
             end if;
-      end if;
-   end process;
+        end if;
+    end process;
 
 
 end architecture;
