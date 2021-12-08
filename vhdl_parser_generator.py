@@ -298,7 +298,9 @@ constant ROM : rom_type :=("""
 
     def generate_vhdl(self, *, detection: bool = False):
         self.remove_last_generated_vhd_files()
-        # detection.detect() # TODO implement detection.detect() and call when detection is True
+        if detection:
+            # detection.detect() # TODO implement detection.detect() and call when detection is True
+            pass
         disassembler: Disassembler = Disassembler()
         disassembler.disassemble(pique_bool=False)
         self.generate_vhdl_packages()

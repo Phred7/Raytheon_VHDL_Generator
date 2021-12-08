@@ -9,19 +9,12 @@ import logging
 import os
 from contextlib import contextmanager
 from logging import Logger
-
-
-class Assembler:
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-    logger: Logger = logging.getLogger(__name__)
-    assembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
-    assembler_executable: str = r'asm430.exe'  # r'asm430.exe' Tested: lc430, lnk430
 from instrumentation_strategy import InstrumentationStrategy
 
 
 class Instrumentation:
 
-    def __init__(self, instrumentation_strategy: InstrumentationStrategy):
+    def __init__(self, instrumentation_strategy: InstrumentationStrategy) -> None:
         self._instrumentation_strategy = instrumentation_strategy
 
     @property
