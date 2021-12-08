@@ -1,6 +1,6 @@
 ###############################
-# CCS Disassembler
-# For Raytheon Research Project
+# CCS Assembler
+# For Raytheon Research Project and Interdisciplinary Capstone Project
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Walker Ward
@@ -33,16 +33,16 @@ class Assembler:
                 self.logger.info(rf"Removed {self.assembler_output_file_directory}\{self.assembler_output_file_name}")
 
         # Call the assembler.
-        disassembler_exit_status: int = os.system(
-            rf"{self.assembler_directory}\{self.assembler_executable} {self.assembler_input_file_directory}\{self.assembler_input_file_name} {self.assembler_output_file_directory}\{self.assembler_output_file_name}")
-        self.logger.debug(f"Assembler exit status: {disassembler_exit_status}")
-        if disassembler_exit_status != 0:
-            self.logger.info(
-                f"Assembler failed to generate assembly for {self.assembler_input_file_name} with exit status {disassembler_exit_status}")
-            # raise OSError(f"Assembler failed to generate assembly for {self.assembler_input_file_name} with exit status {disassembler_exit_status}")
-        else:
-            self.logger.info(
-                f'Assembler generated {self.assembler_output_file_name} at the directory {self.assembler_output_file_directory} using {self.assembler_executable}')
+        # disassembler_exit_status: int = os.system(
+        #     rf"{self.assembler_directory}\{self.assembler_executable} {self.assembler_input_file_directory}\{self.assembler_input_file_name} {self.assembler_output_file_directory}\{self.assembler_output_file_name}")
+        # self.logger.debug(f"Assembler exit status: {disassembler_exit_status}")
+        # if disassembler_exit_status != 0:
+        #     self.logger.info(
+        #         f"Assembler failed to generate assembly for {self.assembler_input_file_name} with exit status {disassembler_exit_status}")
+        #     # raise OSError(f"Assembler failed to generate assembly for {self.assembler_input_file_name} with exit status {disassembler_exit_status}")
+        # else:
+        #     self.logger.info(
+        #         f'Assembler generated {self.assembler_output_file_name} at the directory {self.assembler_output_file_directory} using {self.assembler_executable}')
         raise NotImplementedError("The Assembler is not fully functional at this moment. The assembler does not reassemble disassembly. To reassemble we are going to need to scan the disassembly and create a ASM file from that, compile it with CCS's tools and then we should be able to generate .out and .obj files")
 
     @contextmanager

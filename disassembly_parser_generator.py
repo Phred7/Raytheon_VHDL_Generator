@@ -1,6 +1,6 @@
 ###############################
-# Int Overflow Attack
-# For Raytheon Research Project and Interdisciplinary Capstone Project
+# Disassembly Parser Generator
+# For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Walker Ward
@@ -16,10 +16,3 @@ class Assembler:
     logger: Logger = logging.getLogger(__name__)
     assembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
     assembler_executable: str = r'asm430.exe'  # r'asm430.exe' Tested: lc430, lnk430
-from instrumentation_strategy import InstrumentationStrategy
-
-
-class IntOverflowAttack(InstrumentationStrategy):
-
-    def instrument(self, file: str) -> str:
-        return ""
