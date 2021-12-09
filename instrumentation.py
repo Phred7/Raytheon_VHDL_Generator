@@ -26,5 +26,5 @@ class Instrumentation:
         self._instrumentation_strategy = instrumentation_strategy
 
     def runner(self) -> None:
-        results = self._instrumentation_strategy.instrument("")
+        results: str = self._instrumentation_strategy.instrument("")
 

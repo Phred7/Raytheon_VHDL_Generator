@@ -66,6 +66,7 @@ class Disassembler:
         pique_bin_return_code: int
         with self.change_dir(pique_bin_directory):
             pique_bin_return_code = subprocess.call(['java', '-jar', f"{pique_bin_jar_file_name}.jar"])
+            os.remove(f"{pique_bin_directory}\\{binary_file_name}")
         return pique_bin_return_code
 
     @contextmanager
