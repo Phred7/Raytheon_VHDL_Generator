@@ -110,7 +110,7 @@ def pique_bin_score(binary_file_name: str, pique_bin_directory: str) -> float:
                 break
         pique_bin_output.close()
         binary_security_quality: float = float(binary_security_quality_line.replace('"value": ', '').replace(',', ''))
-        if binary_security_quality > 0.999999:
+        if binary_security_quality > 0.9999999:
             logger.error(
                 f"The calculated Binary Security Quality suggests that Docker is not running or another error exists: {binary_security_quality}")
     return binary_security_quality

@@ -315,10 +315,10 @@ def main() -> None:
     generates the baseline, highroller and lowlife memory files.
     """
     remove_last_generated_vhd_files()
-    ccs_disassembler.disassemble(pique_bool=False)
+    ccs_disassembler.disassemble(pique_bool=True)
     generate_vhdl_packages()
     generate_vhdl_memory()
-    package_zipper.zip_vhdl(zip_file_name="generated_vhdl_all_operations_11_12_2021")
+    # package_zipper.zip_vhdl(zip_file_name="generated_vhdl_all_operations_11_12_2021")
 
 
 if __name__ == '__main__':
