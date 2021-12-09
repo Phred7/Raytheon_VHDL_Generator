@@ -29,7 +29,8 @@ def pique_bin(binary_file_directory: str, binary_file_name: str) -> float:
     :param binary_file_name: Name of the binary file to run PIQUE-Bin on.
     :return: Float representing the Binary Security Quality of the binary file specified by binary_file_name at the directory binary_file_directory.
     """
-    pique_bin_package_directory: str = f"{os.getcwd()}\PIQUE-Bin-Jar\\"
+    # pique_bin_package_directory: str = f"{os.getcwd()}\PIQUE-Bin-Jar\\"
+    pique_bin_package_directory: str = f"{os.getcwd()}\PIQUE-Bin-Jar-Newest\\"
     pique_exit_status: int = check_malware(binary_file_directory=binary_file_directory,
                                            binary_file_name=binary_file_name,
                                            pique_bin_directory=pique_bin_package_directory)
@@ -51,7 +52,8 @@ def check_malware(binary_file_directory: str, binary_file_name: str, pique_bin_d
     :return: 0 if PIQUE-Bin ran successfully. Otherwise another int.
     """
     pique_bin_jar_file_name: str = "msusel-pique-bin-0.0.1"
-    pique_bin_properties_file_name: str = "pique-bin.properties"
+    # pique_bin_properties_file_name: str = "pique-bin.properties"
+    pique_bin_properties_file_name: str = "pique-properties.properties"
 
     shutil.copy(f"{binary_file_directory}\\{binary_file_name}", f"{pique_bin_directory}")
     file_should_exist(binary_file_directory, binary_file_name)
