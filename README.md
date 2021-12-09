@@ -61,6 +61,8 @@ Steps
 ### Challenges
 ### Future features
 - Implementation of [pique-bin](https://github.com/MSUSEL/msusel-pique) in ccs_disassembler workflow.
+  - PIQUE-Bin tool is implemented but cannot be added to github to file size limitations and commit size limitations 
+  - Any antivirus must be tricked into allowing the PIQUE-Bin tool. There *should* be a way to add a directory to the exceptions for your antivirus. 
 - Inject common malware into binary file.
   - Generate infected VHDL and VHDL that removes the infection.
 - Malware detection, mitigation and remediation.
