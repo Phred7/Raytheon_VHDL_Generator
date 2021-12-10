@@ -51,7 +51,8 @@ def check_malware(binary_file_directory: str, binary_file_name: str, pique_bin_d
     :param pique_bin_directory: PIQUE_Bin directory in the file system. Ex: Location of dir PIQUE-Bin-Jar/.
     :return: 0 if PIQUE-Bin ran successfully. Otherwise another int.
     """
-    pique_bin_jar_file_name: str = "msusel-pique-bin-0.0.1"
+    pique_bin_jar_file_name: str = "msusel-pique-bin-0.0.1-jar-with-dependencies"
+    # pique_bin_jar_file_name: str = "msusel-pique-bin-0.0.1"
     # pique_bin_properties_file_name: str = "pique-bin.properties"
     pique_bin_properties_file_name: str = "pique-properties.properties"
 
@@ -72,7 +73,7 @@ def check_malware(binary_file_directory: str, binary_file_name: str, pique_bin_d
 
     pique_bin_return_code: int
     with change_dir(pique_bin_directory):
-        pique_bin_return_code = subprocess.call(['java', '-jar', f"{pique_bin_jar_file_name}.jar"])
+        pique_bin_return_code = subprocess.call(['java', '-jar',  f"{pique_bin_jar_file_name}.jar", '-e'])
     return pique_bin_return_code
 
 
@@ -95,7 +96,8 @@ def pique_bin_score(binary_file_name: str, pique_bin_directory: str) -> float:
     :return: Float representing the Binary Security Quality of the binary file specified by binary_file_name.
     """
     pique_bin_output_file_directory: str = f"{pique_bin_directory}out"
-    pique_bin_output_file: str = f"{binary_file_name}_compact_evalResults.json"
+    # pique_bin_output_file: str = f"{binary_file_name}_compact_evalResults.json"
+    pique_bin_output_file: str = f"{binary_file_name.strip('.out')}_evalResults.json"  # All_msp_operations_evalResults.json
 
     file_should_exist(pique_bin_output_file_directory, pique_bin_output_file)
 
