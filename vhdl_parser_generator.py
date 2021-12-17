@@ -11,7 +11,7 @@ import os
 from logging import Logger
 from typing import TextIO
 
-import package_zipper
+from package_zipper import PackageZipper
 from computer_mnemonic_dictionary import ComputerMnemonicDictionary
 from disassembler import Disassembler
 
@@ -316,7 +316,8 @@ def main() -> None:
     """
     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
     vhdl_parser_generator.generate_vhdl()
-    package_zipper.zip_vhdl(zip_file_name="generated_vhdl_all_operations_11_29_2021_test_classification")
+    package_zipper: PackageZipper = PackageZipper()
+    package_zipper.zip_vhdl(zip_file_name="")
 
 
 if __name__ == '__main__':
