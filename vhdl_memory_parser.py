@@ -318,7 +318,7 @@ def main() -> None:
     ccs_disassembler.disassemble(pique_bool=True)
     generate_vhdl_packages()
     generate_vhdl_memory()
-    # package_zipper.zip_vhdl(zip_file_name="generated_vhdl_all_operations_11_12_2021")
+    package_zipper.zip_vhdl(zip_file_name="motor_mover_C_with_PA")
 
 
 if __name__ == '__main__':
