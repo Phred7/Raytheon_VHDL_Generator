@@ -16,13 +16,16 @@ from computer_mnemonic_dictionary import ComputerMnemonicDictionary
 from disassembler import Disassembler
 
 
-class VHDLParserGenerator:
-    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-    logger: Logger = logging.getLogger(__name__)
+class UnrecognizedInstructionError(Exception):
+    """A instruction in the generated disassemble was not recognized by the computer_mnemonic_dictionary"""
+    pass
 
-    class UnrecognizedInstructionError(Exception):
-        """A instruction in the generated disassemble was not recognized by the computer_mnemonic_dictionary"""
-        pass
+
+class VHDLParserGenerator:
+
+    def __init__(self) -> None:
+        logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+        self.logger: Logger = logging.getLogger(__name__)
 
     def remove_last_generated_vhd_files(self) -> None:
         """

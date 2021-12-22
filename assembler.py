@@ -13,7 +13,7 @@ from logging import Logger
 
 class Assembler:
     """
-    This Class will probably be replaced my features in DisassemblyParserGenerator.py
+    This Class will probably be replaced by features in DisassemblyParserGenerator.py
     """
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     logger: Logger = logging.getLogger(__name__)
