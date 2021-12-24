@@ -16,12 +16,12 @@ from typing import TextIO, List
 
 class DisassemblyParserGenerator:
 
-    def __init__(self) -> None:
+    def __init__(self, *, disassembly_file: str = "generated_disassembly.txt") -> None:
         logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
         self.logger: Logger = logging.getLogger(__name__)
         self.generated_assembly_directory: str = rf"generated_assembly"
         self.generated_disassembly_directory: str = rf"generated_disassembly"
-        self.generated_disassembly_file: str = "generated_disassembly.txt"
+        self.generated_disassembly_file: str = disassembly_file
         self.generated_assembly_file: str = "generated_source.asm"
 
     @staticmethod
@@ -60,27 +60,44 @@ class DisassemblyParserGenerator:
         with open(rf"{self.generated_disassembly_directory}\{self.generated_disassembly_file}", 'r') as disassembly:
             lines: List[str] = disassembly.readlines()
 
-            # removes lines prior to the first instruction
+            # removes lines prior to the first instruction TODO: make this use a dynamic mem. address rather than 008000... grab from TEXT section?
             while not lines[0].startswith("008000:"):
                 del lines[0]
-                continue
+
+            # if the disassembly declares RESET skip TODO: make this use a dynamic mem. address rather than 008004 and 008000
+            if lines[0] == "008000:              RESET:\n":
+                while not lines[0].startswith("008004:"):
+                    del lines[0]
+
+            # if the disassembly declares StopWDT skip TODO: make this use a dynamic mem. address rather than 00800a and 008004
+            if lines[0] == "008004:              StopWDT:\n":
+                while not lines[0].startswith("00800a:"):
+                    del lines[0]
 
             # removes all numbers before instructions until the ISR trap. Splits lines into instructions and text and data lists
-            text_and_data_lines: List[str] = []
-            index: int = -1  # do not enumerate for loop. Length of iterable changes inside loop
-            for line in lines:
-                index += 1
-                if line.startswith("TEXT Section .text:_isr"):
-                    text_and_data_lines = lines[index:]
-                    lines = lines[:index]
-                    break
+            index: int = 0  # do not enumerate for loop. Length of iterable changes inside loop
+            while not lines[index].startswith("TEXT Section .text:_isr"):
                 # parses each line and adds it to the asm string
-                lines[index] = line[21:]
+                lines[index] = lines[index][21:]
                 if deepcopy(lines[index]).strip(" ") == '\n' or lines[index].strip(" ").startswith(".text:"):
                     del lines[index]
-                    index -= 1
                     continue
-                generated_src += f"{line[21:]}\n"
+                generated_src += f"{lines[index]}"
+                index += 1
+
+            self.logger.info(f"Generated Instructions")
+
+            text_and_data_lines: List[str] = lines[index:]
+            instructions: List[str] = lines[:index]
+            data_section: List[str] = deepcopy(text_and_data_lines)
+
+            # removes all lines in data section that aren't part of the data section
+            while not data_section[0].startswith("DATA Section .data,"):
+                del data_section[0]
+
+            # TODO assembler directives and data.
+
+            self.logger.info(f"Generated Data Memory")
 
             self.logger.info(f"Parsing and Generating the Text and Data section is not implemented")
         return generated_src
@@ -129,6 +146,15 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
             .sect   ".reset"                ; MSP430 RESET Vector
             .short  RESET\n"""
 
+    @staticmethod
+    def msp_ccs_template_memory_allocation() -> str:
+        return """;-------------------------------------------------------------------------------
+; Memory Allocation
+;-------------------------------------------------------------------------------
+
+            .data									; allocate variables in data memory
+            .retain									; keep these statements even if not used\n"""
+
 
 class Assembler:
     # may be replaced with method call in DisassemblyParserGenerator
@@ -147,5 +173,5 @@ class Parser:
 
 
 if __name__ == "__main__":
-    dpg: DisassemblyParserGenerator = DisassemblyParserGenerator()
+    dpg: DisassemblyParserGenerator = DisassemblyParserGenerator(disassembly_file="all_ops.txt")
     dpg.generate_source_from_disassembly()

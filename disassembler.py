@@ -18,6 +18,9 @@ class Disassembler:
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     logger: Logger = logging.getLogger(__name__)
 
+    def __init__(self, file: str = "generated_disassembly.txt") -> None:
+        self.file: str = file   # not used yet
+
     def pique_bin(self, binary_file_directory: str, binary_file_name: str) -> float:
         """
         Runs PIQUE-Bin on the binary file with the name binary_file_name and returns the generated Binary Security Quality of that binary file.
