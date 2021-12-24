@@ -210,8 +210,8 @@ constant ROM : rom_type :=("""
             elif current_program_memory > 32777 and len(line_str_list) >= 15 and not (
                     line_str_list[14] in computer_mnemonic_dictionary.keys()) and (":" not in line_str_list[14]):
                 self.logger.error(
-                    f"{self.UnrecognizedInstructionError.__name__}: The instruction {line_str_list[14]} in the generated disassembly was not recognized by the ComputerMnemonicDictionary. Replaced with NOP")
-                generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else memory_indent}{current_program_memory} => x\"{nop_opcode[0]}{nop_opcode[1]}\",\t\t-- {self.UnrecognizedInstructionError.__name__}: Replaced with NOP\n"""  # -- #\t\t--
+                    f"{UnrecognizedInstructionError.__name__}: The instruction {line_str_list[14]} in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP")
+                generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else memory_indent}{current_program_memory} => x\"{nop_opcode[0]}{nop_opcode[1]}\",\t\t-- {UnrecognizedInstructionError.__name__}: Replaced with NOP\n"""  # -- #\t\t--
                 current_program_memory += 1
                 generated_rom_asm_str += f"""{memory_indent}{current_program_memory} => x\"{computer_mnemonic_dictionary.get("NOP")}{nop_opcode[3]}\",\n"""
                 current_program_memory += 1
