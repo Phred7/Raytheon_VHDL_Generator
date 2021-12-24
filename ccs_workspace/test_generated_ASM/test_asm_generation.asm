@@ -24,780 +24,414 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 ; Main loop here
 ;-------------------------------------------------------------------------------
 init:
-
-    MOV.W   #0x2000,R4
-
-    MOV.W   R4,R5
-
-    MOV.W   #0x2004,R6
-
-    BIC.B   #2,&P4DIR
-
-    BIS.B   #2,&P4REN
-
-    BIS.B   #2,&P4OUT
-
-    BIC.B   #-1,&P4IFG
-
-    BIS.B   #2,&P4IES
-
-    BIS.B   #2,&P4IE
-
-    NOP
-
-    EINT
-
-    NOP
-
-    EINT
-
-    NOP
-
-    DINT
-
-    NOP
-
-    BIC.B   #1,&PM5CTL0_L
-
+    mov.w   #0x2000,R4
+    mov.w   R4,R5
+    mov.w   #0x2004,R6
+    bic.b   #2,&P4DIR
+    bis.b   #2,&P4REN
+    bis.b   #2,&P4OUT
+    bic.b   #-1,&P4IFG
+    bis.b   #2,&P4IES
+    bis.b   #2,&P4IE
+    nop
+    eint
+    nop
+    eint
+    nop
+    dint
+    nop
+    bic.b   #1,&PM5CTL0_L
 main:
-
 movement:
-
-    MOV.W   &Con1,R7
-
-    MOV.W   Con2,R8
-
-    MOV.W   @R4,R9
-
-    MOV.W   @R5+,R10
-
-    MOV.W   @R5+,R11
-
-    MOV.W   0x0002(R4),0x0004(R6)
-
+    mov.w   &Con1,R7
+    mov.w   Con2,R8
+    mov.w   @R4,R9
+    mov.w   @R5+,R10
+    mov.w   @R5+,R11
+    mov.w   0x0002(R4),0x0004(R6)
 manipulation:
-
-    MOV.W   #0x2000,R4
-
-    ADD.W   R4,Const2
-
-    ADD.W   &Con1,R5
-
-    MOV.W   #0x2000,R4
-
-    MOV.W   #0x2004,R6
-
-    ADD.W   @R4,0x0004(R6)
-
-    ADD.W   #0x2000,Var1
-
-    ADD.W   @R5+,R6
-
-    ADDC.W  R4,R5
-
-    ADDC.W  R5,Const2
-
-    ADDC.W  &Con1,R5
-
-    MOV.W   #0x2000,R4
-
-    MOV.W   #0x2004,R6
-
-    ADDC.W  @R4,0x0004(R6)
-
-    ADDC.W  #0x2000,Var1
-
-    ADDC.W  @R5+,R6
-
-    SETC
-
-    ADC.W   R4
-
-    ADC.W   Const2
-
-    ADC.W   &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    SETC
-
-    ADC.W   Var1
-
-    ADC.W   0x0004(R4)
-
-    SUB.W   R4,R5
-
-    SUB.W   R4,Const2
-
-    SUB.W   &Con1,R5
-
-    MOV.W   #0x2000,R4
-
-    MOV.W   #0x2004,R6
-
-    SUB.W   @R4,0x0004(R6)
-
-    SUB.W   #0x2000,Var1
-
-    SUB.W   @R5+,R6
-
-    SUBC.W  R5,R6
-
-    SUBC.W  R4,Const2
-
-    SUBC.W  &Con1,R5
-
-    MOV.W   #0x2000,R4
-
-    MOV.W   #0x2004,R6
-
-    SUBC.W  @R4,0x0004(R6)
-
-    SUBC.W  #0x2000,Var1
-
-    SUBC.W  @R5+,R6
-
-    SETC
-
-    SBC.W   R4
-
-    SBC.W   Const2
-
-    SBC.W   &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    SETC
-
-    SBC.W   Var1
-
-    SBC.W   0x0004(R4)
-
-    SETC
-
-    DADD.W  R4,R5
-
-    DADD.W  R4,Const2
-
-    DADD.W  &Con1,R5
-
-    MOV.W   #0x2000,R4
-
-    MOV.W   #0x2004,R6
-
-    SETC
-
-    DADD.W  @R4,0x0004(R6)
-
-    DADD.W  #0x2000,Var1
-
-    DADD.W  @R5+,R6
-
-    SETC
-
-    DADC.W  R4
-
-    DADC.W  Const2
-
-    DADC.W  &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    SETC
-
-    DADC.W  Var1
-
-    DADC.W  0x0004(R4)
-
-    INC.W   R4
-
-    INC.W   Const2
-
-    INC.W   &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    INC.W   Var1
-
-    INC.W   0x0004(R4)
-
-    INCD.W  R4
-
-    INCD.W  Const2
-
-    INCD.W  &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    INCD.W  Var1
-
-    INCD.W  0x0004(R4)
-
-    DEC.W   R4
-
-    DEC.W   Const2
-
-    DEC.W   &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    DEC.W   Var1
-
-    DEC.W   0x0004(R4)
-
-    DECD.W  R4
-
-    DECD.W  Const2
-
-    DECD.W  &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    DECD.W  Var1
-
-    DECD.W  0x0004(R4)
-
-    MOV.B   #0x004e,R4
-
-    INV.B   R4
-
-    MOV.W   #0x2032,R4
-
-    INV.W   R4
-
-    INV.W   &Const1
-
-    INV.W   Const10
-
-    MOV.W   #0x2032,R4
-
-    INV.W   0x0002(R4)
-
-    MOV.B   #0x00aa,R4
-
-    AND.B   #0x000f,R4
-
-    AND.W   R4,R5
-
-    AND.W   R4,Const2
-
-    AND.W   &Con1,R5
-
-    MOV.W   #0x2000,R4
-
-    MOV.W   #0x2004,R6
-
-    AND.W   @R4,0x0004(R6)
-
-    AND.W   #0x2000,Var1
-
-    AND.W   @R5+,R6
-
-    MOV.B   #0x00aa,R4
-
-    BIS.B   #0x0249,R4
-
-    BIS.W   R4,R5
-
-    BIS.W   R4,Const2
-
-    BIS.W   &Con1,R5
-
-    BIS.W   #0x2000,R4
-
-    BIS.W   #0x2004,R6
-
-    BIS.W   @R4,0x0004(R6)
-
-    BIS.W   #0x2000,Var1
-
-    BIS.W   @R5+,R6
-
-    MOV.B   #0x00aa,R4
-
-    XOR.B   #0x0055,R4
-
-    XOR.W   R5,R6
-
-    XOR.W   R4,Const2
-
-    XOR.W   &Con1,R5
-
-    MOV.W   #0x2000,R4
-
-    MOV.W   #0x2004,R6
-
-    XOR.W   @R4,0x0004(R6)
-
-    XOR.W   #0x2000,Var1
-
-    XOR.W   @R5+,R6
-
-    MOV.B   #0x00aa,R4
-
-    BIS.B   #0x0249,R4
-
-    BIS.W   R4,R5
-
-    BIS.W   R4,Const2
-
-    BIS.W   &Con1,R5
-
-    MOV.W   #0x2000,R4
-
-    MOV.W   #0x2004,R6
-
-    BIS.W   @R4,0x0004(R6)
-
-    BIS.W   #0x2000,Var1
-
-    BIS.W   @R5+,R6
-
-    MOV.B   #0x00aa,R4
-
-    BIC.B   #0x0018,R4
-
-    BIC.W   R4,R5
-
-    BIC.W   R4,Const2
-
-    BIC.W   &Con1,R5
-
-    MOV.W   #0x2000,R4
-
-    MOV.W   #0x2004,R6
-
-    BIC.W   @R4,0x0004(R6)
-
-    BIC.W   #0x2000,Var1
-
-    BIC.W   @R5+,R6
-
-    MOV.B   #0x00aa,R4
-
-    BIT.B   #0x0018,R4
-
-    BIT.W   R4,R5
-
-    BIT.W   R4,Const2
-
-    BIT.W   &Con1,R5
-
-    MOV.W   #0x2000,R4
-
-    MOV.W   #0x2004,R6
-
-    BIT.W   @R4,0x0004(R6)
-
-    BIT.W   #0x2000,Var1
-
-    BIT.W   @R5+,R6
-
-    MOV.B   #0x0063,R5
-
-    CMP.B   #0x0063,R5
-
-    CMP.B   #0x004d,R5
-
-    CMP.W   R4,R5
-
-    CMP.W   R4,Const2
-
-    CMP.W   &Con1,R5
-
-    MOV.W   #0x2000,R4
-
-    MOV.W   #0x2004,R6
-
-    CMP.W   @R4,0x0004(R6)
-
-    CMP.W   #0x2000,Var1
-
-    CMP.W   @R5+,R6
-
-    MOV.B   #0xff9d,R7
-
-    CLR.B   R6
-
-    TST.B   R6
-
-    TST.B   R7
-
-    TST.W   R4
-
-    TST.W   Const2
-
-    TST.W   &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    TST.W   Var1
-
-    TST.W   0x0004(R4)
-
-    MOV.B   #1,R4
-
-    RLA.B   R4
-
-    RLA.B   R4
-
-    RLA.W   R4
-
-    ADD.W   Const2,Const2
-
-    RLA.W   &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    ADD.W   Var1,Var1
-
-    RLA.W   0x0004(R4)
-
-    MOV.B   #0x0020,R4
-
-    RRA.B   R4
-
-    RRA.B   R4
-
-    RRA     R4
-
-    RRA     Const2
-
-    RRA     &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    RRA     Var1
-
-    RRA     0x0004(R4)
-
-    CLRC
-
-    MOV.B   #0x0080,R7
-
-    RLC.B   R7
-
-    RLC.B   R7
-
-    RLC.W   R4
-
-    ADDC.W  Const2,Const2
-
-    RLC.W   &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    ADDC.W  Var1,Var1
-
-    RLC.W   0x0004(R4)
-
-    CLRC
-
-    MOV.B   #1,R8
-
-    RRC.B   R8
-
-    RRC.B   R8
-
-    RRC     R4
-
-    RRC     Const2
-
-    RRC     &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    RRC     Var1
-
-    RRC     0x0004(R4)
-
-    MOV.W   #0x00ff,R4
-
-    SWPB    R4
-
-    SWPB    Const2
-
-    SWPB    &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    SWPB    Var1
-
-    SWPB    0x0004(R4)
-
-    MOV.W   #0x00ff,R4
-
-    SXT     R4
-
-    SXT     Const2
-
-    SXT     &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    SXT     Var1
-
-    SXT     0x0004(R4)
-
+    mov.w   #0x2000,R4
+    add.w   R4,Const2
+    add.w   &Con1,R5
+    mov.w   #0x2000,R4
+    mov.w   #0x2004,R6
+    add.w   @R4,0x0004(R6)
+    add.w   #0x2000,Var1
+    add.w   @R5+,R6
+    addc.w  R4,R5
+    addc.w  R5,Const2
+    addc.w  &Con1,R5
+    mov.w   #0x2000,R4
+    mov.w   #0x2004,R6
+    addc.w  @R4,0x0004(R6)
+    addc.w  #0x2000,Var1
+    addc.w  @R5+,R6
+    setc
+    adc.w   R4
+    adc.w   Const2
+    adc.w   &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    setc
+    adc.w   Var1
+    adc.w   0x0004(R4)
+    sub.w   R4,R5
+    sub.w   R4,Const2
+    sub.w   &Con1,R5
+    mov.w   #0x2000,R4
+    mov.w   #0x2004,R6
+    sub.w   @R4,0x0004(R6)
+    sub.w   #0x2000,Var1
+    sub.w   @R5+,R6
+    subc.w  R5,R6
+    subc.w  R4,Const2
+    subc.w  &Con1,R5
+    mov.w   #0x2000,R4
+    mov.w   #0x2004,R6
+    subc.w  @R4,0x0004(R6)
+    subc.w  #0x2000,Var1
+    subc.w  @R5+,R6
+    setc
+    sbc.w   R4
+    sbc.w   Const2
+    sbc.w   &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    setc
+    sbc.w   Var1
+    sbc.w   0x0004(R4)
+    setc
+    dadd.w  R4,R5
+    dadd.w  R4,Const2
+    dadd.w  &Con1,R5
+    mov.w   #0x2000,R4
+    mov.w   #0x2004,R6
+    setc
+    dadd.w  @R4,0x0004(R6)
+    dadd.w  #0x2000,Var1
+    dadd.w  @R5+,R6
+    setc
+    dadc.w  R4
+    dadc.w  Const2
+    dadc.w  &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    setc
+    dadc.w  Var1
+    dadc.w  0x0004(R4)
+    inc.w   R4
+    inc.w   Const2
+    inc.w   &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    inc.w   Var1
+    inc.w   0x0004(R4)
+    incd.w  R4
+    incd.w  Const2
+    incd.w  &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    incd.w  Var1
+    incd.w  0x0004(R4)
+    dec.w   R4
+    dec.w   Const2
+    dec.w   &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    dec.w   Var1
+    dec.w   0x0004(R4)
+    decd.w  R4
+    decd.w  Const2
+    decd.w  &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    decd.w  Var1
+    decd.w  0x0004(R4)
+    mov.b   #0x004e,R4
+    inv.b   R4
+    mov.w   #0x2032,R4
+    inv.w   R4
+    inv.w   &Const1
+    inv.w   Const10
+    mov.w   #0x2032,R4
+    inv.w   0x0002(R4)
+    mov.b   #0x00aa,R4
+    and.b   #0x000f,R4
+    and.w   R4,R5
+    and.w   R4,Const2
+    and.w   &Con1,R5
+    mov.w   #0x2000,R4
+    mov.w   #0x2004,R6
+    and.w   @R4,0x0004(R6)
+    and.w   #0x2000,Var1
+    and.w   @R5+,R6
+    mov.b   #0x00aa,R4
+    bis.b   #0x0249,R4
+    bis.w   R4,R5
+    bis.w   R4,Const2
+    bis.w   &Con1,R5
+    bis.w   #0x2000,R4
+    bis.w   #0x2004,R6
+    bis.w   @R4,0x0004(R6)
+    bis.w   #0x2000,Var1
+    bis.w   @R5+,R6
+    mov.b   #0x00aa,R4
+    xor.b   #0x0055,R4
+    xor.w   R5,R6
+    xor.w   R4,Const2
+    xor.w   &Con1,R5
+    mov.w   #0x2000,R4
+    mov.w   #0x2004,R6
+    xor.w   @R4,0x0004(R6)
+    xor.w   #0x2000,Var1
+    xor.w   @R5+,R6
+    mov.b   #0x00aa,R4
+    bis.b   #0x0249,R4
+    bis.w   R4,R5
+    bis.w   R4,Const2
+    bis.w   &Con1,R5
+    mov.w   #0x2000,R4
+    mov.w   #0x2004,R6
+    bis.w   @R4,0x0004(R6)
+    bis.w   #0x2000,Var1
+    bis.w   @R5+,R6
+    mov.b   #0x00aa,R4
+    bic.b   #0x0018,R4
+    bic.w   R4,R5
+    bic.w   R4,Const2
+    bic.w   &Con1,R5
+    mov.w   #0x2000,R4
+    mov.w   #0x2004,R6
+    bic.w   @R4,0x0004(R6)
+    bic.w   #0x2000,Var1
+    bic.w   @R5+,R6
+    mov.b   #0x00aa,R4
+    bit.b   #0x0018,R4
+    bit.w   R4,R5
+    bit.w   R4,Const2
+    bit.w   &Con1,R5
+    mov.w   #0x2000,R4
+    mov.w   #0x2004,R6
+    bit.w   @R4,0x0004(R6)
+    bit.w   #0x2000,Var1
+    bit.w   @R5+,R6
+    mov.b   #0x0063,R5
+    cmp.b   #0x0063,R5
+    cmp.b   #0x004d,R5
+    cmp.w   R4,R5
+    cmp.w   R4,Const2
+    cmp.w   &Con1,R5
+    mov.w   #0x2000,R4
+    mov.w   #0x2004,R6
+    cmp.w   @R4,0x0004(R6)
+    cmp.w   #0x2000,Var1
+    cmp.w   @R5+,R6
+    mov.b   #0xff9d,R7
+    clr.b   R6
+    tst.b   R6
+    tst.b   R7
+    tst.w   R4
+    tst.w   Const2
+    tst.w   &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    tst.w   Var1
+    tst.w   0x0004(R4)
+    mov.b   #1,R4
+    rla.b   R4
+    rla.b   R4
+    rla.w   R4
+    add.w   Const2,Const2
+    rla.w   &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    add.w   Var1,Var1
+    rla.w   0x0004(R4)
+    mov.b   #0x0020,R4
+    rra.b   R4
+    rra.b   R4
+    rra     R4
+    rra     Const2
+    rra     &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    rra     Var1
+    rra     0x0004(R4)
+    clrc
+    mov.b   #0x0080,R7
+    rlc.b   R7
+    rlc.b   R7
+    rlc.w   R4
+    addc.w  Const2,Const2
+    rlc.w   &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    addc.w  Var1,Var1
+    rlc.w   0x0004(R4)
+    clrc
+    mov.b   #1,R8
+    rrc.b   R8
+    rrc.b   R8
+    rrc     R4
+    rrc     Const2
+    rrc     &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    rrc     Var1
+    rrc     0x0004(R4)
+    mov.w   #0x00ff,R4
+    swpb    R4
+    swpb    Const2
+    swpb    &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    swpb    Var1
+    swpb    0x0004(R4)
+    mov.w   #0x00ff,R4
+    sxt     R4
+    sxt     Const2
+    sxt     &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    sxt     Var1
+    sxt     0x0004(R4)
 sr_flags:
-
-    SETC
-
-    SETN
-
-    SETZ
-
-    CLRC
-
-    CLRN
-
-    CLRZ
-
-    MOV.W   #0x001c,R10
-
-    CLR.W   R10
-
-    CLR.W   Var1
-
-    CLR.W   &Con1
-
-    MOV.W   #0x2000,R10
-
-    CLR.W   0x0002(R10)
-
+    setc
+    setn
+    setz
+    clrc
+    clrn
+    clrz
+    mov.w   #0x001c,R10
+    clr.w   R10
+    clr.w   Var1
+    clr.w   &Con1
+    mov.w   #0x2000,R10
+    clr.w   0x0002(R10)
 program_flow:
-
-    SETC
-
-    JHS     (_jc)
-
+    setc
+    jhs     (_jc)
 _jc:
-
-    CLRC
-
-    JHS     (_jc)
-
-    SETC
-
-    JHS     (_jhs)
-
+    clrc
+    jhs     (_jc)
+    setc
+    jhs     (_jhs)
 _jhs:
-
-    CLRC
-
-    JHS     (_jhs)
-
-    SETZ
-
-    JEQ     (_jeq)
-
+    clrc
+    jhs     (_jhs)
+    setz
+    jeq     (_jeq)
 _jeq:
-
-    CLRZ
-
-    JEQ     (_jeq)
-
-    SETZ
-
-    JEQ     (_jz)
-
+    clrz
+    jeq     (_jeq)
+    setz
+    jeq     (_jz)
 _jz:
-
-    CLRZ
-
-    JEQ     (_jz)
-
-    MOV.W   #1,R4
-
-    TST.W   R4
-
-    JGE     (_jge)
-
+    clrz
+    jeq     (_jz)
+    mov.w   #1,R4
+    tst.w   R4
+    jge     (_jge)
 _jge:
-
-    CLR.W   R4
-
-    CMP.W   #1,R4
-
-    JGE     (_jge)
-
-    CLR.W   R4
-
-    CMP.W   #1,R4
-
-    JL      (_jl)
-
+    clr.w   R4
+    cmp.w   #1,R4
+    jge     (_jge)
+    clr.w   R4
+    cmp.w   #1,R4
+    jl      (_jl)
 _jl:
-
-    MOV.W   #1,R4
-
-    TST.W   R4
-
-    JL      (_jl)
-
-    JMP     (_jmp)
-
+    mov.w   #1,R4
+    tst.w   R4
+    jl      (_jl)
+    jmp     (_jmp)
 _jmp:
-
-    NOP
-
-    SETN
-
-    JN      (_jn)
-
+    nop
+    setn
+    jn      (_jn)
 _jn:
-
-    CLRN
-
-    JN      (_jn)
-
-    CLRC
-
-    JLO     (_jnc)
-
+    clrn
+    jn      (_jn)
+    clrc
+    jlo     (_jnc)
 _jnc:
-
-    SETC
-
-    JLO     (_jnc)
-
-    CLRN
-
-    JLO     (_jlo)
-
+    setc
+    jlo     (_jnc)
+    clrn
+    jlo     (_jlo)
 _jlo:
-
-    SETN
-
-    JLO     (_jlo)
-
-    CLRZ
-
-    JNE     (_jne)
-
+    setn
+    jlo     (_jlo)
+    clrz
+    jne     (_jne)
 _jne:
-
-    SETZ
-
-    JNE     (_jne)
-
-    CLRZ
-
-    JNE     (_jnz)
-
+    setz
+    jne     (_jne)
+    clrz
+    jne     (_jnz)
 _jnz:
-
-    SETZ
-
-    JNE     (_jnz)
-
-    MOV.W   #0x847a,R4
-
-    BR      R4
-
+    setz
+    jne     (_jnz)
+    mov.w   #0x847a,R4
+    br      R4
 br_1:
-
-    MOV.W   #0x8484,Const2
-
-    BR      Const2
-
+    mov.w   #0x8484,Const2
+    br      Const2
 br_2:
-
-    BR      #br_3
-
+    br      #br_3
 br_3:
-
-    NOP
-
+    nop
 stack:
-
-    MOV.W   #0x00ff,R4
-
-    PUSH    #0xf0f0
-
-    PUSH    R4
-
-    PUSH    &Con1
-
-    MOV.W   #0x2000,R4
-
-    PUSH    0x0000(R4)
-
-    PUSH    #0x2000
-
-    PUSH    @R5+
-
-    POP.W   R4
-
-    POP.W   Const2
-
-    POP.W   &Con1
-
-    MOV.W   #0x2000,Var1
-
-    MOV.W   #0x2000,R4
-
-    POP.W   Var1
-
-    POP.W   0x0004(R4)
-
-    POP.W   R4
-
+    mov.w   #0x00ff,R4
+    push    #0xf0f0
+    push    R4
+    push    &Con1
+    mov.w   #0x2000,R4
+    push    0x0000(R4)
+    push    #0x2000
+    push    @R5+
+    pop.w   R4
+    pop.w   Const2
+    pop.w   &Con1
+    mov.w   #0x2000,Var1
+    mov.w   #0x2000,R4
+    pop.w   Var1
+    pop.w   0x0004(R4)
+    pop.w   R4
 subroutine:
-
-    CLR.W   R5
-
-    MOV.W   #0x84e4,R4
-
-    MOV.W   #0x84e4,Var1
-
-    CALL    #add_3
-
-    CALL    R4
-
-    CALL    Var1
-
-    CALL    #add_3
-
-    BR      #main
-
-    NOP
-
+    clr.w   R5
+    mov.w   #0x84e4,R4
+    mov.w   #0x84e4,Var1
+    call    #add_3
+    call    R4
+    call    Var1
+    call    #add_3
+    br      #main
+    nop
 add_3:
+    add.w   #0x0003,R5
+    ret
 
-    ADD.W   #0x0003,R5
+;-------------------------------------------------------------------------------
+; Memory Allocation
+;-------------------------------------------------------------------------------
 
-    RET
-
-
+            .data									; allocate variables in data memory
+            .retain									; keep these statements even if not used
+Con1:		.word 0xaced
+Con2:		.word 0xbeef
+Var1:		.space 28
+Const1:		.word 0xaaaa
+Const2:		.word 0xaaa1
+Const3:		.word 0xabab
+Const4:		.word 0xcbcb
+Const5:		.word 0x4321
+Const6:		.word 0xcccc
+Const7:		.word 0xabab
+Const8:		.word 0xcbcb
+Const9:		.word 0x1234
+Const10:		.word 0xcccc
+Const11:		.word 0xabab
+Const12:		.word 0xcbcb
 
 ;-------------------------------------------------------------------------------
 ; Stack Pointer definition
@@ -810,4 +444,3 @@ add_3:
 ;-------------------------------------------------------------------------------
             .sect   ".reset"                ; MSP430 RESET Vector
             .short  RESET
-

@@ -82,6 +82,7 @@ class DisassemblyParserGenerator:
                 if deepcopy(lines[index]).strip(" ") == '\n' or lines[index].strip(" ").startswith(".text:"):
                     del lines[index]
                     continue
+                lines[index] = f"{lines[index][:10].lower()}{lines[index][10:]}"
                 generated_src += f"{lines[index]}"
                 index += 1
 
@@ -91,38 +92,47 @@ class DisassemblyParserGenerator:
             instructions: List[str] = lines[:index]
             data_section: List[str] = deepcopy(text_and_data_lines)
 
-            # removes all lines in data section that aren't part of the data section
+            # removes all lines in preceding the data section that is not DATA
             while not data_section[0].startswith("DATA Section .data,"):
                 del data_section[0]
+            del data_section[0]
+
+            generated_src += f"\n{self.msp_ccs_template_memory_allocation()}"
 
             index: int = 0
-            while not data_section[index].startswith("\n"):
-                data_section[index] = data_section[index][21:]  #gets the next variable
-                data_section_variable_str: str = data_section[index]
+            while not data_section[index+1].startswith("DATA Section"):
+                data_section[index] = data_section[index][21:]   #gets the next variable
+                data_section_variable_str: str = data_section[index].strip("\n")
                 # check to see if this variable only has one word worth of data. If not jump to else.
-                if deepcopy(data_section[index+2].strip().startswith(".")):
-                    index += 1
-                    pass
+                if not deepcopy(data_section[index+2][21:].strip().startswith(".")):
+                    data_declaration: List[str] = data_section[index+1][21:].lstrip().split(" ")
+                    directive: str = data_declaration[0]
+                    data: str = data_declaration[1].strip("\n")
+                    data_section_variable_str += f"\t\t{directive} {data}"
+                    index += 2
                 else:
                     all_zeros: bool = True
                     data_values: List[str] = []
 
                     # determine the number of words present and put all the values in data_values List
                     multi_word_index_offset: int = 1  # accounts for variable name
-                    while not deepcopy(data_section[index+multi_word_index_offset].strip().startswith(".")):
-                        if not deepcopy(data_section[index+multi_word_index_offset]).lstrip().startswith(".word 0x0000"):
+                    while deepcopy(data_section[index+multi_word_index_offset][21:].strip().startswith(".")):
+                        data_section[index + multi_word_index_offset] = data_section[index + multi_word_index_offset][21:].lstrip()
+                        if not deepcopy(data_section[index+multi_word_index_offset]).startswith(".word 0x0000"):
                             all_zeros = False
-                        data_values.append(data_section[index+multi_word_index_offset].split(" ")[1])
+                        data_values.append(data_section[index+multi_word_index_offset].split(" ")[1].strip("\n"))
                         multi_word_index_offset += 1
 
                     # if all data is zeros .space can be used. Otherwise implement .short
                     data_section_variable_str += f"\t\t"
                     if all_zeros:
-                        data_section_variable_str += f".space {multi_word_index_offset * 2}"
+                        data_section_variable_str += f".space {(multi_word_index_offset - 1) * 2}"
                     else:
-                        pass
-
+                        self.logger.warning(f"Memory Allocation for .byte, .short not Implemented")
                     index += multi_word_index_offset
+
+                data_section_variable_str += "\n"
+                generated_src += data_section_variable_str
 
             self.logger.info(f"Generated Data Memory")
 
