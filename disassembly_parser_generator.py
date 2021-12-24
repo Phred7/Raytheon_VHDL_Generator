@@ -95,7 +95,34 @@ class DisassemblyParserGenerator:
             while not data_section[0].startswith("DATA Section .data,"):
                 del data_section[0]
 
-            # TODO assembler directives and data.
+            index: int = 0
+            while not data_section[index].startswith("\n"):
+                data_section[index] = data_section[index][21:]  #gets the next variable
+                data_section_variable_str: str = data_section[index]
+                # check to see if this variable only has one word worth of data. If not jump to else.
+                if deepcopy(data_section[index+2].strip().startswith(".")):
+                    index += 1
+                    pass
+                else:
+                    all_zeros: bool = True
+                    data_values: List[str] = []
+
+                    # determine the number of words present and put all the values in data_values List
+                    multi_word_index_offset: int = 1  # accounts for variable name
+                    while not deepcopy(data_section[index+multi_word_index_offset].strip().startswith(".")):
+                        if not deepcopy(data_section[index+multi_word_index_offset]).lstrip().startswith(".word 0x0000"):
+                            all_zeros = False
+                        data_values.append(data_section[index+multi_word_index_offset].split(" ")[1])
+                        multi_word_index_offset += 1
+
+                    # if all data is zeros .space can be used. Otherwise implement .short
+                    data_section_variable_str += f"\t\t"
+                    if all_zeros:
+                        data_section_variable_str += f".space {multi_word_index_offset * 2}"
+                    else:
+                        pass
+
+                    index += multi_word_index_offset
 
             self.logger.info(f"Generated Data Memory")
 
