@@ -52,11 +52,11 @@ class DisassemblyParserGenerator:
 
                 # gen other irq's here?
 
-            self.logger.info(f"Generated ASM src for {self.generated_disassembly_file}")
+            self.logger.info(f"Generated ASM src for {self.generated_disassembly_file} at {self.generated_assembly_directory}\\{self.generated_assembly_file}")
 
     def parse_disassembly(self) -> str:
         generated_src: str = ""
-        self.logger.info(f"Reading in lines from {self.generated_disassembly_file}")
+        self.logger.debug(f"Reading in lines from {self.generated_disassembly_file}")
         with open(rf"{self.generated_disassembly_directory}\{self.generated_disassembly_file}", 'r') as disassembly:
             lines: List[str] = disassembly.readlines()
 
@@ -86,7 +86,7 @@ class DisassemblyParserGenerator:
                 generated_src += f"{lines[index]}"
                 index += 1
 
-            self.logger.info(f"Generated Instructions")
+            self.logger.debug(f"Generated Instructions")
 
             text_and_data_lines: List[str] = lines[index:]
             instructions: List[str] = lines[:index]
@@ -134,9 +134,9 @@ class DisassemblyParserGenerator:
                 data_section_variable_str += "\n"
                 generated_src += data_section_variable_str
 
-            self.logger.info(f"Generated Data Memory")
+            self.logger.debug(f"Generated Data Memory")
 
-            self.logger.info(f"Parsing and Generating the Text and Data section is not implemented")
+            self.logger.info(f"Generated the Instructions and Memory Allocation sections. ISR's not implemented")
         return generated_src
 
     @staticmethod
