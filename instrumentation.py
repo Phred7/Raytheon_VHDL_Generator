@@ -5,10 +5,6 @@
 # Dr. Brock LaMeres
 # Written by Walker Ward
 ###############################
-import logging
-import os
-from contextlib import contextmanager
-from logging import Logger
 from instrumentation_strategy import InstrumentationStrategy
 
 

@@ -5,11 +5,9 @@
 # Dr. Brock LaMeres
 # Written by Walker Ward
 ###############################
-import logging
 import os
-from contextlib import contextmanager
-from logging import Logger
 from pique_bin import PiqueBin
+from static_utilities import StaticUtilities
 
 
 class Disassembler:
@@ -17,8 +15,6 @@ class Disassembler:
     def __init__(self, disassembler_input_file_name: str = "Motor_mover_C.out",
                  disassembler_output_file_name: str = "generated_disassembly.txt",
                  disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly") -> None:
-        logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-        self.logger: Logger = logging.getLogger(__name__)
         self.disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
         self.disassembler_executable: str = r'dis430.exe'
         self.disassembler_input_file_name: str = disassembler_input_file_name  # "Motor_mover_C.out"  # "All_msp_operations.out"  # "test_C.out"  # "test_colt_C.out"  # "All_ops_asm.out'  # "Motor_mover_C.out" # "test.out" # "test_ASM.out" # "All_msp_operations.out"
@@ -28,35 +24,6 @@ class Disassembler:
         self.disassembler_exit_status: int = 0
         self.pique_bin: PiqueBin = PiqueBin(binary_file_name=self.disassembler_input_file_name,
                                             binary_file_directory=self.disassembler_input_file_directory)
-
-    @staticmethod
-    @contextmanager
-    def change_dir(destination: str) -> None:
-        """
-        Static Context Manager to temporarily change the current working directory (cwd).
-        :param destination: Location to temporarily change the cwd to.
-        :return: None.
-        """
-        cwd: str = ""
-        try:
-            cwd = os.getcwd()
-            os.chdir(destination)
-            yield
-        finally:
-            os.chdir(cwd)
-
-    @staticmethod
-    def file_should_exist(file_directory: str, file: str) -> int:
-        """
-        Returns 0 if file exists. Otherwise raises OSError.
-        :param file_directory: Location of directory containing the File file.
-        :param file: The name of the File file that should exist.
-        :raises OSError: If file does not exist.
-        :return: O if the files exists.
-        """
-        if not os.path.exists(f"{file_directory}\\{file}"):
-            raise OSError(f"{file_directory}\\{file} does not exist")
-        return 0
 
     def disassemble(self, *, pique_bool: bool = True) -> None:
         """
@@ -71,27 +38,27 @@ class Disassembler:
         """
 
         # Check if the disassembler input exists.
-        self.file_should_exist(self.disassembler_input_file_directory, self.disassembler_input_file_name)
+        StaticUtilities.file_should_exist(self.disassembler_input_file_directory, self.disassembler_input_file_name)
 
         # Run PIQUE-bin.
         if pique_bool:
-            self.logger.info(
+            StaticUtilities.logger.info(
                 f"PIQUE-Bin Binary Security Quality: {self.pique_bin.pique_bin()}")
 
         # Check if the output file already exists. If it exists delete in.
         if os.path.exists(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}"):
             os.remove(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
-            self.logger.info(rf"Removed {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
+            StaticUtilities.logger.info(rf"Removed {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
 
         # Call the disassembler.
         self.disassembler_exit_status = os.system(
             rf"{self.disassembler_directory}\{self.disassembler_executable} {self.disassembler_input_file_directory}\{self.disassembler_input_file_name} {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
-        self.logger.debug(f"Disassembler exit status: {self.disassembler_exit_status}")
+        StaticUtilities.logger.debug(f"Disassembler exit status: {self.disassembler_exit_status}")
         if self.disassembler_exit_status != 0:
             raise OSError(
                 f"Disassembler failed to generate disassembly for {self.disassembler_input_file_name} with exit status {self.disassembler_exit_status}")
         else:
-            self.logger.info(
+            StaticUtilities.logger.info(
                 f'Disassembler generated {self.disassembler_output_file_name} at the directory {self.disassembler_output_file_directory}')
 
 

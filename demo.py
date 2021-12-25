@@ -21,9 +21,9 @@ class Demo:
     def main() -> None:
         """All_msp_operations.out"""
         disassembler: Disassembler = Disassembler()
-        disassembler_return: Tuple[str, str] = disassembler.disassemble(pique_bool=False)
-        assembler: Assembler = Assembler(input_file_name=disassembler_return[1])
-        assembler.assemble()
+        disassembler.disassemble(pique_bool=False)
+        # assembler: Assembler = Assembler(input_file_name=disassembler_return[1])
+        # assembler.assemble()
         # instrumentation: Instrumentation = Instrumentation(IntOverflowAttack())
         # vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
         # vhdl_parser_generator.generate_vhdl(pique_bin_bool=True)

@@ -5,15 +5,13 @@
 # Dr. Brock LaMeres
 # Written by Blake Stanger and Walker Ward
 ###############################
-import logging
 import sys
 import os
-from logging import Logger
 from typing import TextIO
-
 from package_zipper import PackageZipper
 from computer_mnemonic_dictionary import ComputerMnemonicDictionary
 from disassembler import Disassembler
+from static_utilities import StaticUtilities
 
 
 class UnrecognizedInstructionError(Exception):
@@ -24,10 +22,10 @@ class UnrecognizedInstructionError(Exception):
 class VHDLParserGenerator:
 
     def __init__(self) -> None:
-        logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-        self.logger: Logger = logging.getLogger(__name__)
+        pass
 
-    def remove_last_generated_vhd_files(self) -> None:
+    @staticmethod
+    def remove_last_generated_vhd_files() -> None:
         """
         Removes the files generated in the last run of main.
         - Removes all files with the vhd file extension
@@ -37,10 +35,10 @@ class VHDLParserGenerator:
         for file in os.listdir(directory):
             if file.endswith(".vhd"):
                 os.remove(f"{directory}\\{file}")
-                self.logger.info(f'Removed {file}')
+                StaticUtilities.logger.info(f'Removed {file}')
             elif file == "generated_disassembly.txt":
                 os.remove(f"{directory}\\{file}")
-                self.logger.info(f'Removed {file} from \\generated_vhdl\\')
+                StaticUtilities.logger.info(f'Removed {file} from \\generated_vhdl\\')
 
     def generate_vhdl_packages(self) -> None:
         """
@@ -80,7 +78,7 @@ class VHDLParserGenerator:
 
                 vhdl_package_file.close()
                 sys.stdout = original_stdout
-                self.logger.info(f'Generated {computer_name}_package.vhd')
+                StaticUtilities.logger.info(f'Generated {computer_name}_package.vhd')
 
     def generate_vhdl_memory(self) -> None:
         """
@@ -99,7 +97,7 @@ class VHDLParserGenerator:
                 print(self.get_vhdl_memory_architecture(computer_name), end="")
                 vhdl_memory_file.close()
                 sys.stdout = original_stdout
-                self.logger.info(f'Generated {computer_name}_memory.vhd')
+                StaticUtilities.logger.info(f'Generated {computer_name}_memory.vhd')
 
     @staticmethod
     def get_vhdl_memory_libraries() -> str:
@@ -189,7 +187,7 @@ constant ROM : rom_type :=("""
         generated_rom_asm_str: str = ""
         memory_indent: str = "\t\t\t\t\t\t   "
         nop_opcode: str = "0343"
-        self.logger.info(f"Reading in lines from {disassembler_output_file_name} for {computer_name}")
+        StaticUtilities.logger.info(f"Reading in lines from {disassembler_output_file_name} for {computer_name}")
         for line in open(f"{disassembler_output_file_directory}\\{disassembler_output_file_name}", 'r').readlines():
             unmodified_line: str = line
             line_str_list: list[str] = line.split(' ')
@@ -205,11 +203,11 @@ constant ROM : rom_type :=("""
                 generated_rom_asm_str += f"""{memory_indent}{current_program_memory} => x\"{line[10]}{line[11]}\",\n"""
                 current_program_memory += 1
                 if "SR" in unmodified_line:
-                    self.logger.debug("Reached SR in generated_disassembly.txt")
+                    StaticUtilities.logger.debug("Reached SR in generated_disassembly.txt")
                     return generated_rom_asm_str
             elif current_program_memory > 32777 and len(line_str_list) >= 15 and not (
                     line_str_list[14] in computer_mnemonic_dictionary.keys()) and (":" not in line_str_list[14]):
-                self.logger.error(
+                StaticUtilities.logger.error(
                     f"{UnrecognizedInstructionError.__name__}: The instruction {line_str_list[14]} in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP")
                 generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else memory_indent}{current_program_memory} => x\"{nop_opcode[0]}{nop_opcode[1]}\",\t\t-- {UnrecognizedInstructionError.__name__}: Replaced with NOP\n"""  # -- #\t\t--
                 current_program_memory += 1
