@@ -11,12 +11,11 @@ from logging import Logger
 
 
 class PiqueBin:
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-    logger: Logger = logging.getLogger(__name__)
 
     def __init__(self, file: str) -> None:
-
-        pass
+        logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+        self.logger: Logger = logging.getLogger(__name__)
+        self.logger.warning(f"PIQUE-Bin not implemented")
 
     def detect(self) -> None:
         pass
