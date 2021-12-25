@@ -12,7 +12,7 @@ from logging import Logger
 from pique_bin import PiqueBin
 
 
-class DisassemblerRefresh:
+class Disassembler:
 
     def __init__(self, disassembler_input_file_name: str = "Motor_mover_C.out",
                  disassembler_output_file_name: str = "generated_disassembly.txt",
@@ -96,5 +96,5 @@ class DisassemblerRefresh:
 
 
 if __name__ == '__main__':
-    disassembler: DisassemblerRefresh = DisassemblerRefresh()
+    disassembler: Disassembler = Disassembler()
     disassembler.disassemble(pique_bool=True)
