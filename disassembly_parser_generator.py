@@ -15,18 +15,26 @@ from typing import TextIO, List
 
 
 class DisassemblyParserGenerator:
+    """
+    Class to generate ASM src from a disassembly file.
+    """
 
-    def __init__(self, *, disassembly_file: str = "generated_disassembly.txt") -> None:
+    def __init__(self, *, disassembly_file: str = "generated_disassembly.txt", disassembly_directory: str = rf"generated_disassembly", assembly_file: str = "generated_source.asm", assembly_directory: str = rf"generated_assembly") -> None:
         logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
         self.logger: Logger = logging.getLogger(__name__)
-        self.generated_assembly_directory: str = rf"generated_assembly"
-        self.generated_disassembly_directory: str = rf"generated_disassembly"
+        self.generated_assembly_directory: str = assembly_directory
+        self.generated_disassembly_directory: str = disassembly_directory
         self.generated_disassembly_file: str = disassembly_file
-        self.generated_assembly_file: str = "generated_source.asm"
+        self.generated_assembly_file: str = assembly_file
 
     @staticmethod
     @contextmanager
     def change_stdout_to_file(new_stdout: TextIO) -> None:
+        """
+        Static Context Manager to temporarily change the python stdout.
+        :param new_stdout: TextIO to change the stdout to temporarily.
+        :return: None.
+        """
         original_stdout: TextIO = sys.stdout
         try:
             original_stdout = sys.stdout
@@ -36,25 +44,28 @@ class DisassemblyParserGenerator:
             sys.stdout = original_stdout
 
     def generate_source_from_disassembly(self) -> None:
+        """
+        Generates a source file in MSP Assembly derived from this generated_disassembly_file.
+        :return: None.
+        """
+        # this section removes the last generated assembly file if it exists.
         if os.path.exists(rf"{self.generated_assembly_directory}\{self.generated_assembly_file}"):
             os.remove(rf"{self.generated_assembly_directory}\{self.generated_assembly_file}")
             self.logger.info(rf"Removed {self.generated_assembly_directory}\{self.generated_assembly_file}")
-
+        # the following generates the asm source file from the disassembly file.
         with open(rf"{os.getcwd()}\{self.generated_assembly_directory}\{self.generated_assembly_file}", "a+") as generated_src:
             with self.change_stdout_to_file(generated_src):
-                print(self.msp_ccs_assembler_template_headers())
-
-                # gen src here
-                print(self.parse_disassembly())
-
-                print(self.msp_ccs_template_stack_pointer_definition())
-                print(self.msp_ccs_template_interrupt_vectors())
-
-                # gen other irq's here?
-
+                print(self.msp_ccs_assembler_template_headers())  # template headers
+                print(self.parse_disassembly())  # source
+                print(self.msp_ccs_template_stack_pointer_definition())  # template stack pointer definition.
+                print(self.msp_ccs_template_interrupt_vectors())  # template interrupt vectors.
             self.logger.info(f"Generated ASM src for {self.generated_disassembly_file} at {self.generated_assembly_directory}\\{self.generated_assembly_file}")
 
     def parse_disassembly(self) -> str:
+        """
+        Generates a string representing this generated_disassembly_file in the MSP assembly language.
+        :return: string representation of this generated_disassembly_file.
+        """
         generated_src: str = ""
         self.logger.debug(f"Reading in lines from {self.generated_disassembly_file}")
         with open(rf"{self.generated_disassembly_directory}\{self.generated_disassembly_file}", 'r') as disassembly:
@@ -64,12 +75,12 @@ class DisassemblyParserGenerator:
             while not lines[0].startswith("008000:"):
                 del lines[0]
 
-            # if the disassembly declares RESET skip TODO: make this use a dynamic mem. address rather than 008004 and 008000
+            # if the disassembly declares RESET skip TODO: make this use a dynamic mem. address rather than 008004 and 008000?
             if lines[0] == "008000:              RESET:\n":
                 while not lines[0].startswith("008004:"):
                     del lines[0]
 
-            # if the disassembly declares StopWDT skip TODO: make this use a dynamic mem. address rather than 00800a and 008004
+            # if the disassembly declares StopWDT skip TODO: make this use a dynamic mem. address rather than 00800a and 008004?
             if lines[0] == "008004:              StopWDT:\n":
                 while not lines[0].startswith("00800a:"):
                     del lines[0]
@@ -89,7 +100,6 @@ class DisassemblyParserGenerator:
             self.logger.debug(f"Generated Instructions")
 
             text_and_data_lines: List[str] = lines[index:]
-            instructions: List[str] = lines[:index]
             data_section: List[str] = deepcopy(text_and_data_lines)
 
             # removes all lines in preceding the data section that is not DATA
@@ -128,7 +138,7 @@ class DisassemblyParserGenerator:
                     if all_zeros:
                         data_section_variable_str += f".space {(multi_word_index_offset - 1) * 2}"
                     else:
-                        self.logger.warning(f"Memory Allocation for .byte, .short not Implemented")
+                        self.logger.warning(f"Memory Allocation for .byte, .short not implemented in disassembly_parser_generator")
                     index += multi_word_index_offset
 
                 data_section_variable_str += "\n"
@@ -191,22 +201,6 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 
             .data									; allocate variables in data memory
             .retain									; keep these statements even if not used\n"""
-
-
-class Assembler:
-    # may be replaced with method call in DisassemblyParserGenerator
-    assembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
-    assembler_executable: str = r'asm430.exe'  # r'asm430.exe' Tested: lc430, lnk430
-
-
-class Compiler:
-    # may be replaced with method call in DisassemblyParserGenerator
-    pass
-
-
-class Parser:
-    # may be replaced with method call in DisassemblyParserGenerator
-    pass
 
 
 if __name__ == "__main__":
