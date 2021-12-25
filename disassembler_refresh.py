@@ -11,12 +11,14 @@ from contextlib import contextmanager
 from logging import Logger
 from pique_bin import PiqueBin
 
+
 class DisassemblerRefresh:
 
-    def __init__(self, disassembler_input_file_name: str = "Motor_mover_C.out", disassembler_output_file_name: str = "generated_disassembly.txt", disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly") -> None:
+    def __init__(self, disassembler_input_file_name: str = "Motor_mover_C.out",
+                 disassembler_output_file_name: str = "generated_disassembly.txt",
+                 disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly") -> None:
         logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
         self.logger: Logger = logging.getLogger(__name__)
-        self.pique_bin: PiqueBin = PiqueBin(file=disassembler_input_file_name)
         self.disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
         self.disassembler_executable: str = r'dis430.exe'
         self.disassembler_input_file_name: str = disassembler_input_file_name  # "Motor_mover_C.out"  # "All_msp_operations.out"  # "test_C.out"  # "test_colt_C.out"  # "All_ops_asm.out'  # "Motor_mover_C.out" # "test.out" # "test_ASM.out" # "All_msp_operations.out"
@@ -24,6 +26,8 @@ class DisassemblerRefresh:
         self.disassembler_output_file_name: str = disassembler_output_file_name
         self.disassembler_output_file_directory: str = disassembler_output_file_directory
         self.disassembler_exit_status: int = 0
+        self.pique_bin: PiqueBin = PiqueBin(binary_file_name=self.disassembler_input_file_name,
+                                            binary_file_directory=self.disassembler_input_file_directory)
 
     @staticmethod
     @contextmanager
