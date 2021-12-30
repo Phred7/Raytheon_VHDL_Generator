@@ -7,7 +7,7 @@
 ###############################
 import sys
 import os
-from typing import TextIO
+from typing import TextIO, List
 from package_zipper import PackageZipper
 from computer_mnemonic_dictionary import ComputerMnemonicDictionary
 from disassembler import Disassembler
@@ -15,7 +15,7 @@ from static_utilities import StaticUtilities
 
 
 class UnrecognizedInstructionError(Exception):
-    """A instruction in the generated disassemble was not recognized by the computer_mnemonic_dictionary"""
+    """A instruction in the generated disassembly was not recognized by the computer_mnemonic_dictionary"""
     pass
 
 
@@ -27,6 +27,7 @@ class VHDLParserGenerator:
         self.disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly"
         self.memory_indent: str = "\t\t\t\t\t\t   "
         self.nop_opcode: str = "0343"
+        self.computer_name_list: List[str] = ["baseline", "highroller", "lowlife"]
         StaticUtilities.logger.debug(f"{VHDLParserGenerator.__name__} object initialized")
 
     @staticmethod
@@ -50,7 +51,7 @@ class VHDLParserGenerator:
         Generates the vhdl package for each computer to its respective output file.
         :return: None.
         """
-        for computer_name in self.get_computer_name_list():
+        for computer_name in self.computer_name_list:
             original_stdout: TextIO = sys.stdout
             with open(f"{os.getcwd()}\\generated_vhdl\\{computer_name}_package.vhd", "a+") as vhdl_package_file:
                 sys.stdout = vhdl_package_file
@@ -93,13 +94,13 @@ class VHDLParserGenerator:
          - generates memory architecture
         :return: None.
         """
-        for computer_name in self.get_computer_name_list():
+        for computer_name in self.computer_name_list:
             with open(f"{os.getcwd()}\\generated_vhdl\\{computer_name}_memory.vhd", "a+") as vhdl_memory_file:
                 with StaticUtilities.change_stdout_to_file(vhdl_memory_file):
                     print(self.get_vhdl_memory_libraries())
                     print(self.get_vhdl_memory_entity(computer_name))
                     print(self.get_vhdl_memory_architecture(computer_name), end="")
-                StaticUtilities.logger.info(f'Generated {computer_name}_memory.vhd')
+            StaticUtilities.logger.info(f'Generated {computer_name}_memory.vhd')
 
     @staticmethod
     def get_vhdl_memory_libraries() -> str:
@@ -184,7 +185,7 @@ constant ROM : rom_type :=("""
         generated_rom_asm_str: str = ""
         current_program_memory: int = self.program_memory_start
         computer_mnemonic_dictionary: {str, str} = self.get_computer_mnemonic_dictionary(computer_name)
-        StaticUtilities.logger.info(f"Reading in lines from {self.disassembler_output_file_name} for {computer_name}")
+        StaticUtilities.logger.debug(f"Reading in lines from {self.disassembler_output_file_name} for {computer_name}")
         for line in open(f"{self.disassembler_output_file_directory}\\{self.disassembler_output_file_name}", 'r').readlines():
             unmodified_line: str = line
             line_str_list: list[str] = line.split(' ')
@@ -286,16 +287,14 @@ constant ROM : rom_type :=("""
         else:
             return ComputerMnemonicDictionary.baseline()
 
-    @staticmethod
-    def get_computer_name_list() -> list[str]:
-        """
-        Gets the names of each computer as a list.
-        :return: str List of each computer.
-        """
-        return ["baseline", "highroller", "lowlife"]
-
     def generate_vhdl(self, *, detection: bool = False):
+        """
+        Executes other methods in the correct order to generate VHDL for generated disassembly.
+        :param detection: Bool representation of whether to attempt to detect malware and vulnerabilities within a file.
+        :return: None.
+        """
         self.remove_last_generated_vhd_files()
+        StaticUtilities.logger.debug(f"Detection {'enabled' if detection else 'disabled'} while generating vhdl.")
         if detection:
             # detection.detect() # TODO implement detection.detect() and call when detection is True
             pass

@@ -11,14 +11,34 @@ from static_utilities import StaticUtilities
 
 
 class PackageZipper:
-
+    """
+    Helper class that creates a zip file of various sets of files by implementing one of this class's methods.
+    """
     def __init__(self) -> None:
+        self.number_of_zipped_files: int = 0
         self.disassembly_file_directory: str = rf"\generated_disassembly"
         self.disassembly_file: str = rf"generated_disassembly.txt"
         self.vhdl_directory: str = rf'\generated_vhdl'
         StaticUtilities.logger.debug(f"{PackageZipper.__name__} object initialized")
 
+    def _zip_write(self, zip_file: ZipFile, file_to_write) -> None:
+        """
+        Writes a file to an existing ZipFile.
+        :param zip_file: Instance of ZipFile.
+        :param file_to_write: File to add to the ZipFile zip_file.
+        :return: None.
+        """
+        zip_file.write(file_to_write)
+        self.number_of_zipped_files += 1
+        StaticUtilities.logger.debug(f'Zipped {file_to_write}')
+
     def zip_vhdl(self, zip_file_name: str = "zip") -> None:
+        """
+        Creates a zip file containing all vhdl files and a copy of generated_disassembly.txt.
+        :param zip_file_name: Name of the zip file. Neglect the file extension.
+        :return: None.
+        """
+        self.number_of_zipped_files = 0
         if StaticUtilities.file_should_exist(f'{os.getcwd()}\\{self.vhdl_directory}', f'{zip_file_name}.zip', raise_error=False) == 0:
             raise OSError("Zip file already exists")
         print(os.getcwd())
@@ -26,13 +46,11 @@ class PackageZipper:
             with StaticUtilities.change_dir(f'{os.getcwd()}\\{self.vhdl_directory}'):
                 for file in os.listdir(os.getcwd()):
                     if file.endswith(".vhd"):
-                        vhdl_zip_file.write(file)
-                        StaticUtilities.logger.info(f'Zipped {file}')
+                        self._zip_write(vhdl_zip_file, file)
             with StaticUtilities.change_dir(f'{os.getcwd()}\\{self.disassembly_file_directory}'):
                 if StaticUtilities.file_should_exist(self.disassembly_file_directory, self.disassembly_file, raise_error=False):
-                    vhdl_zip_file.write(f"{self.disassembly_file}")
-                    StaticUtilities.logger.info(f'Zipped {self.disassembly_file}')
-        StaticUtilities.logger.info(f'Created zip {zip_file_name} in {os.getcwd()}\\{self.vhdl_directory}')
+                    self._zip_write(vhdl_zip_file, self.disassembly_file)
+        StaticUtilities.logger.info(f'Created zip {zip_file_name} in {os.getcwd()}\\{self.vhdl_directory} containing {self.number_of_zipped_files} files')
         return None
 
 
