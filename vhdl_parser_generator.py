@@ -22,7 +22,12 @@ class UnrecognizedInstructionError(Exception):
 class VHDLParserGenerator:
 
     def __init__(self) -> None:
-        pass
+        self.program_memory_start: int = 32768
+        self.disassembler_output_file_name: str = "generated_disassembly.txt"
+        self.disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly"
+        self.memory_indent: str = "\t\t\t\t\t\t   "
+        self.nop_opcode: str = "0343"
+        StaticUtilities.logger.debug(f"{VHDLParserGenerator.__name__} object initialized")
 
     @staticmethod
     def remove_last_generated_vhd_files() -> None:
@@ -89,14 +94,11 @@ class VHDLParserGenerator:
         :return: None.
         """
         for computer_name in self.get_computer_name_list():
-            original_stdout: TextIO = sys.stdout
             with open(f"{os.getcwd()}\\generated_vhdl\\{computer_name}_memory.vhd", "a+") as vhdl_memory_file:
-                sys.stdout = vhdl_memory_file
-                print(self.get_vhdl_memory_libraries())
-                print(self.get_vhdl_memory_entity(computer_name))
-                print(self.get_vhdl_memory_architecture(computer_name), end="")
-                vhdl_memory_file.close()
-                sys.stdout = original_stdout
+                with StaticUtilities.change_stdout_to_file(vhdl_memory_file):
+                    print(self.get_vhdl_memory_libraries())
+                    print(self.get_vhdl_memory_entity(computer_name))
+                    print(self.get_vhdl_memory_architecture(computer_name), end="")
                 StaticUtilities.logger.info(f'Generated {computer_name}_memory.vhd')
 
     @staticmethod
@@ -179,16 +181,11 @@ constant ROM : rom_type :=("""
         :param computer_name: str name of the computer to generate the vhdl memory rom asm for.
         :return: str representation of vhdl memory rom asm (program memory).
         """
-        program_memory_start: int = 32768
-        current_program_memory: int = program_memory_start
-        computer_mnemonic_dictionary: {str, str} = self.get_computer_mnemonic_dictionary(computer_name)
-        disassembler_output_file_name: str = "generated_disassembly.txt"
-        disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly"
         generated_rom_asm_str: str = ""
-        memory_indent: str = "\t\t\t\t\t\t   "
-        nop_opcode: str = "0343"
-        StaticUtilities.logger.info(f"Reading in lines from {disassembler_output_file_name} for {computer_name}")
-        for line in open(f"{disassembler_output_file_directory}\\{disassembler_output_file_name}", 'r').readlines():
+        current_program_memory: int = self.program_memory_start
+        computer_mnemonic_dictionary: {str, str} = self.get_computer_mnemonic_dictionary(computer_name)
+        StaticUtilities.logger.info(f"Reading in lines from {self.disassembler_output_file_name} for {computer_name}")
+        for line in open(f"{self.disassembler_output_file_directory}\\{self.disassembler_output_file_name}", 'r').readlines():
             unmodified_line: str = line
             line_str_list: list[str] = line.split(' ')
             if len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()):
@@ -198,9 +195,9 @@ constant ROM : rom_type :=("""
                     line_str_list) == 14:
                 if computer_name != "baseline" and len(line_str_list) != 14:
                     line = self.translate_opcode_with_mnemonic_dictionary(line_str_list, computer_mnemonic_dictionary)
-                generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else memory_indent}{current_program_memory} => x\"{line[8]}{line[9]}\",\t\t-- {unmodified_line}"""  # -- #\t\t--
+                generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else self.memory_indent}{current_program_memory} => x\"{line[8]}{line[9]}\",\t\t-- {unmodified_line}"""  # -- #\t\t--
                 current_program_memory += 1
-                generated_rom_asm_str += f"""{memory_indent}{current_program_memory} => x\"{line[10]}{line[11]}\",\n"""
+                generated_rom_asm_str += f"""{self.memory_indent}{current_program_memory} => x\"{line[10]}{line[11]}\",\n"""
                 current_program_memory += 1
                 if "SR" in unmodified_line:
                     StaticUtilities.logger.debug("Reached SR in generated_disassembly.txt")
@@ -209,9 +206,9 @@ constant ROM : rom_type :=("""
                     line_str_list[14] in computer_mnemonic_dictionary.keys()) and (":" not in line_str_list[14]):
                 StaticUtilities.logger.error(
                     f"{UnrecognizedInstructionError.__name__}: The instruction {line_str_list[14]} in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP")
-                generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else memory_indent}{current_program_memory} => x\"{nop_opcode[0]}{nop_opcode[1]}\",\t\t-- {UnrecognizedInstructionError.__name__}: Replaced with NOP\n"""  # -- #\t\t--
+                generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else self.memory_indent}{current_program_memory} => x\"{self.nop_opcode[0]}{self.nop_opcode[1]}\",\t\t-- {UnrecognizedInstructionError.__name__}: Replaced with NOP\n"""  # -- #\t\t--
                 current_program_memory += 1
-                generated_rom_asm_str += f"""{memory_indent}{current_program_memory} => x\"{computer_mnemonic_dictionary.get("NOP")}{nop_opcode[3]}\",\n"""
+                generated_rom_asm_str += f"""{self.memory_indent}{current_program_memory} => x\"{computer_mnemonic_dictionary.get("NOP")}{self.nop_opcode[3]}\",\n"""
                 current_program_memory += 1
             else:
                 pass

@@ -16,6 +16,7 @@ class PackageZipper:
         self.disassembly_file_directory: str = rf"\generated_disassembly"
         self.disassembly_file: str = rf"generated_disassembly.txt"
         self.vhdl_directory: str = rf'\generated_vhdl'
+        StaticUtilities.logger.debug(f"{PackageZipper.__name__} object initialized")
 
     def zip_vhdl(self, zip_file_name: str = "zip") -> None:
         if StaticUtilities.file_should_exist(f'{os.getcwd()}\\{self.vhdl_directory}', f'{zip_file_name}.zip', raise_error=False) == 0:

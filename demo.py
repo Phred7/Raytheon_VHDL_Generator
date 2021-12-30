@@ -5,14 +5,7 @@
 # Dr. Brock LaMeres
 # Written by Michael Heidal and Walker Ward
 ###############################
-from typing import Tuple
-
-import package_zipper
-from assembler import Assembler
 from disassembler import Disassembler
-from instrumentation import Instrumentation
-from int_overflow_attack import IntOverflowAttack
-from vhdl_parser_generator import VHDLParserGenerator
 
 
 class Demo:
@@ -28,6 +21,7 @@ class Demo:
         # vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
         # vhdl_parser_generator.generate_vhdl(pique_bin_bool=True)
         # package_zipper.zip_vhdl(zip_file_name="generated_vhdl_instrumentation_test")
+
 
 if __name__ == '__main__':
     demo: Demo = Demo()

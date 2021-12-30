@@ -22,6 +22,7 @@ class DisassemblyParserGenerator:
         self.generated_disassembly_directory: str = disassembly_directory
         self.generated_disassembly_file: str = disassembly_file
         self.generated_assembly_file: str = assembly_file
+        StaticUtilities.logger.debug(f"{DisassemblyParserGenerator.__name__} object initialized")
 
     def generate_source_from_disassembly(self) -> None:
         """
@@ -91,7 +92,7 @@ class DisassemblyParserGenerator:
 
             index: int = 0
             while not data_section[index+1].startswith("DATA Section"):
-                data_section[index] = data_section[index][21:]   #gets the next variable
+                data_section[index] = data_section[index][21:]   # gets the next variable
                 data_section_variable_str: str = data_section[index].strip("\n")
                 # check to see if this variable only has one word worth of data. If not jump to else.
                 if not deepcopy(data_section[index+2][21:].strip().startswith(".")):

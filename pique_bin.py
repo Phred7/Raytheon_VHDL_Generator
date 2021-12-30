@@ -28,6 +28,7 @@ class PiqueBin:
         self.binary_file_name: str = binary_file_name
         self.binary_file_directory: str = binary_file_directory
         self.pique_exit_status: int = -1
+        StaticUtilities.logger.debug(f"{PiqueBin.__name__} object initialized")
         StaticUtilities.logger.warning(f"PIQUE-Bin not fully tested")
 
     def detect(self) -> None:
@@ -60,7 +61,7 @@ class PiqueBin:
             for line in pique_bin_properties:
                 if "project.root=" in line:
                     line = f"project.root=./{self.binary_file_name}\n"
-                replacement_pique_bin_file_text = replacement_pique_bin_file_text + line
+                replacement_pique_bin_file_text += line
             pique_bin_properties.close()
 
         with open(f"{self.pique_bin_package_directory}{self.pique_bin_properties_file_name}", "w") as pique_bin_properties_replacement:

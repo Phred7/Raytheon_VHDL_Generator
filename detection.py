@@ -7,6 +7,8 @@
 ###############################
 from typing import Dict
 
+from static_utilities import StaticUtilities
+
 
 class Detection:
 
@@ -14,7 +16,7 @@ class Detection:
         self.hash: Dict[int: str] = None
         self.file: str = file
         self.binary_security_quality: float = 0
-        pass
+        StaticUtilities.logger.debug(f"{Detection.__name__} object initialized")
 
     def detect(self) -> None:
         pass

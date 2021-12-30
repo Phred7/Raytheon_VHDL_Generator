@@ -24,6 +24,7 @@ class Disassembler:
         self.disassembler_exit_status: int = 0
         self.pique_bin: PiqueBin = PiqueBin(binary_file_name=self.disassembler_input_file_name,
                                             binary_file_directory=self.disassembler_input_file_directory)
+        StaticUtilities.logger.debug(f"{Disassembler.__name__} object initialized")
 
     def disassemble(self, *, pique_bool: bool = True) -> None:
         """

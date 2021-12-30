@@ -6,12 +6,14 @@
 # Written by Walker Ward
 ###############################
 from instrumentation_strategy import InstrumentationStrategy
+from static_utilities import StaticUtilities
 
 
 class Instrumentation:
 
     def __init__(self, instrumentation_strategy: InstrumentationStrategy) -> None:
         self._instrumentation_strategy = instrumentation_strategy
+        StaticUtilities.logger.debug(f"{Instrumentation.__name__} object initialized")
 
     @property
     def instrumentation_strategy(self) -> InstrumentationStrategy:

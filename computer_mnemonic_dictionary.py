@@ -1,3 +1,8 @@
+"""
+ComputerMnemonicDictionary class
+"""
+
+
 class ComputerMnemonicDictionary:
     """ 82 instructions
         RRC.W   xx10
