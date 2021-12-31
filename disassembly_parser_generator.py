@@ -30,7 +30,7 @@ class DisassemblyParserGenerator:
         self.ccs_project_source_file_name: str = ""
         StaticUtilities.logger.debug(f"{DisassemblyParserGenerator.__name__} object initialized")
 
-    def  set_ccs_project_details(self, ccs_project_path: str, ccs_project_name: str, ccs_project_source_file_name: str = "main.asm") -> None:
+    def set_ccs_project_details(self, ccs_project_path: str, ccs_project_name: str, ccs_project_source_file_name: str = "main.asm") -> None:
         self.ccs_project_path = ccs_project_path
         self.ccs_project_name = ccs_project_name
         self.ccs_project_source_file_name = ccs_project_source_file_name
@@ -148,11 +148,11 @@ class DisassemblyParserGenerator:
     def _replace_source_in_ccs_project_with_generated_source(self) -> None:
         if self.ccs_project_path == "" or self.ccs_project_name == "" or self.ccs_project_source_file_name == "":
             empty_strings: str = ""
-            empty_strings += f"{self.ccs_project_path=}".split('.')[1].split('=')[0] + ' ' if self.ccs_project_path == '' else ''
-            empty_strings += f"{self.ccs_project_name=}".split('.')[1].split('=')[0] + ' ' if self.ccs_project_name == '' else ''
-            empty_strings += f"{self.ccs_project_source_file_name=}".split('.')[1].split('=')[0] + ' ' if self.ccs_project_source_file_name == '' else ''
+            empty_strings += "'" + f"{self.ccs_project_path=}".split('.')[1].split('=')[0] + "' " if self.ccs_project_path == '' else ''
+            empty_strings += "'" + f"{self.ccs_project_name=}".split('.')[1].split('=')[0] + "' " if self.ccs_project_name == '' else ''
+            empty_strings += "'" + f"{self.ccs_project_source_file_name=}".split('.')[1].split('=')[0] + "'" if self.ccs_project_source_file_name == '' else ''
             StaticUtilities.logger.error(
-                f"The following were set to the empty string when attempting to replace the source file in a ccs project with a generated source file: {empty_strings} in an instance of {self.__class__.__name__}")
+                f"The following were set to the empty string when attempting to replace the source file in a ccs project with a generated source file: {empty_strings} in an instance of {self.__class__.__name__}. Call {self.__class__.__name__}.set_ccs_project_details() to rectify or set replace_source_in_ccs_project to false when calling {self.__class__.__name__}.generate_source_from_disassembly().")
             return sys.exit(1)
         StaticUtilities.str_should_contain_substr(self.ccs_project_source_file_name, ".asm")
         StaticUtilities.file_should_exist(file_directory=self.ccs_project_path, file=self.ccs_project_source_file_name)
@@ -162,6 +162,7 @@ class DisassemblyParserGenerator:
             StaticUtilities.file_should_not_exist(self.ccs_project_path, self.ccs_project_source_file_name)
             os.rename(self.generated_assembly_file, self.ccs_project_source_file_name)
             StaticUtilities.file_should_exist(file_directory=self.ccs_project_path, file=self.ccs_project_source_file_name)
+        StaticUtilities.logger.info(f"Source file in ASM CCS project '{self.ccs_project_name}' was replaced with the generated assembly file '{self.generated_assembly_file}'")
 
 
     @staticmethod
@@ -225,4 +226,5 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 if __name__ == "__main__":
     dpg: DisassemblyParserGenerator = DisassemblyParserGenerator(disassembly_file="all_ops.txt")
     dpg.set_ccs_project_details(ccs_project_path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", ccs_project_name="test_generated_ASM", ccs_project_source_file_name="test_asm_generation.asm")
+    # functional args: ccs_project_path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", ccs_project_name="test_generated_ASM", ccs_project_source_file_name="test_asm_generation.asm"
     dpg.generate_source_from_disassembly(replace_source_in_ccs_project=True)
