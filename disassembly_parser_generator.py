@@ -7,6 +7,8 @@
 ###############################
 import datetime
 import os
+import shutil
+import sys
 from copy import deepcopy
 from typing import List
 
@@ -23,9 +25,17 @@ class DisassemblyParserGenerator:
         self.generated_disassembly_directory: str = disassembly_directory
         self.generated_disassembly_file: str = disassembly_file
         self.generated_assembly_file: str = assembly_file
+        self.ccs_project_path: str = ""
+        self.ccs_project_name: str = ""
+        self.ccs_project_source_file_name: str = ""
         StaticUtilities.logger.debug(f"{DisassemblyParserGenerator.__name__} object initialized")
 
-    def generate_source_from_disassembly(self) -> None:
+    def  set_ccs_project_details(self, ccs_project_path: str, ccs_project_name: str, ccs_project_source_file_name: str = "main.asm") -> None:
+        self.ccs_project_path = ccs_project_path
+        self.ccs_project_name = ccs_project_name
+        self.ccs_project_source_file_name = ccs_project_source_file_name
+
+    def generate_source_from_disassembly(self, *, replace_source_in_ccs_project: bool = False) -> None:
         """
         Generates a source file in MSP Assembly derived from this generated_disassembly_file.
         :return: None.
@@ -42,6 +52,9 @@ class DisassemblyParserGenerator:
                 print(self.msp_ccs_template_stack_pointer_definition())  # template stack pointer definition.
                 print(self.msp_ccs_template_interrupt_vectors())  # template interrupt vectors.
             StaticUtilities.logger.info(f"Generated ASM src for {self.generated_disassembly_file} at {self.generated_assembly_directory}\\{self.generated_assembly_file}")
+        if replace_source_in_ccs_project:
+            self._replace_source_in_ccs_project_with_generated_source()
+
 
     def parse_disassembly(self) -> str:
         """
@@ -132,6 +145,25 @@ class DisassemblyParserGenerator:
             StaticUtilities.logger.warning("ISR's and some data allocation not implemented")
         return generated_src
 
+    def _replace_source_in_ccs_project_with_generated_source(self) -> None:
+        if self.ccs_project_path == "" or self.ccs_project_name == "" or self.ccs_project_source_file_name == "":
+            empty_strings: str = ""
+            empty_strings += f"{self.ccs_project_path=}".split('.')[1].split('=')[0] + ' ' if self.ccs_project_path == '' else ''
+            empty_strings += f"{self.ccs_project_name=}".split('.')[1].split('=')[0] + ' ' if self.ccs_project_name == '' else ''
+            empty_strings += f"{self.ccs_project_source_file_name=}".split('.')[1].split('=')[0] + ' ' if self.ccs_project_source_file_name == '' else ''
+            StaticUtilities.logger.error(
+                f"The following were set to the empty string when attempting to replace the source file in a ccs project with a generated source file: {empty_strings} in an instance of {self.__class__.__name__}")
+            return sys.exit(1)
+        StaticUtilities.str_should_contain_substr(self.ccs_project_source_file_name, ".asm")
+        StaticUtilities.file_should_exist(file_directory=self.ccs_project_path, file=self.ccs_project_source_file_name)
+        shutil.copy(rf"{os.getcwd()}\{self.generated_assembly_directory}\{self.generated_assembly_file}", rf"{self.ccs_project_path}")
+        with StaticUtilities.change_dir(self.ccs_project_path):
+            os.remove(f"{self.ccs_project_source_file_name}")
+            StaticUtilities.file_should_not_exist(self.ccs_project_path, self.ccs_project_source_file_name)
+            os.rename(self.generated_assembly_file, self.ccs_project_source_file_name)
+            StaticUtilities.file_should_exist(file_directory=self.ccs_project_path, file=self.ccs_project_source_file_name)
+
+
     @staticmethod
     def msp_ccs_assembler_template_headers() -> str:
         return f""";-------------------------------------------------------------------------------
@@ -192,4 +224,5 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 
 if __name__ == "__main__":
     dpg: DisassemblyParserGenerator = DisassemblyParserGenerator(disassembly_file="all_ops.txt")
-    dpg.generate_source_from_disassembly()
+    dpg.set_ccs_project_details(ccs_project_path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", ccs_project_name="test_generated_ASM", ccs_project_source_file_name="test_asm_generation.asm")
+    dpg.generate_source_from_disassembly(replace_source_in_ccs_project=True)

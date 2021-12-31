@@ -28,7 +28,7 @@ class StaticUtilities:
     def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> int:
         """
         Returns 0 if file exists. Otherwise raises OSError.
-        :param raise_error: If true raises os error. Otherwise return 1.
+        :param raise_error: If true raises an OS error if the file does not exist, otherwise returns 1.
         :param file_directory: Location of directory containing the File file.
         :param file: The name of the File file that should exist.
         :raises OSError: If file does not exist.
@@ -37,21 +37,28 @@ class StaticUtilities:
         if not os.path.exists(f"{file_directory}\\{file}") or file is None or file == "":
             if raise_error:
                 raise OSError(f"{file_directory}\\{file} does not exist")
-            else:
-                return 1
+            return 1
         return 0
 
     @staticmethod
-    def file_should_not_exist(file_directory: str, file: str) -> int:
+    def file_should_not_exist(file_directory: str, file: str, *, raise_error: bool = True) -> int:
         """
         Checks to see if the specified file exists.
+        :param raise_error: If true raises an OS error if the file exists, otherwise returns 1.
         :param file_directory: Location of directory containing the File file.
         :param file: The name of the File file that should exist.
-        :return: O if the files exists. Otherwise 1.
+        :return: O if the files exists, otherwise 1.
         """
         if os.path.exists(f"{file_directory}\\{file}"):
+            if raise_error:
+                raise OSError(f"{file_directory}\\{file} exist")
             return 1
         return 0
+
+    @staticmethod
+    def str_should_contain_substr(string: str, substring: str) -> None:
+        if substring not in string:
+            raise ValueError(f"substring '{substring}' not found in string '{string}'")
 
     @staticmethod
     def start_docker_desktop() -> bool:
@@ -63,13 +70,15 @@ class StaticUtilities:
         docker_executable_directory: str = "C:\\Program Files\\Docker\\Docker\\"
         docker_desktop_executable: str = docker_executable_directory + docker_executable_name
         StaticUtilities.file_should_exist(file_directory=docker_executable_directory, file=docker_executable_name)
-        if not StaticUtilities.service_running("com.docker.service") or not StaticUtilities.process_running("Docker Desktop.exe"):
+        if not StaticUtilities.service_running("com.docker.service") or not StaticUtilities.process_running(
+                "Docker Desktop.exe"):
             # attempt to start the docker desktop process
             StaticUtilities.logger.info("Starting Docker Desktop")
             subprocess.Popen(docker_desktop_executable)
             timeout: datetime.timedelta = datetime.timedelta(seconds=10)
             start_time: time = datetime.datetime.now()
-            while not StaticUtilities.process_running("Docker Desktop.exe") and datetime.datetime.now() < start_time + timeout:
+            while not StaticUtilities.process_running(
+                    "Docker Desktop.exe") and datetime.datetime.now() < start_time + timeout:
                 time.sleep(1)
             if datetime.datetime.now() > start_time + timeout:
                 StaticUtilities.logger.warning("Starting Docker Desktop Timed Out")
@@ -104,7 +113,6 @@ class StaticUtilities:
         """
         return psutil.win_service_get(service_name).as_dict()["status"] == "running"
 
-
     @staticmethod
     @contextmanager
     def change_dir(destination: str) -> None:
@@ -136,4 +144,3 @@ class StaticUtilities:
             yield
         finally:
             sys.stdout = original_stdout
-
