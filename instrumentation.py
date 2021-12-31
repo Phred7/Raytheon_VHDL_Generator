@@ -13,7 +13,8 @@ class Instrumentation:
 
     def __init__(self, instrumentation_strategy: InstrumentationStrategy) -> None:
         self._instrumentation_strategy = instrumentation_strategy
-        StaticUtilities.logger.debug(f"{Instrumentation.__name__} object initialized")
+        if instrumentation_strategy is None:
+            StaticUtilities.logger.warning(f"{Instrumentation.__name__} object initialized without ConcreteStrategy")
 
     @property
     def instrumentation_strategy(self) -> InstrumentationStrategy:

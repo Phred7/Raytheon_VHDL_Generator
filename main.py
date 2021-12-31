@@ -1,28 +1,33 @@
 ###############################
-# Demo
+# Main
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Michael Heidal and Walker Ward
 ###############################
 from disassembler import Disassembler
+from instrumentation import Instrumentation
+from int_overflow_attack import IntOverflowAttack
+from package_zipper import PackageZipper
+from vhdl_parser_generator import VHDLParserGenerator
 
 
-class Demo:
+class Main:
 
     @staticmethod
     def main() -> None:
         """All_msp_operations.out"""
+        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
         disassembler: Disassembler = Disassembler()
-        disassembler.disassemble(pique_bool=False)
-        # assembler: Assembler = Assembler(input_file_name=disassembler_return[1])
-        # assembler.assemble()
-        # instrumentation: Instrumentation = Instrumentation(IntOverflowAttack())
-        # vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
+        package_zipper: PackageZipper = PackageZipper()
+        instrumentation = Instrumentation(IntOverflowAttack())
+
+        # disassembler.disassemble(pique_bool=False)
+        # package_zipper.zip_vhdl(zip_file_name="")
         # vhdl_parser_generator.generate_vhdl(pique_bin_bool=True)
         # package_zipper.zip_vhdl(zip_file_name="generated_vhdl_instrumentation_test")
 
 
 if __name__ == '__main__':
-    demo: Demo = Demo()
-    demo.main()
+    main: Main = Main()
+    main.main()

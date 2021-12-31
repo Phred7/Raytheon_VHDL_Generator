@@ -8,6 +8,10 @@
 import logging
 import os
 import sys
+import datetime
+import psutil
+import subprocess
+import time
 from contextlib import contextmanager
 from logging import Logger
 from typing import TextIO
@@ -48,6 +52,54 @@ class StaticUtilities:
         if os.path.exists(f"{file_directory}\\{file}"):
             return 1
         return 0
+
+    @staticmethod
+    def start_docker_desktop() -> bool:
+        """
+        Starts Docker Desktop on Windows if the process is not already running.
+        :return: Representation of the state of Docker Desktop Process.
+        """
+        if not StaticUtilities.service_running("com.docker.service") or not StaticUtilities.process_running("Docker Desktop.exe"):
+            # attempt to start the docker desktop process
+            StaticUtilities.logger.info("Starting Docker Desktop")
+            subprocess.Popen("C:\\Program Files\\Docker\\Docker\\Docker Desktop.exe")
+            timeout: datetime.timedelta = datetime.timedelta(seconds=10)
+            start_time: time = datetime.datetime.now()
+            while not StaticUtilities.process_running("Docker Desktop.exe") and datetime.datetime.now() < start_time + timeout:
+                time.sleep(1)
+            if datetime.datetime.now() > start_time + timeout:
+                StaticUtilities.logger.warning("Starting Docker Desktop Timed Out")
+        if not StaticUtilities.process_running("Docker Desktop.exe"):
+            return False
+        return True
+
+    @staticmethod
+    def process_running(process_name: str) -> bool:  # TODO: Add error checking.
+        """
+        Checks if the process with the name process_name is running.
+        :param process_name: Name of the process to check the status of.
+        :return: Bool representation of the status of this process. True if running, otherwise False.
+        """
+        # Borrowed from https://thispointer.com/python-check-if-a-process-is-running-by-name-and-find-its-process-id-pid/
+        # Iterate over the all the running process
+        for proc in psutil.process_iter():
+            try:
+                # Check if process name contains the given name string.
+                if process_name.lower() in proc.name().lower():
+                    return True
+            except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                continue
+        return False
+
+    @staticmethod
+    def service_running(service_name: str) -> bool:  # TODO: Add error checking.
+        """
+        Checks if the service with the name service_name is running.
+        :param service_name: Name of the service to check the status of.
+        :return: Bool representation of the status of this process. True if running, otherwise False.
+        """
+        return psutil.win_service_get(service_name).as_dict()["status"] == "running"
+
 
     @staticmethod
     @contextmanager

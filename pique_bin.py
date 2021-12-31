@@ -11,7 +11,6 @@ import shutil
 import subprocess
 from static_utilities import StaticUtilities
 
-
 class PiqueBin:
 
     def __init__(self, binary_file_name: str, binary_file_directory: str) -> None:
@@ -29,7 +28,7 @@ class PiqueBin:
         self.binary_file_directory: str = binary_file_directory
         self.pique_exit_status: int = -1
         StaticUtilities.logger.debug(f"{PiqueBin.__name__} object initialized")
-        StaticUtilities.logger.warning(f"PIQUE-Bin not fully tested")
+        StaticUtilities.logger.warning(f"PIQUE-Bin not fully tested or implemented")
 
     def detect(self) -> None:
         pass
@@ -45,7 +44,7 @@ class PiqueBin:
             raise OSError(
                 f"PIQUE-Bin failed to run on {self.binary_file_name} with exit status {self.pique_exit_status}")
         else:
-            StaticUtilities.logger.info(f'PIQUE-Bin successfully ran on {self.binary_file_name}')
+            StaticUtilities.logger.debug(f'PIQUE-Bin successfully ran on {self.binary_file_name}')
         return self._pique_bin_score()
 
     def _check_malware(self) -> int:
@@ -100,3 +99,7 @@ class PiqueBin:
 
     def add_to_hash(self, file: str) -> None:
         pass
+
+if __name__ == "__main__":
+    pb: PiqueBin = PiqueBin(binary_file_name="", binary_file_directory="")
+    StaticUtilities.logger.info(pb.start_docker_desktop())
