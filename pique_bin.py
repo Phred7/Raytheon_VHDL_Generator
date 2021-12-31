@@ -11,6 +11,7 @@ import shutil
 import subprocess
 from static_utilities import StaticUtilities
 
+
 class PiqueBin:
 
     def __init__(self, binary_file_name: str, binary_file_directory: str) -> None:
@@ -27,6 +28,7 @@ class PiqueBin:
         self.binary_file_name: str = binary_file_name
         self.binary_file_directory: str = binary_file_directory
         self.pique_exit_status: int = -1
+        StaticUtilities.file_should_exist(file_directory=self.binary_file_directory, file=self.binary_file_name)
         StaticUtilities.logger.debug(f"{PiqueBin.__name__} object initialized")
         StaticUtilities.logger.warning(f"PIQUE-Bin not fully tested or implemented")
 
@@ -38,6 +40,7 @@ class PiqueBin:
         Runs PIQUE-Bin on the binary file with the name binary_file_name and returns the generated Binary Security Quality of that binary file.
         :return: Float representing the Binary Security Quality of the binary file specified by binary_file_name at the directory binary_file_directory.
         """
+        StaticUtilities.start_docker_desktop()
         self.pique_exit_status = self._check_malware()
         StaticUtilities.logger.debug(f"PIQUE-Bin exist status: {self.pique_exit_status}")
         if self.pique_exit_status != 0:
@@ -50,20 +53,22 @@ class PiqueBin:
     def _check_malware(self) -> int:
         """
         Implements PIQUE-Bin jar to generate the Binary Security Quality of a binary file.
-        :return: 0 if PIQUE-Bin ran successfully. Otherwise another int.
+        :return: 0 if PIQUE-Bin ran successfully, otherwise another int.
         """
         shutil.copy(f"{self.binary_file_directory}\\{self.binary_file_name}", f"{self.pique_bin_package_directory}")
         StaticUtilities.file_should_exist(self.binary_file_directory, self.binary_file_name)
 
         replacement_pique_bin_file_text: str = ""
-        with open(f"{self.pique_bin_package_directory}{self.pique_bin_properties_file_name}", "r") as pique_bin_properties:
+        with open(f"{self.pique_bin_package_directory}{self.pique_bin_properties_file_name}",
+                  "r") as pique_bin_properties:
             for line in pique_bin_properties:
                 if "project.root=" in line:
                     line = f"project.root=./{self.binary_file_name}\n"
                 replacement_pique_bin_file_text += line
             pique_bin_properties.close()
 
-        with open(f"{self.pique_bin_package_directory}{self.pique_bin_properties_file_name}", "w") as pique_bin_properties_replacement:
+        with open(f"{self.pique_bin_package_directory}{self.pique_bin_properties_file_name}",
+                  "w") as pique_bin_properties_replacement:
             pique_bin_properties_replacement.write(replacement_pique_bin_file_text)
             pique_bin_properties_replacement.close()
 
@@ -100,6 +105,7 @@ class PiqueBin:
     def add_to_hash(self, file: str) -> None:
         pass
 
+
 if __name__ == "__main__":
-    pb: PiqueBin = PiqueBin(binary_file_name="", binary_file_directory="")
-    StaticUtilities.logger.info(pb.start_docker_desktop())
+    pique_bin: PiqueBin = PiqueBin(binary_file_name="", binary_file_directory="")
+    pique_bin.pique_bin()

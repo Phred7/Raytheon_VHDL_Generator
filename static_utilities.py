@@ -34,7 +34,7 @@ class StaticUtilities:
         :raises OSError: If file does not exist.
         :return: O if the files exists. 1 if the file does not exist and raise_error is False.
         """
-        if not os.path.exists(f"{file_directory}\\{file}"):
+        if not os.path.exists(f"{file_directory}\\{file}") or file is None or file == "":
             if raise_error:
                 raise OSError(f"{file_directory}\\{file} does not exist")
             else:
@@ -59,10 +59,14 @@ class StaticUtilities:
         Starts Docker Desktop on Windows if the process is not already running.
         :return: Representation of the state of Docker Desktop Process.
         """
+        docker_executable_name: str = "Docker Desktop.exe"
+        docker_executable_directory: str = "C:\\Program Files\\Docker\\Docker\\"
+        docker_desktop_executable: str = docker_executable_directory + docker_executable_name
+        StaticUtilities.file_should_exist(file_directory=docker_executable_directory, file=docker_executable_name)
         if not StaticUtilities.service_running("com.docker.service") or not StaticUtilities.process_running("Docker Desktop.exe"):
             # attempt to start the docker desktop process
             StaticUtilities.logger.info("Starting Docker Desktop")
-            subprocess.Popen("C:\\Program Files\\Docker\\Docker\\Docker Desktop.exe")
+            subprocess.Popen(docker_desktop_executable)
             timeout: datetime.timedelta = datetime.timedelta(seconds=10)
             start_time: time = datetime.datetime.now()
             while not StaticUtilities.process_running("Docker Desktop.exe") and datetime.datetime.now() < start_time + timeout:
