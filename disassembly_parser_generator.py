@@ -164,7 +164,7 @@ class DisassemblyParserGenerator:
             StaticUtilities.logger.error(
                 f"The following were set to the empty string when attempting to replace the source file in a ccs project with a generated source file: {empty_strings} in an instance of {self.__class__.__name__}. Call {self.__class__.__name__}.set_ccs_project_details() to rectify or set replace_source_in_ccs_project to false when calling {self.__class__.__name__}.generate_source_from_disassembly().")
             return sys.exit(1)
-        StaticUtilities.str_should_contain_substr(self.ccs_project_source_file_name, ".asm")
+        StaticUtilities.str_should_contain_substring(self.ccs_project_source_file_name, ".asm")
         StaticUtilities.file_should_exist(file_directory=self.ccs_project_path, file=self.ccs_project_source_file_name)
         shutil.copy(rf"{os.getcwd()}\{self.generated_assembly_directory}\{self.generated_assembly_file}", rf"{self.ccs_project_path}")
         with StaticUtilities.change_dir(self.ccs_project_path):

@@ -56,9 +56,14 @@ class StaticUtilities:
         return 0
 
     @staticmethod
-    def str_should_contain_substr(string: str, substring: str) -> None:
-        if substring not in string:
-            raise ValueError(f"substring '{substring}' not found in string '{string}'")
+    def str_should_contain_substring(string: str, substring: str) -> None:
+        """
+        Asserts that the provided string contains the provided substring.
+        :param string: String that should contain the substring.
+        :param substring: Substring that the string should contain.
+        :return: None.
+        """
+        assert substring in string
 
     @staticmethod
     def start_docker_desktop() -> bool:
