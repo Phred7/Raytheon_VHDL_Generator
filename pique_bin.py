@@ -17,19 +17,20 @@ class PiqueBin:
     Manages PiqueBin tool.
     """
 
-    def __init__(self, binary_file_name: str, binary_file_directory: str) -> None:
+    def __init__(self, source_file_name: str) -> None:
         """
         Instantiate PiqueBin object.
         :param binary_file_directory: Location of the file with the name binary_file_name.
         :param binary_file_name: Name of the binary file to run PIQUE-Bin on.
         """
-        self.pique_bin_jar_file_name: str = "msusel-pique-bin-0.0.1"
-        self.pique_bin_properties_file_name: str = "pique-bin.properties"
-        self.pique_bin_output_file: str = f"{binary_file_name}_compact_evalResults.json"
-        self.pique_bin_package_directory: str = f"{os.getcwd()}\\PIQUE-Bin-Jar\\"  # Ex: Location of dir PIQUE-Bin-Jar/.
+        self.source_file_name: str = source_file_name
+        self.binary_file_name: str = f"{source_file_name.split('.')[0]}.out"
+        self.binary_file_directory: str = rf"{os.getcwd()}\ccs_workspace\{self.binary_file_name.replace('.out', '')}\Debug"
+        self.pique_bin_jar_file_name: str = "msusel-pique-bin-0.0.1-jar-with-dependencies"  # old: "msusel-pique-bin-0.0.1"
+        self.pique_bin_properties_file_name: str = "pique-properties.properties"  # old: "pique-bin.properties"
+        self.pique_bin_output_file: str = f"{source_file_name.split('.')[0]}_evalResults.json"  # old: f"{binary_file_name}_compact_evalResults.json"
+        self.pique_bin_package_directory: str = f"{os.getcwd()}\PIQUE-Bin-Jar-Newest\\"  # old: f"{os.getcwd()}\\PIQUE-Bin-Jar\\"  # Ex: Location of dir PIQUE-Bin-Jar/.
         self.pique_bin_output_file_directory: str = f"{self.pique_bin_package_directory}out"
-        self.binary_file_name: str = binary_file_name
-        self.binary_file_directory: str = binary_file_directory
         self.pique_exit_status: int = -1
         StaticUtilities.file_should_exist(file_directory=self.binary_file_directory, file=self.binary_file_name)
         StaticUtilities.logger.debug(f"{PiqueBin.__name__} object initialized")
@@ -77,7 +78,7 @@ class PiqueBin:
 
         pique_bin_return_code: int
         with StaticUtilities.change_dir(self.pique_bin_package_directory):
-            pique_bin_return_code = subprocess.call(['java', '-jar', f"{self.pique_bin_jar_file_name}.jar"])
+            pique_bin_return_code = subprocess.call(['java', '-jar', f"{self.pique_bin_jar_file_name}.jar", '-e'])
             os.remove(f"{self.pique_bin_package_directory}\\{self.binary_file_name}")
         return pique_bin_return_code
 

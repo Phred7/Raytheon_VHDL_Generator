@@ -80,11 +80,12 @@ class StaticUtilities:
             # attempt to start the docker desktop process
             StaticUtilities.logger.info("Starting Docker Desktop")
             subprocess.Popen(docker_desktop_executable)
-            timeout: datetime.timedelta = datetime.timedelta(seconds=15)
             start_time: time = datetime.datetime.now()
+            time.sleep(15)
+            timeout: datetime.timedelta = datetime.timedelta(seconds=30)
             while not StaticUtilities.process_running(
                     "Docker Desktop.exe") and datetime.datetime.now() < start_time + timeout:
-                time.sleep(4)
+                time.sleep(1)
             if datetime.datetime.now() > start_time + timeout:
                 StaticUtilities.logger.warning("Starting Docker Desktop Timed Out")
         if not StaticUtilities.process_running("Docker Desktop.exe"):
