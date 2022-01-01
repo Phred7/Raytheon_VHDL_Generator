@@ -13,6 +13,7 @@ from vhdl_parser_generator import VHDLParserGenerator
 
 
 class Main:
+    """Main method to execute the VHDL generation workflow."""
 
     @staticmethod
     def main() -> None:

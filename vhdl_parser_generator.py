@@ -20,6 +20,9 @@ class UnrecognizedInstructionError(Exception):
 
 
 class VHDLParserGenerator:
+    """
+    Generates VHDL representation of an MSP430 binary.
+    """
 
     def __init__(self) -> None:
         self.program_memory_start: int = 32768

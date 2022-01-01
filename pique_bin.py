@@ -13,6 +13,9 @@ from static_utilities import StaticUtilities
 
 
 class PiqueBin:
+    """
+    Manages PiqueBin tool.
+    """
 
     def __init__(self, binary_file_name: str, binary_file_directory: str) -> None:
         """

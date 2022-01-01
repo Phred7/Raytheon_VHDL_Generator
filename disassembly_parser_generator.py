@@ -11,7 +11,6 @@ import shutil
 import sys
 from copy import deepcopy
 from typing import List
-
 from static_utilities import StaticUtilities
 
 
