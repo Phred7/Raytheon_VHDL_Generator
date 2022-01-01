@@ -97,7 +97,7 @@ def pique_bin_score(binary_file_name: str, pique_bin_directory: str) -> float:
     """
     pique_bin_output_file_directory: str = f"{pique_bin_directory}out"
     # pique_bin_output_file: str = f"{binary_file_name}_compact_evalResults.json"
-    pique_bin_output_file: str = f"{binary_file_name.strip('.out')}_evalResults.json"  # All_msp_operations_evalResults.json
+    pique_bin_output_file: str = f"{binary_file_name.split('.')[0]}_evalResults.json"  # All_msp_operations_evalResults.json
 
     file_should_exist(pique_bin_output_file_directory, pique_bin_output_file)
 
