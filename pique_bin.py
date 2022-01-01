@@ -20,8 +20,7 @@ class PiqueBin:
     def __init__(self, source_file_name: str) -> None:
         """
         Instantiate PiqueBin object.
-        :param binary_file_directory: Location of the file with the name binary_file_name.
-        :param binary_file_name: Name of the binary file to run PIQUE-Bin on.
+        :param source_file_name: Name of the source file to associate with a binary to run PIQUE-Bin on.
         """
         self.source_file_name: str = source_file_name
         self.binary_file_name: str = f"{source_file_name.split('.')[0]}.out"
@@ -34,10 +33,7 @@ class PiqueBin:
         self.pique_exit_status: int = -1
         StaticUtilities.file_should_exist(file_directory=self.binary_file_directory, file=self.binary_file_name)
         StaticUtilities.logger.debug(f"{PiqueBin.__name__} object initialized")
-        StaticUtilities.logger.warning(f"PIQUE-Bin not fully tested or implemented")
-
-    def detect(self) -> None:
-        pass
+        StaticUtilities.logger.warning(f"PIQUE-Bin not fully functional.")
 
     def pique_bin(self) -> float:
         """
@@ -105,9 +101,6 @@ class PiqueBin:
                 StaticUtilities.logger.error(
                     f"The calculated Binary Security Quality suggests that Docker is not running or another error exists: {binary_security_quality}")
         return binary_security_quality
-
-    def add_to_hash(self, file: str) -> None:
-        pass
 
 
 if __name__ == "__main__":

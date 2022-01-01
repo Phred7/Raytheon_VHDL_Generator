@@ -19,9 +19,9 @@ class Main:
     def main() -> None:
         """All_msp_operations.out"""
         vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
-        disassembler: Disassembler = Disassembler()
         package_zipper: PackageZipper = PackageZipper()
         instrumentation = Instrumentation(IntOverflowAttack())
+
 
         # disassembler.disassemble(pique_bool=False)
         # package_zipper.zip_vhdl(zip_file_name="")

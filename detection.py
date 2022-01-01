@@ -27,10 +27,6 @@ class Detection:
             StaticUtilities.logger.info(
                 f"PIQUE-Bin Binary Security Quality: {self.pique_bin.pique_bin()}")
 
-    def pique_bin(self) -> None:
-        # integrate into detect() method and remove this method. Add kwargs bool for pique-bin
-        pass
-
     def add_to_hash(self, file: str) -> None:
         pass
 

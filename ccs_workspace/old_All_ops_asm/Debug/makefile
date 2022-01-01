@@ -120,34 +120,34 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-All_ops_asm.out \
+old_All_ops_asm.out \
 
 EXE_OUTPUTS__QUOTED += \
-"All_ops_asm.out" \
+"old_All_ops_asm.out" \
 
 BIN_OUTPUTS += \
-All_ops_asm.hex \
+old_All_ops_asm.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"All_ops_asm.hex" \
+"old_All_ops_asm.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "All_ops_asm.out"
+	@$(MAKE) --no-print-directory -Onone "old_All_ops_asm.out"
 
 # Tool invocations
-All_ops_asm.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+old_All_ops_asm.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/cl430" -vmsp --code_model=small --data_model=small --advice:power=all --define=__COLT430FR2355__ -g --diag_warning=225 --diag_wrap=off --display_error_number -k -z -m"All_ops_asm.map" --heap_size=0 --stack_size=0 -i"C:/ti/ccs1040/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1040/ccs/ccs_base/msp430/lib/FR2xx" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/lib" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="All_ops_asm_linkInfo.xml" --entry_point=RESET -o "All_ops_asm.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/cl430" -vmsp --code_model=small --data_model=small --advice:power=all --define=__COLT430FR2355__ -g --diag_warning=225 --diag_wrap=off --display_error_number -k -z -m"old_All_ops_asm.map" --heap_size=0 --stack_size=0 -i"C:/ti/ccs1040/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1040/ccs/ccs_base/msp430/lib/FR2xx" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/lib" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="old_All_ops_asm_linkInfo.xml" --entry_point=RESET -o "old_All_ops_asm.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-All_ops_asm.hex: $(EXE_OUTPUTS)
+old_All_ops_asm.hex: $(EXE_OUTPUTS)
 	@echo 'Building secondary target: "$@"'
 	@echo 'Invoking: MSP430 Hex Utility'
-	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/hex430" --diag_wrap=off -o "All_ops_asm.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/hex430" --diag_wrap=off -o "old_All_ops_asm.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building secondary target: "$@"'
 	@echo ' '
 
