@@ -172,8 +172,13 @@ class DisassemblyParserGenerator:
         # eclipsec -noSplash -data "C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace" -application com.ti.ccstudio.apps.projectBuild -ccs.projects test_generated_ASM -ccs.configuration Debug
         # eclipse executable dir: C:\ti\ccs1040\ccs\eclipse
 
-
     def _ccs_fields_empty(self, *, logger_error: bool = True, system_error: bool = True) -> bool:
+        """
+        Checks if the three fields required to replace a file in a ccs project are set to a non-empty value.
+        :param logger_error: Throws an error via the logger if any of the fields are set to the empty string.
+        :param system_error: Throws a system error if any of the fields are set to the empty string.
+        :return: False if self.ccs_project_path and self.ccs_project_name and self.ccs_project_source_file_name are all not the empty string, otherwise True.
+        """
         if self.ccs_project_path == "" or self.ccs_project_name == "" or self.ccs_project_source_file_name == "":
             if logger_error:
                 empty_strings: str = ""
@@ -182,8 +187,8 @@ class DisassemblyParserGenerator:
                 empty_strings += "'" + f"{self.ccs_project_source_file_name=}".split('.')[1].split('=')[0] + "'" if self.ccs_project_source_file_name == '' else ''
                 StaticUtilities.logger.error(
                     f"The following were set to the empty string when attempting to replace the source file in a ccs project with a generated source file: {empty_strings} in an instance of {self.__class__.__name__}. Call {self.__class__.__name__}.set_ccs_project_details() to rectify or set replace_source_in_ccs_project to false when calling {self.__class__.__name__}.generate_source_from_disassembly().")
-                if system_error:
-                    return sys.exit(1)
+            if system_error:
+                return sys.exit(1)
             return True
         return False
 
