@@ -10,6 +10,9 @@ from static_utilities import StaticUtilities
 
 
 class Instrumentation:
+    """
+    Strategy Pattern Context.
+    """
 
     def __init__(self, instrumentation_strategy: InstrumentationStrategy) -> None:
         self._instrumentation_strategy = instrumentation_strategy
@@ -18,12 +21,25 @@ class Instrumentation:
 
     @property
     def instrumentation_strategy(self) -> InstrumentationStrategy:
+        """
+        Property representing the type of Concrete Strategy that this object contains a reference to.
+        :return: The type of Concrete Strategy that this object contains a reference to.
+        """
         return self._instrumentation_strategy
 
     @instrumentation_strategy.setter
     def instrumentation_strategy(self, instrumentation_strategy: InstrumentationStrategy) -> None:
+        """
+        Allows the concrete strategy object to be replaced at runtime.
+        :param instrumentation_strategy: New concrete strategy object to replace with the current.
+        :return: None.
+        """
         self._instrumentation_strategy = instrumentation_strategy
 
-    def runner(self) -> None:
+    def runner(self) -> None:  # TODO: rename method.
+        """
+        Method that calls the algorithm or process defined by the concrete strategy.
+        :return: None.
+        """
         results: str = self._instrumentation_strategy.instrument("")
 

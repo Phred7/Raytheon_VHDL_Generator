@@ -11,6 +11,9 @@ from static_utilities import StaticUtilities
 
 
 class InstrumentationStrategy(ABC):
+    """
+    This class acts as an interface for instrumentation.
+    """
 
     def __init__(self) -> None:
         self.type = self.__class__.__name__
@@ -18,4 +21,9 @@ class InstrumentationStrategy(ABC):
 
     @abstractmethod
     def instrument(self, file: str) -> str:
+        """
+        Method to be declared my concrete strategies.
+        :param file: str representing the file to instrument.
+        :return: str representing the file that was instrumented.
+        """
         pass
