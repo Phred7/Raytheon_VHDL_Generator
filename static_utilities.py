@@ -161,6 +161,11 @@ class StaticUtilities:
 
     @staticmethod
     def stop_ccs(*, force_kill: bool = False) -> bool:
+        """
+        Attempts to stop Code Composer Studio on Windows if the process is running.
+        :param force_kill: Forces the process to stop regardless of process state.
+        :return: Bool representation of the state of Code Composer Studio Process. True if stopped.
+        """
         ccs_process_name: str = "Code Composer Studio"
         ccs_exe_name: str = "ccstudio.exe"
         return StaticUtilities.stop_process(process_name=ccs_process_name, executable_name=ccs_exe_name, force_kill=force_kill)
@@ -223,6 +228,7 @@ class StaticUtilities:
             yield
         finally:
             sys.stdout = original_stdout
+
 
 if __name__ == "__main__":
     StaticUtilities.start_ccs()
