@@ -18,10 +18,10 @@ class Main:
     @staticmethod
     def main() -> None:
         """All_msp_operations.out"""
+        instrumentation = Instrumentation(IntOverflowAttack())
+        instrumentation.instrument()
         vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
         package_zipper: PackageZipper = PackageZipper()
-        instrumentation = Instrumentation(IntOverflowAttack())
-
 
         # disassembler.disassemble(pique_bool=False)
         # package_zipper.zip_vhdl(zip_file_name="")

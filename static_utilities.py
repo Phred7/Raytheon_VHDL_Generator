@@ -167,8 +167,8 @@ class StaticUtilities:
         :return: Bool representation of the state of Code Composer Studio Process. True if stopped.
         """
         ccs_process_name: str = "Code Composer Studio"
-        ccs_exe_name: str = "ccstudio.exe"
-        return StaticUtilities.stop_process(process_name=ccs_process_name, executable_name=ccs_exe_name, force_kill=force_kill)
+        ccs_executable_name: str = "ccstudio.exe"
+        return StaticUtilities.stop_process(process_name=ccs_process_name, executable_name=ccs_executable_name, force_kill=force_kill)
 
     @staticmethod
     def process_running(process_name: str) -> bool:  # TODO: Add error checking.
@@ -187,6 +187,15 @@ class StaticUtilities:
             except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
                 continue
         return False
+
+    @staticmethod
+    def ccs_process_running() -> bool:
+        """
+        Gets the state of CCS process as a bool.
+        :return: True if the CCS process is running, otherwise False.
+        """
+        _executable_name: str = "ccstudio.exe"
+        return StaticUtilities.process_running(_executable_name)
 
     @staticmethod
     def service_running(service_name: str) -> bool:  # TODO: Add error checking.
