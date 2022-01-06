@@ -66,31 +66,104 @@ class StaticUtilities:
         assert substring in string
 
     @staticmethod
+    def start_process(process_name: str, executable_name: str, executable_directory: str, *, service_name: str = "", implement_logger: bool = True, start_process_timeout: int = 5, start_process_delay: int = 2) -> bool:
+        """
+        Attempts to start a defined process on Windows.
+        :param process_name: Name of process to start. Format: "Docker Desktop"
+        :param executable_name: Name of the executable file to start. Format: "Docker Desktop.exe"
+        :param executable_directory: Format: Location of the executable file on disk. "C:\\Program Files\\Docker\\Docker\\"
+        :param service_name: Name of the service associated with the process to start as it appears in the services' application on Win10.  # Format: "com.docker.service"
+        :param implement_logger: Bool representing whether to log information with the Static Util's logger. Defaults to True.
+        :param start_process_timeout: Amount of time in seconds to wait for this process to start before timing out.
+        :param start_process_delay: Amount of time in seconds to wait before proceeding after an attempt is made to start a process.
+        :return: Bool representing the success of starting the defined process. True when successfully started the process.
+        """
+        _process_name: str = process_name
+        _executable_name: str = executable_name
+        _executable_directory: str = executable_directory
+        _executable: str = _executable_directory + _executable_name
+        _service_name: str = service_name
+        StaticUtilities.file_should_exist(file_directory=_executable_directory, file=_executable_name)
+        if (False if _service_name == "" else not StaticUtilities.service_running(_service_name)) or not StaticUtilities.process_running(
+                _executable_name):
+            # attempt to start the process
+            if implement_logger:
+                StaticUtilities.logger.info(f"Starting {_process_name}")
+            subprocess.Popen(_executable)
+            start_time: time = datetime.datetime.now()
+            time.sleep(start_process_delay)
+            timeout: datetime.timedelta = datetime.timedelta(seconds=start_process_timeout)
+            while not StaticUtilities.process_running(
+                    _executable_name) and datetime.datetime.now() < start_time + timeout:
+                time.sleep(1)
+            if datetime.datetime.now() > start_time + timeout:
+                if implement_logger:
+                    StaticUtilities.logger.warning(f"Starting {process_name} Timed Out")
+        if not StaticUtilities.process_running(_executable_name):
+            if implement_logger:
+                StaticUtilities.logger.error(f"Failed to start process {process_name}")
+            return False
+        if implement_logger:
+            StaticUtilities.logger.info(f"Successfully started process {process_name}")
+        return True
+
+    @staticmethod
     def start_docker_desktop() -> bool:
         """
         Starts Docker Desktop on Windows if the process is not already running.
-        :return: Representation of the state of Docker Desktop Process.
+        :return: Representation of the state of Docker Desktop Process. True if running.
         """
+        docker_process_name: str = "Docker Desktop"
         docker_executable_name: str = "Docker Desktop.exe"
         docker_executable_directory: str = "C:\\Program Files\\Docker\\Docker\\"
-        docker_desktop_executable: str = docker_executable_directory + docker_executable_name
-        StaticUtilities.file_should_exist(file_directory=docker_executable_directory, file=docker_executable_name)
-        if not StaticUtilities.service_running("com.docker.service") or not StaticUtilities.process_running(
-                "Docker Desktop.exe"):
-            # attempt to start the docker desktop process
-            StaticUtilities.logger.info("Starting Docker Desktop")
-            subprocess.Popen(docker_desktop_executable)
-            start_time: time = datetime.datetime.now()
-            time.sleep(15)
-            timeout: datetime.timedelta = datetime.timedelta(seconds=30)
-            while not StaticUtilities.process_running(
-                    "Docker Desktop.exe") and datetime.datetime.now() < start_time + timeout:
-                time.sleep(1)
-            if datetime.datetime.now() > start_time + timeout:
-                StaticUtilities.logger.warning("Starting Docker Desktop Timed Out")
-        if not StaticUtilities.process_running("Docker Desktop.exe"):
+        docker_desktop_service_name: str = "com.docker.service"
+        timeout: int = 30
+        timeout_delay: int = 15
+        return StaticUtilities.start_process(process_name=docker_process_name, executable_name=docker_executable_name, executable_directory=docker_executable_directory, service_name=docker_desktop_service_name, start_process_timeout=timeout, start_process_delay=timeout_delay)
+
+    @staticmethod
+    def start_ccs() -> bool:
+        """
+        Attempts to start Code Composer Studio on Windows if not already running
+        :return: Bool representation of the state of Code Composer Studio Process. True if running.
+        """
+        ccs_process_name: str = "Code Composer Studio"
+        ccs_exe_name: str = "ccstudio.exe"
+        ccs_exe_dir: str = "C:\\ti\\ccs1040\\ccs\\eclipse\\"
+        timeout: int = 5
+        timeout_delay: int = 2
+        return StaticUtilities.start_process(process_name=ccs_process_name, executable_name=ccs_exe_name, executable_directory=ccs_exe_dir, start_process_timeout=timeout, start_process_delay=timeout_delay)
+
+    @staticmethod
+    def stop_process(process_name: str, executable_name: str, *, implement_logger: bool = True, stop_delay: int = 2, force_kill: bool = False) -> bool:
+        """
+        Attempts to stop a defined process.
+        :param process_name: Name of process to stop. Format: "Docker Desktop"
+        :param executable_name: Name of the executable file to start. Format: "Docker Desktop.exe"
+        :param implement_logger: Bool representing whether to log information with the Static Util's logger. Defaults to True.
+        :param stop_delay: Amount of time in seconds to wait before proceeding after an attempt is made to start a process.
+        :param force_kill: Bool representing whether to force kill the process.
+        :return: Bool representing the success of stoping the defined process. True when the process was successfully stopped.
+        """
+        _process_name: str = process_name
+        _executable_name: str = executable_name
+        if StaticUtilities.process_running(_executable_name):
+            if implement_logger:
+                StaticUtilities.logger.info(f"Stopping {_process_name}")
+            subprocess.run(f"taskkill {'/f' if force_kill else ''} /im {_executable_name}")
+            time.sleep(stop_delay)
+        if StaticUtilities.process_running(_executable_name):
+            if implement_logger:
+                StaticUtilities.logger.error(f"Failed to stop process {_process_name}")
             return False
-        return True
+        if implement_logger:
+            StaticUtilities.logger.info(f"Successfully stopped process {_process_name}")
+
+    @staticmethod
+    def stop_ccs(*, force_kill: bool = False) -> bool:
+        ccs_process_name: str = "Code Composer Studio"
+        ccs_exe_name: str = "ccstudio.exe"
+        return StaticUtilities.stop_process(process_name=ccs_process_name, executable_name=ccs_exe_name, force_kill=force_kill)
 
     @staticmethod
     def process_running(process_name: str) -> bool:  # TODO: Add error checking.
@@ -150,3 +223,8 @@ class StaticUtilities:
             yield
         finally:
             sys.stdout = original_stdout
+
+if __name__ == "__main__":
+    StaticUtilities.start_ccs()
+    time.sleep(5)
+    StaticUtilities.stop_ccs(force_kill=True)
