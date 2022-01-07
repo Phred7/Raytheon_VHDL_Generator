@@ -1,0 +1,81 @@
+###############################
+# Detection
+# For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
+# Dr. Clem Izurieta
+# Dr. Brock LaMeres
+# Written by Michael Heidal and Walker Ward
+###############################
+from typing import Dict
+
+from pique_bin import PiqueBin
+from static_utilities import StaticUtilities
+
+
+class Detection:
+    """
+    Attempts to detect various forms of malware or vulnerabilities with in a binary and source file pair.
+    """
+
+    def __init__(self, path: str, source_file: str, *, pique_bin_bool: bool = True) -> None:  # TODO: this constructor need to be updated. Should contain reference to ccs project, source file, binary file and possibly disassembly.
+        self.hash: Dict[int: str] = None
+        self.source_file: str = source_file
+        self.path: str = path
+        self.binary_security_quality: float = 0
+        if pique_bin_bool:
+            self.pique_bin: PiqueBin = PiqueBin(source_file_name=self.source_file)
+        else:
+            self.pique_bin = None
+        StaticUtilities.logger.debug(f"{Detection.__name__} object initialized")
+
+    def detect(self) -> None:
+        """
+        Executes a sequence of algorithms to attempt to detect malware or vulnerabilities that may exist within a binary and a corresponding source file.
+        :return:
+        """
+        # TODO: May be a good idea to analyze binaries by disassembling, generating a source file and comparing contents with the original source file.
+        # It's starting to be clear to me that detecting is going to be much more complicated than instrumentation and injection.
+        if isinstance(self.pique_bin, PiqueBin):
+            StaticUtilities.logger.info(
+                f"PIQUE-Bin Binary Security Quality: {self.pique_bin.pique_bin()}")
+        # If the Security Quality is below some threshold loop through vulnerability inspections.
+
+    def hash_file(self, file: str):
+        """
+        Creates a hash of the contents of the file and writes it to a serialized dict.
+        :param file:
+        :return: key in dict for this file.
+        """
+        pass
+
+    def _check_file_hash(self) -> bool:
+        """
+        Uses the name of a file to find it's hash in a dict. If a hash for this file exists get a bool representing a comparison between this hash and the existing hash.
+        :return: True if this hash matches the newest hash in the dict for this file or if a hash does not exist, otherwise False.
+        """
+        pass
+
+    def _detect_buffer_overflow_attack(self) -> bool:
+        """
+        Executes an algorithm on a file to attempt to detect a buffer overflow attacks in a source file.
+        :return: True if a buffer overflow attack was detected, otherwise False.
+        """
+        pass
+
+    def _detect_int_overflow_attack(self) -> bool:
+        """
+        Executes an algorithm on a file to attempt to detect an int overflow attacks in a source file.
+        :return: True if an int overflow attack was detected, otherwise False.
+        """
+        pass
+
+    def _detect_f_string_vulnerability(self) -> bool:
+        """
+        Executes an algorithm on a file to attempt to detect an f-string vulnerability in a source file.
+        :return: True if an f-string vulnerability was detected, otherwise False.
+        """
+        pass
+
+
+if __name__ == "__main__":
+    detection: Detection = Detection(path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", source_file="test_generated_ASM.asm")
+    detection.detect()
