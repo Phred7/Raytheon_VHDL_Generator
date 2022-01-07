@@ -21,6 +21,7 @@ class Main:
         instrumentation = Instrumentation(IntOverflowAttack())
         instrumentation.instrument()
         vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
+        vhdl_parser_generator.generate_vhdl()
         package_zipper: PackageZipper = PackageZipper()
 
         # disassembler.disassemble(pique_bool=False)

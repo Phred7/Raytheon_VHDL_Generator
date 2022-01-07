@@ -7,6 +7,7 @@
 ###############################
 import os
 import shutil
+import subprocess
 import sys
 
 from disassembler import Disassembler
@@ -116,12 +117,18 @@ class Instrumentation:
             StaticUtilities.file_should_exist(file_directory=self.ccs_project_path, file=self.ccs_project_source_file_name)
         StaticUtilities.logger.info(f"Source file in ASM CCS project '{self.ccs_project_name}' was replaced with the generated assembly file '{self.dpg.generated_assembly_file}'")
 
-    def _build_ccs_project(self) -> None:
-        self._ccs_fields_empty()
-        # subprocess.Popen("")
+    @staticmethod
+    def _build_ccs_project() -> None:
+        # self._ccs_fields_empty()
+        # subprocess.run("")
         # commands: eclipsec -noSplash -data "C:\myWorkspace" -application com.ti.ccstudio.apps.projectBuild -ccs.projects newProject -ccs.configuration Debug
         # eclipsec -noSplash -data "C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace" -application com.ti.ccstudio.apps.projectBuild -ccs.projects test_generated_ASM -ccs.configuration Debug
         # eclipse executable dir: C:\ti\ccs1040\ccs\eclipse
+        eclipse_dir: str = r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace"
+        project_name: str = "test_generated_ASM"
+        quote: str = "\""
+        with StaticUtilities.change_dir(r"C:\ti\ccs1040\ccs\eclipse"):
+            subprocess.run(rf"eclipsec -noSplash -data {quote}{eclipse_dir}{quote} -application com.ti.ccstudio.apps.projectBuild -ccs.projects {project_name} -ccs.configuration Debug")
 
     def _ccs_fields_empty(self, *, logger_error: bool = True, system_error: bool = True) -> bool:
         """
@@ -142,3 +149,7 @@ class Instrumentation:
                 return sys.exit(1)
             return True
         return False
+
+
+if __name__ == "__main__":
+    Instrumentation._build_ccs_project()

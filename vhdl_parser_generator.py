@@ -302,7 +302,7 @@ constant ROM : rom_type :=("""
             # detection.detect() # TODO implement detection.detect() and call when detection is True
             pass
         disassembler: Disassembler = Disassembler()
-        disassembler.disassemble(pique_bool=False)
+        disassembler.disassemble()
         self.generate_vhdl_packages()
         self.generate_vhdl_memory()
 
