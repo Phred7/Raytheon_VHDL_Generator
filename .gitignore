@@ -144,6 +144,7 @@ ccs_workspace/RemoteSystemsTempFiles/.project
 PIQUE-Bin/msusel-pique-bin-0.0.1.jar
 PIQUE-Bin/
 PIQUE-Bin-Jar/
+PIQUE-Bin-Jar-0.0.1/
 PIQUE-Bin-Jar.zip
 *.cpython-39.pyc
 *.pyc
@@ -157,3 +158,4 @@ ccs_workspace\.jxbrowser.userdata\
 ccs_workspace\.metadata\
 ccs_workspace/.metadata/
 /PIQUE-Bin-Jar-Newest/
+/PIQUE-Bin-Jar-0.0.1/

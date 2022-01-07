@@ -28,7 +28,7 @@ class PiqueBin:
         self.pique_bin_jar_file_name: str = "msusel-pique-bin-0.0.1-jar-with-dependencies"  # old: "msusel-pique-bin-0.0.1"
         self.pique_bin_properties_file_name: str = "pique-properties.properties"  # old: "pique-bin.properties"
         self.pique_bin_output_file: str = f"{source_file_name.split('.')[0]}_evalResults.json"  # old: f"{binary_file_name}_compact_evalResults.json"
-        self.pique_bin_package_directory: str = f"{os.getcwd()}\PIQUE-Bin-Jar-Newest\\"  # old: f"{os.getcwd()}\\PIQUE-Bin-Jar\\"  # Ex: Location of dir PIQUE-Bin-Jar/.
+        self.pique_bin_package_directory: str = f"{os.getcwd()}\PIQUE-Bin-Jar-0.0.1\\"  # old: f"{os.getcwd()}\\PIQUE-Bin-Jar\\"  # Ex: Location of dir PIQUE-Bin-Jar/.
         self.pique_bin_output_file_directory: str = f"{self.pique_bin_package_directory}out"
         self.pique_exit_status: int = -1
         StaticUtilities.file_should_exist(file_directory=self.binary_file_directory, file=self.binary_file_name)
