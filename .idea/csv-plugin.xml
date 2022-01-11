@@ -3,27 +3,6 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\PIQUE-Bin-Jar-Newest\backup\PIQUE-Bin-Jar\classes\comparisons.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\PIQUE-Bin-Jar-Newest\classes\comparisons.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\PIQUE-Bin-Jar-Newest\test-classes\comparisons.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="\PIQUE-Bin-Jar\backup\PIQUE-Bin-Jar-OG-Backup\classes\comparisons.csv">
           <value>
             <Attribute>

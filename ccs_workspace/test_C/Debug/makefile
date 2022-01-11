@@ -10,7 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./main.obj" \
+"./test_C.obj" \
 "../lnk_colt430fr2355.cmd" \
 $(GEN_CMDS__FLAG) \
 -lfrwp_init.a \
@@ -154,9 +154,9 @@ test_C.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" 
-	-$(RM) "main.d" 
-	-$(RM) "main.asm" 
+	-$(RM) "test_C.obj" 
+	-$(RM) "test_C.d" 
+	-$(RM) "test_C.asm" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

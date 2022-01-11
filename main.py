@@ -22,12 +22,13 @@ class Main:
         instrumentation.instrument()
         vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
         vhdl_parser_generator.generate_vhdl()
-        package_zipper: PackageZipper = PackageZipper()  # TODO: class for ccs project to stop having to pass around file names and paths?
+        package_zipper: PackageZipper = PackageZipper()
+        # TODO: class for ccs project to stop having to pass around file names and paths?
 
         # disassembler.disassemble(pique_bool=False)
         # package_zipper.zip_vhdl(zip_file_name="")
         # vhdl_parser_generator.generate_vhdl(pique_bin_bool=True)
-        # package_zipper.zip_vhdl(zip_file_name="generated_vhdl_instrumentation_test")
+        package_zipper.zip_vhdl(zip_file_name="port_AB_01_11_2022")
 
 
 if __name__ == '__main__':

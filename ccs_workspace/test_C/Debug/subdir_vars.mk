@@ -9,21 +9,21 @@ CMD_SRCS += \
 ../lnk_colt430fr2355.cmd 
 
 C_SRCS += \
-../main.c 
+../test_C.c 
 
 C_DEPS += \
-./main.d 
+./test_C.d 
 
 OBJS += \
-./main.obj 
+./test_C.obj 
 
 OBJS__QUOTED += \
-"main.obj" 
+"test_C.obj" 
 
 C_DEPS__QUOTED += \
-"main.d" 
+"test_C.d" 
 
 C_SRCS__QUOTED += \
-"../main.c" 
+"../test_C.c" 
 
 

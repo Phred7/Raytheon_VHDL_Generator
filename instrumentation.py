@@ -54,6 +54,9 @@ class Instrumentation:
         Method that calls the algorithm or process defined by the concrete strategy.
         :return: None.
         """
+        # TODO: modify to prevent deletion of the existing source file in a CCS project.
+        #  Instead copy the existing to a different location, build the project, delete the instrumented source from the project and move the non-instrumented source back into the project.
+        #  Ensure that auto-building project and build on debug/run is disabled.
         ccs_project_main_source_file_name: str = "test_asm_generation"
 
         # kill CCS if it's running... TODO: don't allow CCS to start while this method has not finished??? (Different looping 'thread'???)

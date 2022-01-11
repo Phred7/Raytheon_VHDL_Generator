@@ -15,6 +15,7 @@ class Disassembler:
     Disassembles an MSP430 binary.
     """
 
+    # TODO: make it so the input file doesn't need to match the binary file name but defaults to that. Also add check to make sure both the project and file exist.
     def __init__(self, disassembler_input_file_name: str = "Motor_mover_C.out",
                  disassembler_output_file_name: str = "generated_disassembly.txt",
                  disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly") -> None:

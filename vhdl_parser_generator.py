@@ -24,8 +24,9 @@ class VHDLParserGenerator:
     Generates VHDL representation of an MSP430 binary.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, *, binary_file_name: str = "Motor_mover_C") -> None:
         self.program_memory_start: int = 32768
+        self.binary_file_name: str = binary_file_name
         self.disassembler_output_file_name: str = "generated_disassembly.txt"
         self.disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly"
         self.memory_indent: str = "\t\t\t\t\t\t   "
@@ -204,7 +205,7 @@ constant ROM : rom_type :=("""
                 generated_rom_asm_str += f"""{self.memory_indent}{current_program_memory} => x\"{line[10]}{line[11]}\",\n"""
                 current_program_memory += 1
                 if "SR" in unmodified_line:
-                    StaticUtilities.logger.debug("Reached SR in generated_disassembly.txt")
+                    StaticUtilities.logger.debug(f"Reached SR in disassembly")
                     return generated_rom_asm_str
             elif current_program_memory > 32777 and len(line_str_list) >= 15 and not (
                     line_str_list[14] in computer_mnemonic_dictionary.keys()) and (":" not in line_str_list[14]):
@@ -301,7 +302,7 @@ constant ROM : rom_type :=("""
         if detection:
             # detection.detect() # TODO implement detection.detect() and call when detection is True
             pass
-        disassembler: Disassembler = Disassembler()
+        disassembler: Disassembler = Disassembler(disassembler_input_file_name=f"{self.binary_file_name}.out")
         disassembler.disassemble()
         self.generate_vhdl_packages()
         self.generate_vhdl_memory()
