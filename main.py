@@ -18,17 +18,16 @@ class Main:
     @staticmethod
     def main() -> None:
         """All_msp_operations.out"""
-        instrumentation = Instrumentation(IntOverflowAttack())
-        instrumentation.instrument()
-        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
-        vhdl_parser_generator.generate_vhdl()
+        # instrumentation = Instrumentation(IntOverflowAttack())
+        # instrumentation.instrument()
+        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(binary_file_name="test_C")
+        vhdl_parser_generator.generate_vhdl(detection=False)
         package_zipper: PackageZipper = PackageZipper()
         # TODO: class for ccs project to stop having to pass around file names and paths?
 
         # disassembler.disassemble(pique_bool=False)
         # package_zipper.zip_vhdl(zip_file_name="")
-        # vhdl_parser_generator.generate_vhdl(pique_bin_bool=True)
-        package_zipper.zip_vhdl(zip_file_name="port_AB_01_11_2022")
+        package_zipper.zip_vhdl(zip_file_name="port_AB_01_12_2022")
 
 
 if __name__ == '__main__':

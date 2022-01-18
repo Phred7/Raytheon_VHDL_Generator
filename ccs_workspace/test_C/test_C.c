@@ -2,21 +2,40 @@
 int main(void) {
     WDTCTL = WDTPW | WDTHOLD;   //stop watch dog timer
     PM5CTL0 &= ~LOCKLPM5;       //Enable GPIO Manipulation
-    PADIR |= 0xAAAA;            //Set alternating bits of Port A to output
-    PADIR &= ~0x5555;           //Set non output bits of Port A to input
-    PAREN =  0x5555;            //Set non output bits of Port A to have resistors enabled
-    PAOUT =  0x5555;            //Set non output bits of Port A to be pulled low with resistors
-    PBDIR &= ~0xAAAA;           //Set alternating bits of Port B to input
-    PBDIR |= 0x5555;            //Set non input bits of Port B to output
-    PBREN =  0x5555;            //Set non input bits of Port B to have resistors enabled
-    PBOUT =  0x5555;            //Set non input bits of Port B to be pulled high with resistors
+    PADIR |=  0xAAAA;           //Set alternating bits of Port A to output
+    PADIR &= ~0x5555;           //Rest are input
+    PAREN |=  0x5555;           //Set non output bits of Port A to have resistors enabled
+    PAOUT &= ~0x5555;           //Set non output bits of Port A to be pulled low with resistors
+    PBDIR &= ~0xFFFF;           //Set all bits of Port B to input
+    PBREN |=  0x5555;           //Set non alternating input bits of Port B to have resistors enabled
+    PBOUT &= ~0x5555;           //Set non alternating input bits of Port B to be pulled low with resistors
     while(1){
         //Purpose of this file is to implement on FPGA
         //Port B will be input tied to buttons/switches
         //Port A output will be tied to LEDs
-        PAOUT &= PBIN;//Port A Out is assigned Port B In which is ANDed with 0xAAAA to
+        PAOUT = PBIN;//Port A Out is assigned Port B
     }
 }
+
+//#include <msp430.h>
+//int main(void) {
+//    WDTCTL = WDTPW | WDTHOLD;   //stop watch dog timer
+//    PM5CTL0 &= ~LOCKLPM5;       //Enable GPIO Manipulation
+//    PADIR |= 0xAAAA;            //Set alternating bits of Port A to output
+//    PADIR &= ~0x5555;           //Set non output bits of Port A to input
+//    PAREN =  0x5555;            //Set non output bits of Port A to have resistors enabled
+//    PAOUT =  0x5555;            //Set non output bits of Port A to be pulled low with resistors
+//    PBDIR &= ~0xAAAA;           //Set alternating bits of Port B to input
+//    PBDIR |= 0x5555;            //Set non input bits of Port B to output
+//    PBREN =  0x5555;            //Set non input bits of Port B to have resistors enabled
+//    PBOUT =  0x5555;            //Set non input bits of Port B to be pulled high with resistors
+//    while(1){
+//        //Purpose of this file is to implement on FPGA
+//        //Port B will be input tied to buttons/switches
+//        //Port A output will be tied to LEDs
+//        PAOUT &= PBIN;//Port A Out is assigned Port B In which is ANDed with 0xAAAA to
+//    }
+//}
 
 //#include <msp430.h>
 //int main(void) {

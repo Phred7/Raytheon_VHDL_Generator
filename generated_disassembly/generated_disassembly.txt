@@ -1,5 +1,5 @@
 
-TEXT Section .text, 0x60 bytes at 0x00008000
+TEXT Section .text, 0x5c bytes at 0x00008000
 008000:              main:
 008000:              .text:main:
 008000: B240             MOV.W   #0x5a80,&WDTCTL_L
@@ -13,210 +13,208 @@ TEXT Section .text, 0x60 bytes at 0x00008000
 008010: B2F0             AND.W   #0xaaaa,&P1DIR
 008012: AAAA            
 008014: 0402            
-008016: B240             MOV.W   #0x5555,&P1REN
+008016: B2D0             BIS.W   #0x5555,&P1REN
 008018: 5555            
 00801a: 0602            
-00801c: B240             MOV.W   #0x5555,&P1OUT
-00801e: 5555            
+00801c: B2F0             AND.W   #0xaaaa,&P1OUT
+00801e: AAAA            
 008020: 0202            
-008022: B2F0             AND.W   #0x5555,&P3DIR
-008024: 5555            
-008026: 2402            
-008028: B2D0             BIS.W   #0x5555,&P3DIR
-00802a: 5555            
-00802c: 2402            
-00802e: B240             MOV.W   #0x5555,&P3REN
-008030: 5555            
-008032: 2602            
-008034: B240             MOV.W   #0x5555,&P3OUT
-008036: 5555            
-008038: 2202            
-00803a:              $C$L1:
-00803a: 92F2             AND.W   &P3IN,&P1OUT
-00803c: 2002            
-00803e: 0202            
-008040: FC3F             JMP     ($C$L1)
-008042:              _c_int00_noinit_noargs:
-008042:              .text:_c_int00_noinit_noargs:
-008042: 3140             MOV.W   #0x3000,SP
-008044: 0030            
-008046: B012             CALL    #_system_pre_init
-008048: 5C80            
-00804a: 0C43             CLR.W   R12
-00804c: B012             CALL    #main
-00804e: 0080            
-008050: 1C43             MOV.W   #1,R12
-008052: B012             CALL    #abort
-008054: 5680            
-008056:              abort:
-008056:              C$$EXIT:
-008056:              .text:abort:
+008022: 1F42             MOV.W   &P3DIR,R15
+008024: 2402            
+008026: 8243             CLR.W   &P3DIR
+008028: 2402            
+00802a: B2D0             BIS.W   #0x5555,&P3REN
+00802c: 5555            
+00802e: 2602            
+008030: B2F0             AND.W   #0xaaaa,&P3OUT
+008032: AAAA            
+008034: 2202            
+008036:              $C$L1:
+008036: 9242             MOV.W   &P3IN,&P1OUT
+008038: 2002            
+00803a: 0202            
+00803c: FC3F             JMP     ($C$L1)
+00803e:              _c_int00_noinit_noargs:
+00803e:              .text:_c_int00_noinit_noargs:
+00803e: 3140             MOV.W   #0x3000,SP
+008040: 0030            
+008042: B012             CALL    #_system_pre_init
+008044: 5880            
+008046: 0C43             CLR.W   R12
+008048: B012             CALL    #main
+00804a: 0080            
+00804c: 1C43             MOV.W   #1,R12
+00804e: B012             CALL    #abort
+008050: 5280            
+008052:              abort:
+008052:              C$$EXIT:
+008052:              .text:abort:
+008052: 0343             NOP     
+008054:              $C$L1:
+008054: FF3F             JMP     ($C$L1)
 008056: 0343             NOP     
-008058:              $C$L1:
-008058: FF3F             JMP     ($C$L1)
-00805a: 0343             NOP     
-00805c:              _system_pre_init:
-00805c:              .text:_system_pre_init:
-00805c: 1C43             MOV.W   #1,R12
-00805e: 3041             RET     
+008058:              _system_pre_init:
+008058:              .text:_system_pre_init:
+008058: 1C43             MOV.W   #1,R12
+00805a: 3041             RET     
 
-TEXT Section .text:_isr, 0x8 bytes at 0x00008060
-008060:              __TI_ISR_TRAP:
-008060:              .text:_isr:__TI_ISR_TRAP:
-008060:              .text:_isr:
-008060: 32D0             BIS.W   #0x0010,SR
-008062: 1000            
-008064: FD3F             JMP     (__TI_ISR_TRAP)
-008066: 0343             NOP     
+TEXT Section .text:_isr, 0x8 bytes at 0x0000805c
+00805c:              __TI_ISR_TRAP:
+00805c:              .text:_isr:__TI_ISR_TRAP:
+00805c:              .text:_isr:
+00805c: 32D0             BIS.W   #0x0010,SR
+00805e: 1000            
+008060: FD3F             JMP     (__TI_ISR_TRAP)
+008062: 0343             NOP     
 
 DATA Section PORT4, 0x2 bytes at 0x0000ffce
 00ffce:              __TI_int22:
 00ffce:              .int22:
 00ffce:              PORT4:
-00ffce: 8060             .word 0x8060
+00ffce: 805c             .word 0x805c
 
 DATA Section PORT3, 0x2 bytes at 0x0000ffd0
 00ffd0:              __TI_int23:
 00ffd0:              .int23:
 00ffd0:              PORT3:
-00ffd0: 8060             .word 0x8060
+00ffd0: 805c             .word 0x805c
 
 DATA Section PORT2, 0x2 bytes at 0x0000ffd2
 00ffd2:              __TI_int24:
 00ffd2:              .int24:
 00ffd2:              PORT2:
-00ffd2: 8060             .word 0x8060
+00ffd2: 805c             .word 0x805c
 
 DATA Section PORT1, 0x2 bytes at 0x0000ffd4
 00ffd4:              __TI_int25:
 00ffd4:              .int25:
 00ffd4:              PORT1:
-00ffd4: 8060             .word 0x8060
+00ffd4: 805c             .word 0x805c
 
 DATA Section SAC1_SAC3, 0x2 bytes at 0x0000ffd6
 00ffd6:              __TI_int26:
 00ffd6:              .int26:
 00ffd6:              SAC1_SAC3:
-00ffd6: 8060             .word 0x8060
+00ffd6: 805c             .word 0x805c
 
 DATA Section SAC0_SAC2, 0x2 bytes at 0x0000ffd8
 00ffd8:              __TI_int27:
 00ffd8:              .int27:
 00ffd8:              SAC0_SAC2:
-00ffd8: 8060             .word 0x8060
+00ffd8: 805c             .word 0x805c
 
 DATA Section ECOMP0_ECOMP1, 0x2 bytes at 0x0000ffda
 00ffda:              __TI_int28:
 00ffda:              .int28:
 00ffda:              ECOMP0_ECOMP1:
-00ffda: 8060             .word 0x8060
+00ffda: 805c             .word 0x805c
 
 DATA Section ADC, 0x2 bytes at 0x0000ffdc
 00ffdc:              __TI_int29:
 00ffdc:              .int29:
 00ffdc:              ADC:
-00ffdc: 8060             .word 0x8060
+00ffdc: 805c             .word 0x805c
 
 DATA Section EUSCI_B1, 0x2 bytes at 0x0000ffde
 00ffde:              __TI_int30:
 00ffde:              .int30:
 00ffde:              EUSCI_B1:
-00ffde: 8060             .word 0x8060
+00ffde: 805c             .word 0x805c
 
 DATA Section EUSCI_B0, 0x2 bytes at 0x0000ffe0
 00ffe0:              __TI_int31:
 00ffe0:              .int31:
 00ffe0:              EUSCI_B0:
-00ffe0: 8060             .word 0x8060
+00ffe0: 805c             .word 0x805c
 
 DATA Section EUSCI_A1, 0x2 bytes at 0x0000ffe2
 00ffe2:              __TI_int32:
 00ffe2:              .int32:
 00ffe2:              EUSCI_A1:
-00ffe2: 8060             .word 0x8060
+00ffe2: 805c             .word 0x805c
 
 DATA Section EUSCI_A0, 0x2 bytes at 0x0000ffe4
 00ffe4:              __TI_int33:
 00ffe4:              .int33:
 00ffe4:              EUSCI_A0:
-00ffe4: 8060             .word 0x8060
+00ffe4: 805c             .word 0x805c
 
 DATA Section WDT, 0x2 bytes at 0x0000ffe6
 00ffe6:              __TI_int34:
 00ffe6:              .int34:
 00ffe6:              WDT:
-00ffe6: 8060             .word 0x8060
+00ffe6: 805c             .word 0x805c
 
 DATA Section RTC, 0x2 bytes at 0x0000ffe8
 00ffe8:              __TI_int35:
 00ffe8:              .int35:
 00ffe8:              RTC:
-00ffe8: 8060             .word 0x8060
+00ffe8: 805c             .word 0x805c
 
 DATA Section TIMER3_B1, 0x2 bytes at 0x0000ffea
 00ffea:              __TI_int36:
 00ffea:              .int36:
 00ffea:              TIMER3_B1:
-00ffea: 8060             .word 0x8060
+00ffea: 805c             .word 0x805c
 
 DATA Section TIMER3_B0, 0x2 bytes at 0x0000ffec
 00ffec:              __TI_int37:
 00ffec:              .int37:
 00ffec:              TIMER3_B0:
-00ffec: 8060             .word 0x8060
+00ffec: 805c             .word 0x805c
 
 DATA Section TIMER2_B1, 0x2 bytes at 0x0000ffee
 00ffee:              __TI_int38:
 00ffee:              .int38:
 00ffee:              TIMER2_B1:
-00ffee: 8060             .word 0x8060
+00ffee: 805c             .word 0x805c
 
 DATA Section TIMER2_B0, 0x2 bytes at 0x0000fff0
 00fff0:              __TI_int39:
 00fff0:              .int39:
 00fff0:              TIMER2_B0:
-00fff0: 8060             .word 0x8060
+00fff0: 805c             .word 0x805c
 
 DATA Section TIMER1_B1, 0x2 bytes at 0x0000fff2
 00fff2:              __TI_int40:
 00fff2:              .int40:
 00fff2:              TIMER1_B1:
-00fff2: 8060             .word 0x8060
+00fff2: 805c             .word 0x805c
 
 DATA Section TIMER1_B0, 0x2 bytes at 0x0000fff4
 00fff4:              __TI_int41:
 00fff4:              .int41:
 00fff4:              TIMER1_B0:
-00fff4: 8060             .word 0x8060
+00fff4: 805c             .word 0x805c
 
 DATA Section TIMER0_B1, 0x2 bytes at 0x0000fff6
 00fff6:              __TI_int42:
 00fff6:              .int42:
 00fff6:              TIMER0_B1:
-00fff6: 8060             .word 0x8060
+00fff6: 805c             .word 0x805c
 
 DATA Section TIMER0_B0, 0x2 bytes at 0x0000fff8
 00fff8:              __TI_int43:
 00fff8:              .int43:
 00fff8:              TIMER0_B0:
-00fff8: 8060             .word 0x8060
+00fff8: 805c             .word 0x805c
 
 DATA Section UNMI, 0x2 bytes at 0x0000fffa
 00fffa:              __TI_int44:
 00fffa:              .int44:
 00fffa:              UNMI:
-00fffa: 8060             .word 0x8060
+00fffa: 805c             .word 0x805c
 
 DATA Section SYSNMI, 0x2 bytes at 0x0000fffc
 00fffc:              __TI_int45:
 00fffc:              .int45:
 00fffc:              SYSNMI:
-00fffc: 8060             .word 0x8060
+00fffc: 805c             .word 0x805c
 
 DATA Section .reset, 0x2 bytes at 0x0000fffe
 00fffe:              _reset_vector:
 00fffe:              .reset:
-00fffe: 8042             .word 0x8042
+00fffe: 803e             .word 0x803e
 
 DATA Section $fill000, 0x4 bytes at 0x0000ff80
 00ff80:              $fill000:

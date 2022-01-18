@@ -8,6 +8,8 @@
 import sys
 import os
 from typing import TextIO, List
+
+from detection import Detection
 from package_zipper import PackageZipper
 from computer_mnemonic_dictionary import ComputerMnemonicDictionary
 from disassembler import Disassembler
@@ -24,7 +26,7 @@ class VHDLParserGenerator:
     Generates VHDL representation of an MSP430 binary.
     """
 
-    def __init__(self, *, binary_file_name: str = "Motor_mover_C") -> None:
+    def __init__(self, *, binary_file_name: str = "Motor_mover_C", asm_file: bool = True) -> None:
         self.program_memory_start: int = 32768
         self.binary_file_name: str = binary_file_name
         self.disassembler_output_file_name: str = "generated_disassembly.txt"
@@ -32,6 +34,7 @@ class VHDLParserGenerator:
         self.memory_indent: str = "\t\t\t\t\t\t   "
         self.nop_opcode: str = "0343"
         self.computer_name_list: List[str] = ["baseline", "highroller", "lowlife"]
+        self.asm_file: bool = asm_file
         StaticUtilities.logger.debug(f"{VHDLParserGenerator.__name__} object initialized")
 
     @staticmethod
@@ -300,8 +303,9 @@ constant ROM : rom_type :=("""
         self.remove_last_generated_vhd_files()
         StaticUtilities.logger.debug(f"Detection {'enabled' if detection else 'disabled'} while generating vhdl.")
         if detection:
-            # detection.detect() # TODO implement detection.detect() and call when detection is True
-            pass
+            # Ex: Detection(path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", source_file="test_generated_ASM.asm")
+            _detection: Detection = Detection(path=rf"{os.getcwd()}\ccs_workspace\{self.binary_file_name}", source_file=f"{self.binary_file_name}.{'asm' if self.asm_file else 'c'}")
+            _detection.detect()  # TODO implement detection.detect() and call when detection is True
         disassembler: Disassembler = Disassembler(disassembler_input_file_name=f"{self.binary_file_name}.out")
         disassembler.disassemble()
         self.generate_vhdl_packages()

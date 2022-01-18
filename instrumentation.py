@@ -57,7 +57,7 @@ class Instrumentation:
         # TODO: modify to prevent deletion of the existing source file in a CCS project.
         #  Instead copy the existing to a different location, build the project, delete the instrumented source from the project and move the non-instrumented source back into the project.
         #  Ensure that auto-building project and build on debug/run is disabled.
-        ccs_project_main_source_file_name: str = "test_asm_generation"
+        ccs_project_main_source_file_name: str = "test_generated_ASM"
 
         # kill CCS if it's running... TODO: don't allow CCS to start while this method has not finished??? (Different looping 'thread'???)
         ccs_running: bool = False
@@ -68,7 +68,7 @@ class Instrumentation:
         # disassemble binary.
         # TODO: Realistically this step could be skipped right now and we could just grab the source file.
         #  However, in the future we should attempt to intercept the binary on the way to the MSP and replace it with out own.
-        #  By grabbing the binary instead of the source we can guarantee that only saved changes are pushed to out modified binaries.
+        #  By grabbing the binary instead of the source we can guarantee that only built changes are pushed to our modified binaries.
         self.disassembler: Disassembler = Disassembler(disassembler_input_file_name=f"{ccs_project_main_source_file_name}.out")
         self.disassembler.disassemble()
 

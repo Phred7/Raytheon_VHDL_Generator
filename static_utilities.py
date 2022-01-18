@@ -21,7 +21,7 @@ class StaticUtilities:
     """
     Class containing a set of static methods, components and context managers implemented throughout this project.
     """
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt="%m-%d-%Y %H:%M:%S")
     logger: Logger = logging.getLogger(__name__)
 
     @staticmethod
