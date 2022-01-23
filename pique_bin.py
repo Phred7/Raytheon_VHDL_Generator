@@ -74,7 +74,9 @@ class PiqueBin:
 
         pique_bin_return_code: int
         with StaticUtilities.change_dir(self.pique_bin_package_directory):
-            pique_bin_return_code = subprocess.call(['java', '-jar', f"{self.pique_bin_jar_file_name}.jar", '-e'])
+            pique_bin_return_code = subprocess.call(['java', '-jar', f"{self.pique_bin_jar_file_name}.jar", '-e'],
+                                                    stdout=subprocess.DEVNULL,
+                                                    stderr=subprocess.STDOUT)
             os.remove(f"{self.pique_bin_package_directory}\\{self.binary_file_name}")
         return pique_bin_return_code
 
