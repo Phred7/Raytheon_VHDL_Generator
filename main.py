@@ -26,7 +26,7 @@ class Main:
         # TODO: class for ccs project to stop having to pass around file names and paths?
 
         # disassembler.disassemble(pique_bool=False)
-        # package_zipper.zip_vhdl(zip_file_name="")
+        package_zipper.zip_vhdl()
         # package_zipper.zip_vhdl(zip_file_name="port_AB_01_12_2022")
 
 
