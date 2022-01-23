@@ -111,7 +111,7 @@ class StaticUtilities:
                 StaticUtilities.logger.error(f"Failed to start process {process_name}")
             return False
         if implement_logger:
-            StaticUtilities.logger.info(f"Successfully started process {process_name}")
+            StaticUtilities.logger.info(f"{process_name} process running")
         return True
 
     @staticmethod
