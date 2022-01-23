@@ -66,7 +66,14 @@ class StaticUtilities:
         assert substring in string
 
     @staticmethod
-    def start_process(process_name: str, executable_name: str, executable_directory: str, *, service_name: str = "", implement_logger: bool = True, start_process_timeout: int = 5, start_process_delay: int = 2) -> bool:
+    def start_process(process_name: str, 
+                      executable_name: str, 
+                      executable_directory: str, 
+                      *, 
+                      service_name: str = "", 
+                      implement_logger: bool = True, 
+                      start_process_timeout: int = 5, 
+                      start_process_delay: int = 2) -> bool:
         """
         Attempts to start a defined process on Windows.
         :param process_name: Name of process to start. Format: "Docker Desktop"
