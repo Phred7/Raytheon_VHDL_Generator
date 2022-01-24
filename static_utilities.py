@@ -25,35 +25,35 @@ class StaticUtilities:
     logger: Logger = logging.getLogger(__name__)
 
     @staticmethod
-    def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> int:
+    def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
         """
-        Returns 0 if file exists. Otherwise raises OSError.
-        :param raise_error: If true raises an OS error if the file does not exist, otherwise returns 1.
+        Returns 0 if file exists, otherwise raises OSError.
+        :param raise_error: If True raises an OS error if the file does not exist, otherwise returns False.
         :param file_directory: Location of directory containing the File file.
         :param file: The name of the File file that should exist.
         :raises OSError: If file does not exist.
-        :return: O if the files exists. 1 if the file does not exist and raise_error is False.
+        :return: True if the files exists. False if the file does not exist and raise_error is False.
         """
         if not os.path.exists(f"{file_directory}\\{file}") or file is None or file == "":
             if raise_error:
                 raise OSError(f"{file_directory}\\{file} does not exist")
-            return 1
-        return 0
+            return False
+        return True
 
     @staticmethod
-    def file_should_not_exist(file_directory: str, file: str, *, raise_error: bool = True) -> int:
+    def file_should_not_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
         """
         Checks to see if the specified file exists.
-        :param raise_error: If true raises an OS error if the file exists, otherwise returns 1.
+        :param raise_error: If true raises an OS error if the file exists, otherwise returns False.
         :param file_directory: Location of directory containing the File file.
         :param file: The name of the File file that should exist.
-        :return: O if the files exists, otherwise 1.
+        :return: True if the files does not exist, otherwise False.
         """
         if os.path.exists(f"{file_directory}\\{file}"):
             if raise_error:
                 raise OSError(f"{file_directory}\\{file} exist")
-            return 1
-        return 0
+            return False
+        return True
 
     @staticmethod
     def str_should_contain_substring(string: str, substring: str) -> None:
