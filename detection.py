@@ -8,6 +8,7 @@
 import hashlib
 import os
 from typing import Dict
+import json
 
 from pique_bin import PiqueBin
 from static_utilities import StaticUtilities
@@ -28,26 +29,42 @@ class Detection:
         else:
             self.pique_bin = None
         StaticUtilities.logger.debug(f"{Detection.__name__} object initialized")
-        self.hashed_files: dict = {}
+        self.hashed_files: dict = self.initialize_hash_dict()
 
-    def detect(self) -> None:
+    def detect(self, check_against_hash: bool = True) -> bool:
         """
         Executes a sequence of algorithms to attempt to detect malware or vulnerabilities that may exist within a binary and a corresponding source file.
-        :return:
+        :return: True if no malware or vulnerabilities are detected, False otherwise.
         """
         # TODO: May be a good idea to analyze binaries by disassembling, generating a source file and comparing contents with the original source file.
         # It's starting to be clear to me that detecting is going to be much more complicated than instrumentation and injection.
+        if check_against_hash:
+            self.hash_file(self.path + self.source_file) # TODO: DOES THIS NEED TO INCLUDE A SLASH OR SOMETHING?
         if isinstance(self.pique_bin, PiqueBin):
             StaticUtilities.logger.info(
                 f"PIQUE-Bin Binary Security Quality: {self.pique_bin.pique_bin()}")
+        return True # TODO: NO
         # If the Security Quality is below some threshold loop through vulnerability inspections.
 
-    def hash_file(self, file: str):
+    def hash_file(self, file: str) -> bool:
         """
         Creates a hash of the contents of the file and writes it to a serialized dict.
         :param file: The file to be hashed. Name of the file must be unique among all hashed files.
-        :return: key in dict for this file.
+        :return: True if file was successfully hashed or was already hashed and there was no mismatch, False if file was already hashed but there is a mismatch.
         """
+
+        file_name_hash = hashlib.sha256()
+        file_name_hash.update(bytearray(file, 'UTF-8'))
+        file_name_key = file_name_hash.hexdigest()
+
+        if file_name_key in self.hashed_files:
+            match = self._check_file_hash(file)
+            if match:
+                return True
+
+        if not self.detect(check_against_hash=False):
+            return False
+
         # The following including comments borrowed from https://nitratine.net/blog/post/how-to-hash-files-in-python/ until '###########' reached
         file = r"spam.txt"  # Location of the file (can be set a different way)
         BLOCK_SIZE = 1000000  # The size of each read from the file (1 megabyte)
@@ -58,12 +75,13 @@ class Detection:
             while len(fb) > 0:  # While there is still data being read from the file
                 file_hash.update(fb)  # Update the hash
                 fb = f.read(BLOCK_SIZE)  # Read the next block from the file
-
-        file_name_hash = hashlib.sha256()
-        file_name_hash.update(bytearray(file, 'UTF-8'))
-        file_name_key = file_name_hash.hexdigest()
-        self.hashed_files[file_name_key] = file_hash.hexdigest()
         ###########
+
+        self.hashed_files[file_name_key] = file_hash.hexdigest()
+        g = open("./hashed_disassemblies.json", 'w')
+        g.write(json.dumps(self.hashed_files))
+        g.close()
+        return True
 
     def _check_file_hash(self, file: str) -> bool:
         """
@@ -83,6 +101,12 @@ class Detection:
                 file_hash.update(fb)  # Update the hash
                 fb = f.read(BLOCK_SIZE)  # Read the next block from the file
         return self.hashed_files[file_name_key] == file_hash.hexdigest()
+
+    def initialize_hash_dict(self) -> dict:
+        if not os.path.exists("./hashed_disassemblies.json"):
+            return {}
+        with open("hashed_disassemblies.json", 'r') as f:
+            return json.loads(f.read())
 
     def _detect_buffer_overflow_attack(self) -> bool:
         """
