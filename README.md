@@ -88,6 +88,8 @@ Steps
 ## Hardware
 ### The MSP430FR2355
 ## Dependencies
+### Python 3.9
+### PIQUE-Bin Jar 0.0.1
 ### DriverLib
 - In CCS goto Window -> Preferences and search Products. Ensure "Search for products each time CCS starts" is enabled.
 - Close CCS (all instances).
