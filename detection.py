@@ -7,6 +7,7 @@
 ###############################
 import hashlib
 import os
+import static_utilities
 from typing import Dict
 import json
 
@@ -30,6 +31,7 @@ class Detection:
             self.pique_bin = None
         StaticUtilities.logger.debug(f"{Detection.__name__} object initialized")
         self.hashed_files: dict = self.initialize_hash_dict()
+        # self.hashed_files: dict = {}
 
     def detect(self, check_against_hash: bool = True) -> bool:
         """
@@ -38,35 +40,48 @@ class Detection:
         """
         # TODO: May be a good idea to analyze binaries by disassembling, generating a source file and comparing contents with the original source file.
         # It's starting to be clear to me that detecting is going to be much more complicated than instrumentation and injection.
-        if check_against_hash:
-            self.hash_file(self.path + self.source_file) # TODO: DOES THIS NEED TO INCLUDE A SLASH OR SOMETHING?
-        if isinstance(self.pique_bin, PiqueBin):
-            StaticUtilities.logger.info(
-                f"PIQUE-Bin Binary Security Quality: {self.pique_bin.pique_bin()}")
+        if self.hashed_file_exists_and_matches_cache(f"{self.path}\\{self.source_file}"):
+            return True
+        else:
+            security_quality: float = 0.8
+            threshold = 0.7 # TODO FIND AN ACTUALLY GOOD VALUE FOR THIS, I PULLED THIS OUT OF MY ARSE
+
+            if isinstance(self.pique_bin, PiqueBin):
+                security_quality = self.pique_bin.pique_bin()
+                StaticUtilities.logger.info(
+                    f"PIQUE-Bin Binary Security Quality: {security_quality}")
+            if security_quality > threshold:
+                self.hash_file(f"{self.path}\\{self.source_file}")
+
         return True # TODO: NO
         # If the Security Quality is below some threshold loop through vulnerability inspections.
 
-    def hash_file(self, file: str) -> bool:
+    def hashed_file_exists_and_matches_cache(self, file: str) -> bool:
         """
-        Creates a hash of the contents of the file and writes it to a serialized dict.
-        :param file: The file to be hashed. Name of the file must be unique among all hashed files.
-        :return: True if file was successfully hashed or was already hashed and there was no mismatch, False if file was already hashed but there is a mismatch.
+        Verifies whether a file has been cached and whether it matches that cache.
+        :param file: The file to check for a hashed value.
+        :return: True if the file has already been cached and the hashed value of the file matches the cached value.
+        False if the file has not been cached or if the file has been cached and the hashed value of the file does not
+        match the cached value.
         """
-
         file_name_hash = hashlib.sha256()
         file_name_hash.update(bytearray(file, 'UTF-8'))
         file_name_key = file_name_hash.hexdigest()
 
         if file_name_key in self.hashed_files:
-            match = self._check_file_hash(file)
-            if match:
+            if self._check_file_hash(file):
+                StaticUtilities.logger.debug("Cached file already exists")
                 return True
+        return False
 
-        if not self.detect(check_against_hash=False):
-            return False
+    def hash_file(self, file: str) -> None:
+        """
+        Creates a hash of the contents of the file and writes it to a serialized dict.
+        :param file: The file to be hashed. Name of the file must be unique among all hashed files.
+        :return:
+        """
 
         # The following including comments borrowed from https://nitratine.net/blog/post/how-to-hash-files-in-python/ until '###########' reached
-        file = r"spam.txt"  # Location of the file (can be set a different way)
         BLOCK_SIZE = 1000000  # The size of each read from the file (1 megabyte)
 
         file_hash = hashlib.sha256()  # Create the hash object, can use something other than `.sha256()` if you wish
@@ -77,16 +92,21 @@ class Detection:
                 fb = f.read(BLOCK_SIZE)  # Read the next block from the file
         ###########
 
+        file_name_hash = hashlib.sha256()
+        file_name_hash.update(bytearray(file, 'UTF-8'))
+        file_name_key = file_name_hash.hexdigest()
         self.hashed_files[file_name_key] = file_hash.hexdigest()
-        g = open("./hashed_disassemblies.json", 'w')
+        g = open(f"./hashed_disassemblies.json", 'w')
         g.write(json.dumps(self.hashed_files))
         g.close()
-        return True
+        StaticUtilities.logger.info("Wrote to cache file hashed_disassemblies.json")
 
     def _check_file_hash(self, file: str) -> bool:
         """
-        Uses the name of a file to find it's hash in a dict. If a hash for this file exists get a bool representing a comparison between this hash and the existing hash.
-        :return: True if this hash matches the newest hash in the dict for this file or if a hash does not exist, otherwise False.
+        Uses the name of a file to find it's hash in a dict. If a hash for this file exists get a bool representing
+        a comparison between this hash and the existing hash.
+        :return: True if this hash matches the newest hash in the dict for this file or if a hash does not exist,
+        otherwise False.
         """
         file_name_hash = hashlib.sha256()
         file_name_hash.update(bytearray(file, 'UTF-8'))

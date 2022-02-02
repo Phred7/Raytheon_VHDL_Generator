@@ -3,7 +3,7 @@
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
-# Written by Blake Stanger and Walker Ward
+# Written by Blake Stanger, Walker Ward and Michael Heidal
 ###############################
 import sys
 import os
@@ -304,7 +304,7 @@ constant ROM : rom_type :=("""
         StaticUtilities.logger.debug(f"Detection {'enabled' if detection else 'disabled'} while generating vhdl.")
         if detection:
             # Ex: Detection(path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", source_file="test_generated_ASM.asm")
-            _detection: Detection = Detection(path=rf"{os.getcwd()}\ccs_workspace\{self.binary_file_name}", source_file=f"{self.binary_file_name}.{'asm' if self.asm_file else 'c'}", pique_bin_bool=True)
+            _detection: Detection = Detection(path=rf"{os.getcwd()}\ccs_workspace\{self.binary_file_name}", source_file=f"{self.binary_file_name}.{'asm' if self.asm_file else 'c'}", pique_bin_bool=False)
             _detection.detect()  # TODO implement detection.detect() and call when detection is True
         disassembler: Disassembler = Disassembler(disassembler_input_file_name=f"{self.binary_file_name}.out")
         disassembler.disassemble()
