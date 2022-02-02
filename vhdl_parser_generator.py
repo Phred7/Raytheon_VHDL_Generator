@@ -304,7 +304,7 @@ constant ROM : rom_type :=("""
         StaticUtilities.logger.debug(f"Detection {'enabled' if detection else 'disabled'} while generating vhdl.")
         if detection:
             # Ex: Detection(path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", source_file="test_generated_ASM.asm")
-            _detection: Detection = Detection(path=rf"{os.getcwd()}\ccs_workspace\{self.binary_file_name}", source_file=f"{self.binary_file_name}.{'asm' if self.asm_file else 'c'}", pique_bin_bool=False)
+            _detection: Detection = Detection(path=rf"{os.getcwd()}\ccs_workspace\{self.binary_file_name}", source_file=f"{self.binary_file_name}.{'asm' if self.asm_file else 'c'}", pique_bin_bool=False, suppress_pique_bin_logs=False)
             _detection.detect()  # TODO implement detection.detect() and call when detection is True
         disassembler: Disassembler = Disassembler(disassembler_input_file_name=f"{self.binary_file_name}.out")
         disassembler.disassemble()

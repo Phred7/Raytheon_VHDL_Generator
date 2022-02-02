@@ -40,7 +40,7 @@ class PackageZipper:
         """
         self.number_of_zipped_files = 0
         duplicate_file_modifier: int = 0
-        while StaticUtilities.file_should_exist(f'{os.getcwd()}\\{self.vhdl_directory}', f'{zip_file_name}.zip', raise_error=False) == 0:
+        while StaticUtilities.file_should_exist(f'{os.getcwd()}\\{self.vhdl_directory}', f'{zip_file_name}.zip', raise_error=False):
             if duplicate_file_modifier == 0:
                 zip_file_name = f"{zip_file_name}_[0]"
             else:

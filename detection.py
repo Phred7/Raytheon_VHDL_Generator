@@ -20,13 +20,13 @@ class Detection:
     Attempts to detect various forms of malware or vulnerabilities with in a binary and source file pair.
     """
 
-    def __init__(self, path: str, source_file: str, *, pique_bin_bool: bool = True) -> None:  # TODO: this constructor need to be updated. Should contain reference to ccs project, source file, binary file and possibly disassembly.
+    def __init__(self, path: str, source_file: str, *, pique_bin_bool: bool = True, suppress_pique_bin_logs: bool = True) -> None:  # TODO: this constructor need to be updated. Should contain reference to ccs project, source file, binary file and possibly disassembly.
         self.hash: Dict[int: str] = None
         self.source_file: str = source_file
         self.path: str = path
         self.binary_security_quality: float = 0
         if pique_bin_bool:
-            self.pique_bin: PiqueBin = PiqueBin(source_file_name=self.source_file)
+            self.pique_bin: PiqueBin = PiqueBin(source_file_name=self.source_file, suppress_printing_bool=suppress_pique_bin_logs)
         else:
             self.pique_bin = None
         StaticUtilities.logger.debug(f"{Detection.__name__} object initialized")
@@ -64,6 +64,7 @@ class Detection:
         False if the file has not been cached or if the file has been cached and the hashed value of the file does not
         match the cached value.
         """
+
         file_name_hash = hashlib.sha256()
         file_name_hash.update(bytearray(file, 'UTF-8'))
         file_name_key = file_name_hash.hexdigest()
@@ -82,6 +83,7 @@ class Detection:
         """
 
         # The following including comments borrowed from https://nitratine.net/blog/post/how-to-hash-files-in-python/ until '###########' reached
+        file = r"spam.txt"  # Location of the file (can be set a different way) TODO: ensure that the file exists
         BLOCK_SIZE = 1000000  # The size of each read from the file (1 megabyte)
 
         file_hash = hashlib.sha256()  # Create the hash object, can use something other than `.sha256()` if you wish

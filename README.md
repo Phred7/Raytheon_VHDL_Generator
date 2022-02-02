@@ -77,10 +77,10 @@ Steps
   - msp430.h
 - Create a project using custom MSP as the target device
 - Prop. -> build -> compiler -> proc options -> silicon version = msp
-- Prop. -> build -> compiler -> predefined symbols -> add Pre-define NAME: __COLT430FR2355__
-- - Prop. -> build -> compiler -> predefined symbols -> add Pre-define NAME: __MSP430FR2355__
-- - Prop. -> build -> compiler -> predefined symbols -> add Pre-define NAME: \_FRWP_ENABLE
-- - Prop. -> build -> compiler -> predefined symbols -> add Pre-define NAME: \_INFO_FRWP_ENABLE
+- Prop. -> build -> compiler -> predefined symbols -> add Pre-define NAME: __COLT430FR2355__  [//]: # (Include the dunder)
+- - Prop. -> build -> compiler -> predefined symbols -> add Pre-define NAME: __MSP430FR2355__  [//]: # (Include the dunder)
+- - Prop. -> build -> compiler -> predefined symbols -> add Pre-define NAME: \_FRWP_ENABLE  [//]: # (Omit the backslash)
+- - Prop. -> build -> compiler -> predefined symbols -> add Pre-define NAME: \_INFO_FRWP_ENABLE  [//]: # (Omit the backslash)
 - Prop. -> build -> compiler -> adv. -> Assembler Options -> ‘check’ keep the generated asm lang.
 - Prop. -> general -> linker cmd file = lnk_colt430fr2355.cmd
 - Copy target config directory from another CCS project of the same language to this project
@@ -88,6 +88,8 @@ Steps
 ## Hardware
 ### The MSP430FR2355
 ## Dependencies
+### Python 3.9
+### PIQUE-Bin Jar 0.0.1
 ### DriverLib
 - In CCS goto Window -> Preferences and search Products. Ensure "Search for products each time CCS starts" is enabled.
 - Close CCS (all instances).

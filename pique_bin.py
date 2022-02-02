@@ -17,7 +17,7 @@ class PiqueBin:
     Manages PiqueBin tool.
     """
 
-    def __init__(self, source_file_name: str) -> None:
+    def __init__(self, source_file_name: str, *, suppress_printing_bool: bool = True) -> None:
         """
         Instantiate PiqueBin object.
         :param source_file_name: Name of the source file to associate with a binary to run PIQUE-Bin on.
@@ -31,6 +31,7 @@ class PiqueBin:
         self.pique_bin_package_directory: str = f"{os.getcwd()}\PIQUE-Bin-Jar-0.0.1\\"  # old: f"{os.getcwd()}\\PIQUE-Bin-Jar\\"  # Ex: Location of dir PIQUE-Bin-Jar/.
         self.pique_bin_output_file_directory: str = f"{self.pique_bin_package_directory}out"
         self.pique_exit_status: int = -1
+        self.suppress_printing_bool: bool = suppress_printing_bool
         StaticUtilities.file_should_exist(file_directory=self.binary_file_directory, file=self.binary_file_name)
         StaticUtilities.logger.debug(f"{PiqueBin.__name__} object initialized")
         StaticUtilities.logger.warning(f"PIQUE-Bin not fully functional.")
@@ -74,9 +75,12 @@ class PiqueBin:
 
         pique_bin_return_code: int
         with StaticUtilities.change_dir(self.pique_bin_package_directory):
-            pique_bin_return_code = subprocess.call(['java', '-jar', f"{self.pique_bin_jar_file_name}.jar", '-e'],
-                                                    stdout=subprocess.DEVNULL,
-                                                    stderr=subprocess.STDOUT)
+            if self.suppress_printing_bool:
+                pique_bin_return_code = subprocess.call(['java', '-jar', f"{self.pique_bin_jar_file_name}.jar", '-e'],
+                                                        stdout=subprocess.DEVNULL,
+                                                        stderr=subprocess.STDOUT)
+            else:
+                pique_bin_return_code = subprocess.call(['java', '-jar', f"{self.pique_bin_jar_file_name}.jar", '-e'])
             os.remove(f"{self.pique_bin_package_directory}\\{self.binary_file_name}")
         return pique_bin_return_code
 
