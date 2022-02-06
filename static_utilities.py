@@ -23,6 +23,12 @@ class StaticUtilities:
     """
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt="%m-%d-%Y %H:%M:%S")
     logger: Logger = logging.getLogger(__name__)
+    file_logging_handler = logging.FileHandler('log.log')
+    file_logging_handler.setFormatter(
+        logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
+    file_logging_handler.setLevel(logging.DEBUG)
+    logger.addHandler(file_logging_handler)
+    logger.info("Running Raytheon VHDL Generator")
 
     @staticmethod
     def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:

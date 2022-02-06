@@ -1,0 +1,9 @@
+2022-02-06 09:37:42,031 INFO static_utilities StaticUtilities 
+
+Running Raytheon VHDL Generator
+2022-02-06 09:37:42,069 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-02-06 09:37:42,069 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-02-06 09:37:42,070 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-02-06 09:37:42,070 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-02-06 09:37:42,070 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-02-06 09:37:42,071 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
