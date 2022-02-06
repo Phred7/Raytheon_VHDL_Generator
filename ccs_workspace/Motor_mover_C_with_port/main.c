@@ -24,7 +24,7 @@ int main(void)
     int input;
 
 
-    while(1){
+    while(1){ // true != 0
 
         P1OUT |= BIT4; //This is setting bit4 high
         int i;
