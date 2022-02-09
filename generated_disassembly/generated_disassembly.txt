@@ -1,188 +1,860 @@
 
-TEXT Section .text, 0x22 bytes at 0x00008000
-008000:              _c_int00_noinit_noargs:
-008000:              .text:_c_int00_noinit_noargs:
+TEXT Section .text, 0x4ea bytes at 0x00008000
+008000:              RESET:
 008000: 3140             MOV.W   #0x3000,SP
 008002: 0030            
-008004: B012             CALL    #_system_pre_init
-008006: 1A80            
-008008: 0C43             CLR.W   R12
-00800a: B012             CALL    #main
-00800c: 1E80            
-00800e: 1C43             MOV.W   #1,R12
-008010: B012             CALL    #abort
-008012: 1480            
-008014:              abort:
-008014:              C$$EXIT:
-008014:              .text:abort:
-008014: 0343             NOP     
-008016:              $C$L1:
-008016: FF3F             JMP     ($C$L1)
-008018: 0343             NOP     
-00801a:              _system_pre_init:
-00801a:              .text:_system_pre_init:
-00801a: 1C43             MOV.W   #1,R12
-00801c: 3041             RET     
-00801e:              main:
-00801e:              .text:main:
-00801e: 0C43             CLR.W   R12
-008020: 3041             RET     
+008004:              StopWDT:
+008004: B240             MOV.W   #0x5a80,&WDTCTL_L
+008006: 805A            
+008008: CC01            
+00800a:              init:
+00800a: 3440             MOV.W   #0x2000,R4
+00800c: 0020            
+00800e: 0544             MOV.W   R4,R5
+008010: 3640             MOV.W   #0x2004,R6
+008012: 0420            
+008014: E2C3             BIC.B   #2,&P4DIR
+008016: 2502            
+008018: E2D3             BIS.B   #2,&P4REN
+00801a: 2702            
+00801c: E2D3             BIS.B   #2,&P4OUT
+00801e: 2302            
+008020: F2C3             BIC.B   #-1,&P4IFG
+008022: 3D02            
+008024: E2D3             BIS.B   #2,&P4IES
+008026: 3902            
+008028: E2D3             BIS.B   #2,&P4IE
+00802a: 3B02            
+00802c: 0343             NOP     
+00802e: 32D2             EINT    
+008030: 0343             NOP     
+008032: 32D2             EINT    
+008034: 0343             NOP     
+008036: 32C2             DINT    
+008038: 0343             NOP     
+00803a: D2C3             BIC.B   #1,&PM5CTL0_L
+00803c: 3001            
+00803e:              main:
+00803e:              movement:
+00803e: 1742             MOV.W   &Con1,R7
+008040: 0020            
+008042: 1840             MOV.W   Con2,R8
+008044: BE9F            
+008046: 2944             MOV.W   @R4,R9
+008048: 3A45             MOV.W   @R5+,R10
+00804a: 3B45             MOV.W   @R5+,R11
+00804c: 9644             MOV.W   0x0002(R4),0x0004(R6)
+00804e: 0200            
+008050: 0400            
+008052:              manipulation:
+008052: 3440             MOV.W   #0x2000,R4
+008054: 0020            
+008056: 8054             ADD.W   R4,Const2
+008058: CA9F            
+00805a: 1552             ADD.W   &Con1,R5
+00805c: 0020            
+00805e: 3440             MOV.W   #0x2000,R4
+008060: 0020            
+008062: 3640             MOV.W   #0x2004,R6
+008064: 0420            
+008066: A654             ADD.W   @R4,0x0004(R6)
+008068: 0400            
+00806a: B050             ADD.W   #0x2000,Var1
+00806c: 0020            
+00806e: 969F            
+008070: 3655             ADD.W   @R5+,R6
+008072: 0564             ADDC.W  R4,R5
+008074: 8065             ADDC.W  R5,Const2
+008076: AC9F            
+008078: 1562             ADDC.W  &Con1,R5
+00807a: 0020            
+00807c: 3440             MOV.W   #0x2000,R4
+00807e: 0020            
+008080: 3640             MOV.W   #0x2004,R6
+008082: 0420            
+008084: A664             ADDC.W  @R4,0x0004(R6)
+008086: 0400            
+008088: B060             ADDC.W  #0x2000,Var1
+00808a: 0020            
+00808c: 789F            
+00808e: 3665             ADDC.W  @R5+,R6
+008090: 12D3             SETC    
+008092: 0463             ADC.W   R4
+008094: 8063             ADC.W   Const2
+008096: 8C9F            
+008098: 8263             ADC.W   &Con1
+00809a: 0020            
+00809c: B040             MOV.W   #0x2000,Var1
+00809e: 0020            
+0080a0: 649F            
+0080a2: 3440             MOV.W   #0x2000,R4
+0080a4: 0020            
+0080a6: 12D3             SETC    
+0080a8: 8063             ADC.W   Var1
+0080aa: 5A9F            
+0080ac: 8463             ADC.W   0x0004(R4)
+0080ae: 0400            
+0080b0: 0584             SUB.W   R4,R5
+0080b2: 8084             SUB.W   R4,Const2
+0080b4: 6E9F            
+0080b6: 1582             SUB.W   &Con1,R5
+0080b8: 0020            
+0080ba: 3440             MOV.W   #0x2000,R4
+0080bc: 0020            
+0080be: 3640             MOV.W   #0x2004,R6
+0080c0: 0420            
+0080c2: A684             SUB.W   @R4,0x0004(R6)
+0080c4: 0400            
+0080c6: B080             SUB.W   #0x2000,Var1
+0080c8: 0020            
+0080ca: 3A9F            
+0080cc: 3685             SUB.W   @R5+,R6
+0080ce: 0675             SUBC.W  R5,R6
+0080d0: 8074             SUBC.W  R4,Const2
+0080d2: 509F            
+0080d4: 1572             SUBC.W  &Con1,R5
+0080d6: 0020            
+0080d8: 3440             MOV.W   #0x2000,R4
+0080da: 0020            
+0080dc: 3640             MOV.W   #0x2004,R6
+0080de: 0420            
+0080e0: A674             SUBC.W  @R4,0x0004(R6)
+0080e2: 0400            
+0080e4: B070             SUBC.W  #0x2000,Var1
+0080e6: 0020            
+0080e8: 1C9F            
+0080ea: 3675             SUBC.W  @R5+,R6
+0080ec: 12D3             SETC    
+0080ee: 0473             SBC.W   R4
+0080f0: 8073             SBC.W   Const2
+0080f2: 309F            
+0080f4: 8273             SBC.W   &Con1
+0080f6: 0020            
+0080f8: B040             MOV.W   #0x2000,Var1
+0080fa: 0020            
+0080fc: 089F            
+0080fe: 3440             MOV.W   #0x2000,R4
+008100: 0020            
+008102: 12D3             SETC    
+008104: 8073             SBC.W   Var1
+008106: FE9E            
+008108: 8473             SBC.W   0x0004(R4)
+00810a: 0400            
+00810c: 12D3             SETC    
+00810e: 05A4             DADD.W  R4,R5
+008110: 80A4             DADD.W  R4,Const2
+008112: 109F            
+008114: 15A2             DADD.W  &Con1,R5
+008116: 0020            
+008118: 3440             MOV.W   #0x2000,R4
+00811a: 0020            
+00811c: 3640             MOV.W   #0x2004,R6
+00811e: 0420            
+008120: 12D3             SETC    
+008122: A6A4             DADD.W  @R4,0x0004(R6)
+008124: 0400            
+008126: B0A0             DADD.W  #0x2000,Var1
+008128: 0020            
+00812a: DA9E            
+00812c: 36A5             DADD.W  @R5+,R6
+00812e: 12D3             SETC    
+008130: 04A3             DADC.W  R4
+008132: 80A3             DADC.W  Const2
+008134: EE9E            
+008136: 82A3             DADC.W  &Con1
+008138: 0020            
+00813a: B040             MOV.W   #0x2000,Var1
+00813c: 0020            
+00813e: C69E            
+008140: 3440             MOV.W   #0x2000,R4
+008142: 0020            
+008144: 12D3             SETC    
+008146: 80A3             DADC.W  Var1
+008148: BC9E            
+00814a: 84A3             DADC.W  0x0004(R4)
+00814c: 0400            
+00814e: 1453             INC.W   R4
+008150: 9053             INC.W   Const2
+008152: D09E            
+008154: 9253             INC.W   &Con1
+008156: 0020            
+008158: B040             MOV.W   #0x2000,Var1
+00815a: 0020            
+00815c: A89E            
+00815e: 3440             MOV.W   #0x2000,R4
+008160: 0020            
+008162: 9053             INC.W   Var1
+008164: A09E            
+008166: 9453             INC.W   0x0004(R4)
+008168: 0400            
+00816a: 2453             INCD.W  R4
+00816c: A053             INCD.W  Const2
+00816e: B49E            
+008170: A253             INCD.W  &Con1
+008172: 0020            
+008174: B040             MOV.W   #0x2000,Var1
+008176: 0020            
+008178: 8C9E            
+00817a: 3440             MOV.W   #0x2000,R4
+00817c: 0020            
+00817e: A053             INCD.W  Var1
+008180: 849E            
+008182: A453             INCD.W  0x0004(R4)
+008184: 0400            
+008186: 1483             DEC.W   R4
+008188: 9083             DEC.W   Const2
+00818a: 989E            
+00818c: 9283             DEC.W   &Con1
+00818e: 0020            
+008190: B040             MOV.W   #0x2000,Var1
+008192: 0020            
+008194: 709E            
+008196: 3440             MOV.W   #0x2000,R4
+008198: 0020            
+00819a: 9083             DEC.W   Var1
+00819c: 689E            
+00819e: 9483             DEC.W   0x0004(R4)
+0081a0: 0400            
+0081a2: 2483             DECD.W  R4
+0081a4: A083             DECD.W  Const2
+0081a6: 7C9E            
+0081a8: A283             DECD.W  &Con1
+0081aa: 0020            
+0081ac: B040             MOV.W   #0x2000,Var1
+0081ae: 0020            
+0081b0: 549E            
+0081b2: 3440             MOV.W   #0x2000,R4
+0081b4: 0020            
+0081b6: A083             DECD.W  Var1
+0081b8: 4C9E            
+0081ba: A483             DECD.W  0x0004(R4)
+0081bc: 0400            
+0081be: 7440             MOV.B   #0x004e,R4
+0081c0: 4E00            
+0081c2: 74E3             INV.B   R4
+0081c4: 3440             MOV.W   #0x2032,R4
+0081c6: 3220            
+0081c8: 34E3             INV.W   R4
+0081ca: B2E3             INV.W   &Const1
+0081cc: 2020            
+0081ce: B0E3             INV.W   Const10
+0081d0: 629E            
+0081d2: 3440             MOV.W   #0x2032,R4
+0081d4: 3220            
+0081d6: B4E3             INV.W   0x0002(R4)
+0081d8: 0200            
+0081da: 7440             MOV.B   #0x00aa,R4
+0081dc: AA00            
+0081de: 74F0             AND.B   #0x000f,R4
+0081e0: 0F00            
+0081e2: 05F4             AND.W   R4,R5
+0081e4: 80F4             AND.W   R4,Const2
+0081e6: 3C9E            
+0081e8: 15F2             AND.W   &Con1,R5
+0081ea: 0020            
+0081ec: 3440             MOV.W   #0x2000,R4
+0081ee: 0020            
+0081f0: 3640             MOV.W   #0x2004,R6
+0081f2: 0420            
+0081f4: A6F4             AND.W   @R4,0x0004(R6)
+0081f6: 0400            
+0081f8: B0F0             AND.W   #0x2000,Var1
+0081fa: 0020            
+0081fc: 089E            
+0081fe: 36F5             AND.W   @R5+,R6
+008200: 7440             MOV.B   #0x00aa,R4
+008202: AA00            
+008204: 74D0             BIS.B   #0x0249,R4
+008206: 4902            
+008208: 05D4             BIS.W   R4,R5
+00820a: 80D4             BIS.W   R4,Const2
+00820c: 169E            
+00820e: 15D2             BIS.W   &Con1,R5
+008210: 0020            
+008212: 34D0             BIS.W   #0x2000,R4
+008214: 0020            
+008216: 36D0             BIS.W   #0x2004,R6
+008218: 0420            
+00821a: A6D4             BIS.W   @R4,0x0004(R6)
+00821c: 0400            
+00821e: B0D0             BIS.W   #0x2000,Var1
+008220: 0020            
+008222: E29D            
+008224: 36D5             BIS.W   @R5+,R6
+008226: 7440             MOV.B   #0x00aa,R4
+008228: AA00            
+00822a: 74E0             XOR.B   #0x0055,R4
+00822c: 5500            
+00822e: 06E5             XOR.W   R5,R6
+008230: 80E4             XOR.W   R4,Const2
+008232: F09D            
+008234: 15E2             XOR.W   &Con1,R5
+008236: 0020            
+008238: 3440             MOV.W   #0x2000,R4
+00823a: 0020            
+00823c: 3640             MOV.W   #0x2004,R6
+00823e: 0420            
+008240: A6E4             XOR.W   @R4,0x0004(R6)
+008242: 0400            
+008244: B0E0             XOR.W   #0x2000,Var1
+008246: 0020            
+008248: BC9D            
+00824a: 36E5             XOR.W   @R5+,R6
+00824c: 7440             MOV.B   #0x00aa,R4
+00824e: AA00            
+008250: 74D0             BIS.B   #0x0249,R4
+008252: 4902            
+008254: 05D4             BIS.W   R4,R5
+008256: 80D4             BIS.W   R4,Const2
+008258: CA9D            
+00825a: 15D2             BIS.W   &Con1,R5
+00825c: 0020            
+00825e: 3440             MOV.W   #0x2000,R4
+008260: 0020            
+008262: 3640             MOV.W   #0x2004,R6
+008264: 0420            
+008266: A6D4             BIS.W   @R4,0x0004(R6)
+008268: 0400            
+00826a: B0D0             BIS.W   #0x2000,Var1
+00826c: 0020            
+00826e: 969D            
+008270: 36D5             BIS.W   @R5+,R6
+008272: 7440             MOV.B   #0x00aa,R4
+008274: AA00            
+008276: 74C0             BIC.B   #0x0018,R4
+008278: 1800            
+00827a: 05C4             BIC.W   R4,R5
+00827c: 80C4             BIC.W   R4,Const2
+00827e: A49D            
+008280: 15C2             BIC.W   &Con1,R5
+008282: 0020            
+008284: 3440             MOV.W   #0x2000,R4
+008286: 0020            
+008288: 3640             MOV.W   #0x2004,R6
+00828a: 0420            
+00828c: A6C4             BIC.W   @R4,0x0004(R6)
+00828e: 0400            
+008290: B0C0             BIC.W   #0x2000,Var1
+008292: 0020            
+008294: 709D            
+008296: 36C5             BIC.W   @R5+,R6
+008298: 7440             MOV.B   #0x00aa,R4
+00829a: AA00            
+00829c: 74B0             BIT.B   #0x0018,R4
+00829e: 1800            
+0082a0: 05B4             BIT.W   R4,R5
+0082a2: 80B4             BIT.W   R4,Const2
+0082a4: 7E9D            
+0082a6: 15B2             BIT.W   &Con1,R5
+0082a8: 0020            
+0082aa: 3440             MOV.W   #0x2000,R4
+0082ac: 0020            
+0082ae: 3640             MOV.W   #0x2004,R6
+0082b0: 0420            
+0082b2: A6B4             BIT.W   @R4,0x0004(R6)
+0082b4: 0400            
+0082b6: B0B0             BIT.W   #0x2000,Var1
+0082b8: 0020            
+0082ba: 4A9D            
+0082bc: 36B5             BIT.W   @R5+,R6
+0082be: 7540             MOV.B   #0x0063,R5
+0082c0: 6300            
+0082c2: 7590             CMP.B   #0x0063,R5
+0082c4: 6300            
+0082c6: 7590             CMP.B   #0x004d,R5
+0082c8: 4D00            
+0082ca: 0594             CMP.W   R4,R5
+0082cc: 8094             CMP.W   R4,Const2
+0082ce: 549D            
+0082d0: 1592             CMP.W   &Con1,R5
+0082d2: 0020            
+0082d4: 3440             MOV.W   #0x2000,R4
+0082d6: 0020            
+0082d8: 3640             MOV.W   #0x2004,R6
+0082da: 0420            
+0082dc: A694             CMP.W   @R4,0x0004(R6)
+0082de: 0400            
+0082e0: B090             CMP.W   #0x2000,Var1
+0082e2: 0020            
+0082e4: 209D            
+0082e6: 3695             CMP.W   @R5+,R6
+0082e8: 7740             MOV.B   #0xff9d,R7
+0082ea: 9DFF            
+0082ec: 4643             CLR.B   R6
+0082ee: 4693             TST.B   R6
+0082f0: 4793             TST.B   R7
+0082f2: 0493             TST.W   R4
+0082f4: 8093             TST.W   Const2
+0082f6: 2C9D            
+0082f8: 8293             TST.W   &Con1
+0082fa: 0020            
+0082fc: B040             MOV.W   #0x2000,Var1
+0082fe: 0020            
+008300: 049D            
+008302: 3440             MOV.W   #0x2000,R4
+008304: 0020            
+008306: 8093             TST.W   Var1
+008308: FC9C            
+00830a: 8493             TST.W   0x0004(R4)
+00830c: 0400            
+00830e: 5443             MOV.B   #1,R4
+008310: 4454             RLA.B   R4
+008312: 4454             RLA.B   R4
+008314: 0454             RLA.W   R4
+008316: 9050             ADD.W   Const2,Const2
+008318: 0A9D            
+00831a: 089D            
+00831c: 9252             RLA.W   &Con1
+00831e: 0020            
+008320: 0020            
+008322: B040             MOV.W   #0x2000,Var1
+008324: 0020            
+008326: DE9C            
+008328: 3440             MOV.W   #0x2000,R4
+00832a: 0020            
+00832c: 9050             ADD.W   Var1,Var1
+00832e: D69C            
+008330: D49C            
+008332: 9454             RLA.W   0x0004(R4)
+008334: 0400            
+008336: 0400            
+008338: 7440             MOV.B   #0x0020,R4
+00833a: 2000            
+00833c: 4411             RRA.B   R4
+00833e: 4411             RRA.B   R4
+008340: 0411             RRA     R4
+008342: 1011             RRA     Const2
+008344: DE9C            
+008346: 1211             RRA     &Con1
+008348: 0020            
+00834a: B040             MOV.W   #0x2000,Var1
+00834c: 0020            
+00834e: B69C            
+008350: 3440             MOV.W   #0x2000,R4
+008352: 0020            
+008354: 1011             RRA     Var1
+008356: AE9C            
+008358: 1411             RRA     0x0004(R4)
+00835a: 0400            
+00835c: 12C3             CLRC    
+00835e: 7740             MOV.B   #0x0080,R7
+008360: 8000            
+008362: 4767             RLC.B   R7
+008364: 4767             RLC.B   R7
+008366: 0464             RLC.W   R4
+008368: 9060             ADDC.W  Const2,Const2
+00836a: B89C            
+00836c: B69C            
+00836e: 9262             RLC.W   &Con1
+008370: 0020            
+008372: 0020            
+008374: B040             MOV.W   #0x2000,Var1
+008376: 0020            
+008378: 8C9C            
+00837a: 3440             MOV.W   #0x2000,R4
+00837c: 0020            
+00837e: 9060             ADDC.W  Var1,Var1
+008380: 849C            
+008382: 829C            
+008384: 9464             RLC.W   0x0004(R4)
+008386: 0400            
+008388: 0400            
+00838a: 12C3             CLRC    
+00838c: 5843             MOV.B   #1,R8
+00838e: 4810             RRC.B   R8
+008390: 4810             RRC.B   R8
+008392: 0410             RRC     R4
+008394: 1010             RRC     Const2
+008396: 8C9C            
+008398: 1210             RRC     &Con1
+00839a: 0020            
+00839c: B040             MOV.W   #0x2000,Var1
+00839e: 0020            
+0083a0: 649C            
+0083a2: 3440             MOV.W   #0x2000,R4
+0083a4: 0020            
+0083a6: 1010             RRC     Var1
+0083a8: 5C9C            
+0083aa: 1410             RRC     0x0004(R4)
+0083ac: 0400            
+0083ae: 3440             MOV.W   #0x00ff,R4
+0083b0: FF00            
+0083b2: 8410             SWPB    R4
+0083b4: 9010             SWPB    Const2
+0083b6: 6C9C            
+0083b8: 9210             SWPB    &Con1
+0083ba: 0020            
+0083bc: B040             MOV.W   #0x2000,Var1
+0083be: 0020            
+0083c0: 449C            
+0083c2: 3440             MOV.W   #0x2000,R4
+0083c4: 0020            
+0083c6: 9010             SWPB    Var1
+0083c8: 3C9C            
+0083ca: 9410             SWPB    0x0004(R4)
+0083cc: 0400            
+0083ce: 3440             MOV.W   #0x00ff,R4
+0083d0: FF00            
+0083d2: 8411             SXT     R4
+0083d4: 9011             SXT     Const2
+0083d6: 4C9C            
+0083d8: 9211             SXT     &Con1
+0083da: 0020            
+0083dc: B040             MOV.W   #0x2000,Var1
+0083de: 0020            
+0083e0: 249C            
+0083e2: 3440             MOV.W   #0x2000,R4
+0083e4: 0020            
+0083e6: 9011             SXT     Var1
+0083e8: 1C9C            
+0083ea: 9411             SXT     0x0004(R4)
+0083ec: 0400            
+0083ee:              sr_flags:
+0083ee: 12D3             SETC    
+0083f0: 22D2             SETN    
+0083f2: 22D3             SETZ    
+0083f4: 12C3             CLRC    
+0083f6: 22C2             CLRN    
+0083f8: 22C3             CLRZ    
+0083fa: 3A40             MOV.W   #0x001c,R10
+0083fc: 1C00            
+0083fe: 0A43             CLR.W   R10
+008400: 8043             CLR.W   Var1
+008402: 029C            
+008404: 8243             CLR.W   &Con1
+008406: 0020            
+008408: 3A40             MOV.W   #0x2000,R10
+00840a: 0020            
+00840c: 8A43             CLR.W   0x0002(R10)
+00840e: 0200            
+008410:              program_flow:
+008410: 12D3             SETC    
+008412: 002C             JHS     (_jc)
+008414:              _jc:
+008414: 12C3             CLRC    
+008416: FE2F             JHS     (_jc)
+008418: 12D3             SETC    
+00841a: 002C             JHS     (_jhs)
+00841c:              _jhs:
+00841c: 12C3             CLRC    
+00841e: FE2F             JHS     (_jhs)
+008420: 22D3             SETZ    
+008422: 0024             JEQ     (_jeq)
+008424:              _jeq:
+008424: 22C3             CLRZ    
+008426: FE27             JEQ     (_jeq)
+008428: 22D3             SETZ    
+00842a: 0024             JEQ     (_jz)
+00842c:              _jz:
+00842c: 22C3             CLRZ    
+00842e: FE27             JEQ     (_jz)
+008430: 1443             MOV.W   #1,R4
+008432: 0493             TST.W   R4
+008434: 0034             JGE     (_jge)
+008436:              _jge:
+008436: 0443             CLR.W   R4
+008438: 1493             CMP.W   #1,R4
+00843a: FD37             JGE     (_jge)
+00843c: 0443             CLR.W   R4
+00843e: 1493             CMP.W   #1,R4
+008440: 0038             JL      (_jl)
+008442:              _jl:
+008442: 1443             MOV.W   #1,R4
+008444: 0493             TST.W   R4
+008446: FD3B             JL      (_jl)
+008448: 003C             JMP     (_jmp)
+00844a:              _jmp:
+00844a: 0343             NOP     
+00844c: 22D2             SETN    
+00844e: 0030             JN      (_jn)
+008450:              _jn:
+008450: 22C2             CLRN    
+008452: FE33             JN      (_jn)
+008454: 12C3             CLRC    
+008456: 0028             JLO     (_jnc)
+008458:              _jnc:
+008458: 12D3             SETC    
+00845a: FE2B             JLO     (_jnc)
+00845c: 22C2             CLRN    
+00845e: 0028             JLO     (_jlo)
+008460:              _jlo:
+008460: 22D2             SETN    
+008462: FE2B             JLO     (_jlo)
+008464: 22C3             CLRZ    
+008466: 0020             JNE     (_jne)
+008468:              _jne:
+008468: 22D3             SETZ    
+00846a: FE23             JNE     (_jne)
+00846c: 22C3             CLRZ    
+00846e: 0020             JNE     (_jnz)
+008470:              _jnz:
+008470: 22D3             SETZ    
+008472: FE23             JNE     (_jnz)
+008474: 3440             MOV.W   #0x847a,R4
+008476: 7A84            
+008478: 0044             BR      R4
+00847a:              br_1:
+00847a: B040             MOV.W   #0x8484,Const2
+00847c: 8484            
+00847e: A49B            
+008480: 1040             BR      Const2
+008482: A09B            
+008484:              br_2:
+008484: 3040             BR      #br_3
+008486: 8884            
+008488:              br_3:
+008488: 0343             NOP     
+00848a:              stack:
+00848a: 3440             MOV.W   #0x00ff,R4
+00848c: FF00            
+00848e: 3012             PUSH    #0xf0f0
+008490: F0F0            
+008492: 0412             PUSH    R4
+008494: 1212             PUSH    &Con1
+008496: 0020            
+008498: 3440             MOV.W   #0x2000,R4
+00849a: 0020            
+00849c: 1412             PUSH    0x0000(R4)
+00849e: 0000            
+0084a0: 3012             PUSH    #0x2000
+0084a2: 0020            
+0084a4: 3512             PUSH    @R5+
+0084a6: 3441             POP.W   R4
+0084a8: B041             POP.W   Const2
+0084aa: 789B            
+0084ac: B241             POP.W   &Con1
+0084ae: 0020            
+0084b0: B040             MOV.W   #0x2000,Var1
+0084b2: 0020            
+0084b4: 509B            
+0084b6: 3440             MOV.W   #0x2000,R4
+0084b8: 0020            
+0084ba: B041             POP.W   Var1
+0084bc: 489B            
+0084be: B441             POP.W   0x0004(R4)
+0084c0: 0400            
+0084c2: 3441             POP.W   R4
+0084c4:              subroutine:
+0084c4: 0543             CLR.W   R5
+0084c6: 3440             MOV.W   #0x84e4,R4
+0084c8: E484            
+0084ca: B040             MOV.W   #0x84e4,Var1
+0084cc: E484            
+0084ce: 369B            
+0084d0: B012             CALL    #add_3
+0084d2: E484            
+0084d4: 8412             CALL    R4
+0084d6: 9012             CALL    Var1
+0084d8: 2C9B            
+0084da: B012             CALL    #add_3
+0084dc: E484            
+0084de: 3040             BR      #main
+0084e0: 3E80            
+0084e2: 0343             NOP     
+0084e4:              add_3:
+0084e4: 3550             ADD.W   #0x0003,R5
+0084e6: 0300            
+0084e8: 3041             RET     
 
-TEXT Section .text:_isr, 0x8 bytes at 0x00008022
-008022:              __TI_ISR_TRAP:
-008022:              .text:_isr:__TI_ISR_TRAP:
-008022:              .text:_isr:
-008022: 32D0             BIS.W   #0x0010,SR
-008024: 1000            
-008026: FD3F             JMP     (__TI_ISR_TRAP)
-008028: 0343             NOP     
+TEXT Section .text:_isr, 0x8 bytes at 0x000084ea
+0084ea:              __TI_ISR_TRAP:
+0084ea:              .text:_isr:__TI_ISR_TRAP:
+0084ea:              .text:_isr:
+0084ea: 32D0             BIS.W   #0x0010,SR
+0084ec: 1000            
+0084ee: FD3F             JMP     (__TI_ISR_TRAP)
+0084f0: 0343             NOP     
+
+DATA Section .data, 0x38 bytes at 0x00002000
+002000:              Con1:
+002000: aced             .word 0xaced
+002002:              Con2:
+002002: beef             .word 0xbeef
+002004:              Var1:
+002004: 0000             .word 0x0000
+002006: 0000             .word 0x0000
+002008: 0000             .word 0x0000
+00200a: 0000             .word 0x0000
+00200c: 0000             .word 0x0000
+00200e: 0000             .word 0x0000
+002010: 0000             .word 0x0000
+002012: 0000             .word 0x0000
+002014: 0000             .word 0x0000
+002016: 0000             .word 0x0000
+002018: 0000             .word 0x0000
+00201a: 0000             .word 0x0000
+00201c: 0000             .word 0x0000
+00201e: 0000             .word 0x0000
+002020:              Const1:
+002020: aaaa             .word 0xaaaa
+002022:              Const2:
+002022: aaa1             .word 0xaaa1
+002024:              Const3:
+002024: abab             .word 0xabab
+002026:              Const4:
+002026: cbcb             .word 0xcbcb
+002028:              Const5:
+002028: 4321             .word 0x4321
+00202a:              Const6:
+00202a: cccc             .word 0xcccc
+00202c:              Const7:
+00202c: abab             .word 0xabab
+00202e:              Const8:
+00202e: cbcb             .word 0xcbcb
+002030:              Const9:
+002030: 1234             .word 0x1234
+002032:              Const10:
+002032: cccc             .word 0xcccc
+002034:              Const11:
+002034: abab             .word 0xabab
+002036:              Const12:
+002036: cbcb             .word 0xcbcb
 
 DATA Section PORT4, 0x2 bytes at 0x0000ffce
 00ffce:              __TI_int22:
 00ffce:              .int22:
 00ffce:              PORT4:
-00ffce: 8022             .word 0x8022
+00ffce: 84ea             .word 0x84ea
 
 DATA Section PORT3, 0x2 bytes at 0x0000ffd0
 00ffd0:              __TI_int23:
 00ffd0:              .int23:
 00ffd0:              PORT3:
-00ffd0: 8022             .word 0x8022
+00ffd0: 84ea             .word 0x84ea
 
 DATA Section PORT2, 0x2 bytes at 0x0000ffd2
 00ffd2:              __TI_int24:
 00ffd2:              .int24:
 00ffd2:              PORT2:
-00ffd2: 8022             .word 0x8022
+00ffd2: 84ea             .word 0x84ea
 
 DATA Section PORT1, 0x2 bytes at 0x0000ffd4
 00ffd4:              __TI_int25:
 00ffd4:              .int25:
 00ffd4:              PORT1:
-00ffd4: 8022             .word 0x8022
+00ffd4: 84ea             .word 0x84ea
 
 DATA Section SAC1_SAC3, 0x2 bytes at 0x0000ffd6
 00ffd6:              __TI_int26:
 00ffd6:              .int26:
 00ffd6:              SAC1_SAC3:
-00ffd6: 8022             .word 0x8022
+00ffd6: 84ea             .word 0x84ea
 
 DATA Section SAC0_SAC2, 0x2 bytes at 0x0000ffd8
 00ffd8:              __TI_int27:
 00ffd8:              .int27:
 00ffd8:              SAC0_SAC2:
-00ffd8: 8022             .word 0x8022
+00ffd8: 84ea             .word 0x84ea
 
 DATA Section ECOMP0_ECOMP1, 0x2 bytes at 0x0000ffda
 00ffda:              __TI_int28:
 00ffda:              .int28:
 00ffda:              ECOMP0_ECOMP1:
-00ffda: 8022             .word 0x8022
+00ffda: 84ea             .word 0x84ea
 
 DATA Section ADC, 0x2 bytes at 0x0000ffdc
 00ffdc:              __TI_int29:
 00ffdc:              .int29:
 00ffdc:              ADC:
-00ffdc: 8022             .word 0x8022
+00ffdc: 84ea             .word 0x84ea
 
 DATA Section EUSCI_B1, 0x2 bytes at 0x0000ffde
 00ffde:              __TI_int30:
 00ffde:              .int30:
 00ffde:              EUSCI_B1:
-00ffde: 8022             .word 0x8022
+00ffde: 84ea             .word 0x84ea
 
 DATA Section EUSCI_B0, 0x2 bytes at 0x0000ffe0
 00ffe0:              __TI_int31:
 00ffe0:              .int31:
 00ffe0:              EUSCI_B0:
-00ffe0: 8022             .word 0x8022
+00ffe0: 84ea             .word 0x84ea
 
 DATA Section EUSCI_A1, 0x2 bytes at 0x0000ffe2
 00ffe2:              __TI_int32:
 00ffe2:              .int32:
 00ffe2:              EUSCI_A1:
-00ffe2: 8022             .word 0x8022
+00ffe2: 84ea             .word 0x84ea
 
 DATA Section EUSCI_A0, 0x2 bytes at 0x0000ffe4
 00ffe4:              __TI_int33:
 00ffe4:              .int33:
 00ffe4:              EUSCI_A0:
-00ffe4: 8022             .word 0x8022
+00ffe4: 84ea             .word 0x84ea
 
 DATA Section WDT, 0x2 bytes at 0x0000ffe6
 00ffe6:              __TI_int34:
 00ffe6:              .int34:
 00ffe6:              WDT:
-00ffe6: 8022             .word 0x8022
+00ffe6: 84ea             .word 0x84ea
 
 DATA Section RTC, 0x2 bytes at 0x0000ffe8
 00ffe8:              __TI_int35:
 00ffe8:              .int35:
 00ffe8:              RTC:
-00ffe8: 8022             .word 0x8022
+00ffe8: 84ea             .word 0x84ea
 
 DATA Section TIMER3_B1, 0x2 bytes at 0x0000ffea
 00ffea:              __TI_int36:
 00ffea:              .int36:
 00ffea:              TIMER3_B1:
-00ffea: 8022             .word 0x8022
+00ffea: 84ea             .word 0x84ea
 
 DATA Section TIMER3_B0, 0x2 bytes at 0x0000ffec
 00ffec:              __TI_int37:
 00ffec:              .int37:
 00ffec:              TIMER3_B0:
-00ffec: 8022             .word 0x8022
+00ffec: 84ea             .word 0x84ea
 
 DATA Section TIMER2_B1, 0x2 bytes at 0x0000ffee
 00ffee:              __TI_int38:
 00ffee:              .int38:
 00ffee:              TIMER2_B1:
-00ffee: 8022             .word 0x8022
+00ffee: 84ea             .word 0x84ea
 
 DATA Section TIMER2_B0, 0x2 bytes at 0x0000fff0
 00fff0:              __TI_int39:
 00fff0:              .int39:
 00fff0:              TIMER2_B0:
-00fff0: 8022             .word 0x8022
+00fff0: 84ea             .word 0x84ea
 
 DATA Section TIMER1_B1, 0x2 bytes at 0x0000fff2
 00fff2:              __TI_int40:
 00fff2:              .int40:
 00fff2:              TIMER1_B1:
-00fff2: 8022             .word 0x8022
+00fff2: 84ea             .word 0x84ea
 
 DATA Section TIMER1_B0, 0x2 bytes at 0x0000fff4
 00fff4:              __TI_int41:
 00fff4:              .int41:
 00fff4:              TIMER1_B0:
-00fff4: 8022             .word 0x8022
+00fff4: 84ea             .word 0x84ea
 
 DATA Section TIMER0_B1, 0x2 bytes at 0x0000fff6
 00fff6:              __TI_int42:
 00fff6:              .int42:
 00fff6:              TIMER0_B1:
-00fff6: 8022             .word 0x8022
+00fff6: 84ea             .word 0x84ea
 
 DATA Section TIMER0_B0, 0x2 bytes at 0x0000fff8
 00fff8:              __TI_int43:
 00fff8:              .int43:
 00fff8:              TIMER0_B0:
-00fff8: 8022             .word 0x8022
+00fff8: 84ea             .word 0x84ea
 
 DATA Section UNMI, 0x2 bytes at 0x0000fffa
 00fffa:              __TI_int44:
 00fffa:              .int44:
 00fffa:              UNMI:
-00fffa: 8022             .word 0x8022
+00fffa: 84ea             .word 0x84ea
 
 DATA Section SYSNMI, 0x2 bytes at 0x0000fffc
 00fffc:              __TI_int45:
 00fffc:              .int45:
 00fffc:              SYSNMI:
-00fffc: 8022             .word 0x8022
+00fffc: 84ea             .word 0x84ea
 
 DATA Section .reset, 0x2 bytes at 0x0000fffe
-00fffe:              _reset_vector:
 00fffe:              .reset:
 00fffe: 8000             .word 0x8000
 

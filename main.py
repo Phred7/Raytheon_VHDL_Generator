@@ -20,7 +20,7 @@ class Main:
         """All_msp_operations.out"""
         # instrumentation = Instrumentation(IntOverflowAttack())
         # instrumentation.instrument()
-        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(binary_file_name="int_overflow_target")
+        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(binary_file_name="All_msp_operations")
         vhdl_parser_generator.generate_vhdl(detection=True)
         package_zipper: PackageZipper = PackageZipper()
         # TODO: class for ccs project to stop having to pass around file names and paths?
