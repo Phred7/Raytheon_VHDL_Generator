@@ -88,7 +88,11 @@ class PiqueBin:
                                                         stdout=subprocess.DEVNULL,
                                                         stderr=subprocess.STDOUT)
             else:
+<<<<<<< Updated upstream
                 pique_bin_return_code = subprocess.call(['java', '-jar', f"{self.pique_bin_jar_file_name}.jar", '-d ' if self.derive else '-e'])
+=======
+                pique_bin_return_code = subprocess.call(['java', '-jar', f"{self.pique_bin_jar_file_name}.jar", '-d'])   # TODO should run twice one with -d for derive and once with -e for evaluate
+>>>>>>> Stashed changes
             os.remove(f"{self.pique_bin_package_directory}\\{self.binary_file_name}")
         return pique_bin_return_code
 

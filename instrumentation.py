@@ -73,12 +73,11 @@ class Instrumentation:
                 file=rf"{os.getcwd()}\self.dpg.generated_assembly_directory\self.dpg.generated_assembly_file")
             # build project
             self._build_ccs_project(self.ccs_project_name)  # TODO: this method should take a param for what project to build. In this case it should build the source project
-            return
+            self._update_phantom_source(c_lang=True)
 
         if not StaticUtilities.file_should_exist(file_directory=f"{os.getcwd()}/ccs_workspace/phantom/", file="phantom.asm", raise_error=False):
             StaticUtilities.extract_zip(path_to_zip=f"{os.getcwd()}/phantom.zip", extraction_directory=f"{os.getcwd()}/ccs_workspace/")
             StaticUtilities.hide_directory_recursively(f"{os.getcwd()}/ccs_workspace/phantom/")
-        # replace the existing source file in the project with the instrumented file.
 
         if not disassembly:
             # have an ASM src. 
@@ -174,10 +173,15 @@ class Instrumentation:
             StaticUtilities.file_should_exist(file_directory=self.ccs_project_path, file=self.ccs_project_source_file_name)
         StaticUtilities.logger.info(f"Source file in ASM CCS project '{self.ccs_project_name}' was replaced with the generated assembly file '{self.dpg.generated_assembly_file}'")
 
-    def _update_phantom_source(self) -> None:
-        StaticUtilities.str_should_contain_substring(self.ccs_project_source_file_name, ".asm")
-        StaticUtilities.file_should_exist(file_directory=self.dpg.generated_assembly_directory, file=self.dpg.generated_assembly_file, raise_error=True)
-        shutil.copyfile(f"{self.ccs_project_path}/{self.ccs_project_source_file_name}", f"{os.getcwd()}/ccs_workspace/phantom/phantom.asm")
+    def _update_phantom_source(self, *, c_lang: bool = False) -> None:
+        StaticUtilities.str_should_contain_substring(self.ccs_project_source_file_name, ".asm" if not c_lang else ".c")
+        if not c_lang:
+            StaticUtilities.file_should_exist(file_directory=self.dpg.generated_assembly_directory, file=self.dpg.generated_assembly_file, raise_error=True)
+            shutil.copyfile(f"{self.ccs_project_path}/{self.ccs_project_source_file_name}", f"{os.getcwd()}/ccs_workspace/phantom/phantom.asm")
+        else:
+            shutil.copyfile(f"{self.ccs_project_path}/{self.ccs_project_source_file_name}",
+                            f"{os.getcwd()}/ccs_workspace/phantom_c/phantom.c")
+
 
     @staticmethod
     def _build_ccs_project(project_name: str) -> None:
