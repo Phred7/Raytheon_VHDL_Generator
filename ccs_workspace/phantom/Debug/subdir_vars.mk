@@ -8,22 +8,22 @@ SHELL = cmd.exe
 CMD_SRCS += \
 ../lnk_colt430fr2355.cmd 
 
-C_SRCS += \
-../empty_c_file.c 
-
-C_DEPS += \
-./empty_c_file.d 
+ASM_SRCS += \
+../main.asm 
 
 OBJS += \
-./empty_c_file.obj 
+./main.obj 
+
+ASM_DEPS += \
+./main.d 
 
 OBJS__QUOTED += \
-"empty_c_file.obj" 
+"main.obj" 
 
-C_DEPS__QUOTED += \
-"empty_c_file.d" 
+ASM_DEPS__QUOTED += \
+"main.d" 
 
-C_SRCS__QUOTED += \
-"../empty_c_file.c" 
+ASM_SRCS__QUOTED += \
+"../main.asm" 
 
 

@@ -61,5 +61,5 @@ class Disassembler:
 
 
 if __name__ == '__main__':
-    disassembler: Disassembler = Disassembler()
+    disassembler: Disassembler = Disassembler(disassembler_input_file_name="test_ASM.out")
     disassembler.disassemble()

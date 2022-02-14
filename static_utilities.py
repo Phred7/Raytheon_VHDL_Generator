@@ -14,14 +14,14 @@ import subprocess
 import time
 from contextlib import contextmanager
 from logging import Logger
-from typing import TextIO
+from typing import TextIO, List
 
 
 class StaticUtilities:
     """
     Class containing a set of static methods, components and context managers implemented throughout this project.
     """
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt="%m-%d-%Y %H:%M:%S")
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', datefmt="%m-%d-%Y %H:%M:%S")
     logger: Logger = logging.getLogger(__name__)
     file_logging_handler = logging.FileHandler('log.log')
     file_logging_handler.setFormatter(
@@ -33,7 +33,7 @@ class StaticUtilities:
     @staticmethod
     def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
         """
-        Returns 0 if file exists, otherwise raises OSError.
+        Evaluates the existence of a file in a given directory.
         :param raise_error: If True raises an OS error if the file does not exist, otherwise returns False.
         :param file_directory: Location of directory containing the File file.
         :param file: The name of the File file that should exist.
@@ -250,6 +250,24 @@ class StaticUtilities:
             yield
         finally:
             sys.stdout = original_stdout
+
+    @staticmethod
+    def extract_zip(path_to_zip: str, extraction_directory) -> None:
+        import zipfile
+        with zipfile.ZipFile(path_to_zip, 'r') as zip_reference:
+            zip_reference.extractall(extraction_directory)
+        StaticUtilities.logger.debug(f"{path_to_zip} unzipped into {extraction_directory}")
+
+    @staticmethod
+    def hide_directory_recursively(directory: str) -> None:
+        files: List[str] = []
+        for (path, name, filenames) in os.walk(directory):
+            files += [os.path.join(path, file) for file in filenames]
+            os.system(f"attrib +h {path}")
+            StaticUtilities.logger.debug(f"{path} hidden")
+        for file in files:
+            os.system(f"attrib +h /S /D {file}")
+            StaticUtilities.logger.debug(f"{file} hidden")
 
 
 if __name__ == "__main__":

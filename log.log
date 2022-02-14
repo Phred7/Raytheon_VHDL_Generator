@@ -7,3 +7,71 @@ Running Raytheon VHDL Generator
 2022-02-06 09:37:42,070 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
 2022-02-06 09:37:42,070 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
 2022-02-06 09:37:42,071 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-02-13 22:43:41,395 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-13 22:59:50,891 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-13 23:01:13,915 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-13 23:11:00,924 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-13 23:11:25,521 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-13 23:11:43,820 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-13 23:11:54,543 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-13 23:25:38,903 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-13 23:26:00,443 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-13 23:45:38,741 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:18:30,843 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:18:30,848 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:18:47,777 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:18:47,779 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:19:01,472 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:19:01,474 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:19:27,299 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:19:27,301 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:20:49,279 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:20:49,282 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:21:14,229 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:21:14,231 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:21:19,338 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:21:19,340 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:21:47,624 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:21:47,626 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:29:17,698 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:29:17,700 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:30:00,202 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:30:00,205 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:32:02,549 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:32:02,552 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:32:12,206 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:32:12,209 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:33:19,709 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:33:19,711 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:33:33,896 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:33:33,898 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:35:32,228 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:35:32,230 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:35:58,330 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:35:58,333 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:36:38,675 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:36:38,678 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:37:02,371 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:37:02,373 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 00:37:25,483 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 00:37:25,485 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 14:13:13,662 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 14:13:13,663 DEBUG disassembler __init__ Disassembler object initialized
+2022-02-14 14:13:13,663 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-02-14 14:13:13,732 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-02-14 14:13:13,732 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-02-14 14:17:22,671 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 14:17:22,671 DEBUG disassembler __init__ Disassembler object initialized
+2022-02-14 14:17:22,672 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-02-14 14:17:22,691 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-02-14 14:17:22,691 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-02-14 14:17:42,284 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 14:17:42,285 DEBUG disassembler __init__ Disassembler object initialized
+2022-02-14 14:17:42,285 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-02-14 14:17:42,306 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-02-14 14:17:42,306 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-02-14 14:17:46,386 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 14:17:46,390 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 14:19:13,465 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 14:19:13,468 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-14 14:19:28,514 ERROR instrumentation _ccs_fields_empty The following were set to the empty string when attempting to replace the source file in a ccs project with a generated source file: 'ccs_project_path' 'ccs_project_name' 'ccs_project_source_file_name' in an instance of Instrumentation. Call Instrumentation.set_ccs_project_details() to rectify or set replace_source_in_ccs_project to false when calling Instrumentation.generate_source_from_disassembly().

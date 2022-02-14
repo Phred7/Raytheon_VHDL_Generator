@@ -6,24 +6,24 @@ SHELL = cmd.exe
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CMD_SRCS += \
-../lnk_colt430fr2355.cmd 
+../lnk_msp430fr2355.cmd 
 
-C_SRCS += \
-../empty_c_file.c 
-
-C_DEPS += \
-./empty_c_file.d 
+ASM_SRCS += \
+../test_generated_ASM.asm 
 
 OBJS += \
-./empty_c_file.obj 
+./test_generated_ASM.obj 
+
+ASM_DEPS += \
+./test_generated_ASM.d 
 
 OBJS__QUOTED += \
-"empty_c_file.obj" 
+"test_generated_ASM.obj" 
 
-C_DEPS__QUOTED += \
-"empty_c_file.d" 
+ASM_DEPS__QUOTED += \
+"test_generated_ASM.d" 
 
-C_SRCS__QUOTED += \
-"../empty_c_file.c" 
+ASM_SRCS__QUOTED += \
+"../test_generated_ASM.asm" 
 
 

@@ -10,7 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./empty_c_file.obj" \
+"./main.obj" \
 "../lnk_colt430fr2355.cmd" \
 $(GEN_CMDS__FLAG) \
 
@@ -119,43 +119,43 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-empty_c_file.out \
+phantom.out \
 
 EXE_OUTPUTS__QUOTED += \
-"empty_c_file.out" \
+"phantom.out" \
 
 BIN_OUTPUTS += \
-empty_c_file.hex \
+phantom.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"empty_c_file.hex" \
+"phantom.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "empty_c_file.out"
+	@$(MAKE) --no-print-directory -Onone "phantom.out"
 
 # Tool invocations
-empty_c_file.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+phantom.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/cl430" --advice:power="all" --define=_INLINE --define=_INFO_FRWP_ENABLE --define=__MSP430FR2355__ --define=__COLT430FR2355__ --define=_FRWP_ENABLE --undefine=_INLINE -g --diag_warning=225 --diag_wrap=off --display_error_number -k -z -m"empty_c_file.map" -i"C:/ti/ccs1040/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/lib" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="empty_c_file_linkInfo.xml" --rom_model -o "empty_c_file.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/cl430" --code_model=small --data_model=small -Ooff --advice:power=all --define=__COLT430FR2355__ --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --diag_warning=225 --diag_wrap=off --display_error_number -k -z -m"phantom.map" --heap_size=0 --stack_size=0 -i"C:/ti/ccs1040/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/lib" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="phantom_linkInfo.xml" --entry_point=RESET -o "phantom.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-empty_c_file.hex: $(EXE_OUTPUTS)
+phantom.hex: $(EXE_OUTPUTS)
 	@echo 'Building secondary target: "$@"'
 	@echo 'Invoking: MSP430 Hex Utility'
-	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/hex430" --diag_wrap=off -o "empty_c_file.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/hex430" --diag_wrap=off -o "phantom.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building secondary target: "$@"'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "empty_c_file.obj" 
-	-$(RM) "empty_c_file.d" 
-	-$(RM) "empty_c_file.asm" 
+	-$(RM) "main.obj" 
+	-$(RM) "main.asm" 
+	-$(RM) "main.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

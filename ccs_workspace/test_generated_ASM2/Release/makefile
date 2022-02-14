@@ -10,9 +10,11 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./empty_c_file.obj" \
-"../lnk_colt430fr2355.cmd" \
+"./test_generated_ASM.obj" \
+"../lnk_msp430fr2355.cmd" \
 $(GEN_CMDS__FLAG) \
+-lfrwp_init.a \
+-llibc.a \
 
 -include ../makefile.init
 
@@ -119,43 +121,42 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-empty_c_file.out \
+test_generated_ASM2.out \
 
 EXE_OUTPUTS__QUOTED += \
-"empty_c_file.out" \
+"test_generated_ASM2.out" \
 
 BIN_OUTPUTS += \
-empty_c_file.hex \
+test_generated_ASM2.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"empty_c_file.hex" \
+"test_generated_ASM2.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "empty_c_file.out"
+	@$(MAKE) --no-print-directory -Onone "test_generated_ASM2.out"
 
 # Tool invocations
-empty_c_file.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+test_generated_ASM2.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/cl430" --advice:power="all" --define=_INLINE --define=_INFO_FRWP_ENABLE --define=__MSP430FR2355__ --define=__COLT430FR2355__ --define=_FRWP_ENABLE --undefine=_INLINE -g --diag_warning=225 --diag_wrap=off --display_error_number -k -z -m"empty_c_file.map" -i"C:/ti/ccs1040/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/lib" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="empty_c_file_linkInfo.xml" --rom_model -o "empty_c_file.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/cl430" -vmspx --code_model=small --data_model=small -O2 --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"test_generated_ASM2.map" --heap_size=0 --stack_size=0 --cinit_hold_wdt=on -i"C:/ti/ccs1040/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1040/ccs/ccs_base/msp430/lib/FR2xx" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/lib" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="test_generated_ASM2_linkInfo.xml" --entry_point=RESET --use_hw_mpy=F5 -o "test_generated_ASM2.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-empty_c_file.hex: $(EXE_OUTPUTS)
+test_generated_ASM2.hex: $(EXE_OUTPUTS)
 	@echo 'Building secondary target: "$@"'
 	@echo 'Invoking: MSP430 Hex Utility'
-	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/hex430" --diag_wrap=off -o "empty_c_file.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/hex430" --memwidth=8 --romwidth=8 --diag_wrap=off -o "test_generated_ASM2.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building secondary target: "$@"'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "empty_c_file.obj" 
-	-$(RM) "empty_c_file.d" 
-	-$(RM) "empty_c_file.asm" 
+	-$(RM) "test_generated_ASM.obj" 
+	-$(RM) "test_generated_ASM.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
