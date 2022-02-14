@@ -59,49 +59,44 @@ class Instrumentation:
         ccs_project_main_source_file_name: str = "test_generated_ASM"
 
         c_lang: bool = False
-        disassembly: bool = False
-        ccs_running: bool = False
+        disassembly: bool = True
+        ccs_running: bool = StaticUtilities.ccs_process_running()
         kill_ccs: bool = False
 
-        if kill_ccs and StaticUtilities.ccs_process_running():
+        if kill_ccs and ccs_running:
             StaticUtilities.stop_ccs(force_kill=True)
             ccs_running = False
 
         if c_lang:
             # add directly to source file in original project
             result: str = self._instrumentation_strategy.instrument(
-                file=rf"{os.getcwd()}\{self.dpg.generated_assembly_directory}\{self.dpg.generated_assembly_file}")
+                file=rf"{os.getcwd()}\self.dpg.generated_assembly_directory\self.dpg.generated_assembly_file")
             # build project
             self._build_ccs_project(self.ccs_project_name)  # TODO: this method should take a param for what project to build. In this case it should build the source project
             return
 
-        if StaticUtilities.file_should_exist(file_directory=f"{os.getcwd()}/ccs_workspace/phantom/", file="main.asm", raise_error=False):
-            # replace the existing source file in the project with the instrumented file.
-            self._update_phantom_source()
-        else:
+        if not StaticUtilities.file_should_exist(file_directory=f"{os.getcwd()}/ccs_workspace/phantom/", file="phantom.asm", raise_error=False):
             StaticUtilities.extract_zip(path_to_zip=f"{os.getcwd()}/phantom.zip", extraction_directory=f"{os.getcwd()}/ccs_workspace/")
-            os.system(f"attrib +h {os.getcwd()}/ccs_workspace/phantom")
+            StaticUtilities.hide_directory_recursively(f"{os.getcwd()}/ccs_workspace/phantom/")
+        # replace the existing source file in the project with the instrumented file.
 
         if not disassembly:
-            # have an ASM src
+            # have an ASM src. 
+            self._update_phantom_source()
+            self._build_ccs_project("phantom")
             self.disassembler: Disassembler = Disassembler(
-                disassembler_input_file_name=f"{ccs_project_main_source_file_name}.out")
+                disassembler_input_file_name=f"phantom.out")
             self.disassembler.disassemble()
-            # use dpg to generate source
-            self.dpg: DisassemblyParserGenerator = DisassemblyParserGenerator(
-                disassembly_file=self.disassembler.disassembler_output_file_name,
-                disassembly_directory=self.disassembler.disassembler_output_file_directory)
-            self.dpg.generate_source_from_disassembly()
-            # search for location in source that can support this _instrumentation_strategy and instrument.
-            result: str = self._instrumentation_strategy.instrument(
-                file=rf"{os.getcwd()}\{self.dpg.generated_assembly_directory}\{self.dpg.generated_assembly_file}")
-        else:
-            generated_assembly_directory = ""
-            generated_assembly_file = ""
-            # search for location in source that can support this _instrumentation_strategy and instrument.
-            result: str = self._instrumentation_strategy.instrument(
-                file=rf"{os.getcwd()}\{generated_assembly_directory}\{generated_assembly_file}")
-            # have disassembly from ASM
+
+        # use dpg to generate source
+        self.dpg: DisassemblyParserGenerator = DisassemblyParserGenerator(
+            disassembly_file=self.disassembler.disassembler_output_file_name,
+            disassembly_directory=self.disassembler.disassembler_output_file_directory)
+        self.dpg.generate_source_from_disassembly()
+
+        # search for location in source that can support this _instrumentation_strategy and instrument.
+        result: str = self._instrumentation_strategy.instrument(
+            file=rf"{os.getcwd()}\{self.dpg.generated_assembly_directory}\{self.dpg.generated_assembly_file}")
 
         # build project
         self._build_ccs_project("phantom")  # TODO: this method should take a param for what project to build. In this case it should build the source project
@@ -163,7 +158,7 @@ class Instrumentation:
     # dpg.set_ccs_project_details(ccs_project_path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", ccs_project_name="test_generated_ASM", ccs_project_source_file_name="test_generated_ASM.asm")
     # # functional args: ccs_project_path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", ccs_project_name="test_generated_ASM", ccs_project_source_file_name="test_asm_generation.asm"
     # dpg.generate_source_from_disassembly(replace_source_in_ccs_project=True)
-    def _update_phantom_source(self) -> None:
+    def _update_asm_source(self) -> None:
         """
         Replaces the ASM source file in an existing CCS project specified by the instance fields ccs_project_path, ccs_project_name, ccs_project_source_file_name with the file generated by this Class.
         :return: None.
@@ -178,6 +173,11 @@ class Instrumentation:
             os.rename(self.dpg.generated_assembly_file, self.ccs_project_source_file_name)
             StaticUtilities.file_should_exist(file_directory=self.ccs_project_path, file=self.ccs_project_source_file_name)
         StaticUtilities.logger.info(f"Source file in ASM CCS project '{self.ccs_project_name}' was replaced with the generated assembly file '{self.dpg.generated_assembly_file}'")
+
+    def _update_phantom_source(self) -> None:
+        StaticUtilities.str_should_contain_substring(self.ccs_project_source_file_name, ".asm")
+        StaticUtilities.file_should_exist(file_directory=self.dpg.generated_assembly_directory, file=self.dpg.generated_assembly_file, raise_error=True)
+        shutil.copyfile(f"{self.ccs_project_path}/{self.ccs_project_source_file_name}", f"{os.getcwd()}/ccs_workspace/phantom/phantom.asm")
 
     @staticmethod
     def _build_ccs_project(project_name: str) -> None:
@@ -205,7 +205,7 @@ class Instrumentation:
                 empty_strings += "'" + f"{self.ccs_project_name=}".split('.')[1].split('=')[0] + "' " if self.ccs_project_name == '' else ''
                 empty_strings += "'" + f"{self.ccs_project_source_file_name=}".split('.')[1].split('=')[0] + "'" if self.ccs_project_source_file_name == '' else ''
                 StaticUtilities.logger.error(
-                    f"The following were set to the empty string when attempting to replace the source file in a ccs project with a generated source file: {empty_strings} in an instance of {self.__class__.__name__}. Call {self.__class__.__name__}.set_ccs_project_details() to rectify or set replace_source_in_ccs_project to false when calling {self.__class__.__name__}.generate_source_from_disassembly().")
+                    f"The following were set to the empty string when attempting to replace the source file in a ccs project with a generated source file: {empty_strings} in this instance of {self.__class__.__name__}. Call {self.__class__.__name__}.set_ccs_project_details() to rectify or set replace_source_in_ccs_project to false when calling {self.__class__.__name__}.{self._update_phantom_source.__name__}().")
             if system_error:
                 return sys.exit(1)
             return True
@@ -228,5 +228,6 @@ if __name__ == "__main__":
     # StaticUtilities.hide_directory_recursively(f"{os.getcwd()}/ccs_workspace/phantom")
     # os.system(f"attrib +h /S /D {os.getcwd()}/ccs_workspace/phantom")
     i = Instrumentation(instrumentation_strategy=IntOverflowAttack())
-    i.ccs_project_path = f"{os.getcwd()}\\ccs_workspace\\gen_vhdl\\"
-    i._copy_phantom_binary_to_ccs_project()
+    i.instrument()
+    # i.ccs_project_path = f"{os.getcwd()}\\ccs_workspace\\gen_vhdl\\"
+    # i._copy_phantom_binary_to_ccs_project()
