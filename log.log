@@ -75,3 +75,5 @@ Running Raytheon VHDL Generator
 2022-02-14 14:19:13,465 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
 2022-02-14 14:19:13,468 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
 2022-02-14 14:19:28,514 ERROR instrumentation _ccs_fields_empty The following were set to the empty string when attempting to replace the source file in a ccs project with a generated source file: 'ccs_project_path' 'ccs_project_name' 'ccs_project_source_file_name' in an instance of Instrumentation. Call Instrumentation.set_ccs_project_details() to rectify or set replace_source_in_ccs_project to false when calling Instrumentation.generate_source_from_disassembly().
+2022-02-15 11:29:28,155 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-15 11:29:28,221 INFO main main Main ran
