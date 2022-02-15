@@ -1,8 +1,8 @@
 **/.idea
 **/__pycache__
 **/Debug
-**/phantom
-**/phantom_c
+phantom/
+phantom_c/
 **/.metadata
 **/.jxbrowser.userdata
 **/dvt
@@ -13,4 +13,4 @@ PIQUE-Bin-Jar/
 .ccsproject
 .cproject
 .project
-ccs_workspace/.metadata
+ccs_workspace/.metadata/
