@@ -240,16 +240,36 @@ class StaticUtilities:
     def change_stdout_to_file(new_stdout: TextIO) -> None:
         """
         Static Context Manager to temporarily change the python stdout.
-        :param new_stdout: TextIO to change the stdout to temporarily.
+        :param new_stdout: TextIO to temporarily change the stdout to.
         :return: None.
         """
-        original_stdout: TextIO = sys.stdout
+        original_stdout = sys.stdout
+
         try:
             original_stdout = sys.stdout
             sys.stdout = new_stdout
             yield
         finally:
             sys.stdout = original_stdout
+
+    # @staticmethod
+    # @contextmanager
+    # def change_stdout_to_logger() -> None:
+    #     """
+    #     Static Context Manager to temporarily change the python stdout to StaticUtilities.logger.
+    #     :return: None.
+    #     """
+    #     original_stdout = sys.stdout
+    #     original_stderr = sys.stderr
+    #     try:
+    #         original_stdout = sys.stdout
+    #         original_stderr = sys.stderr
+    #         sys.stdout = StaticUtilities.file_logging_handler
+    #         sys.stderr = StaticUtilities.file_logging_handler
+    #         yield
+    #     finally:
+    #         sys.stdout = original_stdout
+    #         sys.stderr = original_stderr
 
     @staticmethod
     def extract_zip(path_to_zip: str, extraction_directory) -> None:

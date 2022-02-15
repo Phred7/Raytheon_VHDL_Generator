@@ -75,3 +75,235 @@ Running Raytheon VHDL Generator
 2022-02-14 14:19:13,465 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
 2022-02-14 14:19:13,468 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
 2022-02-14 14:19:28,514 ERROR instrumentation _ccs_fields_empty The following were set to the empty string when attempting to replace the source file in a ccs project with a generated source file: 'ccs_project_path' 'ccs_project_name' 'ccs_project_source_file_name' in an instance of Instrumentation. Call Instrumentation.set_ccs_project_details() to rectify or set replace_source_in_ccs_project to false when calling Instrumentation.generate_source_from_disassembly().
+2022-02-14 18:01:26,577 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:01:26,577 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 18:01:26,577 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 18:01:26,577 INFO pique_bin pique_bin PIQUE-Bin running in derive mode
+2022-02-14 18:01:27,016 INFO static_utilities start_process Starting Docker Desktop
+2022-02-14 18:01:43,233 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 18:01:43,435 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 18:01:43,435 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on busybox-1.21.1_busybox_unstripped_x86_64
+2022-02-14 18:33:57,141 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:34:42,253 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:34:45,890 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:35:38,544 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:35:38,544 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 18:35:38,544 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 18:36:12,773 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:36:12,773 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 18:36:12,773 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 18:36:12,773 DEBUG pique_bin derive_pique_bin_busybox_model derive_pique_bin_busybox_model
+2022-02-14 18:36:32,445 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:36:32,445 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 18:36:32,445 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 18:36:43,915 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:36:43,915 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 18:36:43,915 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 18:36:43,915 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model()
+2022-02-14 18:36:54,704 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:36:54,705 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 18:36:54,705 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 18:36:54,705 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 18:37:58,824 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:37:58,824 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 18:37:58,824 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 18:37:58,824 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 18:37:59,632 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:37:59,632 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 18:37:59,633 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 18:37:59,633 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 18:38:00,856 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:38:00,856 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 18:38:00,856 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 18:38:00,857 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 18:39:55,099 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 18:39:55,099 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 18:39:55,100 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 18:39:55,100 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 18:39:58,533 INFO pique_bin derive_pique_bin_busybox_model pique-bin returned: 0
+2022-02-14 19:16:22,877 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:16:22,877 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:16:22,877 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:16:22,878 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 19:16:25,871 INFO pique_bin derive_pique_bin_busybox_model pique-bin returned: 0
+2022-02-14 19:19:06,928 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:19:06,928 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:19:06,928 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:19:06,928 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 19:19:09,800 INFO pique_bin derive_pique_bin_busybox_model pique-bin returned: 0
+2022-02-14 19:26:21,797 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:26:21,797 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:26:21,797 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:26:21,797 INFO pique_bin pique_bin PIQUE-Bin running in derive mode
+2022-02-14 19:26:22,748 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:26:45,122 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:26:45,122 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:26:45,122 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:26:45,122 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:26:46,042 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:27:06,881 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:27:06,882 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:27:06,882 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:27:06,882 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:27:07,767 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:27:13,291 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:27:13,291 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:28:30,202 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:28:30,202 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:28:30,202 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:28:30,202 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:28:31,176 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:28:37,817 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:28:37,817 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:28:47,353 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:28:47,353 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:28:47,353 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:28:47,353 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:28:48,235 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:28:53,797 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:28:53,797 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:29:19,951 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:29:19,951 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:29:19,951 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:29:19,951 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:29:20,859 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:30:39,058 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:30:39,058 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:30:39,064 ERROR pique_bin _pique_bin_score The calculated Binary Security Quality suggests that Docker is not running or another error exists: 1.0604633312075775
+2022-02-14 19:30:47,867 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:30:47,867 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:30:47,867 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:30:47,868 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 19:30:47,946 INFO pique_bin derive_pique_bin_busybox_model pique-bin returned: 0
+2022-02-14 19:31:41,720 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:31:41,721 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:31:41,721 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:31:41,721 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 19:31:44,544 INFO pique_bin derive_pique_bin_busybox_model pique-bin returned: 0
+2022-02-14 19:31:53,556 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:31:53,557 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:31:53,557 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:31:53,557 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 19:31:57,357 INFO pique_bin derive_pique_bin_busybox_model pique-bin returned: 0
+2022-02-14 19:36:49,779 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:36:49,779 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:36:49,779 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:36:49,779 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 19:36:52,577 INFO pique_bin derive_pique_bin_busybox_model pique-bin returned: 0
+2022-02-14 19:38:01,168 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:38:01,168 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:38:01,168 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:38:01,168 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 19:38:30,792 INFO pique_bin derive_pique_bin_busybox_model pique-bin returned: 0
+2022-02-14 19:38:44,803 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:38:44,803 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:38:44,803 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:38:44,803 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 19:38:47,704 INFO pique_bin derive_pique_bin_busybox_model pique-bin returned: 0
+2022-02-14 19:41:21,221 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:41:21,222 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:41:21,222 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:41:21,222 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 19:44:56,075 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:44:56,075 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:44:56,075 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:44:56,075 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 19:46:40,656 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:46:40,656 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:46:40,657 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:46:40,657 DEBUG pique_bin derive_pique_bin_busybox_model PiqueBin.derive_pique_bin_busybox_model() running
+2022-02-14 19:46:43,504 INFO pique_bin derive_pique_bin_busybox_model pique-bin returned: 0
+2022-02-14 19:46:59,662 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:46:59,663 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:46:59,663 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:47:15,714 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:47:15,714 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:47:15,714 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:47:22,645 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:47:22,645 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:47:22,645 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:47:22,645 INFO pique_bin pique_bin PIQUE-Bin running in derive mode
+2022-02-14 19:47:23,536 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:47:26,470 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:47:26,470 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:47:26,477 ERROR pique_bin _pique_bin_score The calculated Binary Security Quality suggests that Docker is not running or another error exists: 1.0604633312075775
+2022-02-14 19:47:26,748 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:47:26,748 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:47:26,749 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:47:26,749 INFO pique_bin pique_bin PIQUE-Bin running in derive mode
+2022-02-14 19:47:27,718 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:47:30,561 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:47:30,561 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:47:30,567 ERROR pique_bin _pique_bin_score The calculated Binary Security Quality suggests that Docker is not running or another error exists: 1.0604633312075775
+2022-02-14 19:47:48,922 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:47:48,923 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:47:48,923 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:47:48,923 INFO pique_bin pique_bin PIQUE-Bin running in derive mode
+2022-02-14 19:47:49,852 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:47:55,391 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:47:55,391 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:47:55,398 ERROR pique_bin _pique_bin_score The calculated Binary Security Quality suggests that Docker is not running or another error exists: 1.0604633312075775
+2022-02-14 19:48:02,762 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:48:02,762 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:48:02,762 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:48:02,762 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:48:03,618 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:48:26,414 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:48:26,414 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:48:26,422 ERROR pique_bin _pique_bin_score The calculated Binary Security Quality suggests that Docker is not running or another error exists: 1.0604633312075775
+2022-02-14 19:49:18,924 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:49:18,924 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:49:18,924 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:49:18,924 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:49:19,812 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:49:22,774 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:49:22,774 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:49:22,780 ERROR pique_bin _pique_bin_score The calculated Binary Security Quality suggests that Docker is not running or another error exists: 1.0604633312075775
+2022-02-14 19:49:40,701 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:49:40,702 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:49:40,702 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:49:40,702 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:49:41,634 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:49:44,478 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:49:44,478 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:49:44,485 ERROR pique_bin _pique_bin_score The calculated Binary Security Quality suggests that Docker is not running or another error exists: 1.0604633312075775
+2022-02-14 19:50:00,165 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:50:00,165 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:50:00,165 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:50:00,165 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:50:01,022 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:50:03,847 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:50:03,847 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:50:03,853 ERROR pique_bin _pique_bin_score The calculated Binary Security Quality suggests that Docker is not running or another error exists: 1.0604633312075775
+2022-02-14 19:50:50,035 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:50:50,035 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:50:50,035 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:50:50,035 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:50:50,893 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:50:53,896 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:50:53,896 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:50:53,903 ERROR pique_bin _pique_bin_score The calculated Binary Security Quality suggests that Docker is not running or another error exists: 1.0604633312075775
+2022-02-14 19:51:11,559 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:51:11,559 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:51:11,559 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:51:11,559 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:51:12,409 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:51:35,114 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:51:35,114 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:51:35,120 ERROR pique_bin _pique_bin_score The calculated Binary Security Quality suggests that Docker is not running or another error exists: 1.0604633312075775
+2022-02-14 19:51:43,795 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:51:43,795 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:51:43,795 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:51:43,795 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:51:44,734 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:52:03,022 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:52:03,022 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:52:03,029 ERROR pique_bin _pique_bin_score The calculated Binary Security Quality suggests that Docker is not running or another error exists: 1.0604633312075775
+2022-02-14 19:52:27,854 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-14 19:52:27,855 DEBUG pique_bin __init__ PiqueBin object initialized
+2022-02-14 19:52:27,855 WARNING pique_bin __init__ PIQUE-Bin not fully functional.
+2022-02-14 19:52:27,855 INFO pique_bin pique_bin PIQUE-Bin running in evaluation mode
+2022-02-14 19:52:28,740 INFO static_utilities start_process Docker Desktop process running
+2022-02-14 19:52:51,562 DEBUG pique_bin pique_bin PIQUE-Bin exist status: 0
+2022-02-14 19:52:51,562 DEBUG pique_bin pique_bin PIQUE-Bin successfully ran on c_blank.out
+2022-02-14 19:52:51,569 ERROR pique_bin _pique_bin_score The calculated Binary Security Quality suggests that Docker is not running or another error exists: 1.0604633312075775

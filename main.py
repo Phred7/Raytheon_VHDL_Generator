@@ -20,13 +20,13 @@ class Main:
         """All_msp_operations.out"""
         # instrumentation = Instrumentation(IntOverflowAttack())
         # instrumentation.instrument()
-        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(binary_file_name="All_msp_operations")
-        vhdl_parser_generator.generate_vhdl(detection=True)
-        package_zipper: PackageZipper = PackageZipper()
+        # vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(binary_file_name="All_msp_operations")
+        # vhdl_parser_generator.generate_vhdl(detection=True)
+        # package_zipper: PackageZipper = PackageZipper()
         # TODO: class for ccs project to stop having to pass around file names and paths?
 
         # disassembler.disassemble(pique_bool=False)
-        package_zipper.zip_vhdl()
+        # package_zipper.zip_vhdl()
         # package_zipper.zip_vhdl(zip_file_name="port_AB_01_12_2022")
 
 
