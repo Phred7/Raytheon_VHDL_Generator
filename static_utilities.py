@@ -259,15 +259,19 @@ class StaticUtilities:
         StaticUtilities.logger.debug(f"{path_to_zip} unzipped into {extraction_directory}")
 
     @staticmethod
-    def hide_directory_recursively(directory: str) -> None:
+    def hide_directory_recursively(directory: str, *, log: bool = True) -> None:
+        os.system(f"attrib +h {directory[:-1]}")
         files: List[str] = []
         for (path, name, filenames) in os.walk(directory):
             files += [os.path.join(path, file) for file in filenames]
-            os.system(f"attrib +h {path}")
-            StaticUtilities.logger.debug(f"{path} hidden")
+            if not path == directory:
+                os.system(f"attrib +h \"{path}\"")
+                if log:
+                    StaticUtilities.logger.debug(f"{path} hidden")
         for file in files:
-            os.system(f"attrib +h /S /D {file}")
-            StaticUtilities.logger.debug(f"{file} hidden")
+            os.system(f"attrib +h \"{file}\"")  #  /S /D
+            if log:
+                StaticUtilities.logger.debug(f"{file} hidden")
 
 
 if __name__ == "__main__":
