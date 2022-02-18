@@ -22,15 +22,15 @@ class StaticUtilities:
     """
     Class containing a set of static methods, components and context managers implemented throughout this project.
     """
+    _project_root_directory_str: str = str(pathlib.Path(__file__).parent)
     logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', datefmt="%m-%d-%Y %H:%M:%S")
     logger: Logger = logging.getLogger(__name__)
-    file_logging_handler = logging.FileHandler('log.log')
+    file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\log.log')
     file_logging_handler.setFormatter(
         logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
     file_logging_handler.setLevel(logging.DEBUG)
     logger.addHandler(file_logging_handler)
     logger.info("Running Raytheon VHDL Generator")
-    _project_root_directory_str: str = str(pathlib.Path(__file__).parent)
 
 
     @staticmethod
@@ -272,7 +272,7 @@ class StaticUtilities:
                 if log:
                     StaticUtilities.logger.debug(f"{path} hidden")
         for file in files:
-            os.system(f"attrib +h \"{file}\"")  #  /S /D
+            os.system(f"attrib +h \"{file}\"")
             if log:
                 StaticUtilities.logger.debug(f"{file} hidden")
 

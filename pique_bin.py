@@ -26,11 +26,11 @@ class PiqueBin:
         self.default_pique_bin_test_directory: str = "C:\\Users\\wward\\Documents\\GitHub\\Raytheon_VHDL_Generator\\PIQUE-Bin-Jar-0.0.1\\classes\\binaries"
         self.source_file_name: str = source_file_name
         self.binary_file_name: str = f"{source_file_name.split('.')[0]}.out" if source_file_name != self.default_pique_bin_test_binary else source_file_name
-        self.binary_file_directory: str = rf"{os.getcwd()}\ccs_workspace\{self.binary_file_name.replace('.out', '')}\Debug" if source_file_name != self.default_pique_bin_test_binary else self.default_pique_bin_test_directory
+        self.binary_file_directory: str = rf"{StaticUtilities.project_root_directory()}\ccs_workspace\{self.binary_file_name.replace('.out', '')}\Debug" if source_file_name != self.default_pique_bin_test_binary else self.default_pique_bin_test_directory
         self.pique_bin_jar_file_name: str = "msusel-pique-bin-0.0.1-jar-with-dependencies"  # old: "msusel-pique-bin-0.0.1"
         self.pique_bin_properties_file_name: str = "pique-properties.properties"  # old: "pique-bin.properties"
         self.pique_bin_output_file: str = f"{source_file_name.split('.')[0]}_evalResults.json" if source_file_name != self.default_pique_bin_test_binary else "cve-bin-tool.json"  # old: f"{binary_file_name}_compact_evalResults.json"
-        self.pique_bin_package_directory: str = f"{os.getcwd()}\PIQUE-Bin-Jar-0.0.1\\"  # old: f"{os.getcwd()}\\PIQUE-Bin-Jar\\"  # Ex: Location of dir PIQUE-Bin-Jar/.
+        self.pique_bin_package_directory: str = f"{StaticUtilities.project_root_directory()}\PIQUE-Bin-Jar-0.0.1\\"  # old: f"{StaticUtilities.project_root_directory()}\\PIQUE-Bin-Jar\\"  # Ex: Location of dir PIQUE-Bin-Jar/.
         self.pique_bin_output_file_directory: str = f"{self.pique_bin_package_directory}out"
         self.pique_exit_status: int = -1
         self.derive: bool = derive
