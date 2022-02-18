@@ -7,6 +7,7 @@
 ###############################
 import logging
 import os
+import pathlib
 import sys
 import datetime
 import psutil
@@ -29,6 +30,8 @@ class StaticUtilities:
     file_logging_handler.setLevel(logging.DEBUG)
     logger.addHandler(file_logging_handler)
     logger.info("Running Raytheon VHDL Generator")
+    _project_root_directory_str: str = str(pathlib.Path(__file__).parent)
+
 
     @staticmethod
     def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
@@ -229,7 +232,7 @@ class StaticUtilities:
         """
         cwd: str = ""
         try:
-            cwd = os.getcwd()
+            cwd = StaticUtilities.project_root_directory()
             os.chdir(destination)
             yield
         finally:
@@ -273,8 +276,13 @@ class StaticUtilities:
             if log:
                 StaticUtilities.logger.debug(f"{file} hidden")
 
+    @staticmethod
+    def project_root_directory() -> str:
+        return StaticUtilities._project_root_directory_str
+
 
 if __name__ == "__main__":
-    StaticUtilities.start_ccs()
-    time.sleep(5)
-    StaticUtilities.stop_ccs(force_kill=True)
+    print(StaticUtilities.project_root_directory())
+    # StaticUtilities.start_ccs()
+    # time.sleep(5)
+    # StaticUtilities.stop_ccs(force_kill=True)
