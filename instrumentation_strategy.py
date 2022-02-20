@@ -20,7 +20,7 @@ class InstrumentationStrategy(ABC):
         StaticUtilities.logger.debug(f"{InstrumentationStrategy.__name__} object of type {self.type} initialized")
 
     @abstractmethod
-    def instrument(self, file: str) -> str:
+    def instrument(self, file: str) -> bool:
         """
         Method to be declared my concrete strategies.
         :param file: str representing the file to instrument.

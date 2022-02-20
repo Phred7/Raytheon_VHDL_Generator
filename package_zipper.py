@@ -40,25 +40,25 @@ class PackageZipper:
         """
         self.number_of_zipped_files = 0
         duplicate_file_modifier: int = 0
-        while StaticUtilities.file_should_exist(f'{os.getcwd()}\\{self.vhdl_directory}', f'{zip_file_name}.zip', raise_error=False):
+        while StaticUtilities.file_should_exist(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}', f'{zip_file_name}.zip', raise_error=False):
             if duplicate_file_modifier == 0:
                 zip_file_name = f"{zip_file_name}_[0]"
             else:
                 zip_file_name = zip_file_name.replace(f"_[{duplicate_file_modifier-1}]", f"_[{duplicate_file_modifier}]")
             duplicate_file_modifier += 1
-        print(os.getcwd())
-        with ZipFile(f'{os.getcwd()}\\{self.vhdl_directory}\\{zip_file_name}.zip', 'w') as vhdl_zip_file:
-            with StaticUtilities.change_dir(f'{os.getcwd()}\\{self.vhdl_directory}'):
-                for file in os.listdir(os.getcwd()):
+        print(StaticUtilities.project_root_directory())
+        with ZipFile(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}\\{zip_file_name}.zip', 'w') as vhdl_zip_file:
+            with StaticUtilities.change_dir(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}'):
+                for file in os.listdir(StaticUtilities.project_root_directory()):
                     if file.endswith(".vhd"):
                         self._zip_write(vhdl_zip_file, file)
-            with StaticUtilities.change_dir(f'{os.getcwd()}\\{self.disassembly_file_directory}'):
+            with StaticUtilities.change_dir(f'{StaticUtilities.project_root_directory()}\\{self.disassembly_file_directory}'):
                 if StaticUtilities.file_should_exist(self.disassembly_file_directory, self.disassembly_file, raise_error=False):
                     self._zip_write(vhdl_zip_file, self.disassembly_file)
         if duplicate_file_modifier != 0:
-            StaticUtilities.logger.warning(f'Created zip {zip_file_name}.zip in {os.getcwd()}\\{self.vhdl_directory} containing {self.number_of_zipped_files} files')
+            StaticUtilities.logger.warning(f'Created zip {zip_file_name}.zip in {StaticUtilities.project_root_directory()}\\{self.vhdl_directory} containing {self.number_of_zipped_files} files')
         else:
-            StaticUtilities.logger.info(f'Created zip {zip_file_name}.zip in {os.getcwd()}\\{self.vhdl_directory} containing {self.number_of_zipped_files} files')
+            StaticUtilities.logger.info(f'Created zip {zip_file_name}.zip in {StaticUtilities.project_root_directory()}\\{self.vhdl_directory} containing {self.number_of_zipped_files} files')
         return None
 
 

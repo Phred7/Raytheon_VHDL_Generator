@@ -1,0 +1,16 @@
+**/.idea
+**/__pycache__
+**/Debug
+phantom/
+phantom_c/
+**/.metadata
+**/.jxbrowser.userdata
+**/dvt
+**/RemoteSystemsTempFiles
+**/.settings
+PIQUE-Bin-Jar-0.0.1/
+PIQUE-Bin-Jar/
+.ccsproject
+.cproject
+.project
+ccs_workspace/.metadata/

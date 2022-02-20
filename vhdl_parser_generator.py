@@ -30,7 +30,7 @@ class VHDLParserGenerator:
         self.program_memory_start: int = 32768
         self.binary_file_name: str = binary_file_name
         self.disassembler_output_file_name: str = "generated_disassembly.txt"
-        self.disassembler_output_file_directory: str = rf"{os.getcwd()}\generated_disassembly"
+        self.disassembler_output_file_directory: str = rf"{StaticUtilities.project_root_directory()}\generated_disassembly"
         self.memory_indent: str = "\t\t\t\t\t\t   "
         self.nop_opcode: str = "0343"
         self.computer_name_list: List[str] = ["baseline", "highroller", "lowlife"]
@@ -44,7 +44,7 @@ class VHDLParserGenerator:
         - Removes all files with the vhd file extension
         :return: None.
         """
-        directory: str = rf'{os.getcwd()}\generated_vhdl'
+        directory: str = rf'{StaticUtilities.project_root_directory()}\generated_vhdl'
         for file in os.listdir(directory):
             if file.endswith(".vhd"):
                 os.remove(f"{directory}\\{file}")
@@ -60,7 +60,7 @@ class VHDLParserGenerator:
         """
         for computer_name in self.computer_name_list:
             original_stdout: TextIO = sys.stdout
-            with open(f"{os.getcwd()}\\generated_vhdl\\{computer_name}_package.vhd", "a+") as vhdl_package_file:
+            with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\{computer_name}_package.vhd", "a+") as vhdl_package_file:
                 sys.stdout = vhdl_package_file
                 vhd_package_constants_str: str
                 if "highroller" in computer_name:
@@ -102,7 +102,7 @@ class VHDLParserGenerator:
         :return: None.
         """
         for computer_name in self.computer_name_list:
-            with open(f"{os.getcwd()}\\generated_vhdl\\{computer_name}_memory.vhd", "a+") as vhdl_memory_file:
+            with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\{computer_name}_memory.vhd", "a+") as vhdl_memory_file:
                 with StaticUtilities.change_stdout_to_file(vhdl_memory_file):
                     print(self.get_vhdl_memory_libraries())
                     print(self.get_vhdl_memory_entity(computer_name))
@@ -304,7 +304,7 @@ constant ROM : rom_type :=("""
         StaticUtilities.logger.debug(f"Detection {'enabled' if detection else 'disabled'} while generating vhdl.")
         if detection:
             # Ex: Detection(path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", source_file="test_generated_ASM.asm")
-            _detection: Detection = Detection(path=rf"{os.getcwd()}\ccs_workspace\{self.binary_file_name}", source_file=f"{self.binary_file_name}.{'asm' if self.asm_file else 'c'}", pique_bin_bool=False, suppress_pique_bin_logs=False)
+            _detection: Detection = Detection(path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\{self.binary_file_name}", source_file=f"{self.binary_file_name}.{'asm' if self.asm_file else 'c'}", pique_bin_bool=False, suppress_pique_bin_logs=False)
             _detection.detect()  # TODO implement detection.detect() and call when detection is True
         disassembler: Disassembler = Disassembler(disassembler_input_file_name=f"{self.binary_file_name}.out")
         disassembler.disassemble()

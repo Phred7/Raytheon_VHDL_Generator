@@ -7,6 +7,7 @@
 ###############################
 import logging
 import os
+import pathlib
 import sys
 import datetime
 import psutil
@@ -14,20 +15,28 @@ import subprocess
 import time
 from contextlib import contextmanager
 from logging import Logger
-from typing import TextIO
+from typing import TextIO, List
 
 
 class StaticUtilities:
     """
     Class containing a set of static methods, components and context managers implemented throughout this project.
     """
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt="%m-%d-%Y %H:%M:%S")
+    _project_root_directory_str: str = str(pathlib.Path(__file__).parent)
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', datefmt="%m-%d-%Y %H:%M:%S")
     logger: Logger = logging.getLogger(__name__)
+    file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\log.log')
+    file_logging_handler.setFormatter(
+        logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
+    file_logging_handler.setLevel(logging.DEBUG)
+    logger.addHandler(file_logging_handler)
+    logger.info("Running Raytheon VHDL Generator")
+
 
     @staticmethod
     def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
         """
-        Returns 0 if file exists, otherwise raises OSError.
+        Evaluates the existence of a file in a given directory.
         :param raise_error: If True raises an OS error if the file does not exist, otherwise returns False.
         :param file_directory: Location of directory containing the File file.
         :param file: The name of the File file that should exist.
@@ -223,7 +232,7 @@ class StaticUtilities:
         """
         cwd: str = ""
         try:
-            cwd = os.getcwd()
+            cwd = StaticUtilities.project_root_directory()
             os.chdir(destination)
             yield
         finally:
@@ -245,8 +254,35 @@ class StaticUtilities:
         finally:
             sys.stdout = original_stdout
 
+    @staticmethod
+    def extract_zip(path_to_zip: str, extraction_directory) -> None:
+        import zipfile
+        with zipfile.ZipFile(path_to_zip, 'r') as zip_reference:
+            zip_reference.extractall(extraction_directory)
+        StaticUtilities.logger.debug(f"{path_to_zip} unzipped into {extraction_directory}")
+
+    @staticmethod
+    def hide_directory_recursively(directory: str, *, log: bool = True) -> None:
+        os.system(f"attrib +h {directory[:-1]}")
+        files: List[str] = []
+        for (path, name, filenames) in os.walk(directory):
+            files += [os.path.join(path, file) for file in filenames]
+            if not path == directory:
+                os.system(f"attrib +h \"{path}\"")
+                if log:
+                    StaticUtilities.logger.debug(f"{path} hidden")
+        for file in files:
+            os.system(f"attrib +h \"{file}\"")
+            if log:
+                StaticUtilities.logger.debug(f"{file} hidden")
+
+    @staticmethod
+    def project_root_directory() -> str:
+        return StaticUtilities._project_root_directory_str
+
 
 if __name__ == "__main__":
-    StaticUtilities.start_ccs()
-    time.sleep(5)
-    StaticUtilities.stop_ccs(force_kill=True)
+    print(StaticUtilities.project_root_directory())
+    # StaticUtilities.start_ccs()
+    # time.sleep(5)
+    # StaticUtilities.stop_ccs(force_kill=True)

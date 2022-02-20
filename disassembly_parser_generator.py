@@ -37,7 +37,7 @@ class DisassemblyParserGenerator:
             os.remove(rf"{self.generated_assembly_directory}\{self.generated_assembly_file}")
             StaticUtilities.logger.info(rf"Removed {self.generated_assembly_directory}\{self.generated_assembly_file}")
         # the following generates the asm source file from the disassembly file.
-        with open(rf"{os.getcwd()}\{self.generated_assembly_directory}\{self.generated_assembly_file}", "a+") as generated_src:
+        with open(rf"{StaticUtilities.project_root_directory()}\{self.generated_assembly_directory}\{self.generated_assembly_file}", "a+") as generated_src:
             with StaticUtilities.change_stdout_to_file(generated_src):
                 print(self.msp_ccs_assembler_template_headers())  # template headers
                 print(self.parse_disassembly())  # source
