@@ -174,7 +174,7 @@ class Instrumentation:
         """
         self.ccs_project_path = ccs_project_path
         self.ccs_project_name = ccs_project_name
-        self.ccs_project_source_file_name = ccs_project_source_file_name
+        self.ccs_project_source_file_name = ccs_project_source_file_nameffdfdfd
 
     def _ccs_fields_empty(self, *, logger_error: bool = True, system_error: bool = True) -> bool:
         """
