@@ -262,7 +262,7 @@ class StaticUtilities:
         StaticUtilities.logger.debug(f"{path_to_zip} unzipped into {extraction_directory}")
 
     @staticmethod
-    def hide_directory_recursively(directory: str, *, log: bool = True) -> None:
+    def hide_directory_recursively(directory: str, *, log: bool = True) -> bool:    # TODO: convert to a thread safe generator (or path/file queue) and add multiproceessing.
         os.system(f"attrib +h {directory[:-1]}")
         files: List[str] = []
         for (path, name, filenames) in os.walk(directory):
@@ -275,6 +275,24 @@ class StaticUtilities:
             os.system(f"attrib +h \"{file}\"")
             if log:
                 StaticUtilities.logger.debug(f"{file} hidden")
+        return True
+
+    @staticmethod
+    def un_hide_directory_recursively(directory: str, *, log: bool = True, leave_root_hidden: bool = False) -> bool:
+        if not leave_root_hidden:
+            os.system(f"attrib -h {directory[:-1]}")
+        files: List[str] = []
+        for (path, name, filenames) in os.walk(directory):
+            files += [os.path.join(path, file) for file in filenames]
+            if not path == directory:
+                os.system(f"attrib -h \"{path}\"")
+                if log:
+                    StaticUtilities.logger.debug(f"{path} hidden")
+        for file in files:
+            os.system(f"attrib -h \"{file}\"")
+            if log:
+                StaticUtilities.logger.debug(f"{file} hidden")
+        return False
 
     @staticmethod
     def project_root_directory() -> str:
