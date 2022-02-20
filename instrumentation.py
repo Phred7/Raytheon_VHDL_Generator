@@ -99,7 +99,7 @@ class Instrumentation:
         """
         self.ccs_project_path = ccs_project_path
         self.ccs_project_name = ccs_project_name
-        self.ccs_project_source_file_name = ccs_project_source_file_name
+        self.ccs_project_source_file_name = ccs_project_source_file_nameffdfdfd
 
     # dpg.set_ccs_project_details(ccs_project_path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", ccs_project_name="test_generated_ASM", ccs_project_source_file_name="test_generated_ASM.asm")
     # # functional args: ccs_project_path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", ccs_project_name="test_generated_ASM", ccs_project_source_file_name="test_asm_generation.asm"
