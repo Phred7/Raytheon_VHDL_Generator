@@ -32,7 +32,6 @@ class StaticUtilities:
     logger.addHandler(file_logging_handler)
     logger.info("Running Raytheon VHDL Generator")
 
-
     @staticmethod
     def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
         """

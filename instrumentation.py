@@ -110,52 +110,71 @@ class Instrumentation:
                             f"{StaticUtilities.project_root_directory()}/ccs_workspace/phantom/phantom.asm")
         StaticUtilities.logger.debug(f"Phantom source updated with source from {self.ccs_project_name}")
 
-    def _copy_phantom_binary_to_ccs_project(self, *, c_lang_bool: bool = False, log: bool = False) -> None:
-        """
-        @deprecated
-        """
-        file: str = ""
-        path: str = f"{self.ccs_project_path}Debug"
-        with StaticUtilities.change_dir(path):
-            for glob_file in glob.glob("*.out"):
-                file = glob_file
-        with StaticUtilities.change_dir(
-                f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom' if not c_lang_bool else 'phantom_c'}\\"):
-            shutil.copyfile(
-                f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if c_lang_bool else 'phantom'}\\Debug\\{'phantom_c' if c_lang_bool else 'phantom'}.out",
-                file)
-            shutil.move(file, f"{path}/{file}")
-        if log:
-            StaticUtilities.logger.debug(f"Phantom binary copied to {self.ccs_project_name}")
-        return
-
-    def _copy_phantom_binary_and_dependencies_to_ccs_project(self, c_lang_bool: bool = False, log: bool = False):  # TODO: open each file and replace all instances of phantom/phantom_c with project_name (ensure directories are still accurate)
-        """
-        DEL /F  "c_blank.hex"  "c_blank.out"
-        DEL /F "c_blank.obj"
-        DEL /F "c_blank.d"
-        DEL /F "c_blank.asm"
-        """
+    def _copy_phantom_binary_and_dependencies_to_ccs_project(self, c_lang_bool: bool = False, log: bool = False):
+        # TODO: open each file and replace all instances of phantom/phantom_c with project_name (ensure directories are still accurate)
+        # TODO: multiprocess the copying of each file
         with StaticUtilities.change_dir(
                 f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if c_lang_bool else 'phantom'}\\Debug\\"):
             for file_name in os.listdir():
+                with open(file_name):
+                    pass
                 if f"phantom" in file_name:
                     new_name: str = ""
                     if "phantom_c" in file_name:
                         new_name = file_name.replace("phantom_c", self.ccs_project_name)
                     else:
                         new_name = file_name.replace("phantom", self.ccs_project_name)
-                    shutil.copyfile(f"{os.getcwd()}\\{file_name}",
-                                    f"{self.ccs_project_path}\\VHDLGenerator\\{new_name}")
+                    self._copy_file_from_phantom_to_ccs_project(f"{os.getcwd()}\\{file_name}",
+                                                                f"{self.ccs_project_path}VHDLGenerator\\{new_name}")
                     if log:
                         StaticUtilities.logger.debug(
                             f"Copied phantom {file_name} to {self.ccs_project_name} as {new_name}")
                 else:
                     shutil.copyfile(f"{os.getcwd()}\\{file_name}",
-                                    f"{self.ccs_project_path}\\VHDLGenerator\\{file_name}")
+                                    f"{self.ccs_project_path}VHDLGenerator\\{file_name}")
                     if log:
                         StaticUtilities.logger.debug(f"Copied phantom {file_name} to {self.ccs_project_name}")
         return
+
+    @staticmethod
+    def _copy_file_from_phantom_to_ccs_project(source: str, destination: str) -> None:
+        source_extension: str = source.split('\\')[-1].split('.')[-1]
+        source_name: str = source.split('\\')[-1].split('.')[0]
+        source_path: str = source.replace(f"\\{source_name}.{source_extension}", "")
+        destination_extension: str = destination.split('\\')[-1].split('.')[-1]
+        destination_name: str = destination.split('\\')[-1].split('.')[0]
+        destination_path: str = destination.replace(f"\\{destination_name}.{destination_extension}", "")
+        temp_name_extension: str = "_tmp"
+
+        # TODO: verify both locations exist.
+        # Copy file to temp file
+        shutil.copyfile(source, f"{source_name}{temp_name_extension}.{source_extension}")
+
+        temp_file_replacement_text: str = ""
+        with open(f"{source_name}{temp_name_extension}.{source_extension}", "r") as temp_copy_file:
+            for line in temp_copy_file:
+                new_line: str = ""
+                if "ocument" in line:
+                    pass
+                new_line = line.replace(f"{source}", f"{destination}")
+                new_line = line.replace(f"{source_path}", f"{destination_path}")
+                new_line = new_line.replace(f"{source_name}.{source_extension}", f"{destination_name}.{destination_extension}")
+                new_line = new_line.replace(f"{source_name}", f"{destination_name}")
+                temp_file_replacement_text += new_line
+
+        with open(f"{source_name}{temp_name_extension}.{source_extension}", "w") as temp_copy_file:
+            temp_copy_file.write(temp_file_replacement_text)
+
+        # shutil.copyfile(f"{source_name}{temp_name_extension}.{source_extension}", destination)
+        # os.remove(f"{source_name}{temp_name_extension}.{source_extension}")
+
+        # Replace all instances of phantom in temp file with project name (parse from destination)
+        # Copy this temp file to the ccs project
+        # Delete the temp file
+        # Verify the file exists in the expected location? Probably unnecessary
+        # return
+        # TODO: .obj files throw error (cannot decode)... maybe try decoding differently based on extension? phantom.obj does contain reference to dir.
+        pass
 
     @staticmethod
     def _generate_phantom_workspace_and_projects() -> None:
@@ -184,19 +203,6 @@ class Instrumentation:
                 stderr=subprocess.STDOUT)
         StaticUtilities.logger.debug(f"Phantom {'C' if c_lang_bool else 'ASM'} project done building")
 
-    def set_ccs_project_details(self, ccs_project_path: str, ccs_project_name: str,
-                                ccs_project_source_file_name: str = "main.asm") -> None:
-        """
-        Sets fields required for replacing generated assembly with source of an existing project.
-        :param ccs_project_path: str path to an existing ASM CCS project.
-        :param ccs_project_name: str name of an existing ASM CCS project corresponding to the provided path.
-        :param ccs_project_source_file_name: str name of an existing ASM source file within the CCS project specified by the provided path.
-        :return: None.
-        """
-        self.ccs_project_path = ccs_project_path
-        self.ccs_project_name = ccs_project_name
-        self.ccs_project_source_file_name = ccs_project_source_file_name
-
     def _ccs_fields_empty(self, *, logger_error: bool = True, system_error: bool = True) -> bool:
         """
         Checks if the three fields required to replace a file in a ccs project are set to a non-empty value.
@@ -219,6 +225,19 @@ class Instrumentation:
                 return sys.exit(1)
             return True
         return False
+
+    def set_ccs_project_details(self, ccs_project_path: str, ccs_project_name: str,
+                                ccs_project_source_file_name: str = "main.asm") -> None:
+        """
+        Sets fields required for replacing generated assembly with source of an existing project.
+        :param ccs_project_path: str path to an existing ASM CCS project.
+        :param ccs_project_name: str name of an existing ASM CCS project corresponding to the provided path.
+        :param ccs_project_source_file_name: str name of an existing ASM source file within the CCS project specified by the provided path.
+        :return: None.
+        """
+        self.ccs_project_path = ccs_project_path
+        self.ccs_project_name = ccs_project_name
+        self.ccs_project_source_file_name = ccs_project_source_file_name
 
 
 if __name__ == "__main__":
