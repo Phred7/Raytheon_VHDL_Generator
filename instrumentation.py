@@ -24,11 +24,9 @@ class Instrumentation:
     def __init__(self, instrumentation_strategy: InstrumentationStrategy) -> None:
         self._phantom_is_hidden: bool = True
         self.disassembler = None
-        # self.dpg = None
         self.ccs_project_path: str = ""
         self.ccs_project_name: str = ""
         self.ccs_project_source_file_name: str = ""
-        # self.dpg: DisassemblyParserGenerator
         self._instrumentation_strategy = instrumentation_strategy
         if instrumentation_strategy is None:
             StaticUtilities.logger.warning(
@@ -90,12 +88,11 @@ class Instrumentation:
         instrumentation_result = True
         if instrumentation_result:
             StaticUtilities.logger.debug(f"Instrumentation on {self.ccs_project_source_file_name} succeeded")
-            # build project
+            # build phantom project
             self._build_phantom_project(c_lang_bool=c_lang_bool)
 
             # copy binary and dependencies to actual ccs project
-            self._copy_phantom_binary_dependencies_to_ccs_project(c_lang_bool=c_lang_bool)
-            # self._copy_phantom_binary_to_ccs_project(c_lang_bool=c_lang_bool)
+            self._copy_phantom_binary_and_dependencies_to_ccs_project(c_lang_bool=c_lang_bool)
         else:
             StaticUtilities.logger.debug(f"Instrumentation on {self.ccs_project_source_file_name} failed")
 
