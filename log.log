@@ -1277,3 +1277,7 @@ Running Raytheon VHDL Generator
 2022-02-17 17:58:41,929 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.out to c_blank as c_blank.out
 2022-02-17 17:58:41,933 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c_linkInfo.xml to c_blank as c_blank_linkInfo.xml
 2022-02-17 17:58:41,938 DEBUG instrumentation _copy_phantom_binary_to_ccs_project Phantom binary copied to c_blank
+2022-02-20 12:47:36,654 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 12:47:36,654 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-02-23 14:18:58,044 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-23 14:18:58,046 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized

@@ -67,8 +67,8 @@ class BufferOverflowAttack(InstrumentationStrategy):
                     for declare_line_index, primitive_name in defined_primitives:
                         if primitive_name in line:
                             # create buffers around dec. of the variables and overflow them
-                            buf_1 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for k in range(10))}"
-                            buf_2 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for k in range(10))}"
+                            buf_1 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for _ in range(10))}"
+                            buf_2 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for _ in range(10))}"
                             c_lines[declare_line_index] = f"char* {buf_1};\n{c_lines[declare_line_index]};\nchar* {buf_2};"
 
                             c_lines[compare_line_index] = f"buff_value({buf_2});\n{c_lines[compare_line_index]}"
@@ -81,24 +81,19 @@ class BufferOverflowAttack(InstrumentationStrategy):
         print(new_c_file)
 
         file_segments = file.split("\\")
-        file_segments.pop(-1)
+        target_file = file_segments.pop(-1).strip(".c")
 
         working_directory = "".join(r'\ '.strip() + x for x in file_segments)[1:]
-        new_file = f"{working_directory}\\main_instrumented.c"
+        new_file = f"{working_directory}\\{target_file}_instrumented.c"
         f = open(new_file, 'w')
         f.write(new_c_file)
         f.close()
-        os.system(f"gcc {new_file} -o {working_directory}\\b.exe")
+        # os.system(f"gcc {new_file} -o {working_directory}\\b.exe")
         os.system(f"{working_directory}\\b.exe")
-
-
-
-
-
 
 
 if __name__ == '__main__':
     b = BufferOverflowAttack()
     # b.instrument(r"C:\Users\Mike\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\buffer_overflow_target_asm\main.c")
-    b.instrument(r"C:\Users\Mike\Documents\GitHub\AttackTests\main.c")
+    b.instrument(r"C:\Users\Mike\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\buffer_overflow_target_asm\main.c")
 
