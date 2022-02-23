@@ -74,12 +74,10 @@ class PiqueBin:
                         parent_dir = ""
                     line = f"project.root={parent_dir}{self.binary_file_name}\n"
                 replacement_pique_bin_file_text += line
-            pique_bin_properties.close()
 
         with open(f"{self.pique_bin_package_directory}{self.pique_bin_properties_file_name}",
                   "w") as pique_bin_properties_replacement:
             pique_bin_properties_replacement.write(replacement_pique_bin_file_text)
-            pique_bin_properties_replacement.close()
 
         pique_bin_return_code: int
         with StaticUtilities.change_dir(self.pique_bin_package_directory):

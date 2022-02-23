@@ -1277,7 +1277,314 @@ Running Raytheon VHDL Generator
 2022-02-17 17:58:41,929 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.out to c_blank as c_blank.out
 2022-02-17 17:58:41,933 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c_linkInfo.xml to c_blank as c_blank_linkInfo.xml
 2022-02-17 17:58:41,938 DEBUG instrumentation _copy_phantom_binary_to_ccs_project Phantom binary copied to c_blank
-2022-02-20 12:47:36,654 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
-2022-02-20 12:47:36,654 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
-2022-02-23 14:18:58,044 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
-2022-02-23 14:18:58,046 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-02-20 10:12:13,351 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:12:13,354 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:12:13,355 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:12:16,247 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:18:15,537 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:18:15,540 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:18:15,540 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:18:19,753 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:20:52,680 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:20:52,682 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:20:52,682 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:20:56,473 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:20:56,730 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:21:43,896 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:21:43,899 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:21:43,899 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:21:47,468 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:21:47,729 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:22:57,393 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:22:57,397 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:22:57,397 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:23:01,156 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:23:01,420 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:26:42,845 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:26:42,848 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:26:42,848 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:26:46,470 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:26:46,718 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:27:34,060 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:27:34,063 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:27:34,063 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:27:37,545 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:27:37,817 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:34:43,372 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:34:43,375 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:34:43,375 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:34:46,895 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:34:47,221 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:36:44,321 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:36:44,324 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:36:44,324 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:36:47,657 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:36:47,931 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:37:36,001 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 10:37:42,390 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 10:37:45,793 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom objects.mk to c_blank
+2022-02-20 10:43:38,014 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:43:38,017 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:43:38,017 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:43:41,610 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:43:41,905 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:43:43,710 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 10:43:45,040 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 10:44:57,083 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:44:57,086 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:44:57,086 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:45:00,675 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:45:00,964 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:45:05,493 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 10:45:07,099 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 10:45:07,760 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.asm to c_blank as phantom.asm
+2022-02-20 10:46:40,207 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:46:40,210 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:46:40,210 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:46:43,793 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:46:44,100 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:46:47,228 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 10:46:51,601 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 10:49:29,585 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:49:29,587 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:49:29,587 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:49:33,172 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:49:33,453 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:49:43,077 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 10:49:48,191 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 10:51:15,143 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:51:15,146 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:51:15,146 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:51:18,664 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:51:18,887 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:51:24,727 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 10:51:30,578 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 10:51:49,132 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.d to c_blank as c_blank.d
+2022-02-20 10:51:54,297 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.obj to c_blank as c_blank.obj
+2022-02-20 10:51:58,962 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.map to c_blank as c_blank_c.map
+2022-02-20 10:52:11,594 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.out to c_blank as c_blank_c.out
+2022-02-20 10:52:14,326 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c_linkInfo.xml to c_blank as c_blank_c_linkInfo.xml
+2022-02-20 10:52:18,270 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom sources.mk to c_blank
+2022-02-20 10:52:25,148 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_rules.mk to c_blank
+2022-02-20 10:52:25,680 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_vars.mk to c_blank
+2022-02-20 10:53:29,488 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:53:29,491 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:53:29,491 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:53:33,047 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:53:33,460 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:53:41,848 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 10:54:07,246 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 10:54:08,942 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.d to c_blank as c_blank.d
+2022-02-20 10:54:09,743 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.obj to c_blank as c_blank.obj
+2022-02-20 10:54:47,869 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:54:47,872 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:54:47,872 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:54:51,393 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:54:51,618 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:54:55,208 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 10:54:55,209 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 10:54:55,210 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.d to c_blank as c_blank.d
+2022-02-20 10:54:55,210 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.obj to c_blank as c_blank.obj
+2022-02-20 10:54:55,211 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.map to c_blank as c_blank.map
+2022-02-20 10:54:55,212 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.out to c_blank as c_blank.out
+2022-02-20 10:54:55,213 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c_linkInfo.xml to c_blank as c_blank_linkInfo.xml
+2022-02-20 10:54:55,214 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom sources.mk to c_blank
+2022-02-20 10:54:55,215 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_rules.mk to c_blank
+2022-02-20 10:54:55,216 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_vars.mk to c_blank
+2022-02-20 10:57:37,438 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:57:37,441 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:57:37,441 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:57:40,979 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:57:41,177 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:57:41,401 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 10:57:41,402 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 10:57:41,403 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.d to c_blank as c_blank.d
+2022-02-20 10:57:41,404 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.obj to c_blank as c_blank.obj
+2022-02-20 10:57:41,405 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.map to c_blank as c_blank.map
+2022-02-20 10:57:41,406 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.out to c_blank as c_blank.out
+2022-02-20 10:57:41,407 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c_linkInfo.xml to c_blank as c_blank_linkInfo.xml
+2022-02-20 10:57:41,408 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom sources.mk to c_blank
+2022-02-20 10:57:41,409 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_rules.mk to c_blank
+2022-02-20 10:57:41,411 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_vars.mk to c_blank
+2022-02-20 10:57:41,623 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project c_blank VHDLGenerator files unhidden
+2022-02-20 10:59:06,422 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 10:59:06,425 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 10:59:06,651 DEBUG static_utilities extract_zip C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator/phantom_workspace.zip unzipped into C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator/ccs_workspace/
+2022-02-20 10:59:11,656 DEBUG instrumentation _generate_phantom_workspace_and_projects Phantom workspace generated
+2022-02-20 10:59:11,656 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 10:59:14,938 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 10:59:15,015 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 10:59:15,089 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.map to c_blank as c_blank.map
+2022-02-20 10:59:15,090 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.out to c_blank as c_blank.out
+2022-02-20 10:59:15,091 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c_linkInfo.xml to c_blank as c_blank_linkInfo.xml
+2022-02-20 10:59:15,167 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project c_blank VHDLGenerator files unhidden
+2022-02-20 11:03:16,250 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 11:03:16,253 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 11:03:18,866 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 11:03:18,940 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 11:51:41,799 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 11:51:41,802 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 11:51:41,802 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 11:51:45,641 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 11:51:45,877 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 11:51:46,105 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 11:51:46,106 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 11:51:46,107 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom objects.mk to c_blank
+2022-02-20 11:51:46,108 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.asm to c_blank as c_blank.asm
+2022-02-20 11:51:46,109 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.d to c_blank as c_blank.d
+2022-02-20 11:51:46,109 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.obj to c_blank as c_blank.obj
+2022-02-20 11:51:46,110 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.map to c_blank as c_blank.map
+2022-02-20 11:51:46,111 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c_linkInfo.xml to c_blank as c_blank_linkInfo.xml
+2022-02-20 11:51:46,112 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom sources.mk to c_blank
+2022-02-20 11:51:46,113 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_rules.mk to c_blank
+2022-02-20 11:51:46,113 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_vars.mk to c_blank
+2022-02-20 11:51:46,347 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project c_blank VHDLGenerator files unhidden
+2022-02-20 12:07:35,492 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 12:08:00,339 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\.settings hidden
+2022-02-20 12:08:00,358 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\Debug hidden
+2022-02-20 12:08:00,379 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\.ccsproject hidden
+2022-02-20 12:08:00,398 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\.cproject hidden
+2022-02-20 12:08:00,416 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\.project hidden
+2022-02-20 12:08:00,433 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\lnk_colt430fr2355.cmd hidden
+2022-02-20 12:08:00,451 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\phantom.c hidden
+2022-02-20 12:08:00,468 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\phantom.c.bak hidden
+2022-02-20 12:08:00,487 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\.settings\org.eclipse.cdt.codan.core.prefs hidden
+2022-02-20 12:08:00,506 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\.settings\org.eclipse.cdt.debug.core.prefs hidden
+2022-02-20 12:08:00,524 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\.settings\org.eclipse.core.resources.prefs hidden
+2022-02-20 12:08:00,542 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\Debug\ccsObjs.opt hidden
+2022-02-20 12:08:00,561 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\Debug\makefile hidden
+2022-02-20 12:08:00,580 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\Debug\objects.mk hidden
+2022-02-20 12:08:00,599 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\Debug\phantom.asm hidden
+2022-02-20 12:08:00,618 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\Debug\phantom.d hidden
+2022-02-20 12:08:00,637 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\Debug\phantom.obj hidden
+2022-02-20 12:08:00,656 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\Debug\phantom_c.map hidden
+2022-02-20 12:08:00,675 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\Debug\phantom_c_linkInfo.xml hidden
+2022-02-20 12:08:00,693 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\Debug\sources.mk hidden
+2022-02-20 12:08:00,711 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\Debug\subdir_rules.mk hidden
+2022-02-20 12:08:00,730 DEBUG static_utilities un_hide_directory_recursively C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\phantom_workspace\phantom_c\Debug\subdir_vars.mk hidden
+2022-02-20 12:32:50,358 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 12:32:50,360 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 12:38:14,642 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 12:38:14,643 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 12:43:56,068 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 12:43:56,070 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 12:50:02,796 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 12:50:13,615 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 12:50:13,615 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 12:50:27,778 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 12:50:27,779 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 12:50:27,780 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom objects.mk to c_blank
+2022-02-20 12:50:27,780 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.asm to c_blank as c_blank.asm
+2022-02-20 12:50:27,781 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.d to c_blank as c_blank.d
+2022-02-20 12:50:27,782 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.obj to c_blank as c_blank.obj
+2022-02-20 12:50:27,783 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.map to c_blank as c_blank.map
+2022-02-20 12:50:27,783 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.out to c_blank as c_blank.out
+2022-02-20 12:50:27,784 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c_linkInfo.xml to c_blank as c_blank_linkInfo.xml
+2022-02-20 12:50:27,785 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom sources.mk to c_blank
+2022-02-20 12:50:27,786 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_rules.mk to c_blank
+2022-02-20 12:50:27,786 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_vars.mk to c_blank
+2022-02-20 12:50:27,786 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project c_blank VHDLGenerator files unhidden
+2022-02-20 12:51:02,706 DEBUG instrumentation _copy_phantom_binary_to_ccs_project Phantom binary copied to c_blank
+2022-02-20 12:54:15,665 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 12:54:15,666 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 12:54:22,829 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 12:54:26,638 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 12:54:26,638 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 12:54:26,639 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 12:54:26,640 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 12:54:26,641 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom objects.mk to c_blank
+2022-02-20 12:54:26,641 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.asm to c_blank as c_blank.asm
+2022-02-20 12:54:26,642 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.d to c_blank as c_blank.d
+2022-02-20 12:54:26,643 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.obj to c_blank as c_blank.obj
+2022-02-20 12:54:26,644 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.map to c_blank as c_blank.map
+2022-02-20 12:54:26,645 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.out to c_blank as c_blank.out
+2022-02-20 12:54:26,645 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c_linkInfo.xml to c_blank as c_blank_linkInfo.xml
+2022-02-20 12:54:26,646 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom sources.mk to c_blank
+2022-02-20 12:54:26,647 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_rules.mk to c_blank
+2022-02-20 12:54:26,647 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_vars.mk to c_blank
+2022-02-20 12:54:26,647 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project c_blank VHDLGenerator files unhidden
+2022-02-20 12:59:27,102 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 12:59:27,102 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 12:59:34,338 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 12:59:38,143 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 12:59:38,143 DEBUG instrumentation _build_phantom_project Phantom C re-hidden
+2022-02-20 12:59:38,144 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 12:59:38,145 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 12:59:38,146 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom objects.mk to c_blank
+2022-02-20 12:59:38,146 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.asm to c_blank as c_blank.asm
+2022-02-20 12:59:38,147 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.d to c_blank as c_blank.d
+2022-02-20 12:59:38,147 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.obj to c_blank as c_blank.obj
+2022-02-20 12:59:38,148 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.map to c_blank as c_blank.map
+2022-02-20 12:59:38,149 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.out to c_blank as c_blank.out
+2022-02-20 12:59:38,150 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c_linkInfo.xml to c_blank as c_blank_linkInfo.xml
+2022-02-20 12:59:38,150 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom sources.mk to c_blank
+2022-02-20 12:59:38,151 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_rules.mk to c_blank
+2022-02-20 12:59:38,152 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_vars.mk to c_blank
+2022-02-20 12:59:38,152 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project c_blank VHDLGenerator files unhidden
+2022-02-20 13:00:13,609 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 13:00:13,609 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 13:00:21,074 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 13:00:24,800 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 13:00:24,801 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 13:00:24,802 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 13:00:24,802 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom objects.mk to c_blank
+2022-02-20 13:00:24,803 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.asm to c_blank as c_blank.asm
+2022-02-20 13:00:24,804 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.d to c_blank as c_blank.d
+2022-02-20 13:00:24,805 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.obj to c_blank as c_blank.obj
+2022-02-20 13:00:24,806 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.map to c_blank as c_blank.map
+2022-02-20 13:00:24,807 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.out to c_blank as c_blank.out
+2022-02-20 13:00:24,807 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c_linkInfo.xml to c_blank as c_blank_linkInfo.xml
+2022-02-20 13:00:24,808 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom sources.mk to c_blank
+2022-02-20 13:00:24,809 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_rules.mk to c_blank
+2022-02-20 13:00:24,809 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_vars.mk to c_blank
+2022-02-20 13:01:09,103 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 13:01:09,104 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 13:01:16,644 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 13:01:20,334 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-20 13:01:20,335 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom ccsObjs.opt to c_blank
+2022-02-20 13:01:20,336 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom makefile to c_blank
+2022-02-20 13:01:20,336 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom objects.mk to c_blank
+2022-02-20 13:01:20,337 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.asm to c_blank as c_blank.asm
+2022-02-20 13:01:20,338 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.d to c_blank as c_blank.d
+2022-02-20 13:01:20,338 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom.obj to c_blank as c_blank.obj
+2022-02-20 13:01:20,339 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.map to c_blank as c_blank.map
+2022-02-20 13:01:20,340 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c.out to c_blank as c_blank.out
+2022-02-20 13:01:20,341 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom phantom_c_linkInfo.xml to c_blank as c_blank_linkInfo.xml
+2022-02-20 13:01:20,341 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom sources.mk to c_blank
+2022-02-20 13:01:20,342 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_rules.mk to c_blank
+2022-02-20 13:01:20,343 DEBUG instrumentation _copy_phantom_binary_dependencies_to_ccs_project Copied phantom subdir_vars.mk to c_blank
+2022-02-20 13:02:57,296 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-20 13:02:57,297 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-20 13:03:04,621 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-20 13:03:08,317 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-22 10:44:52,086 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-22 10:44:52,087 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-22 10:44:52,338 DEBUG static_utilities extract_zip C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator/phantom_workspace.zip unzipped into C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator/ccs_workspace/
+2022-02-22 10:44:52,338 DEBUG instrumentation _generate_phantom_workspace_and_projects Phantom workspace generated
+2022-02-22 10:44:52,339 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-22 10:45:00,906 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-22 11:21:08,172 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-22 11:21:38,832 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-22 11:21:38,834 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-22 11:21:48,842 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-22 11:21:59,652 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-22 11:32:54,824 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-22 11:32:54,827 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-22 11:33:04,738 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-22 11:33:10,632 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-22 11:43:10,656 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-22 11:43:10,658 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-22 11:43:20,923 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-22 11:43:27,117 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-22 11:44:18,388 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-22 11:44:18,391 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-22 11:44:29,311 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-22 11:44:35,268 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-22 11:44:47,024 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-22 11:44:47,026 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-22 11:45:10,007 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-22 11:45:16,244 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-22 11:48:41,149 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-22 11:48:41,152 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-22 11:48:52,997 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-22 11:48:58,932 DEBUG instrumentation _build_phantom_project Phantom C project done building
