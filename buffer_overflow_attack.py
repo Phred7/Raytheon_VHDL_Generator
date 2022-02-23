@@ -8,10 +8,8 @@
 import random
 import string
 from typing import List, Tuple
-import os
 
 from instrumentation_strategy import InstrumentationStrategy
-from static_utilities import StaticUtilities
 
 
 class BufferOverflowAttack(InstrumentationStrategy):
