@@ -5,11 +5,13 @@
 # Dr. Brock LaMeres
 # Written by Walker Ward and Michael Heidal
 ###############################
+import codecs
 import glob
 import os
 import shutil
 import subprocess
 import sys
+from copy import deepcopy
 
 from instrumentation_strategy import InstrumentationStrategy
 from int_overflow_attack import IntOverflowAttack
@@ -71,9 +73,9 @@ class Instrumentation:
 
         self._ccs_fields_empty()
 
-        self._phantom_is_hidden = StaticUtilities.un_hide_directory_recursively(
-            directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", log=False,
-            leave_root_hidden=True)
+        # self._phantom_is_hidden = StaticUtilities.un_hide_directory_recursively(
+        #     directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", log=False,
+        #     leave_root_hidden=True)
 
         # generate phantom workspace and project/s
         self._generate_phantom_workspace_and_projects()
@@ -96,8 +98,8 @@ class Instrumentation:
         else:
             StaticUtilities.logger.debug(f"Instrumentation on {self.ccs_project_source_file_name} failed")
 
-        self._phantom_is_hidden = StaticUtilities.hide_directory_recursively(
-            directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", log=False)
+        # self._phantom_is_hidden = StaticUtilities.hide_directory_recursively(
+        #     directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", log=False)
         return
 
     def _update_phantom_source(self, *, c_lang: bool = False) -> None:
@@ -116,8 +118,8 @@ class Instrumentation:
         with StaticUtilities.change_dir(
                 f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if c_lang_bool else 'phantom'}\\Debug\\"):
             for file_name in os.listdir():
-                with open(file_name):
-                    pass
+                if "_tmp" in file_name:
+                    continue
                 if f"phantom" in file_name:
                     new_name: str = ""
                     if "phantom_c" in file_name:
@@ -130,20 +132,24 @@ class Instrumentation:
                         StaticUtilities.logger.debug(
                             f"Copied phantom {file_name} to {self.ccs_project_name} as {new_name}")
                 else:
-                    shutil.copyfile(f"{os.getcwd()}\\{file_name}",
-                                    f"{self.ccs_project_path}VHDLGenerator\\{file_name}")
+                    self._copy_file_from_phantom_to_ccs_project(f"{os.getcwd()}\\{file_name}",
+                                                                f"{self.ccs_project_path}VHDLGenerator\\{file_name}")
                     if log:
                         StaticUtilities.logger.debug(f"Copied phantom {file_name} to {self.ccs_project_name}")
         return
 
     @staticmethod
     def _copy_file_from_phantom_to_ccs_project(source: str, destination: str) -> None:
-        source_extension: str = source.split('\\')[-1].split('.')[-1]
+        source_extension: str = source.split('\\')[-1].split('.')[-1] if "." in source.split('\\')[-1] else ""
         source_name: str = source.split('\\')[-1].split('.')[0]
-        source_path: str = source.replace(f"\\{source_name}.{source_extension}", "")
-        destination_extension: str = destination.split('\\')[-1].split('.')[-1]
+        source_with_extension: str = source_name + (f".{source_extension}" if source_extension != "" else "")
+        source_path: str = source.replace(f"\\{source_with_extension}", "")
+        destination_extension: str = destination.split('\\')[-1].split('.')[-1] if "." in destination.split('\\')[-1] else ""
         destination_name: str = destination.split('\\')[-1].split('.')[0]
-        destination_path: str = destination.replace(f"\\{destination_name}.{destination_extension}", "")
+        destination_with_extension: str = destination_name + (
+            f".{destination_extension}" if destination_extension != "" else "")
+        destination_path: str = destination.replace(f"\\{destination_with_extension}", "")
+
         temp_name_extension: str = "_tmp"
 
         # TODO: verify both locations exist.
@@ -151,30 +157,43 @@ class Instrumentation:
         shutil.copyfile(source, f"{source_name}{temp_name_extension}.{source_extension}")
 
         temp_file_replacement_text: str = ""
-        with open(f"{source_name}{temp_name_extension}.{source_extension}", "r") as temp_copy_file:
-            for line in temp_copy_file:
-                new_line: str = ""
-                if "ocument" in line:
-                    pass
-                new_line = line.replace(f"{source}", f"{destination}")
-                new_line = line.replace(f"{source_path}", f"{destination_path}")
-                new_line = new_line.replace(f"{source_name}.{source_extension}", f"{destination_name}.{destination_extension}")
-                new_line = new_line.replace(f"{source_name}", f"{destination_name}")
-                temp_file_replacement_text += new_line
 
-        with open(f"{source_name}{temp_name_extension}.{source_extension}", "w") as temp_copy_file:
-            temp_copy_file.write(temp_file_replacement_text)
+        if source_extension == "obj" or source_extension == "out":
+            if source_extension == "out":
+                x = ""
+            with codecs.open(f"{source_name}{temp_name_extension}.{source_extension}", "r", "ansi") as temp_copy_file:
+                for line in temp_copy_file.readlines():
+                    new_line = deepcopy(line)
+                    new_line = new_line.replace(f"{source}", f"{destination}")
+                    new_line = new_line.replace(f"{source_path}", f"{destination_path}")
+                    new_line = new_line.replace(f"{source_with_extension}",
+                                                f"{destination_with_extension}")
+                    new_line = new_line.replace(f"{source_name}", f"{destination_name}")
+                    temp_file_replacement_text += new_line
+            with codecs.open(f"{source_name}{temp_name_extension}.{source_extension}", "w", "ansi") as temp_copy_file:
+                temp_copy_file.write(temp_file_replacement_text)
+        else:
+            with open(f"{source_name}{temp_name_extension}.{source_extension}", "r") as temp_copy_file:
+                for line in temp_copy_file:
+                    new_line: str = line
+                    new_line = new_line.replace(f"{source}", f"{destination}")
+                    new_line = new_line.replace(f"{source_path}", f"{destination_path}")
+                    new_line = new_line.replace(f"{source_with_extension}", f"{destination_with_extension}")
+                    new_line = new_line.replace(f"{source_name}", f"{destination_name}")
+                    temp_file_replacement_text += new_line
+            with open(f"{source_name}{temp_name_extension}.{source_extension}", "w") as temp_copy_file:
+                temp_copy_file.write(temp_file_replacement_text)
 
-        # shutil.copyfile(f"{source_name}{temp_name_extension}.{source_extension}", destination)
-        # os.remove(f"{source_name}{temp_name_extension}.{source_extension}")
+        shutil.copyfile(f"{source_name}{temp_name_extension}.{source_extension}", destination)
+        os.remove(f"{source_name}{temp_name_extension}.{source_extension}")
 
-        # Replace all instances of phantom in temp file with project name (parse from destination)
-        # Copy this temp file to the ccs project
-        # Delete the temp file
-        # Verify the file exists in the expected location? Probably unnecessary
-        # return
-        # TODO: .obj files throw error (cannot decode)... maybe try decoding differently based on extension? phantom.obj does contain reference to dir.
-        pass
+        if StaticUtilities.file_should_exist(file_directory=destination_path, file=destination_with_extension, raise_error=False):
+            StaticUtilities.logger.debug(
+                f"Successfully copied {source_with_extension} to {destination_with_extension}")
+        else:
+            StaticUtilities.logger.debug(
+                f"Failed to copy {source_with_extension} to {destination_with_extension}")
+        return
 
     @staticmethod
     def _generate_phantom_workspace_and_projects() -> None:
