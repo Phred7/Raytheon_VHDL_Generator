@@ -8,10 +8,8 @@
 import random
 import string
 from typing import List, Tuple
-import os
 
 from instrumentation_strategy import InstrumentationStrategy
-from static_utilities import StaticUtilities
 
 
 class BufferOverflowAttack(InstrumentationStrategy):
@@ -28,7 +26,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
         line = line.replace(" ", "").replace(";", "")
         return line
 
-    def instrument(self, file: str) -> None:
+    def instrument(self, file: str) -> bool:
         """"
         Open the file
         Find all variable declarations
@@ -39,7 +37,14 @@ class BufferOverflowAttack(InstrumentationStrategy):
         """
         insecure_function = ["#include <string.h>", "void buff_value(char* target) {", '   strcpy(target, "0000000000000000000000");}']
 
-        c_text = open(file, 'r').read()
+        # try to read from the file; return if the file isn't there
+        try:
+            f = open(file, 'r')
+            c_text = f.read()
+            f.close()
+
+        except:
+            return False
 
         c_lines = c_text.split('\n')
         for compare_line_index, line in enumerate(c_lines):
@@ -51,11 +56,14 @@ class BufferOverflowAttack(InstrumentationStrategy):
         c_types = ["int", "char", "float", "short", "long", "unsigned"]
         c_logic_operators = ["==", "!=", ">", "<", ">=", "<=","&&","||","!"]
 
-        # Find all variable definitions: lines with
+        # Find all variable definitions
         defined_primitives: List[Tuple[int, str]] = [(i, self.c_variable_from_declaration(line)) for i, line in enumerate(c_lines) if any([c_type in line and not any([char in line for char in ["(",")","[","]"]]) for c_type in c_types])]
-        print(defined_primitives)
 
+        # If no variable definitions were found, return that buffer overflow did not work
+        if defined_primitives == []:
+            return False
 
+        inserted_buffer: bool = False
         for compare_line_index, line in enumerate(c_lines):
             if "int main" in line and "{" in line:
                 c_lines[compare_line_index] = line + '\nprintf("This file has been instrumented.' + r'\n");'
@@ -66,39 +74,24 @@ class BufferOverflowAttack(InstrumentationStrategy):
                 if operator in line:
                     for declare_line_index, primitive_name in defined_primitives:
                         if primitive_name in line:
+                            inserted_buffer = True
                             # create buffers around dec. of the variables and overflow them
-                            buf_1 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for k in range(10))}"
-                            buf_2 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for k in range(10))}"
+                            buf_1 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for _ in range(10))}"
+                            buf_2 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for _ in range(10))}"
                             c_lines[declare_line_index] = f"char* {buf_1};\n{c_lines[declare_line_index]};\nchar* {buf_2};"
 
                             c_lines[compare_line_index] = f"buff_value({buf_2});\n{c_lines[compare_line_index]}"
                             c_lines[compare_line_index] = f"buff_value({buf_1});\n{c_lines[compare_line_index]}"
 
+        if not inserted_buffer:
+            return False
+
         c_lines = insecure_function + c_lines
         new_c_file = ""
         for line in c_lines:
             new_c_file = f"{new_c_file}\n{line}"
-        print(new_c_file)
 
-        file_segments = file.split("\\")
-        file_segments.pop(-1)
-
-        working_directory = "".join(r'\ '.strip() + x for x in file_segments)[1:]
-        new_file = f"{working_directory}\\main_instrumented.c"
-        f = open(new_file, 'w')
+        f = open(file, 'w')
         f.write(new_c_file)
         f.close()
-        os.system(f"gcc {new_file} -o {working_directory}\\b.exe")
-        os.system(f"{working_directory}\\b.exe")
-
-
-
-
-
-
-
-if __name__ == '__main__':
-    b = BufferOverflowAttack()
-    # b.instrument(r"C:\Users\Mike\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\buffer_overflow_target_asm\main.c")
-    b.instrument(r"C:\Users\Mike\Documents\GitHub\AttackTests\main.c")
-
+        return True
