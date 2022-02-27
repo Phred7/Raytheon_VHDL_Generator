@@ -2110,3 +2110,140 @@ Running Raytheon VHDL Generator
 2022-02-27 11:16:17,458 DEBUG instrumentation _build_phantom_project Phantom C project done building
 2022-02-27 11:16:25,301 DEBUG instrumentation instrument Hide directory elapsed time: 7.8152148723602295
 2022-02-27 11:16:33,161 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 0.3009653091430664
+2022-02-27 11:25:20,526 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 11:25:27,691 DEBUG instrumentation instrument Un hide directory elapsed time: 7.164913654327393
+2022-02-27 11:25:27,692 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 11:25:27,692 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 11:25:31,238 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 11:25:38,684 DEBUG instrumentation instrument Hide directory elapsed time: 7.412726163864136
+2022-02-27 11:25:46,468 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 0.29526734352111816
+2022-02-27 11:26:05,968 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 11:26:13,963 DEBUG instrumentation instrument Un hide directory elapsed time: 7.9942262172698975
+2022-02-27 11:26:13,964 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 11:26:13,964 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 11:26:17,544 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 11:26:25,832 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 8.244757890701294
+2022-02-27 11:28:30,360 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 11:28:37,892 DEBUG instrumentation instrument Un hide directory elapsed time: 7.532240390777588
+2022-02-27 11:28:37,893 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 11:28:37,893 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 11:28:41,608 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 11:29:34,410 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 51.15231394767761
+2022-02-27 11:31:47,910 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 11:31:56,133 DEBUG instrumentation instrument Un hide directory elapsed time: 8.222868919372559
+2022-02-27 11:31:56,134 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 11:31:56,135 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 11:31:59,768 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 11:32:55,001 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 55.19062852859497
+2022-02-27 11:34:25,013 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 11:34:33,420 DEBUG instrumentation instrument Un hide directory elapsed time: 8.407773971557617
+2022-02-27 11:34:33,422 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 11:34:33,422 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 11:34:37,002 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 11:36:50,239 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 11:36:58,253 DEBUG instrumentation instrument Un hide directory elapsed time: 8.013981103897095
+2022-02-27 11:36:58,254 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 11:36:58,254 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 11:37:01,860 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 11:38:11,482 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 11:38:19,637 DEBUG instrumentation instrument Un hide directory elapsed time: 8.15402340888977
+2022-02-27 11:38:19,638 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 11:38:19,638 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 11:38:23,228 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 11:40:51,843 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 11:40:51,844 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 11:40:51,844 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 11:40:55,448 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 11:56:16,270 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 11:56:16,272 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 11:56:16,272 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 11:56:19,876 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 11:58:03,490 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 11:58:03,491 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 11:58:03,491 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 11:58:07,094 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 11:58:31,229 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 11:58:40,700 DEBUG instrumentation instrument Un hide directory elapsed time: 9.470701932907104
+2022-02-27 11:58:40,701 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 11:58:40,701 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 11:58:44,352 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 11:59:19,213 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 34.818177700042725
+2022-02-27 12:00:46,970 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:00:55,779 DEBUG instrumentation instrument Un hide directory elapsed time: 8.807368040084839
+2022-02-27 12:00:55,780 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:00:55,780 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:00:59,417 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:02:08,143 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 63.258803367614746
+2022-02-27 12:03:03,103 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:03:03,104 DEBUG instrumentation instrument Un hide directory elapsed time: 0.0
+2022-02-27 12:03:03,346 DEBUG static_utilities extract_zip C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator/phantom_workspace.zip unzipped into C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator/ccs_workspace/
+2022-02-27 12:03:03,347 DEBUG instrumentation _generate_phantom_workspace_and_projects Phantom workspace generated
+2022-02-27 12:03:03,347 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:03:03,347 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:03:06,918 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:03:57,772 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:04:03,543 DEBUG instrumentation instrument Un hide directory elapsed time: 5.771681547164917
+2022-02-27 12:04:03,544 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:04:03,545 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:04:07,214 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:06:52,747 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:06:58,351 DEBUG instrumentation instrument Un hide directory elapsed time: 5.603655576705933
+2022-02-27 12:06:58,352 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:06:58,353 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:07:02,007 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:11:06,194 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:11:11,961 DEBUG instrumentation instrument Un hide directory elapsed time: 5.767554759979248
+2022-02-27 12:11:11,963 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:11:11,963 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:11:15,521 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:11:55,892 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 40.33924150466919
+2022-02-27 12:13:34,484 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:13:40,219 DEBUG instrumentation instrument Un hide directory elapsed time: 5.73428750038147
+2022-02-27 12:13:40,220 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:13:40,220 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:13:43,778 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:13:44,800 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 0.9880762100219727
+2022-02-27 12:14:45,752 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:14:51,765 DEBUG instrumentation instrument Un hide directory elapsed time: 6.012622594833374
+2022-02-27 12:14:51,766 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:14:51,766 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:14:55,321 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:15:53,506 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:15:59,690 DEBUG instrumentation instrument Un hide directory elapsed time: 6.182790040969849
+2022-02-27 12:15:59,691 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:15:59,691 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:16:03,252 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:16:04,296 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 1.0159218311309814
+2022-02-27 12:16:18,681 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:16:25,049 DEBUG instrumentation instrument Un hide directory elapsed time: 6.367250919342041
+2022-02-27 12:16:25,050 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:16:25,050 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:16:28,697 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:16:29,753 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 1.029353141784668
+2022-02-27 12:24:53,064 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:24:59,680 DEBUG instrumentation instrument Un hide directory elapsed time: 6.616511583328247
+2022-02-27 12:25:01,759 DEBUG instrumentation instrument Multiprocessing un hide directory elapsed time: 1.0465290546417236
+2022-02-27 12:25:01,760 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:25:01,760 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:25:05,378 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:25:30,233 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:25:43,566 DEBUG instrumentation instrument Un hide directory elapsed time: 13.33126950263977
+2022-02-27 12:26:21,366 DEBUG instrumentation instrument Multiprocessing un hide directory elapsed time: 16.579933643341064
+2022-02-27 12:26:26,089 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:26:26,089 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:26:29,603 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:27:28,818 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:27:35,636 DEBUG instrumentation instrument Un hide directory elapsed time: 6.817436933517456
+2022-02-27 12:27:38,285 DEBUG instrumentation instrument Multiprocessing un hide directory elapsed time: 1.4413557052612305
+2022-02-27 12:27:38,286 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:27:38,286 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:27:41,928 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:27:43,323 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 1.367863416671753
+2022-02-27 12:30:18,758 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:30:25,915 DEBUG instrumentation instrument Un hide directory elapsed time: 7.156124114990234
+2022-02-27 12:30:28,407 DEBUG instrumentation instrument Multiprocessing un hide directory elapsed time: 1.3902616500854492
+2022-02-27 12:30:28,408 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:30:28,408 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:30:32,101 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:30:39,194 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 7.065216302871704
+2022-02-27 12:30:41,740 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 1.3109872341156006

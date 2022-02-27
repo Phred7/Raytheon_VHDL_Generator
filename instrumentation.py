@@ -84,6 +84,15 @@ class Instrumentation:
             single_time_end = time.time()
             StaticUtilities.logger.debug(
                 f"Un hide directory elapsed time: {single_time_end - single_time_start}")
+            self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
+                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=True)
+            single_time_start = time.time()
+            self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
+                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=False,
+                leave_root_hidden=True)
+            single_time_end = time.time()
+            StaticUtilities.logger.debug(
+                f"Multiprocessing un hide directory elapsed time: {single_time_end - single_time_start}")
 
             # generate phantom workspace and project/s
             self._generate_phantom_workspace_and_projects()
@@ -114,12 +123,11 @@ class Instrumentation:
             single_time_end = time.time()
             StaticUtilities.logger.debug(
                 f"Hide directory elapsed time: {single_time_end - single_time_start}")
-            self._phantom_is_hidden = StaticUtilities.un_hide_directory_recursively(
-                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", log=False,
-                leave_root_hidden=True)
+            self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
+                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=False)
             single_time_start = time.time()
             self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
-                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\")
+                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=True)
             single_time_end = time.time()
             StaticUtilities.logger.debug(
                 f"Multiprocessing hide directory elapsed time: {single_time_end - single_time_start}")

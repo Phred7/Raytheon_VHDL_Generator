@@ -32,9 +32,6 @@ class StaticUtilities:
         logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
     file_logging_handler.setLevel(logging.DEBUG)
     logger.addHandler(file_logging_handler)
-    _process_helper_queue: Queue = Queue()
-    _multiprocessing_lock = multiprocessing.Lock()
-    # logger.info("Running Raytheon VHDL Generator")
 
     @staticmethod
     def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
@@ -265,29 +262,35 @@ class StaticUtilities:
         StaticUtilities.logger.debug(f"{path_to_zip} unzipped into {extraction_directory}")
 
     @staticmethod
-    def multiprocess_hide_directory(directory: str) -> bool:
+    def multiprocess_hide_directory(directory: str, hide: bool, *, leave_root_hidden: bool = True) -> bool:
         processes: List[Process] = []
-        os.system(f"attrib +h {directory[:-1]}")
-        StaticUtilities._process_helper_queue = Queue()
+        queue: Queue = Queue()
+
+        if (not leave_root_hidden) and (not hide):
+            os.system(f"attrib -h {directory[:-1]}")
+        else:
+            os.system(f"attrib +h {directory[:-1]}")
+
         for (path, name, filenames) in os.walk(directory):
             if not path == directory:
-                StaticUtilities._process_helper_queue.put(path)
-            StaticUtilities._process_helper_queue.put([os.path.join(path, file) for file in filenames])
-        for i in range(os.cpu_count() - 1):
-            processes.append((multiprocessing.Process(target=StaticUtilities._multiprocess_hide_directory, args=(), name=f"Static File Hide Process {i}")))
+                queue.put(path)
+            [queue.put(os.path.join(path, file)) for file in filenames]
+
+        for i in range(os.cpu_count() - 1):  # len(os.sched_getaffinity(0)) on Unix to get number of available
+            processes.append((multiprocessing.Process(target=StaticUtilities._mp_hide_directory, args=(queue, hide,), name=f"Static File Hide Process {i}")))
         for process in processes:
             process.start()
+        while not queue.empty():
+            continue
         for process in processes:
             process.join()
         return True
 
     @staticmethod
-    def _multiprocess_hide_directory() -> None:
-        while not StaticUtilities._process_helper_queue.empty():
-            StaticUtilities._multiprocessing_lock.acquire()
-            file: str = StaticUtilities._process_helper_queue.get()
-            StaticUtilities._multiprocessing_lock.release()
-            os.system(f"attrib +h \"{file}\"")
+    def _mp_hide_directory(file_queue: Queue, hide: bool) -> None:
+        while not file_queue.empty():
+            file: str = file_queue.get()
+            os.system(f"attrib {'+h' if hide else '-h'} \"{file}\"")
         return
 
     @staticmethod
