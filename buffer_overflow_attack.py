@@ -3,7 +3,7 @@
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
-# Written by Michael Heidal and Walker Ward
+# Written by Michael Heidal
 ###############################
 import random
 import string
@@ -32,9 +32,13 @@ class BufferOverflowAttack(InstrumentationStrategy):
         Open the file
         Find all variable declarations
         Find all places where variables declared here are being compared
-        Paste insecure function to top
         Paste buffer definitions around variable declarations
         Paste insecure function calls before comparisons
+        Paste insecure function to top
+        Write to the file
+
+        :param file: the file to instrument.
+        :return: True if the process is successful, False if it fails at any step
         """
         insecure_function = ["#include <string.h>", "void buff_value(char* target) {",
                              '   strcpy(target, "0000000000000000000000");}']
@@ -86,6 +90,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
                             c_lines[compare_line_index] = f"buff_value({buf_2});\n{c_lines[compare_line_index]}"
                             c_lines[compare_line_index] = f"buff_value({buf_1});\n{c_lines[compare_line_index]}"
 
+        # if no primitives are being compared
         if not inserted_buffer:
             return False
 
