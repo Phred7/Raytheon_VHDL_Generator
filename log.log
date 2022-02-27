@@ -2251,3 +2251,62 @@ Running Raytheon VHDL Generator
 2022-02-27 12:34:57,110 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
 2022-02-27 12:34:57,110 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
 2022-02-27 12:35:00,791 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:47:47,253 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:47:48,529 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:47:48,529 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:47:52,096 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:48:00,909 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:49:10,865 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:49:42,420 DEBUG instrumentation _update_phantom_source Phantom source updated with source from test_ASM
+2022-02-27 12:49:48,746 DEBUG instrumentation instrument Instrumentation on test_ASM.asm succeeded
+2022-02-27 12:49:54,421 DEBUG instrumentation _build_phantom_project Phantom ASM project done building
+2022-02-27 12:52:32,266 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:52:46,566 DEBUG instrumentation _update_phantom_source Phantom source updated with source from test_ASM
+2022-02-27 12:52:46,567 DEBUG instrumentation instrument Instrumentation on test_ASM.asm succeeded
+2022-02-27 12:52:50,204 DEBUG instrumentation _build_phantom_project Phantom ASM project done building
+2022-02-27 12:53:18,316 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:53:19,537 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:53:19,537 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:53:23,125 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:53:34,054 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:53:35,307 DEBUG instrumentation _update_phantom_source Phantom source updated with source from test_ASM
+2022-02-27 12:53:35,307 DEBUG instrumentation instrument Instrumentation on test_ASM.asm succeeded
+2022-02-27 12:53:38,929 DEBUG instrumentation _build_phantom_project Phantom ASM project done building
+2022-02-27 12:54:30,712 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:54:31,958 DEBUG instrumentation _update_phantom_source Phantom source updated with source from test_ASM
+2022-02-27 12:54:31,958 DEBUG instrumentation instrument Instrumentation on test_ASM.asm succeeded
+2022-02-27 12:54:35,622 DEBUG instrumentation _build_phantom_project Phantom ASM project done building
+2022-02-27 12:54:36,902 INFO instrumentation instrument **** VHDLGenerator Build Finished ****
+2022-02-27 12:55:24,095 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:55:25,422 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:55:25,422 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:55:28,997 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:55:30,348 DEBUG instrumentation instrument **** VHDLGenerator Build Finished ****
+2022-02-27 12:59:42,112 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:59:43,418 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-02-27 12:59:43,419 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:59:43,419 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:59:47,003 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 12:59:47,030 DEBUG instrumentation _copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to c_blank
+2022-02-27 12:59:48,407 DEBUG instrumentation instrument Phantom workspace hidden
+2022-02-27 12:59:48,408 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-02-27 13:00:54,158 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 13:01:48,999 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 13:02:09,448 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 13:02:09,448 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-02-27 13:02:10,940 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-02-27 13:02:10,941 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 13:02:10,942 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 13:02:14,581 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 13:02:14,608 DEBUG instrumentation _copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to c_blank
+2022-02-27 13:02:16,223 DEBUG instrumentation instrument Phantom workspace hidden
+2022-02-27 13:02:16,224 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-02-27 13:02:18,714 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 13:02:18,714 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-02-27 13:02:20,053 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-02-27 13:02:20,054 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 13:02:20,054 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 13:02:23,702 DEBUG instrumentation _build_phantom_project Phantom C project done building
+2022-02-27 13:02:23,729 DEBUG instrumentation _copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to c_blank
+2022-02-27 13:02:25,149 DEBUG instrumentation instrument Phantom workspace hidden
+2022-02-27 13:02:25,149 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
