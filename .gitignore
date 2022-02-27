@@ -16,3 +16,4 @@ PIQUE-Bin-Jar/
 .project
 ccs_workspace/.metadata/
 /ccs_workspace/phantom_workspace/
+*.launch
