@@ -2247,3 +2247,7 @@ Running Raytheon VHDL Generator
 2022-02-27 12:30:32,101 DEBUG instrumentation _build_phantom_project Phantom C project done building
 2022-02-27 12:30:39,194 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 7.065216302871704
 2022-02-27 12:30:41,740 DEBUG instrumentation instrument Multiprocessing hide directory elapsed time: 1.3109872341156006
+2022-02-27 12:34:55,790 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-02-27 12:34:57,110 DEBUG instrumentation _update_phantom_source Phantom source updated with source from c_blank
+2022-02-27 12:34:57,110 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
+2022-02-27 12:35:00,791 DEBUG instrumentation _build_phantom_project Phantom C project done building

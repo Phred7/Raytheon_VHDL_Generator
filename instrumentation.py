@@ -77,22 +77,10 @@ class Instrumentation:
         self._ccs_fields_empty()
 
         try:
-            single_time_start = time.time()
-            self._phantom_is_hidden = StaticUtilities.un_hide_directory_recursively(
-                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", log=False,
-                leave_root_hidden=True)
-            single_time_end = time.time()
-            StaticUtilities.logger.debug(
-                f"Un hide directory elapsed time: {single_time_end - single_time_start}")
-            self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
-                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=True)
-            single_time_start = time.time()
+            # un hide the phantom workspace - skipping this step may cause permission issues
             self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
                 directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=False,
                 leave_root_hidden=True)
-            single_time_end = time.time()
-            StaticUtilities.logger.debug(
-                f"Multiprocessing un hide directory elapsed time: {single_time_end - single_time_start}")
 
             # generate phantom workspace and project/s
             self._generate_phantom_workspace_and_projects()
@@ -104,7 +92,6 @@ class Instrumentation:
             instrumentation_result: bool = self._instrumentation_strategy.instrument(
                 file=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\{'phantom_c' if c_lang_bool else 'phantom'}\phantom{'_c.c' if c_lang_bool else '.asm'}")
 
-            instrumentation_result = True
             if instrumentation_result:
                 StaticUtilities.logger.debug(f"Instrumentation on {self.ccs_project_source_file_name} succeeded")
                 # build phantom project
@@ -117,20 +104,8 @@ class Instrumentation:
                 StaticUtilities.logger.debug(f"Instrumentation on {self.ccs_project_source_file_name} failed")
 
         finally:
-            single_time_start = time.time()
-            self._phantom_is_hidden = StaticUtilities.hide_directory_recursively(
-                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", log=False)
-            single_time_end = time.time()
-            StaticUtilities.logger.debug(
-                f"Hide directory elapsed time: {single_time_end - single_time_start}")
-            self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
-                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=False)
-            single_time_start = time.time()
             self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
                 directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=True)
-            single_time_end = time.time()
-            StaticUtilities.logger.debug(
-                f"Multiprocessing hide directory elapsed time: {single_time_end - single_time_start}")
         return
 
     def _update_phantom_source(self, *, c_lang: bool = False) -> None:

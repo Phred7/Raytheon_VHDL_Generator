@@ -14,7 +14,8 @@ from instrumentation_strategy import InstrumentationStrategy
 
 class BufferOverflowAttack(InstrumentationStrategy):
 
-    def c_variable_from_declaration(self, line: str) -> str:
+    @staticmethod
+    def c_variable_from_declaration(line: str) -> str:
         """
         :param line: A line of C code containing a primitive variable declaration.
         :return: The name of the variable being declared.
@@ -35,14 +36,14 @@ class BufferOverflowAttack(InstrumentationStrategy):
         Paste buffer definitions around variable declarations
         Paste insecure function calls before comparisons
         """
-        insecure_function = ["#include <string.h>", "void buff_value(char* target) {", '   strcpy(target, "0000000000000000000000");}']
+        insecure_function = ["#include <string.h>", "void buff_value(char* target) {",
+                             '   strcpy(target, "0000000000000000000000");}']
 
         # try to read from the file; return if the file isn't there
         try:
             f = open(file, 'r')
             c_text = f.read()
             f.close()
-
         except:
             return False
 
@@ -52,15 +53,16 @@ class BufferOverflowAttack(InstrumentationStrategy):
 
         c_lines = [line for line in c_lines if line != ""]
 
-
         c_types = ["int", "char", "float", "short", "long", "unsigned"]
-        c_logic_operators = ["==", "!=", ">", "<", ">=", "<=","&&","||","!"]
+        c_logic_operators = ["==", "!=", ">", "<", ">=", "<=", "&&", "||", "!"]
 
         # Find all variable definitions
-        defined_primitives: List[Tuple[int, str]] = [(i, self.c_variable_from_declaration(line)) for i, line in enumerate(c_lines) if any([c_type in line and not any([char in line for char in ["(",")","[","]"]]) for c_type in c_types])]
+        defined_primitives: List[Tuple[int, str]] = [(i, self.c_variable_from_declaration(line)) for i, line in
+                                                     enumerate(c_lines) if any([c_type in line and not any(
+                [char in line for char in ["(", ")", "[", "]"]]) for c_type in c_types])]
 
         # If no variable definitions were found, return that buffer overflow did not work
-        if defined_primitives == []:
+        if not defined_primitives:
             return False
 
         inserted_buffer: bool = False
@@ -78,7 +80,8 @@ class BufferOverflowAttack(InstrumentationStrategy):
                             # create buffers around dec. of the variables and overflow them
                             buf_1 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for _ in range(10))}"
                             buf_2 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for _ in range(10))}"
-                            c_lines[declare_line_index] = f"char* {buf_1};\n{c_lines[declare_line_index]};\nchar* {buf_2};"
+                            c_lines[
+                                declare_line_index] = f"char* {buf_1};\n{c_lines[declare_line_index]};\nchar* {buf_2};"
 
                             c_lines[compare_line_index] = f"buff_value({buf_2});\n{c_lines[compare_line_index]}"
                             c_lines[compare_line_index] = f"buff_value({buf_1});\n{c_lines[compare_line_index]}"
