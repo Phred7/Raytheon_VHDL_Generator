@@ -147,29 +147,8 @@ class Instrumentation:
                         StaticUtilities.logger.debug(f"Copied phantom {file_name} to {self.ccs_project_name}")
         return
 
-    # def _multiprocess_copy_phantom_binary_and_dependencies_to_ccs_project(self, c_lang_bool: bool = False) -> None:
-    #     with StaticUtilities.change_dir(
-    #             f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if c_lang_bool else 'phantom'}\\Debug\\"):
-    #         processes: List[Process] = []
-    #         for file_name in os.listdir():
-    #             if "_tmp" in file_name:
-    #                 continue
-    #             if f"phantom" in file_name:
-    #                 new_name: str = ""
-    #                 if "phantom_c" in file_name:
-    #                     new_name = file_name.replace("phantom_c", self.ccs_project_name)
-    #                 else:
-    #                     new_name = file_name.replace("phantom", self.ccs_project_name)
-    #                 processes.append((multiprocessing.Process(target=self.copy_file_from_phantom_to_ccs_project, args=(f"{os.getcwd()}\\{file_name}", f"{self.ccs_project_path}VHDLGenerator\\{new_name}",), name=f"phantom copy process: {new_name}")))
-    #             else:
-    #                 processes.append((multiprocessing.Process(target=self.copy_file_from_phantom_to_ccs_project, args=(f"{os.getcwd()}\\{file_name}", f"{self.ccs_project_path}VHDLGenerator\\{file_name}",), name=f"phantom copy process: {file_name}")))
-    #         for process in processes:
-    #             process.start()
-    #         for process in processes:
-    #             process.join()
-    #     return
-
-    def copy_file_from_phantom_to_ccs_project(self, source: str, destination: str, *, logging: bool = False) -> None:
+    @staticmethod
+    def copy_file_from_phantom_to_ccs_project(source: str, destination: str, *, logging: bool = False) -> None:
         source_extension: str = source.split('\\')[-1].split('.')[-1] if "." in source.split('\\')[-1] else ""
         source_name: str = source.split('\\')[-1].split('.')[0]
         source_with_extension: str = source_name + (f".{source_extension}" if source_extension != "" else "")
