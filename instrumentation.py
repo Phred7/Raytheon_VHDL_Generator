@@ -19,7 +19,6 @@ from typing import List
 from instrumentation_strategy import InstrumentationStrategy
 from int_overflow_attack import IntOverflowAttack
 from static_utilities import StaticUtilities
-from multiprocessing import Process, Queue
 
 
 class Instrumentation:
@@ -78,15 +77,19 @@ class Instrumentation:
         self._ccs_fields_empty()
 
         try:
+            single_time_start = time.time()
             self._phantom_is_hidden = StaticUtilities.un_hide_directory_recursively(
                 directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", log=False,
                 leave_root_hidden=True)
+            single_time_end = time.time()
+            StaticUtilities.logger.debug(
+                f"Un hide directory elapsed time: {single_time_end - single_time_start}")
 
             # generate phantom workspace and project/s
             self._generate_phantom_workspace_and_projects()
 
             # copy source from CCS project into phantom project
-            # self._update_phantom_source(c_lang=c_lang_bool)
+            self._update_phantom_source(c_lang=c_lang_bool)
 
             # instrument file
             instrumentation_result: bool = self._instrumentation_strategy.instrument(
@@ -99,27 +102,37 @@ class Instrumentation:
                 self._build_phantom_project(c_lang_bool=c_lang_bool)
 
                 # copy binary and dependencies to actual ccs project
-                single_time_start = time.time()
+
                 self._copy_phantom_binary_and_dependencies_to_ccs_project(c_lang_bool=c_lang_bool)
-                single_time_end = time.time()
-                StaticUtilities.logger.debug(
-                    f"Standard file copy elapsed time: {single_time_end - single_time_start}")
             else:
                 StaticUtilities.logger.debug(f"Instrumentation on {self.ccs_project_source_file_name} failed")
 
         finally:
+            single_time_start = time.time()
             self._phantom_is_hidden = StaticUtilities.hide_directory_recursively(
                 directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", log=False)
+            single_time_end = time.time()
+            StaticUtilities.logger.debug(
+                f"Hide directory elapsed time: {single_time_end - single_time_start}")
+            self._phantom_is_hidden = StaticUtilities.un_hide_directory_recursively(
+                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", log=False,
+                leave_root_hidden=True)
+            single_time_start = time.time()
+            self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
+                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\")
+            single_time_end = time.time()
+            StaticUtilities.logger.debug(
+                f"Multiprocessing hide directory elapsed time: {single_time_end - single_time_start}")
         return
 
     def _update_phantom_source(self, *, c_lang: bool = False) -> None:
         StaticUtilities.str_should_contain_substring(self.ccs_project_source_file_name, ".asm" if not c_lang else ".c")
         if c_lang:
             shutil.copyfile(f"{self.ccs_project_path}/{self.ccs_project_source_file_name}",
-                            f"{StaticUtilities.project_root_directory()}/ccs_workspace/phantom_c/phantom.c")
+                            f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\phantom_c\\phantom_c.c")
         else:
             shutil.copyfile(f"{self.ccs_project_path}/{self.ccs_project_source_file_name}",
-                            f"{StaticUtilities.project_root_directory()}/ccs_workspace/phantom/phantom.asm")
+                            f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\phantom\\phantom.asm")
         StaticUtilities.logger.debug(f"Phantom source updated with source from {self.ccs_project_name}")
 
     def _copy_phantom_binary_and_dependencies_to_ccs_project(self, c_lang_bool: bool = False, log: bool = False):

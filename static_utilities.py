@@ -6,6 +6,7 @@
 # Written by Walker Ward and Michael Heidal
 ###############################
 import logging
+import multiprocessing
 import os
 import pathlib
 import sys
@@ -16,6 +17,7 @@ import time
 from contextlib import contextmanager
 from logging import Logger
 from typing import TextIO, List
+from multiprocessing import Process, Queue
 
 
 class StaticUtilities:
@@ -30,7 +32,9 @@ class StaticUtilities:
         logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
     file_logging_handler.setLevel(logging.DEBUG)
     logger.addHandler(file_logging_handler)
-    logger.info("Running Raytheon VHDL Generator")
+    _process_helper_queue: Queue = Queue()
+    _multiprocessing_lock = multiprocessing.Lock()
+    # logger.info("Running Raytheon VHDL Generator")
 
     @staticmethod
     def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
@@ -259,6 +263,32 @@ class StaticUtilities:
         with zipfile.ZipFile(path_to_zip, 'r') as zip_reference:
             zip_reference.extractall(extraction_directory)
         StaticUtilities.logger.debug(f"{path_to_zip} unzipped into {extraction_directory}")
+
+    @staticmethod
+    def multiprocess_hide_directory(directory: str) -> bool:
+        processes: List[Process] = []
+        os.system(f"attrib +h {directory[:-1]}")
+        StaticUtilities._process_helper_queue = Queue()
+        for (path, name, filenames) in os.walk(directory):
+            if not path == directory:
+                StaticUtilities._process_helper_queue.put(path)
+            StaticUtilities._process_helper_queue.put([os.path.join(path, file) for file in filenames])
+        for i in range(os.cpu_count() - 1):
+            processes.append((multiprocessing.Process(target=StaticUtilities._multiprocess_hide_directory, args=(), name=f"Static File Hide Process {i}")))
+        for process in processes:
+            process.start()
+        for process in processes:
+            process.join()
+        return True
+
+    @staticmethod
+    def _multiprocess_hide_directory() -> None:
+        while not StaticUtilities._process_helper_queue.empty():
+            StaticUtilities._multiprocessing_lock.acquire()
+            file: str = StaticUtilities._process_helper_queue.get()
+            StaticUtilities._multiprocessing_lock.release()
+            os.system(f"attrib +h \"{file}\"")
+        return
 
     @staticmethod
     def hide_directory_recursively(directory: str, *, log: bool = True) -> bool:    # TODO: convert to a thread safe generator (or path/file queue) and add multiproceessing.
