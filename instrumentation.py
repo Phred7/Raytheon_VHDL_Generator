@@ -137,6 +137,14 @@ class Instrumentation:
 
     @staticmethod
     def copy_file_from_phantom_to_ccs_project(source: str, destination: str, *, logging: bool = False) -> None:
+        """
+        Copies each file from the source file into the destination file. Any instance of the source path, source file name or a combination will be replaced with the respective contents in the destination file.
+        Note: .out files will not be 
+        :param source: Source file and path to copy.
+        :param destination: Destination to copy the source file into with the file name and path.
+        :param logging: Bool representing whether to log events. True logs and false does not log. False by default.
+        :return: None.
+        """
         source_extension: str = source.split('\\')[-1].split('.')[-1] if "." in source.split('\\')[-1] else ""
         source_name: str = source.split('\\')[-1].split('.')[0]
         source_with_extension: str = source_name + (f".{source_extension}" if source_extension != "" else "")
