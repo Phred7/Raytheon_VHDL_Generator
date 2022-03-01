@@ -98,9 +98,9 @@ class VHDLParserGenerator:
         with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\data_memory.vhd", "a+") as vhdl_data_memory:
             with StaticUtilities.change_stdout_to_file(vhdl_data_memory):
                 print(self.get_vhdl_data_memory_preamble(), end="")
-                print(self.get_vhdl_data_memory_from_source(), end="")
+                print(self.get_vhdl_data_memory_from_source(), end=f"{'' if not self.data_memory_in_disassembly else self.memory_indent}")
                 print(self.get_vhdl_data_memory_end())
-        StaticUtilities.logger.info(f"Generated data_memory.vhd{'' if not self.data_memory_in_disassembly else '. Note: No data memory found in binary'}")
+        StaticUtilities.logger.info(f"Generated data_memory.vhd{'' if self.data_memory_in_disassembly else '. Note: No data memory found in binary'}")
 
     def get_vhdl_data_memory_from_source(self) -> str:
         generated_vhdl_data_mem: str = ""
@@ -114,9 +114,17 @@ class VHDLParserGenerator:
                     self.data_memory_in_disassembly = True
                 elif self.data_memory_in_disassembly:
                     while line != "\n":
-
+                        if "0x" in line:
+                            data_line_string: List[str] = line.split(" ")
+                            data_memory_location: int = int(data_line_string[0].strip(":"), 16)
+                            data_line_string[-1] = data_line_string[-1].strip("\n")[2:]
+                            if not int(data_line_string[-1], 16) == 0:
+                                data_msb: str = data_line_string[-1][:2]
+                                data_lsb: str = data_line_string[-1][2:]
+                                generated_vhdl_data_mem += f"{self.memory_indent if data_memory_start != data_memory_location else ''}{data_memory_location} => x\"{data_lsb}\",\n"
+                                generated_vhdl_data_mem += f"{self.memory_indent}{data_memory_location+1} => x\"{data_msb}\",\n"
                         line = next(disassembly_file)
-                        return generated_vhdl_data_mem
+                    return generated_vhdl_data_mem
                 else:
                     continue
         return generated_vhdl_data_mem

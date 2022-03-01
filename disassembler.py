@@ -6,6 +6,8 @@
 # Written by Walker Ward and Michael Heidal
 ###############################
 import os
+import subprocess
+
 from pique_bin import PiqueBin
 from static_utilities import StaticUtilities
 
@@ -46,13 +48,16 @@ class Disassembler:
         # Check if the output file already exists. If it exists delete in.
         if os.path.exists(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}"):
             os.remove(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
-            StaticUtilities.logger.info(rf"Removed {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
+            StaticUtilities.logger.info(
+                rf"Removed {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
 
         # Call the disassembler.
-        self.disassembler_exit_status = os.system(
-            rf"{self.disassembler_directory}\{self.disassembler_executable} {self.disassembler_input_file_directory}\{self.disassembler_input_file_name} {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
-        StaticUtilities.logger.debug(f"Disassembler exit status: {self.disassembler_exit_status}")
-        if self.disassembler_exit_status != 0:
+        self.disassembler_exit_status = subprocess.run(
+            rf"{self.disassembler_directory}\{self.disassembler_executable} {self.disassembler_input_file_directory}\{self.disassembler_input_file_name} {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}",
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.STDOUT)
+        StaticUtilities.logger.debug(f"Disassembler exit status: {self.disassembler_exit_status.returncode}")
+        if self.disassembler_exit_status.returncode != 0:
             raise OSError(
                 f"Disassembler failed to generate disassembly for {self.disassembler_input_file_name} with exit status {self.disassembler_exit_status}")
         else:

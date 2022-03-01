@@ -26,11 +26,6 @@ class CustomFormatter(logging.Formatter):
     This class copied from StackOverflow User 'Sergey Pleshakov' at https://stackoverflow.com/questions/384076/how-can-i-color-python-logging-output#:~:text=Just%20use%20the%20color%20variables,BLACK%20%2D%20%24BG%2DWHITE.
     """
 
-    # grey = "\x1b[38;20m"
-    # yellow = "\x1b[33;20m"
-    # red = "\x1b[31;20m"
-    # bold_red = "\x1b[31;1m"
-    # reset = "\x1b[0m"
     grey = "\x1b[0;37m"
     green = "\x1b[1;32m"
     yellow = "\x1b[1;33m"
@@ -78,9 +73,6 @@ class StaticUtilities:
 
     logger.addHandler(ch)
     logger.addHandler(file_logging_handler)
-
-    logger.error("test error")
-    logger.critical("test critical")
 
     @staticmethod
     def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
