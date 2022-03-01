@@ -11,6 +11,7 @@ import os
 import pathlib
 import sys
 import datetime
+from io import open
 
 import psutil
 import subprocess
@@ -66,13 +67,22 @@ class StaticUtilities:
     ch.setFormatter(CustomFormatter())
 
     # setup file logger and add to logger
+    if os.path.exists(f'{_project_root_directory_str}\\log.log'):
+        os.remove(f'{_project_root_directory_str}\\log.log')
     file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\log.log')
     file_logging_handler.setFormatter(
         logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
     file_logging_handler.setLevel(logging.DEBUG)
 
+    # setup extended file logger and add to logger
+    extended_file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\extended_log.log')
+    extended_file_logging_handler.setFormatter(
+        logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
+    extended_file_logging_handler.setLevel(logging.DEBUG)
+
     logger.addHandler(ch)
     logger.addHandler(file_logging_handler)
+    logger.addHandler(extended_file_logging_handler)
 
     @staticmethod
     def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
