@@ -35,6 +35,7 @@ class VHDLParserGenerator:
         self.nop_opcode: str = "0343"
         self.computer_name_list: List[str] = ["baseline", "highroller", "lowlife"]
         self.asm_file: bool = asm_file
+        self.data_memory_in_disassembly: bool = False
         StaticUtilities.logger.debug(f"{VHDLParserGenerator.__name__} object initialized")
 
     @staticmethod
@@ -96,11 +97,29 @@ class VHDLParserGenerator:
     def generate_vhdl_data_memory(self) -> None:
         with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\data_memory.vhd", "a+") as vhdl_data_memory:
             with StaticUtilities.change_stdout_to_file(vhdl_data_memory):
-                print(self.generate_vhdl_data_memory_preamble(), end="")
-                print("", end="")
-                print(self.generate_vhdl_data_memory_end())
-                pass
-        StaticUtilities.logger.info(f'Generated data_memory.vhd')
+                print(self.get_vhdl_data_memory_preamble(), end="")
+                print(self.get_vhdl_data_memory_from_source(), end="")
+                print(self.get_vhdl_data_memory_end())
+        StaticUtilities.logger.info(f"Generated data_memory.vhd{'' if not self.data_memory_in_disassembly else '. Note: No data memory found in binary'}")
+
+    def get_vhdl_data_memory_from_source(self) -> str:
+        generated_vhdl_data_mem: str = ""
+        with open(f"{self.disassembler_output_file_directory}\\{self.disassembler_output_file_name}", 'r') as disassembly_file:
+            data_memory_start: int = 0
+            disassembly_file = iter(disassembly_file)
+            for line in disassembly_file:
+                if not self.data_memory_in_disassembly and "DATA Section .data" in line:
+                    data_section_string: List[str] = line.split(" ")
+                    data_memory_start = int(data_section_string[-1], 16)
+                    self.data_memory_in_disassembly = True
+                elif self.data_memory_in_disassembly:
+                    while line != "\n":
+
+                        line = next(disassembly_file)
+                        return generated_vhdl_data_mem
+                else:
+                    continue
+        return generated_vhdl_data_mem
 
     def generate_vhdl_memory(self) -> None:
         """
@@ -289,7 +308,7 @@ constant ROM : rom_type :=("""
     end process;"""
 
     @staticmethod
-    def generate_vhdl_data_memory_preamble() -> str:
+    def get_vhdl_data_memory_preamble() -> str:
         return """library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -309,7 +328,7 @@ architecture data_memory_arch of data_memory is
     signal RW : rw_type:=("""
 
     @staticmethod
-    def generate_vhdl_data_memory_end() -> str:
+    def get_vhdl_data_memory_end() -> str:
         return """others=>x"00");  -- assigned an initial value to the data memory
 
     -- COLTER CHANGED TO ALLOW QUARTUS TO IMPLEMENT OUTSIDE ALMs

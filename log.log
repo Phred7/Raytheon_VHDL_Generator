@@ -2461,3 +2461,242 @@ Running Raytheon VHDL Generator
 2022-02-28 23:08:35,414 INFO vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
 2022-02-28 23:08:35,414 DEBUG package_zipper __init__ PackageZipper object initialized
 2022-02-28 23:08:35,415 WARNING package_zipper zip_vhdl Created zip _[3].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 0 files
+2022-02-28 23:30:09,233 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-02-28 23:30:09,233 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-02-28 23:30:09,234 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-02-28 23:30:09,234 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-02-28 23:30:09,235 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-02-28 23:30:09,235 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-02-28 23:30:09,235 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-02-28 23:30:09,236 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-02-28 23:30:09,236 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-02-28 23:30:09,236 DEBUG disassembler __init__ Disassembler object initialized
+2022-02-28 23:30:09,236 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-02-28 23:30:09,262 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-02-28 23:30:09,262 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-02-28 23:30:09,263 INFO vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-02-28 23:30:09,263 INFO vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-02-28 23:30:09,264 INFO vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-02-28 23:36:38,776 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-02-28 23:36:38,777 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-02-28 23:36:38,777 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-02-28 23:36:38,778 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-02-28 23:36:38,778 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-02-28 23:36:38,778 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-02-28 23:36:38,778 DEBUG disassembler __init__ Disassembler object initialized
+2022-02-28 23:36:38,779 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-02-28 23:36:38,798 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-02-28 23:36:38,798 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-02-28 23:36:38,799 INFO vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-02-28 23:36:38,800 INFO vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-02-28 23:36:38,800 INFO vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-02-28 23:37:36,957 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-02-28 23:37:36,958 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-02-28 23:37:36,958 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-02-28 23:37:36,959 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-02-28 23:37:36,959 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-02-28 23:37:36,959 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-02-28 23:37:36,959 DEBUG disassembler __init__ Disassembler object initialized
+2022-02-28 23:37:36,960 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-02-28 23:37:36,978 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-02-28 23:37:36,979 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-02-28 23:37:36,979 INFO vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-02-28 23:37:36,980 INFO vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-02-28 23:37:36,980 INFO vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-02-28 23:53:07,098 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-02-28 23:53:07,105 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-02-28 23:53:07,105 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-02-28 23:53:07,106 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-02-28 23:53:07,107 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-02-28 23:53:07,108 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-02-28 23:53:07,109 DEBUG disassembler __init__ Disassembler object initialized
+2022-02-28 23:53:07,110 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-02-28 23:53:07,130 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-02-28 23:53:07,131 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-02-28 23:53:07,132 INFO vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-02-28 23:53:07,134 INFO vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-02-28 23:53:07,135 INFO vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-02-28 23:53:07,136 INFO vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-02-28 23:53:07,138 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for baseline
+2022-02-28 23:53:07,140 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-02-28 23:53:07,142 INFO vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-02-28 23:53:07,143 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for highroller
+2022-02-28 23:53:07,146 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-02-28 23:53:07,147 INFO vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-02-28 23:53:07,148 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for lowlife
+2022-02-28 23:53:07,151 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-02-28 23:53:07,152 INFO vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-02-28 23:53:07,153 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-02-28 23:53:07,155 INFO package_zipper zip_vhdl Created zip .zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 0 files
+2022-02-28 23:53:53,022 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-02-28 23:53:53,023 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-02-28 23:53:53,023 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-02-28 23:53:53,023 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-02-28 23:53:53,024 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-02-28 23:53:53,024 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-02-28 23:53:53,024 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-02-28 23:53:53,025 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-02-28 23:53:53,025 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-02-28 23:53:53,025 DEBUG disassembler __init__ Disassembler object initialized
+2022-02-28 23:53:53,025 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-02-28 23:53:53,044 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-02-28 23:53:53,044 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-02-28 23:53:53,045 INFO vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-02-28 23:53:53,045 INFO vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-02-28 23:53:53,046 INFO vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-02-28 23:53:53,046 INFO vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-02-28 23:53:53,047 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for baseline
+2022-02-28 23:53:53,048 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-02-28 23:53:53,048 INFO vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-02-28 23:53:53,049 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for highroller
+2022-02-28 23:53:53,050 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-02-28 23:53:53,051 INFO vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-02-28 23:53:53,051 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for lowlife
+2022-02-28 23:53:53,052 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-02-28 23:53:53,053 INFO vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-02-28 23:53:53,053 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-02-28 23:53:53,054 WARNING package_zipper zip_vhdl Created zip _[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 0 files
+2022-02-28 23:54:29,647 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-02-28 23:54:29,648 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-02-28 23:54:29,648 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-02-28 23:54:29,648 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-02-28 23:54:29,649 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-02-28 23:54:29,649 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-02-28 23:54:29,649 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-02-28 23:54:29,650 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-02-28 23:54:29,650 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-02-28 23:54:29,650 DEBUG disassembler __init__ Disassembler object initialized
+2022-02-28 23:54:29,650 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-02-28 23:54:29,669 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-02-28 23:54:29,669 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-02-28 23:54:29,669 INFO vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-02-28 23:54:29,670 INFO vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-02-28 23:54:29,670 INFO vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-02-28 23:54:29,671 INFO vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-02-28 23:54:29,671 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for baseline
+2022-02-28 23:54:29,672 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-02-28 23:54:29,674 INFO vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-02-28 23:54:29,674 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for highroller
+2022-02-28 23:54:29,676 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-02-28 23:54:29,676 INFO vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-02-28 23:54:29,677 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for lowlife
+2022-02-28 23:54:29,678 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-02-28 23:54:29,678 INFO vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-02-28 23:54:29,678 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-02-28 23:54:29,679 WARNING package_zipper zip_vhdl Created zip _[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 0 files
+2022-02-28 23:58:28,067 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-02-28 23:58:28,067 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-02-28 23:58:28,068 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-02-28 23:58:28,068 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-02-28 23:58:28,068 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-02-28 23:58:28,068 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-02-28 23:58:28,069 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-02-28 23:58:28,069 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-02-28 23:58:28,069 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-02-28 23:58:28,069 DEBUG disassembler __init__ Disassembler object initialized
+2022-02-28 23:58:28,070 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-02-28 23:58:28,088 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-02-28 23:58:28,088 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-02-28 23:58:28,089 INFO vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-02-28 23:58:28,089 INFO vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-02-28 23:58:28,090 INFO vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-02-28 23:58:28,091 INFO vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-02-28 23:58:28,091 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for baseline
+2022-02-28 23:58:28,092 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-02-28 23:58:28,093 INFO vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-02-28 23:58:28,094 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for highroller
+2022-02-28 23:58:28,095 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-02-28 23:58:28,095 INFO vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-02-28 23:58:28,096 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for lowlife
+2022-02-28 23:58:28,097 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-02-28 23:58:28,098 INFO vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-02-28 23:58:28,098 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-02-28 23:58:28,099 WARNING package_zipper zip_vhdl Created zip _[2].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 0 files
+2022-03-01 00:08:28,219 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-01 00:08:28,219 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-03-01 00:08:28,219 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-03-01 00:08:28,220 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-03-01 00:08:28,220 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-03-01 00:08:28,220 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-03-01 00:08:28,221 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-03-01 00:08:28,221 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-03-01 00:08:28,221 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-01 00:08:28,221 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-01 00:08:28,221 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-03-01 00:08:28,247 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-01 00:08:28,247 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-01 00:08:28,248 INFO vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-01 00:08:28,249 INFO vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-01 00:08:28,249 INFO vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-01 00:08:28,250 INFO vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-01 00:08:28,250 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for baseline
+2022-03-01 00:08:28,251 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-01 00:08:28,252 INFO vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-03-01 00:08:28,253 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for highroller
+2022-03-01 00:08:28,254 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-01 00:08:28,255 INFO vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-03-01 00:08:28,255 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for lowlife
+2022-03-01 00:08:28,256 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-01 00:08:28,257 INFO vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-03-01 00:08:28,257 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-03-01 00:08:28,258 WARNING package_zipper zip_vhdl Created zip _[3].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 0 files
+2022-03-01 00:10:26,312 ERROR static_utilities StaticUtilities test error
+2022-03-01 00:10:26,313 CRITICAL static_utilities StaticUtilities test critical
+2022-03-01 00:10:26,320 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-01 00:10:26,320 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-03-01 00:10:26,321 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-03-01 00:10:26,321 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-03-01 00:10:26,321 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-03-01 00:10:26,322 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-03-01 00:10:26,322 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-03-01 00:10:26,322 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-03-01 00:10:26,322 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-01 00:10:26,322 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-01 00:10:26,323 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-03-01 00:10:26,341 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-01 00:10:26,341 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-01 00:10:26,342 INFO vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-01 00:10:26,343 INFO vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-01 00:10:26,343 INFO vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-01 00:10:26,344 INFO vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-01 00:10:26,344 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for baseline
+2022-03-01 00:10:26,345 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-01 00:10:26,346 INFO vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-03-01 00:10:26,347 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for highroller
+2022-03-01 00:10:26,348 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-01 00:10:26,349 INFO vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-03-01 00:10:26,349 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for lowlife
+2022-03-01 00:10:26,351 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-01 00:10:26,351 INFO vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-03-01 00:10:26,351 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-03-01 00:10:26,352 WARNING package_zipper zip_vhdl Created zip _[4].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 0 files
+2022-03-01 00:13:22,479 ERROR static_utilities StaticUtilities test error
+2022-03-01 00:13:22,479 CRITICAL static_utilities StaticUtilities test critical
+2022-03-01 00:13:22,486 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-01 00:13:22,486 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-03-01 00:13:22,487 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-03-01 00:13:22,487 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-03-01 00:13:22,488 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-03-01 00:13:22,488 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-03-01 00:13:22,488 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-03-01 00:13:22,489 INFO vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-03-01 00:13:22,489 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-01 00:13:22,489 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-01 00:13:22,489 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-03-01 00:13:22,507 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-01 00:13:22,508 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-01 00:13:22,508 INFO vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-01 00:13:22,509 INFO vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-01 00:13:22,509 INFO vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-01 00:13:22,510 INFO vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-01 00:13:22,510 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for baseline
+2022-03-01 00:13:22,511 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-01 00:13:22,512 INFO vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-03-01 00:13:22,512 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for highroller
+2022-03-01 00:13:22,514 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-01 00:13:22,514 INFO vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-03-01 00:13:22,515 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for lowlife
+2022-03-01 00:13:22,516 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-01 00:13:22,516 INFO vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-03-01 00:13:22,517 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-03-01 00:13:22,518 WARNING package_zipper zip_vhdl Created zip _[5].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 0 files
