@@ -95,6 +95,10 @@ class VHDLParserGenerator:
                 StaticUtilities.logger.info(f'Generated {computer_name}_package.vhd')
 
     def generate_vhdl_data_memory(self) -> None:
+        """
+
+        :return:
+        """
         with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\data_memory.vhd", "a+") as vhdl_data_memory:
             with StaticUtilities.change_stdout_to_file(vhdl_data_memory):
                 print(self.get_vhdl_data_memory_preamble(), end="")
@@ -103,6 +107,13 @@ class VHDLParserGenerator:
         StaticUtilities.logger.info(f"Generated data_memory.vhd{'' if self.data_memory_in_disassembly else '. Note: No data memory found in binary'}")
 
     def get_vhdl_data_memory_from_source(self) -> str:
+        """
+        Generates the vhdl data memory as a str from disassembly. Data memory is the same between all computers.
+         - Reads in from file specified by disassembler_output_file_name at the path disassembler_output_file_directory.
+         - Searches for the .data DATA Section and defines it as the memory start location.
+         - Converts the following constants into vhdl data memory until the end of the .data section.
+        :return: str representation of vhdl data memory.
+        """
         generated_vhdl_data_mem: str = ""
         with open(f"{self.disassembler_output_file_directory}\\{self.disassembler_output_file_name}", 'r') as disassembly_file:
             data_memory_start: int = 0
@@ -317,6 +328,10 @@ constant ROM : rom_type :=("""
 
     @staticmethod
     def get_vhdl_data_memory_preamble() -> str:
+        """
+        Gets the str representation of the vhdl data memory prior to the constant declarations.
+        :return: str representation of the vhdl data memory prior to the constant declarations.
+        """
         return """library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -337,6 +352,10 @@ architecture data_memory_arch of data_memory is
 
     @staticmethod
     def get_vhdl_data_memory_end() -> str:
+        """
+        Gets the str representation of the vhdl data memory following the constant declarations.
+        :return: str representation of the vhdl data memory following the constant declarations.
+        """
         return """others=>x"00");  -- assigned an initial value to the data memory
 
     -- COLTER CHANGED TO ALLOW QUARTUS TO IMPLEMENT OUTSIDE ALMs
@@ -458,6 +477,7 @@ def main() -> None:
     removes all files generated in last execution.
     generates the baseline, highroller and lowlife package files.
     generates the baseline, highroller and lowlife memory files.
+    generates the data_memory file.
     """
     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
     vhdl_parser_generator.generate_vhdl()
