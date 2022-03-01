@@ -11,6 +11,7 @@ import os
 import pathlib
 import sys
 import datetime
+
 import psutil
 import subprocess
 import time
@@ -20,18 +21,66 @@ from typing import TextIO, List
 from multiprocessing import Process, Queue
 
 
+class CustomFormatter(logging.Formatter):
+    """
+    This class copied from StackOverflow User 'Sergey Pleshakov' at https://stackoverflow.com/questions/384076/how-can-i-color-python-logging-output#:~:text=Just%20use%20the%20color%20variables,BLACK%20%2D%20%24BG%2DWHITE.
+    """
+
+    # grey = "\x1b[38;20m"
+    # yellow = "\x1b[33;20m"
+    # red = "\x1b[31;20m"
+    # bold_red = "\x1b[31;1m"
+    # reset = "\x1b[0m"
+    grey = "\x1b[0;37m"
+    green = "\x1b[1;32m"
+    yellow = "\x1b[1;33m"
+    red = "\x1b[1;31m"
+    purple = "\x1b[1;35m"
+    blue = "\x1b[1;34m"
+    light_blue = "\x1b[1;36m"
+    reset = "\x1b[0m"
+    blink_red = "\x1b[5m\x1b[1;31m"
+    format = f"%(asctime)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
+
+    FORMATS = {
+        logging.DEBUG: grey + format + reset,
+        logging.INFO: grey + format + reset,
+        logging.WARNING: yellow + format + reset,
+        logging.ERROR: red + format + reset,
+        logging.CRITICAL: blink_red + format + reset
+    }
+
+    def format(self, record):
+        log_fmt = self.FORMATS.get(record.levelno)
+        formatter = logging.Formatter(log_fmt)
+        return formatter.format(record)
+
+
 class StaticUtilities:
     """
     Class containing a set of static methods, components and context managers implemented throughout this project.
     """
     _project_root_directory_str: str = str(pathlib.Path(__file__).parent)
-    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', datefmt="%m-%d-%Y %H:%M:%S")
+
+    # create logger
     logger: Logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.DEBUG)
+    ch.setFormatter(CustomFormatter())
+
+    # setup file logger and add to logger
     file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\log.log')
     file_logging_handler.setFormatter(
         logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
     file_logging_handler.setLevel(logging.DEBUG)
+
+    logger.addHandler(ch)
     logger.addHandler(file_logging_handler)
+
+    logger.error("test error")
+    logger.critical("test critical")
 
     @staticmethod
     def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
