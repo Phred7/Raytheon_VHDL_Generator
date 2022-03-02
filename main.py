@@ -19,12 +19,16 @@ class Main:
     @staticmethod
     def main() -> None:
         """All_msp_operations.out"""
+        # TODO: verify all code adheres to python style guide (PEP 8) and are consistent with recommended best practices
+        # TODO: verify all methods have appropriate commenting and doc strings.
+        # TODO: make main callable from a CCS project... maybe another main method for testing?
+        # TODO: class for ccs project to stop having to pass around file names and paths
         # instrumentation = Instrumentation(IntOverflowAttack())
         # instrumentation.instrument()
+        # TODO: do disassembly here so that vhdl parser doesnt need a reference to it... then just update ccs_project object with disassembly and also so that instrumentation can cause it to point to a different binary.
         # vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(binary_file_name="All_msp_operations")
         # vhdl_parser_generator.generate_vhdl(detection=True)
         # package_zipper: PackageZipper = PackageZipper()
-        # TODO: class for ccs project to stop having to pass around file names and paths?
 
         # disassembler.disassemble(pique_bool=False)
         # package_zipper.zip_vhdl()
