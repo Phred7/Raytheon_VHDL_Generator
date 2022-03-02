@@ -6,16 +6,50 @@
 # Written by Walker Ward and Michael Heidal
 ###############################
 import logging
+import multiprocessing
 import os
 import pathlib
 import sys
 import datetime
+from io import open
+
 import psutil
 import subprocess
 import time
 from contextlib import contextmanager
 from logging import Logger
 from typing import TextIO, List
+from multiprocessing import Process, Queue
+
+
+class CustomFormatter(logging.Formatter):
+    """
+    This class copied from StackOverflow User 'Sergey Pleshakov' at https://stackoverflow.com/questions/384076/how-can-i-color-python-logging-output#:~:text=Just%20use%20the%20color%20variables,BLACK%20%2D%20%24BG%2DWHITE.
+    """
+
+    grey = "\x1b[0;37m"
+    green = "\x1b[1;32m"
+    yellow = "\x1b[1;33m"
+    red = "\x1b[1;31m"
+    purple = "\x1b[1;35m"
+    blue = "\x1b[1;34m"
+    light_blue = "\x1b[1;36m"
+    reset = "\x1b[0m"
+    blink_red = "\x1b[5m\x1b[1;31m"
+    format = f"%(asctime)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
+
+    FORMATS = {
+        logging.DEBUG: grey + format + reset,
+        logging.INFO: grey + format + reset,
+        logging.WARNING: yellow + format + reset,
+        logging.ERROR: red + format + reset,
+        logging.CRITICAL: blink_red + format + reset
+    }
+
+    def format(self, record):
+        log_fmt = self.FORMATS.get(record.levelno)
+        formatter = logging.Formatter(log_fmt)
+        return formatter.format(record)
 
 
 class StaticUtilities:
@@ -23,14 +57,32 @@ class StaticUtilities:
     Class containing a set of static methods, components and context managers implemented throughout this project.
     """
     _project_root_directory_str: str = str(pathlib.Path(__file__).parent)
-    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', datefmt="%m-%d-%Y %H:%M:%S")
+
+    # create logger
     logger: Logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.DEBUG)
+    ch.setFormatter(CustomFormatter())
+
+    # setup file logger and add to logger
+    if os.path.exists(f'{_project_root_directory_str}\\log.log'):
+        os.remove(f'{_project_root_directory_str}\\log.log')
     file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\log.log')
     file_logging_handler.setFormatter(
         logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
     file_logging_handler.setLevel(logging.DEBUG)
+
+    # setup extended file logger and add to logger
+    extended_file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\extended_log.log')
+    extended_file_logging_handler.setFormatter(
+        logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
+    extended_file_logging_handler.setLevel(logging.DEBUG)
+
+    logger.addHandler(ch)
     logger.addHandler(file_logging_handler)
-    logger.info("Running Raytheon VHDL Generator")
+    logger.addHandler(extended_file_logging_handler)
 
     @staticmethod
     def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
@@ -259,6 +311,38 @@ class StaticUtilities:
         with zipfile.ZipFile(path_to_zip, 'r') as zip_reference:
             zip_reference.extractall(extraction_directory)
         StaticUtilities.logger.debug(f"{path_to_zip} unzipped into {extraction_directory}")
+
+    @staticmethod
+    def multiprocess_hide_directory(directory: str, hide: bool, *, leave_root_hidden: bool = True) -> bool:
+        processes: List[Process] = []
+        queue: Queue = Queue()
+
+        if (not leave_root_hidden) and (not hide):
+            os.system(f"attrib -h {directory[:-1]}")
+        else:
+            os.system(f"attrib +h {directory[:-1]}")
+
+        for (path, name, filenames) in os.walk(directory):
+            if not path == directory:
+                queue.put(path)
+            [queue.put(os.path.join(path, file)) for file in filenames]
+
+        for i in range(os.cpu_count() - 1):  # len(os.sched_getaffinity(0)) on Unix to get number of available
+            processes.append((multiprocessing.Process(target=StaticUtilities._mp_hide_directory, args=(queue, hide,), name=f"Static File Hide Process {i}")))
+        for process in processes:
+            process.start()
+        while not queue.empty():
+            continue
+        for process in processes:
+            process.join()
+        return True
+
+    @staticmethod
+    def _mp_hide_directory(file_queue: Queue, hide: bool) -> None:
+        while not file_queue.empty():
+            file: str = file_queue.get()
+            os.system(f"attrib {'+h' if hide else '-h'} \"{file}\"")
+        return
 
     @staticmethod
     def hide_directory_recursively(directory: str, *, log: bool = True) -> bool:    # TODO: convert to a thread safe generator (or path/file queue) and add multiproceessing.

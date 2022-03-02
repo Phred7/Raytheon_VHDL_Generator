@@ -7,11 +7,14 @@
 ###############################
 import codecs
 import glob
+import multiprocessing
 import os
 import shutil
 import subprocess
 import sys
 from copy import deepcopy
+import time
+from typing import List
 
 from instrumentation_strategy import InstrumentationStrategy
 from int_overflow_attack import IntOverflowAttack
@@ -24,11 +27,11 @@ class Instrumentation:
     """
 
     def __init__(self, instrumentation_strategy: InstrumentationStrategy) -> None:
-        self._phantom_is_hidden: bool = True
-        self.disassembler = None
         self.ccs_project_path: str = ""
         self.ccs_project_name: str = ""
         self.ccs_project_source_file_name: str = ""
+        self.c_lang_bool: bool = False
+        self._phantom_is_hidden: bool = True
         self._instrumentation_strategy = instrumentation_strategy
         if instrumentation_strategy is None:
             StaticUtilities.logger.warning(
@@ -50,73 +53,66 @@ class Instrumentation:
         :return: None.
         """
         self._instrumentation_strategy = instrumentation_strategy
+        return
 
     def instrument(self) -> None:
         """
         Method that calls the algorithm or process defined by the concrete strategy.
         :return: None.
         """
-        # TODO: add try/except/finally to ensure that phantom_workspace is hidden on crashed instrument()
-        asm_ccs_project_main_source_file_name: str = "test_ASM.asm"
-        c_ccs_project_main_source_file_name: str = "c_blank.c"
+        if self._ccs_fields_empty():
+            return
 
-        c_lang_bool: bool = True  # TODO: make this a field in this class.
+        StaticUtilities.logger.debug("**** Instrumentation Build Started ****")
+        try:
+            # un hide the phantom workspace - skipping this step may cause permission issues
+            self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
+                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=False,
+                leave_root_hidden=True)
+            StaticUtilities.logger.debug("Phantom workspace unhidden")
 
-        if c_lang_bool:
-            self.set_ccs_project_details(
-                ccs_project_path=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\c_blank\\",
-                ccs_project_name="c_blank", ccs_project_source_file_name="c_blank.c")
-        else:
-            self.set_ccs_project_details(
-                ccs_project_path=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\test_ASM\\",
-                ccs_project_name="test_ASM", ccs_project_source_file_name="test_ASM.asm")
+            # generate phantom workspace and project/s
+            self._generate_phantom_workspace_and_projects()
 
-        self._ccs_fields_empty()
+            # copy source from CCS project into phantom project
+            self._update_phantom_source()
 
-        # self._phantom_is_hidden = StaticUtilities.un_hide_directory_recursively(
-        #     directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", log=False,
-        #     leave_root_hidden=True)
+            # instrument file
+            instrumentation_result: bool = self._instrumentation_strategy.instrument(
+                file=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\{'phantom_c' if self.c_lang_bool else 'phantom'}\phantom{'_c.c' if self.c_lang_bool else '.asm'}")
 
-        # generate phantom workspace and project/s
-        self._generate_phantom_workspace_and_projects()
+            if instrumentation_result:
+                StaticUtilities.logger.debug(f"Instrumentation on {self.ccs_project_source_file_name} succeeded")
 
-        # copy source from CCS project into phantom project
-        # self._update_phantom_source(c_lang=c_lang_bool)
+                # build phantom project
+                self._build_phantom_project()
 
-        # instrument file
-        instrumentation_result: bool = self._instrumentation_strategy.instrument(
-            file=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\{'phantom_c' if c_lang_bool else 'phantom'}\phantom{'_c.c' if c_lang_bool else '.asm'}")
+                # copy binary and dependencies to actual ccs project
+                self._copy_phantom_binary_and_dependencies_to_ccs_project()
+            else:
+                StaticUtilities.logger.debug(f"Instrumentation on {self.ccs_project_source_file_name} failed")
 
-        instrumentation_result = True
-        if instrumentation_result:
-            StaticUtilities.logger.debug(f"Instrumentation on {self.ccs_project_source_file_name} succeeded")
-            # build phantom project
-            self._build_phantom_project(c_lang_bool=c_lang_bool)
-
-            # copy binary and dependencies to actual ccs project
-            self._copy_phantom_binary_and_dependencies_to_ccs_project(c_lang_bool=c_lang_bool)
-        else:
-            StaticUtilities.logger.debug(f"Instrumentation on {self.ccs_project_source_file_name} failed")
-
-        # self._phantom_is_hidden = StaticUtilities.hide_directory_recursively(
-        #     directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", log=False)
+        finally:
+            self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
+                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=True)
+            StaticUtilities.logger.debug("Phantom workspace hidden")
+        StaticUtilities.logger.debug("**** Instrumentation Build Finished ****")
         return
 
-    def _update_phantom_source(self, *, c_lang: bool = False) -> None:
-        StaticUtilities.str_should_contain_substring(self.ccs_project_source_file_name, ".asm" if not c_lang else ".c")
-        if c_lang:
+    def _update_phantom_source(self) -> None:
+        StaticUtilities.str_should_contain_substring(self.ccs_project_source_file_name, ".asm" if not self.c_lang_bool else ".c")
+        if self.c_lang_bool:
             shutil.copyfile(f"{self.ccs_project_path}/{self.ccs_project_source_file_name}",
-                            f"{StaticUtilities.project_root_directory()}/ccs_workspace/phantom_c/phantom.c")
+                            f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\phantom_c\\phantom_c.c")
         else:
             shutil.copyfile(f"{self.ccs_project_path}/{self.ccs_project_source_file_name}",
-                            f"{StaticUtilities.project_root_directory()}/ccs_workspace/phantom/phantom.asm")
+                            f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\phantom\\phantom.asm")
         StaticUtilities.logger.debug(f"Phantom source updated with source from {self.ccs_project_name}")
+        return
 
-    def _copy_phantom_binary_and_dependencies_to_ccs_project(self, c_lang_bool: bool = False, log: bool = False):
-        # TODO: open each file and replace all instances of phantom/phantom_c with project_name (ensure directories are still accurate)
-        # TODO: multiprocess the copying of each file
+    def _copy_phantom_binary_and_dependencies_to_ccs_project(self, log: bool = False):
         with StaticUtilities.change_dir(
-                f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if c_lang_bool else 'phantom'}\\Debug\\"):
+                f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if self.c_lang_bool else 'phantom'}\\Debug\\"):
             for file_name in os.listdir():
                 if "_tmp" in file_name:
                     continue
@@ -126,20 +122,29 @@ class Instrumentation:
                         new_name = file_name.replace("phantom_c", self.ccs_project_name)
                     else:
                         new_name = file_name.replace("phantom", self.ccs_project_name)
-                    self._copy_file_from_phantom_to_ccs_project(f"{os.getcwd()}\\{file_name}",
-                                                                f"{self.ccs_project_path}VHDLGenerator\\{new_name}")
+                    self.copy_file_from_phantom_to_ccs_project(f"{os.getcwd()}\\{file_name}",
+                                                               f"{self.ccs_project_path}VHDLGenerator\\{new_name}")
                     if log:
                         StaticUtilities.logger.debug(
                             f"Copied phantom {file_name} to {self.ccs_project_name} as {new_name}")
                 else:
-                    self._copy_file_from_phantom_to_ccs_project(f"{os.getcwd()}\\{file_name}",
-                                                                f"{self.ccs_project_path}VHDLGenerator\\{file_name}")
+                    self.copy_file_from_phantom_to_ccs_project(f"{os.getcwd()}\\{file_name}",
+                                                               f"{self.ccs_project_path}VHDLGenerator\\{file_name}")
                     if log:
                         StaticUtilities.logger.debug(f"Copied phantom {file_name} to {self.ccs_project_name}")
+        StaticUtilities.logger.debug(f"Phantom {'C' if self.c_lang_bool else 'ASM'} build copied to {self.ccs_project_name}")
         return
 
     @staticmethod
-    def _copy_file_from_phantom_to_ccs_project(source: str, destination: str) -> None:
+    def copy_file_from_phantom_to_ccs_project(source: str, destination: str, *, logging: bool = False) -> None:
+        """
+        Copies each file from the source file into the destination file. Any instance of the source path, source file name or a combination will be replaced with the respective contents in the destination file.
+        Note: .out files will not be 
+        :param source: Source file and path to copy.
+        :param destination: Destination to copy the source file into with the file name and path.
+        :param logging: Bool representing whether to log events. True logs and false does not log. False by default.
+        :return: None.
+        """
         source_extension: str = source.split('\\')[-1].split('.')[-1] if "." in source.split('\\')[-1] else ""
         source_name: str = source.split('\\')[-1].split('.')[0]
         source_with_extension: str = source_name + (f".{source_extension}" if source_extension != "" else "")
@@ -149,18 +154,15 @@ class Instrumentation:
         destination_with_extension: str = destination_name + (
             f".{destination_extension}" if destination_extension != "" else "")
         destination_path: str = destination.replace(f"\\{destination_with_extension}", "")
-
         temp_name_extension: str = "_tmp"
 
-        # TODO: verify both locations exist.
-        # Copy file to temp file
         shutil.copyfile(source, f"{source_name}{temp_name_extension}.{source_extension}")
 
         temp_file_replacement_text: str = ""
 
-        if source_extension == "obj" or source_extension == "out":
-            if source_extension == "out":
-                x = ""
+        if source_extension == "out":
+            pass
+        elif source_extension == "obj":
             with codecs.open(f"{source_name}{temp_name_extension}.{source_extension}", "r", "ansi") as temp_copy_file:
                 for line in temp_copy_file.readlines():
                     new_line = deepcopy(line)
@@ -186,13 +188,13 @@ class Instrumentation:
 
         shutil.copyfile(f"{source_name}{temp_name_extension}.{source_extension}", destination)
         os.remove(f"{source_name}{temp_name_extension}.{source_extension}")
-
-        if StaticUtilities.file_should_exist(file_directory=destination_path, file=destination_with_extension, raise_error=False):
-            StaticUtilities.logger.debug(
-                f"Successfully copied {source_with_extension} to {destination_with_extension}")
-        else:
-            StaticUtilities.logger.debug(
-                f"Failed to copy {source_with_extension} to {destination_with_extension}")
+        if logging:
+            if StaticUtilities.file_should_exist(file_directory=destination_path, file=destination_with_extension, raise_error=False):
+                StaticUtilities.logger.debug(
+                    f"Successfully copied {source_with_extension} to {destination_with_extension}")
+            else:
+                StaticUtilities.logger.debug(
+                    f"Failed to copy {source_with_extension} to {destination_with_extension}")
         return
 
     @staticmethod
@@ -200,14 +202,13 @@ class Instrumentation:
         if not StaticUtilities.file_should_exist(
                 file_directory=f"{StaticUtilities.project_root_directory()}/ccs_workspace/phantom_workspace/RemoteSystemsTempFiles/",
                 file=".project", raise_error=False):
+            StaticUtilities.logger.debug(f"Phantom workspace missing")
             StaticUtilities.extract_zip(path_to_zip=f"{StaticUtilities.project_root_directory()}/phantom_workspace.zip",
                                         extraction_directory=f"{StaticUtilities.project_root_directory()}/ccs_workspace/")
             StaticUtilities.logger.debug(f"Phantom workspace generated")
+        return
 
-    @staticmethod
-    def _build_phantom_project(c_lang_bool: bool) -> None:
-        # self._ccs_fields_empty()
-        # subprocess.run("")
+    def _build_phantom_project(self) -> None:
         # commands: eclipsec -noSplash -data "C:\myWorkspace" -application com.ti.ccstudio.apps.projectBuild -ccs.projects newProject -ccs.configuration Debug
         # eclipsec -noSplash -data "C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace" -application com.ti.ccstudio.apps.projectBuild -ccs.projects test_generated_ASM -ccs.configuration Debug
         # eclipse executable dir: C:\ti\ccs1040\ccs\eclipse
@@ -217,10 +218,11 @@ class Instrumentation:
         quote: str = "\""
         with StaticUtilities.change_dir(r"C:\ti\ccs1040\ccs\eclipse"):
             subprocess.run(
-                rf"eclipsec -noSplash -data {quote}{workspace_dir}{quote} -application com.ti.ccstudio.apps.projectBuild -ccs.projects {'phantom_c' if c_lang_bool else 'phantom'} -ccs.configuration Debug -ccs.autoImport -ccs.buildType full",
+                rf"eclipsec -noSplash -data {quote}{workspace_dir}{quote} -application com.ti.ccstudio.apps.projectBuild -ccs.projects {'phantom_c' if self.c_lang_bool else 'phantom'} -ccs.configuration Debug -ccs.autoImport -ccs.buildType full",
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.STDOUT)
-        StaticUtilities.logger.debug(f"Phantom {'C' if c_lang_bool else 'ASM'} project done building")
+        StaticUtilities.logger.debug(f"Phantom {'C' if self.c_lang_bool else 'ASM'} project done building")
+        return
 
     def _ccs_fields_empty(self, *, logger_error: bool = True, system_error: bool = True) -> bool:
         """
@@ -257,15 +259,23 @@ class Instrumentation:
         self.ccs_project_path = ccs_project_path
         self.ccs_project_name = ccs_project_name
         self.ccs_project_source_file_name = ccs_project_source_file_name
+        self.c_lang_bool = True if ".c" in self.ccs_project_source_file_name else False
+        return
 
 
 if __name__ == "__main__":
-    # StaticUtilities.extract_zip(path_to_zip=f"{StaticUtilities.project_root_directory()}/phantom.zip",
-    #                             extraction_directory=f"{StaticUtilities.project_root_directory()}/ccs_workspace/")
-    # StaticUtilities.hide_directory_recursively(f"{StaticUtilities.project_root_directory()}/ccs_workspace/phantom")
-    # os.system(f"attrib +h /S /D {StaticUtilities.project_root_directory()}/ccs_workspace/phantom")
     i = Instrumentation(instrumentation_strategy=IntOverflowAttack())
+
+    asm_ccs_project_main_source_file_name: str = "test_ASM.asm"
+    c_ccs_project_main_source_file_name: str = "c_blank.c"
+    c_lang_bool: bool = True
+    if c_lang_bool:
+        i.set_ccs_project_details(
+            ccs_project_path=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\c_blank\\",
+            ccs_project_name="c_blank", ccs_project_source_file_name="c_blank.c")
+    else:
+        i.set_ccs_project_details(
+            ccs_project_path=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\test_ASM\\",
+            ccs_project_name="test_ASM", ccs_project_source_file_name="test_ASM.asm")
+
     i.instrument()
-    # os.remove(r"C:/Users/wward/Documents/GitHub/Raytheon_VHDL_Generator/ccs_workspace/phantom_c/")
-    # i.ccs_project_path = f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\gen_vhdl\\"
-    # i._copy_phantom_binary_to_ccs_project()

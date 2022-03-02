@@ -117,7 +117,7 @@ class DisassemblyParserGenerator:
                         data_values.append(data_section[index+multi_word_index_offset].split(" ")[1].strip("\n"))
                         multi_word_index_offset += 1
 
-                    # if all data is zeros .space can be used. Otherwise implement .short
+                    # if all data is zeros .space can be used. Otherwise, implement .short
                     data_section_variable_str += f"\t\t"
                     if all_zeros:
                         data_section_variable_str += f".space {(multi_word_index_offset - 1) * 2}"
