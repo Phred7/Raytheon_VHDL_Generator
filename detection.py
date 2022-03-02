@@ -52,8 +52,8 @@ class Detection:
             if security_quality > threshold:
                 self.hash_file(f"{self.path}\\{self.source_file}")
 
-        return True # TODO: NO
-        # If the Security Quality is below some threshold loop through vulnerability inspections.
+        return True  # TODO: NO
+        # If the Security Quality is below some threshold, loop through vulnerability inspections.
 
     def hashed_file_exists_and_matches_cache(self, file: str) -> bool:
         """
