@@ -38,52 +38,6 @@ class StringFormatAttack(InstrumentationStrategy):
 
         text = [line.replace('\n', '').strip() for line in open(file, 'r').readlines()]
 
-        # for line_index, line in enumerate(text):
-        #     # replace the format string if it's in the first argument position
-        #     for print_function in print_family_first_argument:
-        #         if re.match(print_function, line):
-        #             i = line.index(print_function.replace(r"\b", ""))
-        #             while line[i] != "(":
-        #                 i = i + 1
-        #
-        #             j = i
-        #             while line[j] != "," and line[j] != ")":
-        #                 j = j + 1
-        #
-        #             text[line_index] = line[:i+1] + format_string + line[j:]
-        #
-        #     # replace the format string if it's in the second argument position
-        #     for print_function in print_family_second_argument:
-        #         if re.match(print_function, line):
-        #             i = line.index(print_function.replace(r"\b", ""))
-        #             while line[i] != ",":
-        #                 i += 1
-        #
-        #             j = i + 1
-        #             while line[j] not in ",)":
-        #                 j += 1
-        #
-        #             text[line_index] = line[:i+1] + format_string + line[j:]
-        #
-        #     # replace the format string if it's in the third argument position
-        #     for print_function in print_family_third_argument:
-        #         if re.match(print_function, line):
-        #             num_args_discovered = 0
-        #             x: str
-        #             i = line.index(print_function.replace(r"\b", ""))
-        #             while num_args_discovered < 2:
-        #                 i = i + 1
-        #                 x = line[i]
-        #                 if line[i] == ',':
-        #                     num_args_discovered += 1
-        #                     x = line[i]
-        #             j = i + 1
-        #             y: str
-        #             while line[j] not in ",)":
-        #                 j += 1
-        #                 y = line[j]
-        #             text[line_index] = line[:i+1] + format_string + line[j:]
-
         for line_index, line in enumerate(text):
             for argument_index, print_family in enumerate(print_families):
                 for print_function in print_family:
