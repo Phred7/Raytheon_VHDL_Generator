@@ -38,8 +38,7 @@ class Detection:
         Executes a sequence of algorithms to attempt to detect malware or vulnerabilities that may exist within a binary and a corresponding source file.
         :return: True if no malware or vulnerabilities are detected, False otherwise.
         """
-        # TODO: May be a good idea to analyze binaries by disassembling, generating a source file and comparing contents with the original source file.
-        # It's starting to be clear to me that detecting is going to be much more complicated than instrumentation and injection.
+
         if self.hashed_file_exists_and_matches_cache(f"{self.path}\\{self.source_file}"):
             return True
         else:
@@ -83,7 +82,6 @@ class Detection:
         """
 
         # The following including comments borrowed from https://nitratine.net/blog/post/how-to-hash-files-in-python/ until '###########' reached
-        file = r"spam.txt"  # Location of the file (can be set a different way) TODO: ensure that the file exists
         BLOCK_SIZE = 1000000  # The size of each read from the file (1 megabyte)
 
         file_hash = hashlib.sha256()  # Create the hash object, can use something other than `.sha256()` if you wish
