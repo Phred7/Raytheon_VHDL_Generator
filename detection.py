@@ -40,7 +40,6 @@ class Detection:
         Executes a sequence of algorithms to attempt to detect malware or vulnerabilities that may exist within a binary and a corresponding source file.
         :return: True if no malware or vulnerabilities are detected, False otherwise.
         """
-        # TODO: May be a good idea to analyze binaries by disassembling, generating a source file and comparing contents with the original source file.
         if self.hashed_file_exists_and_matches_cache(f"{self.path}\\{self.source_file}"):
             return True
         else:
@@ -54,7 +53,7 @@ class Detection:
             if security_quality > threshold:
                 self.hash_file(f"{self.path}\\{self.source_file}")
 
-        return True  # TODO: NO
+        return True
         # If the Security Quality is below some threshold, loop through vulnerability inspections.
 
     def hashed_file_exists_and_matches_cache(self, file: str) -> bool:
@@ -80,11 +79,10 @@ class Detection:
         """
         Creates a hash of the contents of the file and writes it to a serialized dict.
         :param file: The file to be hashed. Name of the file must be unique among all hashed files.
-        :return:
+        :return: None.
         """
 
         # The following including comments borrowed from https://nitratine.net/blog/post/how-to-hash-files-in-python/ until '###########' reached
-        file = r"spam.txt"  # Location of the file (can be set a different way)
         assert StaticUtilities.file_should_exist(StaticUtilities.project_root_directory(), file, raise_error=False)
 
         sha256_file_hash_object = hashlib.sha256()  # Create the hash object, can use something other than `.sha256()` if you wish
@@ -159,7 +157,7 @@ if __name__ == "__main__":
     f.close()
     detection: Detection = Detection(path=r"Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", source_file="test_generated_ASM.asm", pique_bin_bool=False)
     print(detection.check_file_hash("spam.txt"))
-    detection.hash_json_file("")
+    detection.hash_file("")
     print(detection.check_file_hash("spam.txt"))
     f = open("./spam.txt", 'w')
     f.write("new text")
