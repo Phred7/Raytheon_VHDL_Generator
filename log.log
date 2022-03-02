@@ -1884,3 +1884,19 @@ Running Raytheon VHDL Generator
 2022-02-23 15:45:37,195 DEBUG instrumentation _copy_file_from_phantom_to_ccs_project Successfully copied sources.mk to sources.mk
 2022-02-23 15:45:37,197 DEBUG instrumentation _copy_file_from_phantom_to_ccs_project Successfully copied subdir_rules.mk to subdir_rules.mk
 2022-02-23 15:45:37,199 DEBUG instrumentation _copy_file_from_phantom_to_ccs_project Successfully copied subdir_vars.mk to subdir_vars.mk
+2022-02-27 11:25:41,693 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-27 11:25:41,694 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-02-27 11:26:06,982 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-27 11:26:06,982 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-02-27 11:26:56,440 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-27 11:26:56,440 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-02-27 11:28:44,026 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-27 11:28:44,026 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-02-27 11:29:47,648 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-27 11:29:47,649 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-02-27 11:54:28,083 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-27 11:54:28,084 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-02-27 12:54:46,815 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-27 12:54:46,817 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-02-27 12:57:02,173 INFO static_utilities StaticUtilities Running Raytheon VHDL Generator
+2022-02-27 12:57:02,175 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
