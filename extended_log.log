@@ -3437,3 +3437,9 @@ Running Raytheon VHDL Generator
 2022-03-02 15:30:53,231 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
 2022-03-02 15:41:08,664 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
 2022-03-02 15:42:04,159 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-03-03 16:35:55,816 DEBUG detection __init__ Detection object initialized
+2022-03-03 16:37:12,866 DEBUG detection __init__ Detection object initialized
+2022-03-03 16:37:31,066 DEBUG detection __init__ Detection object initialized
+2022-03-03 16:39:41,854 DEBUG detection __init__ Detection object initialized
+2022-03-03 16:39:51,609 DEBUG detection __init__ Detection object initialized
+2022-03-03 16:39:51,611 DEBUG detection hash_file Wrote to cache file hashed_disassembly.json
