@@ -20,8 +20,8 @@ class StringFormatAttack(InstrumentationStrategy):
         """"
         Open the file
         Find an instance of printf (or printf family)
-        Replace the contents with "%08x"
-
+        Replace the appropriate argument with "%08x"
+        Write the new text to the file
 
         :param file: the file to instrument.
         :return: True if the process is successful, False if it fails at any step
@@ -34,39 +34,32 @@ class StringFormatAttack(InstrumentationStrategy):
 
         vuln_string = """printf(a, b, c)\nprintf(a, b)\nprintf(a)\nvprintf(a, b)\n\nfprint(a, b, c)\nfprintf(a, b)\nsprintf(a, b, c)\nvfprintf(a, b, c)\n\nsnprintf(a, b, c)\nvsnprintf(a, b, c)"""
 
-        format_string = f"\"{'%08x.'}\"" * 1024
+        format_string = '"' + '%08x.' * 1024 + '"'
 
-        text = [line.replace('\n', '').strip() for line in open(file, 'r').readlines()]
+        with open(file, 'r') as f:
+            text = [line.replace('\n', '').strip() for line in f.readlines()]
 
         for line_index, line in enumerate(text):
             for argument_index, print_family in enumerate(print_families):
                 for print_function in print_family:
-                    if r'"SILENCE\n"' in line:
-                        q = 5
                     if re.match(print_function, line):
                         has_found_arguments = False
                         num_args_discovered = 0
-                        x: str
                         i = line.index(print_function.replace(r"\b", ""))
                         while num_args_discovered < argument_index or not has_found_arguments:
                             i = i + 1
-                            x = line[i]
                             if line[i] == ',':
                                 num_args_discovered += 1
-                                x = line[i]
                             elif line[i] == '(':
                                 has_found_arguments = True
                         j = i + 1
-                        y: str
                         while line[j] not in ",)":
                             j += 1
-                            y = line[j]
                         text[line_index] = line[:i+1] + " " + format_string + line[j:]
 
         new_text = "".join([x + '\n' for x in text])
-        print(new_text)
-        new_file = file.strip(".c") + "_i.c"
-        open(new_file, 'w').write(new_text)
+        with open(file, 'w') as f:
+            f.write(new_text)
         return True
 
 
