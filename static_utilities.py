@@ -25,6 +25,7 @@ from multiprocessing import Process, Queue
 class CustomFormatter(logging.Formatter):
     """
     This class copied from StackOverflow User 'Sergey Pleshakov' at https://stackoverflow.com/questions/384076/how-can-i-color-python-logging-output#:~:text=Just%20use%20the%20color%20variables,BLACK%20%2D%20%24BG%2DWHITE.
+    TODO: move to another file.
     """
 
     grey = "\x1b[0;37m"

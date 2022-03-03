@@ -18,7 +18,19 @@ class Main:
 
     @staticmethod
     def main() -> None:
-        """All_msp_operations.out"""
+        """
+        Workflow:
+        Precondition: CCS project post-build steps altered to call this method.
+        Build project in CCS.
+        Parse project details into a CCSProject class. (eventually)
+        If the project has been hashed before:
+            Attempt to instrument the project.
+        Disassemble the CCSProject's binary and point it back to that instance.
+        Attempt to detect malware/vulnerabilities in the CCSProject.
+            If found provide recommendations, warning and or errors. May include more complex logic in the future such as killing the build.
+        Generate VHDL based on the disassembly of the CCSProject
+        Zip up all the generated VHDL files.
+        """
         # TODO: verify all code adheres to python style guide (PEP 8) and are consistent with recommended best practices
         # TODO: verify all methods have appropriate commenting and doc strings.
         # TODO: make main callable from a CCS project... maybe another main method for testing?
@@ -34,6 +46,12 @@ class Main:
         # package_zipper.zip_vhdl()
         # package_zipper.zip_vhdl(zip_file_name="port_AB_01_12_2022")
         pass
+
+    @staticmethod
+    def debug_main() -> None:
+        """
+        For debug of this project's workflow and functionality.
+        """
 
 
 if __name__ == '__main__':
