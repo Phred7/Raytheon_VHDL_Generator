@@ -59,7 +59,7 @@ class Instrumentation:
         """
         if self.ccs_fields_empty():    # TODO: this method should be removed after creating a CCS project class.
             return
-
+        # TODO: should instrumentation copy phantom project to ccs project... then somehow point everything to a 'temp_file' with the instrumented version of the code in the same directory... the code could be built referencing that temp file rather than the phantom project.
         StaticUtilities.logger.debug("**** Instrumentation Build Started ****")
         try:
             # un hide the phantom workspace - skipping this step may cause permission issues
