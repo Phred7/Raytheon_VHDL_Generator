@@ -1,1 +1,1 @@
-2022-03-02 15:42:04,159 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-03-03 17:25:23,676 DEBUG ccs_project __hash__ Wrote to cache file hashed_disassemblies.json
