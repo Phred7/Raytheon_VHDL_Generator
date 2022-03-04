@@ -11,6 +11,7 @@ import static_utilities
 from typing import Dict
 import json
 
+from ccs_project import CCSProject, ProjectType
 from pique_bin import PiqueBin
 from static_utilities import StaticUtilities
 
@@ -20,35 +21,35 @@ class Detection:
     Attempts to detect various forms of malware or vulnerabilities with in a binary and source file pair.
     """
 
-    def __init__(self, path: str, source_file: str, *, pique_bin_bool: bool = True,
-                 suppress_pique_bin_logs: bool = True) -> None:  # TODO: this constructor need to be updated. Should contain reference to ccs project, source file, binary file and possibly disassembly.
+    def __init__(self, project: CCSProject, *, pique_bin_bool: bool = True, suppress_pique_bin_logs: bool = True) -> None:  # TODO: this constructor need to be updated. Should contain reference to ccs project, source file, binary file and possibly disassembly.
+        self.hash: Dict[int: str] = None
+
+        self.project: CCSProject = project
+        self.hashed_files_dict: Dict[str: str] = self.serialize_hash_from_json()
         self.pique_bin_security_quality: float = 0
         self.pique_bin_security_quality_threshold: float = 0.7  # TODO FIND AN ACTUALLY GOOD VALUE FOR THIS, I PULLED THIS OUT OF MY ARSE
         self.hash_json_file: str = "hashed_disassembly.json"
         self.hash_block_size: int = 1000000  # The size of each read from the file_to_hash (1 megabyte)
-        self.source_file: str = source_file
-        self.path: str = path
         self.binary_security_quality: float = 0
         if pique_bin_bool:
-            self.pique_bin: PiqueBin = PiqueBin(source_file_name=self.source_file,
-                                                suppress_printing_bool=suppress_pique_bin_logs)
+            self.pique_bin: PiqueBin = PiqueBin(source_file_name=self.project.source_file, suppress_printing_bool=suppress_pique_bin_logs)
         else:
             self.pique_bin = None
         StaticUtilities.logger.debug(f"{Detection.__name__} object initialized")
-        self.hashed_files_dict: Dict[str: str] = self.serialize_hash_from_json()
+        self.hashed_files: dict = self.initialize_hash_dict()
 
     def detect(self) -> bool:
         """
         Executes a sequence of algorithms to attempt to detect malware or vulnerabilities that may exist within a binary and a corresponding source file.
         :return: True if no malware or vulnerabilities are detected, False otherwise.
         """
-        if self.hashed_file_exists_in_cache_and_matches_cache(f"{self.path}\\{self.source_file}"):
+        if self.hashed_file_exists_and_matches_cache(f"{self.project.path}\\{self.project.source_file}"):
             return True
         if isinstance(self.pique_bin, PiqueBin):
             self.pique_bin_security_quality = self.pique_bin.pique_bin()
             StaticUtilities.logger.debug(f"PIQUE-Bin Binary Security Quality: {self.pique_bin_security_quality}")
         if self.pique_bin_security_quality > self.pique_bin_security_quality_threshold:
-            self.hash_file(self.source_file)
+            self.project.__hash__()
             return True
         else:
             # TODO: this could implement multiprocessing if they take too long individually
@@ -59,7 +60,7 @@ class Detection:
             self.__detect_injection_attack()
             return False
 
-    def hashed_file_exists_in_cache_and_matches_cache(self, file: str) -> bool:
+    def hashed_file_exists_and_matches_cache(self, file: str) -> bool:
         """
         Verifies if a file has been cached and if it matches that cache.
         :param file: The file to check for a hashed value.
@@ -78,33 +79,6 @@ class Detection:
                 return True
         return False
 
-    def hash_file(self, file: str) -> None:
-        """
-        Creates a hash of the contents of the file and writes it to a serialized dict.
-        :param file: The file to be hashed. Name of the file must be unique among all hashed files.
-        :return: None.
-        """
-
-        # The following including comments borrowed from https://nitratine.net/blog/post/how-to-hash-files-in-python/ until '###########' reached
-        # StaticUtilities.file_should_exist(StaticUtilities.project_root_directory(), file)
-
-        sha256_file_hash_object = hashlib.sha256()  # Create the hash object, can use something other than `.sha256()` if you wish
-        with open(file, 'rb') as file_to_hash:  # Open the file to read it's bytes
-            bytes_from_file = file_to_hash.read(
-                self.hash_block_size)  # Read from the file. Take in the amount declared above
-            while len(bytes_from_file) > 0:  # While there is still data being read from the file
-                sha256_file_hash_object.update(bytes_from_file)  # Update the hash
-                bytes_from_file = file_to_hash.read(self.hash_block_size)  # Read the next block from the file
-        ###########
-
-        file_name_hash = hashlib.sha256()
-        file_name_hash.update(bytearray(file, 'UTF-8'))
-        file_name_key = file_name_hash.hexdigest()
-        self.hashed_files_dict[file_name_key] = sha256_file_hash_object.hexdigest()
-        # StaticUtilities.file_should_exist(StaticUtilities.project_root_directory(), self.hash_json_file)
-        self.write_hash_to_json()
-        StaticUtilities.logger.debug(f"Wrote to cache file {self.hash_json_file}")
-
     def check_file_hash(self, file: str) -> bool:
         """
         Uses the name of a file to find its hash in a dict. If a hash for this file exists get a bool representing
@@ -118,12 +92,12 @@ class Detection:
         if file_name_key not in self.hashed_files_dict:
             return True
         sha256_file_hash_object = hashlib.sha256()  # Create the hash object, can use something other than `.sha256()` if you wish
-        with open(file, 'rb') as f:  # Open the file to read its bytes
-            fb = f.read(self.hash_block_size)  # Read from the file. Take in the amount declared above
+        with open(file, 'rb') as f:  # Open the file to read it's bytes
+            fb = f.read(StaticUtilities.hash_block_size)  # Read from the file. Take in the amount declared above
             while len(fb) > 0:  # While there is still data being read from the file
                 sha256_file_hash_object.update(fb)  # Update the hash
-                fb = f.read(self.hash_block_size)  # Read the next block from the file
-        return self.hashed_files_dict[file_name_key] == sha256_file_hash_object.hexdigest()
+                fb = f.read(StaticUtilities.hash_block_size)  # Read the next block from the file
+        return self.hashed_files[file_name_key] == sha256_file_hash_object.hexdigest()
 
     def write_hash_to_json(self) -> None:
         with open(f"{StaticUtilities.project_root_directory()}\\{self.hash_json_file}", 'w') as json_file:
@@ -164,17 +138,10 @@ class Detection:
         pass
 
 
-if __name__ == "__main__":
-    f = open("./spam.txt", 'w')
-    f.write("old text")
-    f.close()
-    detection: Detection = Detection(path=r"Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM",
-                                     source_file="test_generated_ASM.asm", pique_bin_bool=False)
-    print(detection.check_file_hash("spam.txt"))
-    detection.hash_file("./spam.txt")
-    print(detection.check_file_hash("spam.txt"))
-    f = open("./spam.txt", 'w')
-    f.write("new text")
-    f.close()
-    print(detection.check_file_hash("spam.txt"))
-    os.remove("./spam.txt")
+if __name__ == '__main__':
+    project: CCSProject = CCSProject(project_type=ProjectType.C,
+                                     path= StaticUtilities.project_root_directory() + r"\ccs_workspace\basic_overwrite_target",
+                                     source_file="main.c")
+
+    detection: Detection = Detection(project, pique_bin_bool=False)
+    project.__hash__()

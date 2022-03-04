@@ -5,6 +5,7 @@
 # Dr. Brock LaMeres
 # Written by Walker Ward and Michael Heidal
 ###############################
+import json
 import logging
 import multiprocessing
 import os
@@ -84,6 +85,9 @@ class StaticUtilities:
     logger.addHandler(ch)
     logger.addHandler(file_logging_handler)
     logger.addHandler(extended_file_logging_handler)
+
+    hash_json_file: str = "hashed_disassemblies.json"
+    hash_block_size: int = 1000000  # The size of each read from the file_to_hash (1 megabyte)
 
     @staticmethod
     def file_should_exist(file_directory: str, file: str) -> None:
@@ -389,6 +393,12 @@ class StaticUtilities:
     def project_root_directory() -> str:
         return StaticUtilities._project_root_directory_str
 
+    @staticmethod
+    def initialize_hash_dict() -> dict:
+        if not StaticUtilities.file_should_exist(StaticUtilities.project_root_directory(), StaticUtilities.hash_json_file):
+            return {}
+        with open(f"{StaticUtilities.project_root_directory()}\\{StaticUtilities.hash_json_file}", 'r') as json_file:
+            return json.loads(json_file.read())
 
 if __name__ == "__main__":
     print(StaticUtilities.project_root_directory())

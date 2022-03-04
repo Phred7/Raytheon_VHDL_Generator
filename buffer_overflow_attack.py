@@ -9,6 +9,7 @@ import random
 import string
 from typing import List, Tuple
 
+from ccs_project import CCSProject
 from instrumentation_strategy import InstrumentationStrategy
 
 
@@ -27,7 +28,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
         line = line.replace(" ", "").replace(";", "")
         return line
 
-    def instrument(self, file: str) -> bool:
+    def instrument(self, project: CCSProject) -> bool:
         """"
         Open the file
         Find all variable declarations
