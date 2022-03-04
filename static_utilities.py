@@ -86,18 +86,25 @@ class StaticUtilities:
     logger.addHandler(extended_file_logging_handler)
 
     @staticmethod
-    def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
+    def file_should_exist(file_directory: str, file: str) -> None:
         """
-        Evaluates the existence of a file in a given directory.
-        :param raise_error: If True raises an OS error if the file does not exist, otherwise returns False.
-        :param file_directory: Location of directory containing the File file.
-        :param file: The name of the File file that should exist.
+        Asserts that this file is in a given directory.
+        :param file_directory: Location of directory containing the file.
+        :param file: The name of the file that should exist.
         :raises OSError: If file does not exist.
+        :return: None.
+        """
+        assert (not os.path.exists(f"{file_directory}\\{file}") or file is None or file == "")
+
+    @staticmethod
+    def file_exists(file_directory: str, file: str) -> bool:
+        """
+        Checks the existence of a file in a given directory.
+        :param file_directory: Location of directory containing the file.
+        :param file: The name of the file that should exist.
         :return: True if the files exists. False if the file does not exist and raise_error is False.
         """
         if not os.path.exists(f"{file_directory}\\{file}") or file is None or file == "":
-            if raise_error:
-                raise OSError(f"{file_directory}\\{file} does not exist")
             return False
         return True
 

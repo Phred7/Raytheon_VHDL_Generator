@@ -3443,3 +3443,10 @@ Running Raytheon VHDL Generator
 2022-03-03 16:39:41,854 DEBUG detection __init__ Detection object initialized
 2022-03-03 16:39:51,609 DEBUG detection __init__ Detection object initialized
 2022-03-03 16:39:51,611 DEBUG detection hash_file Wrote to cache file hashed_disassembly.json
+2022-03-03 17:04:54,267 DEBUG detection __init__ Detection object initialized
+2022-03-03 17:04:54,269 DEBUG detection hash_file Wrote to cache file hashed_disassembly.json
+2022-03-03 17:05:31,000 DEBUG detection __init__ Detection object initialized
+2022-03-03 17:05:31,001 DEBUG detection hash_file Wrote to cache file hashed_disassembly.json
+2022-03-03 17:05:59,495 DEBUG detection __init__ Detection object initialized
+2022-03-03 17:05:59,497 DEBUG detection hash_file Wrote to cache file hashed_disassembly.json
+2022-03-03 17:22:08,023 DEBUG detection __init__ Detection object initialized

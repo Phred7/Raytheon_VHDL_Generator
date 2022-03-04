@@ -40,7 +40,7 @@ class PackageZipper:
         """
         self.number_of_zipped_files = 0
         duplicate_file_modifier: int = 0
-        while StaticUtilities.file_should_exist(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}', f'{zip_file_name}.zip', raise_error=False):
+        while StaticUtilities.file_exists(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}', f'{zip_file_name}.zip'):
             if duplicate_file_modifier == 0:
                 zip_file_name = f"{zip_file_name}_[0]"
             else:
@@ -53,7 +53,7 @@ class PackageZipper:
                     if file.endswith(".vhd"):
                         self._zip_write(vhdl_zip_file, file)
             with StaticUtilities.change_dir(f'{StaticUtilities.project_root_directory()}\\{self.disassembly_file_directory}'):
-                if StaticUtilities.file_should_exist(self.disassembly_file_directory, self.disassembly_file, raise_error=False):
+                if StaticUtilities.file_exists(self.disassembly_file_directory, self.disassembly_file):
                     self._zip_write(vhdl_zip_file, self.disassembly_file)
         if duplicate_file_modifier != 0:
             StaticUtilities.logger.warning(f'Created zip {zip_file_name}.zip in {StaticUtilities.project_root_directory()}\\{self.vhdl_directory} containing {self.number_of_zipped_files} files')

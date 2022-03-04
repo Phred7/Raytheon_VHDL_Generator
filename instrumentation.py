@@ -188,7 +188,7 @@ class Instrumentation:
         shutil.copyfile(f"{source_name}{temp_name_extension}.{source_extension}", destination)
         os.remove(f"{source_name}{temp_name_extension}.{source_extension}")
         if logging:
-            if StaticUtilities.file_should_exist(file_directory=destination_path, file=destination_with_extension, raise_error=False):
+            if StaticUtilities.file_exist(file_directory=destination_path, file=destination_with_extension):
                 StaticUtilities.logger.debug(
                     f"Successfully copied {source_with_extension} to {destination_with_extension}")
             else:
@@ -201,9 +201,9 @@ class Instrumentation:
         """
         Generates the phantom workspace if it does not already exist.
         """
-        if not StaticUtilities.file_should_exist(
+        if not StaticUtilities.file_exists(
                 file_directory=f"{StaticUtilities.project_root_directory()}/ccs_workspace/phantom_workspace/RemoteSystemsTempFiles/",
-                file=".project", raise_error=False):
+                file=".project"):
             StaticUtilities.logger.debug(f"Phantom workspace missing")
             StaticUtilities.extract_zip(path_to_zip=f"{StaticUtilities.project_root_directory()}/phantom_workspace.zip",
                                         extraction_directory=f"{StaticUtilities.project_root_directory()}/ccs_workspace/")
