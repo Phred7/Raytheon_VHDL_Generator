@@ -16,42 +16,39 @@ class DetectionStrategy(ABC):
     This class acts as an interface for detection.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, ccs_project: CCSProject) -> None:
+        self.ccs_project: CCSProject = ccs_project
         self.type = self.__class__.__name__
         StaticUtilities.logger.debug(f"{DetectionStrategy.__name__} object of type {self.type} initialized")
 
     @abstractmethod
-    def detect_buffer_overflow_attack(self, ccs_project: CCSProject) -> bool:
+    def detect_buffer_overflow_attack(self) -> bool:
         """
         Method to be declared by concrete detection strategies.
-        :param ccs_project: the project containing the source file to be analyzed.
         :return: True if a buffer overflow was detected in this file. Otherwise, False.
         """
         pass
 
     @abstractmethod
-    def detect_int_overflow_attack(self, ccs_project: CCSProject) -> bool:
+    def detect_int_overflow_attack(self) -> bool:
         """
         Method to be declared by concrete detection strategies.
-        :param ccs_project: the project containing the source file to be analyzed.
         :return: True if an int overflow was detected in this file. Otherwise, False.
         """
         pass
 
     @abstractmethod
-    def detect_f_string_vulnerability(self, ccs_project: CCSProject) -> bool:
+    def detect_f_string_vulnerability(self) -> bool:
         """
         Method to be declared by concrete detection strategies.
-        :param ccs_project: the project containing the source file to be analyzed.
         :return: True if a string vulnerability was detected in this file. Otherwise, False.
         """
         pass
 
     @abstractmethod
-    def detect_injection_attack(self, ccs_project: CCSProject) -> bool:
+    def detect_injection_attack(self) -> bool:
         """
         Method to be declared by concrete detection strategies.
-        :param ccs_project: the project containing the source file to be analyzed.
         :return: True if an injection attack was detected in this file. Otherwise, False.
         """
         pass

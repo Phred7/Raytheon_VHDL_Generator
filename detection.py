@@ -37,7 +37,7 @@ class Detection:
         else:
             self.pique_bin = None
 
-        self._detection_strategy = DetectionInC() if self.ccs_project.project_type == ProjectType.C else DetectionInASM()
+        self._detection_strategy = DetectionInC(self.ccs_project) if self.ccs_project.project_type == ProjectType.C else DetectionInASM(self.ccs_project)
 
         StaticUtilities.logger.debug(f"{Detection.__name__} object initialized")
 
@@ -76,11 +76,10 @@ class Detection:
         else:
             # TODO: this could implement multiprocessing if they take too long individually
             # TODO: These methods should probably build up some kind of string buffer and return that so that logging can be better controlled and only happens once for each method or once overall.
-            self._detection_strategy.detec
-            self.__detect_buffer_overflow_attack()
-            self.__detect_int_overflow_attack()
-            self.__detect_f_string_vulnerability()
-            self.__detect_injection_attack()
+            self._detection_strategy.detect_buffer_overflow_attack()
+            self._detection_strategy.detect_int_overflow_attack()
+            self._detection_strategy.detect_injection_attack()
+            self._detection_strategy.detect_f_string_vulnerability()
             return False
 
     def serialize_hash_from_file(self):
@@ -123,34 +122,6 @@ class Detection:
         if file_name_key not in self.hashed_files_dict:
             return True
         return self.hashed_files_dict[file_name_key] == self.ccs_project.__hash__()
-
-    def __detect_buffer_overflow_attack(self) -> bool:
-        """
-        Executes an algorithm on a file to attempt to detect a buffer overflow attacks in a source file.
-        :return: True if a buffer overflow attack was detected, otherwise False.
-        """
-        pass
-
-    def __detect_int_overflow_attack(self) -> bool:
-        """
-        Executes an algorithm on a file to attempt to detect an int overflow attacks in a source file.
-        :return: True if an int overflow attack was detected, otherwise False.
-        """
-        pass
-
-    def __detect_f_string_vulnerability(self) -> bool:
-        """
-        Executes an algorithm on a file to attempt to detect an f-string vulnerability in a source file.
-        :return: True if an f-string vulnerability was detected, otherwise False.
-        """
-        pass
-
-    def __detect_injection_attack(self):
-        """
-        Executes an algorithm on a file to attempt to detect injected code in a source file.
-        :return: True if injected code was detected, otherwise False.
-        """
-        pass
 
 
 if __name__ == '__main__':
