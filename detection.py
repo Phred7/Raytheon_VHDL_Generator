@@ -12,6 +12,8 @@ from typing import Dict
 import json
 
 from ccs_project import CCSProject, ProjectType
+from detection_in_asm import DetectionInASM
+from detection_in_c import DetectionInC
 from detection_strategy import DetectionStrategy
 from pique_bin import PiqueBin
 from static_utilities import StaticUtilities
@@ -35,7 +37,7 @@ class Detection:
         else:
             self.pique_bin = None
 
-        self._detection_strategy = None
+        self._detection_strategy = DetectionInC() if self.ccs_project.project_type == ProjectType.C else DetectionInASM()
 
         StaticUtilities.logger.debug(f"{Detection.__name__} object initialized")
 
@@ -74,6 +76,7 @@ class Detection:
         else:
             # TODO: this could implement multiprocessing if they take too long individually
             # TODO: These methods should probably build up some kind of string buffer and return that so that logging can be better controlled and only happens once for each method or once overall.
+            self._detection_strategy.detec
             self.__detect_buffer_overflow_attack()
             self.__detect_int_overflow_attack()
             self.__detect_f_string_vulnerability()
