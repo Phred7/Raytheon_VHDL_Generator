@@ -31,14 +31,11 @@ class Detection:
         self.hash_json_file: str = "hashed_disassembly.json"
         self.binary_security_quality: float = 0
         self.hashed_files_dict: Dict[str: str] = self.serialize_hash_from_file()
-
+        self._detection_strategy = DetectionInC(self.ccs_project) if self.ccs_project.project_type == ProjectType.C else DetectionInASM(self.ccs_project)
         if pique_bin_bool:
             self.pique_bin: PiqueBin = PiqueBin(source_file_name=self.ccs_project.source_file, suppress_printing_bool=suppress_pique_bin_logs)
         else:
             self.pique_bin = None
-
-        self._detection_strategy = DetectionInC(self.ccs_project) if self.ccs_project.project_type == ProjectType.C else DetectionInASM(self.ccs_project)
-
         StaticUtilities.logger.debug(f"{Detection.__name__} object initialized")
 
     @property

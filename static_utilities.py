@@ -67,23 +67,25 @@ class StaticUtilities:
     ch = logging.StreamHandler()
     ch.setLevel(logging.DEBUG)
     ch.setFormatter(CustomFormatter())
+    logger.addHandler(ch)
 
     # setup file logger and add to logger
-    if os.path.exists(f'{_project_root_directory_str}\\log.log'):
-        os.remove(f'{_project_root_directory_str}\\log.log')
-    file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\log.log')
-    file_logging_handler.setFormatter(
-        logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
-    file_logging_handler.setLevel(logging.DEBUG)
+    try:
+        if os.path.exists(f'{_project_root_directory_str}\\log.log'):
+            os.remove(f'{_project_root_directory_str}\\log.log')
+        file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\log.log')
+        file_logging_handler.setFormatter(
+            logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
+        file_logging_handler.setLevel(logging.DEBUG)
+        logger.addHandler(file_logging_handler)
+    except PermissionError:
+        pass
 
     # setup extended file logger and add to logger
     extended_file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\extended_log.log')
     extended_file_logging_handler.setFormatter(
         logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
     extended_file_logging_handler.setLevel(logging.DEBUG)
-
-    logger.addHandler(ch)
-    logger.addHandler(file_logging_handler)
     logger.addHandler(extended_file_logging_handler)
 
     hash_block_size: int = 1000000  # The size of each read from the file_to_hash (1 megabyte)

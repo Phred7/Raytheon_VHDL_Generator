@@ -3490,3 +3490,8 @@ Running Raytheon VHDL Generator
 2022-03-06 12:28:32,758 DEBUG detection __init__ Detection object initialized
 2022-03-06 12:28:32,759 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
 2022-03-06 12:29:10,845 DEBUG detection <module> detection: True
+2022-03-06 15:56:36,224 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-03-06 15:56:36,225 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-06 15:58:25,345 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-03-06 15:58:25,346 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-06 15:58:34,438 DEBUG instrumentation instrument Phantom workspace unhidden
