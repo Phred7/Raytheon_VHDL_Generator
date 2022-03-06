@@ -13,7 +13,7 @@ import sys
 from copy import deepcopy
 
 from instrumentation_strategy import InstrumentationStrategy
-from int_overflow_attack import IntOverflowAttack
+from instrument_int_overflow_attack import IntOverflowAttack
 from static_utilities import StaticUtilities
 
 
@@ -188,7 +188,7 @@ class Instrumentation:
         shutil.copyfile(f"{source_name}{temp_name_extension}.{source_extension}", destination)
         os.remove(f"{source_name}{temp_name_extension}.{source_extension}")
         if logging:
-            if StaticUtilities.file_exist(file_directory=destination_path, file=destination_with_extension):
+            if StaticUtilities.file_exists(file_directory=destination_path, file=destination_with_extension):
                 StaticUtilities.logger.debug(
                     f"Successfully copied {source_with_extension} to {destination_with_extension}")
             else:

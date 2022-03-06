@@ -12,6 +12,7 @@ from typing import Dict
 import json
 
 from ccs_project import CCSProject, ProjectType
+from detection_strategy import DetectionStrategy
 from pique_bin import PiqueBin
 from static_utilities import StaticUtilities
 
@@ -23,16 +24,38 @@ class Detection:
 
     def __init__(self, ccs_project: CCSProject, *, pique_bin_bool: bool = True, suppress_pique_bin_logs: bool = True) -> None:  # TODO: this constructor need to be updated. Should contain reference to ccs project, source file, binary file and possibly disassembly.
         self.ccs_project: CCSProject = ccs_project
-        self.hashed_files_dict: Dict[str: str] = self.serialize_hash_from_file()
         self.pique_bin_security_quality: float = 0
         self.pique_bin_security_quality_threshold: float = 0.7  # TODO FIND AN ACTUALLY GOOD VALUE FOR THIS, I PULLED THIS OUT OF MY ARSE
         self.hash_json_file: str = "hashed_disassembly.json"
         self.binary_security_quality: float = 0
+        self.hashed_files_dict: Dict[str: str] = self.serialize_hash_from_file()
+
         if pique_bin_bool:
             self.pique_bin: PiqueBin = PiqueBin(source_file_name=self.ccs_project.source_file, suppress_printing_bool=suppress_pique_bin_logs)
         else:
             self.pique_bin = None
+
+        self._detection_strategy = None
+
         StaticUtilities.logger.debug(f"{Detection.__name__} object initialized")
+
+    @property
+    def detection_strategy(self) -> DetectionStrategy:
+        """
+        Property representing the type of Concrete Strategy that this object contains a reference to.
+        :return: The type of Concrete Strategy that this object contains a reference to.
+        """
+        return self._detection_strategy
+
+    @detection_strategy.setter
+    def detection_strategy(self, detection_strategy: DetectionStrategy) -> None:
+        """
+        Allows the concrete strategy object to be replaced at runtime.
+        param detection_strategy: New concrete strategy object to replace with the current.
+        :return: None.
+        """
+        self._detection_strategy = detection_strategy
+        return
 
     def detect(self) -> bool:
         """
@@ -58,7 +81,11 @@ class Detection:
             return False
 
     def serialize_hash_from_file(self):
-        serialized_object = StaticUtilities.serialize_object_from_json(StaticUtilities.project_root_directory(), self.hash_json_file)
+        serialized_object = None
+        try:
+            serialized_object = StaticUtilities.serialize_object_from_json(StaticUtilities.project_root_directory(), self.hash_json_file)
+        except json.decoder.JSONDecodeError:
+            return {}
         if isinstance(serialized_object, dict):
             return serialized_object
         return {}
@@ -77,30 +104,22 @@ class Detection:
         file_name_key = self.ccs_project.hash_key()
 
         if file_name_key in self.hashed_files_dict:
-            if self.check_file_hash(self.ccs_project.source_file):
+            if self.check_file_hash():
                 StaticUtilities.logger.debug("Cached file already exists")
                 return True
         return False
 
-    def check_file_hash(self, file: str) -> bool:
+    def check_file_hash(self) -> bool:
         """
         Uses the name of a file to find its hash in a dict. If a hash for this file exists get a bool representing
         a comparison between this hash and the existing hash.
         :return: True if this hash matches the newest hash in the dict for this file or if a hash does not exist,
         otherwise False.
         """
-        file_name_hash = hashlib.sha256()
-        file_name_hash.update(bytearray(file, 'UTF-8'))
-        file_name_key = file_name_hash.hexdigest()
+        file_name_key = self.ccs_project.hash_key()
         if file_name_key not in self.hashed_files_dict:
             return True
-        sha256_file_hash_object = hashlib.sha256()  # Create the hash object, can use something other than `.sha256()` if you wish
-        with open(file, 'rb') as f:  # Open the file to read its bytes
-            fb = f.read(StaticUtilities.hash_block_size)  # Read from the file. Take in the amount declared above
-            while len(fb) > 0:  # While there is still data being read from the file
-                sha256_file_hash_object.update(fb)  # Update the hash
-                fb = f.read(StaticUtilities.hash_block_size)  # Read the next block from the file
-        return self.hashed_files_dict[file_name_key] == sha256_file_hash_object.hexdigest()
+        return self.hashed_files_dict[file_name_key] == self.ccs_project.__hash__()
 
     def __detect_buffer_overflow_attack(self) -> bool:
         """
@@ -133,8 +152,9 @@ class Detection:
 
 if __name__ == '__main__':
     project: CCSProject = CCSProject(project_type=ProjectType.C,
-                                     path=StaticUtilities.project_root_directory() + r"\ccs_workspace\basic_overwrite_target",
-                                     source_file="main.c")
-
+                                     path=StaticUtilities.project_root_directory() + r"\ccs_workspace\c_blank",
+                                     source_file="c_blank.c")
     detection: Detection = Detection(project, pique_bin_bool=False)
-    project.__hash__()
+    StaticUtilities.logger.debug(project.__hash__())
+    detection.pique_bin_security_quality = 0.9
+    StaticUtilities.logger.debug(f"detection: {detection.detect()}")

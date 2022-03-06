@@ -23,7 +23,7 @@ class InstrumentationStrategy(ABC):
     @abstractmethod
     def instrument(self, project: CCSProject) -> bool:
         """
-        Method to be declared my concrete strategies.
+        Method to be declared by concrete strategies.
         :param project: the project containing the source file to be instrumented.
         :return: str representing the file that was instrumented.
         """

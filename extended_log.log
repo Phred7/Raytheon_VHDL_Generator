@@ -3458,3 +3458,35 @@ Running Raytheon VHDL Generator
 2022-03-03 17:11:42,353 DEBUG detection __init__ Detection object initialized
 2022-03-03 17:16:23,164 DEBUG detection __init__ Detection object initialized
 2022-03-03 17:25:23,676 DEBUG ccs_project __hash__ Wrote to cache file hashed_disassemblies.json
+2022-03-06 12:09:33,355 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:15:07,274 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:15:07,275 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 12:15:48,580 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:15:48,581 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 12:16:00,683 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:16:00,684 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 12:16:35,520 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:16:35,521 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 12:16:41,526 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:16:41,527 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 12:17:31,886 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:17:31,887 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 12:20:39,284 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:20:39,285 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 12:21:41,523 DEBUG detection <module> detection: True
+2022-03-06 12:21:45,324 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:21:45,325 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 12:25:59,113 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:25:59,114 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 12:26:20,597 DEBUG detection hashed_file_exists_and_matches_cache Cached file already exists
+2022-03-06 12:26:27,036 DEBUG detection <module> detection: True
+2022-03-06 12:26:42,462 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:26:42,462 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 12:26:46,763 DEBUG detection hashed_file_exists_and_matches_cache Cached file already exists
+2022-03-06 12:26:48,954 DEBUG detection <module> detection: True
+2022-03-06 12:28:03,129 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:28:03,130 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 12:28:14,350 DEBUG detection <module> detection: False
+2022-03-06 12:28:32,758 DEBUG detection __init__ Detection object initialized
+2022-03-06 12:28:32,759 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 12:29:10,845 DEBUG detection <module> detection: True

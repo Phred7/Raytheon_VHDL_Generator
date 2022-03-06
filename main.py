@@ -7,7 +7,7 @@
 ###############################
 from disassembler import Disassembler
 from instrumentation import Instrumentation
-from int_overflow_attack import IntOverflowAttack
+from instrument_int_overflow_attack import IntOverflowAttack
 from package_zipper import PackageZipper
 from static_utilities import StaticUtilities
 from vhdl_parser_generator import VHDLParserGenerator

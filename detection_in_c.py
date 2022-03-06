@@ -1,0 +1,2 @@
+class DetectionInC:
+    pass
