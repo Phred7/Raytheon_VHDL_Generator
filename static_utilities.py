@@ -19,7 +19,7 @@ import subprocess
 import time
 from contextlib import contextmanager
 from logging import Logger
-from typing import TextIO, List
+from typing import TextIO, List, Any
 from multiprocessing import Process, Queue
 
 
@@ -86,7 +86,6 @@ class StaticUtilities:
     logger.addHandler(file_logging_handler)
     logger.addHandler(extended_file_logging_handler)
 
-    hash_json_file: str = "hashed_disassemblies.json"
     hash_block_size: int = 1000000  # The size of each read from the file_to_hash (1 megabyte)
 
     @staticmethod
@@ -138,13 +137,13 @@ class StaticUtilities:
         assert substring in string
 
     @staticmethod
-    def start_process(process_name: str, 
-                      executable_name: str, 
-                      executable_directory: str, 
-                      *, 
-                      service_name: str = "", 
-                      implement_logger: bool = True, 
-                      start_process_timeout: int = 5, 
+    def start_process(process_name: str,
+                      executable_name: str,
+                      executable_directory: str,
+                      *,
+                      service_name: str = "",
+                      implement_logger: bool = True,
+                      start_process_timeout: int = 5,
                       start_process_delay: int = 2) -> bool:
         """
         Attempts to start a defined process on Windows.
@@ -163,7 +162,8 @@ class StaticUtilities:
         _executable: str = _executable_directory + _executable_name
         _service_name: str = service_name
         StaticUtilities.file_should_exist(file_directory=_executable_directory, file=_executable_name)
-        if (False if _service_name == "" else not StaticUtilities.service_running(_service_name)) or not StaticUtilities.process_running(
+        if (False if _service_name == "" else not StaticUtilities.service_running(
+                _service_name)) or not StaticUtilities.process_running(
                 _executable_name):
             # attempt to start the process
             if implement_logger:
@@ -198,7 +198,10 @@ class StaticUtilities:
         docker_desktop_service_name: str = "com.docker.service"
         timeout: int = 30
         timeout_delay: int = 15
-        return StaticUtilities.start_process(process_name=docker_process_name, executable_name=docker_executable_name, executable_directory=docker_executable_directory, service_name=docker_desktop_service_name, start_process_timeout=timeout, start_process_delay=timeout_delay)
+        return StaticUtilities.start_process(process_name=docker_process_name, executable_name=docker_executable_name,
+                                             executable_directory=docker_executable_directory,
+                                             service_name=docker_desktop_service_name, start_process_timeout=timeout,
+                                             start_process_delay=timeout_delay)
 
     @staticmethod
     def start_ccs() -> bool:
@@ -211,10 +214,13 @@ class StaticUtilities:
         ccs_exe_dir: str = "C:\\ti\\ccs1040\\ccs\\eclipse\\"
         timeout: int = 5
         timeout_delay: int = 2
-        return StaticUtilities.start_process(process_name=ccs_process_name, executable_name=ccs_exe_name, executable_directory=ccs_exe_dir, start_process_timeout=timeout, start_process_delay=timeout_delay)
+        return StaticUtilities.start_process(process_name=ccs_process_name, executable_name=ccs_exe_name,
+                                             executable_directory=ccs_exe_dir, start_process_timeout=timeout,
+                                             start_process_delay=timeout_delay)
 
     @staticmethod
-    def stop_process(process_name: str, executable_name: str, *, implement_logger: bool = True, stop_delay: int = 2, force_kill: bool = False) -> bool:
+    def stop_process(process_name: str, executable_name: str, *, implement_logger: bool = True, stop_delay: int = 2,
+                     force_kill: bool = False) -> bool:
         """
         Attempts to stop a defined process.
         :param process_name: Name of process to stop. Format: "Docker Desktop"
@@ -247,7 +253,8 @@ class StaticUtilities:
         """
         ccs_process_name: str = "Code Composer Studio"
         ccs_executable_name: str = "ccstudio.exe"
-        return StaticUtilities.stop_process(process_name=ccs_process_name, executable_name=ccs_executable_name, force_kill=force_kill)
+        return StaticUtilities.stop_process(process_name=ccs_process_name, executable_name=ccs_executable_name,
+                                            force_kill=force_kill)
 
     @staticmethod
     def process_running(process_name: str) -> bool:  # TODO: Add error checking.
@@ -340,7 +347,8 @@ class StaticUtilities:
             [queue.put(os.path.join(path, file)) for file in filenames]
 
         for i in range(os.cpu_count() - 1):  # len(os.sched_getaffinity(0)) on Unix to get number of available
-            processes.append((multiprocessing.Process(target=StaticUtilities._mp_hide_directory, args=(queue, hide,), name=f"Static File Hide Process {i}")))
+            processes.append((multiprocessing.Process(target=StaticUtilities._mp_hide_directory, args=(queue, hide,),
+                                                      name=f"Static File Hide Process {i}")))
         for process in processes:
             process.start()
         while not queue.empty():
@@ -357,7 +365,8 @@ class StaticUtilities:
         return
 
     @staticmethod
-    def hide_directory_recursively(directory: str, *, log: bool = True) -> bool:    # TODO: convert to a thread safe generator (or path/file queue) and add multiproceessing.
+    def hide_directory_recursively(directory: str, *,
+                                   log: bool = True) -> bool:  # TODO: convert to a thread safe generator (or path/file queue) and add multiproceessing.
         os.system(f"attrib +h {directory[:-1]}")
         files: List[str] = []
         for (path, name, filenames) in os.walk(directory):
@@ -394,11 +403,17 @@ class StaticUtilities:
         return StaticUtilities._project_root_directory_str
 
     @staticmethod
-    def initialize_hash_dict() -> dict:
-        if not StaticUtilities.file_should_exist(StaticUtilities.project_root_directory(), StaticUtilities.hash_json_file):
-            return {}
-        with open(f"{StaticUtilities.project_root_directory()}\\{StaticUtilities.hash_json_file}", 'r') as json_file:
-            return json.loads(json_file.read())
+    def write_object_to_json(hash_json_file_directory: str, hash_json_file: str, object_to_dump_to_json: object) -> None:
+        with open(f"{hash_json_file_directory}\\{hash_json_file}", 'w') as json_file:
+            json.dump(object_to_dump_to_json, json_file, indent=4)
+
+    @staticmethod
+    def serialize_object_from_json(hash_json_file_directory: str, hash_json_file: str) -> object:
+        if not StaticUtilities.file_exists(hash_json_file_directory, hash_json_file):
+            return None
+        with open(f"{hash_json_file_directory}\\{hash_json_file}", 'r') as json_file:
+            return json.load(json_file)
+
 
 if __name__ == "__main__":
     print(StaticUtilities.project_root_directory())

@@ -27,15 +27,21 @@ class CCSProject:
         self.disassembly_path = disassembly_path
         self.binary_path = binary_path
 
-    def __hash__(self):
+    def hash_key(self):
         """
-        Creates a hash of the contents of the file and writes it to a serialized dict.
-        :param file: The file to be hashed. Name of the file must be unique among all hashed files.
-        :return: None.
+        Creates a hash key for this CCSProject.
+        :return: hash key for this CCSProject.
         """
+        file_name_hash = hashlib.sha256()
+        file_name_hash.update(bytearray(self.source_file, 'UTF-8'))
+        return file_name_hash.hexdigest()
 
+    def __hash__(self) -> hash:
+        """
+        Creates a hash of this CCSProject.
+        :return: hash of this CCSProject.
+        """
         # The following including comments borrowed from https://nitratine.net/blog/post/how-to-hash-files-in-python/ until '###########' reached
-        assert StaticUtilities.file_should_exist(self.path, self.source_file, raise_error=False)
 
         sha256_file_hash_object = hashlib.sha256()  # Create the hash object, can use something other than `.sha256()` if you wish
         with open(f"{self.path}//{self.source_file}", 'rb') as file_to_hash:  # Open the file to read its bytes
@@ -46,16 +52,4 @@ class CCSProject:
                 bytes_from_file = file_to_hash.read(StaticUtilities.hash_block_size)  # Read the next block from the file
         ###########
 
-        file_name_hash = hashlib.sha256()
-        file_name_hash.update(bytearray(self.source_file, 'UTF-8'))
-        file_name_key = file_name_hash.hexdigest()
-
-        hashed_files: dict = StaticUtilities.initialize_hash_dict()
-        hashed_files[file_name_key] = sha256_file_hash_object.hexdigest()
-        assert StaticUtilities.file_should_exist(StaticUtilities.project_root_directory(), StaticUtilities.hash_json_file,
-                                                 raise_error=False)
-
-        with open(f"{StaticUtilities.project_root_directory()}{StaticUtilities.hash_json_file}", 'w') as g:
-            g.write(json.dumps(hashed_files))
-
-        StaticUtilities.logger.debug(f"Wrote to cache file {StaticUtilities.hash_json_file}")
+        return sha256_file_hash_object.hexdigest()
