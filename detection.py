@@ -24,7 +24,7 @@ class Detection:
     Attempts to detect various forms of malware or vulnerabilities with in a binary and source file pair.
     """
 
-    def __init__(self, ccs_project: CCSProject, *, pique_bin_bool: bool = True, suppress_pique_bin_logs: bool = True) -> None:  # TODO: this constructor need to be updated. Should contain reference to ccs project, source file, binary file and possibly disassembly.
+    def __init__(self, ccs_project: CCSProject, *, pique_bin_bool: bool = True, suppress_pique_bin_logs: bool = True) -> None:
         self.ccs_project: CCSProject = ccs_project
         self.pique_bin_security_quality: float = 0
         self.pique_bin_security_quality_threshold: float = 0.7  # TODO FIND AN ACTUALLY GOOD VALUE FOR THIS, I PULLED THIS OUT OF MY ARSE
@@ -99,7 +99,6 @@ class Detection:
         False if the file has not been cached or if the file has been cached and the hashed value of the file does not
         match the cached value.
         """
-
         file_name_key = self.ccs_project.hash_key()
 
         if file_name_key in self.hashed_files_dict:
