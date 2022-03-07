@@ -41,7 +41,7 @@ class CCSProject:
         This method is memoized.
         :return: hash key for this CCSProject.
         """
-        if self.__project_hash_key is not None:
+        if self.__project_hash_key is None:
             file_name_hash = hashlib.sha256()
             file_name_hash.update(bytearray(self.source_file, 'UTF-8'))
             self.__project_hash_key = file_name_hash.hexdigest()
@@ -54,7 +54,7 @@ class CCSProject:
         :return: hash of this CCSProject.
         """
         # The following including comments borrowed from https://nitratine.net/blog/post/how-to-hash-files-in-python/ until '###########' reached
-        if self.__project_hash is not None:
+        if self.__project_hash is None:
             sha256_file_hash_object = hashlib.sha256()  # Create the hash object, can use something other than `.sha256()` if you wish
             with open(f"{self.path}//{self.source_file}", 'rb') as file_to_hash:  # Open the file to read its bytes
                 bytes_from_file = file_to_hash.read(

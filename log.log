@@ -1,3 +1,5 @@
-2022-03-06 15:58:25,345 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-03-06 15:58:25,346 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-03-06 15:58:34,438 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-06 19:13:24,975 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-03-06 19:13:24,975 DEBUG detection __init__ Detection object initialized
+2022-03-06 19:13:24,976 DEBUG detection <module> 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-06 19:13:24,976 DEBUG detection hashed_file_exists_and_matches_cache Cached file already exists
+2022-03-06 19:13:24,976 DEBUG detection <module> detection: True
