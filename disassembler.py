@@ -8,7 +8,6 @@
 import os
 import subprocess
 
-from pique_bin import PiqueBin
 from static_utilities import StaticUtilities
 
 
