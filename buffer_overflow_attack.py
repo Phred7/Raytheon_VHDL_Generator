@@ -37,8 +37,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
         Paste insecure function calls before comparisons
         Paste insecure function to top
         Write to the file
-
-        :param file: the file to instrument.
+        :param project: ccs project to instrument.
         :return: True if the process is successful, False if it fails at any step
         """
         insecure_function = ["#include <string.h>", "void buff_value(char* target) {",
@@ -46,7 +45,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
 
         # try to read from the file; return if the file isn't there
         try:
-            f = open(file, 'r')
+            f = open(project.source_file, 'r')
             c_text = f.read()
             f.close()
         except:
@@ -100,7 +99,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
         for line in c_lines:
             new_c_file = f"{new_c_file}\n{line}"
 
-        f = open(file, 'w')
+        f = open(project.source_file, 'w')
         f.write(new_c_file)
         f.close()
         return True
