@@ -27,8 +27,6 @@ class Detection:
         self.project: CCSProject = project
         self.hashed_files = StaticUtilities.initialize_hash_dict()
 
-        self.source_file: str = project.source_file
-        self.path: str = project.path
         self.binary_security_quality: float = 0
         if pique_bin_bool:
             self.pique_bin: PiqueBin = PiqueBin(source_file_name=self.project.source_file, suppress_printing_bool=suppress_pique_bin_logs)

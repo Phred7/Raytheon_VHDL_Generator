@@ -69,22 +69,26 @@ class StaticUtilities:
     ch.setFormatter(CustomFormatter())
 
     # setup file logger and add to logger
-    if os.path.exists(f'{_project_root_directory_str}\\log.log'):
-        os.remove(f'{_project_root_directory_str}\\log.log')
-    file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\log.log')
-    file_logging_handler.setFormatter(
-        logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
-    file_logging_handler.setLevel(logging.DEBUG)
+    try:
+        if os.path.exists(f'{_project_root_directory_str}\\log.log'):
+            os.remove(f'{_project_root_directory_str}\\log.log')
+        file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\log.log')
+        file_logging_handler.setFormatter(
+            logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
+        file_logging_handler.setLevel(logging.DEBUG)
 
-    # setup extended file logger and add to logger
-    extended_file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\extended_log.log')
-    extended_file_logging_handler.setFormatter(
-        logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
-    extended_file_logging_handler.setLevel(logging.DEBUG)
+        # setup extended file logger and add to logger
+        extended_file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\extended_log.log')
+        extended_file_logging_handler.setFormatter(
+            logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
+        extended_file_logging_handler.setLevel(logging.DEBUG)
 
-    logger.addHandler(ch)
-    logger.addHandler(file_logging_handler)
-    logger.addHandler(extended_file_logging_handler)
+        logger.addHandler(file_logging_handler)
+        logger.addHandler(extended_file_logging_handler)
+    except PermissionError:
+        pass
+    finally:
+        logger.addHandler(ch)
 
     hash_json_file: str = "hashed_disassemblies.json"
     hash_block_size: int = 1000000  # The size of each read from the file_to_hash (1 megabyte)

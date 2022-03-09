@@ -20,7 +20,10 @@ class DisassemblyParserGenerator:
     Class to generate ASM src from a disassembly file.
     """
 
-    def __init__(self, *, disassembly_file: str = "generated_disassembly.txt", disassembly_directory: str = rf"generated_disassembly", assembly_file: str = "generated_source.asm", assembly_directory: str = rf"generated_assembly") -> None:
+    def __init__(self, *, disassembly_file: str = "generated_disassembly.txt",
+                 disassembly_directory: str = rf"generated_disassembly",
+                 assembly_file: str = "generated_source.asm",
+                 assembly_directory: str = rf"generated_assembly") -> None:
         self.generated_assembly_directory: str = assembly_directory
         self.generated_disassembly_directory: str = disassembly_directory
         self.generated_disassembly_file: str = disassembly_file

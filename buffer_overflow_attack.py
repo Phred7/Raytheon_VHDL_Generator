@@ -46,10 +46,9 @@ class BufferOverflowAttack(InstrumentationStrategy):
 
         # try to read from the file; return if the file isn't there
         try:
-            f = open(file, 'r')
-            c_text = f.read()
-            f.close()
-        except:
+            with open(project.source_file, 'r') as f:
+                c_text = f.read()
+        except FileExistsError:
             return False
 
         c_lines = c_text.split('\n')
@@ -100,7 +99,6 @@ class BufferOverflowAttack(InstrumentationStrategy):
         for line in c_lines:
             new_c_file = f"{new_c_file}\n{line}"
 
-        f = open(file, 'w')
-        f.write(new_c_file)
-        f.close()
+        with open(project.source_file, 'w') as f:
+            f.write(new_c_file)
         return True
