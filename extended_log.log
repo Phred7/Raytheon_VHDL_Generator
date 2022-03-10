@@ -3516,3 +3516,251 @@ Running Raytheon VHDL Generator
 2022-03-09 15:03:46,131 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
 2022-03-09 15:03:58,554 DEBUG instrumentation instrument Phantom workspace hidden
 2022-03-09 15:03:58,555 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-09 15:16:44,229 INFO test_instrumentation main Testing test_basic_overwrite
+2022-03-09 15:16:44,230 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BasicOverwriteAttack initialized
+2022-03-09 15:16:44,230 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-09 15:16:57,135 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-09 15:16:57,137 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-09 15:16:57,138 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-09 15:17:07,297 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-09 15:17:07,507 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-09 15:17:20,321 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-09 15:17:20,322 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-09 15:17:20,323 INFO test_instrumentation main Testing test_buffer_overflow
+2022-03-09 15:17:20,323 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-09 15:17:20,324 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-09 15:17:32,939 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-09 15:17:32,941 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-09 15:17:32,943 DEBUG instrumentation instrument Instrumentation on main.c failed
+2022-03-09 15:17:46,364 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-09 15:17:46,364 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-09 15:17:46,367 INFO test_instrumentation main Testing test_int_overflow
+2022-03-09 15:17:46,368 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-03-09 15:17:46,368 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-09 15:18:00,859 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-09 15:18:00,861 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-09 15:18:00,861 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-09 15:18:11,803 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-09 15:18:12,048 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-09 15:18:27,814 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-09 15:18:27,814 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-09 15:18:27,816 INFO test_instrumentation main Testing test_string_format_attack
+2022-03-09 15:18:27,816 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-03-09 15:18:27,817 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-09 15:18:40,581 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-09 15:18:40,583 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-09 15:18:53,416 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-09 15:29:11,977 INFO test_instrumentation main Testing test_basic_overwrite
+2022-03-09 15:29:11,978 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BasicOverwriteAttack initialized
+2022-03-09 15:29:11,978 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-09 15:29:24,731 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-09 15:29:24,733 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-09 15:29:24,734 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-09 15:29:33,450 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-09 15:29:33,668 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-09 15:29:46,252 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-09 15:29:46,252 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-09 15:29:46,254 INFO test_instrumentation main Testing test_buffer_overflow
+2022-03-09 15:29:46,254 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-09 15:29:46,255 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-09 15:29:59,210 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-09 15:29:59,212 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-09 15:32:19,413 INFO test_instrumentation main Testing test_buffer_overflow
+2022-03-09 15:32:19,413 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-09 15:32:19,413 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-09 15:32:31,449 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-09 15:32:31,451 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-09 15:33:42,974 INFO test_instrumentation main Testing test_buffer_overflow
+2022-03-09 15:33:42,975 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-09 15:33:42,975 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-09 15:33:56,069 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-09 15:33:56,071 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-09 15:35:01,844 INFO test_instrumentation main Testing test_buffer_overflow
+2022-03-09 15:35:01,845 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-09 15:35:01,847 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-09 15:35:16,469 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-09 15:35:16,471 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-09 15:37:32,660 DEBUG instrumentation instrument Instrumentation on main.c failed
+2022-03-09 15:37:45,408 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-09 15:37:45,408 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-09 15:37:45,410 INFO test_instrumentation main Testing test_int_overflow
+2022-03-09 15:37:45,411 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-03-09 15:37:45,411 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-09 15:37:57,933 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-09 15:37:57,935 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-09 15:37:57,935 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-09 15:38:11,621 INFO test_instrumentation main Testing test_buffer_overflow
+2022-03-09 15:38:11,622 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-09 15:38:11,623 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-09 15:38:25,340 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-09 15:38:25,342 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-09 17:21:56,808 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:36:13,830 INFO test_instrumentation main Testing test_buffer_overflow
+2022-03-10 15:36:13,830 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-10 15:36:13,831 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:36:27,106 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:36:27,113 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:36:27,116 INFO buffer_overflow_attack instrument No primitive variable comparisons found to overwrite.
+2022-03-10 15:36:56,715 DEBUG instrumentation instrument Instrumentation on main.c failed
+2022-03-10 15:37:09,344 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:37:09,345 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:37:09,347 INFO test_instrumentation main Testing test_int_overflow
+2022-03-10 15:37:09,347 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-03-10 15:37:09,348 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:37:21,209 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:37:21,212 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:37:21,212 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 15:37:58,776 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 15:37:58,999 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 15:38:11,051 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:38:11,051 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:38:11,052 INFO test_instrumentation main Testing test_string_format_attack
+2022-03-10 15:38:11,053 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-03-10 15:38:11,053 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:38:22,498 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:38:22,500 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:38:22,510 INFO string_format_attack instrument No print functions found in file.
+2022-03-10 15:38:22,510 DEBUG instrumentation instrument Instrumentation on main.c failed
+2022-03-10 15:38:33,813 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:38:33,813 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:39:03,373 INFO test_instrumentation main Testing test_basic_overwrite
+2022-03-10 15:39:03,374 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BasicOverwriteAttack initialized
+2022-03-10 15:39:03,374 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:39:14,633 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:39:14,636 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:39:14,637 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 15:39:22,730 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 15:39:22,908 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 15:39:34,108 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:39:34,109 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:39:34,110 INFO test_instrumentation main Testing test_buffer_overflow
+2022-03-10 15:39:34,110 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-10 15:39:34,111 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:39:45,339 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:39:45,342 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:39:45,343 INFO buffer_overflow_attack instrument No primitive variable comparisons found to overwrite.
+2022-03-10 15:39:45,343 DEBUG instrumentation instrument Instrumentation on main.c failed
+2022-03-10 15:39:56,686 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:39:56,688 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:39:56,688 INFO test_instrumentation main Testing test_int_overflow
+2022-03-10 15:39:56,688 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-03-10 15:39:56,688 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:40:08,287 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:40:08,290 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:40:08,290 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 15:40:16,258 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 15:40:16,433 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 15:40:27,612 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:40:27,612 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:40:27,612 INFO test_instrumentation main Testing test_string_format_attack
+2022-03-10 15:40:27,614 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-03-10 15:40:27,614 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:40:38,995 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:40:38,998 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:40:39,002 INFO string_format_attack instrument No print functions found in file.
+2022-03-10 15:40:39,002 DEBUG instrumentation instrument Instrumentation on main.c failed
+2022-03-10 15:40:50,160 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:40:50,160 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:43:29,735 INFO test_instrumentation main Testing test_buffer_overflow
+2022-03-10 15:43:29,735 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-10 15:43:29,736 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:43:41,199 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:43:41,202 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:46:12,444 INFO test_instrumentation main Testing test_buffer_overflow
+2022-03-10 15:46:12,445 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-10 15:46:12,445 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:46:23,685 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:46:23,688 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:48:26,184 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 15:48:34,515 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 15:48:34,701 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 15:48:46,045 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:48:46,045 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:50:57,583 INFO test_instrumentation main Testing test_string_format_attack
+2022-03-10 15:50:57,583 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-03-10 15:50:57,584 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:51:08,990 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:51:08,993 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:51:23,207 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 15:51:31,817 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 15:51:31,995 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 15:51:43,600 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:51:43,601 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:51:52,938 INFO test_instrumentation main Testing test_basic_overwrite
+2022-03-10 15:51:52,939 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BasicOverwriteAttack initialized
+2022-03-10 15:51:52,939 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:52:03,944 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:52:03,947 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:52:03,948 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 15:52:11,862 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 15:52:12,037 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 15:52:23,374 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:52:23,374 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:52:23,375 INFO test_instrumentation main Testing test_buffer_overflow
+2022-03-10 15:52:23,376 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-10 15:52:23,376 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:52:35,109 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:52:35,112 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:52:35,113 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 15:52:43,221 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 15:52:43,399 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 15:52:54,814 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:52:54,814 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:52:54,815 INFO test_instrumentation main Testing test_int_overflow
+2022-03-10 15:52:54,816 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-03-10 15:52:54,816 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:53:06,734 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:53:06,737 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:53:06,737 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 15:53:14,804 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 15:53:14,987 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 15:53:27,189 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:53:27,190 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:53:27,191 INFO test_instrumentation main Testing test_string_format_attack
+2022-03-10 15:53:27,191 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-03-10 15:53:27,191 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:53:39,003 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:53:39,006 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:53:39,016 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 15:53:47,207 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 15:53:47,380 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 15:58:58,029 INFO test_instrumentation main Testing test_basic_overwrite
+2022-03-10 15:58:58,029 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BasicOverwriteAttack initialized
+2022-03-10 15:58:58,030 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:59:09,950 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:59:09,953 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:59:09,954 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 15:59:17,827 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 15:59:18,010 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 15:59:29,279 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 15:59:29,280 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 15:59:29,281 INFO test_instrumentation main Testing test_buffer_overflow
+2022-03-10 15:59:29,281 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-10 15:59:29,281 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 15:59:40,731 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 15:59:40,733 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 15:59:40,735 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 15:59:48,751 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 15:59:48,924 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 16:00:00,454 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 16:00:00,455 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 16:00:00,456 INFO test_instrumentation main Testing test_int_overflow
+2022-03-10 16:00:00,456 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-03-10 16:00:00,456 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 16:00:11,942 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 16:00:11,944 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 16:00:11,944 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 16:00:19,836 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 16:00:20,016 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 16:00:31,624 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 16:00:31,624 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-10 16:00:31,625 INFO test_instrumentation main Testing test_string_format_attack
+2022-03-10 16:00:31,626 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-03-10 16:00:31,626 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-10 16:00:43,095 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-10 16:00:43,097 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-10 16:00:43,108 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-10 16:00:51,128 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-10 16:00:51,302 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-10 16:01:02,750 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-10 16:01:02,750 DEBUG instrumentation instrument **** Instrumentation Build Finished ****

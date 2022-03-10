@@ -56,7 +56,6 @@ class Instrumentation:
         Method that calls the algorithm or process defined by the concrete strategy.
         :return: None.
         """
-        print("instrumentation")
         if self.ccs_fields_empty():    # TODO: this method should be removed after creating a CCS project class.
             return
         # TODO: should instrumentation copy phantom project to ccs project... then somehow point everything to a 'temp_file' with the instrumented version of the code in the same directory... the code could be built referencing that temp file rather than the phantom project.

@@ -41,6 +41,9 @@ class CCSProject:
         :return: None.
         """
 
+    def __str__(self):
+        return f"{self.path}\\{self.source_file}"
+
         # The following including comments borrowed from https://nitratine.net/blog/post/how-to-hash-files-in-python/ until '###########' reached
         assert StaticUtilities.file_should_exist(self.path, self.source_file, raise_error=False)
 
