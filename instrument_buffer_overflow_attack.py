@@ -11,6 +11,7 @@ from typing import List, Tuple
 
 from ccs_project import CCSProject
 from instrumentation_strategy import InstrumentationStrategy
+from static_utilities import StaticUtilities
 
 
 class BufferOverflowAttack(InstrumentationStrategy):
@@ -25,7 +26,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
         c_types = ["int", "char", "float", "short", "long", "unsigned"]
         for c_type in c_types:
             line = line.replace(c_type, "")
-        line = line.replace(" ", "").replace(";", "")
+        line = line.replace(" ", "").replace(";", "").replace("\t", "")
         return line
 
     def instrument(self, project: CCSProject) -> bool:
@@ -45,13 +46,12 @@ class BufferOverflowAttack(InstrumentationStrategy):
 
         # try to read from the file; return if the file isn't there
         try:
-            f = open(project.source_file, 'r')
-            c_text = f.read()
-            f.close()
-        except:
+            with open(f"{project.path}\\{project.source_file}", 'r') as f:
+                c_lines = f.readlines()
+        except FileExistsError:
+            StaticUtilities.logger.info("File not found.")
             return False
 
-        c_lines = c_text.split('\n')
         for compare_line_index, line in enumerate(c_lines):
             c_lines[compare_line_index] = line.split(r"//")[0]
 
@@ -67,12 +67,11 @@ class BufferOverflowAttack(InstrumentationStrategy):
 
         # If no variable definitions were found, return that buffer overflow did not work
         if not defined_primitives:
+            StaticUtilities.logger.info("No primitive declarations found to overflow.")
             return False
 
         inserted_buffer: bool = False
         for compare_line_index, line in enumerate(c_lines):
-            if "int main" in line and "{" in line:
-                c_lines[compare_line_index] = line + '\nprintf("This file has been instrumented.' + r'\n");'
             # don't include #include <something.h>
             if line[0] == "#":
                 continue
@@ -92,6 +91,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
 
         # if no primitives are being compared
         if not inserted_buffer:
+            StaticUtilities.logger.info("No primitive variable comparisons found to overwrite.")
             return False
 
         c_lines = insecure_function + c_lines
@@ -99,7 +99,6 @@ class BufferOverflowAttack(InstrumentationStrategy):
         for line in c_lines:
             new_c_file = f"{new_c_file}\n{line}"
 
-        f = open(project.source_file, 'w')
-        f.write(new_c_file)
-        f.close()
+        with open(project.source_file, 'w') as f:
+            f.write(new_c_file)
         return True

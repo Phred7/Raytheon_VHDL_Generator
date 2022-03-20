@@ -5,10 +5,11 @@
 # Dr. Brock LaMeres
 # Written by Walker Ward and Michael Heidal
 ###############################
+from ccs_project import CCSProject
 from instrumentation_strategy import InstrumentationStrategy
 
 
 class IntOverflowAttack(InstrumentationStrategy):
 
-    def instrument(self, file: str) -> bool:
+    def instrument(self, project: CCSProject) -> bool:
         return True

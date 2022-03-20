@@ -7,6 +7,7 @@
 ###############################
 import hashlib
 from enum import IntEnum
+from typing import Dict
 
 from static_utilities import StaticUtilities
 
@@ -16,6 +17,12 @@ class ProjectType(IntEnum):
     ASM = 1
 
 
+file_extension: Dict[ProjectType, str] = {
+    ProjectType.C: ".c",
+    ProjectType.ASM: ".asm"
+}
+
+
 class CCSProject:
     def __init__(self,
                  project_type: ProjectType,
@@ -23,17 +30,21 @@ class CCSProject:
                  source_file: str,
                  *,
                  project_name: str = None,
-                 disassembly_path: str = None,
-                 binary_path: str = None
+                 disassembly_file_path: str = None,
+                 binary_file_path: str = None
                  ):
+        self.project_type: ProjectType = project_type   # C or ASM (enumerated)
+        self.path = path                                # Path to root of project, e.g. C:\Users\Mike\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\int_overflow_target_C
+        self.project_name = project_name                # Name of the project (useful for output)
+        self.source_file = source_file                  # The file which is to be instrumented or inspected
+        self.disassembly_file_path = disassembly_file_path   # ???
+        self.binary_file_path = binary_file_path             # ???
         self.project_type: ProjectType = project_type
-        self.path = path
-        self.project_name = project_name
-        self.source_file = source_file
-        self.disassembly_path = disassembly_path
-        self.binary_path = binary_path
         self.__project_hash = None
         self.__project_hash_key = None
+
+    def __str__(self):
+        return f"{self.path}\\{self.source_file}"
 
     def hash_key(self):
         """
@@ -65,3 +76,6 @@ class CCSProject:
         ###########
             self.__project_hash = sha256_file_hash_object.hexdigest()
         return self.__project_hash
+
+    def set_disassembly_file_path(self, path: str):
+        self.disassembly_file_path = path
