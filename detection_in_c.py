@@ -63,9 +63,10 @@ class DetectionInC(DetectionStrategy):
         Attempts to detect an f-string vulnerability in this ccs_project.
         :return: True if an f-string vulnerability was detected in this file. Otherwise, False.
         """
-        print_families = [[r'\bprintf\b', r'\bvprintf\b'],
-                          [r'\bfprint\b', r'\bfprintf\b', r'\bsprintf\b', r'\bvfprintf\b'],
-                          [r'\bsnprintf\b', r'\bvsnprintf\b']]
+        #  printf("") vprintf() fprint() fprintf() sprintf() vfprintf() snprintf() vsnprintf("",())
+        insecure_patterns = [r"(|\b|vsn|sn|vf|s|f|v)printf?\(", "(%08x\.){30,}"]
+        insecure_patterns_flags = [None, [re.S, re.X]]
+        format_string = '"' + '%08x.' * 1024 + '"'
         return False
 
     def detect_injection_attack(self) -> bool:
