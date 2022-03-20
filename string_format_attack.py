@@ -36,7 +36,7 @@ class StringFormatAttack(InstrumentationStrategy):
         try:
             with open(project.source_file, 'r') as f:
                 text = [line.replace('\n', '').strip() for line in f.readlines()]
-        except:
+        except FileNotFoundError:
             StaticUtilities.logger.info("File not found.")
             return False
 

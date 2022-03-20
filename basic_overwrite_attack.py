@@ -20,9 +20,7 @@ class BasicOverwriteAttack(InstrumentationStrategy):
         """"
         Open the file
         Write malicious code to file
-
-
-        :param file: the file to instrument.
+        :param project: The project to instrument.
         :return: True if the process is successful, False if it fails at any step
         """
 
