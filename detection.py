@@ -73,7 +73,7 @@ class Detection:
             self._detection_strategy.detect_buffer_overflow_attack()
             self._detection_strategy.detect_int_overflow_attack()
             self._detection_strategy.detect_injection_attack()
-            self._detection_strategy.detect_f_string_vulnerability()
+            self._detection_strategy.detect_string_format_attack()
             return False
 
     def serialize_hash_from_file(self):

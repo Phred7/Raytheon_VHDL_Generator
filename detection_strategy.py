@@ -38,7 +38,7 @@ class DetectionStrategy(ABC):
         pass
 
     @abstractmethod
-    def detect_f_string_vulnerability(self) -> bool:
+    def detect_string_format_attack(self) -> bool:
         """
         Method to be declared by concrete detection strategies.
         :return: True if a string vulnerability was detected in this file. Otherwise, False.

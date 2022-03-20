@@ -26,7 +26,7 @@ class DetectionInASM(DetectionStrategy):
         """
         return False
 
-    def detect_f_string_vulnerability(self) -> bool:
+    def detect_string_format_attack(self) -> bool:
         """
         Attempts to detect an f-string vulnerability in this ccs_project.
         :return: True if an f-string vulnerability was detected in this file. Otherwise, False.
