@@ -16,12 +16,11 @@ from static_utilities import StaticUtilities
 class StringFormatAttack(InstrumentationStrategy):
 
     def instrument(self, project: CCSProject) -> bool:
-        """"
+        """
         Open the file
         Find an instance of printf (or printf family)
         Replace the appropriate argument with "%08x"
         Write the new text to the file
-
         :param project: the file to instrument.
         :return: True if the process is successful, False if it fails at any step
         """

@@ -122,6 +122,6 @@ if __name__ == '__main__':
                                      path=StaticUtilities.project_root_directory() + r"\ccs_workspace\c_blank",
                                      source_file="c_blank.c")
     detection: Detection = Detection(project, pique_bin_bool=False)
-    StaticUtilities.logger.debug(project.__hash__())
+    StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
     detection.pique_bin_security_quality = 0.9
     StaticUtilities.logger.debug(f"detection: {detection.detect()}")

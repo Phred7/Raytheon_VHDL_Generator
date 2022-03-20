@@ -1,9 +1,5 @@
-2022-03-09 14:16:54,653 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-03-09 14:16:54,654 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-03-09 14:16:56,160 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-03-09 14:16:56,161 DEBUG instrumentation update_phantom_source Phantom source updated with source from c_blank
-2022-03-09 14:16:56,161 DEBUG instrumentation instrument Instrumentation on c_blank.c succeeded
-2022-03-09 14:17:00,278 DEBUG instrumentation build_phantom_project Phantom C project done building
-2022-03-09 14:17:00,312 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to c_blank
-2022-03-09 14:17:01,482 DEBUG instrumentation instrument Phantom workspace hidden
-2022-03-09 14:17:01,482 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-20 14:09:57,122 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-03-20 14:09:57,122 DEBUG detection __init__ Detection object initialized
+2022-03-20 14:09:57,122 DEBUG detection <module> Project Hash: 143e870d44232f5ceac488ee1f305abee12fdccb86264d703b445d65d5efbc51
+2022-03-20 14:09:57,122 DEBUG detection hashed_file_exists_and_matches_cache Cached file already exists
+2022-03-20 14:09:57,122 DEBUG detection <module> detection: True

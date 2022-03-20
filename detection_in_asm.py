@@ -5,12 +5,21 @@
 # Dr. Brock LaMeres
 # Written by Walker Ward and Michael Heidal
 ###############################
+from typing import List, Any, Dict, Match
 
 from detection_strategy import DetectionStrategy
 
 
 class DetectionInASM(DetectionStrategy):
-    pass
+
+    def detect_regex_patterns_in_source(self, patterns: List[str], pattern_flags: List[Any]) -> Dict[(int, str), Match[str]]:
+        """
+        Locate all matches of regex patterns from this CCSProject source file.
+        :param patterns: Patterns to search for in this CCSProjects source file.
+        :param pattern_flags: Flags corresponding to each pattern in patterns.
+        :return: Dict containing a Match as the value and Tuple keys of the line number and the pattern the Match was found with.
+        """
+        raise NotImplementedError
 
     def detect_buffer_overflow_attack(self) -> bool:
         """
