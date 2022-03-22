@@ -1,10 +1,10 @@
-###############################
+"""
 # Instrumentation Strategy
 # For Raytheon Research Project and Interdisciplinary Capstone Project
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
-# Written by Walker Ward and Michael Heidal
-###############################
+# Written by Walker Ward
+"""
 from abc import ABC, abstractmethod
 
 from ccs_project import CCSProject

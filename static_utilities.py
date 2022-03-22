@@ -1,10 +1,10 @@
-###############################
+"""
 # Static Utilities
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Walker Ward and Michael Heidal
-###############################
+"""
 import json
 import logging
 import multiprocessing
@@ -384,7 +384,14 @@ class StaticUtilities:
         return True
 
     @staticmethod
-    def un_hide_directory_recursively(directory: str, *, log: bool = True, leave_root_hidden: bool = False) -> bool:
+    def un_hide_directory_recursively(directory: str, *, log: bool = True, leave_root_hidden: bool = False) -> None:
+        """
+        Removes the h (hidden) attribute from all files in a directory recursively.
+        :param directory: Directory to un hide all files from recursively.
+        :param log: Bool representing whether to generate logs in this function. Defaults to True.
+        :param leave_root_hidden: Bool representing whether to un hide the top directory. Defaults to False.
+        :return: None.
+        """
         if not leave_root_hidden:
             os.system(f"attrib -h {directory[:-1]}")
         files: List[str] = []
@@ -398,22 +405,38 @@ class StaticUtilities:
             os.system(f"attrib -h \"{file}\"")
             if log:
                 StaticUtilities.logger.debug(f"{file} hidden")
-        return False
 
     @staticmethod
     def project_root_directory() -> str:
+        """
+        Get this project's top level directory.
+        :return: Str representing the path to this project's top-level directory.
+        """
         return StaticUtilities._project_root_directory_str
 
     @staticmethod
-    def write_object_to_json(hash_json_file_directory: str, hash_json_file: str, object_to_dump_to_json: object) -> None:
-        with open(f"{hash_json_file_directory}\\{hash_json_file}", 'w') as json_file:
+    def write_object_to_json(json_file_directory: str, json_file: str, object_to_dump_to_json: object) -> None:
+        """
+        Writes an object to a json file.
+        :param json_file_directory: Path to the json file to write to.
+        :param json_file: Name of the json file to write to.
+        :param object_to_dump_to_json: Object that's converted to json and written to the json file.
+        :return: None.
+        """
+        with open(f"{json_file_directory}\\{json_file}", 'w') as json_file:
             json.dump(object_to_dump_to_json, json_file, indent=4)
 
     @staticmethod
-    def serialize_object_from_json(hash_json_file_directory: str, hash_json_file: str) -> object:
-        if not StaticUtilities.file_exists(hash_json_file_directory, hash_json_file):
+    def serialize_object_from_json(json_file_directory: str, json_file: str) -> object:
+        """
+        Serializes a python object from a json file.
+        :param json_file_directory: Path to the json file to serialize from.
+        :param json_file: Name of the json file to serialize from.
+        :return: Serialized object from the json_file.
+        """
+        if not StaticUtilities.file_exists(json_file_directory, json_file):
             return None
-        with open(f"{hash_json_file_directory}\\{hash_json_file}", 'r') as json_file:
+        with open(f"{json_file_directory}\\{json_file}", 'r') as json_file:
             return json.load(json_file)
 
 

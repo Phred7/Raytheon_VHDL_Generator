@@ -1,16 +1,19 @@
-###############################
-# Instrumentation
+"""
+# Detection In ASM Detection Strategy
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Walker Ward and Michael Heidal
-###############################
+"""
 from typing import List, Any, Dict, Match
 
 from detection_strategy import DetectionStrategy
 
 
 class DetectionInASM(DetectionStrategy):
+    """
+    Strategy for detecting vulnerabilities in ASM source files.
+    """
 
     def detect_regex_patterns_in_source(self, patterns: List[str], pattern_flags: List[Any]) -> Dict[(int, str), Match[str]]:
         """

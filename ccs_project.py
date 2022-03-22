@@ -1,10 +1,10 @@
-###############################
-# Instrumentation
+"""
+# CCSProject
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Walker Ward and Michael Heidal
-###############################
+"""
 import hashlib
 from enum import IntEnum
 from typing import Dict

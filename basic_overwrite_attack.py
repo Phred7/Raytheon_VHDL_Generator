@@ -1,10 +1,10 @@
-###############################
-# Buffer Overflow Attack
+"""
+# Buffer Overwrite Attack
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Michael Heidal
-###############################
+"""
 import random
 import string
 from typing import List, Tuple

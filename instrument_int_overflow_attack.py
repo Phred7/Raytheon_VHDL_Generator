@@ -1,10 +1,10 @@
-###############################
-# Int Overflow Attack
+"""
+# Int Overflow Attack Instrumentation Strategy
 # For Raytheon Research Project and Interdisciplinary Capstone Project
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Walker Ward and Michael Heidal
-###############################
+"""
 from ccs_project import CCSProject
 from instrumentation_strategy import InstrumentationStrategy
 

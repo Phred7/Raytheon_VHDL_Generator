@@ -1,10 +1,10 @@
-###############################
+"""
 # Detection
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Michael Heidal and Walker Ward
-###############################
+"""
 from typing import Dict
 import json
 
@@ -69,14 +69,18 @@ class Detection:
             return True
         else:
             # TODO: this could implement multiprocessing if they take too long individually
-            # TODO: These methods should probably build up some kind of string buffer and return that so that logging can be better controlled and only happens once for each method or once overall.
+            # TODO: These methods should probably build up some kind of string buffer or instance field and return that so that logging can be better controlled and only happens once for each method or once overall.
             self._detection_strategy.detect_buffer_overflow_attack()
             self._detection_strategy.detect_int_overflow_attack()
             self._detection_strategy.detect_injection_attack()
             self._detection_strategy.detect_string_format_attack()
             return False
 
-    def serialize_hash_from_file(self):
+    def serialize_hash_from_file(self) -> Dict[str: str]:
+        """
+        Serializes this hash_files_dict from a json file.
+        :return: A Dict representing current hash of files.
+        """
         serialized_object = None
         try:
             serialized_object = StaticUtilities.serialize_object_from_json(StaticUtilities.project_root_directory(), self.hash_json_file)
@@ -87,6 +91,10 @@ class Detection:
         return {}
 
     def write_hash_to_file(self) -> None:
+        """
+        Writes this hash files dict to a serializable json file.
+        :return: None.
+        """
         return StaticUtilities.write_object_to_json(StaticUtilities.project_root_directory(), self.hash_json_file, self.hashed_files_dict)
 
     def hashed_file_exists_and_matches_cache(self) -> bool:

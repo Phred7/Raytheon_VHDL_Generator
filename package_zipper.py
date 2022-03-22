@@ -1,10 +1,10 @@
-###############################
+"""
 # Package Zipper
 # For Raytheon Research Project and Interdisciplinary Capstone Project
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
-# Written by Walker Ward and Michael Heidal
-###############################
+# Written by Walker Ward
+"""
 import os
 from zipfile import ZipFile
 from static_utilities import StaticUtilities

@@ -1,10 +1,10 @@
-###############################
+"""
 # CCS Disassembler
 # For Raytheon Research Project and Interdisciplinary Capstone Project
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Walker Ward and Michael Heidal
-###############################
+"""
 import os
 import subprocess
 

@@ -1,10 +1,10 @@
-###############################
-# VHDL Memory Parser
+"""
+# VHDL Parser Generator
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Blake Stanger, Walker Ward and Michael Heidal
-###############################
+"""
 import sys
 import os
 from typing import TextIO, List

@@ -1,10 +1,10 @@
 import logging
 
 from basic_overwrite_attack import BasicOverwriteAttack
-from buffer_overflow_attack import BufferOverflowAttack
+from instrument_buffer_overflow_attack import BufferOverflowAttack
 from ccs_project import CCSProject, ProjectType
 from instrumentation import Instrumentation
-from int_overflow_attack import IntOverflowAttack
+from instrument_int_overflow_attack import IntOverflowAttack
 from static_utilities import StaticUtilities
 from string_format_attack import StringFormatAttack
 

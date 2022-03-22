@@ -1,10 +1,10 @@
-###############################
-# Instrumentation
+"""
+# Detection In C Detection Strategy
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Walker Ward
-###############################
+"""
 import re
 from copy import deepcopy
 from typing import Dict, List, Any, Match
@@ -13,6 +13,9 @@ from detection_strategy import DetectionStrategy
 
 
 class DetectionInC(DetectionStrategy):
+    """
+    Strategy for detecting vulnerabilities in C source files.
+    """
 
     def detect_regex_patterns_in_source(self, patterns: List[str], pattern_flags: List[Any]) -> Dict[(int, str), Match[str]]:
         """

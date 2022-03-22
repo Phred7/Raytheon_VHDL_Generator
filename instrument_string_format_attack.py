@@ -1,10 +1,10 @@
-###############################
-# Buffer Overflow Attack
+"""
+# String Format Attack Instrumentation Strategy
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Michael Heidal
-###############################
+"""
 
 import re
 

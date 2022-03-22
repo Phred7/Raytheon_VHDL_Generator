@@ -1,10 +1,10 @@
-###############################
+"""
 # Instrumentation
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Walker Ward and Michael Heidal
-###############################
+"""
 import codecs
 import os
 import shutil
