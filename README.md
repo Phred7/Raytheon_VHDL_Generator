@@ -107,7 +107,8 @@ Steps
 ## Helpful Links
 ## Credits
 - For Raytheon
-- Montana State University Software Engineering Lab ([MSU SEL](https://github.com/MSUSEL)).
+- Montana State University Software Engineering Lab [MSU SEL Website](https://www.msubobcatcyber.com/) ([MSU SEL Github](https://github.com/MSUSEL)).
 - [Dr. Clem Izurieta](https://www.cs.montana.edu/directory/1524206/clemente-izurieta).
 - [Dr. Brock LaMeres](https://www.montana.edu/blameres/).
-- Written by [Blake Stanger](https://github.com/blakestanger) and [Walker Ward](https://github.com/Phred7).
+- Originally written by [Blake Stanger](https://github.com/blakestanger)
+- Written by [Walker Ward](https://github.com/Phred7) and [Michael Heidal](https://github.com/linknmike).
