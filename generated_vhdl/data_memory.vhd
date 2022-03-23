@@ -14,35 +14,7 @@ end entity;
 architecture data_memory_arch of data_memory is
 
     type rw_type is array (8192 to 12287) of std_logic_vector(7 downto 0);  -- this is MAB: x2000 to x2FFF
-    signal RW : rw_type:=(8192 => x"ed",
-						   8193 => x"ac",
-						   8194 => x"ef",
-						   8195 => x"be",
-						   8224 => x"aa",
-						   8225 => x"aa",
-						   8226 => x"a1",
-						   8227 => x"aa",
-						   8228 => x"ab",
-						   8229 => x"ab",
-						   8230 => x"cb",
-						   8231 => x"cb",
-						   8232 => x"21",
-						   8233 => x"43",
-						   8234 => x"cc",
-						   8235 => x"cc",
-						   8236 => x"ab",
-						   8237 => x"ab",
-						   8238 => x"cb",
-						   8239 => x"cb",
-						   8240 => x"34",
-						   8241 => x"12",
-						   8242 => x"cc",
-						   8243 => x"cc",
-						   8244 => x"ab",
-						   8245 => x"ab",
-						   8246 => x"cb",
-						   8247 => x"cb",
-						   others=>x"00");  -- assigned an initial value to the data memory
+    signal RW : rw_type:=(others=>x"00");  -- assigned an initial value to the data memory
 
     -- COLTER CHANGED TO ALLOW QUARTUS TO IMPLEMENT OUTSIDE ALMs
     -- COMMENT OUT IF COMPILING IN VIVADO

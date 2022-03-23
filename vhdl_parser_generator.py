@@ -9,6 +9,7 @@ import sys
 import os
 from typing import TextIO, List
 
+from ccs_project import CCSProject
 from detection import Detection
 from package_zipper import PackageZipper
 from computer_mnemonic_dictionary import ComputerMnemonicDictionary
@@ -26,7 +27,9 @@ class VHDLParserGenerator:
     Generates VHDL representation of an MSP430 binary.
     """
 
-    def __init__(self, *, binary_file_name: str = "All_msp_operations", asm_file: bool = True) -> None:
+    def __init__(self, ccs_project: CCSProject, *, binary_file_name: str = "All_msp_operations", asm_file: bool = True) -> None:
+        # TODO: resolve constructor using deprecated inputs.
+        self.ccs_project: CCSProject = ccs_project
         self.program_memory_start: int = 32768
         self.binary_file_name: str = binary_file_name
         self.disassembler_output_file_name: str = "generated_disassembly.txt"
@@ -463,8 +466,8 @@ end architecture;"""
         if detection:
             # Ex: Detection(path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", source_file="test_generated_ASM.asm")
             _detection: Detection = Detection(path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\{self.binary_file_name}", source_file=f"{self.binary_file_name}.{'asm' if self.asm_file else 'c'}", pique_bin_bool=False, suppress_pique_bin_logs=False)
-            _detection.detect()  # TODO implement detection.detect() and call when detection is True
-        disassembler: Disassembler = Disassembler(disassembler_input_file_name=f"{self.binary_file_name}.out")
+            _detection.detect()
+        disassembler: Disassembler = Disassembler(ccs_project=self.ccs_project)
         disassembler.disassemble()
         self.generate_vhdl_packages()
         self.generate_vhdl_data_memory()

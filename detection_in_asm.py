@@ -15,7 +15,7 @@ class DetectionInASM(DetectionStrategy):
     Strategy for detecting vulnerabilities in ASM source files.
     """
 
-    def detect_regex_patterns_in_source(self, patterns: List[str], pattern_flags: List[Any]) -> Dict[(int, str), Match[str]]:
+    def detect_regex_patterns_in_source(self, patterns: List[str], pattern_flags: List[Any]) -> {(int, str), Match[str]}:
         """
         Locate all matches of regex patterns from this CCSProject source file.
         :param patterns: Patterns to search for in this CCSProjects source file.

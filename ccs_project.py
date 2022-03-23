@@ -31,7 +31,7 @@ class CCSProject:
                  *,
                  project_name: str = None,
                  disassembly_file_path: str = None,
-                 binary_file_path: str = None
+                 binary_file_path: str = None   # TODO: this cant be None if it's not passed in because it's referenced in the construtor of Disassembler which will be used on every run. Auto gen it maybe?
                  ):
         self.project_type: ProjectType = project_type   # C or ASM (enumerated)
         self.path = path                                # Path to root of project, e.g. C:\Users\Mike\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\int_overflow_target_C

@@ -76,7 +76,7 @@ class Detection:
             self._detection_strategy.detect_string_format_attack()
             return False
 
-    def serialize_hash_from_file(self) -> Dict[str: str]:
+    def serialize_hash_from_file(self) -> {str, str}:
         """
         Serializes this hash_files_dict from a json file.
         :return: A Dict representing current hash of files.

@@ -40,21 +40,26 @@ class PackageZipper:
         """
         self.number_of_zipped_files = 0
         duplicate_file_modifier: int = 0
+
+        # Verifies that this zip file doesnt already exist. If so, gives it a new name until a unique one is chosen.
         while StaticUtilities.file_exists(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}', f'{zip_file_name}.zip'):
             if duplicate_file_modifier == 0:
                 zip_file_name = f"{zip_file_name}_[0]"
             else:
                 zip_file_name = zip_file_name.replace(f"_[{duplicate_file_modifier-1}]", f"_[{duplicate_file_modifier}]")
             duplicate_file_modifier += 1
-        print(StaticUtilities.project_root_directory())
+
+        # Zips VHDL package
         with ZipFile(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}\\{zip_file_name}.zip', 'w') as vhdl_zip_file:
             with StaticUtilities.change_dir(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}'):
-                for file in os.listdir(StaticUtilities.project_root_directory()):
+                for file in os.listdir("."):
                     if file.endswith(".vhd"):
                         self._zip_write(vhdl_zip_file, file)
-            with StaticUtilities.change_dir(f'{StaticUtilities.project_root_directory()}\\{self.disassembly_file_directory}'):
-                if StaticUtilities.file_exists(self.disassembly_file_directory, self.disassembly_file):
+            with StaticUtilities.change_dir(f'{StaticUtilities.project_root_directory()}{self.disassembly_file_directory}'):
+                if StaticUtilities.file_exists(".", self.disassembly_file):
                     self._zip_write(vhdl_zip_file, self.disassembly_file)
+
+        # Warns about name changes from duplicate zips.
         if duplicate_file_modifier != 0:
             StaticUtilities.logger.warning(f'Created zip {zip_file_name}.zip in {StaticUtilities.project_root_directory()}\\{self.vhdl_directory} containing {self.number_of_zipped_files} files')
         else:

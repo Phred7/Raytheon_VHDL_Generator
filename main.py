@@ -5,6 +5,7 @@
 # Dr. Brock LaMeres
 # Written by Michael Heidal and Walker Ward
 """
+from ccs_project import CCSProject, ProjectType
 from disassembler import Disassembler
 from instrumentation import Instrumentation
 from instrument_int_overflow_attack import IntOverflowAttack
@@ -52,8 +53,22 @@ class Main:
         """
         For debug of this project's workflow and functionality.
         """
+        pass
+
+    @staticmethod
+    def generate_vhdl_exclusively() -> None:
+        """
+        Generates VHDL for a source file. Bypasses the rest of the toolchain.
+        """
+        ccs_project_path_from_root: str = "\\ccs_workspace\\test_C"
+        ccs_project_binary_file_path: str = f"{StaticUtilities.project_root_directory()}{ccs_project_path_from_root}\\Debug\\test_C.out"
+        ccs_project: CCSProject = CCSProject(project_type=ProjectType.C, path=f"{StaticUtilities.project_root_directory()}{ccs_project_path_from_root}", source_file="test_C.c", binary_file_path=ccs_project_binary_file_path)
+        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project, binary_file_name="test_C", asm_file=False)
+        vhdl_parser_generator.generate_vhdl(detection=False)
+        package_zipper: PackageZipper = PackageZipper()
+        package_zipper.zip_vhdl(zip_file_name="interrupt_demo_03_23_2022")
 
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.main()
+    main.generate_vhdl_exclusively()
