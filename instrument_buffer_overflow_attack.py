@@ -1,10 +1,10 @@
-###############################
-# Buffer Overflow Attack
+"""
+# Buffer Overflow Attack Instrumentation Strategy
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Michael Heidal
-###############################
+"""
 import random
 import string
 from typing import List, Tuple
@@ -38,8 +38,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
         Paste insecure function calls before comparisons
         Paste insecure function to top
         Write to the file
-
-        :param file: the file to instrument.
+        :param project: ccs project to instrument.
         :return: True if the process is successful, False if it fails at any step
         """
         insecure_function = ["#include <string.h>", "void buff_value(char* target) {",

@@ -1,10 +1,10 @@
-###############################
+"""
 # Static Utilities
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Walker Ward and Michael Heidal
-###############################
+"""
 import json
 import logging
 import multiprocessing
@@ -19,7 +19,7 @@ import subprocess
 import time
 from contextlib import contextmanager
 from logging import Logger
-from typing import TextIO, List
+from typing import TextIO, List, Any
 from multiprocessing import Process, Queue
 
 
@@ -67,6 +67,7 @@ class StaticUtilities:
     ch = logging.StreamHandler()
     ch.setLevel(logging.DEBUG)
     ch.setFormatter(CustomFormatter())
+    logger.addHandler(ch)
 
     # setup file logger and add to logger
     try:
@@ -76,36 +77,39 @@ class StaticUtilities:
         file_logging_handler.setFormatter(
             logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
         file_logging_handler.setLevel(logging.DEBUG)
-
-        # setup extended file logger and add to logger
-        extended_file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\extended_log.log')
-        extended_file_logging_handler.setFormatter(
-            logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
-        extended_file_logging_handler.setLevel(logging.DEBUG)
-
         logger.addHandler(file_logging_handler)
-        logger.addHandler(extended_file_logging_handler)
     except PermissionError:
         pass
-    finally:
-        logger.addHandler(ch)
 
-    hash_json_file: str = "hashed_disassemblies.json"
+    # setup extended file logger and add to logger
+    extended_file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\extended_log.log')
+    extended_file_logging_handler.setFormatter(
+        logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
+    extended_file_logging_handler.setLevel(logging.DEBUG)
+    logger.addHandler(extended_file_logging_handler)
+
     hash_block_size: int = 1000000  # The size of each read from the file_to_hash (1 megabyte)
 
     @staticmethod
-    def file_should_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
+    def file_should_exist(file_directory: str, file: str) -> None:
         """
-        Evaluates the existence of a file in a given directory.
-        :param raise_error: If True raises an OS error if the file does not exist, otherwise returns False.
-        :param file_directory: Location of directory containing the File file.
-        :param file: The name of the File file that should exist.
+        Asserts that this file is in a given directory.
+        :param file_directory: Location of directory containing the file.
+        :param file: The name of the file that should exist.
         :raises OSError: If file does not exist.
+        :return: None.
+        """
+        assert (not os.path.exists(f"{file_directory}\\{file}") or file is None or file == "")
+
+    @staticmethod
+    def file_exists(file_directory: str, file: str) -> bool:
+        """
+        Checks the existence of a file in a given directory.
+        :param file_directory: Location of directory containing the file.
+        :param file: The name of the file that should exist.
         :return: True if the files exists. False if the file does not exist and raise_error is False.
         """
         if not os.path.exists(f"{file_directory}\\{file}") or file is None or file == "":
-            if raise_error:
-                raise OSError(f"{file_directory}\\{file} does not exist")
             return False
         return True
 
@@ -135,13 +139,13 @@ class StaticUtilities:
         assert substring in string
 
     @staticmethod
-    def start_process(process_name: str, 
-                      executable_name: str, 
-                      executable_directory: str, 
-                      *, 
-                      service_name: str = "", 
-                      implement_logger: bool = True, 
-                      start_process_timeout: int = 5, 
+    def start_process(process_name: str,
+                      executable_name: str,
+                      executable_directory: str,
+                      *,
+                      service_name: str = "",
+                      implement_logger: bool = True,
+                      start_process_timeout: int = 5,
                       start_process_delay: int = 2) -> bool:
         """
         Attempts to start a defined process on Windows.
@@ -160,7 +164,8 @@ class StaticUtilities:
         _executable: str = _executable_directory + _executable_name
         _service_name: str = service_name
         StaticUtilities.file_should_exist(file_directory=_executable_directory, file=_executable_name)
-        if (False if _service_name == "" else not StaticUtilities.service_running(_service_name)) or not StaticUtilities.process_running(
+        if (False if _service_name == "" else not StaticUtilities.service_running(
+                _service_name)) or not StaticUtilities.process_running(
                 _executable_name):
             # attempt to start the process
             if implement_logger:
@@ -195,7 +200,10 @@ class StaticUtilities:
         docker_desktop_service_name: str = "com.docker.service"
         timeout: int = 30
         timeout_delay: int = 15
-        return StaticUtilities.start_process(process_name=docker_process_name, executable_name=docker_executable_name, executable_directory=docker_executable_directory, service_name=docker_desktop_service_name, start_process_timeout=timeout, start_process_delay=timeout_delay)
+        return StaticUtilities.start_process(process_name=docker_process_name, executable_name=docker_executable_name,
+                                             executable_directory=docker_executable_directory,
+                                             service_name=docker_desktop_service_name, start_process_timeout=timeout,
+                                             start_process_delay=timeout_delay)
 
     @staticmethod
     def start_ccs() -> bool:
@@ -208,10 +216,13 @@ class StaticUtilities:
         ccs_exe_dir: str = "C:\\ti\\ccs1040\\ccs\\eclipse\\"
         timeout: int = 5
         timeout_delay: int = 2
-        return StaticUtilities.start_process(process_name=ccs_process_name, executable_name=ccs_exe_name, executable_directory=ccs_exe_dir, start_process_timeout=timeout, start_process_delay=timeout_delay)
+        return StaticUtilities.start_process(process_name=ccs_process_name, executable_name=ccs_exe_name,
+                                             executable_directory=ccs_exe_dir, start_process_timeout=timeout,
+                                             start_process_delay=timeout_delay)
 
     @staticmethod
-    def stop_process(process_name: str, executable_name: str, *, implement_logger: bool = True, stop_delay: int = 2, force_kill: bool = False) -> bool:
+    def stop_process(process_name: str, executable_name: str, *, implement_logger: bool = True, stop_delay: int = 2,
+                     force_kill: bool = False) -> bool:
         """
         Attempts to stop a defined process.
         :param process_name: Name of process to stop. Format: "Docker Desktop"
@@ -244,7 +255,8 @@ class StaticUtilities:
         """
         ccs_process_name: str = "Code Composer Studio"
         ccs_executable_name: str = "ccstudio.exe"
-        return StaticUtilities.stop_process(process_name=ccs_process_name, executable_name=ccs_executable_name, force_kill=force_kill)
+        return StaticUtilities.stop_process(process_name=ccs_process_name, executable_name=ccs_executable_name,
+                                            force_kill=force_kill)
 
     @staticmethod
     def process_running(process_name: str) -> bool:  # TODO: Add error checking.
@@ -337,7 +349,8 @@ class StaticUtilities:
             [queue.put(os.path.join(path, file)) for file in filenames]
 
         for i in range(os.cpu_count() - 1):  # len(os.sched_getaffinity(0)) on Unix to get number of available
-            processes.append((multiprocessing.Process(target=StaticUtilities._mp_hide_directory, args=(queue, hide,), name=f"Static File Hide Process {i}")))
+            processes.append((multiprocessing.Process(target=StaticUtilities._mp_hide_directory, args=(queue, hide,),
+                                                      name=f"Static File Hide Process {i}")))
         for process in processes:
             process.start()
         while not queue.empty():
@@ -354,7 +367,8 @@ class StaticUtilities:
         return
 
     @staticmethod
-    def hide_directory_recursively(directory: str, *, log: bool = True) -> bool:    # TODO: convert to a thread safe generator (or path/file queue) and add multiproceessing.
+    def hide_directory_recursively(directory: str, *,
+                                   log: bool = True) -> bool:  # TODO: convert to a thread safe generator (or path/file queue) and add multiproceessing.
         os.system(f"attrib +h {directory[:-1]}")
         files: List[str] = []
         for (path, name, filenames) in os.walk(directory):
@@ -370,7 +384,14 @@ class StaticUtilities:
         return True
 
     @staticmethod
-    def un_hide_directory_recursively(directory: str, *, log: bool = True, leave_root_hidden: bool = False) -> bool:
+    def un_hide_directory_recursively(directory: str, *, log: bool = True, leave_root_hidden: bool = False) -> None:
+        """
+        Removes the h (hidden) attribute from all files in a directory recursively.
+        :param directory: Directory to un hide all files from recursively.
+        :param log: Bool representing whether to generate logs in this function. Defaults to True.
+        :param leave_root_hidden: Bool representing whether to un hide the top directory. Defaults to False.
+        :return: None.
+        """
         if not leave_root_hidden:
             os.system(f"attrib -h {directory[:-1]}")
         files: List[str] = []
@@ -384,18 +405,40 @@ class StaticUtilities:
             os.system(f"attrib -h \"{file}\"")
             if log:
                 StaticUtilities.logger.debug(f"{file} hidden")
-        return False
 
     @staticmethod
     def project_root_directory() -> str:
+        """
+        Get this project's top level directory.
+        :return: Str representing the path to this project's top-level directory.
+        """
         return StaticUtilities._project_root_directory_str
 
     @staticmethod
-    def initialize_hash_dict() -> dict:
-        if not StaticUtilities.file_should_exist(StaticUtilities.project_root_directory(), StaticUtilities.hash_json_file):
-            return {}
-        with open(f"{StaticUtilities.project_root_directory()}\\{StaticUtilities.hash_json_file}", 'r') as json_file:
-            return json.loads(json_file.read())
+    def write_object_to_json(json_file_directory: str, json_file: str, object_to_dump_to_json: object) -> None:
+        """
+        Writes an object to a json file.
+        :param json_file_directory: Path to the json file to write to.
+        :param json_file: Name of the json file to write to.
+        :param object_to_dump_to_json: Object that's converted to json and written to the json file.
+        :return: None.
+        """
+        with open(f"{json_file_directory}\\{json_file}", 'w') as json_file:
+            json.dump(object_to_dump_to_json, json_file, indent=4)
+
+    @staticmethod
+    def serialize_object_from_json(json_file_directory: str, json_file: str) -> object:
+        """
+        Serializes a python object from a json file.
+        :param json_file_directory: Path to the json file to serialize from.
+        :param json_file: Name of the json file to serialize from.
+        :return: Serialized object from the json_file.
+        """
+        if not StaticUtilities.file_exists(json_file_directory, json_file):
+            return None
+        with open(f"{json_file_directory}\\{json_file}", 'r') as json_file:
+            return json.load(json_file)
+
 
 if __name__ == "__main__":
     print(StaticUtilities.project_root_directory())

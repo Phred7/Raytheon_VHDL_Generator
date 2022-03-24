@@ -1,5 +1,9 @@
 """
-ComputerMnemonicDictionary class
+# ComputerMnemonicDictionary
+# For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
+# Dr. Clem Izurieta
+# Dr. Brock LaMeres
+# Written by Walker Ward
 """
 
 
@@ -92,6 +96,10 @@ class ComputerMnemonicDictionary:
 
     @staticmethod
     def baseline() -> {str, str}:  # 82 instructions
+        """
+        Baseline Computer Dict.
+        :return: Dict representing the Baseline Computer Instructions.
+        """
         return {"RRC.W": "1",
                 "RRC.B": "1",
                 "SWPB": "1",
@@ -178,6 +186,10 @@ class ComputerMnemonicDictionary:
 
     @staticmethod
     def lowlife() -> {str, str}:  # 82 instructions
+        """
+        Lowlife Computer Dict.
+        :return: Dict representing the Lowlife Computer Instructions.
+        """
         return {"RRC.W": "F",
                 "RRC.B": "F",
                 "SWPB": "F",
@@ -264,6 +276,10 @@ class ComputerMnemonicDictionary:
 
     @staticmethod
     def highroller() -> {str, str}:  # 82 instructions
+        """
+        Highroller Computer Dict.
+        :return: Dict representing the Highroller Computer Instructions.
+        """
         return {"RRC.W": "3",   # 3
                 "RRC.B": "3",
                 "SWPB": "3",

@@ -1,10 +1,10 @@
-###############################
-# Buffer Overflow Attack
+"""
+# Buffer Overwrite Attack
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
 # Written by Michael Heidal
-###############################
+"""
 import random
 import string
 from typing import List, Tuple
@@ -20,9 +20,7 @@ class BasicOverwriteAttack(InstrumentationStrategy):
         """"
         Open the file
         Write malicious code to file
-
-
-        :param file: the file to instrument.
+        :param project: The project to instrument.
         :return: True if the process is successful, False if it fails at any step
         """
 

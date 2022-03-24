@@ -1,10 +1,10 @@
-###############################
+"""
 # Instrumentation Strategy
 # For Raytheon Research Project and Interdisciplinary Capstone Project
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
-# Written by Walker Ward and Michael Heidal
-###############################
+# Written by Walker Ward
+"""
 from abc import ABC, abstractmethod
 
 from ccs_project import CCSProject
@@ -23,7 +23,7 @@ class InstrumentationStrategy(ABC):
     @abstractmethod
     def instrument(self, project: CCSProject) -> bool:
         """
-        Method to be declared my concrete strategies.
+        Method to be declared by concrete strategies.
         :param project: the project containing the source file to be instrumented.
         :return: str representing the file that was instrumented.
         """

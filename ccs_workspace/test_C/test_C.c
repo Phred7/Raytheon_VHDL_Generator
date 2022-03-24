@@ -1,21 +1,70 @@
 #include <msp430.h>
 int main(void) {
     WDTCTL = WDTPW | WDTHOLD;   //stop watch dog timer
+
     PM5CTL0 &= ~LOCKLPM5;       //Enable GPIO Manipulation
-    PADIR |=  0xAAAA;           //Set alternating bits of Port A to output
-    PADIR &= ~0x5555;           //Rest are input
-    PAREN |=  0x5555;           //Set non output bits of Port A to have resistors enabled
-    PAOUT &= ~0x5555;           //Set non output bits of Port A to be pulled low with resistors
-    PBDIR &= ~0xFFFF;           //Set all bits of Port B to input
-    PBREN |=  0x5555;           //Set non alternating input bits of Port B to have resistors enabled
-    PBOUT &= ~0x5555;           //Set non alternating input bits of Port B to be pulled low with resistors
+
+
+    PADIR &= ~BITB;             //Set Port 2.3 to input
+    PAREN |=  BITB;             //Enable pull up resistors
+    PAOUT |=  BITB;
+    PAIES |=  BITB;             //Set IRQ to H -> L
+    PAIFG &=  0x0000;           //Clear interrupts
+    PAIE  |=  BITB;             //Enable Port 2.3 interrupt
+
+    PCDIR |=  BITE;             //Set Port 6.6 to output
+    PCOUT &=  ~BITE;
+
+
+
+    PBDIR &=  ~BIT9;            //Set Port 4.1 to input
+    PBREN |=  BIT9;             //Enable pull up resistors
+    PBOUT |=  BIT9;
+    PBIES |=  BIT9;             //Set IRQ to L -> H
+    PBIFG &=  0x0000;           //Clear interrupts
+    PBIE  |=  BIT9;             //Enable Port 4.1 interrupt
+
+    PADIR |=  BIT0;             //Set Port 1.1 to output
+    PAOUT &= ~BIT0;
+
+
+    _enable_interrupt();        //Enable interrupts;
     while(1){
-        //Purpose of this file is to implement on FPGA
-        //Port B will be input tied to buttons/switches
-        //Port A output will be tied to LEDs
-        PAOUT = PBIN;//Port A Out is assigned Port B
+        return 0;
     }
 }
+
+//Interrupt Service Routines
+#pragma vector = PORT2_VECTOR
+__interrupt void ISR_Port2_S2(void){
+    PCOUT ^= BITE;
+    PAIFG &= ~BITB;
+}
+
+#pragma vector = PORT4_VECTOR
+__interrupt void ISR_Port4_S1(void){
+    PAOUT ^= BIT0;
+    PBIFG &= ~BIT9;
+}
+
+//#include <msp430.h>
+//int main(void) {
+//    WDTCTL = WDTPW | WDTHOLD;   //stop watch dog timer
+//    PM5CTL0 &= ~LOCKLPM5;       //Enable GPIO Manipulation
+//    PADIR |=  0xAAAA;           //Set alternating bits of Port A to output
+//    PADIR &= ~0x5555;           //Rest are input
+//    PAREN |=  0x5555;           //Set non output bits of Port A to have resistors enabled
+//    PAOUT &= ~0x5555;           //Set non output bits of Port A to be pulled low with resistors
+//    PBDIR &= ~0xFFFF;           //Set all bits of Port B to input
+//    PBREN |=  0x5555;           //Set non alternating input bits of Port B to have resistors enabled
+//    PBOUT &= ~0x5555;           //Set non alternating input bits of Port B to be pulled low with resistors
+//    while(1){
+//        //Purpose of this file is to implement on FPGA
+//        //Port B will be input tied to buttons/switches
+//        //Port A output will be tied to LEDs
+//        PAOUT = PBIN;//Port A Out is assigned Port B
+//    }
+//}
 
 //#include <msp430.h>
 //int main(void) {
