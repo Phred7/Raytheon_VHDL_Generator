@@ -126,8 +126,7 @@ class Detection:
 
 
 if __name__ == '__main__':
-    project: CCSProject = CCSProject(project_type=ProjectType.C,
-                                     path=StaticUtilities.project_root_directory() + r"\ccs_workspace\c_blank",
+    project: CCSProject = CCSProject(path=StaticUtilities.project_root_directory() + r"\ccs_workspace\c_blank",
                                      source_file="c_blank.c")
     detection: Detection = Detection(project, pique_bin_bool=False)
     StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
