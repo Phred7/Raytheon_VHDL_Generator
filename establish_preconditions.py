@@ -18,7 +18,6 @@ class Preconditions():
         configs = file.getElementsByTagName("configuration")
         print(configs)
         for config in configs:
-            print("xahgtj")
             x: md.Element = config
             print(x.tagName)
             print(x.nodeValue)
