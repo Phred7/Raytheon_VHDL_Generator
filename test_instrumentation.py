@@ -1,5 +1,3 @@
-import logging
-
 from basic_overwrite_attack import BasicOverwriteAttack
 from instrument_buffer_overflow_attack import BufferOverflowAttack
 from ccs_project import CCSProject, ProjectType
