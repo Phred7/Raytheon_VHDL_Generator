@@ -10,6 +10,7 @@ from copy import deepcopy
 from typing import Dict, List, Any, Match
 
 from detection_strategy import DetectionStrategy
+from static_utilities import StaticUtilities
 
 
 class DetectionInC(DetectionStrategy):
@@ -36,7 +37,7 @@ class DetectionInC(DetectionStrategy):
     def detect_buffer_overflow_attack(self) -> bool:
         """
         Attempts to detect a buffer overflow in this ccs_project.
-        :return: True if a buffer overflow was detected in this file otherwise, False.
+        :return:
         """
         return_string: str = ""
         insecure_patterns: List[str] = ["string.h$",
@@ -52,6 +53,8 @@ class DetectionInC(DetectionStrategy):
             return_string += f"{line_number}: Replace {detected_patterns_dict[line_number].string} with {insecure_patterns_recommended_replacement_dict.get(pattern)}"
         if return_string != "":
             return_string = f"Buffer Overflow Detection Recommendations\n{return_string}"
+            StaticUtilities.logger.info(return_string)
+            return True
         return False
 
     def detect_int_overflow_attack(self) -> bool:

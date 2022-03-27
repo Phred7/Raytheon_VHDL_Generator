@@ -12,6 +12,8 @@ from ccs_project import CCSProject, ProjectType
 from detection_in_asm import DetectionInASM
 from detection_in_c import DetectionInC
 from detection_strategy import DetectionStrategy
+from instrument_buffer_overflow_attack import BufferOverflowAttack
+from instrumentation import Instrumentation
 from pique_bin import PiqueBin
 from static_utilities import StaticUtilities
 
@@ -125,10 +127,42 @@ class Detection:
         return self.hashed_files_dict[file_name_key] == self.ccs_project.__hash__()
 
 
+def reset_test_project() -> None:
+    base_file = """
+#include <msp430.h> 
+#include <stdio.h>
+/**
+ * main.c
+ */
+int main(void)
+{
+	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
+	char message[8] = "MESSAGE";
+	int status = 0;
+	if (status == 0) {
+	    printf(message);
+	} else {
+	    printf("default");
+	}
+	return 0;
+}
+    """
+    with open(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target\main.c", 'w') as file:
+        file.write(base_file)
+
+
 if __name__ == '__main__':
-    project: CCSProject = CCSProject(path=StaticUtilities.project_root_directory() + r"\ccs_workspace\c_blank",
-                                     source_file="c_blank.c")
+    reset_test_project()
+    project: CCSProject = CCSProject(source_file="main.c",
+                                     project_name="test_target",
+                                     path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                                     )
+    instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
+    instrumentation.instrument()
+
+    project: CCSProject = CCSProject(path=StaticUtilities.project_root_directory() + r"\ccs_workspace\test_target",
+                                     source_file="main.c")
     detection: Detection = Detection(project, pique_bin_bool=False)
     StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
     detection.pique_bin_security_quality = 0.9
-    StaticUtilities.logger.debug(f"detection: {detection.detect()}")
+    StaticUtilities.logger.debug(f"detection: {'No malware found' if detection.detect() else 'Found malware'}")

@@ -31,8 +31,6 @@ int main(void)
     """
     with open(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target\main.c", 'w') as file:
         file.write(base_file)
-    # with open(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\phantom_workspace\phantom_c\phantom_c.c", 'w') as file:
-    #     file.write(base_file)
 
 
 def test_basic_overwrite(project: CCSProject) -> None:
@@ -56,9 +54,9 @@ def test_string_format_attack(project: CCSProject) -> None:
 
 
 def main() -> None:
-    vulnerabilities: List[Callable] = [test_basic_overwrite, test_buffer_overflow, test_int_overflow, test_string_format_attack]
+    instrumentation_strategies: List[Callable] = [test_basic_overwrite, test_buffer_overflow, test_int_overflow, test_string_format_attack]
 
-    for test in vulnerabilities:
+    for test in instrumentation_strategies:
         reset_test_project()
         project: CCSProject = CCSProject(source_file="main.c",
                                          project_name="test_target",
