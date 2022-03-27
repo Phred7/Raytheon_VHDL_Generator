@@ -1,6 +1,6 @@
 from basic_overwrite_attack import BasicOverwriteAttack
 from instrument_buffer_overflow_attack import BufferOverflowAttack
-from ccs_project import CCSProject, ProjectType
+from ccs_project import CCSProject
 from instrumentation import Instrumentation
 from instrument_int_overflow_attack import IntOverflowAttack
 from static_utilities import StaticUtilities
@@ -27,7 +27,7 @@ int main(void)
 	return 0;
 }
     """
-    with open(r"C:\Users\Mike\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_target\main.c", 'w') as file:
+    with open(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target\main.c", 'w') as file:
         file.write(base_file)
 
 
@@ -50,15 +50,15 @@ def test_string_format_attack(project: CCSProject) -> None:
     instrumentation: Instrumentation = Instrumentation(project, StringFormatAttack())
     instrumentation.instrument()
 
+
 def main() -> None:
     tests = [test_basic_overwrite, test_buffer_overflow, test_int_overflow, test_string_format_attack]
 
     for test in tests:
         reset_test_project()
         project: CCSProject = CCSProject(source_file="main.c",
-                                         project_type=ProjectType.C,
                                          project_name="test_target",
-                                         path=r"C:\Users\Mike\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_target"
+                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
                                          )
         StaticUtilities.logger.info(f"Testing {test.__name__}")
         test(project)

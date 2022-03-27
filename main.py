@@ -5,7 +5,7 @@
 # Dr. Brock LaMeres
 # Written by Michael Heidal and Walker Ward
 """
-from ccs_project import CCSProject, ProjectType
+from ccs_project import CCSProject
 from disassembler import Disassembler
 from instrumentation import Instrumentation
 from instrument_int_overflow_attack import IntOverflowAttack
@@ -62,7 +62,7 @@ class Main:
         """
         ccs_project_path_from_root: str = "\\ccs_workspace\\test_C"
         ccs_project_binary_file_path: str = f"{StaticUtilities.project_root_directory()}{ccs_project_path_from_root}\\Debug\\test_C.out"
-        ccs_project: CCSProject = CCSProject(project_type=ProjectType.C, path=f"{StaticUtilities.project_root_directory()}{ccs_project_path_from_root}", source_file="test_C.c", binary_file_path=ccs_project_binary_file_path)
+        ccs_project: CCSProject = CCSProject(path=f"{StaticUtilities.project_root_directory()}{ccs_project_path_from_root}", source_file="test_C.c", binary_file_path=ccs_project_binary_file_path)
         vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project, binary_file_name="test_C", asm_file=False)
         vhdl_parser_generator.generate_vhdl(detection=False)
         package_zipper: PackageZipper = PackageZipper()

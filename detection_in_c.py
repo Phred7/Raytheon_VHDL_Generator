@@ -43,7 +43,7 @@ class DetectionInC(DetectionStrategy):
                                         "^\(.*?char\* (\w+).+\).*?{$",
                                         "strcpy(x, y);}"]
         insecure_patterns_flags = [None, re.I, None]
-        insecure_patterns_recommended_replacement_dict:  Dict[str, str] = {insecure_patterns[0]: "--not string.h--",
+        insecure_patterns_recommended_replacement_dict:  Dict[str, str] = {insecure_patterns[0]: "--string.h contains functions that can be exploited.--",
                                                                            insecure_patterns[1]: "--no bad! No! Char* target--",
                                                                            insecure_patterns[2]: "--replace with strncpy--"}
         detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns, insecure_patterns_flags)
