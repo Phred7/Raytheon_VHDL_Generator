@@ -1,4 +1,4 @@
-import logging
+from typing import Callable, List
 
 from basic_overwrite_attack import BasicOverwriteAttack
 from instrument_buffer_overflow_attack import BufferOverflowAttack
@@ -6,7 +6,7 @@ from ccs_project import CCSProject
 from instrumentation import Instrumentation
 from instrument_int_overflow_attack import IntOverflowAttack
 from static_utilities import StaticUtilities
-from string_format_attack import StringFormatAttack
+from instrument_string_format_attack import StringFormatAttack
 
 
 def reset_test_project() -> None:
@@ -31,6 +31,8 @@ int main(void)
     """
     with open(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target\main.c", 'w') as file:
         file.write(base_file)
+    # with open(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\phantom_workspace\phantom_c\phantom_c.c", 'w') as file:
+    #     file.write(base_file)
 
 
 def test_basic_overwrite(project: CCSProject) -> None:
@@ -54,9 +56,9 @@ def test_string_format_attack(project: CCSProject) -> None:
 
 
 def main() -> None:
-    tests = [test_basic_overwrite, test_buffer_overflow, test_int_overflow, test_string_format_attack]
+    vulnerabilities: List[Callable] = [test_basic_overwrite, test_buffer_overflow, test_int_overflow, test_string_format_attack]
 
-    for test in tests:
+    for test in vulnerabilities:
         reset_test_project()
         project: CCSProject = CCSProject(source_file="main.c",
                                          project_name="test_target",

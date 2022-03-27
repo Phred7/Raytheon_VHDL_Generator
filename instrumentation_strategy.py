@@ -21,10 +21,10 @@ class InstrumentationStrategy(ABC):
         StaticUtilities.logger.debug(f"{InstrumentationStrategy.__name__} object of type {self.type} initialized")
 
     @abstractmethod
-    def instrument(self, project: CCSProject) -> bool:
+    def instrument(self, file_to_instrument: str) -> bool:
         """
         Method to be declared by concrete strategies.
-        :param project: the project containing the source file to be instrumented.
-        :return: str representing the file that was instrumented.
+        :param file_to_instrument: the project containing the source to be modified.
+        :return: bool representing if the file was modified.
         """
         pass

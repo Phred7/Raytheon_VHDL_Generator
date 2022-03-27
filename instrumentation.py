@@ -27,6 +27,7 @@ class Instrumentation:
     def __init__(self, project: CCSProject, instrumentation_strategy: InstrumentationStrategy) -> None:
         self.project = project
         self.c_lang_bool: bool = (project.project_type == ProjectType.C)
+        self.phantom_project: CCSProject = CCSProject(path=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if self.c_lang_bool else 'phantom'}", project_name=f"{'phantom_c' if self.c_lang_bool else 'phantom'}", source_file=f"{'phantom_c.c' if self.c_lang_bool else 'phantom.asm'}")
         self._phantom_is_hidden: bool = True
         self._instrumentation_strategy = instrumentation_strategy
         if instrumentation_strategy is None:
@@ -72,12 +73,7 @@ class Instrumentation:
             self.update_phantom_source()
 
             # instrument file
-            # project = CCSProject(source_file=rf"\phantom{'_c.c' if self.c_lang_bool else '.asm'}",
-            #                      project_type= ProjectType.C if self.c_lang_bool else ProjectType.ASM,
-            #                      project_name="phantom",
-            #                      path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\{'phantom_c' if self.c_lang_bool else 'phantom'}")
-
-            instrumentation_result: bool = self._instrumentation_strategy.instrument(self.project)
+            instrumentation_result: bool = self._instrumentation_strategy.instrument(f"{self.phantom_project.path}\\{self.phantom_project.source_file}")
 
             if instrumentation_result:
                 StaticUtilities.logger.debug(f"Instrumentation on {self.project.source_file} succeeded")
@@ -274,6 +270,7 @@ class Instrumentation:
 
 
 if __name__ == "__main__":
+    # Deprecated
     i = Instrumentation(instrumentation_strategy=IntOverflowAttack())
 
     asm_ccs_project_main_source_file_name: str = "test_ASM.asm"
