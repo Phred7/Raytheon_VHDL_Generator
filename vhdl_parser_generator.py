@@ -52,10 +52,10 @@ class VHDLParserGenerator:
         for file in os.listdir(directory):
             if file.endswith(".vhd"):
                 os.remove(f"{directory}\\{file}")
-                StaticUtilities.logger.info(f'Removed {file}')
+                StaticUtilities.logger.debug(f'Removed {file}')
             elif file == "generated_disassembly.txt":
                 os.remove(f"{directory}\\{file}")
-                StaticUtilities.logger.info(f'Removed {file} from \\generated_vhdl\\')
+                StaticUtilities.logger.debug(f'Removed {file} from \\generated_vhdl\\')
 
     def generate_vhdl_packages(self) -> None:
         """
@@ -95,7 +95,7 @@ class VHDLParserGenerator:
 
                 vhdl_package_file.close()
                 sys.stdout = original_stdout
-                StaticUtilities.logger.info(f'Generated {computer_name}_package.vhd')
+                StaticUtilities.logger.debug(f'Generated {computer_name}_package.vhd')
 
     def generate_vhdl_data_memory(self) -> None:
         """
@@ -107,7 +107,7 @@ class VHDLParserGenerator:
                 print(self.get_vhdl_data_memory_preamble(), end="")
                 print(self.get_vhdl_data_memory_from_source(), end=f"{'' if not self.data_memory_in_disassembly else self.memory_indent}")
                 print(self.get_vhdl_data_memory_end())
-        StaticUtilities.logger.info(f"Generated data_memory.vhd{'' if self.data_memory_in_disassembly else '. Note: No data memory found in binary'}")
+        StaticUtilities.logger.debug(f"Generated data_memory.vhd{'' if self.data_memory_in_disassembly else '. Note: No data memory found in binary'}")
 
     def get_vhdl_data_memory_from_source(self) -> str:
         """
@@ -157,7 +157,7 @@ class VHDLParserGenerator:
                     print(self.get_vhdl_memory_libraries())
                     print(self.get_vhdl_memory_entity(computer_name))
                     print(self.get_vhdl_memory_architecture(computer_name), end="")
-            StaticUtilities.logger.info(f'Generated {computer_name}_memory.vhd')
+            StaticUtilities.logger.debug(f'Generated {computer_name}_memory.vhd')
 
     @staticmethod
     def get_vhdl_memory_libraries() -> str:
@@ -197,7 +197,7 @@ end entity;\n"""
         :return: str representation of vhdl memory architecture.
         """
         return f"""architecture {computer_name}_memory_arch of {computer_name}_memory is\n
-{self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_asm(computer_name)}{self.get_vhdl_irq_vectors()}\n
+{self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_asm(computer_name)}{self.get_vhdl_irq_vectors()}{self.get_vhdl_memory_rom_end()}\n
     signal EN : std_logic;
     {self.get_vhdl_local_en_process()}\n
     {self.get_vhdl_memory_rom_process()}\n\n
@@ -272,6 +272,15 @@ constant ROM : rom_type :=("""
                 pass
 
     @staticmethod
+    def get_vhdl_memory_rom_end() -> str:
+        """
+        Gets the str representation of the end of program memory.
+        """
+        return"""
+
+                           others => x"00");"""
+
+    @staticmethod
     def get_vhdl_irq_vectors() -> str:
         """
         Gets the str representation of the vhdl irq vectors (interrupts).
@@ -279,9 +288,15 @@ constant ROM : rom_type :=("""
         """
         return """        -- IRQ Vectors (Interrupts)
                            65534 =>  x"00",\t\t-- Reset Vector = xFFFE:xFFFF
-                           65535 =>  x"80",\t\t--  Startup Value = x8000
+                           65535 =>  x"80",\t\t--  Startup Value = x8000"""
 
-                           others => x"00");"""
+    @staticmethod
+    def get_interrupt_vectors() -> str:
+        """
+        Gets the string representation of all interrupt vectors for the MSP430FR2355.
+        """
+        return """
+        """
 
     @staticmethod
     def get_vhdl_local_en_process() -> str:
