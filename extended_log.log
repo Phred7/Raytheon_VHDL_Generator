@@ -4438,3 +4438,249 @@ Running Raytheon VHDL Generator
 2022-03-28 14:21:00,169 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
 2022-03-28 14:21:00,170 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
 2022-03-28 14:21:00,171 WARNING package_zipper zip_vhdl Created zip _[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-03-28 14:58:12,970 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-28 14:58:12,971 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-03-28 14:58:12,972 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-03-28 14:58:12,972 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-03-28 14:58:12,973 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-03-28 14:58:12,973 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-03-28 14:58:12,974 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-03-28 14:58:12,975 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-03-28 14:58:12,975 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-28 14:58:12,975 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-28 14:58:12,976 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-03-28 14:58:13,060 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-28 14:58:13,060 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-28 14:58:13,061 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-28 14:58:13,062 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-28 14:58:13,063 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-28 14:58:13,065 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-28 14:58:13,066 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for baseline
+2022-03-28 14:58:13,068 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-28 14:58:13,069 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-03-28 14:58:13,070 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for highroller
+2022-03-28 14:58:13,071 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-28 14:58:13,072 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-03-28 14:58:13,073 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for lowlife
+2022-03-28 14:58:13,075 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-28 14:58:13,076 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-03-28 14:58:13,076 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-03-28 14:58:13,081 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-03-28 14:58:13,082 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-03-28 14:58:13,083 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-03-28 14:58:13,084 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-03-28 14:58:13,085 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-03-28 14:58:13,086 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-03-28 14:58:13,087 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-03-28 14:58:13,090 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-03-28 14:58:13,092 WARNING package_zipper zip_vhdl Created zip _[2].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-03-28 16:10:21,998 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-28 16:10:22,000 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-03-28 16:10:22,001 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-03-28 16:10:22,001 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-03-28 16:10:22,002 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-03-28 16:10:22,003 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-03-28 16:10:22,003 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-03-28 16:10:22,004 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-03-28 16:10:22,004 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-28 16:10:22,005 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-28 16:10:22,005 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-03-28 16:10:22,024 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-28 16:10:22,025 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-28 16:10:22,026 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-28 16:10:22,027 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-28 16:10:22,028 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-28 16:10:22,031 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-28 16:10:22,033 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interurpts Reading in lines from generated_disassembly.txt for baseline
+2022-03-28 16:13:25,548 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-28 16:13:25,550 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-03-28 16:13:25,550 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-03-28 16:13:25,551 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-03-28 16:13:25,552 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-03-28 16:13:25,553 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-03-28 16:13:25,553 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-28 16:13:25,554 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-28 16:13:25,555 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-03-28 16:13:25,576 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-28 16:13:25,576 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-28 16:13:25,577 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-28 16:13:25,578 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-28 16:13:25,580 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-28 16:13:25,582 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-28 16:13:25,584 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interurpts Reading in lines from generated_disassembly.txt for baseline
+2022-03-28 16:14:50,417 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-28 16:14:50,419 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-03-28 16:14:50,420 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-03-28 16:14:50,421 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-03-28 16:14:50,422 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-03-28 16:14:50,424 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-03-28 16:14:50,424 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-28 16:14:50,425 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-28 16:14:50,426 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-03-28 16:14:50,448 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-28 16:14:50,449 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-28 16:14:50,450 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-28 16:14:50,451 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-28 16:14:50,452 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-28 16:14:50,454 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-28 16:14:50,457 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interurpts Reading in lines from generated_disassembly.txt for baseline
+2022-03-28 16:43:40,249 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-28 16:43:40,250 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-03-28 16:43:40,251 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-03-28 16:43:40,251 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-03-28 16:43:40,252 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-03-28 16:43:40,252 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-03-28 16:43:40,253 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-28 16:43:40,253 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-28 16:43:40,254 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-03-28 16:43:40,268 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-28 16:43:40,268 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-28 16:43:40,269 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-28 16:43:40,270 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-28 16:43:40,271 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-28 16:43:40,273 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-28 16:43:40,274 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interurpts Reading in lines from generated_disassembly.txt for baseline
+2022-03-28 16:45:34,160 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-28 16:45:34,161 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-03-28 16:45:34,161 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-03-28 16:45:34,162 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-03-28 16:45:34,163 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-03-28 16:45:34,163 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-03-28 16:45:34,163 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-28 16:45:34,164 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-28 16:45:34,165 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-03-28 16:45:34,179 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-28 16:45:34,179 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-28 16:45:34,180 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-28 16:45:34,181 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-28 16:45:34,182 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-28 16:45:34,183 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-28 16:45:34,184 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interurpts Reading in lines from generated_disassembly.txt for baseline
+2022-03-28 16:45:34,184 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,184 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,184 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,184 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,185 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,185 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,185 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,185 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,185 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,185 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,185 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,186 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,186 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,186 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,186 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,186 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,186 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,187 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,187 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,187 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,187 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,187 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,187 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,187 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,188 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,188 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,188 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,188 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,188 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,189 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,202 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:45:34,202 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,104 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-28 16:46:03,105 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-03-28 16:46:03,106 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-03-28 16:46:03,107 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-03-28 16:46:03,108 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-03-28 16:46:03,108 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-03-28 16:46:03,108 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-28 16:46:03,109 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-28 16:46:03,109 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-03-28 16:46:03,124 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-28 16:46:03,124 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-28 16:46:03,125 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-28 16:46:03,126 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-28 16:46:03,126 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-28 16:46:03,127 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-28 16:46:03,128 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interurpts Reading in lines from generated_disassembly.txt for baseline
+2022-03-28 16:46:03,128 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,129 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,129 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,129 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,129 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,129 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,129 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,129 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,130 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,130 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,130 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,130 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,130 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,131 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,131 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,131 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,131 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,131 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,131 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,131 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,131 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,132 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,132 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,132 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,132 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,132 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,146 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,146 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,146 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,146 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,147 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:03,147 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:22,499 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-28 16:46:22,501 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-03-28 16:46:22,502 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-03-28 16:46:22,503 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-03-28 16:46:22,504 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-03-28 16:46:22,505 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-03-28 16:46:22,506 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-28 16:46:22,507 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-28 16:46:22,508 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-03-28 16:46:22,529 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-28 16:46:22,530 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-28 16:46:22,531 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-28 16:46:22,533 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-28 16:46:22,534 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-28 16:46:22,536 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-28 16:46:22,538 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interurpts Reading in lines from generated_disassembly.txt for baseline
+2022-03-28 16:46:25,904 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,904 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,904 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,905 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,905 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,905 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,905 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,906 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,906 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,906 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,907 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,907 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,908 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,908 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,908 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,909 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,909 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,909 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,910 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,910 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,910 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,910 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,911 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,911 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,911 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,911 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,912 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,912 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,912 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,913 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,913 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-03-28 16:46:25,913 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interurpts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP

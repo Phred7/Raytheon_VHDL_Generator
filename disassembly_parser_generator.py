@@ -15,6 +15,7 @@ from typing import List
 from static_utilities import StaticUtilities
 
 
+# deprecated
 class DisassemblyParserGenerator:
     """
     Class to generate ASM src from a disassembly file.
@@ -40,13 +41,16 @@ class DisassemblyParserGenerator:
             os.remove(rf"{self.generated_assembly_directory}\{self.generated_assembly_file}")
             StaticUtilities.logger.info(rf"Removed {self.generated_assembly_directory}\{self.generated_assembly_file}")
         # the following generates the asm source file from the disassembly file.
-        with open(rf"{StaticUtilities.project_root_directory()}\{self.generated_assembly_directory}\{self.generated_assembly_file}", "a+") as generated_src:
+        with open(
+                rf"{StaticUtilities.project_root_directory()}\{self.generated_assembly_directory}\{self.generated_assembly_file}",
+                "a+") as generated_src:
             with StaticUtilities.change_stdout_to_file(generated_src):
                 print(self.msp_ccs_assembler_template_headers())  # template headers
                 print(self.parse_disassembly())  # source
                 print(self.msp_ccs_template_stack_pointer_definition())  # template stack pointer definition.
                 print(self.msp_ccs_template_interrupt_vectors())  # template interrupt vectors.
-            StaticUtilities.logger.info(f"Generated ASM src for {self.generated_disassembly_file} at {self.generated_assembly_directory}\\{self.generated_assembly_file}")
+            StaticUtilities.logger.info(
+                f"Generated ASM src for {self.generated_disassembly_file} at {self.generated_assembly_directory}\\{self.generated_assembly_file}")
 
     def parse_disassembly(self) -> str:
         """
@@ -97,12 +101,12 @@ class DisassemblyParserGenerator:
             generated_src += f"\n{self.msp_ccs_template_memory_allocation()}"
 
             index: int = 0
-            while not data_section[index+1].startswith("DATA Section"):
-                data_section[index] = data_section[index][21:]   # gets the next variable
+            while not data_section[index + 1].startswith("DATA Section"):
+                data_section[index] = data_section[index][21:]  # gets the next variable
                 data_section_variable_str: str = data_section[index].strip("\n")
                 # check to see if this variable only has one word worth of data. If not jump to else.
-                if not deepcopy(data_section[index+2][21:].strip().startswith(".")):
-                    data_declaration: List[str] = data_section[index+1][21:].lstrip().split(" ")
+                if not deepcopy(data_section[index + 2][21:].strip().startswith(".")):
+                    data_declaration: List[str] = data_section[index + 1][21:].lstrip().split(" ")
                     directive: str = data_declaration[0]
                     data: str = data_declaration[1].strip("\n")
                     data_section_variable_str += f"\t\t{directive} {data}"
@@ -113,11 +117,12 @@ class DisassemblyParserGenerator:
 
                     # determine the number of words present and put all the values in data_values List
                     multi_word_index_offset: int = 1  # accounts for variable name
-                    while deepcopy(data_section[index+multi_word_index_offset][21:].strip().startswith(".")):
-                        data_section[index + multi_word_index_offset] = data_section[index + multi_word_index_offset][21:].lstrip()
-                        if not deepcopy(data_section[index+multi_word_index_offset]).startswith(".word 0x0000"):
+                    while deepcopy(data_section[index + multi_word_index_offset][21:].strip().startswith(".")):
+                        data_section[index + multi_word_index_offset] = data_section[index + multi_word_index_offset][
+                                                                        21:].lstrip()
+                        if not deepcopy(data_section[index + multi_word_index_offset]).startswith(".word 0x0000"):
                             all_zeros = False
-                        data_values.append(data_section[index+multi_word_index_offset].split(" ")[1].strip("\n"))
+                        data_values.append(data_section[index + multi_word_index_offset].split(" ")[1].strip("\n"))
                         multi_word_index_offset += 1
 
                     # if all data is zeros .space can be used. Otherwise, implement .short
@@ -125,7 +130,8 @@ class DisassemblyParserGenerator:
                     if all_zeros:
                         data_section_variable_str += f".space {(multi_word_index_offset - 1) * 2}"
                     else:
-                        StaticUtilities.logger.warning(f"Memory Allocation for .byte, .short not implemented in disassembly_parser_generator")
+                        StaticUtilities.logger.warning(
+                            f"Memory Allocation for .byte, .short not implemented in disassembly_parser_generator")
                     index += multi_word_index_offset
 
                 data_section_variable_str += "\n"
