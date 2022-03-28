@@ -482,7 +482,8 @@ def main() -> None:
     generates the baseline, highroller and lowlife memory files.
     generates the data_memory file.
     """
-    vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator()
+    ccs_project: CCSProject = CCSProject(project_name="test_C", source_file="test_C.c", path=f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C")
+    vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
     vhdl_parser_generator.generate_vhdl()
     package_zipper: PackageZipper = PackageZipper()
     package_zipper.zip_vhdl(zip_file_name="")

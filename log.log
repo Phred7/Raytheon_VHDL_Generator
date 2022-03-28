@@ -1,18 +1,28 @@
-2022-03-27 18:35:54,744 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
-2022-03-27 18:35:54,745 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-03-27 18:35:56,620 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-03-27 18:35:56,621 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-03-27 18:35:56,622 DEBUG instrumentation instrument Instrumentation on main.c succeeded
-2022-03-27 18:36:00,425 DEBUG instrumentation build_phantom_project Phantom C project done building
-2022-03-27 18:36:00,459 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
-2022-03-27 18:36:02,080 DEBUG instrumentation instrument Phantom workspace hidden
-2022-03-27 18:36:02,080 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
-2022-03-27 18:36:02,080 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
-2022-03-27 18:36:02,081 DEBUG detection __init__ Detection object initialized
-2022-03-27 18:36:02,081 DEBUG detection <module> Project Hash: f07e95493362c9d417e5dbd1e6968b908757afde8817718ff96dacb96cdc715b
-2022-03-27 18:36:02,082 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
-1: Replace string.h. --string.h contains functions that can be exploited.--
-2: Replace (char* target) {. --no bad! No! Char* target--
-3: Replace strcpy(. --replace with strncpy--
-
-2022-03-27 18:36:02,082 DEBUG detection <module> detection: Found malware
+2022-03-28 13:55:22,173 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-28 13:55:22,174 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-28 13:55:22,174 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-28 13:55:29,056 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-28 13:55:29,056 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-28 13:55:29,057 INFO vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-28 13:55:29,057 INFO vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-28 13:55:29,058 INFO vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-28 13:55:29,059 INFO vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-28 13:55:29,060 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for baseline
+2022-03-28 13:55:29,060 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-28 13:55:29,061 INFO vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-03-28 13:55:29,061 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for highroller
+2022-03-28 13:55:29,062 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-28 13:55:29,062 INFO vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-03-28 13:55:29,063 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reading in lines from generated_disassembly.txt for lowlife
+2022-03-28 13:55:29,063 DEBUG vhdl_parser_generator get_vhdl_memory_rom_asm Reached SR in disassembly
+2022-03-28 13:55:29,064 INFO vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-03-28 13:55:29,064 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-03-28 13:55:29,066 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-03-28 13:55:29,066 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-03-28 13:55:29,067 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-03-28 13:55:29,067 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-03-28 13:55:29,068 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-03-28 13:55:29,068 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-03-28 13:55:29,069 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-03-28 13:55:29,069 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-03-28 13:55:29,070 INFO package_zipper zip_vhdl Created zip .zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
