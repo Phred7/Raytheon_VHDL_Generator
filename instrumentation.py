@@ -81,6 +81,9 @@ class Instrumentation:
                 self.build_phantom_project()
                 # copy binary and dependencies to actual ccs project
                 self.copy_phantom_binary_and_dependencies_to_ccs_project()
+                # copy src code from phantom and backup original
+                shutil.copyfile(f"{self.project.path}\\{self.project.source_file}", f"{self.project.path}\\{self.project.source_file}.bak")
+                shutil.copyfile(f"{self.phantom_project.path}\\{self.phantom_project.source_file}", f"{self.project.path}\\{self.project.source_file}")
             else:
                 StaticUtilities.logger.debug(f"Instrumentation on {self.project.source_file} failed")
 

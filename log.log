@@ -1,12 +1,18 @@
-2022-03-27 15:39:02,129 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
-2022-03-27 15:39:02,130 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-03-27 15:39:11,175 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-03-27 15:39:11,176 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-03-27 15:39:11,177 DEBUG instrumentation instrument Instrumentation on main.c succeeded
-2022-03-27 15:39:14,924 DEBUG instrumentation build_phantom_project Phantom C project done building
-2022-03-27 15:39:14,971 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
-2022-03-27 15:39:23,946 DEBUG instrumentation instrument Phantom workspace hidden
-2022-03-27 15:39:23,946 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
-2022-03-27 15:39:23,947 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
-2022-03-27 15:39:23,947 DEBUG detection __init__ Detection object initialized
-2022-03-27 15:39:23,948 DEBUG detection <module> Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-03-27 18:35:54,744 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-27 18:35:54,745 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-27 18:35:56,620 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-27 18:35:56,621 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-27 18:35:56,622 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-27 18:36:00,425 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-27 18:36:00,459 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-27 18:36:02,080 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-27 18:36:02,080 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-27 18:36:02,080 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-03-27 18:36:02,081 DEBUG detection __init__ Detection object initialized
+2022-03-27 18:36:02,081 DEBUG detection <module> Project Hash: f07e95493362c9d417e5dbd1e6968b908757afde8817718ff96dacb96cdc715b
+2022-03-27 18:36:02,082 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+1: Replace string.h. --string.h contains functions that can be exploited.--
+2: Replace (char* target) {. --no bad! No! Char* target--
+3: Replace strcpy(. --replace with strncpy--
+
+2022-03-27 18:36:02,082 DEBUG detection <module> detection: Found malware

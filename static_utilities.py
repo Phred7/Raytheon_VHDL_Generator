@@ -5,6 +5,8 @@
 # Dr. Brock LaMeres
 # Written by Walker Ward and Michael Heidal
 """
+import _queue
+import inspect
 import json
 import logging
 import multiprocessing
@@ -362,8 +364,12 @@ class StaticUtilities:
     @staticmethod
     def _mp_hide_directory(file_queue: Queue, hide: bool) -> None:
         while not file_queue.empty():
-            file: str = file_queue.get()
-            os.system(f"attrib {'+h' if hide else '-h'} \"{file}\"")
+            try:
+                file: str = file_queue.get(timeout=2)
+                os.system(f"attrib {'+h' if hide else '-h'} \"{file}\"")
+            except _queue.Empty as empty:
+                StaticUtilities.logger.debug(f"Caught {empty.__class__} exception in {inspect.stack()[0][3]}")
+                return
         return
 
     @staticmethod
