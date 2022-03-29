@@ -5,13 +5,13 @@
 # Dr. Brock LaMeres
 # Written by Blake Stanger, Walker Ward and Michael Heidal
 """
+import re
 import sys
 import os
 from copy import deepcopy
 from typing import TextIO, List
 
 from ccs_project import CCSProject
-from detection import Detection
 from package_zipper import PackageZipper
 from computer_mnemonic_dictionary import ComputerMnemonicDictionary
 from disassembler import Disassembler
@@ -280,6 +280,7 @@ constant ROM : rom_type :=("""
 
     def get_vhdl_memory_rom_with_interurpts(self, computer_name: str) -> str:
         generated_rom_asm_str: str = ""
+        current_tag_name: str = ""
         first_instruction_reached: bool = False
         end_of_program_memory_reached: bool = False
         isr_trap_reached: bool = False
@@ -293,6 +294,11 @@ constant ROM : rom_type :=("""
             while not end_of_program_memory_reached:
                 if not first_instruction_reached:
                     line = next(disassembly_file)
+                    split_line: List[str] = line.split(" ")
+                    if len(split_line) == 15:
+                        match = re.match("(\w+):\\n", split_line[14], re.I)
+                        if match is not None:
+                            current_tag_name = match.string[:-2]
                     if self.ccs_project.c_project():
                         if "MOV.W   #0x5a80,&WDTCTL_L" in line:
                             first_instruction_reached = True
@@ -307,6 +313,20 @@ constant ROM : rom_type :=("""
                         memory_address: int = int(line[:line.index(":")], 16)
                     line_str_list: List[str] = line.split(" ")
 
+
+
+                    if "TEXT Section .text:_isr," in line and not isr_trap_reached:
+                        isr_trap_reached = True
+                        StaticUtilities.logger.debug(f"Reached ISR Trap")
+                        continue
+                    elif isr_trap_reached and not isr_trap_end_reached and "DATA Section" in line:
+                        isr_trap_end_reached = True
+                        StaticUtilities.logger.debug(f"Reached ISR Trap END")
+                        # continue
+                        return generated_rom_asm_str
+                    # elif
+                    # add elif's to handle vectors?
+
                     if len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()):
                         if f"{line_str_list[14]}.W" in computer_mnemonic_dictionary.keys():
                             line_str_list[14] = f"{line_str_list[14]}.W"
@@ -315,16 +335,8 @@ constant ROM : rom_type :=("""
                         translated_line: str = deepcopy(line)
                         if computer_name != "baseline" and len(line_str_list) != 14:
                             translated_line = self.translate_opcode_with_mnemonic_dictionary(line_str_list, computer_mnemonic_dictionary)
-                        generated_rom_asm_str += f"""{"" if memory_address == self.program_memory_start else self.memory_indent}{memory_address} => x\"{translated_line[8]}{translated_line[9]}\",\t\t-- {"ISR Trap" if (isr_trap_reached and not isr_trap_end_reached) else line}"""  # -- #\t\t--
+                        generated_rom_asm_str += f"""{"" if memory_address == self.program_memory_start else self.memory_indent}{memory_address} => x\"{translated_line[8]}{translated_line[9]}\",\t\t-- {("ISR Trap: " + line) if (isr_trap_reached and not isr_trap_end_reached) else line}"""  # -- #\t\t--
                         generated_rom_asm_str += f"""{self.memory_indent}{memory_address+1} => x\"{translated_line[10]}{translated_line[11]}\",\n"""
-                        if "TEXT Section .text:_isr," in line and not isr_trap_reached:
-                            isr_trap_reached = True
-                            StaticUtilities.logger.debug(f"Reached ISR Trap")
-                        if isr_trap_reached and not isr_trap_end_reached and "DATA Section" in line:
-                            isr_trap_end_reached = True
-                            StaticUtilities.logger.debug(f"Reached ISR Trap END")
-                            return generated_rom_asm_str
-                        # add elif's to handle vectors?
                     elif memory_address >= self.program_memory_start and len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()) and (":" not in line_str_list[14]):
                         StaticUtilities.logger.error(
                             f"{UnrecognizedInstructionError.__name__}: The instruction {line_str_list[14]} in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP")

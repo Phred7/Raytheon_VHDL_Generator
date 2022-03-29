@@ -1,18 +1,16 @@
-2022-03-28 22:44:00,958 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
-2022-03-28 22:44:00,958 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-03-28 22:44:03,535 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-03-28 22:44:03,536 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-03-28 22:44:03,537 DEBUG instrumentation instrument Instrumentation on main.c succeeded
-2022-03-28 22:44:07,324 DEBUG instrumentation build_phantom_project Phantom C project done building
-2022-03-28 22:44:07,357 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
-2022-03-28 22:44:09,664 DEBUG instrumentation instrument Phantom workspace hidden
-2022-03-28 22:44:09,664 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
-2022-03-28 22:44:09,665 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
-2022-03-28 22:44:09,665 DEBUG detection __init__ Detection object initialized
-2022-03-28 22:44:09,665 DEBUG detection <module> Project Hash: 72d9a70961c94b74b84de0c77c9148cd95b0eaf5ab0326720ee818957eede450
-2022-03-28 22:44:09,666 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
-line1: string.h. --string.h contains functions that can be exploited.--
-line2: (char* target) {. --no bad! No! Char* target--
-line3: strcpy(. --replace with strncpy or another safe function--
-
-2022-03-28 22:44:09,666 DEBUG detection <module> detection: Possibly found malware
+2022-03-29 11:55:59,052 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-03-29 11:55:59,053 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-03-29 11:55:59,054 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-03-29 11:55:59,055 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-03-29 11:55:59,056 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-03-29 11:55:59,056 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-03-29 11:55:59,056 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-03-29 11:55:59,057 DEBUG disassembler __init__ Disassembler object initialized
+2022-03-29 11:55:59,058 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-03-29 11:55:59,078 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-03-29 11:55:59,079 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-03-29 11:55:59,080 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-03-29 11:55:59,081 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-03-29 11:55:59,083 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-03-29 11:55:59,085 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-03-29 11:55:59,087 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interurpts Reading in lines from generated_disassembly.txt for baseline
