@@ -7,6 +7,7 @@
 """
 import sys
 import os
+from copy import deepcopy
 from typing import TextIO, List
 
 from ccs_project import CCSProject
@@ -196,8 +197,14 @@ end entity;\n"""
         :param computer_name: str name of the computer to generate a vhdl memory architecture for.
         :return: str representation of vhdl memory architecture.
         """
+#         return f"""architecture {computer_name}_memory_arch of {computer_name}_memory is\n
+# {self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_asm(computer_name)}{self.get_vhdl_irq_vectors()}{self.get_vhdl_memory_rom_end()}\n
+#     signal EN : std_logic;
+#     {self.get_vhdl_local_en_process()}\n
+#     {self.get_vhdl_memory_rom_process()}\n\n
+# end architecture;"""
         return f"""architecture {computer_name}_memory_arch of {computer_name}_memory is\n
-{self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_asm(computer_name)}{self.get_vhdl_irq_vectors()}{self.get_vhdl_memory_rom_end()}\n
+{self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_with_interurpts(computer_name)}{self.get_vhdl_irq_vectors()}{self.get_vhdl_memory_rom_end()}\n
     signal EN : std_logic;
     {self.get_vhdl_local_en_process()}\n
     {self.get_vhdl_memory_rom_process()}\n\n
@@ -270,6 +277,61 @@ constant ROM : rom_type :=("""
                 current_program_memory += 1
             else:
                 pass
+
+    def get_vhdl_memory_rom_with_interurpts(self, computer_name: str) -> str:
+        generated_rom_asm_str: str = ""
+        first_instruction_reached: bool = False
+        end_of_program_memory_reached: bool = False
+        isr_trap_reached: bool = False
+        isr_trap_end_reached: bool = False
+        computer_mnemonic_dictionary: {str, str} = self.get_computer_mnemonic_dictionary(computer_name)
+        StaticUtilities.logger.debug(f"Reading in lines from {self.disassembler_output_file_name} for {computer_name}")
+
+        with open(self.ccs_project.disassembly_file_path, 'r') as disassembly_file:
+            disassembly_file = iter(disassembly_file)
+            line: str = ""
+            while not end_of_program_memory_reached:
+                if not first_instruction_reached:
+                    line = next(disassembly_file)
+                    if self.ccs_project.c_project():
+                        if "MOV.W   #0x5a80,&WDTCTL_L" in line:
+                            first_instruction_reached = True
+                    else:
+                        if "MOV.W   #0x3000,SP" in line:
+                            first_instruction_reached = True
+                else:
+                    if len(line) < 2:
+                        line = next(disassembly_file)
+                        continue
+                    if line[0] == "0":
+                        memory_address: int = int(line[:line.index(":")], 16)
+                    line_str_list: List[str] = line.split(" ")
+
+                    if len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()):
+                        if f"{line_str_list[14]}.W" in computer_mnemonic_dictionary.keys():
+                            line_str_list[14] = f"{line_str_list[14]}.W"
+                    if (len(line_str_list) >= 15 and line_str_list[14] in computer_mnemonic_dictionary.keys()) or len(
+                            line_str_list) == 14:
+                        translated_line: str = deepcopy(line)
+                        if computer_name != "baseline" and len(line_str_list) != 14:
+                            translated_line = self.translate_opcode_with_mnemonic_dictionary(line_str_list, computer_mnemonic_dictionary)
+                        generated_rom_asm_str += f"""{"" if memory_address == self.program_memory_start else self.memory_indent}{memory_address} => x\"{translated_line[8]}{translated_line[9]}\",\t\t-- {"ISR Trap" if (isr_trap_reached and not isr_trap_end_reached) else line}"""  # -- #\t\t--
+                        generated_rom_asm_str += f"""{self.memory_indent}{memory_address+1} => x\"{translated_line[10]}{translated_line[11]}\",\n"""
+                        if "TEXT Section .text:_isr," in line and not isr_trap_reached:
+                            isr_trap_reached = True
+                            StaticUtilities.logger.debug(f"Reached ISR Trap")
+                        if isr_trap_reached and not isr_trap_end_reached and "DATA Section" in line:
+                            isr_trap_end_reached = True
+                            StaticUtilities.logger.debug(f"Reached ISR Trap END")
+                            return generated_rom_asm_str
+                        # add elif's to handle vectors?
+                    elif memory_address >= self.program_memory_start and len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()) and (":" not in line_str_list[14]):
+                        StaticUtilities.logger.error(
+                            f"{UnrecognizedInstructionError.__name__}: The instruction {line_str_list[14]} in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP")
+                        generated_rom_asm_str += f"""{"" if memory_address == self.program_memory_start else self.memory_indent}{memory_address} => x\"{self.nop_opcode[0]}{self.nop_opcode[1]}\",\t\t-- {UnrecognizedInstructionError.__name__}: Replaced with NOP\n"""  # -- #\t\t--
+                        generated_rom_asm_str += f"""{self.memory_indent}{memory_address+1} => x\"{computer_mnemonic_dictionary.get("NOP")}{self.nop_opcode[3]}\",\n"""
+                    line = next(disassembly_file)
+
 
     @staticmethod
     def get_vhdl_memory_rom_end() -> str:
@@ -478,10 +540,10 @@ end architecture;"""
         """
         self.remove_last_generated_vhd_files()
         StaticUtilities.logger.debug(f"Detection {'enabled' if detection else 'disabled'} while generating vhdl.")
-        if detection:
-            # Ex: Detection(path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", source_file="test_generated_ASM.asm")
-            _detection: Detection = Detection(path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\{self.binary_file_name}", source_file=f"{self.binary_file_name}.{'asm' if self.asm_file else 'c'}", pique_bin_bool=False, suppress_pique_bin_logs=False)
-            _detection.detect()
+        # if detection:
+        #     # Ex: Detection(path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", source_file="test_generated_ASM.asm")
+        #     _detection: Detection = Detection(path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\{self.binary_file_name}", source_file=f"{self.binary_file_name}.{'asm' if self.asm_file else 'c'}", pique_bin_bool=False, suppress_pique_bin_logs=False)
+        #     _detection.detect()
         disassembler: Disassembler = Disassembler(ccs_project=self.ccs_project)
         disassembler.disassemble()
         self.generate_vhdl_packages()

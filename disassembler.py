@@ -78,8 +78,7 @@ class Disassembler:
         else:
             StaticUtilities.logger.info(
                 f'Disassembler generated {self.disassembler_output_file_name} at the directory {self.disassembler_output_file_directory}')
-
-        self.ccs_project.set_disassembly_file_path(self.disassembler_output_file_directory)
+            self.ccs_project.set_disassembly_file_path(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
 
 
 if __name__ == '__main__':
