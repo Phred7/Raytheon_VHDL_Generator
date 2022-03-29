@@ -166,4 +166,4 @@ if __name__ == '__main__':
     detection: Detection = Detection(project, pique_bin_bool=False)
     StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
     detection.pique_bin_security_quality = 0.2
-    StaticUtilities.logger.debug(f"detection: {'No malware found' if detection.detect() else 'Found malware'}")
+    StaticUtilities.logger.debug(f"detection: {'No malware found' if detection.detect() else 'Possibly found malware'}")

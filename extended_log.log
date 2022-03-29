@@ -4438,3 +4438,58 @@ Running Raytheon VHDL Generator
 2022-03-28 14:21:00,169 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
 2022-03-28 14:21:00,170 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
 2022-03-28 14:21:00,171 WARNING package_zipper zip_vhdl Created zip _[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-03-28 22:31:53,765 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-28 22:31:53,765 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-28 22:31:56,013 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-28 22:31:56,014 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-28 22:31:56,015 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-28 22:32:00,225 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-28 22:32:00,257 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-28 22:32:01,953 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-28 22:32:01,954 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-28 22:32:01,954 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-03-28 22:32:01,954 DEBUG detection __init__ Detection object initialized
+2022-03-28 22:32:01,955 DEBUG detection <module> Project Hash: 3d7d9e0231775ff631d6c97a2968196954e1df052625aec150013392c9dc85c1
+2022-03-28 22:32:01,956 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+1: Replace string.h. --string.h contains functions that can be exploited.--
+2: Replace (char* target) {. --no bad! No! Char* target--
+3: Replace strcpy(. --replace with strncpy or another safe function--
+
+2022-03-28 22:32:01,956 DEBUG detection <module> detection: Found malware
+2022-03-28 22:33:32,410 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-28 22:33:32,411 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-28 22:33:34,582 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-28 22:33:34,583 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-28 22:33:34,584 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-28 22:33:38,283 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-28 22:33:38,317 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-28 22:33:39,968 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-28 22:33:39,968 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-28 22:33:39,969 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-03-28 22:33:39,969 DEBUG detection __init__ Detection object initialized
+2022-03-28 22:33:39,969 DEBUG detection <module> Project Hash: 1bc51294043237e49d8872238d54d6cc9d537c6523edcd01a4ece2096e4cf8e7
+2022-03-28 22:33:39,970 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: Replace string.h. --string.h contains functions that can be exploited.--
+line2: Replace (char* target) {. --no bad! No! Char* target--
+line3: Replace strcpy(. --replace with strncpy or another safe function--
+
+2022-03-28 22:33:39,970 DEBUG detection <module> detection: Possibly found malware
+2022-03-28 22:38:14,590 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-03-28 22:38:14,591 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-03-28 22:38:20,607 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-03-28 22:38:23,690 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-03-28 22:38:23,692 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-03-28 22:38:23,692 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-03-28 22:38:27,418 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-03-28 22:38:27,471 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-03-28 22:38:36,799 DEBUG instrumentation instrument Phantom workspace hidden
+2022-03-28 22:38:36,799 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-03-28 22:38:36,800 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-03-28 22:38:36,800 DEBUG detection __init__ Detection object initialized
+2022-03-28 22:38:36,800 DEBUG detection <module> Project Hash: 6b33c483697cc8fc4deb3589c8b872a92d21526459dbadf22f31f51545e0e6f6
+2022-03-28 22:38:36,803 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: Replace string.h. --string.h contains functions that can be exploited.--
+line2: Replace (char* target) {. --no bad! No! Char* target--
+line3: Replace strcpy(. --replace with strncpy or another safe function--
+
+2022-03-28 22:38:49,485 DEBUG detection <module> detection: Possibly found malware

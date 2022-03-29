@@ -43,15 +43,23 @@ class DetectionInC(DetectionStrategy):
         return_string: str = ""
         insecure_patterns: List[str] = ["string.h",
                                         "\(.*?char\* (\w+).+\).*?{",
-                                        "strcpy\("]
+                                        "strcpy\(",
+                                        "strcat\(",
+                                        "printf\(",
+                                        "sprintf\(",
+                                        "gets\("]
         insecure_patterns_flags = [0, re.I, 0]
         insecure_patterns_recommended_replacement_dict:  Dict[str, str] = {insecure_patterns[0]: "--string.h contains functions that can be exploited.--",
                                                                            insecure_patterns[1]: "--no bad! No! Char* target--",
-                                                                           insecure_patterns[2]: "--replace with strncpy--"}
+                                                                           insecure_patterns[2]: "--replace with strncpy or another safe function--",
+                                                                           insecure_patterns[3]: "--replace with strncat or another safe function--",
+                                                                           insecure_patterns[4]: "--may want to replace with a different function--",
+                                                                           insecure_patterns[5]: "--may want to replace with a different function--",
+                                                                           insecure_patterns[6]: "--replace with fgets or another safe function--"}
         detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns, insecure_patterns_flags)
         for key in detected_patterns_dict:
             line_number, pattern = key
-            return_string += f"{line_number}: Replace {detected_patterns_dict[key].string[detected_patterns_dict[key].start():detected_patterns_dict[key].end()].strip()}. {insecure_patterns_recommended_replacement_dict.get(pattern)}\n"
+            return_string += f"line{line_number}: Replace {detected_patterns_dict[key].string[detected_patterns_dict[key].start():detected_patterns_dict[key].end()].strip()}. {insecure_patterns_recommended_replacement_dict.get(pattern)}\n"
         if return_string != "":
             return_string = f"Buffer Overflow Detection Recommendations\n{return_string}"
             StaticUtilities.logger.info(return_string)
