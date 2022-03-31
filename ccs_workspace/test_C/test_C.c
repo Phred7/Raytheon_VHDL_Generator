@@ -30,7 +30,6 @@ int main(void) {
 
     _enable_interrupt();        //Enable interrupts;
     while(1){
-        return 0;
     }
 }
 

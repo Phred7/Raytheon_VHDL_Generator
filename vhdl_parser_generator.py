@@ -9,7 +9,7 @@ import re
 import sys
 import os
 from copy import deepcopy
-from typing import TextIO, List
+from typing import TextIO, List, Optional
 
 from ccs_project import CCSProject
 from package_zipper import PackageZipper
@@ -204,7 +204,7 @@ end entity;\n"""
 #     {self.get_vhdl_memory_rom_process()}\n\n
 # end architecture;"""
         return f"""architecture {computer_name}_memory_arch of {computer_name}_memory is\n
-{self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_with_interurpts(computer_name)}{self.get_vhdl_irq_vectors()}{self.get_vhdl_memory_rom_end()}\n
+{self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_with_interrupts(computer_name)}{self.get_vhdl_reset_vector()}{self.get_vhdl_memory_rom_end()}\n
     signal EN : std_logic;
     {self.get_vhdl_local_en_process()}\n
     {self.get_vhdl_memory_rom_process()}\n\n
@@ -230,7 +230,7 @@ constant ROM : rom_type :=("""
         :return: str representation of a line with modification specified by computer_mnemonic_dictionary.
         """
         opcode_hex_chars: list[str] = list(line_str_list[1])
-        opcode_hex_chars[2] = computer_mnemonic_dictionary.get(line_str_list[14])
+        opcode_hex_chars[2] = computer_mnemonic_dictionary.get(line_str_list[14]) if computer_mnemonic_dictionary.get(line_str_list[14]) else opcode_hex_chars[2]
         line_str_list[1] = ''.join(opcode_hex_chars)
         return ' '.join(line_str_list)
 
@@ -278,13 +278,15 @@ constant ROM : rom_type :=("""
             else:
                 pass
 
-    def get_vhdl_memory_rom_with_interurpts(self, computer_name: str) -> str:
+    def get_vhdl_memory_rom_with_interrupts(self, computer_name: str) -> str:
         generated_rom_asm_str: str = ""
         current_tag_name: str = ""
         first_instruction_reached: bool = False
         end_of_program_memory_reached: bool = False
         isr_trap_reached: bool = False
         isr_trap_end_reached: bool = False
+        irq_reached: bool = False
+        memory_address: int = 0
         computer_mnemonic_dictionary: {str, str} = self.get_computer_mnemonic_dictionary(computer_name)
         StaticUtilities.logger.debug(f"Reading in lines from {self.disassembler_output_file_name} for {computer_name}")
 
@@ -292,58 +294,121 @@ constant ROM : rom_type :=("""
             disassembly_file = iter(disassembly_file)
             line: str = ""
             while not end_of_program_memory_reached:
-                if not first_instruction_reached:
-                    line = next(disassembly_file)
-                    split_line: List[str] = line.split(" ")
-                    if len(split_line) == 15:
-                        match = re.match("(\w+):\\n", split_line[14], re.I)
-                        if match is not None:
-                            current_tag_name = match.string[:-2]
-                    if self.ccs_project.c_project():
-                        if "MOV.W   #0x5a80,&WDTCTL_L" in line:
-                            first_instruction_reached = True
-                    else:
-                        if "MOV.W   #0x3000,SP" in line:
-                            first_instruction_reached = True
-                else:
-                    if len(line) < 2:
+                try:
+                    if "TEXT Section .text:_isr," in line and not isr_trap_reached:
+                        generated_rom_asm_str += f"""{self.memory_indent}-- ISR Trap\n"""
+                        isr_trap_reached = True
+                        line = next(disassembly_file)
+                        line = next(disassembly_file)
+                        line = next(disassembly_file)
+                        StaticUtilities.logger.debug(f"Reached ISR Trap")
+
+                    if not first_instruction_reached:
+                        """Generates program memory in TEXT Section .text,"""
+                        line = next(disassembly_file)
+
+                        # gets the name of the main function or tag. TODO: into a function
+                        split_line: List[str] = line.split(" ")
+                        if len(split_line) == 15:
+                            match = re.match("(\w+|\$):\\n", split_line[14], re.I)
+                            if match is not None:
+                                current_tag_name = match.string[:-2]
+
+                        if self.ccs_project.c_project():
+                            if "MOV.W   #0x5a80,&WDTCTL_L" in line:
+                                first_instruction_reached = True
+                        else:
+                            if "MOV.W   #0x3000,SP" in line:
+                                first_instruction_reached = True
+
+                    elif isr_trap_end_reached:
+                        """Generates interrupt vectors"""
+                        if not irq_reached:
+                            generated_rom_asm_str += f"""{self.memory_indent}-- IRQ Vectors (Interrupt Vectors)\n"""
+                            irq_reached = True
+
+                        while "DATA Section" not in line and "TEXT Section" not in line:
+                            line = next(disassembly_file)
+
+                        # Handles Data and Text sections that shouldn't be generated
+                        if "DATA Section $" in line or "DATA Section .reset" in line or "TEXT Section" in line:
+                            line = next(disassembly_file)
+                            continue
+
+                        line = next(disassembly_file)
+
+                        memory_address = self.get_memory_address_from_line(line) if self.get_memory_address_from_line(
+                            line) != 0 else memory_address
+
+                        split_line: List[str] = line.split(" ")
+                        tag_name: str = re.match("(\w+|\$):\\n", split_line[14], re.I).string[:-2]
+                        split_line = str(next(disassembly_file)).split(" ")
+                        vector: str = re.search("(\w+|\d+)", split_line[14], re.I).string[1:-2]
+                        split_line = str(next(disassembly_file)).split(" ")
+                        name: str = re.match("(\w+|\$):\\n", split_line[14], re.I).string[:-2]
+
+                        translated_line: str = deepcopy(next(disassembly_file))
+                        if computer_name != "baseline" and len(translated_line.split(" ")) != 14:
+                            translated_line = self.translate_opcode_with_mnemonic_dictionary(translated_line.split(" "),
+                                                                                             computer_mnemonic_dictionary)
+                        tab_char: str = "\t"
+                        generated_rom_asm_str += f"""{self.memory_indent}{memory_address} => x\"{translated_line[8]}{translated_line[9]}\",\t\t-- {translated_line[:translated_line.index(".")].replace(" ", "").replace(tab_char, "")} {name} {tag_name} {vector}\n"""
+                        generated_rom_asm_str += f"""{self.memory_indent}{memory_address+1} => x\"{translated_line[10]}{translated_line[11]}\",\n"""
+
+                        # generated_rom_asm_str += f"""{"" if memory_address == self.program_memory_start else self.memory_indent}{memory_address} => x\"{translated_line[8]}{translated_line[9]}\",\t\t-- {line}"""  # -- #\t\t--
+                        # generated_rom_asm_str += f"""{self.memory_indent}{memory_address + 1} => x\"{translated_line[10]}{translated_line[11]}\",\n"""
+
                         line = next(disassembly_file)
                         continue
-                    if line[0] == "0":
-                        memory_address: int = int(line[:line.index(":")], 16)
-                    line_str_list: List[str] = line.split(" ")
 
+                    else:
+                        """Generates program memory in TEXT Section .text,"""
+                        if len(line) < 2:
+                            line = next(disassembly_file)
+                            continue
 
+                        memory_address = self.get_memory_address_from_line(line) if self.get_memory_address_from_line(
+                            line) != 0 else memory_address
 
-                    if "TEXT Section .text:_isr," in line and not isr_trap_reached:
-                        isr_trap_reached = True
-                        StaticUtilities.logger.debug(f"Reached ISR Trap")
-                        continue
-                    elif isr_trap_reached and not isr_trap_end_reached and "DATA Section" in line:
-                        isr_trap_end_reached = True
-                        StaticUtilities.logger.debug(f"Reached ISR Trap END")
-                        # continue
-                        return generated_rom_asm_str
-                    # elif
-                    # add elif's to handle vectors?
+                        line_str_list: List[str] = line.split(" ")
 
-                    if len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()):
-                        if f"{line_str_list[14]}.W" in computer_mnemonic_dictionary.keys():
-                            line_str_list[14] = f"{line_str_list[14]}.W"
-                    if (len(line_str_list) >= 15 and line_str_list[14] in computer_mnemonic_dictionary.keys()) or len(
-                            line_str_list) == 14:
-                        translated_line: str = deepcopy(line)
-                        if computer_name != "baseline" and len(line_str_list) != 14:
-                            translated_line = self.translate_opcode_with_mnemonic_dictionary(line_str_list, computer_mnemonic_dictionary)
-                        generated_rom_asm_str += f"""{"" if memory_address == self.program_memory_start else self.memory_indent}{memory_address} => x\"{translated_line[8]}{translated_line[9]}\",\t\t-- {("ISR Trap: " + line) if (isr_trap_reached and not isr_trap_end_reached) else line}"""  # -- #\t\t--
-                        generated_rom_asm_str += f"""{self.memory_indent}{memory_address+1} => x\"{translated_line[10]}{translated_line[11]}\",\n"""
-                    elif memory_address >= self.program_memory_start and len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()) and (":" not in line_str_list[14]):
-                        StaticUtilities.logger.error(
-                            f"{UnrecognizedInstructionError.__name__}: The instruction {line_str_list[14]} in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP")
-                        generated_rom_asm_str += f"""{"" if memory_address == self.program_memory_start else self.memory_indent}{memory_address} => x\"{self.nop_opcode[0]}{self.nop_opcode[1]}\",\t\t-- {UnrecognizedInstructionError.__name__}: Replaced with NOP\n"""  # -- #\t\t--
-                        generated_rom_asm_str += f"""{self.memory_indent}{memory_address+1} => x\"{computer_mnemonic_dictionary.get("NOP")}{self.nop_opcode[3]}\",\n"""
-                    line = next(disassembly_file)
+                        # gets the name of the current tag of function and adds it as a comment.
+                        if len(line_str_list) == 15:
+                            match = re.match("(\w+|\$):\\n", line_str_list[14], re.I)
+                            if match is not None:
+                                current_tag_name = match.string[:-2]
+                                generated_rom_asm_str += f"""{self.memory_indent}-- Begin: {current_tag_name}\n"""
 
+                        if len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()):
+                            if f"{line_str_list[14]}.W" in computer_mnemonic_dictionary.keys():
+                                line_str_list[14] = f"{line_str_list[14]}.W"
+                        if (len(line_str_list) >= 15 and line_str_list[
+                            14] in computer_mnemonic_dictionary.keys()) or len(
+                                line_str_list) == 14:
+                            translated_line: str = deepcopy(line)
+                            if computer_name != "baseline" and len(line_str_list) != 14:
+                                translated_line = self.translate_opcode_with_mnemonic_dictionary(line_str_list,
+                                                                                                 computer_mnemonic_dictionary)
+                            generated_rom_asm_str += f"""{"" if memory_address == self.program_memory_start else self.memory_indent}{memory_address} => x\"{translated_line[8]}{translated_line[9]}\",\t\t-- {line}"""  # -- #\t\t--
+                            generated_rom_asm_str += f"""{self.memory_indent}{memory_address + 1} => x\"{translated_line[10]}{translated_line[11]}\",\n"""
+
+                            if isr_trap_reached and not isr_trap_end_reached and "NOP" in line:
+                                isr_trap_end_reached = True
+                                StaticUtilities.logger.debug("Reached end of ISR Trap")
+
+                        elif memory_address >= self.program_memory_start and len(line_str_list) >= 15 and not (
+                                line_str_list[14] in computer_mnemonic_dictionary.keys()) and (
+                                ":" not in line_str_list[14]):
+                            StaticUtilities.logger.error(
+                                f"{UnrecognizedInstructionError.__name__}: The instruction {line_str_list[14]} in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP")
+                            generated_rom_asm_str += f"""{"" if memory_address == self.program_memory_start else self.memory_indent}{memory_address} => x\"{self.nop_opcode[0]}{self.nop_opcode[1]}\",\t\t-- {UnrecognizedInstructionError.__name__}: Replaced with NOP\n"""  # -- #\t\t--
+                            generated_rom_asm_str += f"""{self.memory_indent}{memory_address + 1} => x\"{computer_mnemonic_dictionary.get("NOP")}{self.nop_opcode[3]}\",\n"""
+                        line = next(disassembly_file)
+
+                except StopIteration:
+                    end_of_program_memory_reached = True
+
+        return generated_rom_asm_str
 
     @staticmethod
     def get_vhdl_memory_rom_end() -> str:
@@ -355,12 +420,12 @@ constant ROM : rom_type :=("""
                            others => x"00");"""
 
     @staticmethod
-    def get_vhdl_irq_vectors() -> str:
+    def get_vhdl_reset_vector() -> str:
         """
-        Gets the str representation of the vhdl irq vectors (interrupts).
-        :return: str representation of the vhdl irq vectors (interrupts).
+        Gets the str representation of the vhdl reset vectors (interrupts).
+        :return: str representation of the vhdl reset vectors (interrupts).
         """
-        return """        -- IRQ Vectors (Interrupts)
+        return """
                            65534 =>  x"00",\t\t-- Reset Vector = xFFFE:xFFFF
                            65535 =>  x"80",\t\t--  Startup Value = x8000"""
 
@@ -530,6 +595,12 @@ architecture data_memory_arch of data_memory is
 end architecture;"""
 
     @staticmethod
+    def get_memory_address_from_line(line: str) -> int:
+        if line[0] == "0":
+            return int(line[:line.index(":")], 16)
+        return 0
+
+    @staticmethod
     def get_computer_mnemonic_dictionary(computer_name: str) -> {str, str}:
         """
         Gets the computer_mnemonic_dictionary for the computer with the name specified by computer_name.
@@ -575,7 +646,7 @@ def main() -> None:
     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
     vhdl_parser_generator.generate_vhdl()
     package_zipper: PackageZipper = PackageZipper()
-    package_zipper.zip_vhdl(zip_file_name="")
+    package_zipper.zip_vhdl(zip_file_name="interrupt_demo_03_31_2022")
 
 
 if __name__ == '__main__':
