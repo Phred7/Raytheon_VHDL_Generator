@@ -5309,3 +5309,21 @@ line3: strcpy(. --replace with strncpy or another safe function--
 2022-03-31 00:55:47,754 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
 2022-03-31 00:55:47,755 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
 2022-03-31 00:55:47,756 INFO package_zipper zip_vhdl Created zip interrupt_demo_03_31_2022.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-01 14:46:16,591 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-01 14:46:16,592 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-01 14:46:20,023 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-01 14:46:20,025 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-01 14:46:20,026 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-01 14:46:26,493 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-01 14:46:26,552 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-01 14:46:29,605 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-01 14:46:29,605 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-01 14:46:29,605 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-01 14:46:29,606 DEBUG detection __init__ Detection object initialized
+2022-04-01 14:46:29,607 DEBUG detection <module> Project Hash: 85cbd6de8e13becc35e37acf419de5c4b0d1085a08bb5dab57afd02fc743fc88
+2022-04-01 14:46:29,609 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-01 14:46:29,610 DEBUG detection <module> detection: Possibly found malware
