@@ -21,12 +21,12 @@ int main(void)
 	WDTCTL = WDTPW | WDTHOLD;	
 	char message[8] = "MESSAGE";
 
-char* status_avmbbzuuif;
+char* status_zzmcbzrgpv;
 	int status = 0;
 ;
-char* status_koauannifn;
-buff_value(status_avmbbzuuif);
-buff_value(status_koauannifn);
+char* status_nmoaimtxif;
+buff_value(status_zzmcbzrgpv);
+buff_value(status_nmoaimtxif);
 	if (status == 0) {
 
 	    printf(message);

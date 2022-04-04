@@ -352,8 +352,8 @@ constant ROM : rom_type :=("""
                             translated_line = self.translate_opcode_with_mnemonic_dictionary(translated_line.split(" "),
                                                                                              computer_mnemonic_dictionary)
                         tab_char: str = "\t"
-                        generated_rom_asm_str += f"""{self.memory_indent}{memory_address} => x\"{translated_line[8]}{translated_line[9]}\",\t\t-- {translated_line[:translated_line.index(".")].replace(" ", "").replace(tab_char, "")} {name} {tag_name} {vector}\n"""
-                        generated_rom_asm_str += f"""{self.memory_indent}{memory_address+1} => x\"{translated_line[10]}{translated_line[11]}\",\n"""
+                        generated_rom_asm_str += f"""{self.memory_indent}{memory_address} => x\"{translated_line[10]}{translated_line[11]}\",\t\t-- {translated_line[:translated_line.index(".")].replace(" ", "").replace(tab_char, "")} {name} {tag_name} {vector}\n"""
+                        generated_rom_asm_str += f"""{self.memory_indent}{memory_address+1} => x\"{translated_line[8]}{translated_line[9]}\",\n"""
 
                         # generated_rom_asm_str += f"""{"" if memory_address == self.program_memory_start else self.memory_indent}{memory_address} => x\"{translated_line[8]}{translated_line[9]}\",\t\t-- {line}"""  # -- #\t\t--
                         # generated_rom_asm_str += f"""{self.memory_indent}{memory_address + 1} => x\"{translated_line[10]}{translated_line[11]}\",\n"""
@@ -646,7 +646,7 @@ def main() -> None:
     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
     vhdl_parser_generator.generate_vhdl()
     package_zipper: PackageZipper = PackageZipper()
-    package_zipper.zip_vhdl(zip_file_name="interrupt_demo_03_31_2022")
+    package_zipper.zip_vhdl(zip_file_name="interrupt_demo_04_04_2022")
 
 
 if __name__ == '__main__':
