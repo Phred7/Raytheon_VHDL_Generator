@@ -127,9 +127,9 @@ class Detection:
             return True
         return self.hashed_files_dict[file_name_key] == self.ccs_project.__hash__()
 
-
-def reset_test_project() -> None:
-    base_file = """
+    @staticmethod
+    def reset_test_project() -> None:
+        base_file = """
 #include <msp430.h> 
 #include <stdio.h>
 /**
@@ -148,12 +148,12 @@ int main(void)
 	return 0;
 }
     """
-    with open(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target\main.c", 'w') as file:
-        file.write(base_file)
+        with open(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target\main.c", 'w') as file:
+            file.write(base_file)
 
 
 if __name__ == '__main__':
-    reset_test_project()
+    Detection.reset_test_project()
     project: CCSProject = CCSProject(source_file="main.c",
                                      project_name="test_target",
                                      path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
@@ -161,8 +161,6 @@ if __name__ == '__main__':
     instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
     instrumentation.instrument()
 
-    project: CCSProject = CCSProject(path=StaticUtilities.project_root_directory() + r"\ccs_workspace\test_target",
-                                     source_file="main.c")
     detection: Detection = Detection(project, pique_bin_bool=False)
     StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
     detection.pique_bin_security_quality = 0.2

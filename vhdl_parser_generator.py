@@ -646,7 +646,7 @@ def main() -> None:
     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
     vhdl_parser_generator.generate_vhdl()
     package_zipper: PackageZipper = PackageZipper()
-    package_zipper.zip_vhdl(zip_file_name="closed_loop_control_demo_04_04_2022")
+    package_zipper.zip_vhdl(zip_file_name="04_04_2022")
 
 
 if __name__ == '__main__':
