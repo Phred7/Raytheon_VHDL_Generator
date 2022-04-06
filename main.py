@@ -5,8 +5,10 @@
 # Dr. Brock LaMeres
 # Written by Michael Heidal and Walker Ward
 """
+from detection import Detection
 from ccs_project import CCSProject
 from disassembler import Disassembler
+from instrument_buffer_overflow_attack import BufferOverflowAttack
 from instrumentation import Instrumentation
 from instrument_int_overflow_attack import IntOverflowAttack
 from package_zipper import PackageZipper
@@ -49,9 +51,41 @@ class Main:
         pass
 
     @staticmethod
+    def demo() -> None:
+        """
+        For demoing instrumentation and detection.
+        :return: None.
+        """
+        Detection.reset_test_project()
+        project: CCSProject = CCSProject(source_file="main.c",
+                                         project_name="test_target",
+                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                                         )
+
+        # instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
+        # instrumentation.instrument()
+
+        detection: Detection = Detection(project, pique_bin_bool=False)
+        StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
+        detection.pique_bin_security_quality = 0.2
+        results: bool = detection.detect()
+        StaticUtilities.logger.debug(
+            f"detection: {'No malware found' if results else 'Possible malware detected'}")
+        if results:
+            vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=project)
+            vhdl_parser_generator.generate_vhdl()
+            zip_name: str = ""
+            package_zipper: PackageZipper = PackageZipper()
+            package_zipper.zip_vhdl(zip_file_name=zip_name)
+            StaticUtilities.logger.info(f"VHDL generated: \\generated_vhdl\\{zip_name}.zip")
+        else:
+            StaticUtilities.logger.error(f"VHDL did not generate. Possible malware detected.")
+
+    @staticmethod
     def debug_main() -> None:
         """
         For debug of this project's workflow and functionality.
+        :return: None.
         """
         pass
 
@@ -59,16 +93,16 @@ class Main:
     def generate_vhdl_exclusively() -> None:
         """
         Generates VHDL for a source file. Bypasses the rest of the toolchain.
+        :return: None.
         """
-        ccs_project_path_from_root: str = "\\ccs_workspace\\test_C"
-        ccs_project_binary_file_path: str = f"{StaticUtilities.project_root_directory()}{ccs_project_path_from_root}\\Debug\\test_C.out"
-        ccs_project: CCSProject = CCSProject(path=f"{StaticUtilities.project_root_directory()}{ccs_project_path_from_root}", source_file="test_C.c", binary_file_path=ccs_project_binary_file_path)
-        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project, binary_file_name="test_C", asm_file=False)
-        vhdl_parser_generator.generate_vhdl(detection=False)
+        ccs_project: CCSProject = CCSProject(project_name="test_C", source_file="test_C.c",
+                                             path=f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C")
+        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
+        vhdl_parser_generator.generate_vhdl()
         package_zipper: PackageZipper = PackageZipper()
-        package_zipper.zip_vhdl(zip_file_name="interrupt_demo_03_23_2022")
+        package_zipper.zip_vhdl(zip_file_name="")
 
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.generate_vhdl_exclusively()
+    main.demo()
