@@ -350,10 +350,6 @@ constant ROM : rom_type :=("""
                         tab_char: str = "\t"
                         generated_rom_asm_str += f"""{self.memory_indent}{memory_address} => x\"{translated_line[10]}{translated_line[11]}\",\t\t-- {translated_line[:translated_line.index(".")].replace(" ", "").replace(tab_char, "")} {name} {tag_name} {vector}\n"""
                         generated_rom_asm_str += f"""{self.memory_indent}{memory_address+1} => x\"{translated_line[8]}{translated_line[9]}\",\n"""
-
-                        # generated_rom_asm_str += f"""{"" if memory_address == self.program_memory_start else self.memory_indent}{memory_address} => x\"{translated_line[8]}{translated_line[9]}\",\t\t-- {line}"""  # -- #\t\t--
-                        # generated_rom_asm_str += f"""{self.memory_indent}{memory_address + 1} => x\"{translated_line[10]}{translated_line[11]}\",\n"""
-
                         line = next(disassembly_file)
                         continue
 
@@ -616,7 +612,7 @@ end architecture;"""
         :return: None.
         """
         self.remove_last_generated_vhd_files()
-        disassembler: Disassembler = Disassembler(ccs_project=self.ccs_project)
+        disassembler: Disassembler = Disassembler(ccs_project_to_disassemble=self.ccs_project)
         disassembler.disassemble()
         self.generate_vhdl_packages()
         self.generate_vhdl_data_memory()
