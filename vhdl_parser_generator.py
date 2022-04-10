@@ -298,7 +298,6 @@ constant ROM : rom_type :=("""
                         line = next(disassembly_file)
                         line = next(disassembly_file)
                         line = next(disassembly_file)
-                        StaticUtilities.logger.debug(f"Reached ISR Trap")
 
                     if not first_instruction_reached:
                         """Generates program memory in TEXT Section .text,"""
@@ -391,7 +390,6 @@ constant ROM : rom_type :=("""
 
                             if isr_trap_reached and not isr_trap_end_reached and "NOP" in line:
                                 isr_trap_end_reached = True
-                                StaticUtilities.logger.debug("Reached end of ISR Trap")
 
                         elif memory_address >= self.program_memory_start and len(line_str_list) >= 15 and not (
                                 line_str_list[14] in computer_mnemonic_dictionary.keys()) and (
