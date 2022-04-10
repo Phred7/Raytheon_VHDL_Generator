@@ -8,7 +8,8 @@ rule Yara_Test {
 
     strings:
         a$ = "xyz"
+        b$ = "abc"
 
     condition:
-        any of them
+        $a or $b
 }
