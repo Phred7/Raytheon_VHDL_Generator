@@ -9,7 +9,7 @@ import re
 import sys
 import os
 from copy import deepcopy
-from typing import TextIO, List, Optional
+from typing import TextIO, List
 
 from ccs_project import CCSProject
 from package_zipper import PackageZipper
@@ -19,7 +19,7 @@ from static_utilities import StaticUtilities
 
 
 class UnrecognizedInstructionError(Exception):
-    """A instruction in the generated disassembly was not recognized by the computer_mnemonic_dictionary"""
+    """An instruction in the generated disassembly was not recognized by the computer_mnemonic_dictionary"""
     pass
 
 
@@ -612,18 +612,12 @@ end architecture;"""
         else:
             return ComputerMnemonicDictionary.baseline()
 
-    def generate_vhdl(self, *, detection: bool = False):
+    def generate_vhdl(self):
         """
         Executes other methods in the correct order to generate VHDL for generated disassembly.
-        :param detection: Bool representation of whether to attempt to detect malware and vulnerabilities within a file.
         :return: None.
         """
         self.remove_last_generated_vhd_files()
-        StaticUtilities.logger.debug(f"Detection {'enabled' if detection else 'disabled'} while generating vhdl.")
-        # if detection:
-        #     # Ex: Detection(path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", source_file="test_generated_ASM.asm")
-        #     _detection: Detection = Detection(path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\{self.binary_file_name}", source_file=f"{self.binary_file_name}.{'asm' if self.asm_file else 'c'}", pique_bin_bool=False, suppress_pique_bin_logs=False)
-        #     _detection.detect()
         disassembler: Disassembler = Disassembler(ccs_project=self.ccs_project)
         disassembler.disassemble()
         self.generate_vhdl_packages()
