@@ -51,6 +51,16 @@ class Main:
         pass
 
     @staticmethod
+    def detection(project: CCSProject, security_quality: float) -> bool:
+        detection: Detection = Detection(project, pique_bin_bool=False)
+        StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
+        detection.pique_bin_security_quality = security_quality
+        results: bool = detection.detect()
+        StaticUtilities.logger.debug(
+            f"detection: {'No malware found' if results else 'Possible malware detected'}")
+        return results
+
+    @staticmethod
     def demo() -> None:
         """
         For demoing instrumentation and detection.
@@ -61,32 +71,16 @@ class Main:
                                          project_name="test_target",
                                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
                                          )
-
-        # instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
-        # instrumentation.instrument()
-
-        detection: Detection = Detection(project, pique_bin_bool=False)
-        StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
-        detection.pique_bin_security_quality = 0.95
-        results: bool = detection.detect()
-        StaticUtilities.logger.debug(
-            f"detection: {'No malware found' if results else 'Possible malware detected'}")
+        results: bool = Main.detection(project, 0.95)
         Main.__generate_vhdl(results)
-        # wait for something?
-        Detection.reset_test_project()
-        project: CCSProject = CCSProject(source_file="main.c",
-                                         project_name="test_target",
-                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                                         )
 
+        project = CCSProject(source_file="main.c",
+                             project_name="test_target",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                             )
         instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
         instrumentation.instrument()
-        detection: Detection = Detection(project, pique_bin_bool=False)
-        StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
-        detection.pique_bin_security_quality = 0.2
-        results: bool = detection.detect()
-        StaticUtilities.logger.debug(
-            f"detection: {'No malware found' if results else 'Possible malware detected'}")
+        results: bool = Main.detection(project, 0.35)
         Main.__generate_vhdl(results)
 
     @staticmethod
@@ -130,3 +124,4 @@ class Main:
 if __name__ == '__main__':
     main: Main = Main()
     main.demo()
+    Detection.reset_test_project()
