@@ -37,8 +37,8 @@ class Disassembler:
         - Checks if the output file already exists. If so removes it.
         - Runs dis430.exe on the input file and output file.
         - Checks the exit status of the dis430.exe.
-        - Note: Extremely dependant on package structure.
-        :raise: OSError if the input file does not exists.
+        - Note: Extremely dependent on package structure.
+        :raise: OSError if the input file does not exist.
         :raise: OSError if the disassembler failed.
         """
 
