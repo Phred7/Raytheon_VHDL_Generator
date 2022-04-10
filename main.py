@@ -67,11 +67,35 @@ class Main:
 
         detection: Detection = Detection(project, pique_bin_bool=False)
         StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
+        detection.pique_bin_security_quality = 0.95
+        results: bool = detection.detect()
+        StaticUtilities.logger.debug(
+            f"detection: {'No malware found' if results else 'Possible malware detected'}")
+        Main.__generate_vhdl(results)
+        # wait for something?
+        Detection.reset_test_project()
+        project: CCSProject = CCSProject(source_file="main.c",
+                                         project_name="test_target",
+                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                                         )
+
+        instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
+        instrumentation.instrument()
+        detection: Detection = Detection(project, pique_bin_bool=False)
+        StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
         detection.pique_bin_security_quality = 0.2
         results: bool = detection.detect()
         StaticUtilities.logger.debug(
             f"detection: {'No malware found' if results else 'Possible malware detected'}")
-        if results:
+        Main.__generate_vhdl(results)
+
+    @staticmethod
+    def __generate_vhdl(detection_results: bool) -> None:
+        project: CCSProject = CCSProject(source_file="main.c",
+                                         project_name="test_target",
+                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                                         )
+        if detection_results:
             vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=project)
             vhdl_parser_generator.generate_vhdl()
             zip_name: str = ""
