@@ -18,13 +18,10 @@ class Disassembler:
     Disassembles an MSP430 binary.
     """
 
-    # TODO: integrate CCSProject class. Not sure exactly what these fields do, need to clarify that. -Mike
-    # TODO: make it so the input file doesn't need to match the binary file name but defaults to that. Also add check to make sure both the project and file exist.
     def __init__(self, ccs_project_to_disassemble: CCSProject, *, disassembler_output_file_name: str = "generated_disassembly.txt") -> None:
         self.ccs_project: CCSProject = ccs_project_to_disassemble
         self.disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
         self.disassembler_executable: str = r'dis430.exe'
-        self.disassembler_input_file_name: str = ccs_project_to_disassemble.binary_file_path
         self.disassembler_output_file_name: str = disassembler_output_file_name
         self.disassembler_output_file_directory: str = rf"{StaticUtilities.project_root_directory()}\generated_disassembly"
         self.disassembler_exit_status: int = 0
