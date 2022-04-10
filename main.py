@@ -5,6 +5,8 @@
 # Dr. Brock LaMeres
 # Written by Michael Heidal and Walker Ward
 """
+import logging
+
 from detection import Detection
 from ccs_project import CCSProject
 from disassembler import Disassembler
@@ -56,16 +58,20 @@ class Main:
         StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
         detection.pique_bin_security_quality = security_quality
         results: bool = detection.detect()
-        StaticUtilities.logger.debug(
-            f"detection: {'No malware found' if results else 'Possible malware detected'}")
+        if not results:
+            StaticUtilities.logger.warning(f"detection: Possible malware detected")
+        else:
+            StaticUtilities.logger.info(f"detection: No malware found")
         return results
 
     @staticmethod
     def demo() -> None:
         """
         For demoing instrumentation and detection.
+
         :return: None.
         """
+        StaticUtilities.logger.setLevel(logging.INFO)
         Detection.reset_test_project()
         project: CCSProject = CCSProject(source_file="main.c",
                                          project_name="test_target",
@@ -124,4 +130,4 @@ class Main:
 if __name__ == '__main__':
     main: Main = Main()
     main.demo()
-    Detection.reset_test_project()
+    # Detection.reset_test_project()
