@@ -68,7 +68,6 @@ class Main:
     def demo() -> None:
         """
         For demoing instrumentation and detection.
-
         :return: None.
         """
         StaticUtilities.logger.setLevel(logging.INFO)
