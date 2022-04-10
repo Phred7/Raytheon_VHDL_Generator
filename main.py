@@ -59,7 +59,7 @@ class Main:
         detection.pique_bin_security_quality = security_quality
         results: bool = detection.detect()
         if not results:
-            StaticUtilities.logger.warning(f"detection: Possible malware detected")
+            StaticUtilities.logger.warning(f"detection: Possible malware detected\n{detection.possible_vulnerabilities()}")
         else:
             StaticUtilities.logger.info(f"detection: No malware found")
         return results

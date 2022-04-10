@@ -6,7 +6,7 @@
 # Written by Walker Ward
 """
 from abc import ABC, abstractmethod
-from typing import Match, Dict, Any, List
+from typing import Match, Any, List, Dict
 
 from ccs_project import CCSProject
 from static_utilities import StaticUtilities
@@ -19,6 +19,8 @@ class DetectionStrategy(ABC):
 
     def __init__(self, ccs_project: CCSProject) -> None:
         self.ccs_project: CCSProject = ccs_project
+        self.vulnerability_string_dict: Dict[int, List[str]] = {}
+        self.return_string: str = ""
         self.type = self.__class__.__name__
         StaticUtilities.logger.debug(f"{DetectionStrategy.__name__} object of type {self.type} initialized")
 
@@ -63,3 +65,21 @@ class DetectionStrategy(ABC):
         :return: True if an injection attack was detected in this file. Otherwise, False.
         """
         pass
+
+    def possible_vulnerabilities(self) -> str:
+        """
+        Note: This method is memoized.
+        """
+        if self.return_string == "":
+            for key in self.vulnerability_string_dict.keys():
+                self.return_string += f"line {key}:\n"
+                for item in self.vulnerability_string_dict[key]:
+                    self.return_string += f"\t{item}"
+                self.return_string += '\n'
+        return self.return_string
+
+    def add_vulnerability_to_dict(self, line_number: int, vulnerability_string: str) -> None:
+        if self.vulnerability_string_dict.get(line_number) is None:
+            self.vulnerability_string_dict[line_number] = [vulnerability_string]
+        else:
+            self.vulnerability_string_dict[line_number].append(vulnerability_string)

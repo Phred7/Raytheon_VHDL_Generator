@@ -10,7 +10,6 @@ from copy import deepcopy
 from typing import Dict, List, Any, Match
 
 from detection_strategy import DetectionStrategy
-from static_utilities import StaticUtilities
 
 
 class DetectionInC(DetectionStrategy):
@@ -57,12 +56,10 @@ class DetectionInC(DetectionStrategy):
                                                                            insecure_patterns[5]: "--may want to replace with a different function--",
                                                                            insecure_patterns[6]: "--replace with fgets or another safe function--"}
         detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns, insecure_patterns_flags)
-        for key in detected_patterns_dict:
-            line_number, pattern = key
-            return_string += f"line{line_number}: {detected_patterns_dict[key].string[detected_patterns_dict[key].start():detected_patterns_dict[key].end()].strip()}. {insecure_patterns_recommended_replacement_dict.get(pattern)}\n"
-        if return_string != "":
-            return_string = f"Buffer Overflow Detection Recommendations\n{return_string}"
-            StaticUtilities.logger.info(return_string)
+        if len(detected_patterns_dict.keys()) > 0:
+            for key in detected_patterns_dict:
+                line_number, pattern = key
+                self.add_vulnerability_to_dict(line_number=line_number, vulnerability_string=f"{detected_patterns_dict[key].string[detected_patterns_dict[key].start():detected_patterns_dict[key].end()].strip()}. {insecure_patterns_recommended_replacement_dict.get(pattern)}")
             return True
         return False
 

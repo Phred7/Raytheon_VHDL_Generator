@@ -5571,3 +5571,449 @@ line3: strcpy(. --replace with strncpy or another safe function--
 2022-04-05 11:44:20,254 DEBUG disassembler __init__ Disassembler object initialized
 2022-04-05 11:44:20,255 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
 2022-04-05 11:44:20,267 DEBUG disassembler disassemble Disassembler exit status: 1
+2022-04-10 11:09:12,733 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:09:12,734 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-10 11:09:12,734 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-10 11:09:12,735 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-10 11:09:12,735 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-10 11:09:12,735 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-10 11:09:12,735 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-10 11:09:12,736 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-10 11:09:12,736 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-04-10 11:09:12,736 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:09:12,796 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-10 11:09:12,796 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:09:12,797 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-10 11:09:12,797 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-10 11:09:12,798 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-10 11:09:12,799 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-10 11:09:12,799 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-10 11:09:12,800 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:09:12,801 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:09:12,802 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-10 11:09:12,802 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-10 11:09:12,803 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:09:12,803 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:09:12,804 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-10 11:09:12,805 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-10 11:09:12,806 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:09:12,806 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:09:12,807 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-10 11:09:12,807 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-10 11:09:12,808 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-10 11:09:12,809 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-10 11:09:12,809 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-10 11:09:12,809 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-10 11:09:12,810 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-10 11:09:12,810 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-10 11:09:12,810 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-10 11:09:12,811 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-10 11:09:12,812 INFO package_zipper zip_vhdl Created zip .zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:12:44,088 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:12:44,089 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:12:44,089 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:12:44,090 DEBUG main detection detection: No malware found
+2022-04-10 11:12:44,090 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:12:44,090 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-10 11:12:44,091 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-10 11:12:44,091 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-10 11:12:44,092 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-10 11:12:44,092 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-10 11:12:44,092 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-10 11:12:44,093 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-10 11:12:44,093 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-04-10 11:12:44,093 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:12:44,093 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:12:44,146 DEBUG disassembler disassemble Disassembler exit status: 1
+2022-04-10 11:15:24,914 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:15:24,914 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:15:24,915 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:15:24,917 DEBUG main detection detection: No malware found
+2022-04-10 11:15:24,917 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:15:24,918 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-04-10 11:15:24,918 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:17:18,624 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:17:18,625 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:17:18,625 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:17:18,628 DEBUG main detection detection: No malware found
+2022-04-10 11:17:18,628 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:17:18,628 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-04-10 11:17:18,628 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:19:35,030 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:19:35,030 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:19:35,031 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:19:35,033 DEBUG main detection detection: No malware found
+2022-04-10 11:19:35,033 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:19:35,033 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-04-10 11:19:35,033 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:19:49,150 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-10 11:19:49,151 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:19:49,152 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-10 11:19:49,152 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-10 11:19:49,153 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-10 11:19:49,156 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-10 11:19:49,156 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-10 11:19:49,186 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:19:49,187 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:19:49,189 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-10 11:19:49,189 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-10 11:19:49,220 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:19:49,220 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:19:49,222 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-10 11:19:49,222 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-10 11:19:49,254 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:19:49,254 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:19:49,255 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-10 11:19:49,255 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-10 11:19:49,257 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-10 11:19:49,258 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-10 11:19:49,258 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-10 11:19:49,259 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-10 11:19:49,259 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-10 11:19:49,260 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-10 11:19:49,260 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-10 11:19:49,263 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-10 11:19:49,264 WARNING package_zipper zip_vhdl Created zip _[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:19:49,264 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:19:49,265 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-10 11:19:49,265 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-10 11:19:58,647 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-10 11:19:58,648 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-10 11:19:58,649 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-10 11:20:02,847 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-10 11:20:02,896 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-10 11:20:11,966 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-10 11:20:11,966 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-10 11:20:11,967 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:20:11,967 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:20:11,967 DEBUG main detection Project Hash: 1b485f98a1d6c0b0705e84c711923abfaab5639c57eaeb4bbdb93a680fafa0d1
+2022-04-10 11:20:11,968 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:20:11,968 DEBUG main detection detection: Possible malware detected
+2022-04-10 11:20:11,969 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:21:34,140 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:21:34,141 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:21:34,141 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:21:34,142 DEBUG main detection detection: No malware found
+2022-04-10 11:21:34,142 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:21:34,142 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-10 11:21:34,143 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-10 11:21:34,143 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-10 11:21:34,144 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-10 11:21:34,144 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-10 11:21:34,144 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-10 11:21:34,144 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-10 11:21:34,144 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-04-10 11:21:34,144 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:21:34,145 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:21:34,164 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-10 11:21:34,164 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:21:34,164 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-10 11:21:34,165 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-10 11:21:34,165 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-10 11:21:34,168 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-10 11:21:34,168 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-10 11:21:34,179 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:21:34,179 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:21:34,181 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-10 11:21:34,181 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-10 11:21:34,193 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:21:34,193 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:21:34,195 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-10 11:21:34,195 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-10 11:21:34,211 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:21:34,211 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:21:34,213 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-10 11:21:34,213 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-10 11:21:34,214 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-10 11:21:34,215 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-10 11:21:34,215 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-10 11:21:34,216 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-10 11:21:34,216 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-10 11:21:34,217 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-10 11:21:34,217 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-10 11:21:34,219 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-10 11:21:34,221 WARNING package_zipper zip_vhdl Created zip _[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:21:34,221 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:21:34,221 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-10 11:21:34,221 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-10 11:21:35,572 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-10 11:21:35,573 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-10 11:21:35,574 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-10 11:21:39,359 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-10 11:21:39,393 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-10 11:21:40,813 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-10 11:21:40,814 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-10 11:21:40,814 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:21:40,814 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:21:40,815 DEBUG main detection Project Hash: 099f5c7b87a76fc38f643a3ef7c07f1ff8b6aabefceeac61594fdbcaae4233e1
+2022-04-10 11:21:40,815 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:21:40,815 DEBUG main detection detection: Possible malware detected
+2022-04-10 11:21:40,815 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:31:35,088 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:31:35,088 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:31:35,088 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:31:35,089 DEBUG main detection detection: No malware found
+2022-04-10 11:31:35,089 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:31:35,089 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-10 11:31:35,090 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-10 11:31:35,090 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-10 11:31:35,091 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-10 11:31:35,091 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-10 11:31:35,091 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-10 11:31:35,092 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-10 11:31:35,092 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:31:35,092 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:31:35,110 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-10 11:31:35,110 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:31:35,111 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-10 11:31:35,111 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-10 11:31:35,111 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-10 11:31:35,114 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-10 11:31:35,114 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-10 11:31:35,126 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-10 11:31:35,127 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-10 11:31:35,139 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-10 11:31:35,139 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-10 11:31:35,152 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-10 11:31:35,152 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-10 11:31:35,153 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-10 11:31:35,154 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-10 11:31:35,154 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-10 11:31:35,155 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-10 11:31:35,155 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-10 11:31:35,155 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-10 11:31:35,156 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-10 11:31:35,158 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-10 11:31:35,160 WARNING package_zipper zip_vhdl Created zip _[2].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:31:35,160 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:31:35,160 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-10 11:31:35,160 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-10 11:31:36,620 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-10 11:31:36,621 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-10 11:31:36,622 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-10 11:31:40,398 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-10 11:31:40,432 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-10 11:31:41,815 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-10 11:31:41,816 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-10 11:31:41,816 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:31:41,816 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:31:41,817 DEBUG main detection Project Hash: 2683b94b78c05fc2dcaea7dfaec8e9c6ec1d9c728abda64ac88c03ca98cb5fc7
+2022-04-10 11:31:41,817 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:31:41,818 DEBUG main detection detection: Possible malware detected
+2022-04-10 11:31:41,818 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:33:25,130 INFO main detection detection: No malware found
+2022-04-10 11:33:25,132 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:33:25,150 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:33:25,207 WARNING package_zipper zip_vhdl Created zip _[3].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:33:25,207 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:33:31,974 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:33:31,974 INFO main detection detection: Possible malware detected
+2022-04-10 11:33:31,974 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:35:03,893 WARNING main detection detection: Possible malware detected
+2022-04-10 11:35:03,895 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:35:03,912 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:35:03,961 WARNING package_zipper zip_vhdl Created zip _[4].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:35:03,961 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:35:10,536 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:35:10,536 INFO main detection detection: No malware found
+2022-04-10 11:35:10,536 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:35:40,955 INFO main detection detection: No malware found
+2022-04-10 11:35:40,957 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:35:40,975 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:35:41,024 WARNING package_zipper zip_vhdl Created zip _[5].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:35:41,024 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:35:47,788 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:35:47,788 WARNING main detection detection: Possible malware detected
+2022-04-10 11:35:47,789 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:50:23,041 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:50:23,041 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:50:23,042 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:50:23,042 INFO main detection detection: No malware found
+2022-04-10 11:50:23,042 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:50:23,043 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-10 11:50:23,043 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-10 11:50:23,044 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-10 11:50:23,044 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-10 11:50:23,044 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-10 11:50:23,045 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-10 11:50:23,045 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-10 11:50:23,045 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:50:23,045 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:50:23,063 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-10 11:50:23,063 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:50:23,064 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-10 11:50:23,064 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-10 11:50:23,065 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-10 11:50:23,067 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-10 11:50:23,068 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-10 11:50:23,080 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-10 11:50:23,080 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-10 11:50:23,093 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-10 11:50:23,093 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-10 11:50:23,105 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-10 11:50:23,105 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-10 11:50:23,106 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-10 11:50:23,107 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-10 11:50:23,107 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-10 11:50:23,108 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-10 11:50:23,108 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-10 11:50:23,109 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-10 11:50:23,109 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-10 11:50:23,111 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-10 11:50:23,113 WARNING package_zipper zip_vhdl Created zip _[6].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:50:23,113 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:50:23,113 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-10 11:50:23,113 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-10 11:50:24,516 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-10 11:50:24,517 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-10 11:50:24,518 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-10 11:50:28,308 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-10 11:50:28,343 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-10 11:50:29,750 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-10 11:50:29,751 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-10 11:50:29,751 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:50:29,751 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:50:29,752 DEBUG main detection Project Hash: 63e4153b66d2502a078b60aae1a60c514aab2d8ed8d23c905ff1eb758850bb8a
+2022-04-10 11:50:29,752 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:50:29,752 WARNING main detection detection: Possible malware detected
+2022-04-10 11:50:29,753 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:50:53,711 INFO main detection detection: No malware found
+2022-04-10 11:50:53,713 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:50:53,732 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:50:53,780 WARNING package_zipper zip_vhdl Created zip _[7].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:50:53,780 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:51:01,063 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:51:01,064 WARNING main detection detection: Possible malware detected
+2022-04-10 11:51:01,064 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:52:14,075 INFO main detection detection: No malware found
+2022-04-10 11:52:14,077 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:52:14,095 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:52:14,148 WARNING package_zipper zip_vhdl Created zip _[8].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:52:14,148 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:52:21,097 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:52:21,097 WARNING main detection detection: Possible malware detected
+2022-04-10 11:52:21,097 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:00:07,530 INFO main detection detection: No malware found
+2022-04-10 12:00:07,531 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:00:07,550 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:00:07,602 WARNING package_zipper zip_vhdl Created zip _[9].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:00:07,602 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:00:11,169 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-10 12:00:11,169 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-10 12:00:16,465 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 12:00:16,466 WARNING main detection detection: Possible malware detected
+2022-04-10 12:00:16,466 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:03:20,027 INFO main detection detection: No malware found
+2022-04-10 12:03:20,029 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:03:20,047 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:03:20,096 WARNING package_zipper zip_vhdl Created zip _[10].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:03:20,096 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:03:26,981 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 12:03:26,981 WARNING main detection detection: Possible malware detected
+2022-04-10 12:03:26,981 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:50:03,469 WARNING main detection detection: Possible malware detected
+2022-04-10 12:50:03,469 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:51:37,981 INFO main detection detection: No malware found
+2022-04-10 12:51:37,983 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:51:38,002 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:51:38,050 WARNING package_zipper zip_vhdl Created zip _[11].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:51:38,050 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:51:44,881 WARNING main detection detection: Possible malware detected
+2022-04-10 12:51:44,882 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:52:52,825 INFO main detection detection: No malware found
+2022-04-10 12:52:52,827 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:52:52,845 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:52:52,896 WARNING package_zipper zip_vhdl Created zip _[12].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:52:52,896 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:52:59,737 WARNING main detection detection: Possible malware detected
+2022-04-10 12:52:59,737 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:53:11,397 INFO main detection detection: No malware found
+2022-04-10 12:53:11,399 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:53:11,419 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:53:11,531 WARNING package_zipper zip_vhdl Created zip _[13].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:53:11,531 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:53:17,186 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-10 12:53:30,199 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-10 12:53:33,708 WARNING main detection detection: Possible malware detected
+2022-04-10 12:56:18,247 INFO main detection detection: No malware found
+2022-04-10 12:56:18,249 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:56:18,267 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:56:18,317 WARNING package_zipper zip_vhdl Created zip _[14].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:56:18,317 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:56:25,337 WARNING main detection detection: Possible malware detected
+2022-04-10 12:56:25,337 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:56:29,687 INFO main detection detection: No malware found
+2022-04-10 12:56:29,689 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:56:29,711 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:56:29,825 WARNING package_zipper zip_vhdl Created zip _[15].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:56:29,825 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:56:51,997 WARNING main detection detection: Possible malware detected
+2022-04-10 12:58:33,968 INFO main detection detection: No malware found
+2022-04-10 12:58:33,970 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:58:33,989 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:58:34,038 WARNING package_zipper zip_vhdl Created zip _[16].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:58:34,038 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:58:41,116 WARNING main detection detection: Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--line 3:
+	strcpy(. --replace with strncpy or another safe function--
+2022-04-10 12:58:41,117 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 13:00:12,105 INFO main detection detection: No malware found
+2022-04-10 13:00:12,107 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 13:00:12,125 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 13:00:12,175 WARNING package_zipper zip_vhdl Created zip _[17].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 13:00:12,175 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 13:00:19,222 WARNING main detection detection: Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 13:00:19,222 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.

@@ -1,3 +1,14 @@
-2022-04-05 11:44:20,254 DEBUG disassembler __init__ Disassembler object initialized
-2022-04-05 11:44:20,255 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
-2022-04-05 11:44:20,267 DEBUG disassembler disassemble Disassembler exit status: 1
+2022-04-10 13:00:12,105 INFO main detection detection: No malware found
+2022-04-10 13:00:12,107 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 13:00:12,125 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 13:00:12,175 WARNING package_zipper zip_vhdl Created zip _[17].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 13:00:12,175 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 13:00:19,222 WARNING main detection detection: Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 13:00:19,222 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.

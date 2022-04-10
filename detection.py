@@ -23,6 +23,8 @@ class Detection:
     Attempts to detect various forms of malware or vulnerabilities with in a binary and source file pair.
     """
 
+    # TODO: don't auto print possible malware... invoke a fx that prints for each line... so no duplicate lines and so that malware isn't printed by default
+
     def __init__(self, ccs_project: CCSProject, *, pique_bin_bool: bool = True, suppress_pique_bin_logs: bool = True) -> None:
         self.ccs_project: CCSProject = ccs_project
         self.pique_bin_security_quality: float = 0
@@ -54,6 +56,9 @@ class Detection:
         """
         self._detection_strategy = detection_strategy
         return
+
+    def possible_vulnerabilities(self) -> str:
+        return self.detection_strategy.possible_vulnerabilities()
 
     def detect(self) -> bool:
         """
