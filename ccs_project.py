@@ -29,20 +29,29 @@ class CCSProject:
                  source_file: str,
                  *,
                  project_name: str = None,
-                 disassembly_file_path: str = None,
-                 binary_file_path: str = None   # TODO: this cant be None if it's not passed in because it's referenced in the construtor of Disassembler which will be used on every run. Auto gen it maybe?
                  ):
         self.project_type: ProjectType = ProjectType.C if file_extension[ProjectType.C] in source_file else (ProjectType.ASM if file_extension[ProjectType.ASM] in source_file else None)   # C or ASM (enumerated)
         self.path = path                                # Path to root of project, e.g. C:\Users\Mike\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\int_overflow_target_C
         self.project_name = project_name                # Name of the project (useful for output)
         self.source_file = source_file                  # The file which is to be instrumented or inspected
-        self.disassembly_file_path = disassembly_file_path   # ???
-        self.binary_file_path = binary_file_path             # ???
+        self.disassembly_file_path = ""
+        self.binary_file_path: str = ""
+        if StaticUtilities.file_exists(f"{self.path}\\VHDLGenerator\\", self.source_file.replace(self.source_file[self.source_file.index("."):], ".out")):
+            self.binary_file_path = f"VHDLGenerator\\{self.source_file.replace(self.source_file[self.source_file.index('.'):], '.out')}"
+        else:
+            self.binary_file_path = f"Debug\\{self.source_file.replace(self.source_file[self.source_file.index('.'):], '.out')}"
         self.__project_hash = None
         self.__project_hash_key = None
 
     def __str__(self):
         return f"{self.path}\\{self.source_file}"
+
+    def c_project(self) -> bool:
+        """
+        Checks if this CCSProject's ProjectType is C.
+        :return: bool representing the ProjectType of this CCSProject. True if ProjectType is C.
+        """
+        return self.project_type == ProjectType.C
 
     def hash_key(self):
         """

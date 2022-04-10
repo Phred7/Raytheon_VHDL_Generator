@@ -29,7 +29,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
         line = line.replace(" ", "").replace(";", "").replace("\t", "")
         return line
 
-    def instrument(self, project: CCSProject) -> bool:
+    def instrument(self, file_to_instrument: str) -> bool:
         """"
         Open the file
         Find all variable declarations
@@ -38,7 +38,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
         Paste insecure function calls before comparisons
         Paste insecure function to top
         Write to the file
-        :param project: ccs project to instrument.
+        :param file_to_instrument: the project containing the source to be modified.
         :return: True if the process is successful, False if it fails at any step
         """
         insecure_function = ["#include <string.h>", "void buff_value(char* target) {",
@@ -46,7 +46,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
 
         # try to read from the file; return if the file isn't there
         try:
-            with open(f"{project.path}\\{project.source_file}", 'r') as f:
+            with open(file_to_instrument, 'r') as f:
                 c_lines = f.readlines()
         except FileExistsError:
             StaticUtilities.logger.info("File not found.")
@@ -99,6 +99,6 @@ class BufferOverflowAttack(InstrumentationStrategy):
         for line in c_lines:
             new_c_file = f"{new_c_file}\n{line}"
 
-        with open(project.source_file, 'w') as f:
+        with open(file_to_instrument, 'w') as f:
             f.write(new_c_file)
         return True

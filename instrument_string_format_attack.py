@@ -1,5 +1,5 @@
 """
-# String Format Attack Instrumentation Strategy
+# String Format Attack
 # For Raytheon Research Project and Interdisciplinary Capstone Project (2021-'22)
 # Dr. Clem Izurieta
 # Dr. Brock LaMeres
@@ -15,14 +15,13 @@ from static_utilities import StaticUtilities
 
 class StringFormatAttack(InstrumentationStrategy):
 
-    def instrument(self, project: CCSProject) -> bool:
-        """"
+    def instrument(self, file_to_instrument: str) -> bool:
+        """
         Open the file
         Find an instance of printf (or printf family)
         Replace the appropriate argument with "%08x"
         Write the new text to the file
-
-        :param project: the file to instrument.
+        :param file_to_instrument: the project containing the source to be modified.
         :return: True if the process is successful, False if it fails at any step
         """
 
@@ -34,7 +33,7 @@ class StringFormatAttack(InstrumentationStrategy):
         format_string = '"' + '%08x.' * 1024 + '"'
 
         try:
-            with open(project.source_file, 'r') as f:
+            with open(file_to_instrument, 'r') as f:
                 text = [line.replace('\n', '').strip() for line in f.readlines()]
         except FileNotFoundError:
             StaticUtilities.logger.info("File not found.")
@@ -66,7 +65,7 @@ class StringFormatAttack(InstrumentationStrategy):
             return False
 
         new_text = "".join([x + '\n' for x in text])
-        with open(project.source_file, 'w') as f:
+        with open(file_to_instrument, 'w') as f:
             f.write(new_text)
 
         return True

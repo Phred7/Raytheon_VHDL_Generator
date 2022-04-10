@@ -25,7 +25,7 @@ class Disassembler:
                  disassembler_output_file_name: str = "generated_disassembly.txt",
                  disassembler_output_file_directory: str = rf"{StaticUtilities.project_root_directory()}\generated_disassembly") -> None:
 
-        self.ccs_project = ccs_project
+        self.ccs_project: CCSProject = ccs_project
 
         self.disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
         self.disassembler_executable: str = r'dis430.exe'
@@ -68,7 +68,7 @@ class Disassembler:
         #     stderr=subprocess.STDOUT)
         # TODO: this will need to be fixed once the constructor is updated.
         self.disassembler_exit_status = subprocess.run(
-            rf"{self.disassembler_directory}\{self.disassembler_executable} {self.ccs_project.binary_file_path} {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}",
+            rf"{self.disassembler_directory}\{self.disassembler_executable} {self.ccs_project.path}\{self.ccs_project.binary_file_path} {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}",
             stdout=subprocess.DEVNULL,
             stderr=subprocess.STDOUT)
         StaticUtilities.logger.debug(f"Disassembler exit status: {self.disassembler_exit_status.returncode}")
@@ -78,11 +78,15 @@ class Disassembler:
         else:
             StaticUtilities.logger.info(
                 f'Disassembler generated {self.disassembler_output_file_name} at the directory {self.disassembler_output_file_directory}')
-
-        self.ccs_project.set_disassembly_file_path(self.disassembler_output_file_directory)
+            self.ccs_project.set_disassembly_file_path(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
 
 
 if __name__ == '__main__':
     # TODO: integrating project broke this.
-    disassembler: Disassembler = Disassembler(disassembler_input_file_name="test_ASM.out")
+    ccs_project: CCSProject = CCSProject(project_name="test_target", source_file="main.c", path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target")
+    # project: CCSProject = CCSProject(source_file="main.c",
+    #                                  project_name="test_target",
+    #                                  path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+    #                                  )
+    disassembler: Disassembler = Disassembler(ccs_project=ccs_project)
     disassembler.disassemble()

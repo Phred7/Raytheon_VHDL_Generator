@@ -6,6 +6,7 @@
 # Written by Walker Ward
 """
 import os
+import shutil
 from zipfile import ZipFile
 from static_utilities import StaticUtilities
 
@@ -57,7 +58,10 @@ class PackageZipper:
                         self._zip_write(vhdl_zip_file, file)
             with StaticUtilities.change_dir(f'{StaticUtilities.project_root_directory()}{self.disassembly_file_directory}'):
                 if StaticUtilities.file_exists(".", self.disassembly_file):
+                    shutil.copyfile(self.disassembly_file, f"{self.disassembly_file}.cp")
                     self._zip_write(vhdl_zip_file, self.disassembly_file)
+                    shutil.copyfile(f"{self.disassembly_file}.cp", self.disassembly_file)
+                    os.remove(f"{self.disassembly_file}.cp")
 
         # Warns about name changes from duplicate zips.
         if duplicate_file_modifier != 0:

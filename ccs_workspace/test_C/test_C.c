@@ -1,51 +1,125 @@
 #include <msp430.h>
-int main(void) {
-    WDTCTL = WDTPW | WDTHOLD;   //stop watch dog timer
-
-    PM5CTL0 &= ~LOCKLPM5;       //Enable GPIO Manipulation
 
 
-    PADIR &= ~BITB;             //Set Port 2.3 to input
-    PAREN |=  BITB;             //Enable pull up resistors
-    PAOUT |=  BITB;
-    PAIES |=  BITB;             //Set IRQ to H -> L
-    PAIFG &=  0x0000;           //Clear interrupts
-    PAIE  |=  BITB;             //Enable Port 2.3 interrupt
+/**
+ * main.c
+ */
 
-    PCDIR |=  BITE;             //Set Port 6.6 to output
-    PCOUT &=  ~BITE;
+unsigned char decode_array[] = {0,56,40,55,24,0,39,52,8,57,0,0,23,0,36,13,120,0,41,54,0,0,0,53,7,0,0,0,20,19,125,18,104,105,0,0,25,106,38,0,0,58,0,0,0,0,37,14,119,118,0,0,0,107,0,0,4,0,3,0,109,108,2,1,88,0,89,0,0,0,0,51,9,10,90,0,22,11,0,12,0,0,42,43,0,0,0,0,0,0,0,0,21,0,126,127,103,0,102,0,0,0,0,0,0,0,91,0,0,0,0,0,116,117,0,0,115,0,0,0,93,94,92,0,114,95,113,0,72,71,0,68,73,0,0,29,0,70,0,69,0,0,35,34,121,0,122,0,74,0,0,30,6,0,123,0,0,0,124,17,0,0,0,67,26,0,27,28,0,59,0,0,0,0,0,15,0,0,0,0,0,0,0,0,5,0,0,0,110,0,111,16,87,84,0,45,86,85,0,50,0,0,0,46,0,0,0,33,0,83,0,44,75,0,0,31,0,0,0,0,0,0,0,32,100,61,101,66,0,62,0,49,99,60,0,47,0,0,0,48,77,82,78,65,76,63,0,64,98,81,79,80,97,96,112};
+unsigned int frequency = 1000;
+int main(void)
+{
+    WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
+    PM5CTL0 &=~(LOCKLPM5);
+
+    // P1reads from Rotary encoder
+    P1DIR &=~(0xFFFF);
+
+    // P2drives stepper motor
+    // BIT 0 == STEP
+    // BIT 1 == DIR
+    P2DIR |=(BIT0 + BIT1);
+
+//  P4SEL1 &= ~BIT2; //Place P4.2 in UART MODE
+//  P4SEL0 |= BIT2;
+//
+//  P4SEL1 &=~BIT3;// Place P4.3 in UART MODE
+//  P4SEL0 |=BIT3;
+
+//  UCA1CTLW0 |=UCSSEL__SMCLK;
+//  UCA1BR0 = 0x08;
+//
+//  UCA1MCTLW |= 0xD600;
+//
+//  UCA1CTLW0 &=~UCSWRST;
+
+    TB0CTL |= MC__CONTINUOUS + ID__1 + TBSSEL__SMCLK;
+    TB0CCTL0 |= CCIE;
+    TB0CCR0 = frequency;
+
+    P2DIR |=BIT2;
+
+    __enable_interrupt();
 
 
-
-    PBDIR &=  ~BIT9;            //Set Port 4.1 to input
-    PBREN |=  BIT9;             //Enable pull up resistors
-    PBOUT |=  BIT9;
-    PBIES |=  BIT9;             //Set IRQ to L -> H
-    PBIFG &=  0x0000;           //Clear interrupts
-    PBIE  |=  BIT9;             //Enable Port 4.1 interrupt
-
-    PADIR |=  BIT0;             //Set Port 1.1 to output
-    PAOUT &= ~BIT0;
-
-
-    _enable_interrupt();        //Enable interrupts;
+    unsigned char temp;
     while(1){
-        return 0;
+        temp = decode_array[P1IN];
+//      UCA1TXBUF = temp;
+        if(temp<0x3f){
+            P2OUT &=~(BIT2); //enable stepper motor
+            P2OUT |=(BIT1); //set direction
+            temp = 0x3f-temp;
+        }else if (temp>0x3f){
+            P2OUT &=~(BIT2); //enable stepper motor
+            P2OUT &=~(BIT1); //set direction
+            temp = temp-0x3f;
+        }else{
+            P2OUT |=BIT2;
+        }
+        frequency = 4000 - 46*(temp);
     }
 }
 
-//Interrupt Service Routines
-#pragma vector = PORT2_VECTOR
-__interrupt void ISR_Port2_S2(void){
-    PCOUT ^= BITE;
-    PAIFG &= ~BITB;
+#pragma vector = TIMER0_B0_VECTOR;
+interrupt void Timer_ISR(){
+    TB0CCR0+=frequency;
+    P2OUT ^=BIT0;
+    frequency+=1;
+    TB0CCTL0 &=~ CCIFG;
+//    TB0CCTL0
+
 }
 
-#pragma vector = PORT4_VECTOR
-__interrupt void ISR_Port4_S1(void){
-    PAOUT ^= BIT0;
-    PBIFG &= ~BIT9;
-}
+
+
+//#include <msp430.h>
+//int main(void) {
+//    WDTCTL = WDTPW | WDTHOLD;   //stop watch dog timer
+//
+//    PM5CTL0 &= ~LOCKLPM5;       //Enable GPIO Manipulation
+//
+//
+//    PADIR &= ~BITB;             //Set Port 2.3 to input
+//    PAREN |=  BITB;             //Enable pull up resistors
+//    PAOUT |=  BITB;
+//    PAIES |=  BITB;             //Set IRQ to H -> L
+//    PAIFG &=  0x0000;           //Clear interrupts
+//    PAIE  |=  BITB;             //Enable Port 2.3 interrupt
+//
+//    PCDIR |=  BITE;             //Set Port 6.6 to output
+//    PCOUT &=  ~BITE;
+//
+//
+//
+//    PBDIR &=  ~BIT9;            //Set Port 4.1 to input
+//    PBREN |=  BIT9;             //Enable pull up resistors
+//    PBOUT |=  BIT9;
+//    PBIES |=  BIT9;             //Set IRQ to L -> H
+//    PBIFG &=  0x0000;           //Clear interrupts
+//    PBIE  |=  BIT9;             //Enable Port 4.1 interrupt
+//
+//    PADIR |=  BIT0;             //Set Port 1.1 to output
+//    PAOUT &= ~BIT0;
+//
+//
+//    _enable_interrupt();        //Enable interrupts;
+//    while(1){
+//    }
+//}
+//
+////Interrupt Service Routines
+//#pragma vector = PORT2_VECTOR
+//__interrupt void ISR_Port2_S2(void){
+//    PCOUT ^= BITE;
+//    PAIFG &= ~BITB;
+//}
+//
+//#pragma vector = PORT4_VECTOR
+//__interrupt void ISR_Port4_S1(void){
+//    PAOUT ^= BIT0;
+//    PBIFG &= ~BIT9;
+//}
 
 //#include <msp430.h>
 //int main(void) {

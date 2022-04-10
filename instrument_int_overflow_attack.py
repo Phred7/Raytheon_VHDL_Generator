@@ -11,5 +11,10 @@ from instrumentation_strategy import InstrumentationStrategy
 
 class IntOverflowAttack(InstrumentationStrategy):
 
-    def instrument(self, project: CCSProject) -> bool:
-        return True
+    def instrument(self, file_to_instrument: str) -> bool:
+        """
+        Method to be declared by concrete strategies.
+        :param file_to_instrument: the project containing the source to be modified.
+        :return: bool representing if the file was modified.
+        """
+        return False
