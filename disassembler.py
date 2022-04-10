@@ -25,7 +25,6 @@ class Disassembler:
         self.disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
         self.disassembler_executable: str = r'dis430.exe'
         self.disassembler_input_file_name: str = ccs_project_to_disassemble.binary_file_path
-        self.disassembler_input_file_directory: str = self.ccs_project.binary_file_path  # TODO: this should not be this...
         self.disassembler_output_file_name: str = disassembler_output_file_name
         self.disassembler_output_file_directory: str = rf"{StaticUtilities.project_root_directory()}\generated_disassembly"
         self.disassembler_exit_status: int = 0
@@ -44,7 +43,7 @@ class Disassembler:
         """
 
         # Check if the disassembler input exists.
-        StaticUtilities.file_should_exist(self.disassembler_input_file_directory, self.ccs_project.binary_file_path)
+        StaticUtilities.file_should_exist(self.ccs_project.binary_file_path, self.ccs_project.binary_file_path)
 
         # Check if the output file already exists. If it exists delete in.
         if os.path.exists(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}"):
