@@ -28,17 +28,16 @@ class VHDLParserGenerator:
     Generates VHDL representation of an MSP430 binary.
     """
 
-    def __init__(self, ccs_project: CCSProject, *, binary_file_name: str = "All_msp_operations", asm_file: bool = True) -> None:
+    def __init__(self, ccs_project: CCSProject) -> None:
         # TODO: resolve constructor using deprecated inputs.
         self.ccs_project: CCSProject = ccs_project
         self.program_memory_start: int = 32768
-        self.binary_file_name: str = binary_file_name
         self.disassembler_output_file_name: str = "generated_disassembly.txt"
         self.disassembler_output_file_directory: str = rf"{StaticUtilities.project_root_directory()}\generated_disassembly"
         self.memory_indent: str = "\t\t\t\t\t\t   "
         self.nop_opcode: str = "0343"
         self.computer_name_list: List[str] = ["baseline", "highroller", "lowlife"]
-        self.asm_file: bool = asm_file
+        self.asm_file: bool = not ccs_project.c_project()
         self.data_memory_in_disassembly: bool = False
         StaticUtilities.logger.debug(f"{VHDLParserGenerator.__name__} object initialized")
 
