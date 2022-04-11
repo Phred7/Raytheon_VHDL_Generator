@@ -62,6 +62,9 @@ class Instrumentation:
         # TODO: should instrumentation copy phantom project to ccs project... then somehow point everything to a 'temp_file' with the instrumented version of the code in the same directory... the code could be built referencing that temp file rather than the phantom project.
         StaticUtilities.logger.debug("**** Instrumentation Build Started ****")
         try:
+            # TODO: make the phantom workspace use a random name only known to instrumentation every time. Nuke the dir after instrumenting... regardless of success.
+            # TODO: rather than building the phantom project why not build the phantom project to verify that no errors exist and then copy just the src back to the original and build again there.
+
             # un hide the phantom workspace - skipping this step may cause permission issues
             self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
                 directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=False,

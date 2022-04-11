@@ -18,25 +18,12 @@ class Disassembler:
     Disassembles an MSP430 binary.
     """
 
-    # TODO: integrate CCSProject class. Not sure exactly what these fields do, need to clarify that. -Mike
-    # TODO: make it so the input file doesn't need to match the binary file name but defaults to that. Also add check to make sure both the project and file exist.
-    def __init__(self, ccs_project: CCSProject,
-                 disassembler_input_file_name: str = "Motor_mover_C.out",
-                 disassembler_output_file_name: str = "generated_disassembly.txt",
-                 disassembler_output_file_directory: str = rf"{StaticUtilities.project_root_directory()}\generated_disassembly") -> None:
-
-        self.ccs_project: CCSProject = ccs_project
-
+    def __init__(self, ccs_project_to_disassemble: CCSProject, *, disassembler_output_file_name: str = "generated_disassembly.txt") -> None:
+        self.ccs_project: CCSProject = ccs_project_to_disassemble
         self.disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
         self.disassembler_executable: str = r'dis430.exe'
-
-        # self.disassembler_input_file_name: str = disassembler_input_file_name  # "Motor_mover_C.out"  # "All_msp_operations.out"  # "test_C.out"  # "test_colt_C.out"  # "All_ops_asm.out'  # "Motor_mover_C.out" # "test.out" # "test_ASM.out" # "All_msp_operations.out"
-        self.disassembler_input_file_name: str = ccs_project.binary_file_path
-
-        # self.disassembler_input_file_directory: str = rf"{StaticUtilities.project_root_directory()}\ccs_workspace\{self.project.binary_file_path.replace('.out', '')}\Debug"
-        self.disassembler_input_file_directory: str = self.ccs_project.binary_file_path  # TODO: this should not be this...
         self.disassembler_output_file_name: str = disassembler_output_file_name
-        self.disassembler_output_file_directory: str = disassembler_output_file_directory
+        self.disassembler_output_file_directory: str = rf"{StaticUtilities.project_root_directory()}\generated_disassembly"
         self.disassembler_exit_status: int = 0
         StaticUtilities.logger.debug(f"{Disassembler.__name__} object initialized")
 
@@ -47,13 +34,13 @@ class Disassembler:
         - Checks if the output file already exists. If so removes it.
         - Runs dis430.exe on the input file and output file.
         - Checks the exit status of the dis430.exe.
-        - Note: Extremely dependant on package structure.
-        :raise: OSError if the input file does not exists.
+        - Note: Extremely dependent on package structure.
+        :raise: OSError if the input file does not exist.
         :raise: OSError if the disassembler failed.
         """
 
         # Check if the disassembler input exists.
-        StaticUtilities.file_should_exist(self.disassembler_input_file_directory, self.ccs_project.binary_file_path)
+        StaticUtilities.file_should_exist(self.ccs_project.binary_file_path, self.ccs_project.binary_file_path)
 
         # Check if the output file already exists. If it exists delete in.
         if os.path.exists(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}"):
@@ -61,12 +48,6 @@ class Disassembler:
             StaticUtilities.logger.info(
                 rf"Removed {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
 
-        # Call the disassembler.
-        # self.disassembler_exit_status = subprocess.run(
-        #     rf"{self.disassembler_directory}\{self.disassembler_executable} {self.disassembler_input_file_directory}\{self.ccs_project.binary_file_path} {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}",
-        #     stdout=subprocess.DEVNULL,
-        #     stderr=subprocess.STDOUT)
-        # TODO: this will need to be fixed once the constructor is updated.
         self.disassembler_exit_status = subprocess.run(
             rf"{self.disassembler_directory}\{self.disassembler_executable} {self.ccs_project.path}\{self.ccs_project.binary_file_path} {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}",
             stdout=subprocess.DEVNULL,
@@ -82,11 +63,6 @@ class Disassembler:
 
 
 if __name__ == '__main__':
-    # TODO: integrating project broke this.
-    ccs_project: CCSProject = CCSProject(project_name="465", source_file="465.c", path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\465")
-    # project: CCSProject = CCSProject(source_file="main.c",
-    #                                  project_name="test_target",
-    #                                  path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-    #                                  )
-    disassembler: Disassembler = Disassembler(ccs_project=ccs_project)
+    ccs_project: CCSProject = CCSProject(project_name="test_target", source_file="main.c", path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target")
+    disassembler: Disassembler = Disassembler(ccs_project_to_disassemble=ccs_project)
     disassembler.disassemble()

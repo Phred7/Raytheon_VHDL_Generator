@@ -5,6 +5,8 @@
 # Dr. Brock LaMeres
 # Written by Michael Heidal and Walker Ward
 """
+import logging
+
 from detection import Detection
 from ccs_project import CCSProject
 from disassembler import Disassembler
@@ -51,27 +53,48 @@ class Main:
         pass
 
     @staticmethod
+    def detection(project: CCSProject, security_quality: float) -> bool:
+        detection: Detection = Detection(project, pique_bin_bool=False)
+        StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
+        detection.pique_bin_security_quality = security_quality
+        results: bool = detection.detect()
+        if not results:
+            StaticUtilities.logger.warning(f"Possible malware detected\n{detection.possible_vulnerabilities()}")
+        else:
+            StaticUtilities.logger.info(f"No malware found")
+        return results
+
+    @staticmethod
     def demo() -> None:
         """
         For demoing instrumentation and detection.
         :return: None.
         """
+        StaticUtilities.logger.setLevel(logging.INFO)
         Detection.reset_test_project()
         project: CCSProject = CCSProject(source_file="main.c",
                                          project_name="test_target",
                                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
                                          )
+        results: bool = Main.detection(project, 0.95)
+        Main.__generate_vhdl(results)
 
-        # instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
-        # instrumentation.instrument()
+        project = CCSProject(source_file="main.c",
+                             project_name="test_target",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                             )
+        instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
+        instrumentation.instrument()
+        results: bool = Main.detection(project, 0.35)
+        Main.__generate_vhdl(results)
 
-        detection: Detection = Detection(project, pique_bin_bool=False)
-        StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
-        detection.pique_bin_security_quality = 0.2
-        results: bool = detection.detect()
-        StaticUtilities.logger.debug(
-            f"detection: {'No malware found' if results else 'Possible malware detected'}")
-        if results:
+    @staticmethod
+    def __generate_vhdl(detection_results: bool) -> None:
+        project: CCSProject = CCSProject(source_file="main.c",
+                                         project_name="test_target",
+                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                                         )
+        if detection_results:
             vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=project)
             vhdl_parser_generator.generate_vhdl()
             zip_name: str = ""
@@ -106,3 +129,4 @@ class Main:
 if __name__ == '__main__':
     main: Main = Main()
     main.demo()
+    # Detection.reset_test_project()
