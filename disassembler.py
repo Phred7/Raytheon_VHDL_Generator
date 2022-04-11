@@ -83,7 +83,7 @@ class Disassembler:
 
 if __name__ == '__main__':
     # TODO: integrating project broke this.
-    ccs_project: CCSProject = CCSProject(project_name="test_target", source_file="main.c", path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target")
+    ccs_project: CCSProject = CCSProject(project_name="465", source_file="465.c", path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\465")
     # project: CCSProject = CCSProject(source_file="main.c",
     #                                  project_name="test_target",
     #                                  path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"

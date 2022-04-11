@@ -1,0 +1,1695 @@
+
+DATA Section .cinit, 0x18 bytes at 0x00008000
+008000:              .cinit:
+008000: 0100             .word 0x0100
+008002: 0000             .word 0x0000
+008004: 150f             .word 0x150f
+008006: f0ff             .word 0xf0ff
+008008:              __TI_Handler_Table_Base:
+008008: 84b0             .word 0x84b0
+00800a: 0000             .word 0x0000
+00800c: 890a             .word 0x890a
+00800e: 0000             .word 0x0000
+008010:              __TI_Handler_Table_Limit:
+008010:              __TI_CINIT_Base:
+008010: 8000             .word 0x8000
+008012: 0000             .word 0x0000
+008014: 2000             .word 0x2000
+008016: 0000             .word 0x0000
+
+TEXT Section .text, 0xa80 bytes at 0x00008018
+008018:              convertReceivedData:
+008018:              .text:convertReceivedData:
+008018: 3180             SUB.W   #0x0012,SP
+00801a: 1200            
+00801c: 8143             CLR.W   0x0000(SP)
+00801e: 0000            
+008020: B140             MOV.W   #0x000b,0x0000(SP)
+008022: 0B00            
+008024: 0000            
+008026: 8193             TST.W   0x0000(SP)
+008028: 0000            
+00802a: 0920             JNE     ($C$L48)
+00802c:              $C$L47:
+00802c: 2F41             MOV.W   @SP,R15
+00802e: 5F02             RLAM.W  #1,R15
+008030: 8F43             CLR.W   0x2000(R15)
+008032: 0020            
+008034: 9183             DEC.W   0x0000(SP)
+008036: 0000            
+008038: 8193             TST.W   0x0000(SP)
+00803a: 0000            
+00803c: F727             JEQ     ($C$L47)
+00803e:              $C$L48:
+00803e: 1C42             MOV.W   &receivedData,R12
+008040: 1620            
+008042: B013             CALLA   #convertInputValue
+008044: A482            
+008046: 824C             MOV.W   R12,&convertedData
+008048: 0020            
+00804a: 1C42             MOV.W   &0x201c,R12
+00804c: 1C20            
+00804e: B013             CALLA   #convertInputValue
+008050: A482            
+008052: 824C             MOV.W   R12,&0x2008
+008054: 0820            
+008056: D2E3             XOR.B   #1,&P1OUT
+008058: 0202            
+00805a: 8143             CLR.W   0x0002(SP)
+00805c: 0200            
+00805e: 8143             CLR.W   0x0004(SP)
+008060: 0400            
+008062: 1C42             MOV.W   &0x2018,R12
+008064: 1820            
+008066: 3D40             MOV.W   #0x000a,R13
+008068: 0A00            
+00806a: B013             CALLA   #__mspabi_divu
+00806c: 628A            
+00806e: 814C             MOV.W   R12,0x0002(SP)
+008070: 0200            
+008072: 3D40             MOV.W   #0x000a,R13
+008074: 0A00            
+008076: B013             CALLA   #__mspabi_mpyi_f5hw
+008078: 348A            
+00807a: 1F42             MOV.W   &0x2018,R15
+00807c: 1820            
+00807e: 0F8C             SUB.W   R12,R15
+008080: 814F             MOV.W   R15,0x0004(SP)
+008082: 0400            
+008084: 1C41             MOV.W   0x0002(SP),R12
+008086: 0200            
+008088: B013             CALLA   #convDec2Hex
+00808a: 5886            
+00808c: 824C             MOV.W   R12,&0x2002
+00808e: 0220            
+008090: 1C41             MOV.W   0x0004(SP),R12
+008092: 0400            
+008094: B013             CALLA   #convDec2Hex
+008096: 5886            
+008098: 824C             MOV.W   R12,&0x2004
+00809a: 0420            
+00809c: 1C42             MOV.W   &0x201a,R12
+00809e: 1A20            
+0080a0: B013             CALLA   #convDec2Hex
+0080a2: 5886            
+0080a4: 824C             MOV.W   R12,&0x2006
+0080a6: 0620            
+0080a8: F2E0             XOR.B   #0x0040,&P6OUT
+0080aa: 4000            
+0080ac: 4302            
+0080ae: 8143             CLR.W   0x0006(SP)
+0080b0: 0600            
+0080b2: 8143             CLR.W   0x0008(SP)
+0080b4: 0800            
+0080b6: 1C42             MOV.W   &0x2022,R12
+0080b8: 2220            
+0080ba: 3D40             MOV.W   #0x000a,R13
+0080bc: 0A00            
+0080be: B013             CALLA   #__mspabi_divu
+0080c0: 628A            
+0080c2: 814C             MOV.W   R12,0x0006(SP)
+0080c4: 0600            
+0080c6: 3D40             MOV.W   #0x000a,R13
+0080c8: 0A00            
+0080ca: B013             CALLA   #__mspabi_mpyi_f5hw
+0080cc: 348A            
+0080ce: 1F42             MOV.W   &0x2022,R15
+0080d0: 2220            
+0080d2: 0F8C             SUB.W   R12,R15
+0080d4: 814F             MOV.W   R15,0x0008(SP)
+0080d6: 0800            
+0080d8: 1C41             MOV.W   0x0006(SP),R12
+0080da: 0600            
+0080dc: B013             CALLA   #convDec2Hex
+0080de: 5886            
+0080e0: 824C             MOV.W   R12,&0x2010
+0080e2: 1020            
+0080e4: 1C41             MOV.W   0x0008(SP),R12
+0080e6: 0800            
+0080e8: B013             CALLA   #convDec2Hex
+0080ea: 5886            
+0080ec: 824C             MOV.W   R12,&0x2012
+0080ee: 1220            
+0080f0: 1C42             MOV.W   &0x2024,R12
+0080f2: 2420            
+0080f4: B013             CALLA   #convDec2Hex
+0080f6: 5886            
+0080f8: 824C             MOV.W   R12,&0x2014
+0080fa: 1420            
+0080fc: 8143             CLR.W   0x000a(SP)
+0080fe: 0A00            
+008100: 8143             CLR.W   0x000c(SP)
+008102: 0C00            
+008104: 8143             CLR.W   0x000e(SP)
+008106: 0E00            
+008108: 8143             CLR.W   0x0010(SP)
+00810a: 1000            
+00810c: 1C42             MOV.W   &0x201e,R12
+00810e: 1E20            
+008110: 3D40             MOV.W   #0x003c,R13
+008112: 3C00            
+008114: B013             CALLA   #__mspabi_mpyi_f5hw
+008116: 348A            
+008118: 1C52             ADD.W   &0x2020,R12
+00811a: 2020            
+00811c: 814C             MOV.W   R12,0x000a(SP)
+00811e: 0A00            
+008120: 3D40             MOV.W   #0x0064,R13
+008122: 6400            
+008124: B013             CALLA   #__mspabi_divi
+008126: 088A            
+008128: 814C             MOV.W   R12,0x000c(SP)
+00812a: 0C00            
+00812c: 3D40             MOV.W   #0x0064,R13
+00812e: 6400            
+008130: B013             CALLA   #__mspabi_mpyi_f5hw
+008132: 348A            
+008134: CF0C             MOVA    R12,R15
+008136: 1C41             MOV.W   0x000a(SP),R12
+008138: 0A00            
+00813a: 0C8F             SUB.W   R15,R12
+00813c: 3D40             MOV.W   #0x000a,R13
+00813e: 0A00            
+008140: B013             CALLA   #__mspabi_divi
+008142: 088A            
+008144: 814C             MOV.W   R12,0x000e(SP)
+008146: 0E00            
+008148: 1C41             MOV.W   0x000c(SP),R12
+00814a: 0C00            
+00814c: 3D40             MOV.W   #0x0064,R13
+00814e: 6400            
+008150: B013             CALLA   #__mspabi_mpyi_f5hw
+008152: 348A            
+008154: 1F41             MOV.W   0x000a(SP),R15
+008156: 0A00            
+008158: 0F8C             SUB.W   R12,R15
+00815a: 1C41             MOV.W   0x000e(SP),R12
+00815c: 0E00            
+00815e: 3D40             MOV.W   #0x000a,R13
+008160: 0A00            
+008162: B013             CALLA   #__mspabi_mpyi_f5hw
+008164: 348A            
+008166: 0F8C             SUB.W   R12,R15
+008168: 814F             MOV.W   R15,0x0010(SP)
+00816a: 1000            
+00816c: 1C41             MOV.W   0x000c(SP),R12
+00816e: 0C00            
+008170: B013             CALLA   #convDec2Hex
+008172: 5886            
+008174: 824C             MOV.W   R12,&0x200a
+008176: 0A20            
+008178: 1C41             MOV.W   0x000e(SP),R12
+00817a: 0E00            
+00817c: B013             CALLA   #convDec2Hex
+00817e: 5886            
+008180: 824C             MOV.W   R12,&0x200c
+008182: 0C20            
+008184: 1C41             MOV.W   0x0010(SP),R12
+008186: 1000            
+008188: B013             CALLA   #convDec2Hex
+00818a: 5886            
+00818c: 824C             MOV.W   R12,&0x200e
+00818e: 0E20            
+008190: 3150             ADD.W   #0x0012,SP
+008192: 1200            
+008194: 1001             RETA    
+008196:              sendDataLCD:
+008196:              .text:sendDataLCD:
+008196: 3180             SUB.W   #0x0018,SP
+008198: 1800            
+00819a: 814D             MOV.W   R13,0x0002(SP)
+00819c: 0200            
+00819e: 814C             MOV.W   R12,0x0000(SP)
+0081a0: 0000            
+0081a2: B142             MOV.W   #8,0x0004(SP)
+0081a4: 0400            
+0081a6: A142             MOV.W   #4,0x0006(SP)
+0081a8: 0600            
+0081aa: A143             MOV.W   #2,0x0008(SP)
+0081ac: 0800            
+0081ae: 9143             MOV.W   #1,0x000a(SP)
+0081b0: 0A00            
+0081b2: B142             MOV.W   #8,0x000c(SP)
+0081b4: 0C00            
+0081b6: A142             MOV.W   #4,0x000e(SP)
+0081b8: 0E00            
+0081ba: A143             MOV.W   #2,0x0010(SP)
+0081bc: 1000            
+0081be: 9143             MOV.W   #1,0x0012(SP)
+0081c0: 1200            
+0081c2: 8143             CLR.W   0x0014(SP)
+0081c4: 1400            
+0081c6: 8143             CLR.W   0x0016(SP)
+0081c8: 1600            
+0081ca: 9193             CMP.W   #1,0x0000(SP)
+0081cc: 0000            
+0081ce: 0420             JNE     ($C$L3)
+0081d0: F2D0             BIS.B   #0x0080,&P3OUT
+0081d2: 8000            
+0081d4: 2202            
+0081d6: 033C             JMP     ($C$L4)
+0081d8:              $C$L3:
+0081d8: F2F0             AND.B   #0x007f,&P3OUT
+0081da: 7F00            
+0081dc: 2202            
+0081de:              $C$L4:
+0081de: B1B0             BIT.W   #0x0080,0x0002(SP)
+0081e0: 8000            
+0081e2: 0200            
+0081e4: 0220             JNE     ($C$L5)
+0081e6: 8143             CLR.W   0x0004(SP)
+0081e8: 0400            
+0081ea:              $C$L5:
+0081ea: B1B0             BIT.W   #0x0040,0x0002(SP)
+0081ec: 4000            
+0081ee: 0200            
+0081f0: 0220             JNE     ($C$L6)
+0081f2: 8143             CLR.W   0x0006(SP)
+0081f4: 0600            
+0081f6:              $C$L6:
+0081f6: B1B0             BIT.W   #0x0020,0x0002(SP)
+0081f8: 2000            
+0081fa: 0200            
+0081fc: 0220             JNE     ($C$L7)
+0081fe: 8143             CLR.W   0x0008(SP)
+008200: 0800            
+008202:              $C$L7:
+008202: B1B0             BIT.W   #0x0010,0x0002(SP)
+008204: 1000            
+008206: 0200            
+008208: 0220             JNE     ($C$L8)
+00820a: 8143             CLR.W   0x000a(SP)
+00820c: 0A00            
+00820e:              $C$L8:
+00820e: B1B2             BIT.W   #8,0x0002(SP)
+008210: 0200            
+008212: 0220             JNE     ($C$L9)
+008214: 8143             CLR.W   0x000c(SP)
+008216: 0C00            
+008218:              $C$L9:
+008218: A1B2             BIT.W   #4,0x0002(SP)
+00821a: 0200            
+00821c: 0220             JNE     ($C$L10)
+00821e: 8143             CLR.W   0x000e(SP)
+008220: 0E00            
+008222:              $C$L10:
+008222: A1B3             BIT.W   #2,0x0002(SP)
+008224: 0200            
+008226: 0220             JNE     ($C$L11)
+008228: 8143             CLR.W   0x0010(SP)
+00822a: 1000            
+00822c:              $C$L11:
+00822c: 91B3             BIT.W   #1,0x0002(SP)
+00822e: 0200            
+008230: 0220             JNE     ($C$L12)
+008232: 8143             CLR.W   0x0012(SP)
+008234: 1200            
+008236:              $C$L12:
+008236: 1F41             MOV.W   0x0006(SP),R15
+008238: 0600            
+00823a: 1FD1             BIS.W   0x0004(SP),R15
+00823c: 0400            
+00823e: 1FD1             BIS.W   0x0008(SP),R15
+008240: 0800            
+008242: 1FD1             BIS.W   0x000a(SP),R15
+008244: 0A00            
+008246: 814F             MOV.W   R15,0x0014(SP)
+008248: 1400            
+00824a: 5F0E             RLAM.W  #4,R15
+00824c: 814F             MOV.W   R15,0x0014(SP)
+00824e: 1400            
+008250: 1F41             MOV.W   0x000e(SP),R15
+008252: 0E00            
+008254: 1FD1             BIS.W   0x000c(SP),R15
+008256: 0C00            
+008258: 1FD1             BIS.W   0x0010(SP),R15
+00825a: 1000            
+00825c: 1FD1             BIS.W   0x0012(SP),R15
+00825e: 1200            
+008260: 814F             MOV.W   R15,0x0016(SP)
+008262: 1600            
+008264: 5F0E             RLAM.W  #4,R15
+008266: 814F             MOV.W   R15,0x0016(SP)
+008268: 1600            
+00826a: F2F0             AND.B   #0x000f,&P1OUT
+00826c: 0F00            
+00826e: 0202            
+008270: D2D1             BIS.B   0x0014(SP),&P1OUT
+008272: 1400            
+008274: 0202            
+008276: B013             CALLA   #latchClock
+008278: 4C8A            
+00827a: F2F0             AND.B   #0x000f,&P1OUT
+00827c: 0F00            
+00827e: 0202            
+008280: D2D1             BIS.B   0x0016(SP),&P1OUT
+008282: 1600            
+008284: 0202            
+008286: B013             CALLA   #latchClock
+008288: 4C8A            
+00828a: 9193             CMP.W   #1,0x0000(SP)
+00828c: 0000            
+00828e: 0320             JNE     ($C$L13)
+008290: F2F0             AND.B   #0x007f,&P3OUT
+008292: 7F00            
+008294: 2202            
+008296:              $C$L13:
+008296: 3C40             MOV.W   #0x0320,R12
+008298: 2003            
+00829a: B013             CALLA   #dataDelay
+00829c: AC89            
+00829e: 3150             ADD.W   #0x0018,SP
+0082a0: 1800            
+0082a2: 1001             RETA    
+0082a4:              convertInputValue:
+0082a4:              .text:convertInputValue:
+0082a4: 2182             SUB.W   #4,SP
+0082a6: 814C             MOV.W   R12,0x0000(SP)
+0082a8: 0000            
+0082aa: 8143             CLR.W   0x0002(SP)
+0082ac: 0200            
+0082ae: 513C             JMP     ($C$L32)
+0082b0:              $C$L16:
+0082b0: B140             MOV.W   #0x0041,0x0002(SP)
+0082b2: 4100            
+0082b4: 0200            
+0082b6: 763C             JMP     ($C$L34)
+0082b8:              $C$L17:
+0082b8: B140             MOV.W   #0x0042,0x0002(SP)
+0082ba: 4200            
+0082bc: 0200            
+0082be: 723C             JMP     ($C$L34)
+0082c0:              $C$L18:
+0082c0: B140             MOV.W   #0x0043,0x0002(SP)
+0082c2: 4300            
+0082c4: 0200            
+0082c6: 6E3C             JMP     ($C$L34)
+0082c8:              $C$L19:
+0082c8: B140             MOV.W   #0x0044,0x0002(SP)
+0082ca: 4400            
+0082cc: 0200            
+0082ce: 6A3C             JMP     ($C$L34)
+0082d0:              $C$L20:
+0082d0: B140             MOV.W   #0x0030,0x0002(SP)
+0082d2: 3000            
+0082d4: 0200            
+0082d6: 663C             JMP     ($C$L34)
+0082d8:              $C$L21:
+0082d8: B140             MOV.W   #0x0031,0x0002(SP)
+0082da: 3100            
+0082dc: 0200            
+0082de: 623C             JMP     ($C$L34)
+0082e0:              $C$L22:
+0082e0: B140             MOV.W   #0x0032,0x0002(SP)
+0082e2: 3200            
+0082e4: 0200            
+0082e6: 5E3C             JMP     ($C$L34)
+0082e8:              $C$L23:
+0082e8: B140             MOV.W   #0x0033,0x0002(SP)
+0082ea: 3300            
+0082ec: 0200            
+0082ee: 5A3C             JMP     ($C$L34)
+0082f0:              $C$L24:
+0082f0: B140             MOV.W   #0x0034,0x0002(SP)
+0082f2: 3400            
+0082f4: 0200            
+0082f6: 563C             JMP     ($C$L34)
+0082f8:              $C$L25:
+0082f8: B140             MOV.W   #0x0035,0x0002(SP)
+0082fa: 3500            
+0082fc: 0200            
+0082fe: 523C             JMP     ($C$L34)
+008300:              $C$L26:
+008300: B140             MOV.W   #0x0036,0x0002(SP)
+008302: 3600            
+008304: 0200            
+008306: 4E3C             JMP     ($C$L34)
+008308:              $C$L27:
+008308: B140             MOV.W   #0x0037,0x0002(SP)
+00830a: 3700            
+00830c: 0200            
+00830e: 4A3C             JMP     ($C$L34)
+008310:              $C$L28:
+008310: B140             MOV.W   #0x0038,0x0002(SP)
+008312: 3800            
+008314: 0200            
+008316: 463C             JMP     ($C$L34)
+008318:              $C$L29:
+008318: B140             MOV.W   #0x0039,0x0002(SP)
+00831a: 3900            
+00831c: 0200            
+00831e: 423C             JMP     ($C$L34)
+008320:              $C$L30:
+008320: B140             MOV.W   #0x002a,0x0002(SP)
+008322: 2A00            
+008324: 0200            
+008326: 3E3C             JMP     ($C$L34)
+008328:              $C$L31:
+008328: 0C43             CLR.W   R12
+00832a: 1D43             MOV.W   #1,R13
+00832c: B013             CALLA   #sendDataLCD
+00832e: 9681            
+008330: 0C43             CLR.W   R12
+008332: 3D40             MOV.W   #0x0080,R13
+008334: 8000            
+008336: B013             CALLA   #sendDataLCD
+008338: 9681            
+00833a: 0C43             CLR.W   R12
+00833c: 2D43             MOV.W   #2,R13
+00833e: B013             CALLA   #sendDataLCD
+008340: 9681            
+008342: 0C43             CLR.W   R12
+008344: 3D40             MOV.W   #0x000f,R13
+008346: 0F00            
+008348: B013             CALLA   #sendDataLCD
+00834a: 9681            
+00834c: B013             CALLA   #resetDisplay
+00834e: AC83            
+008350: 293C             JMP     ($C$L34)
+008352:              $C$L32:
+008352: 3C90             CMP.W   #0x0042,R12
+008354: 4200            
+008356: 1634             JGE     ($C$L33)
+008358: 3C90             CMP.W   #0x0041,R12
+00835a: 4100            
+00835c: AD27             JEQ     ($C$L17)
+00835e: 3C80             SUB.W   #0x0011,R12
+008360: 1100            
+008362: B227             JEQ     ($C$L19)
+008364: 1C83             DEC.W   R12
+008366: E027             JEQ     ($C$L31)
+008368: 2C83             DECD.W  R12
+00836a: B227             JEQ     ($C$L20)
+00836c: 2C82             SUB.W   #4,R12
+00836e: D827             JEQ     ($C$L30)
+008370: 3C80             SUB.W   #0x0009,R12
+008372: 0900            
+008374: A527             JEQ     ($C$L18)
+008376: 1C83             DEC.W   R12
+008378: CF27             JEQ     ($C$L29)
+00837a: 2C83             DECD.W  R12
+00837c: C927             JEQ     ($C$L28)
+00837e: 2C82             SUB.W   #4,R12
+008380: C327             JEQ     ($C$L27)
+008382: 103C             JMP     ($C$L34)
+008384:              $C$L33:
+008384: 3C80             SUB.W   #0x0042,R12
+008386: 4200            
+008388: BB27             JEQ     ($C$L26)
+00838a: 2C83             DECD.W  R12
+00838c: B527             JEQ     ($C$L25)
+00838e: 2C82             SUB.W   #4,R12
+008390: AF27             JEQ     ($C$L24)
+008392: 3C80             SUB.W   #0x0039,R12
+008394: 3900            
+008396: 8C27             JEQ     ($C$L16)
+008398: 1C83             DEC.W   R12
+00839a: A627             JEQ     ($C$L23)
+00839c: 2C83             DECD.W  R12
+00839e: A027             JEQ     ($C$L22)
+0083a0: 2C82             SUB.W   #4,R12
+0083a2: 9A27             JEQ     ($C$L21)
+0083a4:              $C$L34:
+0083a4: 1C41             MOV.W   0x0002(SP),R12
+0083a6: 0200            
+0083a8: 2152             ADD.W   #4,SP
+0083aa: 1001             RETA    
+0083ac:              resetDisplay:
+0083ac:              .text:resetDisplay:
+0083ac: 0C43             CLR.W   R12
+0083ae: 1D43             MOV.W   #1,R13
+0083b0: B013             CALLA   #sendDataLCD
+0083b2: 9681            
+0083b4: 0C43             CLR.W   R12
+0083b6: 0D43             CLR.W   R13
+0083b8: B013             CALLA   #setDDRAM
+0083ba: 3688            
+0083bc: 1C43             MOV.W   #1,R12
+0083be: 3D40             MOV.W   #0x0052,R13
+0083c0: 5200            
+0083c2: B013             CALLA   #sendDataLCD
+0083c4: 9681            
+0083c6: 1C43             MOV.W   #1,R12
+0083c8: 3D40             MOV.W   #0x0065,R13
+0083ca: 6500            
+0083cc: B013             CALLA   #sendDataLCD
+0083ce: 9681            
+0083d0: 1C43             MOV.W   #1,R12
+0083d2: 3D40             MOV.W   #0x0073,R13
+0083d4: 7300            
+0083d6: B013             CALLA   #sendDataLCD
+0083d8: 9681            
+0083da: 1C43             MOV.W   #1,R12
+0083dc: 3D40             MOV.W   #0x003d,R13
+0083de: 3D00            
+0083e0: B013             CALLA   #sendDataLCD
+0083e2: 9681            
+0083e4: 0C43             CLR.W   R12
+0083e6: 3D42             MOV.W   #8,R13
+0083e8: B013             CALLA   #setDDRAM
+0083ea: 3688            
+0083ec: 1C43             MOV.W   #1,R12
+0083ee: 3D40             MOV.W   #0x0041,R13
+0083f0: 4100            
+0083f2: B013             CALLA   #sendDataLCD
+0083f4: 9681            
+0083f6: 1C43             MOV.W   #1,R12
+0083f8: 3D40             MOV.W   #0x003a,R13
+0083fa: 3A00            
+0083fc: B013             CALLA   #sendDataLCD
+0083fe: 9681            
+008400: 0C43             CLR.W   R12
+008402: 3D40             MOV.W   #0x000c,R13
+008404: 0C00            
+008406: B013             CALLA   #setDDRAM
+008408: 3688            
+00840a: 1C43             MOV.W   #1,R12
+00840c: 3D40             MOV.W   #0x002e,R13
+00840e: 2E00            
+008410: B013             CALLA   #sendDataLCD
+008412: 9681            
+008414: 0C43             CLR.W   R12
+008416: 3D40             MOV.W   #0x000e,R13
+008418: 0E00            
+00841a: B013             CALLA   #setDDRAM
+00841c: 3688            
+00841e: 1C43             MOV.W   #1,R12
+008420: 3D40             MOV.W   #0x00df,R13
+008422: DF00            
+008424: B013             CALLA   #sendDataLCD
+008426: 9681            
+008428: 1C43             MOV.W   #1,R12
+00842a: 3D40             MOV.W   #0x0043,R13
+00842c: 4300            
+00842e: B013             CALLA   #sendDataLCD
+008430: 9681            
+008432: 1C43             MOV.W   #1,R12
+008434: 1D43             MOV.W   #1,R13
+008436: B013             CALLA   #setDDRAM
+008438: 3688            
+00843a: 1C43             MOV.W   #1,R12
+00843c: 3D40             MOV.W   #0x003a,R13
+00843e: 3A00            
+008440: B013             CALLA   #sendDataLCD
+008442: 9681            
+008444: 1C43             MOV.W   #1,R12
+008446: 3D40             MOV.W   #0x0005,R13
+008448: 0500            
+00844a: B013             CALLA   #setDDRAM
+00844c: 3688            
+00844e: 1C43             MOV.W   #1,R12
+008450: 3D40             MOV.W   #0x0073,R13
+008452: 7300            
+008454: B013             CALLA   #sendDataLCD
+008456: 9681            
+008458: 1C43             MOV.W   #1,R12
+00845a: 3D42             MOV.W   #8,R13
+00845c: B013             CALLA   #setDDRAM
+00845e: 3688            
+008460: 1C43             MOV.W   #1,R12
+008462: 3D40             MOV.W   #0x0050,R13
+008464: 5000            
+008466: B013             CALLA   #sendDataLCD
+008468: 9681            
+00846a: 1C43             MOV.W   #1,R12
+00846c: 3D40             MOV.W   #0x003a,R13
+00846e: 3A00            
+008470: B013             CALLA   #sendDataLCD
+008472: 9681            
+008474: 1C43             MOV.W   #1,R12
+008476: 3D40             MOV.W   #0x000c,R13
+008478: 0C00            
+00847a: B013             CALLA   #setDDRAM
+00847c: 3688            
+00847e: 1C43             MOV.W   #1,R12
+008480: 3D40             MOV.W   #0x002e,R13
+008482: 2E00            
+008484: B013             CALLA   #sendDataLCD
+008486: 9681            
+008488: 1C43             MOV.W   #1,R12
+00848a: 3D40             MOV.W   #0x000e,R13
+00848c: 0E00            
+00848e: B013             CALLA   #setDDRAM
+008490: 3688            
+008492: 1C43             MOV.W   #1,R12
+008494: 3D40             MOV.W   #0x00df,R13
+008496: DF00            
+008498: B013             CALLA   #sendDataLCD
+00849a: 9681            
+00849c: 1C43             MOV.W   #1,R12
+00849e: 3D40             MOV.W   #0x0043,R13
+0084a0: 4300            
+0084a2: B013             CALLA   #sendDataLCD
+0084a4: 9681            
+0084a6: 0C43             CLR.W   R12
+0084a8: 2D42             MOV.W   #4,R13
+0084aa: B013             CALLA   #setDDRAM
+0084ac: 3688            
+0084ae: 1001             RETA    
+0084b0:              __TI_decompress_lzss:
+0084b0:              .text:decompress:lzss:__TI_decompress_lzss:
+0084b0: 6A14             PUSHM.A #7,R10
+0084b2:              $C$L1:
+0084b2: B013             CALLA   #$abproc0
+0084b4: 8C85            
+0084b6: 674B             MOV.B   @R11,R7
+0084b8: 4747             MOV.B   R7,R7
+0084ba: 0643             CLR.W   R6
+0084bc: 2D3C             JMP     ($C$L6)
+0084be:              $C$L2:
+0084be: C90E             MOVA    R14,R9
+0084c0: CA0F             MOVA    R15,R10
+0084c2: 0988             SUB.W   R8,R9
+0084c4: 0A73             SBC.W   R10
+0084c6: 1983             DEC.W   R9
+0084c8: 0A73             SBC.W   R10
+0084ca:              $C$L3:
+0084ca: C509             MOVA    R9,R5
+0084cc: C80A             MOVA    R10,R8
+0084ce: 1953             INC.W   R9
+0084d0: 0A63             ADC.W   R10
+0084d2: 0F18             RPT #16   RLAX.A  R8
+0084d4: 4858            
+0084d6: 0018             BISX.A  R5,R8
+0084d8: 48D5            
+0084da: 6548             MOV.B   @R8,R5
+0084dc: C40E             MOVA    R14,R4
+0084de: C80F             MOVA    R15,R8
+0084e0: 1E53             INC.W   R14
+0084e2: 0F63             ADC.W   R15
+0084e4: 0F18             RPT #16   RLAX.A  R8
+0084e6: 4858            
+0084e8: 0018             BISX.A  R4,R8
+0084ea: 48D4            
+0084ec: C845             MOV.B   R5,0x0000(R8)
+0084ee: 0000            
+0084f0: 1B83             DEC.W   R11
+0084f2: EB23             JNE     ($C$L3)
+0084f4: 0D3C             JMP     ($C$L5)
+0084f6:              $C$L4:
+0084f6: B013             CALLA   #$abproc0
+0084f8: 8C85            
+0084fa: 6A4B             MOV.B   @R11,R10
+0084fc: C90E             MOVA    R14,R9
+0084fe: CB0F             MOVA    R15,R11
+008500: 1E53             INC.W   R14
+008502: 0F63             ADC.W   R15
+008504: 0F18             RPT #16   RLAX.A  R11
+008506: 4B5B            
+008508: 0018             BISX.A  R9,R11
+00850a: 4BD9            
+00850c: CB4A             MOV.B   R10,0x0000(R11)
+00850e: 0000            
+008510:              $C$L5:
+008510: 5703             RRUM.W  #1,R7
+008512: 1653             INC.W   R6
+008514: 3692             CMP.W   #8,R6
+008516: CD37             JGE     ($C$L1)
+008518:              $C$L6:
+008518: 17B3             BIT.W   #1,R7
+00851a: ED23             JNE     ($C$L4)
+00851c: B013             CALLA   #$abproc0
+00851e: 8C85            
+008520: 684B             MOV.B   @R11,R8
+008522: 4848             MOV.B   R8,R8
+008524: B013             CALLA   #$abproc0
+008526: 8C85            
+008528: 6B4B             MOV.B   @R11,R11
+00852a: 4B4B             MOV.B   R11,R11
+00852c: CA08             MOVA    R8,R10
+00852e: 5A0E             RLAM.W  #4,R10
+008530: C80B             MOVA    R11,R8
+008532: 580F             RRUM.W  #4,R8
+008534: 38F0             AND.W   #0x000f,R8
+008536: 0F00            
+008538: 08DA             BIS.W   R10,R8
+00853a: 3BF0             AND.W   #0x000f,R11
+00853c: 0F00            
+00853e: 3B50             ADD.W   #0x0003,R11
+008540: 0300            
+008542: 3B90             CMP.W   #0x0012,R11
+008544: 1200            
+008546: 1D20             JNE     ($C$L8)
+008548: C90C             MOVA    R12,R9
+00854a: CA0D             MOVA    R13,R10
+00854c: 1C53             INC.W   R12
+00854e: 0D63             ADC.W   R13
+008550: 0F18             RPT #16   RLAX.A  R10
+008552: 4A5A            
+008554: 0018             BISX.A  R9,R10
+008556: 4AD9            
+008558: 6A4A             MOV.B   @R10,R10
+00855a: 4A4A             MOV.B   R10,R10
+00855c: 3AB0             BIT.W   #0x0080,R10
+00855e: 8000            
+008560: 0F24             JEQ     ($C$L7)
+008562: C50C             MOVA    R12,R5
+008564: C90D             MOVA    R13,R9
+008566: 1C53             INC.W   R12
+008568: 0D63             ADC.W   R13
+00856a: 0F18             RPT #16   RLAX.A  R9
+00856c: 4959            
+00856e: 0018             BISX.A  R5,R9
+008570: 49D5            
+008572: 6949             MOV.B   @R9,R9
+008574: 3AF0             AND.W   #0x007f,R10
+008576: 7F00            
+008578: 4949             MOV.B   R9,R9
+00857a: 4618             RPT #7   RLAX.W  R9
+00857c: 0959            
+00857e: 0AD9             BIS.W   R9,R10
+008580:              $C$L7:
+008580: 0B5A             ADD.W   R10,R11
+008582:              $C$L8:
+008582: 3890             CMP.W   #0x0fff,R8
+008584: FF0F            
+008586: 9B23             JNE     ($C$L2)
+008588: 6416             POPM.A  #7,R10
+00858a: 1001             RETA    
+00858c:              $abproc0:
+00858c: CA0C             MOVA    R12,R10
+00858e: CB0D             MOVA    R13,R11
+008590: 1C53             INC.W   R12
+008592: 0D63             ADC.W   R13
+008594: 0F18             RPT #16   RLAX.A  R11
+008596: 4B5B            
+008598: 0018             BISX.A  R10,R11
+00859a: 4BDA            
+00859c: 1001             RETA    
+00859e:              printData2LCD:
+00859e:              .text:printData2LCD:
+00859e: 0C43             CLR.W   R12
+0085a0: 2D42             MOV.W   #4,R13
+0085a2: B013             CALLA   #setDDRAM
+0085a4: 3688            
+0085a6: 1D42             MOV.W   &convertedData,R13
+0085a8: 0020            
+0085aa: 1C43             MOV.W   #1,R12
+0085ac: B013             CALLA   #sendDataLCD
+0085ae: 9681            
+0085b0: 0C43             CLR.W   R12
+0085b2: 3D40             MOV.W   #0x000a,R13
+0085b4: 0A00            
+0085b6: B013             CALLA   #setDDRAM
+0085b8: 3688            
+0085ba: 1D42             MOV.W   &0x2002,R13
+0085bc: 0220            
+0085be: 1C43             MOV.W   #1,R12
+0085c0: B013             CALLA   #sendDataLCD
+0085c2: 9681            
+0085c4: 1D42             MOV.W   &0x2004,R13
+0085c6: 0420            
+0085c8: 1C43             MOV.W   #1,R12
+0085ca: B013             CALLA   #sendDataLCD
+0085cc: 9681            
+0085ce: 0C43             CLR.W   R12
+0085d0: 3D40             MOV.W   #0x000d,R13
+0085d2: 0D00            
+0085d4: B013             CALLA   #setDDRAM
+0085d6: 3688            
+0085d8: 1D42             MOV.W   &0x2006,R13
+0085da: 0620            
+0085dc: 1C43             MOV.W   #1,R12
+0085de: B013             CALLA   #sendDataLCD
+0085e0: 9681            
+0085e2: 1C43             MOV.W   #1,R12
+0085e4: 0D43             CLR.W   R13
+0085e6: B013             CALLA   #setDDRAM
+0085e8: 3688            
+0085ea: 1D42             MOV.W   &0x2008,R13
+0085ec: 0820            
+0085ee: 1C43             MOV.W   #1,R12
+0085f0: B013             CALLA   #sendDataLCD
+0085f2: 9681            
+0085f4: 1C43             MOV.W   #1,R12
+0085f6: 2D43             MOV.W   #2,R13
+0085f8: B013             CALLA   #setDDRAM
+0085fa: 3688            
+0085fc: 1D42             MOV.W   &0x200a,R13
+0085fe: 0A20            
+008600: 1C43             MOV.W   #1,R12
+008602: B013             CALLA   #sendDataLCD
+008604: 9681            
+008606: 1D42             MOV.W   &0x200c,R13
+008608: 0C20            
+00860a: 1C43             MOV.W   #1,R12
+00860c: B013             CALLA   #sendDataLCD
+00860e: 9681            
+008610: 1D42             MOV.W   &0x200e,R13
+008612: 0E20            
+008614: 1C43             MOV.W   #1,R12
+008616: B013             CALLA   #sendDataLCD
+008618: 9681            
+00861a: 1C43             MOV.W   #1,R12
+00861c: 3D40             MOV.W   #0x000a,R13
+00861e: 0A00            
+008620: B013             CALLA   #setDDRAM
+008622: 3688            
+008624: 1D42             MOV.W   &0x2010,R13
+008626: 1020            
+008628: 1C43             MOV.W   #1,R12
+00862a: B013             CALLA   #sendDataLCD
+00862c: 9681            
+00862e: 1D42             MOV.W   &0x2012,R13
+008630: 1220            
+008632: 1C43             MOV.W   #1,R12
+008634: B013             CALLA   #sendDataLCD
+008636: 9681            
+008638: 1C43             MOV.W   #1,R12
+00863a: 3D40             MOV.W   #0x000d,R13
+00863c: 0D00            
+00863e: B013             CALLA   #setDDRAM
+008640: 3688            
+008642: 1D42             MOV.W   &0x2014,R13
+008644: 1420            
+008646: 1C43             MOV.W   #1,R12
+008648: B013             CALLA   #sendDataLCD
+00864a: 9681            
+00864c: 0C43             CLR.W   R12
+00864e: 3D40             MOV.W   #0x0006,R13
+008650: 0600            
+008652: B013             CALLA   #setDDRAM
+008654: 3688            
+008656: 1001             RETA    
+008658:              convDec2Hex:
+008658:              .text:convDec2Hex:
+008658: 2182             SUB.W   #4,SP
+00865a: 814C             MOV.W   R12,0x0000(SP)
+00865c: 0000            
+00865e: 8143             CLR.W   0x0002(SP)
+008660: 0200            
+008662: 283C             JMP     ($C$L45)
+008664:              $C$L35:
+008664: B140             MOV.W   #0x0014,0x0002(SP)
+008666: 1400            
+008668: 0200            
+00866a: 3F3C             JMP     ($C$L46)
+00866c:              $C$L36:
+00866c: B140             MOV.W   #0x0088,0x0002(SP)
+00866e: 8800            
+008670: 0200            
+008672: 3B3C             JMP     ($C$L46)
+008674:              $C$L37:
+008674: B140             MOV.W   #0x0084,0x0002(SP)
+008676: 8400            
+008678: 0200            
+00867a: 373C             JMP     ($C$L46)
+00867c:              $C$L38:
+00867c: B140             MOV.W   #0x0082,0x0002(SP)
+00867e: 8200            
+008680: 0200            
+008682: 333C             JMP     ($C$L46)
+008684:              $C$L39:
+008684: B140             MOV.W   #0x0048,0x0002(SP)
+008686: 4800            
+008688: 0200            
+00868a: 2F3C             JMP     ($C$L46)
+00868c:              $C$L40:
+00868c: B140             MOV.W   #0x0044,0x0002(SP)
+00868e: 4400            
+008690: 0200            
+008692: 2B3C             JMP     ($C$L46)
+008694:              $C$L41:
+008694: B140             MOV.W   #0x0042,0x0002(SP)
+008696: 4200            
+008698: 0200            
+00869a: 273C             JMP     ($C$L46)
+00869c:              $C$L42:
+00869c: B140             MOV.W   #0x0028,0x0002(SP)
+00869e: 2800            
+0086a0: 0200            
+0086a2: 233C             JMP     ($C$L46)
+0086a4:              $C$L43:
+0086a4: B140             MOV.W   #0x0024,0x0002(SP)
+0086a6: 2400            
+0086a8: 0200            
+0086aa: 1F3C             JMP     ($C$L46)
+0086ac:              $C$L44:
+0086ac: B140             MOV.W   #0x0022,0x0002(SP)
+0086ae: 2200            
+0086b0: 0200            
+0086b2: 1B3C             JMP     ($C$L46)
+0086b4:              $C$L45:
+0086b4: 3C90             CMP.W   #0x000a,R12
+0086b6: 0A00            
+0086b8: 182C             JHS     ($C$L46)
+0086ba: 5C06             RLAM.W  #2,R12
+0086bc: 0018             MOVX.A  0x086c2(R12),PC
+0086be: 504C            
+0086c0: C286            
+0086c2:              $C$SW1:
+0086c2: 6486             SUB.B   @R6,R4
+0086c4: 0000             BRA     @PC
+0086c6: 6C86             SUB.B   @R6,R12
+0086c8: 0000             BRA     @PC
+0086ca: 7486             SUB.B   @R6+,R4
+0086cc: 0000             BRA     @PC
+0086ce: 7C86             SUB.B   @R6+,R12
+0086d0: 0000             BRA     @PC
+0086d2: 8486             SUB.W   R6,0x0000(R4)
+0086d4: 0000            
+0086d6: 8C86             SUB.W   R6,0x0000(R12)
+0086d8: 0000            
+0086da: 9486             SUB.W   0x0000(R6),0x869c(R4)
+0086dc: 0000            
+0086de: 9C86            
+0086e0: 0000             BRA     @PC
+0086e2: A486             SUB.W   @R6,0x0000(R4)
+0086e4: 0000            
+0086e6: AC86             SUB.W   @R6,0x0000(R12)
+0086e8: 0000            
+0086ea:              $C$L46:
+0086ea: 1C41             MOV.W   0x0002(SP),R12
+0086ec: 0200            
+0086ee: 2152             ADD.W   #4,SP
+0086f0: 1001             RETA    
+0086f2:              initLCD:
+0086f2:              .text:initLCD:
+0086f2: 2183             DECD.W  SP
+0086f4: 8143             CLR.W   0x0000(SP)
+0086f6: 0000            
+0086f8: 3C40             MOV.W   #0x03e8,R12
+0086fa: E803            
+0086fc: B013             CALLA   #dataDelay
+0086fe: AC89            
+008700: B140             MOV.W   #0x0003,0x0000(SP)
+008702: 0300            
+008704: 0000            
+008706: 8193             TST.W   0x0000(SP)
+008708: 0000            
+00870a: 0D20             JNE     ($C$L50)
+00870c:              $C$L49:
+00870c: B013             CALLA   #initFunctionSet
+00870e: 788A            
+008710: B013             CALLA   #latchClock
+008712: 4C8A            
+008714: 3C40             MOV.W   #0x0052,R12
+008716: 5200            
+008718: B013             CALLA   #dataDelay
+00871a: AC89            
+00871c: 9183             DEC.W   0x0000(SP)
+00871e: 0000            
+008720: 8193             TST.W   0x0000(SP)
+008722: 0000            
+008724: F327             JEQ     ($C$L49)
+008726:              $C$L50:
+008726: 0C43             CLR.W   R12
+008728: 3D40             MOV.W   #0x0028,R13
+00872a: 2800            
+00872c: B013             CALLA   #sendDataLCD
+00872e: 9681            
+008730: 0C43             CLR.W   R12
+008732: 3D40             MOV.W   #0x000f,R13
+008734: 0F00            
+008736: B013             CALLA   #sendDataLCD
+008738: 9681            
+00873a: 0C43             CLR.W   R12
+00873c: 1D43             MOV.W   #1,R13
+00873e: B013             CALLA   #sendDataLCD
+008740: 9681            
+008742: 0C43             CLR.W   R12
+008744: 3D40             MOV.W   #0x0006,R13
+008746: 0600            
+008748: B013             CALLA   #sendDataLCD
+00874a: 9681            
+00874c: 0C43             CLR.W   R12
+00874e: 2D43             MOV.W   #2,R13
+008750: B013             CALLA   #sendDataLCD
+008752: 9681            
+008754: 0C43             CLR.W   R12
+008756: 3D40             MOV.W   #0x0040,R13
+008758: 4000            
+00875a: B013             CALLA   #sendDataLCD
+00875c: 9681            
+00875e: 0C43             CLR.W   R12
+008760: 0D43             CLR.W   R13
+008762: B013             CALLA   #setDDRAM
+008764: 3688            
+008766: B013             CALLA   #resetDisplay
+008768: AC83            
+00876a: 2153             INCD.W  SP
+00876c: 1001             RETA    
+00876e:              __TI_auto_init_nobinit_nopinit_hold_wdt:
+00876e:              .text:__TI_auto_init_nobinit_nopinit_hold_wdt:__TI_auto_init_nobinit_nopinit_hold_wdt:
+00876e: 2A14             PUSHM.A #3,R10
+008770: 1942             MOV.W   &WDTCTL_L,R9
+008772: CC01            
+008774: B240             MOV.W   #0x5a80,&WDTCTL_L
+008776: 805A            
+008778: CC01            
+00877a: 3F40             MOV.W   #0x8008,R15
+00877c: 0880            
+00877e: 9F00             CMPA    #0x08010,R15
+008780: 1080            
+008782: 2124             JEQ     ($C$L20)
+008784: 3F40             MOV.W   #0x8010,R15
+008786: 1080            
+008788: 9F00             CMPA    #0x08018,R15
+00878a: 1880            
+00878c: 1C24             JEQ     ($C$L20)
+00878e: 3A40             MOV.W   #0x8018,R10
+008790: 1880            
+008792: 3A80             SUB.W   #0x8010,R10
+008794: 1080            
+008796: 5A09             RRAM.W  #3,R10
+008798: 3840             MOV.W   #0x8010,R8
+00879a: 1080            
+00879c:              $C$L19:
+00879c: 3C48             MOV.W   @R8+,R12
+00879e: 3D48             MOV.W   @R8+,R13
+0087a0: CE0C             MOVA    R12,R14
+0087a2: CF0D             MOVA    R13,R15
+0087a4: 1C53             INC.W   R12
+0087a6: 0D63             ADC.W   R13
+0087a8: 0F18             RPT #16   RLAX.A  R15
+0087aa: 4F5F            
+0087ac: 0018             BISX.A  R14,R15
+0087ae: 4FDE            
+0087b0: 6F4F             MOV.B   @R15,R15
+0087b2: 4F4F             MOV.B   R15,R15
+0087b4: 5F06             RLAM.W  #2,R15
+0087b6: 0018             MOVX.A  0x08008(R15),R11
+0087b8: 5B4F            
+0087ba: 0880            
+0087bc: 3E48             MOV.W   @R8+,R14
+0087be: 3F48             MOV.W   @R8+,R15
+0087c0: 4B13             CALLA   R11
+0087c2: 1A83             DEC.W   R10
+0087c4: EB23             JNE     ($C$L19)
+0087c6:              $C$L20:
+0087c6: 79C2             BIC.B   #8,R9
+0087c8: 39D0             BIS.W   #0x5a08,R9
+0087ca: 085A            
+0087cc: 8249             MOV.W   R9,&WDTCTL_L
+0087ce: CC01            
+0087d0: B013             CALLA   #_system_post_cinit
+0087d2: 968A            
+0087d4: 2816             POPM.A  #3,R10
+0087d6: 1001             RETA    
+0087d8:              configPorts:
+0087d8:              .text:configPorts:
+0087d8: F2D0             BIS.B   #0x0080,&P1DIR
+0087da: 8000            
+0087dc: 0402            
+0087de: F2F0             AND.B   #0x007f,&P1OUT
+0087e0: 7F00            
+0087e2: 0202            
+0087e4: F2D0             BIS.B   #0x0040,&P1DIR
+0087e6: 4000            
+0087e8: 0402            
+0087ea: F2F0             AND.B   #0x00bf,&P1OUT
+0087ec: BF00            
+0087ee: 0202            
+0087f0: F2D0             BIS.B   #0x0020,&P1DIR
+0087f2: 2000            
+0087f4: 0402            
+0087f6: F2F0             AND.B   #0x00df,&P1OUT
+0087f8: DF00            
+0087fa: 0202            
+0087fc: F2D0             BIS.B   #0x0010,&P1DIR
+0087fe: 1000            
+008800: 0402            
+008802: F2F0             AND.B   #0x00ef,&P1OUT
+008804: EF00            
+008806: 0202            
+008808: F2D0             BIS.B   #0x0080,&P3DIR
+00880a: 8000            
+00880c: 2402            
+00880e: F2F0             AND.B   #0x007f,&P3OUT
+008810: 7F00            
+008812: 2202            
+008814: F2D0             BIS.B   #0x0040,&P3DIR
+008816: 4000            
+008818: 2402            
+00881a: F2F0             AND.B   #0x00bf,&P3OUT
+00881c: BF00            
+00881e: 2202            
+008820: D2D3             BIS.B   #1,&P1DIR
+008822: 0402            
+008824: D2C3             BIC.B   #1,&P1OUT
+008826: 0202            
+008828: F2D0             BIS.B   #0x0040,&P6DIR
+00882a: 4000            
+00882c: 4502            
+00882e: F2D0             BIS.B   #0x0040,&P6OUT
+008830: 4000            
+008832: 4302            
+008834: 1001             RETA    
+008836:              setDDRAM:
+008836:              .text:setDDRAM:
+008836: 2182             SUB.W   #4,SP
+008838: 814D             MOV.W   R13,0x0002(SP)
+00883a: 0200            
+00883c: 814C             MOV.W   R12,0x0000(SP)
+00883e: 0000            
+008840: F2F0             AND.B   #0x007f,&P3OUT
+008842: 7F00            
+008844: 2202            
+008846: 8193             TST.W   0x0000(SP)
+008848: 0000            
+00884a: 0720             JNE     ($C$L14)
+00884c: F2F0             AND.B   #0x000f,&P1OUT
+00884e: 0F00            
+008850: 0202            
+008852: F2D0             BIS.B   #0x0080,&P1OUT
+008854: 8000            
+008856: 0202            
+008858: 093C             JMP     ($C$L15)
+00885a:              $C$L14:
+00885a: 9193             CMP.W   #1,0x0000(SP)
+00885c: 0000            
+00885e: 0620             JNE     ($C$L15)
+008860: F2F0             AND.B   #0x000f,&P1OUT
+008862: 0F00            
+008864: 0202            
+008866: F2D0             BIS.B   #0x00c0,&P1OUT
+008868: C000            
+00886a: 0202            
+00886c:              $C$L15:
+00886c: B013             CALLA   #latchClock
+00886e: 4C8A            
+008870: 1F41             MOV.W   0x0002(SP),R15
+008872: 0200            
+008874: 5F0E             RLAM.W  #4,R15
+008876: 814F             MOV.W   R15,0x0002(SP)
+008878: 0200            
+00887a: F2F0             AND.B   #0x000f,&P1OUT
+00887c: 0F00            
+00887e: 0202            
+008880: D2D1             BIS.B   0x0002(SP),&P1OUT
+008882: 0200            
+008884: 0202            
+008886: B013             CALLA   #latchClock
+008888: 4C8A            
+00888a: 2152             ADD.W   #4,SP
+00888c: 1001             RETA    
+00888e:              __memcpy_far:
+00888e:              .text:__memcpy_far:
+00888e: 0A14             PUSHM.A #1,R10
+008890: 1A41             MOV.W   0x0008(SP),R10
+008892: 0800            
+008894: 1B41             MOV.W   0x000a(SP),R11
+008896: 0A00            
+008898: 0F18             RPT #16   RLAX.A  R13
+00889a: 4D5D            
+00889c: 0018             BISX.A  R12,R13
+00889e: 4DDC            
+0088a0: 0F18             RPT #16   RLAX.A  R15
+0088a2: 4F5F            
+0088a4: 0018             BISX.A  R14,R15
+0088a6: 4FDE            
+0088a8: 0B93             TST.W   R11
+0088aa: 0220             JNE     ($C$L1)
+0088ac: 0A93             TST.W   R10
+0088ae: 0D24             JEQ     ($C$L3)
+0088b0:              $C$L1:
+0088b0: 0C43             CLR.W   R12
+0088b2: 0E43             CLR.W   R14
+0088b4:              $C$L2:
+0088b4: AD00             ADDA    #0x00001,R13
+0088b6: 0100            
+0088b8: FD4F             MOV.B   @R15+,0xffff(R13)
+0088ba: FFFF            
+0088bc: 1C53             INC.W   R12
+0088be: 0E63             ADC.W   R14
+0088c0: 0E9B             CMP.W   R11,R14
+0088c2: F82B             JLO     ($C$L2)
+0088c4: 0220             JNE     ($C$L3)
+0088c6: 0C9A             CMP.W   R10,R12
+0088c8: F52B             JLO     ($C$L2)
+0088ca:              $C$L3:
+0088ca: 0A16             POPM.A  #1,R10
+0088cc: 1001             RETA    
+0088ce:              __mpu_init:
+0088ce:              .text:__mpu_init:
+0088ce: 3180             SUB.W   #0x0006,SP
+0088d0: 0600            
+0088d2: 3E40             MOV.W   #0x0000,R14
+0088d4: 0000            
+0088d6: 3EF0             AND.W   #0x003f,R14
+0088d8: 3F00            
+0088da: 814E             MOV.W   R14,0x0000(SP)
+0088dc: 0000            
+0088de: 3F40             MOV.W   #0x0001,R15
+0088e0: 0100            
+0088e2: 1FF3             AND.W   #1,R15
+0088e4: 814F             MOV.W   R15,0x0002(SP)
+0088e6: 0200            
+0088e8: 3D40             MOV.W   #0x0001,R13
+0088ea: 0100            
+0088ec: 1DF3             AND.W   #1,R13
+0088ee: 814D             MOV.W   R13,0x0004(SP)
+0088f0: 0400            
+0088f2: 5E06             RLAM.W  #2,R14
+0088f4: 5F02             RLAM.W  #1,R15
+0088f6: 0FDE             BIS.W   R14,R15
+0088f8: 1FD1             BIS.W   0x0004(SP),R15
+0088fa: 0400            
+0088fc: 3FD0             BIS.W   #0xa500,R15
+0088fe: 00A5            
+008900: 824F             MOV.W   R15,&SYSCFG0_L
+008902: 6001            
+008904: 3150             ADD.W   #0x0006,SP
+008906: 0600            
+008908: 1001             RETA    
+00890a:              __TI_decompress_none:
+00890a:              .text:decompress:none:__TI_decompress_none:
+00890a: 0A14             PUSHM.A #1,R10
+00890c: 2182             SUB.W   #4,SP
+00890e: CB0C             MOVA    R12,R11
+008910: CA0D             MOVA    R13,R10
+008912: CC0E             MOVA    R14,R12
+008914: CD0F             MOVA    R15,R13
+008916: CE0B             MOVA    R11,R14
+008918: CF0A             MOVA    R10,R15
+00891a: CA0E             MOVA    R14,R10
+00891c: CB0F             MOVA    R15,R11
+00891e: 1A53             INC.W   R10
+008920: 0B63             ADC.W   R11
+008922: 0F18             RPT #16   RLAX.A  R11
+008924: 4B5B            
+008926: 0018             BISX.A  R10,R11
+008928: 4BDA            
+00892a: 1A4B             MOV.W   0x0002(R11),R10
+00892c: 0200            
+00892e: A14B             MOV.W   @R11,0x0000(SP)
+008930: 0000            
+008932: 814A             MOV.W   R10,0x0002(SP)
+008934: 0200            
+008936: 3E50             ADD.W   #0x0005,R14
+008938: 0500            
+00893a: 0F63             ADC.W   R15
+00893c: B013             CALLA   #__memcpy_far
+00893e: 8E88            
+008940: 2152             ADD.W   #4,SP
+008942: 0A16             POPM.A  #1,R10
+008944: 1001             RETA    
+008946:              configTimerB0:
+008946:              .text:configTimerB0:
+008946: A2D2             BIS.W   #4,&TB0CTL_L
+008948: 8003            
+00894a: B2D0             BIS.W   #0x0200,&TB0CTL_L
+00894c: 0002            
+00894e: 8003            
+008950: B2D0             BIS.W   #0x0010,&TB0CTL_L
+008952: 1000            
+008954: 8003            
+008956: B2D0             BIS.W   #0x00c0,&TB0CTL_L
+008958: C000            
+00895a: 8003            
+00895c: B2D0             BIS.W   #0x0007,&TB0EX0_L
+00895e: 0700            
+008960: A003            
+008962: B240             MOV.W   #0x8017,&TB0CCR0_L
+008964: 1780            
+008966: 9203            
+008968: B2F0             AND.W   #0xffef,&TB0CCTL0_L
+00896a: EFFF            
+00896c: 8203            
+00896e: 92C3             BIC.W   #1,&TB0CCTL0_L
+008970: 8203            
+008972: 0343             NOP     
+008974: 32D2             EINT    
+008976: 0343             NOP     
+008978: 1001             RETA    
+00897a:              dummyData:
+00897a:              .text:dummyData:
+00897a: B240             MOV.W   #0x0022,&receivedData
+00897c: 2200            
+00897e: 1620            
+008980: B240             MOV.W   #0x0014,&0x2018
+008982: 1400            
+008984: 1820            
+008986: B240             MOV.W   #0x0005,&0x201a
+008988: 0500            
+00898a: 1A20            
+00898c: B240             MOV.W   #0x0041,&0x201c
+00898e: 4100            
+008990: 1C20            
+008992: B240             MOV.W   #0x0003,&0x201e
+008994: 0300            
+008996: 1E20            
+008998: B240             MOV.W   #0x002e,&0x2020
+00899a: 2E00            
+00899c: 2020            
+00899e: B240             MOV.W   #0x0023,&0x2022
+0089a0: 2300            
+0089a2: 2220            
+0089a4: B240             MOV.W   #0x0006,&0x2024
+0089a6: 0600            
+0089a8: 2420            
+0089aa: 1001             RETA    
+0089ac:              dataDelay:
+0089ac:              .text:dataDelay:
+0089ac: 2183             DECD.W  SP
+0089ae: 814C             MOV.W   R12,0x0000(SP)
+0089b0: 0000            
+0089b2: 9243             MOV.W   #1,&delayFlag
+0089b4: 2620            
+0089b6: A241             MOV.W   @SP,&TB0CCR0_L
+0089b8: 9203            
+0089ba: B2D0             BIS.W   #0x0010,&TB0CCTL0_L
+0089bc: 1000            
+0089be: 8203            
+0089c0: 92C3             BIC.W   #1,&TB0CCTL0_L
+0089c2: 8203            
+0089c4: 9293             CMP.W   #1,&delayFlag
+0089c6: 2620            
+0089c8: 0320             JNE     ($C$L2)
+0089ca:              $C$L1:
+0089ca: 9293             CMP.W   #1,&delayFlag
+0089cc: 2620            
+0089ce: FD27             JEQ     ($C$L1)
+0089d0:              $C$L2:
+0089d0: B2F0             AND.W   #0xffef,&TB0CCTL0_L
+0089d2: EFFF            
+0089d4: 8203            
+0089d6: 2153             INCD.W  SP
+0089d8: 1001             RETA    
+0089da:              main:
+0089da:              .text:main:
+0089da: B240             MOV.W   #0x5a80,&WDTCTL_L
+0089dc: 805A            
+0089de: CC01            
+0089e0: B013             CALLA   #configPorts
+0089e2: D887            
+0089e4: 92C3             BIC.W   #1,&PM5CTL0_L
+0089e6: 3001            
+0089e8: B013             CALLA   #configTimerB0
+0089ea: 4689            
+0089ec: B013             CALLA   #initLCD
+0089ee: F286            
+0089f0:              $C$L51:
+0089f0: B013             CALLA   #dummyData
+0089f2: 7A89            
+0089f4: B013             CALLA   #convertReceivedData
+0089f6: 1880            
+0089f8: B013             CALLA   #printData2LCD
+0089fa: 9E85            
+0089fc: 3C40             MOV.W   #0x8016,R12
+0089fe: 1680            
+008a00: B013             CALLA   #dataDelay
+008a02: AC89            
+008a04: F53F             JMP     ($C$L51)
+008a06: 0343             NOP     
+008a08:              __mspabi_divi:
+008a08:              __mspabi_remi:
+008a08: 0B43             CLR.W   R11
+008a0a: 0D93             TST.W   R13
+008a0c: 0334             JGE     (dvd_sign)
+008a0e: 3DE3             INV.W   R13
+008a10: 1D53             INC.W   R13
+008a12: 1BD3             BIS.W   #1,R11
+008a14:              dvd_sign:
+008a14: 0C93             TST.W   R12
+008a16: 0334             JGE     (perform_divide)
+008a18: 3CE3             INV.W   R12
+008a1a: 1C53             INC.W   R12
+008a1c: 3BE3             INV.W   R11
+008a1e:              perform_divide:
+008a1e: B013             CALLA   #__mspabi_divu
+008a20: 628A            
+008a22: 1BB3             BIT.W   #1,R11
+008a24: 0224             JEQ     (rem_sign)
+008a26: 3CE3             INV.W   R12
+008a28: 1C53             INC.W   R12
+008a2a:              rem_sign:
+008a2a: 2BB3             BIT.W   #2,R11
+008a2c: 0224             JEQ     (div_exit)
+008a2e: 3EE3             INV.W   R14
+008a30: 1E53             INC.W   R14
+008a32:              div_exit:
+008a32: 1001             RETA    
+008a34:              __mspabi_mpyi_f5hw:
+008a34: 0212             PUSH    SR
+008a36: 32C2             DINT    
+008a38: 0343             NOP     
+008a3a: 824C             MOV.W   R12,&MPY_L
+008a3c: C004            
+008a3e: 824D             MOV.W   R13,&OP2_L
+008a40: C804            
+008a42: 1C42             MOV.W   &RESLO_L,R12
+008a44: CA04            
+008a46: 3241             POP.W   SR
+008a48: 0343             NOP     
+008a4a: 1001             RETA    
+008a4c:              latchClock:
+008a4c:              .text:latchClock:
+008a4c: F2D0             BIS.B   #0x0040,&P3OUT
+008a4e: 4000            
+008a50: 2202            
+008a52: 3C40             MOV.W   #0x000f,R12
+008a54: 0F00            
+008a56: B013             CALLA   #dataDelay
+008a58: AC89            
+008a5a: F2F0             AND.B   #0x00bf,&P3OUT
+008a5c: BF00            
+008a5e: 2202            
+008a60: 1001             RETA    
+008a62:              __mspabi_divu:
+008a62:              __mspabi_remu:
+008a62: 0E43             CLR.W   R14
+008a64: 0F4C             MOV.W   R12,R15
+008a66: 1C43             MOV.W   #1,R12
+008a68:              div_loop:
+008a68: 5F02             RLAM.W  #1,R15
+008a6a: 0E6E             RLC.W   R14
+008a6c: 0E9D             CMP.W   R13,R14
+008a6e: 0128             JLO     (set_quotient_bit)
+008a70: 0E8D             SUB.W   R13,R14
+008a72:              set_quotient_bit:
+008a72: 0C6C             RLC.W   R12
+008a74: F92B             JLO     (div_loop)
+008a76: 1001             RETA    
+008a78:              initFunctionSet:
+008a78:              .text:initFunctionSet:
+008a78: F2F0             AND.B   #0x007f,&P3OUT
+008a7a: 7F00            
+008a7c: 2202            
+008a7e: F2D0             BIS.B   #0x0030,&P1OUT
+008a80: 3000            
+008a82: 0202            
+008a84: F2F0             AND.B   #0x0040,&P1OUT
+008a86: 4000            
+008a88: 0202            
+008a8a: 1001             RETA    
+008a8c:              abort:
+008a8c:              C$$EXIT:
+008a8c:              .text:abort:
+008a8c: 0343             NOP     
+008a8e:              $C$L1:
+008a8e: FF3F             JMP     ($C$L1)
+008a90: 0343             NOP     
+008a92:              _system_pre_init:
+008a92:              .text:_system_pre_init:
+008a92: 1C43             MOV.W   #1,R12
+008a94: 1001             RETA    
+008a96:              _system_post_cinit:
+008a96:              .text:_system_post_cinit:
+008a96: 1001             RETA    
+
+TEXT Section .text:_isr, 0x32 bytes at 0x00008a98
+008a98:              _c_int00_noargs_mpu:
+008a98:              .text:_isr:_c_int00_noargs_mpu:
+008a98:              .text:_isr:
+008a98: 3140             MOV.W   #0x3000,SP
+008a9a: 0030            
+008a9c: B013             CALLA   #__mpu_init
+008a9e: CE88            
+008aa0: B013             CALLA   #_system_pre_init
+008aa2: 928A            
+008aa4: 0C93             TST.W   R12
+008aa6: 0224             JEQ     ($C$L1)
+008aa8: B013             CALLA   #__TI_auto_init_nobinit_nopinit_hold_wdt
+008aaa: 6E87            
+008aac:              $C$L1:
+008aac: 0C43             CLR.W   R12
+008aae: B013             CALLA   #main
+008ab0: DA89            
+008ab2: 1C43             MOV.W   #1,R12
+008ab4: B013             CALLA   #abort
+008ab6: 8C8A            
+008ab8:              ISR_TB0_CCR0:
+008ab8:              .text:_isr:ISR_TB0_CCR0:
+008ab8: 8243             CLR.W   &delayFlag
+008aba: 2620            
+008abc: 92C3             BIC.W   #1,&TB0CCTL0_L
+008abe: 8203            
+008ac0: 0013             RETI    
+008ac2:              __TI_ISR_TRAP:
+008ac2:              .text:_isr:__TI_ISR_TRAP:
+008ac2: 32D0             BIS.W   #0x0010,SR
+008ac4: 1000            
+008ac6: FD3F             JMP     (__TI_ISR_TRAP)
+008ac8: 0343             NOP     
+
+DATA Section PORT4, 0x2 bytes at 0x0000ffce
+00ffce:              __TI_int22:
+00ffce:              .int22:
+00ffce:              PORT4:
+00ffce: 8ac2             .word 0x8ac2
+
+DATA Section PORT3, 0x2 bytes at 0x0000ffd0
+00ffd0:              __TI_int23:
+00ffd0:              .int23:
+00ffd0:              PORT3:
+00ffd0: 8ac2             .word 0x8ac2
+
+DATA Section PORT2, 0x2 bytes at 0x0000ffd2
+00ffd2:              __TI_int24:
+00ffd2:              .int24:
+00ffd2:              PORT2:
+00ffd2: 8ac2             .word 0x8ac2
+
+DATA Section PORT1, 0x2 bytes at 0x0000ffd4
+00ffd4:              __TI_int25:
+00ffd4:              .int25:
+00ffd4:              PORT1:
+00ffd4: 8ac2             .word 0x8ac2
+
+DATA Section SAC1_SAC3, 0x2 bytes at 0x0000ffd6
+00ffd6:              __TI_int26:
+00ffd6:              .int26:
+00ffd6:              SAC1_SAC3:
+00ffd6: 8ac2             .word 0x8ac2
+
+DATA Section SAC0_SAC2, 0x2 bytes at 0x0000ffd8
+00ffd8:              __TI_int27:
+00ffd8:              .int27:
+00ffd8:              SAC0_SAC2:
+00ffd8: 8ac2             .word 0x8ac2
+
+DATA Section ECOMP0_ECOMP1, 0x2 bytes at 0x0000ffda
+00ffda:              __TI_int28:
+00ffda:              .int28:
+00ffda:              ECOMP0_ECOMP1:
+00ffda: 8ac2             .word 0x8ac2
+
+DATA Section ADC, 0x2 bytes at 0x0000ffdc
+00ffdc:              __TI_int29:
+00ffdc:              .int29:
+00ffdc:              ADC:
+00ffdc: 8ac2             .word 0x8ac2
+
+DATA Section EUSCI_B1, 0x2 bytes at 0x0000ffde
+00ffde:              __TI_int30:
+00ffde:              .int30:
+00ffde:              EUSCI_B1:
+00ffde: 8ac2             .word 0x8ac2
+
+DATA Section EUSCI_B0, 0x2 bytes at 0x0000ffe0
+00ffe0:              __TI_int31:
+00ffe0:              .int31:
+00ffe0:              EUSCI_B0:
+00ffe0: 8ac2             .word 0x8ac2
+
+DATA Section EUSCI_A1, 0x2 bytes at 0x0000ffe2
+00ffe2:              __TI_int32:
+00ffe2:              .int32:
+00ffe2:              EUSCI_A1:
+00ffe2: 8ac2             .word 0x8ac2
+
+DATA Section EUSCI_A0, 0x2 bytes at 0x0000ffe4
+00ffe4:              __TI_int33:
+00ffe4:              .int33:
+00ffe4:              EUSCI_A0:
+00ffe4: 8ac2             .word 0x8ac2
+
+DATA Section WDT, 0x2 bytes at 0x0000ffe6
+00ffe6:              __TI_int34:
+00ffe6:              .int34:
+00ffe6:              WDT:
+00ffe6: 8ac2             .word 0x8ac2
+
+DATA Section RTC, 0x2 bytes at 0x0000ffe8
+00ffe8:              __TI_int35:
+00ffe8:              .int35:
+00ffe8:              RTC:
+00ffe8: 8ac2             .word 0x8ac2
+
+DATA Section TIMER3_B1, 0x2 bytes at 0x0000ffea
+00ffea:              __TI_int36:
+00ffea:              .int36:
+00ffea:              TIMER3_B1:
+00ffea: 8ac2             .word 0x8ac2
+
+DATA Section TIMER3_B0, 0x2 bytes at 0x0000ffec
+00ffec:              __TI_int37:
+00ffec:              .int37:
+00ffec:              TIMER3_B0:
+00ffec: 8ac2             .word 0x8ac2
+
+DATA Section TIMER2_B1, 0x2 bytes at 0x0000ffee
+00ffee:              __TI_int38:
+00ffee:              .int38:
+00ffee:              TIMER2_B1:
+00ffee: 8ac2             .word 0x8ac2
+
+DATA Section TIMER2_B0, 0x2 bytes at 0x0000fff0
+00fff0:              __TI_int39:
+00fff0:              .int39:
+00fff0:              TIMER2_B0:
+00fff0: 8ac2             .word 0x8ac2
+
+DATA Section TIMER1_B1, 0x2 bytes at 0x0000fff2
+00fff2:              __TI_int40:
+00fff2:              .int40:
+00fff2:              TIMER1_B1:
+00fff2: 8ac2             .word 0x8ac2
+
+DATA Section TIMER1_B0, 0x2 bytes at 0x0000fff4
+00fff4:              __TI_int41:
+00fff4:              .int41:
+00fff4:              TIMER1_B0:
+00fff4: 8ac2             .word 0x8ac2
+
+DATA Section TIMER0_B1, 0x2 bytes at 0x0000fff6
+00fff6:              __TI_int42:
+00fff6:              .int42:
+00fff6:              TIMER0_B1:
+00fff6: 8ac2             .word 0x8ac2
+
+DATA Section TIMER0_B0, 0x2 bytes at 0x0000fff8
+00fff8:              __TI_int43:
+00fff8:              .int43:
+00fff8:              TIMER0_B0:
+00fff8: 8ab8             .word 0x8ab8
+
+DATA Section UNMI, 0x2 bytes at 0x0000fffa
+00fffa:              __TI_int44:
+00fffa:              .int44:
+00fffa:              UNMI:
+00fffa: 8ac2             .word 0x8ac2
+
+DATA Section SYSNMI, 0x2 bytes at 0x0000fffc
+00fffc:              __TI_int45:
+00fffc:              .int45:
+00fffc:              SYSNMI:
+00fffc: 8ac2             .word 0x8ac2
+
+DATA Section .reset, 0x2 bytes at 0x0000fffe
+00fffe:              _reset_vector:
+00fffe:              .reset:
+00fffe: 8a98             .word 0x8a98
+
+DATA Section $fill000, 0x4 bytes at 0x0000ff80
+00ff80:              $fill000:
+00ff80: ffff             .word 0xffff
+00ff82: ffff             .word 0xffff
+
+DATA Section $fill001, 0x4 bytes at 0x0000ff84
+00ff84:              $fill001:
+00ff84: ffff             .word 0xffff
+00ff86: ffff             .word 0xffff
+
+DATA Section $fill002, 0x2 bytes at 0x0000ff88
+00ff88:              $fill002:
+00ff88: ffff             .word 0xffff
+
+DATA Section $fill003, 0x2 bytes at 0x0000ff8a
+00ff8a:              $fill003:
+00ff8a: ffff             .word 0xffff
+
+DATA Section $fill004, 0x2 bytes at 0x0000ffa0
+00ffa0:              $fill004:
+00ffa0: ffff             .word 0xffff
