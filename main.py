@@ -125,6 +125,13 @@ class Main:
         package_zipper: PackageZipper = PackageZipper()
         package_zipper.zip_vhdl(zip_file_name="")
 
+    @staticmethod
+    def inject_msp430_exclusively() -> None:
+        """
+        Attemps to inject a CCSProject with some vulnerability.
+        :return: None.
+        """
+
 
 if __name__ == '__main__':
     main: Main = Main()
