@@ -6,13 +6,13 @@
  */
 
 // PWM
-static const int min_duty_cycle = 700;
-static const int max_duty_cycle = 2300;
+const unsigned int min_duty_cycle = 700;
+const unsigned int max_duty_cycle = 2300;
 //static const int min_duty_cycle = 100;
 //static const int max_duty_cycle = 500;
-static const int step_size_duty_cycle = 100;
-int period_T = max_duty_cycle;
-int duty_cycle = max_duty_cycle - ((max_duty_cycle - min_duty_cycle) / 2);
+const int step_size_duty_cycle = 100;
+unsigned int period_T = max_duty_cycle;
+unsigned int duty_cycle = 1500;
 
 // UART
 char message[] = "Walker Ward ";
@@ -27,8 +27,8 @@ void configTimer(void) {
     TB0CTL |= TBSSEL__SMCLK;    // SRC = SMCLK
     TB0CTL |= MC__UP;           // Mode = UP
     TB0CTL |= CNTL_0;           // Length = 16-bit
-    TB0CCR0 = period_T;         // CCR0 = 2300 (2.3 ms)
-    TB0CCR1 = duty_cycle;       // CCR1 = 2300-700/4 (25%)
+    TB0CCR0 = 2300;         // CCR0 = 2300 (2.3 ms)
+    TB0CCR1 = 1500;       // CCR1 = 2300-700/4 (25%)
 }
 
 
@@ -64,8 +64,8 @@ int main(void)
 	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
 	
 	// Ports
-	P1DIR |= BIT0;              // Config P1.0 LED1 (Red) as out
-	P1OUT &= ~BIT0;             // Init val = 0
+	P3DIR |= BIT0;              // Config P1.0 LED1 (Red) as out
+	P3OUT &= ~BIT0;             // Init val = 0
 
 	configTimer();
 
@@ -85,7 +85,7 @@ int main(void)
     __enable_interrupt();           // EN maskable IRQ
 
     while(1){
-
+        // duty_cycle = 0x05DC;
     }
 
 	return 0;
@@ -95,46 +95,33 @@ int main(void)
 // Service CCR0
 #pragma vector = TIMER0_B0_VECTOR
 __interrupt void ISR_TB0CCR0(void) {
-    P1OUT |= BIT0;
+    P3OUT |= BIT0;
     TB0CCTL0 &= ~CCIFG;         // Clear CCR0 flag
 }
 // Service CCR1
 #pragma vector = TIMER0_B1_VECTOR
 __interrupt void ISR_TB0CCR1(void) {
     TB0CCR1 = duty_cycle;
-    P1OUT &= ~BIT0;
+    P3OUT &= ~BIT0;
     TB0CCTL1 &= ~CCIFG;         // Clear CCR1 flag
 }
 
 // Service UART
 #pragma vector = EUSCI_A1_VECTOR
 __interrupt void ISR_EUSCI_A1(void) {
-//    int transmit;
-//    transmit = UCA1IFG;
-//    transmit &= UCTXCPTIFG; //8 on Tx
 
     int recieve;
     recieve = UCA1IFG;
     recieve &= UCRXIFG;
 
-//    if(transmit == 8) {
-////        if(position+1 == sizeof(message) || position == 6) { // dependent on sizeof(messsage) and name length/string
-////            UCA1IE &= ~UCTXCPTIE;
-////            int i;
-////            for(i=0; i<10000; i++){}
-////        } else {
-////            position++;
-////            UCA1TXBUF = message[position];
-////        }
-//        UCA1IFG &= ~UCTXCPTIFG;
     if (recieve == 1) {
         int reciever = UCA1RXBUF;
         if (UCA1RXBUF == '1') {
-            duty_cycle = min_duty_cycle;
+            duty_cycle = 0x02BC;
         } else if (UCA1RXBUF == '2') {
-            duty_cycle = max_duty_cycle - ((max_duty_cycle - min_duty_cycle) / 2);
+            duty_cycle = 0x05DC;
         } else if (UCA1RXBUF == '3') {
-            duty_cycle = max_duty_cycle;
+            duty_cycle = 0x07D0;
         }
         UCA1IFG &= ~UCRXIFG;
     }
