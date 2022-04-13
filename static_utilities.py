@@ -232,7 +232,7 @@ class StaticUtilities:
                                             force_kill=force_kill)
 
     @staticmethod
-    def process_running(process_name: str) -> bool:  # TODO: Add error checking.
+    def process_running(process_name: str) -> bool:  # TODO: Add better error checking.
         """
         Checks if the process with the name process_name is running.
         :param process_name: Name of the process to check the status of.
@@ -259,7 +259,7 @@ class StaticUtilities:
         return StaticUtilities.process_running(_executable_name)
 
     @staticmethod
-    def service_running(service_name: str) -> bool:  # TODO: Add error checking.
+    def service_running(service_name: str) -> bool:  # TODO: Add better error checking.
         """
         Checks if the service with the name service_name is running.
         :param service_name: Name of the service to check the status of.

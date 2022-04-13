@@ -23,8 +23,6 @@ class Detection:
     Attempts to detect various forms of malware or vulnerabilities with in a binary and source file pair.
     """
 
-    # TODO: don't auto print possible malware... invoke a fx that prints for each line... so no duplicate lines and so that malware isn't printed by default
-
     def __init__(self, ccs_project: CCSProject, *, pique_bin_bool: bool = True, suppress_pique_bin_logs: bool = True) -> None:
         self.ccs_project: CCSProject = ccs_project
         self.pique_bin_security_quality: float = 0
@@ -75,7 +73,6 @@ class Detection:
                 self.write_hash_to_file()
                 return True
         # TODO: this could implement multiprocessing if they take too long individually
-        # TODO: These methods should probably build up some kind of string buffer or instance field and return that so that logging can be better controlled and only happens once for each method or once overall.
         detect_boa: bool = self._detection_strategy.detect_buffer_overflow_attack()
         detect_ioa: bool = self._detection_strategy.detect_int_overflow_attack()
         detect_ia: bool = self._detection_strategy.detect_injection_attack()
