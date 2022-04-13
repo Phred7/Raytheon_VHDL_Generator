@@ -16,4 +16,6 @@ PIQUE-Bin-Jar/
 ccs_workspace/.metadata/
 /ccs_workspace/phantom_workspace/
 *.launch
-lnk_colt430fr2355.cmd
+*.cmd
+*.mk
+*.prefs
