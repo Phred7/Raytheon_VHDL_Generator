@@ -67,8 +67,7 @@ class Instrumentation:
 
             # un hide the phantom workspace - skipping this step may cause permission issues
             self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
-                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=False,
-                leave_root_hidden=True)
+                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=False)
             StaticUtilities.logger.debug("Phantom workspace unhidden")
             # generate phantom workspace and project/s
             self.generate_phantom_workspace_and_projects()
@@ -165,7 +164,7 @@ class Instrumentation:
 
         temp_file_replacement_text: str = ""
 
-        # TODO: figure out a way to condense the following... code should NOT be repeated.
+        # TODO: figure out a way to condense the following... code should NOT be repeated. Maybe use an iterable.
         if source_extension == "out":
             pass
         elif source_extension == "obj":

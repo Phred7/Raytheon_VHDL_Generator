@@ -344,8 +344,13 @@ class StaticUtilities:
         return
 
     @staticmethod
-    def hide_directory_recursively(directory: str, *,
-                                   log: bool = True) -> bool:  # TODO: convert to a thread safe generator (or path/file queue) and add multiproceessing.
+    def hide_directory_recursively(directory: str, *, log: bool = True) -> bool:
+        """
+        Hides all the files and directories in a directory specified by directory.
+        :param directory: Top level directory to hide contents of as a string.
+        :param log: Optionally logs all the files and directories that are hidden. True generates logs, false suppresses them.
+        :return:
+        """
         os.system(f"attrib +h {directory[:-1]}")
         files: List[str] = []
         for (path, name, filenames) in os.walk(directory):
