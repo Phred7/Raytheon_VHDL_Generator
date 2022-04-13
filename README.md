@@ -1,6 +1,3 @@
-[![Phred7's GitHub stats](https://github-readme-stats.vercel.app/api?username=phred7)](https://github.com/anuraghazra/github-readme-stats)
-
-
 # Raytheon_VHDL_Generator:<br/>Improving Cyber Survivability with Real-Time Hardware Diversification
 ## Project Overview
 - Key Research Aims
