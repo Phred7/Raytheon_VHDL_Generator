@@ -70,7 +70,7 @@ class Main:
         For demoing instrumentation and detection.
         :return: None.
         """
-        StaticUtilities.logger.setLevel(logging.INFO)
+        StaticUtilities.logger.setLevel(logging.DEBUG)
         Detection.reset_test_project()
         project: CCSProject = CCSProject(source_file="main.c",
                                          project_name="test_target",

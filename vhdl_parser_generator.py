@@ -303,7 +303,7 @@ constant ROM : rom_type :=("""
                         """Generates program memory in TEXT Section .text,"""
                         line = next(disassembly_file)
 
-                        # gets the name of the main function or tag. TODO: into a function
+                        # gets the name of the main function or tag.
                         split_line: List[str] = line.split(" ")
                         if len(split_line) == 15:
                             match = re.match("(\w+|\$):\\n", split_line[14], re.I)
