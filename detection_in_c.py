@@ -17,7 +17,8 @@ class DetectionInC(DetectionStrategy):
     Strategy for detecting vulnerabilities in C source files.
     """
 
-    def detect_regex_patterns_in_source(self, patterns: List[str], pattern_flags: List[Any]) -> {(int, str), Match[str]}:
+    def detect_regex_patterns_in_source(self, patterns: List[str], pattern_flags: List[Any]) -> {(int, str),
+                                                                                                 Match[str]}:
         """
         Locate all matches of regex patterns from this CCSProject source file.
         :param patterns: Patterns to search for in this CCSProjects source file.
@@ -48,18 +49,21 @@ class DetectionInC(DetectionStrategy):
                                         "sprintf\(",
                                         "gets\("]
         insecure_patterns_flags = [0, re.I, 0]
-        insecure_patterns_recommended_replacement_dict:  Dict[str, str] = {insecure_patterns[0]: "--string.h contains functions that can be exploited.--",
-                                                                           insecure_patterns[1]: "--Char*'s may be used without specifying a buffer size--",
-                                                                           insecure_patterns[2]: "--replace with strncpy or another safe function--",
-                                                                           insecure_patterns[3]: "--replace with strncat or another safe function--",
-                                                                           insecure_patterns[4]: "--may want to replace with a different function--",
-                                                                           insecure_patterns[5]: "--may want to replace with a different function--",
-                                                                           insecure_patterns[6]: "--replace with fgets or another safe function--"}
-        detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns, insecure_patterns_flags)
+        insecure_patterns_recommended_replacement_dict: Dict[str, str] = {
+            insecure_patterns[0]: "--string.h contains functions that can be exploited.--",
+            insecure_patterns[1]: "--Char*'s may be used without specifying a buffer size--",
+            insecure_patterns[2]: "--replace with strncpy or another safe function--",
+            insecure_patterns[3]: "--replace with strncat or another safe function--",
+            insecure_patterns[4]: "--may want to replace with a different function--",
+            insecure_patterns[5]: "--may want to replace with a different function--",
+            insecure_patterns[6]: "--replace with fgets or another safe function--"}
+        detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns,
+                                                                                               insecure_patterns_flags)
         if len(detected_patterns_dict.keys()) > 0:
             for key in detected_patterns_dict:
                 line_number, pattern = key
-                self.add_vulnerability_to_dict(line_number=line_number, vulnerability_string=f"{detected_patterns_dict[key].string[detected_patterns_dict[key].start():detected_patterns_dict[key].end()].strip()}. {insecure_patterns_recommended_replacement_dict.get(pattern)}")
+                self.add_vulnerability_to_dict(line_number=line_number,
+                                               vulnerability_string=f"{detected_patterns_dict[key].string[detected_patterns_dict[key].start():detected_patterns_dict[key].end()].strip()}. {insecure_patterns_recommended_replacement_dict.get(pattern)}")
             return True
         return False
 
@@ -79,8 +83,18 @@ class DetectionInC(DetectionStrategy):
         insecure_patterns = [r"(|\b|vsn|sn|vf|s|f|v)printf?\(", "(%08x\.){30,}"]
         insecure_patterns_flags = [0, [re.S, re.X]]
         insecure_patterns_recommended_replacement_dict: Dict[str, str] = {
-            insecure_patterns[0]: "--string.h contains functions that can be exploited.--"}
-        format_string = '"' + '%08x.' * 1024 + '"'
+            insecure_patterns[0]: "--print f--",
+            insecure_patterns[1]: "--this value is repeated more than 30 times in a row. This data was probably injected.--"}
+        # format_string = '"' + '%08x.' * 1024 + '"'
+
+        detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns,
+                                                                                               insecure_patterns_flags)
+        if len(detected_patterns_dict.keys()) > 0:
+            for key in detected_patterns_dict:
+                line_number, pattern = key
+                self.add_vulnerability_to_dict(line_number=line_number,
+                                               vulnerability_string=f"{detected_patterns_dict[key].string[detected_patterns_dict[key].start():detected_patterns_dict[key].end()].strip()}. {insecure_patterns_recommended_replacement_dict.get(pattern)}")
+            return True
         return False
 
     def detect_injection_attack(self) -> bool:
