@@ -73,13 +73,6 @@ class DetectionInC(DetectionStrategy):
                                                                                                insecure_patterns_flags)
         return self.__detection_return_logic__(detected_patterns_dict, insecure_patterns_recommended_replacement_dict, "BufferOverflowAttack")
 
-    def detect_int_overflow_attack(self) -> bool:
-        """
-        Attempts to detect an int overflow in this ccs_project.
-        :return: True if an int overflow was detected in this file otherwise, False.
-        """
-        return False
-
     def detect_string_format_attack(self) -> bool:
         """
         Attempts to detect an f-string vulnerability in this ccs_project.
@@ -94,6 +87,13 @@ class DetectionInC(DetectionStrategy):
         detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns,
                                                                                                insecure_patterns_flags)
         return self.__detection_return_logic__(detected_patterns_dict, insecure_patterns_recommended_replacement_dict, "StringFormatAttack")
+
+    def detect_int_overflow_attack(self) -> bool:
+        """
+        Attempts to detect an int overflow in this ccs_project.
+        :return: True if an int overflow was detected in this file otherwise, False.
+        """
+        return False
 
     def detect_injection_attack(self) -> bool:
         """
