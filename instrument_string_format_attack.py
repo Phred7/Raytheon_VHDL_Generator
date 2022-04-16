@@ -6,8 +6,6 @@
 # Written by Michael Heidal
 """
 
-import re
-
 from ccs_project import CCSProject
 from instrumentation_strategy import InstrumentationStrategy
 from static_utilities import StaticUtilities
@@ -44,21 +42,11 @@ class StringFormatAttack(InstrumentationStrategy):
         for line_index, line in enumerate(text):
             for argument_index, print_family in enumerate(print_families):
                 for print_function in print_family:
-                    if re.match(print_function, line):
+                    decomposition = InstrumentationStrategy.replace_nth_argument(print_function, argument_index, format_string, line)
+                    if decomposition is not None:
+                        beg, arg, end = decomposition
+                        text[line_index] = beg + format_string + end
                         found_print_function = True
-                        has_found_arguments = False
-                        num_args_discovered = 0
-                        i = line.index(print_function.replace(r"\b", ""))
-                        while num_args_discovered < argument_index or not has_found_arguments:
-                            i = i + 1
-                            if line[i] == ',':
-                                num_args_discovered += 1
-                            elif line[i] == '(':
-                                has_found_arguments = True
-                        j = i + 1
-                        while line[j] not in ",)":
-                            j += 1
-                        text[line_index] = line[:i+1] + " " + format_string + line[j:]
 
         if not found_print_function:
             StaticUtilities.logger.info("No print functions found in file.")
