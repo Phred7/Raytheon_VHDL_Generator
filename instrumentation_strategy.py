@@ -10,7 +10,8 @@ from typing import List, Tuple
 
 from ccs_project import CCSProject
 from static_utilities import StaticUtilities
-import pycparser as pcp
+
+import re
 
 
 class InstrumentationStrategy(ABC):
@@ -72,8 +73,8 @@ class InstrumentationStrategy(ABC):
         Splits a string containing C code into a list of strings, each of which contains one line of code.
         Does not account for escaped characters. Fairly simple lexical parser. Certainly has bugs unaccounted for at
         time of writing.
-        A line of code is a string which terminates with a { or a ;. ; is not used to terminate lines of code while
-        within parenthesis. Nothing is used to terminate a line of code while within quotes.
+        A "line of code" is a string which terminates with a {, a }, or a ;. ; is not used to terminate lines of code
+        while within parenthesis. Nothing is used to terminate a line of code while within quotes.
         A "Line of code" here is not necessarily one actual newline. All #include stmts are a single line of code,
         usually, since they do not terminate in semicolons.
         @return: A list of strings, each of which contain one line of code.
@@ -98,7 +99,60 @@ class InstrumentationStrategy(ABC):
                     parenthesis_depth += 1
                 elif char == ")":
                     parenthesis_depth -= 1
-                elif char == "{" or char == ";":
+                elif char in "{};":
                     lines.append(current_line)
                     current_line = ""
         return lines
+
+    @staticmethod
+    def decompose_nth_argument(function_name: str, argument_index: int, line: str) -> Tuple[str, str, str]:
+        """
+        Searches for a call of a specific function in a line of C code. Returns the text before the nth argument,
+        the nth argument, and the text after the nth argument.
+        For example, to decompose the function call '\bprintf\b' in the line 'printf(a,b,c);' around the 0th argument,
+        you would return ('printf(', 'a', ',b,c);').
+        @param function_name: The function to search for. Must begin and end with '\b' (raw text) to indicate
+            regex non-word characters.
+        @param argument_index: the index in the argument list to decompose around. 0-indexed.
+        @param line: the line of code to search for the argument.
+        @return: The text before the nth argument, the nth argument, and the text after the nth argument.
+        """
+        if re.search(function_name, line) is not None:
+            has_found_arguments = False
+            num_args_discovered = 0
+            i = line.index(function_name.replace(r"\b", ""))
+            while num_args_discovered < argument_index or not has_found_arguments:
+                i = i + 1
+                if line[i] == ',':
+                    num_args_discovered += 1
+                elif line[i] == '(':
+                    has_found_arguments = True
+            j: int = i+1
+            paren_depth = 0
+            d_quotes = False
+            s_quotes = False
+            for index in range(i+1, len(line)):
+                char = line[index]
+                if char in ',)' and not (paren_depth >= 1) and not (d_quotes or s_quotes):
+                    j = index
+                    break
+                else:
+                    if char == '(':
+                        paren_depth += 1
+                    elif char == ")":
+                        paren_depth -= 1
+                    elif char == '"':
+                        d_quotes = not d_quotes
+                    elif char == "'":
+                        s_quotes = not s_quotes
+
+            beginning = line[:i+1]
+            arg = line[i+1:j]
+            end = line[j:]
+            return beginning, arg, end
+        else:
+            return None
+
+
+if __name__ == '__main__':
+    print(InstrumentationStrategy.decompose_nth_argument(r'\bprintf\b', 0, 'printf(a,b,c);'))

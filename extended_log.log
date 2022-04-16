@@ -5575,3 +5575,93 @@ line3: strcpy(. --replace with strncpy or another safe function--
 2022-04-10 12:47:10,710 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
 2022-04-10 12:47:51,509 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
 2022-04-10 12:49:23,042 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 14:33:32,818 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 14:33:32,819 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 14:33:32,820 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 14:33:45,675 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 14:33:45,681 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 14:35:05,165 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-16 14:35:07,347 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 14:35:07,347 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 14:35:07,348 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 14:35:19,097 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 14:35:19,100 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 14:42:06,091 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 14:42:06,092 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 14:42:06,093 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 14:42:18,566 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 14:42:18,569 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 14:44:04,246 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 14:44:04,247 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 14:44:04,247 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 14:44:15,644 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 14:44:15,647 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 14:45:06,947 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 14:45:06,948 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 14:45:06,949 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 14:45:18,481 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 14:45:18,484 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 14:50:52,449 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-16 14:50:54,507 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 14:50:54,507 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 14:50:54,508 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 14:51:06,051 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 14:51:06,054 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 15:07:24,556 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 15:07:24,556 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 15:07:24,557 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 15:07:35,901 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 15:07:35,908 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 15:08:30,523 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-16 15:08:32,486 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 15:08:32,487 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 15:08:32,489 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 15:08:44,370 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 15:08:44,373 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 15:10:10,406 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-16 15:10:12,319 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 15:10:12,320 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 15:10:12,321 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 15:10:24,452 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 15:10:24,455 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 15:11:04,891 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-16 15:11:06,788 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 15:11:06,789 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 15:11:06,790 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 15:11:18,512 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 15:11:18,516 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 15:12:54,536 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-16 15:12:56,375 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 15:12:56,375 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 15:12:56,376 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 15:13:08,351 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 15:13:08,354 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 15:14:35,317 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-16 15:14:37,494 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 15:14:37,494 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 15:14:37,495 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 15:14:49,077 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 15:14:49,080 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 15:15:31,013 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-16 15:16:09,348 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-16 15:16:09,533 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-16 15:16:21,122 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-16 15:16:21,123 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-16 15:20:37,042 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 15:20:37,043 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 15:20:37,044 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 15:20:48,468 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 15:20:48,472 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 15:21:03,845 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-16 15:21:18,062 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-16 15:21:18,285 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-16 15:21:34,101 INFO test_instrumentation main Testing test_int_overflow
+2022-04-16 15:21:34,102 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-16 15:21:34,102 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 15:21:45,909 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 15:21:45,912 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-16 15:21:45,919 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-16 15:21:55,813 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-16 15:21:56,001 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-16 15:22:08,034 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-16 15:22:08,035 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
