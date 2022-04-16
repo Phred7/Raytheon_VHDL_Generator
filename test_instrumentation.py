@@ -59,8 +59,7 @@ def test_string_format_attack(project: CCSProject) -> None:
 
 
 def main() -> None:
-    # instrumentation_strategies: List[Callable] = [test_basic_overwrite, test_buffer_overflow, test_int_overflow, test_string_format_attack]
-    instrumentation_strategies: List[Callable] = [test_int_overflow]
+    instrumentation_strategies: List[Callable] = [test_basic_overwrite, test_buffer_overflow, test_int_overflow, test_string_format_attack]
     for test in instrumentation_strategies:
         reset_test_project()
         project: CCSProject = CCSProject(source_file="main.c",

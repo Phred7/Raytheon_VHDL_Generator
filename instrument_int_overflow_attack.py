@@ -70,7 +70,6 @@ class IntOverflowAttack(InstrumentationStrategy):
             return False
 
         new_text = "".join([line + "\n" for line in lines])
-        print(new_text)
         file = open(file_to_instrument, 'w')
         file.write(new_text)
         file.close()
