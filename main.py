@@ -5,10 +5,14 @@
 # Dr. Brock LaMeres
 # Written by Michael Heidal and Walker Ward
 """
+import logging
+
 from detection import Detection
 from ccs_project import CCSProject
 from disassembler import Disassembler
+from instrument_all_strategies import AllInstrumentationStrategies
 from instrument_buffer_overflow_attack import BufferOverflowAttack
+from instrument_string_format_attack import StringFormatAttack
 from instrumentation import Instrumentation
 from instrument_int_overflow_attack import IntOverflowAttack
 from package_zipper import PackageZipper
@@ -51,42 +55,39 @@ class Main:
         pass
 
     @staticmethod
+    def detection(project: CCSProject, security_quality: float) -> bool:
+        detection: Detection = Detection(project, pique_bin_bool=False)
+        StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
+        detection.pique_binary_security_quality = security_quality
+        results: bool = detection.detect()
+        if not results:
+            StaticUtilities.logger.warning(f"Possible malware detected\n{detection.possible_vulnerabilities()}")
+        else:
+            StaticUtilities.logger.info(f"No malware found")
+        return results
+
+    @staticmethod
     def demo() -> None:
         """
         For demoing instrumentation and detection.
         :return: None.
         """
+        StaticUtilities.logger.setLevel(logging.DEBUG)
         Detection.reset_test_project()
         project: CCSProject = CCSProject(source_file="main.c",
                                          project_name="test_target",
                                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
                                          )
-
-        # instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
-        # instrumentation.instrument()
-
-        detection: Detection = Detection(project, pique_bin_bool=False)
-        StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
-        detection.pique_bin_security_quality = 0.95
-        results: bool = detection.detect()
-        StaticUtilities.logger.debug(
-            f"detection: {'No malware found' if results else 'Possible malware detected'}")
+        results: bool = Main.detection(project, 0.95)
         Main.__generate_vhdl(results)
-        # wait for something?
-        Detection.reset_test_project()
-        project: CCSProject = CCSProject(source_file="main.c",
-                                         project_name="test_target",
-                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                                         )
 
+        project = CCSProject(source_file="main.c",
+                             project_name="test_target",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                             )
         instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
         instrumentation.instrument()
-        detection: Detection = Detection(project, pique_bin_bool=False)
-        StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
-        detection.pique_bin_security_quality = 0.2
-        results: bool = detection.detect()
-        StaticUtilities.logger.debug(
-            f"detection: {'No malware found' if results else 'Possible malware detected'}")
+        results: bool = Main.detection(project, 0.35)
         Main.__generate_vhdl(results)
 
     @staticmethod
@@ -111,7 +112,60 @@ class Main:
         For debug of this project's workflow and functionality.
         :return: None.
         """
-        pass
+        StaticUtilities.logger.setLevel(logging.INFO)
+
+        StaticUtilities.logger.warning("Testing No Attacks")
+        Detection.reset_test_project()
+        project: CCSProject = CCSProject(source_file="main.c",
+                                         project_name="test_target",
+                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                                         )
+        results: bool = Main.detection(project, 0.95)
+        Main.__generate_vhdl(results)
+
+        StaticUtilities.logger.warning("Testing BufferOverflowAttack")
+        project = CCSProject(source_file="main.c",
+                             project_name="test_target",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                             )
+        instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
+        instrumentation.instrument()
+        results: bool = Main.detection(project, 0.35)
+        Main.__generate_vhdl(results)
+
+        StaticUtilities.logger.warning("Testing StringFormatAttack")
+        Detection.reset_test_project()
+        project = CCSProject(source_file="main.c",
+                             project_name="test_target",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                             )
+        instrumentation: Instrumentation = Instrumentation(project, StringFormatAttack())
+        instrumentation.instrument()
+        results: bool = Main.detection(project, 0.35)
+        Main.__generate_vhdl(results)
+
+        StaticUtilities.logger.warning("Testing IntOverflowAttack")
+        Detection.reset_test_project()
+        project = CCSProject(source_file="main.c",
+                             project_name="test_target",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                             )
+        instrumentation: Instrumentation = Instrumentation(project, IntOverflowAttack())
+        instrumentation.instrument()
+        results: bool = Main.detection(project, 0.35)
+        Main.__generate_vhdl(results)
+
+        StaticUtilities.logger.warning("Testing All Attacks at once")
+        Detection.reset_test_project()
+        project = CCSProject(source_file="main.c",
+                             project_name="test_target",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                             )
+        instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
+        instrumentation.instrument()
+        results: bool = Main.detection(project, 0.35)
+        Main.__generate_vhdl(results)
+        return
 
     @staticmethod
     def generate_vhdl_exclusively() -> None:
@@ -126,7 +180,15 @@ class Main:
         package_zipper: PackageZipper = PackageZipper()
         package_zipper.zip_vhdl(zip_file_name="")
 
+    @staticmethod
+    def inject_msp430_exclusively() -> None:
+        """
+        Attempts to inject a CCSProject with some vulnerability.
+        :return: None.
+        """
+
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.demo()
+    main.debug_main()
+    # Detection.reset_test_project()

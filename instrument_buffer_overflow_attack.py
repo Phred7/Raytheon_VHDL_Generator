@@ -9,7 +9,6 @@ import random
 import string
 from typing import List, Tuple
 
-from ccs_project import CCSProject
 from instrumentation_strategy import InstrumentationStrategy
 from static_utilities import StaticUtilities
 

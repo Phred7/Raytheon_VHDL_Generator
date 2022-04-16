@@ -10,7 +10,6 @@ from copy import deepcopy
 from typing import Dict, List, Any, Match
 
 from detection_strategy import DetectionStrategy
-from static_utilities import StaticUtilities
 
 
 class DetectionInC(DetectionStrategy):
@@ -18,7 +17,8 @@ class DetectionInC(DetectionStrategy):
     Strategy for detecting vulnerabilities in C source files.
     """
 
-    def detect_regex_patterns_in_source(self, patterns: List[str], pattern_flags: List[Any]) -> {(int, str), Match[str]}:
+    def detect_regex_patterns_in_source(self, patterns: List[str], pattern_flags: List[Any]) -> {(int, str),
+                                                                                                 Match[str]}:
         """
         Locate all matches of regex patterns from this CCSProject source file.
         :param patterns: Patterns to search for in this CCSProjects source file.
@@ -35,6 +35,18 @@ class DetectionInC(DetectionStrategy):
                         detected_patterns_dict[(line_number, pattern)] = regex_match
         return detected_patterns_dict
 
+    def __detection_return_logic__(self, detected_patterns_dict: Dict[float, Match[str]], insecure_patterns_recommended_replacement_dict: Dict[str, str], vulnerability_name: str) -> bool:
+        if len(detected_patterns_dict.keys()) > 0:
+            for key in detected_patterns_dict:
+                line_number, pattern = key
+                vulnerability_string: str = detected_patterns_dict[key].string[detected_patterns_dict[key].start():detected_patterns_dict[key].end()].strip()
+                if len(vulnerability_string) > 180:
+                    vulnerability_string = vulnerability_string[:100] + "..."
+                self.add_vulnerability_to_dict(line_number=line_number,
+                                               vulnerability_string=f"{vulnerability_name}: {vulnerability_string}. {insecure_patterns_recommended_replacement_dict.get(pattern)}\n")
+            return True
+        return False
+
     def detect_buffer_overflow_attack(self) -> bool:
         """
         Attempts to detect a buffer overflow in this ccs_project.
@@ -49,22 +61,17 @@ class DetectionInC(DetectionStrategy):
                                         "sprintf\(",
                                         "gets\("]
         insecure_patterns_flags = [0, re.I, 0]
-        insecure_patterns_recommended_replacement_dict:  Dict[str, str] = {insecure_patterns[0]: "--string.h contains functions that can be exploited.--",
-                                                                           insecure_patterns[1]: "--Char*'s may be used without specifying a buffer size--",
-                                                                           insecure_patterns[2]: "--replace with strncpy or another safe function--",
-                                                                           insecure_patterns[3]: "--replace with strncat or another safe function--",
-                                                                           insecure_patterns[4]: "--may want to replace with a different function--",
-                                                                           insecure_patterns[5]: "--may want to replace with a different function--",
-                                                                           insecure_patterns[6]: "--replace with fgets or another safe function--"}
-        detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns, insecure_patterns_flags)
-        for key in detected_patterns_dict:
-            line_number, pattern = key
-            return_string += f"line{line_number}: {detected_patterns_dict[key].string[detected_patterns_dict[key].start():detected_patterns_dict[key].end()].strip()}. {insecure_patterns_recommended_replacement_dict.get(pattern)}\n"
-        if return_string != "":
-            return_string = f"Buffer Overflow Detection Recommendations\n{return_string}"
-            StaticUtilities.logger.info(return_string)
-            return True
-        return False
+        insecure_patterns_recommended_replacement_dict: Dict[str, str] = {
+            insecure_patterns[0]: "--string.h contains functions that can be exploited.--",
+            insecure_patterns[1]: "--Char*'s may be used without specifying a buffer size--",
+            insecure_patterns[2]: "--replace with strncpy or another safe function--",
+            insecure_patterns[3]: "--replace with strncat or another safe function--",
+            insecure_patterns[4]: "--may want to replace with a different function--",
+            insecure_patterns[5]: "--may want to replace with a different function--",
+            insecure_patterns[6]: "--replace with fgets or another safe function--"}
+        detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns,
+                                                                                               insecure_patterns_flags)
+        return self.__detection_return_logic__(detected_patterns_dict, insecure_patterns_recommended_replacement_dict, "BufferOverflowAttack")
 
     def detect_int_overflow_attack(self) -> bool:
         """
@@ -78,13 +85,15 @@ class DetectionInC(DetectionStrategy):
         Attempts to detect an f-string vulnerability in this ccs_project.
         :return: True if an f-string vulnerability was detected in this file. Otherwise, False.
         """
-        #  printf("") vprintf() fprint() fprintf() sprintf() vfprintf() snprintf() vsnprintf("",())
         insecure_patterns = [r"(|\b|vsn|sn|vf|s|f|v)printf?\(", "(%08x\.){30,}"]
-        insecure_patterns_flags = [0, [re.S, re.X]]
+        insecure_patterns_flags = [0, (re.S + re.X)]
         insecure_patterns_recommended_replacement_dict: Dict[str, str] = {
-            insecure_patterns[0]: "--string.h contains functions that can be exploited.--"}
-        format_string = '"' + '%08x.' * 1024 + '"'
-        return False
+            insecure_patterns[0]: "--print f--",
+            insecure_patterns[1]: "--this value is repeated more than 30 times in a row. This data was probably injected.--"}
+
+        detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns,
+                                                                                               insecure_patterns_flags)
+        return self.__detection_return_logic__(detected_patterns_dict, insecure_patterns_recommended_replacement_dict, "StringFormatAttack")
 
     def detect_injection_attack(self) -> bool:
         """

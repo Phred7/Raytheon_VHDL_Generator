@@ -36,8 +36,12 @@ class CCSProject:
         self.source_file = source_file                  # The file which is to be instrumented or inspected
         self.disassembly_file_path = ""
         self.binary_file_path: str = ""
-        if StaticUtilities.file_exists(f"{self.path}\\VHDLGenerator\\", self.source_file.replace(self.source_file[self.source_file.index("."):], ".out")):
+        if StaticUtilities.file_exists(f"{self.path}\\VHDLGenerator\\", f"{project_name}.out"):
+            self.binary_file_path = f"VHDLGenerator\\{project_name}.out"
+        elif StaticUtilities.file_exists(f"{self.path}\\VHDLGenerator\\", self.source_file.replace(self.source_file[self.source_file.index("."):], ".out")):
             self.binary_file_path = f"VHDLGenerator\\{self.source_file.replace(self.source_file[self.source_file.index('.'):], '.out')}"
+        elif StaticUtilities.file_exists(f"{self.path}\\Debug\\", f"{project_name}.out"):
+            self.binary_file_path = f"Debug\\{project_name}.out"
         else:
             self.binary_file_path = f"Debug\\{self.source_file.replace(self.source_file[self.source_file.index('.'):], '.out')}"
         self.__project_hash = None

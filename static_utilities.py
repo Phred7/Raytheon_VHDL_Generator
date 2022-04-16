@@ -21,39 +21,10 @@ import subprocess
 import time
 from contextlib import contextmanager
 from logging import Logger
-from typing import TextIO, List, Any
+from typing import TextIO, List
 from multiprocessing import Process, Queue
 
-
-class CustomFormatter(logging.Formatter):
-    """
-    This class copied from StackOverflow User 'Sergey Pleshakov' at https://stackoverflow.com/questions/384076/how-can-i-color-python-logging-output#:~:text=Just%20use%20the%20color%20variables,BLACK%20%2D%20%24BG%2DWHITE.
-    TODO: move to another file.
-    """
-
-    grey = "\x1b[0;37m"
-    green = "\x1b[1;32m"
-    yellow = "\x1b[1;33m"
-    red = "\x1b[1;31m"
-    purple = "\x1b[1;35m"
-    blue = "\x1b[1;34m"
-    light_blue = "\x1b[1;36m"
-    reset = "\x1b[0m"
-    blink_red = "\x1b[5m\x1b[1;31m"
-    format = f"%(asctime)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
-
-    FORMATS = {
-        logging.DEBUG: grey + format + reset,
-        logging.INFO: grey + format + reset,
-        logging.WARNING: yellow + format + reset,
-        logging.ERROR: red + format + reset,
-        logging.CRITICAL: blink_red + format + reset
-    }
-
-    def format(self, record):
-        log_fmt = self.FORMATS.get(record.levelno)
-        formatter = logging.Formatter(log_fmt)
-        return formatter.format(record)
+from custom_formatter import CustomFormatter
 
 
 class StaticUtilities:
@@ -261,7 +232,7 @@ class StaticUtilities:
                                             force_kill=force_kill)
 
     @staticmethod
-    def process_running(process_name: str) -> bool:  # TODO: Add error checking.
+    def process_running(process_name: str) -> bool:  # TODO: Add better error checking.
         """
         Checks if the process with the name process_name is running.
         :param process_name: Name of the process to check the status of.
@@ -288,7 +259,7 @@ class StaticUtilities:
         return StaticUtilities.process_running(_executable_name)
 
     @staticmethod
-    def service_running(service_name: str) -> bool:  # TODO: Add error checking.
+    def service_running(service_name: str) -> bool:  # TODO: Add better error checking.
         """
         Checks if the service with the name service_name is running.
         :param service_name: Name of the service to check the status of.
@@ -373,8 +344,13 @@ class StaticUtilities:
         return
 
     @staticmethod
-    def hide_directory_recursively(directory: str, *,
-                                   log: bool = True) -> bool:  # TODO: convert to a thread safe generator (or path/file queue) and add multiproceessing.
+    def hide_directory_recursively(directory: str, *, log: bool = True) -> bool:
+        """
+        Hides all the files and directories in a directory specified by directory.
+        :param directory: Top level directory to hide contents of as a string.
+        :param log: Optionally logs all the files and directories that are hidden. True generates logs, false suppresses them.
+        :return:
+        """
         os.system(f"attrib +h {directory[:-1]}")
         files: List[str] = []
         for (path, name, filenames) in os.walk(directory):

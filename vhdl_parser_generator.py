@@ -9,7 +9,7 @@ import re
 import sys
 import os
 from copy import deepcopy
-from typing import TextIO, List, Optional
+from typing import TextIO, List
 
 from ccs_project import CCSProject
 from package_zipper import PackageZipper
@@ -19,7 +19,7 @@ from static_utilities import StaticUtilities
 
 
 class UnrecognizedInstructionError(Exception):
-    """A instruction in the generated disassembly was not recognized by the computer_mnemonic_dictionary"""
+    """An instruction in the generated disassembly was not recognized by the computer_mnemonic_dictionary"""
     pass
 
 
@@ -28,17 +28,14 @@ class VHDLParserGenerator:
     Generates VHDL representation of an MSP430 binary.
     """
 
-    def __init__(self, ccs_project: CCSProject, *, binary_file_name: str = "All_msp_operations", asm_file: bool = True) -> None:
-        # TODO: resolve constructor using deprecated inputs.
+    def __init__(self, ccs_project: CCSProject) -> None:
         self.ccs_project: CCSProject = ccs_project
         self.program_memory_start: int = 32768
-        self.binary_file_name: str = binary_file_name
         self.disassembler_output_file_name: str = "generated_disassembly.txt"
         self.disassembler_output_file_directory: str = rf"{StaticUtilities.project_root_directory()}\generated_disassembly"
         self.memory_indent: str = "\t\t\t\t\t\t   "
         self.nop_opcode: str = "0343"
         self.computer_name_list: List[str] = ["baseline", "highroller", "lowlife"]
-        self.asm_file: bool = asm_file
         self.data_memory_in_disassembly: bool = False
         StaticUtilities.logger.debug(f"{VHDLParserGenerator.__name__} object initialized")
 
@@ -301,13 +298,12 @@ constant ROM : rom_type :=("""
                         line = next(disassembly_file)
                         line = next(disassembly_file)
                         line = next(disassembly_file)
-                        StaticUtilities.logger.debug(f"Reached ISR Trap")
 
                     if not first_instruction_reached:
                         """Generates program memory in TEXT Section .text,"""
                         line = next(disassembly_file)
 
-                        # gets the name of the main function or tag. TODO: into a function
+                        # gets the name of the main function or tag.
                         split_line: List[str] = line.split(" ")
                         if len(split_line) == 15:
                             match = re.match("(\w+|\$):\\n", split_line[14], re.I)
@@ -354,10 +350,6 @@ constant ROM : rom_type :=("""
                         tab_char: str = "\t"
                         generated_rom_asm_str += f"""{self.memory_indent}{memory_address} => x\"{translated_line[10]}{translated_line[11]}\",\t\t-- {translated_line[:translated_line.index(".")].replace(" ", "").replace(tab_char, "")} {name} {tag_name} {vector}\n"""
                         generated_rom_asm_str += f"""{self.memory_indent}{memory_address+1} => x\"{translated_line[8]}{translated_line[9]}\",\n"""
-
-                        # generated_rom_asm_str += f"""{"" if memory_address == self.program_memory_start else self.memory_indent}{memory_address} => x\"{translated_line[8]}{translated_line[9]}\",\t\t-- {line}"""  # -- #\t\t--
-                        # generated_rom_asm_str += f"""{self.memory_indent}{memory_address + 1} => x\"{translated_line[10]}{translated_line[11]}\",\n"""
-
                         line = next(disassembly_file)
                         continue
 
@@ -394,7 +386,6 @@ constant ROM : rom_type :=("""
 
                             if isr_trap_reached and not isr_trap_end_reached and "NOP" in line:
                                 isr_trap_end_reached = True
-                                StaticUtilities.logger.debug("Reached end of ISR Trap")
 
                         elif memory_address >= self.program_memory_start and len(line_str_list) >= 15 and not (
                                 line_str_list[14] in computer_mnemonic_dictionary.keys()) and (
@@ -615,19 +606,13 @@ end architecture;"""
         else:
             return ComputerMnemonicDictionary.baseline()
 
-    def generate_vhdl(self, *, detection: bool = False):
+    def generate_vhdl(self):
         """
         Executes other methods in the correct order to generate VHDL for generated disassembly.
-        :param detection: Bool representation of whether to attempt to detect malware and vulnerabilities within a file.
         :return: None.
         """
         self.remove_last_generated_vhd_files()
-        StaticUtilities.logger.debug(f"Detection {'enabled' if detection else 'disabled'} while generating vhdl.")
-        # if detection:
-        #     # Ex: Detection(path=r"C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_generated_ASM", source_file="test_generated_ASM.asm")
-        #     _detection: Detection = Detection(path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\{self.binary_file_name}", source_file=f"{self.binary_file_name}.{'asm' if self.asm_file else 'c'}", pique_bin_bool=False, suppress_pique_bin_logs=False)
-        #     _detection.detect()
-        disassembler: Disassembler = Disassembler(ccs_project=self.ccs_project)
+        disassembler: Disassembler = Disassembler(ccs_project_to_disassemble=self.ccs_project)
         disassembler.disassemble()
         self.generate_vhdl_packages()
         self.generate_vhdl_data_memory()

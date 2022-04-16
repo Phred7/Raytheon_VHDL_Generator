@@ -5571,97 +5571,1249 @@ line3: strcpy(. --replace with strncpy or another safe function--
 2022-04-05 11:44:20,254 DEBUG disassembler __init__ Disassembler object initialized
 2022-04-05 11:44:20,255 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
 2022-04-05 11:44:20,267 DEBUG disassembler disassemble Disassembler exit status: 1
-2022-04-10 12:45:43,945 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-10 12:47:10,710 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-10 12:47:51,509 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-10 12:49:23,042 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 14:33:32,818 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 14:33:32,819 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 14:33:32,820 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 14:33:45,675 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 14:33:45,681 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 14:35:05,165 DEBUG instrumentation instrument Phantom workspace hidden
-2022-04-16 14:35:07,347 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 14:35:07,347 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 14:35:07,348 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 14:35:19,097 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 14:35:19,100 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 14:42:06,091 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 14:42:06,092 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 14:42:06,093 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 14:42:18,566 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 14:42:18,569 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 14:44:04,246 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 14:44:04,247 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 14:44:04,247 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 14:44:15,644 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 14:44:15,647 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 14:45:06,947 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 14:45:06,948 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 14:45:06,949 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 14:45:18,481 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 14:45:18,484 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 14:50:52,449 DEBUG instrumentation instrument Phantom workspace hidden
-2022-04-16 14:50:54,507 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 14:50:54,507 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 14:50:54,508 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 14:51:06,051 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 14:51:06,054 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 15:07:24,556 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 15:07:24,556 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 15:07:24,557 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 15:07:35,901 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 15:07:35,908 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 15:08:30,523 DEBUG instrumentation instrument Phantom workspace hidden
-2022-04-16 15:08:32,486 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 15:08:32,487 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 15:08:32,489 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 15:08:44,370 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 15:08:44,373 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 15:10:10,406 DEBUG instrumentation instrument Phantom workspace hidden
-2022-04-16 15:10:12,319 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 15:10:12,320 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 15:10:12,321 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 15:10:24,452 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 15:10:24,455 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 15:11:04,891 DEBUG instrumentation instrument Phantom workspace hidden
-2022-04-16 15:11:06,788 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 15:11:06,789 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 15:11:06,790 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 15:11:18,512 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 15:11:18,516 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 15:12:54,536 DEBUG instrumentation instrument Phantom workspace hidden
-2022-04-16 15:12:56,375 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 15:12:56,375 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 15:12:56,376 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 15:13:08,351 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 15:13:08,354 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 15:14:35,317 DEBUG instrumentation instrument Phantom workspace hidden
-2022-04-16 15:14:37,494 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 15:14:37,494 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 15:14:37,495 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 15:14:49,077 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 15:14:49,080 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 15:15:31,013 DEBUG instrumentation instrument Instrumentation on main.c succeeded
-2022-04-16 15:16:09,348 DEBUG instrumentation build_phantom_project Phantom C project done building
-2022-04-16 15:16:09,533 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
-2022-04-16 15:16:21,122 DEBUG instrumentation instrument Phantom workspace hidden
-2022-04-16 15:16:21,123 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
-2022-04-16 15:20:37,042 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 15:20:37,043 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 15:20:37,044 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 15:20:48,468 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 15:20:48,472 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 15:21:03,845 DEBUG instrumentation instrument Instrumentation on main.c succeeded
-2022-04-16 15:21:18,062 DEBUG instrumentation build_phantom_project Phantom C project done building
-2022-04-16 15:21:18,285 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
-2022-04-16 15:21:34,101 INFO test_instrumentation main Testing test_int_overflow
-2022-04-16 15:21:34,102 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-16 15:21:34,102 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-16 15:21:45,909 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-16 15:21:45,912 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
-2022-04-16 15:21:45,919 DEBUG instrumentation instrument Instrumentation on main.c succeeded
-2022-04-16 15:21:55,813 DEBUG instrumentation build_phantom_project Phantom C project done building
-2022-04-16 15:21:56,001 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
-2022-04-16 15:22:08,034 DEBUG instrumentation instrument Phantom workspace hidden
-2022-04-16 15:22:08,035 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-10 11:09:12,733 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:09:12,734 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-10 11:09:12,734 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-10 11:09:12,735 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-10 11:09:12,735 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-10 11:09:12,735 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-10 11:09:12,735 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-10 11:09:12,736 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-10 11:09:12,736 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-04-10 11:09:12,736 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:09:12,796 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-10 11:09:12,796 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:09:12,797 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-10 11:09:12,797 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-10 11:09:12,798 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-10 11:09:12,799 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-10 11:09:12,799 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-10 11:09:12,800 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:09:12,801 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:09:12,802 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-10 11:09:12,802 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-10 11:09:12,803 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:09:12,803 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:09:12,804 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-10 11:09:12,805 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-10 11:09:12,806 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:09:12,806 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:09:12,807 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-10 11:09:12,807 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-10 11:09:12,808 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-10 11:09:12,809 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-10 11:09:12,809 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-10 11:09:12,809 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-10 11:09:12,810 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-10 11:09:12,810 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-10 11:09:12,810 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-10 11:09:12,811 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-10 11:09:12,812 INFO package_zipper zip_vhdl Created zip .zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:12:44,088 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:12:44,089 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:12:44,089 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:12:44,090 DEBUG main detection detection: No malware found
+2022-04-10 11:12:44,090 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:12:44,090 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-10 11:12:44,091 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-10 11:12:44,091 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-10 11:12:44,092 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-10 11:12:44,092 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-10 11:12:44,092 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-10 11:12:44,093 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-10 11:12:44,093 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-04-10 11:12:44,093 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:12:44,093 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:12:44,146 DEBUG disassembler disassemble Disassembler exit status: 1
+2022-04-10 11:15:24,914 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:15:24,914 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:15:24,915 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:15:24,917 DEBUG main detection detection: No malware found
+2022-04-10 11:15:24,917 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:15:24,918 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-04-10 11:15:24,918 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:17:18,624 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:17:18,625 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:17:18,625 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:17:18,628 DEBUG main detection detection: No malware found
+2022-04-10 11:17:18,628 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:17:18,628 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-04-10 11:17:18,628 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:19:35,030 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:19:35,030 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:19:35,031 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:19:35,033 DEBUG main detection detection: No malware found
+2022-04-10 11:19:35,033 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:19:35,033 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-04-10 11:19:35,033 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:19:49,150 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-10 11:19:49,151 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:19:49,152 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-10 11:19:49,152 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-10 11:19:49,153 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-10 11:19:49,156 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-10 11:19:49,156 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-10 11:19:49,186 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:19:49,187 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:19:49,189 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-10 11:19:49,189 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-10 11:19:49,220 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:19:49,220 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:19:49,222 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-10 11:19:49,222 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-10 11:19:49,254 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:19:49,254 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:19:49,255 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-10 11:19:49,255 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-10 11:19:49,257 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-10 11:19:49,258 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-10 11:19:49,258 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-10 11:19:49,259 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-10 11:19:49,259 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-10 11:19:49,260 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-10 11:19:49,260 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-10 11:19:49,263 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-10 11:19:49,264 WARNING package_zipper zip_vhdl Created zip _[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:19:49,264 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:19:49,265 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-10 11:19:49,265 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-10 11:19:58,647 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-10 11:19:58,648 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-10 11:19:58,649 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-10 11:20:02,847 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-10 11:20:02,896 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-10 11:20:11,966 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-10 11:20:11,966 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-10 11:20:11,967 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:20:11,967 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:20:11,967 DEBUG main detection Project Hash: 1b485f98a1d6c0b0705e84c711923abfaab5639c57eaeb4bbdb93a680fafa0d1
+2022-04-10 11:20:11,968 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:20:11,968 DEBUG main detection detection: Possible malware detected
+2022-04-10 11:20:11,969 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:21:34,140 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:21:34,141 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:21:34,141 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:21:34,142 DEBUG main detection detection: No malware found
+2022-04-10 11:21:34,142 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:21:34,142 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-10 11:21:34,143 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-10 11:21:34,143 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-10 11:21:34,144 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-10 11:21:34,144 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-10 11:21:34,144 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-10 11:21:34,144 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-10 11:21:34,144 DEBUG vhdl_parser_generator generate_vhdl Detection disabled while generating vhdl.
+2022-04-10 11:21:34,144 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:21:34,145 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:21:34,164 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-10 11:21:34,164 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:21:34,164 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-10 11:21:34,165 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-10 11:21:34,165 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-10 11:21:34,168 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-10 11:21:34,168 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-10 11:21:34,179 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:21:34,179 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:21:34,181 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-10 11:21:34,181 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-10 11:21:34,193 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:21:34,193 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:21:34,195 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-10 11:21:34,195 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-10 11:21:34,211 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached ISR Trap
+2022-04-10 11:21:34,211 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reached end of ISR Trap
+2022-04-10 11:21:34,213 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-10 11:21:34,213 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-10 11:21:34,214 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-10 11:21:34,215 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-10 11:21:34,215 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-10 11:21:34,216 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-10 11:21:34,216 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-10 11:21:34,217 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-10 11:21:34,217 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-10 11:21:34,219 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-10 11:21:34,221 WARNING package_zipper zip_vhdl Created zip _[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:21:34,221 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:21:34,221 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-10 11:21:34,221 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-10 11:21:35,572 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-10 11:21:35,573 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-10 11:21:35,574 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-10 11:21:39,359 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-10 11:21:39,393 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-10 11:21:40,813 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-10 11:21:40,814 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-10 11:21:40,814 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:21:40,814 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:21:40,815 DEBUG main detection Project Hash: 099f5c7b87a76fc38f643a3ef7c07f1ff8b6aabefceeac61594fdbcaae4233e1
+2022-04-10 11:21:40,815 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:21:40,815 DEBUG main detection detection: Possible malware detected
+2022-04-10 11:21:40,815 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:31:35,088 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:31:35,088 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:31:35,088 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:31:35,089 DEBUG main detection detection: No malware found
+2022-04-10 11:31:35,089 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:31:35,089 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-10 11:31:35,090 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-10 11:31:35,090 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-10 11:31:35,091 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-10 11:31:35,091 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-10 11:31:35,091 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-10 11:31:35,092 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-10 11:31:35,092 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:31:35,092 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:31:35,110 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-10 11:31:35,110 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:31:35,111 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-10 11:31:35,111 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-10 11:31:35,111 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-10 11:31:35,114 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-10 11:31:35,114 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-10 11:31:35,126 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-10 11:31:35,127 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-10 11:31:35,139 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-10 11:31:35,139 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-10 11:31:35,152 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-10 11:31:35,152 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-10 11:31:35,153 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-10 11:31:35,154 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-10 11:31:35,154 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-10 11:31:35,155 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-10 11:31:35,155 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-10 11:31:35,155 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-10 11:31:35,156 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-10 11:31:35,158 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-10 11:31:35,160 WARNING package_zipper zip_vhdl Created zip _[2].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:31:35,160 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:31:35,160 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-10 11:31:35,160 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-10 11:31:36,620 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-10 11:31:36,621 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-10 11:31:36,622 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-10 11:31:40,398 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-10 11:31:40,432 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-10 11:31:41,815 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-10 11:31:41,816 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-10 11:31:41,816 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:31:41,816 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:31:41,817 DEBUG main detection Project Hash: 2683b94b78c05fc2dcaea7dfaec8e9c6ec1d9c728abda64ac88c03ca98cb5fc7
+2022-04-10 11:31:41,817 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:31:41,818 DEBUG main detection detection: Possible malware detected
+2022-04-10 11:31:41,818 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:33:25,130 INFO main detection detection: No malware found
+2022-04-10 11:33:25,132 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:33:25,150 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:33:25,207 WARNING package_zipper zip_vhdl Created zip _[3].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:33:25,207 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:33:31,974 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:33:31,974 INFO main detection detection: Possible malware detected
+2022-04-10 11:33:31,974 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:35:03,893 WARNING main detection detection: Possible malware detected
+2022-04-10 11:35:03,895 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:35:03,912 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:35:03,961 WARNING package_zipper zip_vhdl Created zip _[4].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:35:03,961 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:35:10,536 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:35:10,536 INFO main detection detection: No malware found
+2022-04-10 11:35:10,536 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:35:40,955 INFO main detection detection: No malware found
+2022-04-10 11:35:40,957 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:35:40,975 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:35:41,024 WARNING package_zipper zip_vhdl Created zip _[5].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:35:41,024 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:35:47,788 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:35:47,788 WARNING main detection detection: Possible malware detected
+2022-04-10 11:35:47,789 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:50:23,041 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:50:23,041 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:50:23,042 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-10 11:50:23,042 INFO main detection detection: No malware found
+2022-04-10 11:50:23,042 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-10 11:50:23,043 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-10 11:50:23,043 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-10 11:50:23,044 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-10 11:50:23,044 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-10 11:50:23,044 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-10 11:50:23,045 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-10 11:50:23,045 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-10 11:50:23,045 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-10 11:50:23,045 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:50:23,063 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-10 11:50:23,063 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:50:23,064 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-10 11:50:23,064 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-10 11:50:23,065 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-10 11:50:23,067 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-10 11:50:23,068 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-10 11:50:23,080 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-10 11:50:23,080 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-10 11:50:23,093 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-10 11:50:23,093 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-10 11:50:23,105 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-10 11:50:23,105 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-10 11:50:23,106 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-10 11:50:23,107 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-10 11:50:23,107 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-10 11:50:23,108 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-10 11:50:23,108 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-10 11:50:23,109 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-10 11:50:23,109 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-10 11:50:23,111 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-10 11:50:23,113 WARNING package_zipper zip_vhdl Created zip _[6].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:50:23,113 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:50:23,113 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-10 11:50:23,113 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-10 11:50:24,516 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-10 11:50:24,517 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-10 11:50:24,518 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-10 11:50:28,308 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-10 11:50:28,343 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-10 11:50:29,750 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-10 11:50:29,751 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-10 11:50:29,751 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-10 11:50:29,751 DEBUG detection __init__ Detection object initialized
+2022-04-10 11:50:29,752 DEBUG main detection Project Hash: 63e4153b66d2502a078b60aae1a60c514aab2d8ed8d23c905ff1eb758850bb8a
+2022-04-10 11:50:29,752 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:50:29,752 WARNING main detection detection: Possible malware detected
+2022-04-10 11:50:29,753 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:50:53,711 INFO main detection detection: No malware found
+2022-04-10 11:50:53,713 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:50:53,732 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:50:53,780 WARNING package_zipper zip_vhdl Created zip _[7].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:50:53,780 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:51:01,063 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:51:01,064 WARNING main detection detection: Possible malware detected
+2022-04-10 11:51:01,064 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 11:52:14,075 INFO main detection detection: No malware found
+2022-04-10 11:52:14,077 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 11:52:14,095 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 11:52:14,148 WARNING package_zipper zip_vhdl Created zip _[8].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 11:52:14,148 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 11:52:21,097 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 11:52:21,097 WARNING main detection detection: Possible malware detected
+2022-04-10 11:52:21,097 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:00:07,530 INFO main detection detection: No malware found
+2022-04-10 12:00:07,531 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:00:07,550 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:00:07,602 WARNING package_zipper zip_vhdl Created zip _[9].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:00:07,602 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:00:11,169 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-10 12:00:11,169 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-10 12:00:16,465 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 12:00:16,466 WARNING main detection detection: Possible malware detected
+2022-04-10 12:00:16,466 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:03:20,027 INFO main detection detection: No malware found
+2022-04-10 12:03:20,029 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:03:20,047 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:03:20,096 WARNING package_zipper zip_vhdl Created zip _[10].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:03:20,096 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:03:26,981 INFO detection_in_c detect_buffer_overflow_attack Buffer Overflow Detection Recommendations
+line1: string.h. --string.h contains functions that can be exploited.--
+line2: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line3: strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 12:03:26,981 WARNING main detection detection: Possible malware detected
+2022-04-10 12:03:26,981 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:50:03,469 WARNING main detection detection: Possible malware detected
+2022-04-10 12:50:03,469 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:51:37,981 INFO main detection detection: No malware found
+2022-04-10 12:51:37,983 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:51:38,002 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:51:38,050 WARNING package_zipper zip_vhdl Created zip _[11].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:51:38,050 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:51:44,881 WARNING main detection detection: Possible malware detected
+2022-04-10 12:51:44,882 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:52:52,825 INFO main detection detection: No malware found
+2022-04-10 12:52:52,827 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:52:52,845 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:52:52,896 WARNING package_zipper zip_vhdl Created zip _[12].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:52:52,896 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:52:59,737 WARNING main detection detection: Possible malware detected
+2022-04-10 12:52:59,737 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:53:11,397 INFO main detection detection: No malware found
+2022-04-10 12:53:11,399 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:53:11,419 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:53:11,531 WARNING package_zipper zip_vhdl Created zip _[13].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:53:11,531 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:53:17,186 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-10 12:53:30,199 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-10 12:53:33,708 WARNING main detection detection: Possible malware detected
+2022-04-10 12:56:18,247 INFO main detection detection: No malware found
+2022-04-10 12:56:18,249 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:56:18,267 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:56:18,317 WARNING package_zipper zip_vhdl Created zip _[14].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:56:18,317 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:56:25,337 WARNING main detection detection: Possible malware detected
+2022-04-10 12:56:25,337 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 12:56:29,687 INFO main detection detection: No malware found
+2022-04-10 12:56:29,689 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:56:29,711 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:56:29,825 WARNING package_zipper zip_vhdl Created zip _[15].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:56:29,825 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:56:51,997 WARNING main detection detection: Possible malware detected
+2022-04-10 12:58:33,968 INFO main detection detection: No malware found
+2022-04-10 12:58:33,970 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 12:58:33,989 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 12:58:34,038 WARNING package_zipper zip_vhdl Created zip _[16].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 12:58:34,038 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 12:58:41,116 WARNING main detection detection: Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--line 3:
+	strcpy(. --replace with strncpy or another safe function--
+2022-04-10 12:58:41,117 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 13:00:12,105 INFO main detection detection: No malware found
+2022-04-10 13:00:12,107 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 13:00:12,125 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 13:00:12,175 WARNING package_zipper zip_vhdl Created zip _[17].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 13:00:12,175 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 13:00:19,222 WARNING main detection detection: Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 13:00:19,222 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-10 14:03:41,709 INFO main detection No malware found
+2022-04-10 14:03:41,711 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-10 14:03:41,730 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-10 14:03:41,779 INFO package_zipper zip_vhdl Created zip .zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-10 14:03:41,779 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-10 14:03:49,042 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+
+2022-04-10 14:03:49,043 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-12 10:33:18,403 INFO main detection No malware found
+2022-04-12 10:33:18,408 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-12 10:33:18,562 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-12 10:33:18,652 INFO package_zipper zip_vhdl Created zip .zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-12 10:33:18,652 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-12 10:33:27,433 INFO main detection No malware found
+2022-04-12 10:33:27,439 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-12 10:33:27,507 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-12 10:33:27,973 WARNING package_zipper zip_vhdl Created zip _[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-12 10:33:27,974 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-13 11:39:15,554 INFO main detection No malware found
+2022-04-13 11:39:15,561 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-13 11:39:15,702 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-13 11:39:15,823 WARNING package_zipper zip_vhdl Created zip _[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-13 11:39:15,823 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-13 11:39:39,083 INFO main detection No malware found
+2022-04-13 11:39:39,089 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-13 11:39:39,131 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-13 11:39:39,393 WARNING package_zipper zip_vhdl Created zip _[2].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-13 11:39:39,394 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-13 11:39:56,094 INFO main detection No malware found
+2022-04-13 11:39:56,099 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-13 11:39:56,133 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-13 11:39:56,229 WARNING package_zipper zip_vhdl Created zip _[3].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-13 11:39:56,229 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-13 11:40:12,364 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+
+2022-04-13 11:40:12,365 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-13 11:41:13,314 INFO main detection No malware found
+2022-04-13 11:41:13,319 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-13 11:41:13,359 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-13 11:41:13,558 WARNING package_zipper zip_vhdl Created zip _[4].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-13 11:41:13,558 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-13 11:41:37,606 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+
+2022-04-13 11:41:37,608 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-13 11:43:21,466 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-13 11:43:21,468 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-13 11:43:21,468 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-13 11:43:21,468 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-13 11:43:21,470 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-13 11:43:21,470 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-13 11:43:21,470 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-13 11:43:21,471 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-13 11:43:21,472 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-13 11:43:21,473 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-13 11:43:21,489 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-13 11:43:21,490 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-13 11:43:21,491 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-13 11:43:21,491 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-13 11:43:21,493 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-13 11:43:21,495 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-13 11:43:21,496 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-13 11:43:21,499 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-13 11:43:21,500 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-13 11:43:21,502 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-13 11:43:21,504 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-13 11:43:21,506 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-13 11:43:21,506 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-13 11:43:21,509 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-13 11:43:21,509 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-13 11:43:21,511 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-13 11:43:21,511 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-13 11:43:21,511 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-13 11:43:21,513 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-13 11:43:21,513 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-13 11:43:21,515 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-13 11:43:21,517 WARNING package_zipper zip_vhdl Created zip _[5].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-13 11:43:32,014 INFO main detection No malware found
+2022-04-13 11:43:32,020 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-13 11:43:32,053 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-13 11:43:32,236 WARNING package_zipper zip_vhdl Created zip _[6].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-13 11:43:32,236 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-13 11:43:56,235 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+
+2022-04-13 11:43:56,236 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-13 11:58:54,722 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-13 11:58:54,723 DEBUG detection __init__ Detection object initialized
+2022-04-13 11:58:54,724 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-13 11:58:54,727 INFO main detection No malware found
+2022-04-13 11:58:54,727 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-13 11:58:54,728 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-13 11:58:54,729 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-13 11:58:54,730 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-13 11:58:54,731 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-13 11:58:54,732 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-13 11:58:54,733 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-13 11:58:54,734 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-13 11:58:54,734 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-13 11:58:54,735 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-13 11:58:54,770 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-13 11:58:54,770 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-13 11:58:54,771 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-13 11:58:54,772 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-13 11:58:54,773 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-13 11:58:54,780 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-13 11:58:54,781 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-13 11:58:54,832 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-13 11:58:54,833 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-13 11:58:54,885 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-13 11:58:54,886 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-13 11:58:54,938 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-13 11:58:54,938 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-13 11:58:54,943 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-13 11:58:54,944 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-13 11:58:54,944 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-13 11:58:54,946 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-13 11:58:54,947 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-13 11:58:54,948 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-13 11:58:54,949 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-13 11:58:54,954 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-13 11:58:54,957 WARNING package_zipper zip_vhdl Created zip _[7].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-13 11:58:54,958 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-13 11:58:54,958 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-13 11:58:54,959 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-13 11:59:03,726 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-13 11:59:03,727 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-13 11:59:03,729 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-13 11:59:09,657 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-13 11:59:09,741 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-13 11:59:18,193 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-13 11:59:18,193 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-13 11:59:18,194 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-13 11:59:18,196 DEBUG detection __init__ Detection object initialized
+2022-04-13 11:59:18,198 DEBUG main detection Project Hash: 1090054e27979691563a0758a66eb216427042d6349f57691fa2e74f23b92651
+2022-04-13 11:59:18,199 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+
+2022-04-13 11:59:18,199 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-13 12:13:16,257 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-13 12:13:16,258 DEBUG detection __init__ Detection object initialized
+2022-04-13 12:13:16,259 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-13 12:13:16,263 INFO main detection No malware found
+2022-04-13 12:13:16,263 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-13 12:13:16,264 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-13 12:13:16,265 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-13 12:13:16,266 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-13 12:13:16,268 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-13 12:13:16,269 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-13 12:13:16,269 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-13 12:13:16,270 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-13 12:13:16,271 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-13 12:13:16,272 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-13 12:13:16,307 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-13 12:13:16,307 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-13 12:13:16,308 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-13 12:13:16,309 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-13 12:13:16,310 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-13 12:13:16,317 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-13 12:13:16,318 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-13 12:13:16,370 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-13 12:13:16,371 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-13 12:13:16,424 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-13 12:13:16,425 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-13 12:13:16,480 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-13 12:13:16,481 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-13 12:13:16,485 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-13 12:13:16,486 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-13 12:13:16,486 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-13 12:13:16,488 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-13 12:13:16,489 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-13 12:13:16,490 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-13 12:13:16,491 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-13 12:13:16,495 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-13 12:13:16,497 WARNING package_zipper zip_vhdl Created zip _[8].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-13 12:13:16,497 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-13 12:13:16,498 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-13 12:20:05,900 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-13 12:20:05,901 DEBUG detection __init__ Detection object initialized
+2022-04-13 12:20:05,902 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-13 12:20:05,907 INFO main detection No malware found
+2022-04-13 12:20:05,907 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-13 12:20:05,909 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-13 12:20:05,911 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-13 12:20:05,912 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-13 12:20:05,913 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-13 12:20:05,915 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-13 12:20:05,915 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-13 12:20:05,916 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-13 12:20:05,916 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-13 12:20:05,917 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-13 12:20:05,956 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-13 12:20:05,956 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-13 12:20:05,957 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-13 12:20:05,959 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-13 12:20:05,960 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-13 12:20:05,967 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-13 12:20:05,967 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-13 12:20:06,024 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-13 12:20:06,025 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-13 12:20:06,079 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-13 12:20:06,081 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-13 12:20:06,136 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-13 12:20:06,137 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-13 12:20:06,141 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-13 12:20:06,142 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-13 12:20:06,143 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-13 12:20:06,144 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-13 12:20:06,145 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-13 12:20:06,146 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-13 12:20:06,147 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-13 12:20:06,151 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-13 12:20:06,154 WARNING package_zipper zip_vhdl Created zip _[9].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-13 12:20:06,155 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-13 12:20:06,155 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-13 12:20:06,156 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-13 12:20:15,092 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-13 12:20:15,095 DEBUG instrumentation update_phantom_source Phantom source updated with source from test_target
+2022-04-13 12:20:15,095 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-13 12:20:21,849 DEBUG instrumentation build_phantom_project Phantom C project done building
+2022-04-13 12:20:21,932 DEBUG instrumentation copy_phantom_binary_and_dependencies_to_ccs_project Phantom C build copied to test_target
+2022-04-13 12:20:31,107 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-13 12:20:31,107 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-13 12:20:31,107 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-13 12:20:31,110 DEBUG detection __init__ Detection object initialized
+2022-04-13 12:20:31,111 DEBUG main detection Project Hash: b4f1586ab2bf0259f839ab270fe84e22941cf88ef6e73cd62ae246a9c549bb2e
+2022-04-13 12:20:31,113 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+
+2022-04-13 12:20:31,113 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 12:59:21,898 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-16 12:59:21,898 DEBUG detection __init__ Detection object initialized
+2022-04-16 12:59:21,899 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-16 13:03:02,011 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-16 13:03:02,012 DEBUG detection __init__ Detection object initialized
+2022-04-16 13:03:02,012 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-16 13:12:30,732 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-16 13:12:30,733 DEBUG detection __init__ Detection object initialized
+2022-04-16 13:12:30,733 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-16 13:23:49,118 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-16 13:23:49,118 DEBUG detection __init__ Detection object initialized
+2022-04-16 13:23:49,118 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-16 13:23:49,119 WARNING main detection Possible malware detected
+line 12:
+	printf(. --print f--
+line 14:
+	printf(. --print f--
+
+2022-04-16 13:23:49,119 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 13:23:49,120 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-16 13:23:49,120 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 13:23:51,379 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 13:23:51,380 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from test_target
+2022-04-16 13:23:51,381 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-16 13:23:55,783 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-16 13:23:55,821 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to test_target
+2022-04-16 13:23:57,868 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-16 13:23:57,869 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-16 13:23:57,869 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-16 13:23:57,869 DEBUG detection __init__ Detection object initialized
+2022-04-16 13:23:57,870 DEBUG main detection Project Hash: 36b64e6385118741541389554af436e03045dc0b53d6951de045959a227f9051
+2022-04-16 13:23:57,870 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+line 31:
+	printf(. --print f--
+line 35:
+	printf(. --print f--
+
+2022-04-16 13:23:57,870 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:03:31,063 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-16 14:03:31,064 DEBUG detection __init__ Detection object initialized
+2022-04-16 14:03:31,064 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-16 14:03:31,064 INFO main detection No malware found
+2022-04-16 14:03:31,064 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-16 14:03:31,065 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-16 14:03:31,065 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-16 14:03:31,066 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-16 14:03:31,066 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-16 14:03:31,066 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-16 14:03:31,067 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-16 14:03:31,067 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-16 14:03:31,067 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-16 14:03:31,067 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-16 14:03:31,139 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-16 14:03:31,139 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-16 14:03:31,139 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-16 14:03:31,140 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-16 14:03:31,140 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-16 14:03:31,143 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-16 14:03:31,143 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-16 14:03:31,155 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-16 14:03:31,155 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-16 14:03:31,168 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-16 14:03:31,168 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-16 14:03:31,181 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-16 14:03:31,181 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-16 14:03:31,183 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-16 14:03:31,183 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-16 14:03:31,183 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-16 14:03:31,184 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-16 14:03:31,184 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-16 14:03:31,185 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-16 14:03:31,185 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-16 14:03:31,187 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-16 14:03:31,188 INFO package_zipper zip_vhdl Created zip .zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-16 14:03:31,188 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-16 14:03:31,188 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-16 14:03:31,189 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 14:03:35,314 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:03:35,324 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 14:03:35,325 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from test_target
+2022-04-16 14:03:35,325 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-16 14:03:39,193 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-16 14:03:39,226 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to test_target
+2022-04-16 14:03:41,283 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-16 14:03:41,283 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-16 14:03:41,283 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-16 14:03:41,284 DEBUG detection __init__ Detection object initialized
+2022-04-16 14:03:41,284 DEBUG main detection Project Hash: f67c9040abbdf4271fb4474049a10e93587e93962f4cbd0ac121056eb2b1860b
+2022-04-16 14:03:41,285 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+line 31:
+	printf(. --print f--
+line 35:
+	printf(. --print f--
+
+2022-04-16 14:03:41,285 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-04-16 14:03:41,285 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-16 14:03:43,350 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-16 14:03:43,351 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from test_target
+2022-04-16 14:03:43,352 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-16 14:03:47,176 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-16 14:03:47,207 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to test_target
+2022-04-16 14:03:49,288 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-16 14:03:49,288 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-16 14:03:49,288 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-16 14:03:49,289 DEBUG detection __init__ Detection object initialized
+2022-04-16 14:03:49,289 DEBUG main detection Project Hash: ae0adcf03fd6f21470b461e9eeda87518c718e8406879ba4297eaf3b84ebc818
+2022-04-16 14:03:49,290 WARNING main detection Possible malware detected
+line 12:
+	printf(. --print f--	%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.. --this value is repeated more than 30 times in a row. This data was probably injected.--
+line 14:
+	printf(. --print f--	%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.. --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+2022-04-16 14:03:49,306 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:04:56,478 INFO main detection No malware found
+2022-04-16 14:04:56,479 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-16 14:04:56,500 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-16 14:04:56,550 WARNING package_zipper zip_vhdl Created zip _[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-16 14:04:56,550 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-16 14:05:04,690 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+line 31:
+	printf(. --print f--
+line 35:
+	printf(. --print f--
+
+2022-04-16 14:05:12,930 WARNING main detection Possible malware detected
+line 12:
+	printf(. --print f--	%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.. --this value is repeated more than 30 times in a row. This data was probably injected.--
+line 14:
+	printf(. --print f--	%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.. --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+2022-04-16 14:05:12,942 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:05:30,739 INFO main detection No malware found
+2022-04-16 14:05:30,741 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-16 14:05:30,763 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-16 14:05:30,815 WARNING package_zipper zip_vhdl Created zip _[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-16 14:05:30,815 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-16 14:05:38,927 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+line 31:
+	printf(. --print f--
+line 35:
+	printf(. --print f--
+
+2022-04-16 14:05:38,927 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:05:49,156 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:05:49,156 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:05:49,168 WARNING main detection Possible malware detected
+line 12:
+	printf(. --print f--	%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.. --this value is repeated more than 30 times in a row. This data was probably injected.--
+line 14:
+	printf(. --print f--	%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.. --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+2022-04-16 14:05:49,179 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:09:27,276 WARNING main debug_main Testing No Attacks
+2022-04-16 14:09:27,277 INFO main detection No malware found
+2022-04-16 14:09:27,279 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-16 14:09:27,300 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-16 14:09:27,353 WARNING package_zipper zip_vhdl Created zip _[2].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-16 14:09:27,353 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-16 14:09:27,353 WARNING main debug_main Testing BufferOverflowAttack
+2022-04-16 14:09:37,764 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:09:37,776 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+line 31:
+	printf(. --print f--
+line 35:
+	printf(. --print f--
+
+2022-04-16 14:09:37,776 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:09:37,776 WARNING main debug_main Testing StringFormatAttack
+2022-04-16 14:09:46,025 WARNING main detection Possible malware detected
+line 12:
+	printf(. --print f--	%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.. --this value is repeated more than 30 times in a row. This data was probably injected.--
+line 14:
+	printf(. --print f--	%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.. --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+2022-04-16 14:09:46,036 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:09:46,036 WARNING main debug_main Testing IntOverflowAttack
+2022-04-16 14:09:50,777 WARNING main detection Possible malware detected
+line 12:
+	printf(. --print f--
+line 14:
+	printf(. --print f--
+
+2022-04-16 14:09:50,777 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:10:53,878 WARNING main debug_main Testing No Attacks
+2022-04-16 14:10:53,880 INFO main detection No malware found
+2022-04-16 14:10:53,881 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-16 14:10:53,903 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-16 14:10:53,955 WARNING package_zipper zip_vhdl Created zip _[3].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-16 14:10:53,956 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-16 14:10:53,956 WARNING main debug_main Testing BufferOverflowAttack
+2022-04-16 14:11:02,306 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+line 31:
+	printf(. --print f--
+line 35:
+	printf(. --print f--
+
+2022-04-16 14:11:02,306 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:11:02,306 WARNING main debug_main Testing StringFormatAttack
+2022-04-16 14:11:10,539 WARNING main detection Possible malware detected
+line 12:
+	printf(. --print f--	%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.. --this value is repeated more than 30 times in a row. This data was probably injected.--
+line 14:
+	printf(. --print f--	%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.. --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+2022-04-16 14:11:10,540 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:11:10,540 WARNING main debug_main Testing IntOverflowAttack
+2022-04-16 14:11:14,663 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:11:16,900 WARNING main detection Possible malware detected
+line 12:
+	printf(. --print f--
+line 14:
+	printf(. --print f--
+
+2022-04-16 14:11:16,900 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:11:16,900 WARNING main debug_main Testing All Attacks at once
+2022-04-16 14:11:37,320 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:11:41,520 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:11:41,531 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+line 31:
+	printf(. --print f--	%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.. --this value is repeated more than 30 times in a row. This data was probably injected.--
+line 35:
+	printf(. --print f--	%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.. --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+2022-04-16 14:11:41,547 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:20:08,383 WARNING main debug_main Testing No Attacks
+2022-04-16 14:20:08,384 INFO main detection No malware found
+2022-04-16 14:20:08,386 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-16 14:20:08,409 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-16 14:20:08,535 WARNING package_zipper zip_vhdl Created zip _[4].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-16 14:20:08,535 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-16 14:20:08,535 WARNING main debug_main Testing BufferOverflowAttack
+2022-04-16 14:20:26,987 WARNING main detection Possible malware detected
+line 1:
+	string.h. --string.h contains functions that can be exploited.--
+line 2:
+	(char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	strcpy(. --replace with strncpy or another safe function--
+line 31:
+	printf(. --print f--
+line 35:
+	printf(. --print f--
+
+2022-04-16 14:20:26,987 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:20:26,987 WARNING main debug_main Testing StringFormatAttack
+2022-04-16 14:23:51,449 WARNING main debug_main Testing No Attacks
+2022-04-16 14:23:51,451 INFO main detection No malware found
+2022-04-16 14:23:51,452 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-16 14:23:51,472 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-16 14:23:51,520 WARNING package_zipper zip_vhdl Created zip _[5].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-16 14:23:51,520 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-16 14:23:51,520 WARNING main debug_main Testing BufferOverflowAttack
+2022-04-16 14:24:00,167 WARNING main detection Possible malware detected
+line 1:
+	DetectionInC: string.h. --string.h contains functions that can be exploited.--
+line 2:
+	DetectionInC: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	DetectionInC: strcpy(. --replace with strncpy or another safe function--
+line 31:
+	DetectionInC: printf(. --print f--
+line 35:
+	DetectionInC: printf(. --print f--
+
+2022-04-16 14:24:00,167 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:24:00,167 WARNING main debug_main Testing StringFormatAttack
+2022-04-16 14:24:04,283 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:24:04,283 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:24:10,538 WARNING main detection Possible malware detected
+line 12:
+	DetectionInC: printf(. --print f--	DetectionInC: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%...
+line 14:
+	DetectionInC: printf(. --print f--	DetectionInC: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%...
+
+2022-04-16 14:24:10,538 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:24:10,538 WARNING main debug_main Testing IntOverflowAttack
+2022-04-16 14:24:16,993 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:24:17,004 WARNING main detection Possible malware detected
+line 12:
+	DetectionInC: printf(. --print f--
+line 14:
+	DetectionInC: printf(. --print f--
+
+2022-04-16 14:24:17,005 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:24:17,005 WARNING main debug_main Testing All Attacks at once
+2022-04-16 14:24:21,348 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:24:41,616 WARNING main detection Possible malware detected
+line 1:
+	DetectionInC: string.h. --string.h contains functions that can be exploited.--
+line 2:
+	DetectionInC: (char* target) {. --Char*'s may be used without specifying a buffer size--
+line 3:
+	DetectionInC: strcpy(. --replace with strncpy or another safe function--
+line 31:
+	DetectionInC: printf(. --print f--	DetectionInC: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%...
+line 35:
+	DetectionInC: printf(. --print f--	DetectionInC: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%...
+
+2022-04-16 14:24:41,616 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:30:29,413 WARNING main debug_main Testing No Attacks
+2022-04-16 14:30:29,414 INFO main detection No malware found
+2022-04-16 14:30:29,416 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-16 14:30:29,437 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-16 14:30:29,491 WARNING package_zipper zip_vhdl Created zip _[6].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-16 14:30:29,491 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-16 14:30:29,491 WARNING main debug_main Testing BufferOverflowAttack
+2022-04-16 14:30:38,875 WARNING main detection Possible malware detected
+line 1:
+	DetectionStrategy: string.h. --string.h contains functions that can be exploited.--
+line 31:
+	DetectionStrategy: printf(. --print f--
+
+2022-04-16 14:30:38,875 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:30:38,875 WARNING main debug_main Testing StringFormatAttack
+2022-04-16 14:30:48,182 WARNING main detection Possible malware detected
+line 12:
+	DetectionStrategy: printf(. --print f--
+
+2022-04-16 14:30:48,182 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:30:48,182 WARNING main debug_main Testing IntOverflowAttack
+2022-04-16 14:30:52,515 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:30:54,862 WARNING main detection Possible malware detected
+line 12:
+	DetectionStrategy: printf(. --print f--
+
+2022-04-16 14:30:54,862 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:30:54,862 WARNING main debug_main Testing All Attacks at once
+2022-04-16 14:31:17,302 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:31:19,880 WARNING main detection Possible malware detected
+line 1:
+	DetectionStrategy: string.h. --string.h contains functions that can be exploited.--
+line 31:
+	DetectionStrategy: printf(. --print f--
+
+2022-04-16 14:31:19,880 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:37:38,816 WARNING main debug_main Testing All Attacks at once
+2022-04-16 14:37:52,168 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:38:04,347 WARNING main detection Possible malware detected
+line 1:
+	BufferOverflowAttack: string.h. --string.h contains functions that can be exploited.--
+
+line 31:
+	StringFormatAttack: printf(. --print f--
+
+
+2022-04-16 14:38:04,347 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:38:13,960 WARNING main debug_main Testing All Attacks at once
+2022-04-16 14:38:32,112 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:38:48,168 WARNING main detection Possible malware detected
+line 1:
+	BufferOverflowAttack: string.h. --string.h contains functions that can be exploited.--
+
+line 31:
+	StringFormatAttack: printf(. --print f--
+
+
+2022-04-16 14:38:48,168 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:39:24,343 WARNING main debug_main Testing All Attacks at once
+2022-04-16 14:39:29,573 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:42:14,915 WARNING main debug_main Testing All Attacks at once
+2022-04-16 14:43:19,481 WARNING main debug_main Testing All Attacks at once
+2022-04-16 14:43:25,245 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:43:25,245 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:45:11,978 WARNING main detection Possible malware detected
+line 1:
+	BufferOverflowAttack: string.h. --string.h contains functions that can be exploited.--
+
+line 2:
+	BufferOverflowAttack: (char* target) {. --Char*'s may be used without specifying a buffer size--
+
+line 3:
+	BufferOverflowAttack: strcpy(. --replace with strncpy or another safe function--
+
+line 31:
+	StringFormatAttack: printf(. --print f--
+	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+line 35:
+	StringFormatAttack: printf(. --print f--
+	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+
+2022-04-16 14:45:11,979 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:53:55,858 WARNING main debug_main Testing All Attacks at once
+2022-04-16 14:54:08,064 WARNING main detection Possible malware detected
+line 1:
+	BufferOverflowAttack: string.h. --string.h contains functions that can be exploited.--
+
+line 2:
+	BufferOverflowAttack: (char* target) {. --Char*'s may be used without specifying a buffer size--
+
+line 3:
+	BufferOverflowAttack: strcpy(. --replace with strncpy or another safe function--
+
+line 31:
+	StringFormatAttack: printf(. --print f--
+	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+line 35:
+	StringFormatAttack: printf(. --print f--
+	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+
+2022-04-16 14:54:08,065 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 14:57:32,314 WARNING main debug_main Testing All Attacks at once
+2022-04-16 14:57:37,299 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 14:57:44,253 WARNING main detection Possible malware detected
+line 1:
+	BufferOverflowAttack: string.h. --string.h contains functions that can be exploited.--
+
+line 2:
+	BufferOverflowAttack: (char* target) {. --Char*'s may be used without specifying a buffer size--
+
+line 3:
+	BufferOverflowAttack: strcpy(. --replace with strncpy or another safe function--
+
+line 31:
+	StringFormatAttack: printf(. --print f--
+	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+line 35:
+	StringFormatAttack: printf(. --print f--
+	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+
+2022-04-16 14:57:44,254 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 15:00:24,003 WARNING main debug_main Testing No Attacks
+2022-04-16 15:00:24,004 INFO main detection No malware found
+2022-04-16 15:00:24,006 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-16 15:00:24,031 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-16 15:00:24,087 WARNING package_zipper zip_vhdl Created zip _[7].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-16 15:00:24,087 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-16 15:00:24,087 WARNING main debug_main Testing BufferOverflowAttack
+2022-04-16 15:00:33,181 WARNING main detection Possible malware detected
+line 1:
+	BufferOverflowAttack: string.h. --string.h contains functions that can be exploited.--
+
+line 2:
+	BufferOverflowAttack: (char* target) {. --Char*'s may be used without specifying a buffer size--
+
+line 3:
+	BufferOverflowAttack: strcpy(. --replace with strncpy or another safe function--
+
+line 31:
+	StringFormatAttack: printf(. --print f--
+
+line 35:
+	StringFormatAttack: printf(. --print f--
+
+
+2022-04-16 15:00:33,181 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 15:00:33,182 WARNING main debug_main Testing StringFormatAttack
+2022-04-16 15:00:44,397 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 15:00:44,409 WARNING main detection Possible malware detected
+line 12:
+	StringFormatAttack: printf(. --print f--
+	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+line 14:
+	StringFormatAttack: printf(. --print f--
+	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+
+2022-04-16 15:00:44,409 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 15:00:44,410 WARNING main debug_main Testing IntOverflowAttack
+2022-04-16 15:00:49,345 WARNING main detection Possible malware detected
+line 12:
+	StringFormatAttack: printf(. --print f--
+
+line 14:
+	StringFormatAttack: printf(. --print f--
+
+
+2022-04-16 15:00:49,346 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-16 15:00:49,346 WARNING main debug_main Testing All Attacks at once
+2022-04-16 15:01:00,517 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-16 15:01:00,529 WARNING main detection Possible malware detected
+line 1:
+	BufferOverflowAttack: string.h. --string.h contains functions that can be exploited.--
+
+line 2:
+	BufferOverflowAttack: (char* target) {. --Char*'s may be used without specifying a buffer size--
+
+line 3:
+	BufferOverflowAttack: strcpy(. --replace with strncpy or another safe function--
+
+line 31:
+	StringFormatAttack: printf(. --print f--
+	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+line 35:
+	StringFormatAttack: printf(. --print f--
+	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+
+2022-04-16 15:01:00,529 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.

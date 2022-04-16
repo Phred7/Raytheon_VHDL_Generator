@@ -7,20 +7,19 @@
 """
 import datetime
 import os
-import shutil
-import subprocess
-import sys
 from copy import deepcopy
 from typing import List
 from static_utilities import StaticUtilities
+from deprecated import deprecated
 
 
-# deprecated
+@deprecated
 class DisassemblyParserGenerator:
     """
     Class to generate ASM src from a disassembly file.
     """
 
+    @deprecated
     def __init__(self, *, disassembly_file: str = "generated_disassembly.txt",
                  disassembly_directory: str = rf"generated_disassembly",
                  assembly_file: str = "generated_source.asm",
@@ -62,16 +61,16 @@ class DisassemblyParserGenerator:
         with open(rf"{self.generated_disassembly_directory}\{self.generated_disassembly_file}", 'r') as disassembly:
             lines: List[str] = disassembly.readlines()
 
-            # removes lines prior to the first instruction TODO: make this use a dynamic mem. address rather than 008000... grab from TEXT section?
+            # removes lines prior to the first instruction; make this use a dynamic mem. address rather than 008000... grab from TEXT section?
             while not lines[0].startswith("008000:"):
                 del lines[0]
 
-            # if the disassembly declares RESET skip TODO: make this use a dynamic mem. address rather than 008004 and 008000?
+            # if the disassembly declares RESET skip; make this use a dynamic mem. address rather than 008004 and 008000?
             if lines[0] == "008000:              RESET:\n":
                 while not lines[0].startswith("008004:"):
                     del lines[0]
 
-            # if the disassembly declares StopWDT skip TODO: make this use a dynamic mem. address rather than 00800a and 008004?
+            # if the disassembly declares StopWDT skip; make this use a dynamic mem. address rather than 00800a and 008004?
             if lines[0] == "008004:              StopWDT:\n":
                 while not lines[0].startswith("00800a:"):
                     del lines[0]

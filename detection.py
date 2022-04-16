@@ -25,10 +25,9 @@ class Detection:
 
     def __init__(self, ccs_project: CCSProject, *, pique_bin_bool: bool = True, suppress_pique_bin_logs: bool = True) -> None:
         self.ccs_project: CCSProject = ccs_project
-        self.pique_bin_security_quality: float = 0
-        self.pique_bin_security_quality_threshold: float = 0.7  # TODO FIND AN ACTUALLY GOOD VALUE FOR THIS, I PULLED THIS OUT OF MY ARSE
+        self.pique_binary_security_quality: float = 0
+        self.pique_binary_security_quality_threshold: float = 0.7  # TODO FIND AN ACTUALLY GOOD VALUE FOR THIS
         self.hash_json_file: str = "hashed_disassembly.json"
-        self.binary_security_quality: float = 0
         self.hashed_files_dict: Dict[str: str] = self.serialize_hash_from_file()
         self._detection_strategy = DetectionInC(self.ccs_project) if self.ccs_project.project_type == ProjectType.C else DetectionInASM(self.ccs_project)
         if pique_bin_bool:
@@ -55,6 +54,9 @@ class Detection:
         self._detection_strategy = detection_strategy
         return
 
+    def possible_vulnerabilities(self) -> str:
+        return self.detection_strategy.possible_vulnerabilities()
+
     def detect(self) -> bool:
         """
         Executes a sequence of algorithms to attempt to detect malware or vulnerabilities that may exist within a binary and a corresponding source file.
@@ -63,20 +65,19 @@ class Detection:
         if self.hashed_file_exists_and_matches_cache():
             return True
         if isinstance(self.pique_bin, PiqueBin):
-            self.pique_bin_security_quality = self.pique_bin.pique_bin()
-            StaticUtilities.logger.debug(f"PIQUE-Bin Binary Security Quality: {self.pique_bin_security_quality}")
-            if self.pique_bin_security_quality > self.pique_bin_security_quality_threshold:
+            self.pique_binary_security_quality = self.pique_bin.pique_bin()
+            StaticUtilities.logger.debug(f"PIQUE-Bin Binary Security Quality: {self.pique_binary_security_quality}")
+            if self.pique_binary_security_quality > self.pique_binary_security_quality_threshold:
                 self.hashed_files_dict[self.ccs_project.hash_key()] = self.ccs_project.__hash__()
                 self.write_hash_to_file()
                 return True
-        # TODO: this could implement multiprocessing if they take too long individually
-        # TODO: These methods should probably build up some kind of string buffer or instance field and return that so that logging can be better controlled and only happens once for each method or once overall.
-        detect_boa: bool = self._detection_strategy.detect_buffer_overflow_attack()
-        detect_ioa: bool = self._detection_strategy.detect_int_overflow_attack()
-        detect_ia: bool = self._detection_strategy.detect_injection_attack()
-        detect_sta: bool = self._detection_strategy.detect_string_format_attack()
-        if detect_boa or detect_ioa or detect_ia or detect_sta:
-            return False
+        if self.pique_binary_security_quality == 0 or self.pique_binary_security_quality < self.pique_binary_security_quality_threshold:
+            detect_boa: bool = self._detection_strategy.detect_buffer_overflow_attack()
+            detect_ioa: bool = self._detection_strategy.detect_int_overflow_attack()
+            detect_ia: bool = self._detection_strategy.detect_injection_attack()
+            detect_sta: bool = self._detection_strategy.detect_string_format_attack()
+            if detect_boa or detect_ioa or detect_ia or detect_sta:
+                return False
         return True
 
     def serialize_hash_from_file(self) -> {str, str}:
@@ -163,5 +164,5 @@ if __name__ == '__main__':
 
     detection: Detection = Detection(project, pique_bin_bool=False)
     StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
-    detection.pique_bin_security_quality = 0.2
+    detection.pique_binary_security_quality = 0.2
     StaticUtilities.logger.debug(f"detection: {'No malware found' if detection.detect() else 'Possible malware detected'}")
