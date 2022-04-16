@@ -7,7 +7,6 @@
 """
 from abc import ABC, abstractmethod
 
-from ccs_project import CCSProject
 from static_utilities import StaticUtilities
 
 
