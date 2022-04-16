@@ -81,7 +81,7 @@ class DetectionInC(DetectionStrategy):
         """
         #  printf("") vprintf() fprint() fprintf() sprintf() vfprintf() snprintf() vsnprintf("",())
         insecure_patterns = [r"(|\b|vsn|sn|vf|s|f|v)printf?\(", "(%08x\.){30,}"]
-        insecure_patterns_flags = [0, [re.S, re.X]]
+        insecure_patterns_flags = [0, (re.S + re.X)]
         insecure_patterns_recommended_replacement_dict: Dict[str, str] = {
             insecure_patterns[0]: "--print f--",
             insecure_patterns[1]: "--this value is repeated more than 30 times in a row. This data was probably injected.--"}
