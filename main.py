@@ -10,6 +10,7 @@ import logging
 from detection import Detection
 from ccs_project import CCSProject
 from disassembler import Disassembler
+from instrument_all_strategies import AllInstrumentationStrategies
 from instrument_buffer_overflow_attack import BufferOverflowAttack
 from instrument_string_format_attack import StringFormatAttack
 from instrumentation import Instrumentation
@@ -112,6 +113,8 @@ class Main:
         :return: None.
         """
         StaticUtilities.logger.setLevel(logging.INFO)
+
+        StaticUtilities.logger.warning("Testing No Attacks")
         Detection.reset_test_project()
         project: CCSProject = CCSProject(source_file="main.c",
                                          project_name="test_target",
@@ -120,6 +123,7 @@ class Main:
         results: bool = Main.detection(project, 0.95)
         Main.__generate_vhdl(results)
 
+        StaticUtilities.logger.warning("Testing BufferOverflowAttack")
         project = CCSProject(source_file="main.c",
                              project_name="test_target",
                              path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
@@ -129,6 +133,7 @@ class Main:
         results: bool = Main.detection(project, 0.35)
         Main.__generate_vhdl(results)
 
+        StaticUtilities.logger.warning("Testing StringFormatAttack")
         Detection.reset_test_project()
         project = CCSProject(source_file="main.c",
                              project_name="test_target",
@@ -138,7 +143,29 @@ class Main:
         instrumentation.instrument()
         results: bool = Main.detection(project, 0.35)
         Main.__generate_vhdl(results)
-        pass
+
+        StaticUtilities.logger.warning("Testing IntOverflowAttack")
+        Detection.reset_test_project()
+        project = CCSProject(source_file="main.c",
+                             project_name="test_target",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                             )
+        instrumentation: Instrumentation = Instrumentation(project, IntOverflowAttack())
+        instrumentation.instrument()
+        results: bool = Main.detection(project, 0.35)
+        Main.__generate_vhdl(results)
+
+        StaticUtilities.logger.warning("Testing All Attacks at once")
+        Detection.reset_test_project()
+        project = CCSProject(source_file="main.c",
+                             project_name="test_target",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                             )
+        instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
+        instrumentation.instrument()
+        results: bool = Main.detection(project, 0.35)
+        Main.__generate_vhdl(results)
+        return
 
     @staticmethod
     def generate_vhdl_exclusively() -> None:
@@ -156,7 +183,7 @@ class Main:
     @staticmethod
     def inject_msp430_exclusively() -> None:
         """
-        Attemps to inject a CCSProject with some vulnerability.
+        Attempts to inject a CCSProject with some vulnerability.
         :return: None.
         """
 
