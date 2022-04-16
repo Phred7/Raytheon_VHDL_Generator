@@ -26,7 +26,7 @@ class Detection:
     def __init__(self, ccs_project: CCSProject, *, pique_bin_bool: bool = True, suppress_pique_bin_logs: bool = True) -> None:
         self.ccs_project: CCSProject = ccs_project
         self.pique_bin_security_quality: float = 0
-        self.pique_bin_security_quality_threshold: float = 0.7  # TODO FIND AN ACTUALLY GOOD VALUE FOR THIS, I PULLED THIS OUT OF MY ARSE
+        self.pique_bin_security_quality_threshold: float = 0.7  # TODO FIND AN ACTUALLY GOOD VALUE FOR THIS
         self.hash_json_file: str = "hashed_disassembly.json"
         self.binary_security_quality: float = 0
         self.hashed_files_dict: Dict[str: str] = self.serialize_hash_from_file()
@@ -72,7 +72,6 @@ class Detection:
                 self.hashed_files_dict[self.ccs_project.hash_key()] = self.ccs_project.__hash__()
                 self.write_hash_to_file()
                 return True
-        # TODO: this could implement multiprocessing if they take too long individually
         detect_boa: bool = self._detection_strategy.detect_buffer_overflow_attack()
         detect_ioa: bool = self._detection_strategy.detect_int_overflow_attack()
         detect_ia: bool = self._detection_strategy.detect_injection_attack()
