@@ -35,6 +35,18 @@ class DetectionInC(DetectionStrategy):
                         detected_patterns_dict[(line_number, pattern)] = regex_match
         return detected_patterns_dict
 
+    def __detection_return_logic__(self, detected_patterns_dict: Dict[float, Match[str]], insecure_patterns_recommended_replacement_dict: Dict[str, str], vulnerability_name: str) -> bool:
+        if len(detected_patterns_dict.keys()) > 0:
+            for key in detected_patterns_dict:
+                line_number, pattern = key
+                vulnerability_string: str = detected_patterns_dict[key].string[detected_patterns_dict[key].start():detected_patterns_dict[key].end()].strip()
+                if len(vulnerability_string) > 180:
+                    vulnerability_string = vulnerability_string[:100] + "..."
+                self.add_vulnerability_to_dict(line_number=line_number,
+                                               vulnerability_string=f"{vulnerability_name}: {vulnerability_string}. {insecure_patterns_recommended_replacement_dict.get(pattern)}\n")
+            return True
+        return False
+
     def detect_buffer_overflow_attack(self) -> bool:
         """
         Attempts to detect a buffer overflow in this ccs_project.
@@ -59,13 +71,7 @@ class DetectionInC(DetectionStrategy):
             insecure_patterns[6]: "--replace with fgets or another safe function--"}
         detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns,
                                                                                                insecure_patterns_flags)
-        if len(detected_patterns_dict.keys()) > 0:
-            for key in detected_patterns_dict:
-                line_number, pattern = key
-                self.add_vulnerability_to_dict(line_number=line_number,
-                                               vulnerability_string=f"{detected_patterns_dict[key].string[detected_patterns_dict[key].start():detected_patterns_dict[key].end()].strip()}. {insecure_patterns_recommended_replacement_dict.get(pattern)}")
-            return True
-        return False
+        return self.__detection_return_logic__(detected_patterns_dict, insecure_patterns_recommended_replacement_dict, "BufferOverflowAttack")
 
     def detect_int_overflow_attack(self) -> bool:
         """
@@ -79,23 +85,15 @@ class DetectionInC(DetectionStrategy):
         Attempts to detect an f-string vulnerability in this ccs_project.
         :return: True if an f-string vulnerability was detected in this file. Otherwise, False.
         """
-        #  printf("") vprintf() fprint() fprintf() sprintf() vfprintf() snprintf() vsnprintf("",())
         insecure_patterns = [r"(|\b|vsn|sn|vf|s|f|v)printf?\(", "(%08x\.){30,}"]
         insecure_patterns_flags = [0, (re.S + re.X)]
         insecure_patterns_recommended_replacement_dict: Dict[str, str] = {
             insecure_patterns[0]: "--print f--",
             insecure_patterns[1]: "--this value is repeated more than 30 times in a row. This data was probably injected.--"}
-        # format_string = '"' + '%08x.' * 1024 + '"'
 
         detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns,
                                                                                                insecure_patterns_flags)
-        if len(detected_patterns_dict.keys()) > 0:
-            for key in detected_patterns_dict:
-                line_number, pattern = key
-                self.add_vulnerability_to_dict(line_number=line_number,
-                                               vulnerability_string=f"{detected_patterns_dict[key].string[detected_patterns_dict[key].start():detected_patterns_dict[key].end()].strip()}. {insecure_patterns_recommended_replacement_dict.get(pattern)}")
-            return True
-        return False
+        return self.__detection_return_logic__(detected_patterns_dict, insecure_patterns_recommended_replacement_dict, "StringFormatAttack")
 
     def detect_injection_attack(self) -> bool:
         """
