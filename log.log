@@ -1,11 +1,54 @@
-2022-04-16 15:00:24,003 WARNING main debug_main Testing No Attacks
-2022-04-16 15:00:24,004 INFO main detection No malware found
-2022-04-16 15:00:24,006 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
-2022-04-16 15:00:24,031 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
-2022-04-16 15:00:24,087 WARNING package_zipper zip_vhdl Created zip _[7].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
-2022-04-16 15:00:24,087 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
-2022-04-16 15:00:24,087 WARNING main debug_main Testing BufferOverflowAttack
-2022-04-16 15:00:33,181 WARNING main detection Possible malware detected
+2022-04-19 11:39:14,757 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-19 11:39:14,758 DEBUG detection __init__ Detection object initialized
+2022-04-19 11:39:14,758 DEBUG main detection Project Hash: 4f9d2150aa805929bd09fa8d96b482c86cbaa46bb04b03e2ec89de50333f7531
+2022-04-19 11:39:14,759 DEBUG detection hashed_file_exists_and_matches_cache Cached file already exists
+2022-04-19 11:39:14,759 INFO main detection No malware found
+2022-04-19 11:39:14,759 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-19 11:39:14,760 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-19 11:39:14,761 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-19 11:39:14,762 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-19 11:39:14,763 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-19 11:39:14,764 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-19 11:39:14,765 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-19 11:39:14,766 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-19 11:39:14,766 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-19 11:39:14,767 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-19 11:39:14,798 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-19 11:39:14,798 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-19 11:39:14,799 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-19 11:39:14,800 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-19 11:39:14,801 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-19 11:39:14,809 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-19 11:39:14,810 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-19 11:39:14,835 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-19 11:39:14,835 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-19 11:39:14,857 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-19 11:39:14,858 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-19 11:39:14,878 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-19 11:39:14,878 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-19 11:39:14,881 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-19 11:39:14,882 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-19 11:39:14,882 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-19 11:39:14,883 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-19 11:39:14,884 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-19 11:39:14,885 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-19 11:39:14,886 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-19 11:39:14,890 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-19 11:39:14,893 WARNING package_zipper zip_vhdl Created zip _[2].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-19 11:39:14,893 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-19 11:39:14,893 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-19 11:39:14,894 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-19 11:39:19,505 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-19 11:39:19,507 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from test_target
+2022-04-19 11:39:19,509 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-19 11:39:26,505 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-19 11:39:26,564 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to test_target
+2022-04-19 11:39:30,268 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-19 11:39:30,268 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-19 11:39:30,269 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-19 11:39:30,269 DEBUG detection __init__ Detection object initialized
+2022-04-19 11:39:30,269 DEBUG main detection Project Hash: 43994ff699f1a0dc24bcccb7e8aef061d7994088d41061a45b0e05d3a602fbdb
+2022-04-19 11:39:30,271 WARNING main detection Possible malware detected
 line 1:
 	BufferOverflowAttack: string.h. --string.h contains functions that can be exploited.--
 
@@ -22,47 +65,4 @@ line 35:
 	StringFormatAttack: printf(. --print f--
 
 
-2022-04-16 15:00:33,181 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
-2022-04-16 15:00:33,182 WARNING main debug_main Testing StringFormatAttack
-2022-04-16 15:00:44,409 WARNING main detection Possible malware detected
-line 12:
-	StringFormatAttack: printf(. --print f--
-	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
-
-line 14:
-	StringFormatAttack: printf(. --print f--
-	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
-
-
-2022-04-16 15:00:44,409 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
-2022-04-16 15:00:44,410 WARNING main debug_main Testing IntOverflowAttack
-2022-04-16 15:00:49,345 WARNING main detection Possible malware detected
-line 12:
-	StringFormatAttack: printf(. --print f--
-
-line 14:
-	StringFormatAttack: printf(. --print f--
-
-
-2022-04-16 15:00:49,346 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
-2022-04-16 15:00:49,346 WARNING main debug_main Testing All Attacks at once
-2022-04-16 15:01:00,529 WARNING main detection Possible malware detected
-line 1:
-	BufferOverflowAttack: string.h. --string.h contains functions that can be exploited.--
-
-line 2:
-	BufferOverflowAttack: (char* target) {. --Char*'s may be used without specifying a buffer size--
-
-line 3:
-	BufferOverflowAttack: strcpy(. --replace with strncpy or another safe function--
-
-line 31:
-	StringFormatAttack: printf(. --print f--
-	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
-
-line 35:
-	StringFormatAttack: printf(. --print f--
-	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
-
-
-2022-04-16 15:01:00,529 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-19 11:39:30,272 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.

@@ -190,5 +190,5 @@ class Main:
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.debug_main()
-    # Detection.reset_test_project()
+    main.demo()
+    Detection.reset_test_project()

@@ -50,9 +50,8 @@ class DetectionInC(DetectionStrategy):
     def detect_buffer_overflow_attack(self) -> bool:
         """
         Attempts to detect a buffer overflow in this ccs_project.
-        :return:
+        :return: True if a buffer overflow attack was detected, otherwise False.
         """
-        return_string: str = ""
         insecure_patterns: List[str] = ["string.h",
                                         "\(.*?char\* (\w+).+\).*?{",
                                         "strcpy\(",
