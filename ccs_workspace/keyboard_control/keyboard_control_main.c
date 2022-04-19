@@ -15,7 +15,6 @@ unsigned int period_T = max_duty_cycle;
 unsigned int duty_cycle = 1500;
 
 // UART
-char message[] = "Walker Ward ";
 unsigned const int last = 7;
 unsigned int position;
 unsigned int message_length;
