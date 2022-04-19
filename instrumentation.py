@@ -21,12 +21,14 @@ from static_utilities import StaticUtilities
 class Instrumentation:
     """
     Strategy Pattern Context.
-    TODO: private methods should be indicated with a dunder (double underscore)
     """
 
     def __init__(self, project: CCSProject, instrumentation_strategy: InstrumentationStrategy) -> None:
         self.project = project
-        self.phantom_project: CCSProject = CCSProject(path=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if self.project.c_project() else 'phantom'}", project_name=f"{'phantom_c' if self.project.c_project() else 'phantom'}", source_file=f"{'phantom_c.c' if self.project.c_project() else 'phantom.asm'}")
+        self.phantom_project: CCSProject = CCSProject(
+            path=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if self.project.c_project() else 'phantom'}",
+            project_name=f"{'phantom_c' if self.project.c_project() else 'phantom'}",
+            source_file=f"{'phantom_c.c' if self.project.c_project() else 'phantom.asm'}")
         self._phantom_is_hidden: bool = True
         self._instrumentation_strategy = instrumentation_strategy
         if instrumentation_strategy is None:
@@ -67,22 +69,25 @@ class Instrumentation:
                 directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=False)
             StaticUtilities.logger.debug("Phantom workspace unhidden")
             # generate phantom workspace and project/s
-            self.generate_phantom_workspace_and_projects()
+            self.__generate_phantom_workspace_and_projects__()
             # copy source from CCS project into phantom project
-            self.update_phantom_source()
+            self.__update_phantom_source__()
 
             # instrument file
-            instrumentation_result: bool = self._instrumentation_strategy.instrument(f"{self.phantom_project.path}\\{self.phantom_project.source_file}")
+            instrumentation_result: bool = self._instrumentation_strategy.instrument(
+                f"{self.phantom_project.path}\\{self.phantom_project.source_file}")
 
             if instrumentation_result:
                 StaticUtilities.logger.debug(f"Instrumentation on {self.project.source_file} succeeded")
                 # build phantom project
-                self.build_phantom_project()
+                self.__build_phantom_project__()
                 # copy binary and dependencies to actual ccs project
-                self.copy_phantom_binary_and_dependencies_to_ccs_project()
+                self.__copy_phantom_binary_and_dependencies_to_ccs_project__()
                 # copy src code from phantom and backup original
-                shutil.copyfile(f"{self.project.path}\\{self.project.source_file}", f"{self.project.path}\\{self.project.source_file}.bak")
-                shutil.copyfile(f"{self.phantom_project.path}\\{self.phantom_project.source_file}", f"{self.project.path}\\{self.project.source_file}")
+                shutil.copyfile(f"{self.project.path}\\{self.project.source_file}",
+                                f"{self.project.path}\\{self.project.source_file}.bak")
+                shutil.copyfile(f"{self.phantom_project.path}\\{self.phantom_project.source_file}",
+                                f"{self.project.path}\\{self.project.source_file}")
             else:
                 StaticUtilities.logger.debug(f"Instrumentation on {self.project.source_file} failed")
 
@@ -93,11 +98,12 @@ class Instrumentation:
         StaticUtilities.logger.debug("**** Instrumentation Build Finished ****")
         return
 
-    def update_phantom_source(self) -> None:
+    def __update_phantom_source__(self) -> None:
         """
         Replaces the source file in the phantom project of the right language with the source file from a ccs project.
         """
-        StaticUtilities.str_should_contain_substring(self.project.source_file, file_extension[self.project.project_type])
+        StaticUtilities.str_should_contain_substring(self.project.source_file,
+                                                     file_extension[self.project.project_type])
         if self.project.c_project():
             shutil.copyfile(f"{self.project.path}/{self.project.source_file}",
                             f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\phantom_c\\phantom_c.c")
@@ -107,7 +113,7 @@ class Instrumentation:
         StaticUtilities.logger.debug(f"Phantom source updated with source from {self.project.project_name}")
         return
 
-    def copy_phantom_binary_and_dependencies_to_ccs_project(self, log: bool = False):
+    def __copy_phantom_binary_and_dependencies_to_ccs_project__(self, log: bool = False):
         """
         Copies binary and dependencies from a phantom project of the correct langauge to a destination ccs project.
         :param log: determines whether this method should write logs.
@@ -123,21 +129,22 @@ class Instrumentation:
                         new_name = file_name.replace("phantom_c", self.project.project_name)
                     else:
                         new_name = file_name.replace("phantom", self.project.project_name)
-                    self.copy_file_from_phantom_to_ccs_project(f"{os.getcwd()}\\{file_name}",
-                                                               f"{self.project.path}\\VHDLGenerator\\{new_name}")
+                    self.__copy_file_from_phantom_to_ccs_project__(f"{os.getcwd()}\\{file_name}",
+                                                                   f"{self.project.path}\\VHDLGenerator\\{new_name}")
                     if log:
                         StaticUtilities.logger.debug(
                             f"Copied phantom {file_name} to {self.project.project_name} as {new_name}")
                 else:
-                    self.copy_file_from_phantom_to_ccs_project(f"{os.getcwd()}\\{file_name}",
-                                                               f"{self.project.path}\\VHDLGenerator\\{file_name}")
+                    self.__copy_file_from_phantom_to_ccs_project__(f"{os.getcwd()}\\{file_name}",
+                                                                   f"{self.project.path}\\VHDLGenerator\\{file_name}")
                     if log:
                         StaticUtilities.logger.debug(f"Copied phantom {file_name} to {self.project.project_name}")
-        StaticUtilities.logger.debug(f"Phantom {'C' if self.project.c_project() else 'ASM'} build copied to {self.project.project_name}")
+        StaticUtilities.logger.debug(
+            f"Phantom {'C' if self.project.c_project() else 'ASM'} build copied to {self.project.project_name}")
         return
 
     @staticmethod
-    def copy_file_from_phantom_to_ccs_project(source: str, destination: str, *, logging: bool = False) -> None:
+    def __copy_file_from_phantom_to_ccs_project__(source: str, destination: str, *, logging: bool = False) -> None:
         """
         Copies each file from the source file into the destination file. Any instance of the source path, source file name or a combination will be replaced with the respective contents in the destination file.
         Note: .out files will not be 
@@ -150,7 +157,8 @@ class Instrumentation:
         source_name: str = source.split('\\')[-1].split('.')[0]
         source_with_extension: str = source_name + (f".{source_extension}" if source_extension != "" else "")
         source_path: str = source.replace(f"\\{source_with_extension}", "")
-        destination_extension: str = destination.split('\\')[-1].split('.')[-1] if "." in destination.split('\\')[-1] else ""
+        destination_extension: str = destination.split('\\')[-1].split('.')[-1] if "." in destination.split('\\')[
+            -1] else ""
         destination_name: str = destination.split('\\')[-1].split('.')[0]
         destination_with_extension: str = destination_name + (
             f".{destination_extension}" if destination_extension != "" else "")
@@ -200,7 +208,7 @@ class Instrumentation:
         return
 
     @staticmethod
-    def generate_phantom_workspace_and_projects() -> None:
+    def __generate_phantom_workspace_and_projects__() -> None:
         """
         Generates the phantom workspace if it does not already exist.
         """
@@ -213,9 +221,10 @@ class Instrumentation:
             StaticUtilities.logger.debug(f"Phantom workspace generated")
         return
 
-    def build_phantom_project(self) -> None:
+    def __build_phantom_project__(self) -> None:
         """
         Builds the phantom project of the language specified by this c_lang_bool.
+        TODO: make a function in StaticUtilities that lets you build a ccs project rather than using this method.
         """
         # commands: eclipsec -noSplash -data "C:\myWorkspace" -application com.ti.ccstudio.apps.projectBuild -ccs.projects newProject -ccs.configuration Debug
         # eclipsec -noSplash -data "C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace" -application com.ti.ccstudio.apps.projectBuild -ccs.projects test_generated_ASM -ccs.configuration Debug
@@ -232,49 +241,12 @@ class Instrumentation:
         StaticUtilities.logger.debug(f"Phantom {'C' if self.project.c_project() else 'ASM'} project done building")
         return
 
-    # def ccs_fields_empty(self, *, logger_error: bool = True, system_error: bool = True) -> bool:
-    #     """
-    #     Checks if the three fields required to replace a file in a ccs project are set to a non-empty value.
-    #     :param logger_error: Throws an error via the logger if any of the fields are set to the empty string.
-    #     :param system_error: Throws a system error if any of the fields are set to the empty string.
-    #     :return: False if self.project.path and self.project.project_name and self.project.source_file are all not the empty string, otherwise True.
-    #     """
-    #     if self.project.path == "" or self.project.project_name == "" or self.project.source_file == "":
-    #         if logger_error:
-    #             empty_strings: str = ""
-    #             empty_strings += "'" + f"{self.project.path=}".split('.')[1].split('=')[
-    #                 0] + "' " if self.project.path == '' else ''
-    #             empty_strings += "'" + f"{self.project.project_name=}".split('.')[1].split('=')[
-    #                 0] + "' " if self.project.project_name == '' else ''
-    #             empty_strings += "'" + f"{self.project.source_file=}".split('.')[1].split('=')[
-    #                 0] + "'" if self.project.source_file == '' else ''
-    #             StaticUtilities.logger.error(
-    #                 f"The following were set to the empty string when attempting to replace the source file in a ccs project with a generated source file: {empty_strings} in this instance of {self.__class__.__name__}. Call {self.__class__.__name__}.set_ccs_project_details() to rectify or set replace_source_in_ccs_project to false when calling {self.__class__.__name__}.{self.update_phantom_source.__name__}().")
-    #         if system_error:
-    #             return sys.exit(1)
-    #         return True
-    #     return False
-
-    # def set_ccs_project_details(self, ccs_project_path: str, ccs_project_name: str,
-    #                             ccs_project_source_file_name: str = "main.asm") -> None:
-    #     """
-    #     Sets fields required for replacing generated assembly with source of an existing project.
-    #     :param ccs_project_path: str path to an existing ASM CCS project.
-    #     :param ccs_project_name: str name of an existing ASM CCS project corresponding to the provided path.
-    #     :param ccs_project_source_file_name: str name of an existing ASM source file within the CCS project specified by the provided path.
-    #     :return: None.
-    #     """
-    #     self.project.path = ccs_project_path
-    #     self.project.project_name = ccs_project_name
-    #     self.project.source_file = ccs_project_source_file_name
-    #     self.c_lang_bool = True if ".c" in self.project.source_file else False
-    #     return
-
 
 if __name__ == "__main__":
     # asm_ccs_project_main_source_file_name: str = "test_ASM.asm"
     asm_project: CCSProject = CCSProject(project_name=f"test_ASM", source_file="test_ASM.asm",
-                                       path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_ASM")
-    c_project: CCSProject = CCSProject(project_name=f"c_blank", source_file="c_blank.c", path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\c_blank")
+                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_ASM")
+    c_project: CCSProject = CCSProject(project_name=f"c_blank", source_file="c_blank.c",
+                                       path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\c_blank")
     i = Instrumentation(c_project, instrumentation_strategy=IntOverflowAttack())
     i.instrument()

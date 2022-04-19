@@ -9,25 +9,11 @@ import random
 import string
 from typing import List, Tuple
 
-from ccs_project import CCSProject
 from instrumentation_strategy import InstrumentationStrategy
 from static_utilities import StaticUtilities
 
 
 class BufferOverflowAttack(InstrumentationStrategy):
-
-    @staticmethod
-    def c_variable_from_declaration(line: str) -> str:
-        """
-        :param line: A line of C code containing a primitive variable declaration.
-        :return: The name of the variable being declared.
-        """
-        line = line.split("=")[0]
-        c_types = ["int", "char", "float", "short", "long", "unsigned"]
-        for c_type in c_types:
-            line = line.replace(c_type, "")
-        line = line.replace(" ", "").replace(";", "").replace("\t", "")
-        return line
 
     def instrument(self, file_to_instrument: str) -> bool:
         """"
@@ -57,13 +43,10 @@ class BufferOverflowAttack(InstrumentationStrategy):
 
         c_lines = [line for line in c_lines if line != ""]
 
-        c_types = ["int", "char", "float", "short", "long", "unsigned"]
         c_logic_operators = ["==", "!=", ">", "<", ">=", "<=", "&&", "||", "!"]
 
         # Find all variable definitions
-        defined_primitives: List[Tuple[int, str]] = [(i, self.c_variable_from_declaration(line)) for i, line in
-                                                     enumerate(c_lines) if any([c_type in line and not any(
-                [char in line for char in ["(", ")", "[", "]"]]) for c_type in c_types])]
+        defined_primitives: List[Tuple[int, str]] = InstrumentationStrategy.find_defined_primitives(c_lines)
 
         # If no variable definitions were found, return that buffer overflow did not work
         if not defined_primitives:
@@ -102,3 +85,6 @@ class BufferOverflowAttack(InstrumentationStrategy):
         with open(file_to_instrument, 'w') as f:
             f.write(new_c_file)
         return True
+
+
+

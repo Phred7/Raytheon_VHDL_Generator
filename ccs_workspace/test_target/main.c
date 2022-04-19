@@ -1,44 +1,36 @@
 
-#include <string.h>
-void buff_value(char* target) {
-   strcpy(target, "0000000000000000000000");}
-
-
 #include <msp430.h> 
-
 #include <stdio.h>
-
+#include <string.h>
 /**
-
  * main.c
+  */
+  int main(void)
+  {
 
- */
+    	WDTCTL = WDTPW | WDTHOLD;
+	// stop watchdog timer
+        char message1[5] = "GOOD";
 
-int main(void)
+        char message2[5] = "BAD";
 
-{
+        char output[20];
 
-	WDTCTL = WDTPW | WDTHOLD;	
-	char message[8] = "MESSAGE";
+        int status = 1;
 
-char* status_hcleplvgbq;
-	int status = 0;
-;
-char* status_xvpnlzidcq;
-buff_value(status_hcleplvgbq);
-buff_value(status_xvpnlzidcq);
-	if (status == 0) {
+        if (status == 0) {
 
-	    printf(message);
+            strncpy(output, message1,status);
 
-	} else {
+        }
+ else {
 
-	    printf("default");
+                strncpy(output, message2,status);
 
-	}
+        }
 
-	return 0;
+        printf(output);
+
+        return 0;
 
 }
-
-    
