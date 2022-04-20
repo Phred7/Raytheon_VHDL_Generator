@@ -42,7 +42,7 @@ class StringFormatAttack(InstrumentationStrategy):
         for line_index, line in enumerate(text):
             for argument_index, print_family in enumerate(print_families):
                 for print_function in print_family:
-                    decomposition = InstrumentationStrategy.replace_nth_argument(print_function, argument_index, format_string, line)
+                    decomposition = InstrumentationStrategy.decompose_nth_argument(print_function, argument_index, line)
                     if decomposition is not None:
                         beg, arg, end = decomposition
                         text[line_index] = beg + format_string + end

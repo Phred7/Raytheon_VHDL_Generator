@@ -65,8 +65,9 @@ class IntOverflowAttack(InstrumentationStrategy):
                         else:
                             lines[line_index] = f"{beg}{random.choice(integers)[1]}{end}"
 
-        for integer in integers:
+        for integer_tup in integers:
             for line_index, line in enumerate(lines):
+                integer = integer_tup[1]
                 if InstrumentationStrategy.line_of_c_code_contains_comparison(line) and integer in line:
                     lines[line_index] = f"{integer} = {integer} + INT_MAX;\n{line}"
 
