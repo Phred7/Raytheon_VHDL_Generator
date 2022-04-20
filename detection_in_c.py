@@ -103,8 +103,7 @@ class DetectionInC(DetectionStrategy):
         return self.__detection_return_logic__(detected_patterns_dict, insecure_patterns_recommended_replacement_dict,
                                                "IntOverflowAttack")
 
-
-def detect_injection_attack(self) -> bool:
+    def detect_injection_attack(self) -> bool:
         """
         Attempts to detect an injection attack in this ccs_project.
         :return: True if an injection attack was detected in this file. Otherwise, False.
