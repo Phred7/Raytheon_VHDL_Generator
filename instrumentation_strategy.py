@@ -73,37 +73,27 @@ class InstrumentationStrategy(ABC):
     def split_c_code_to_lines(c_block: str) -> List[str]:
         """
         Splits a string containing C code into a list of strings, each of which contains one line of code.
-        Does not account for escaped characters. Fairly simple lexical parser. Certainly has bugs unaccounted for at
-        time of writing.
         A "line of code" is a string which terminates with a {, a }, or a ;. ; is not used to terminate lines of code
         while within parenthesis. Nothing is used to terminate a line of code while within quotes.
         A "Line of code" here is not necessarily one actual newline. All #include stmts are a single line of code,
         usually, since they do not terminate in semicolons.
         @return: A list of strings, each of which contain one line of code.
         """
+        stringless_c_block, variable_mapping = InstrumentationStrategy.remove_c_strings_from_line(c_block)
         parenthesis_depth: int = 0
-        in_single_quotes: bool = False
-        in_double_quotes: bool = False
         lines: List[str] = []
         current_line: str = ""
-        for char in c_block:
-            if char == "'":
-                if not in_double_quotes:
-                    in_single_quotes = not in_single_quotes
-            elif char == '"':
-                if not in_single_quotes:
-                    in_double_quotes = not in_double_quotes
-
+        for char in stringless_c_block:
             current_line += char
-
-            if not in_single_quotes and not in_double_quotes:
-                if char == "(":
-                    parenthesis_depth += 1
-                elif char == ")":
-                    parenthesis_depth -= 1
-                elif char in "{};":
-                    lines.append(current_line)
-                    current_line = ""
+            if char == "(":
+                parenthesis_depth += 1
+            elif char == ")":
+                parenthesis_depth -= 1
+            elif char in "{};":
+                lines.append(current_line)
+                current_line = ""
+        for i in range(len(lines)):
+            lines[i] = InstrumentationStrategy.undo_string_removal(lines[i], variable_mapping)
         return lines
 
     @staticmethod
@@ -119,23 +109,22 @@ class InstrumentationStrategy(ABC):
         @param line: the line of code to search for the argument.
         @return: The text before the nth argument, the nth argument, and the text after the nth argument.
         """
-        if re.search(function_name, line) is not None:
+        modified_line, variable_mapping = InstrumentationStrategy.remove_c_strings_from_line(line)
+        if re.search(function_name, modified_line) is not None:
             has_found_arguments = False
             num_args_discovered = 0
-            i = line.index(function_name.replace(r"\b", ""))
+            i = modified_line.index(function_name.replace(r"\b", ""))
             while num_args_discovered < argument_index or not has_found_arguments:
                 i = i + 1
-                if line[i] == ',':
+                if modified_line[i] == ',':
                     num_args_discovered += 1
-                elif line[i] == '(':
+                elif modified_line[i] == '(':
                     has_found_arguments = True
             j: int = i+1
             paren_depth = 0
-            d_quotes = False
-            s_quotes = False
-            for index in range(i+1, len(line)):
-                char = line[index]
-                if char in ',)' and not (paren_depth >= 1) and not (d_quotes or s_quotes):
+            for index in range(i+1, len(modified_line)):
+                char = modified_line[index]
+                if char in ',)' and not (paren_depth >= 1):
                     j = index
                     break
                 else:
@@ -143,14 +132,14 @@ class InstrumentationStrategy(ABC):
                         paren_depth += 1
                     elif char == ")":
                         paren_depth -= 1
-                    elif char == '"':
-                        d_quotes = not d_quotes
-                    elif char == "'":
-                        s_quotes = not s_quotes
 
-            beginning = line[:i+1]
-            arg = line[i+1:j]
-            end = line[j:]
+            beginning = modified_line[:i+1]
+            arg = modified_line[i+1:j]
+            end = modified_line[j:]
+            beginning = InstrumentationStrategy.undo_string_removal(beginning, variable_mapping)
+            arg = InstrumentationStrategy.undo_string_removal(arg, variable_mapping)
+            end = InstrumentationStrategy.undo_string_removal(end, variable_mapping)
+
             return beginning, arg, end
         else:
             return None
@@ -160,7 +149,7 @@ class InstrumentationStrategy(ABC):
                                            comparisons: Tuple[str] = ("==", "!=", ">", "<", ">=", "<=", "&&", "||", "!"),
                                            ) -> bool:
         """
-        Identifies whether a comparison between values exists
+        Identifies whether a comparison between values exists.
         @param line: The line of code to analyze.
         @param comparisons: A tuple containing C comparison operators. By default uses all comparison operators;
         can pass in a smaller tuple checking for a specific operator.
@@ -168,8 +157,9 @@ class InstrumentationStrategy(ABC):
         operator, such as less-than vs. bitwise shifting. Does not account for whether comparison operators are found
         within strings.
         """
+        new_line, mapping = InstrumentationStrategy.remove_c_strings_from_line(line)
         for comparison_token in comparisons:
-            if comparison_token in line:
+            if comparison_token in new_line:
                 if comparison_token == "<":
                     if line.index("<") != line.index("<<"):
                         return True

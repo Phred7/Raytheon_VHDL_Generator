@@ -56,19 +56,18 @@ class BufferOverflowAttack(InstrumentationStrategy):
             # don't include #include <something.h>
             if line[0] == "#":
                 continue
-            for operator in c_logic_operators:
-                if operator in line:
-                    for declare_line_index, primitive_name in defined_primitives:
-                        if primitive_name in line:
-                            inserted_buffer = True
-                            # create buffers around dec. of the variables and overflow them
-                            buf_1 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for _ in range(10))}"
-                            buf_2 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for _ in range(10))}"
-                            c_lines[
-                                declare_line_index] = f"char* {buf_1};\n{c_lines[declare_line_index]};\nchar* {buf_2};"
+            if InstrumentationStrategy.line_of_c_code_contains_comparison(line):
+                for declare_line_index, primitive_name in defined_primitives:
+                    if primitive_name in line:
+                        inserted_buffer = True
+                        # create buffers around dec. of the variables and overflow them
+                        buf_1 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for _ in range(10))}"
+                        buf_2 = f"{primitive_name}_{''.join(random.choice(string.ascii_lowercase) for _ in range(10))}"
+                        c_lines[
+                            declare_line_index] = f"char* {buf_1};\n{c_lines[declare_line_index]};\nchar* {buf_2};"
 
-                            c_lines[compare_line_index] = f"buff_value({buf_2});\n{c_lines[compare_line_index]}"
-                            c_lines[compare_line_index] = f"buff_value({buf_1});\n{c_lines[compare_line_index]}"
+                        c_lines[compare_line_index] = f"buff_value({buf_2});\n{c_lines[compare_line_index]}"
+                        c_lines[compare_line_index] = f"buff_value({buf_1});\n{c_lines[compare_line_index]}"
 
         # if no primitives are being compared
         if not inserted_buffer:
