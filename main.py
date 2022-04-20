@@ -74,18 +74,18 @@ class Main:
         """
         StaticUtilities.logger.setLevel(logging.DEBUG)
         Detection.reset_test_project()
-        project: CCSProject = CCSProject(source_file="main.c",
-                                         project_name="test_target",
-                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                                         )
-        results: bool = Main.detection(project, 0.95)
-        Main.__generate_vhdl(results)
+        # project: CCSProject = CCSProject(source_file="main.c",
+        #                                  project_name="test_target",
+        #                                  path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+        #                                  )
+        # results: bool = Main.detection(project, 0.95)
+        # Main.__generate_vhdl(results)
 
         project = CCSProject(source_file="main.c",
                              project_name="test_target",
                              path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
                              )
-        instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
+        instrumentation: Instrumentation = Instrumentation(project, IntOverflowAttack())
         instrumentation.instrument()
         results: bool = Main.detection(project, 0.35)
         Main.__generate_vhdl(results)
@@ -190,5 +190,5 @@ class Main:
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.debug_main()
-    # Detection.reset_test_project()
+    main.demo()
+    Detection.reset_test_project()

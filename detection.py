@@ -65,7 +65,7 @@ class Detection:
         if self.hashed_file_exists_and_matches_cache():
             return True
         if isinstance(self.pique_bin, PiqueBin):
-            self.pique_binary_security_quality = self.pique_bin.pique_bin()
+            # self.pique_binary_security_quality = self.pique_bin.pique_bin()
             StaticUtilities.logger.debug(f"PIQUE-Bin Binary Security Quality: {self.pique_binary_security_quality}")
             if self.pique_binary_security_quality > self.pique_binary_security_quality_threshold:
                 self.hashed_files_dict[self.ccs_project.hash_key()] = self.ccs_project.__hash__()
@@ -129,7 +129,7 @@ class Detection:
         return self.hashed_files_dict[file_name_key] == self.ccs_project.__hash__()
 
     @staticmethod
-    def reset_test_project() -> None:
+    def reset_test_project() -> None: # TODO: move to StaticUtilities
         base_file = """
 #include <msp430.h> 
 #include <stdio.h>

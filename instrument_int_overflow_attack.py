@@ -37,7 +37,7 @@ class IntOverflowAttack(InstrumentationStrategy):
         file.close()
         integers = InstrumentationStrategy.find_defined_primitives(lines, ["int"])
         if integers is None:
-            StaticUtilities.logger.info("No integers found in file.")
+            StaticUtilities.logger.debug("No integers found in file.")
 
         arg_1_functions: List[str] = [r'\bmalloc\b', r'\bcalloc\b']
         arg_2_functions: List[str] = [r'\brealloc\b']
@@ -66,7 +66,7 @@ class IntOverflowAttack(InstrumentationStrategy):
                             lines[line_index] = f"{beg}{random.choice(integers)[1]}{end}"
 
         if not found_sensitive_operation:
-            StaticUtilities.logger.info("No sensitive operations using integers found.")
+            StaticUtilities.logger.debug("No sensitive operations using integers found.")
             return False
 
         new_text = "".join([line + "\n" for line in lines])
