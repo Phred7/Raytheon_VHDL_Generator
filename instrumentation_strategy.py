@@ -77,7 +77,7 @@ class InstrumentationStrategy(ABC):
         while within parenthesis. Nothing is used to terminate a line of code while within quotes.
         A "Line of code" here is not necessarily one actual newline. All #include stmts are a single line of code,
         usually, since they do not terminate in semicolons.
-        @return: A list of strings, each of which contain one line of code.
+        :return: A list of strings, each of which contain one line of code.
         """
         stringless_c_block, variable_mapping = InstrumentationStrategy.remove_c_strings_from_line(c_block)
         parenthesis_depth: int = 0
@@ -103,11 +103,11 @@ class InstrumentationStrategy(ABC):
         the nth argument, and the text after the nth argument.
         For example, to decompose the function call '\bprintf\b' in the line 'printf(a,b,c);' around the 0th argument,
         you would return ('printf(', 'a', ',b,c);').
-        @param function_name: The function to search for. Must begin and end with '\b' (raw text) to indicate
+        :param function_name: The function to search for. Must begin and end with '\b' (raw text) to indicate
             regex non-word characters.
-        @param argument_index: the index in the argument list to decompose around. 0-indexed.
-        @param line: the line of code to search for the argument.
-        @return: The text before the nth argument, the nth argument, and the text after the nth argument.
+        :param argument_index: the index in the argument list to decompose around. 0-indexed.
+        :param line: the line of code to search for the argument.
+        :return: The text before the nth argument, the nth argument, and the text after the nth argument.
         """
         modified_line, variable_mapping = InstrumentationStrategy.remove_c_strings_from_line(line)
         if re.search(function_name, modified_line) is not None:

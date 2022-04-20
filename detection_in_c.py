@@ -59,7 +59,7 @@ class DetectionInC(DetectionStrategy):
                                         "printf\(",
                                         "sprintf\(",
                                         "gets\("]
-        insecure_patterns_flags = [0, re.I, 0]
+        insecure_patterns_flags: List[int] = [0, re.I, 0]
         insecure_patterns_recommended_replacement_dict: Dict[str, str] = {
             insecure_patterns[0]: "--string.h contains functions that can be exploited.--",
             insecure_patterns[1]: "--Char*'s may be used without specifying a buffer size--",
@@ -77,8 +77,8 @@ class DetectionInC(DetectionStrategy):
         Attempts to detect an f-string vulnerability in this ccs_project.
         :return: True if an f-string vulnerability was detected in this file. Otherwise, False.
         """
-        insecure_patterns = [r"(|\b|vsn|sn|vf|s|f|v)printf?\(", "(%08x\.){30,}"]
-        insecure_patterns_flags = [0, (re.S + re.X)]
+        insecure_patterns: List[str] = [r"(|\b|vsn|sn|vf|s|f|v)printf?\(", "(%08x\.){30,}"]
+        insecure_patterns_flags: List[int] = [0, (re.S + re.X)]
         insecure_patterns_recommended_replacement_dict: Dict[str, str] = {
             insecure_patterns[0]: "--print f--",
             insecure_patterns[1]: "--this value is repeated more than 30 times in a row. This data was probably injected.--"}
@@ -92,7 +92,16 @@ class DetectionInC(DetectionStrategy):
         Attempts to detect an int overflow in this ccs_project.
         :return: True if an int overflow was detected in this file otherwise, False.
         """
-        return False
+        insecure_patterns: List[str] = [r"(malloc|calloc){1}\(", r"realloc\(", r"(strncpy|strncat|strncmp){1}\("]
+        insecure_patterns_flags: List[int] = [0, 0, 0]
+        insecure_patterns_recommended_replacement_dict: Dict[str, str] = {
+            insecure_patterns[0]: "--malloc or calloc operation detected--",
+            insecure_patterns[1]: "--realloc operation detected--",
+            insecure_patterns[2]: "--strncpy, strncat or strncmp operation detected--"}
+        detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns,
+                                                                                               insecure_patterns_flags)
+        return self.__detection_return_logic__(detected_patterns_dict, insecure_patterns_recommended_replacement_dict,
+                                               "IntOverflowAttack")
 
     def detect_injection_attack(self) -> bool:
         """

@@ -186,9 +186,16 @@ class Main:
         Attempts to inject a CCSProject with some vulnerability.
         :return: None.
         """
+        Detection.reset_test_project()
+        project = CCSProject(source_file="main.c",
+                             project_name="test_target",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                             )
+        instrumentation: Instrumentation = Instrumentation(project, StringFormatAttack())
+        instrumentation.instrument()
 
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.demo()
+    main.inject_msp430_exclusively()
     Detection.reset_test_project()
