@@ -7080,3 +7080,7 @@ line 35:
 2022-04-19 11:40:47,687 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
 2022-04-19 11:40:47,689 WARNING package_zipper zip_vhdl Created zip _[3].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
 2022-04-19 11:40:47,689 INFO main __generate_vhdl VHDL generated: \generated_vhdl\.zip
+2022-04-19 18:12:43,200 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-19 18:12:51,117 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-19 18:13:37,322 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-19 18:13:41,198 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from test_target

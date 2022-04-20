@@ -5,12 +5,15 @@
 # Dr. Brock LaMeres
 # Written by Walker Ward
 """
+import string
+import random
+import re
+
 from abc import ABC, abstractmethod
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 
 from static_utilities import StaticUtilities
 
-import re
 
 
 class InstrumentationStrategy(ABC):
@@ -152,6 +155,62 @@ class InstrumentationStrategy(ABC):
         else:
             return None
 
+    @staticmethod
+    def line_of_c_code_contains_comparison(line: str,
+                                           comparisons: Tuple[str] = ("==", "!=", ">", "<", ">=", "<=", "&&", "||", "!"),
+                                           ) -> bool:
+        """
+        Identifies whether a comparison between values exists
+        @param line: The line of code to analyze.
+        @param comparisons: A tuple containing C comparison operators. By default uses all comparison operators;
+        can pass in a smaller tuple checking for a specific operator.
+        @return: Whether the comparison operator is found in that string. Attempts to exclude non-comparison uses of the
+        operator, such as less-than vs. bitwise shifting. Does not account for whether comparison operators are found
+        within strings.
+        """
+        for comparison_token in comparisons:
+            if comparison_token in line:
+                if comparison_token == "<":
+                    if line.index("<") != line.index("<<"):
+                        return True
+                elif comparison_token == '>':
+                    if line.index(">") != line.index(">>"):
+                        return True
+                else:
+                    return True
+        return False
 
-if __name__ == '__main__':
-    print(InstrumentationStrategy.decompose_nth_argument(r'\bprintf\b', 0, 'printf(a,b,c);'))
+    @staticmethod
+    def remove_c_strings_from_line(line: str) -> Tuple[str, Dict]:
+        """
+        Finds string literals in a line of C code and replaces them with dummy values. Returns the modified string and
+        a mapping of dummy values to string literals. Dummy values are created and "guaranteed" to be unique.
+
+        For example, calling this function on the line:
+        if (strcmp(char_buffer, "this is a string literal") {
+        would return ( "if (strcmp(char_buffer, random_name_0135821341) {", {"random_name_0135821341": "this is a string literal"})
+
+        @param line: The line of C code to modify.
+        @return: A tuple containing:
+                    - The new line, with all string literals replaced by dummy values.
+                    - A dict containing mapping of dummy values to string literals.
+        """
+        random_marker = "".join([random.choice(string.ascii_lowercase) for _ in range(10)])
+        elements = re.sub("((?<!\\\\)(?:\\\\{2})*)[\"]", random_marker, line).split(random_marker)
+        if len(elements) == 1:
+            return line, {}
+        variable_mapping: Dict = {}
+        for i in range(len(elements)):
+            if i % 2 == 0:
+                continue
+            replacement = f'random_name_{"".join([random.choice(string.ascii_lowercase) for _ in range(10)])}'
+            variable_mapping[replacement] = f'"{elements[i]}"'
+            elements[i] = replacement
+        new_line = "".join(elements)
+        return new_line, variable_mapping
+
+    @staticmethod
+    def undo_string_removal(line: str, variable_map: Dict) -> str:
+        for key, value in variable_map.items():
+            line = line.replace(key, value)
+        return line

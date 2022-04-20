@@ -33,7 +33,7 @@ class BufferOverflowAttack(InstrumentationStrategy):
         # try to read from the file; return if the file isn't there
         try:
             with open(file_to_instrument, 'r') as f:
-                c_lines = f.readlines()
+                c_lines = InstrumentationStrategy.split_c_code_to_lines(f.read())
         except FileExistsError:
             StaticUtilities.logger.info("File not found.")
             return False
@@ -42,8 +42,6 @@ class BufferOverflowAttack(InstrumentationStrategy):
             c_lines[compare_line_index] = line.split(r"//")[0]
 
         c_lines = [line for line in c_lines if line != ""]
-
-        c_logic_operators = ["==", "!=", ">", "<", ">=", "<=", "&&", "||", "!"]
 
         # Find all variable definitions
         defined_primitives: List[Tuple[int, str]] = InstrumentationStrategy.find_defined_primitives(c_lines)

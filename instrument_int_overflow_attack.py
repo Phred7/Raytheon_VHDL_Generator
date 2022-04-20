@@ -21,7 +21,7 @@ class IntOverflowAttack(InstrumentationStrategy):
         Influence: https://facsrv.cs.depaul.edu/zhuang28/ARES2021.pdf
         Workflow:
         -Find all integers declared in the file.
-        -Find all sensitive operations used in the file
+        -Find all sensitive operations used in the file and comparisons which use an integer declared in the file
             - memory allocation using integer
             - memory or string manipulation using integer
             - memory dereference using memory address which is the result of a pointer arithmetic operation (???)
