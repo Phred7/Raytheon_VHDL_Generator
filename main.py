@@ -197,5 +197,5 @@ class Main:
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.inject_msp430_exclusively()
+    main.generate_vhdl_exclusively()
     Detection.reset_test_project()
