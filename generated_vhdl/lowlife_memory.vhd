@@ -706,7 +706,7 @@ constant ROM : rom_type :=(						   33028 => x"B2",		-- 008104: B240            
 						   65533 => x"83",
 						   65534 => x"c2",		-- 00fffe:82c2 .reset _reset_vector reset
 						   65535 => x"82",
--- o.g. reset--
+
 
                            others => x"00");
 
