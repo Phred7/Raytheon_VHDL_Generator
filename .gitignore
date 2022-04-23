@@ -19,3 +19,4 @@ ccs_workspace/.metadata/
 *.cmd
 *.mk
 *.prefs
+/yara/yara-v4.2.0-1885-win64/
