@@ -118,13 +118,21 @@ class VHDLParserGenerator:
         generated_vhdl_data_mem: str = ""
         with open(f"{self.disassembler_output_file_directory}\\{self.disassembler_output_file_name}", 'r') as disassembly_file:
             data_memory_start: int = 0
+            cinit_in_generated: bool = True
+            generate_begin_comment: bool = True
             disassembly_file = iter(disassembly_file)
             for line in disassembly_file:
-                if not self.data_memory_in_disassembly and "DATA Section .data" in line:
+                if "DATA Section .cinit" in line:
+                    """Triggers the generation of .cinit DATA Section."""
                     data_section_string: List[str] = line.split(" ")
                     data_memory_start = int(data_section_string[-1], 16)
+                    cinit_in_generated = False
+                elif not self.data_memory_in_disassembly and "DATA Section .data" in line:
+                    data_section_string: List[str] = line.split(" ")
+                    data_memory_start = int(data_section_string[-1], 16)
+                    generated_vhdl_data_mem += f"-- Begin .data\n"
                     self.data_memory_in_disassembly = True
-                elif self.data_memory_in_disassembly:
+                elif self.data_memory_in_disassembly or not cinit_in_generated:
                     while line != "\n":
                         if "0x" in line:
                             data_line_string: List[str] = line.split(" ")
@@ -133,9 +141,16 @@ class VHDLParserGenerator:
                             if not int(data_line_string[-1], 16) == 0:
                                 data_msb: str = data_line_string[-1][:2]
                                 data_lsb: str = data_line_string[-1][2:]
-                                generated_vhdl_data_mem += f"{self.memory_indent if data_memory_start != data_memory_location else ''}{data_memory_location} => x\"{data_lsb}\",\n"
+                                generated_vhdl_data_mem += f"{self.memory_indent if data_memory_start != data_memory_location else ''}{data_memory_location} => x\"{data_lsb}\",{('  -- Begin .cinit' if not cinit_in_generated else '  -- Begin .data') if generate_begin_comment else ''}\n"  # f"\t-- Begin .cinit\n"
                                 generated_vhdl_data_mem += f"{self.memory_indent}{data_memory_location+1} => x\"{data_msb}\",\n"
+                        elif "__TI_" in line:
+                            generated_vhdl_data_mem += f"{self.memory_indent}--{line[line.index('_'):-2]}\n"
                         line = next(disassembly_file)
+                        generate_begin_comment = False
+                    if not cinit_in_generated:
+                        cinit_in_generated = True
+                        generate_begin_comment = True
+                        break
                     return generated_vhdl_data_mem
                 else:
                     continue
@@ -276,7 +291,7 @@ constant ROM : rom_type :=("""
                 pass
 
     def get_vhdl_memory_rom_with_interrupts(self, computer_name: str) -> str:
-        generated_rom_asm_str: str = ""
+        generated_rom_asm_str: str = "\n"
         current_tag_name: str = ""
         first_instruction_reached: bool = False
         end_of_program_memory_reached: bool = False
@@ -300,7 +315,8 @@ constant ROM : rom_type :=("""
                         line = next(disassembly_file)
 
                     if not first_instruction_reached:
-                        """Generates program memory in TEXT Section .text,"""
+                        """Triggers the generation of program memory in TEXT Section .text,"""
+
                         line = next(disassembly_file)
 
                         # gets the name of the main function or tag.
@@ -316,6 +332,9 @@ constant ROM : rom_type :=("""
                         else:
                             if "MOV.W   #0x3000,SP" in line:
                                 first_instruction_reached = True
+
+                        if first_instruction_reached:
+                            generated_rom_asm_str += f"{self.memory_indent}-- Begin: program memory TEXT Section\n"
 
                     elif isr_trap_end_reached:
                         """Generates interrupt vectors"""
@@ -406,14 +425,11 @@ constant ROM : rom_type :=("""
 
         return generated_rom_asm_str
 
-    @staticmethod
-    def get_vhdl_memory_rom_end() -> str:
+    def get_vhdl_memory_rom_end(self) -> str:
         """
         Gets the str representation of the end of program memory.
         """
-        return"""
-
-                           others => x"00");"""
+        return f"""{self.memory_indent}others => x"00");"""
 
     @staticmethod
     def get_vhdl_reset_vector() -> str:
@@ -504,13 +520,12 @@ architecture data_memory_arch of data_memory is
     type rw_type is array (8192 to 12287) of std_logic_vector(7 downto 0);  -- this is MAB: x2000 to x2FFF
     signal RW : rw_type:=("""
 
-    @staticmethod
-    def get_vhdl_data_memory_end() -> str:
+    def get_vhdl_data_memory_end(self) -> str:
         """
         Gets the str representation of the vhdl data memory following the constant declarations.
         :return: str representation of the vhdl data memory following the constant declarations.
         """
-        return """others=>x"00");  -- assigned an initial value to the data memory
+        return f"""{self.memory_indent}others=>x"00");  -- assigned an initial value to the data memory
 
     -- COLTER CHANGED TO ALLOW QUARTUS TO IMPLEMENT OUTSIDE ALMs
     -- COMMENT OUT IF COMPILING IN VIVADO

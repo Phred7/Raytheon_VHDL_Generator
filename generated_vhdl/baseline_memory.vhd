@@ -15,7 +15,9 @@ architecture baseline_memory_arch of baseline_memory is
 
 type rom_type is array (32768 to 65535) of std_logic_vector(7 downto 0);  -- this is MAB: x8000 to xFFFF
     
-constant ROM : rom_type :=(						   33028 => x"B2",		-- 008104: B240             MOV.W   #0x5a80,&WDTCTL_L
+constant ROM : rom_type :=(
+						   -- Begin: program memory TEXT Section
+						   33028 => x"B2",		-- 008104: B240             MOV.W   #0x5a80,&WDTCTL_L
 						   33029 => x"40",
 						   33030 => x"80",		-- 008106: 805A            
 						   33031 => x"5A",
@@ -706,9 +708,7 @@ constant ROM : rom_type :=(						   33028 => x"B2",		-- 008104: B240            
 						   65533 => x"83",
 						   65534 => x"c2",		-- 00fffe:82c2 .reset _reset_vector reset
 						   65535 => x"82",
-
-
-                           others => x"00");
+						   others => x"00");
 
     signal EN : std_logic;
     
