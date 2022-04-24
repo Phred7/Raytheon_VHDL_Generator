@@ -201,7 +201,7 @@ end entity;\n"""
 #     {self.get_vhdl_memory_rom_process()}\n\n
 # end architecture;"""
         return f"""architecture {computer_name}_memory_arch of {computer_name}_memory is\n
-{self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_with_interrupts(computer_name)}{self.get_vhdl_reset_vector()}{self.get_vhdl_memory_rom_end()}\n
+{self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_with_interrupts(computer_name)}{self.get_vhdl_memory_rom_end()}\n
     signal EN : std_logic;
     {self.get_vhdl_local_en_process()}\n
     {self.get_vhdl_memory_rom_process()}\n\n
@@ -327,10 +327,13 @@ constant ROM : rom_type :=("""
                             line = next(disassembly_file)
 
                         # Handles Data and Text sections that shouldn't be generated
-                        if "DATA Section $" in line or "DATA Section .reset" in line or "TEXT Section" in line:
+                        if "DATA Section $" in line or "TEXT Section" in line:  # "DATA Section .reset" in line
                             line = next(disassembly_file)
                             continue
 
+                        name: str = ""
+                        if "DATA Section .reset" in line:
+                            name = ".reset"
                         line = next(disassembly_file)
 
                         memory_address = self.get_memory_address_from_line(line) if self.get_memory_address_from_line(
@@ -338,10 +341,12 @@ constant ROM : rom_type :=("""
 
                         split_line: List[str] = line.split(" ")
                         tag_name: str = re.match("(\w+|\$):\\n", split_line[14], re.I).string[:-2]
+
                         split_line = str(next(disassembly_file)).split(" ")
-                        vector: str = re.search("(\w+|\d+)", split_line[14], re.I).string[1:-2]
-                        split_line = str(next(disassembly_file)).split(" ")
-                        name: str = re.match("(\w+|\$):\\n", split_line[14], re.I).string[:-2]
+                        vector: str = re.search("\.?(\w+|\d+)", split_line[14], re.I).string[1:-2]
+                        if tag_name != "_reset_vector":
+                            split_line = str(next(disassembly_file)).split(" ")
+                            name = re.match("(\w+|\$):\\n", split_line[14], re.I).string[:-2]
 
                         translated_line: str = deepcopy(next(disassembly_file))
                         if computer_name != "baseline" and len(translated_line.split(" ")) != 14:
@@ -416,9 +421,10 @@ constant ROM : rom_type :=("""
         Gets the str representation of the vhdl reset vectors (interrupts).
         :return: str representation of the vhdl reset vectors (interrupts).
         """
-        return """
-                           65534 =>  x"00",\t\t-- Reset Vector = xFFFE:xFFFF
-                           65535 =>  x"80",\t\t--  Startup Value = x8000"""
+        return "-- o.g. reset--"
+        # return """
+        #                    65534 =>  x"00",\t\t-- Reset Vector = xFFFE:xFFFF
+        #                    65535 =>  x"80",\t\t--  Startup Value = x8000"""
 
     @staticmethod
     def get_interrupt_vectors() -> str:
