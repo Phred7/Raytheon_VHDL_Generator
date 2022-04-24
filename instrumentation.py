@@ -96,6 +96,7 @@ class Instrumentation:
                 directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=True)
             StaticUtilities.logger.debug("Phantom workspace hidden")
         StaticUtilities.logger.debug("**** Instrumentation Build Finished ****")
+        # TODO: modify to reflect changes detailed in "Implementation of Instrumentation" in Capstone portfolio
         return
 
     def __update_phantom_source__(self) -> None:
