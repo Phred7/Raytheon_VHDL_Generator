@@ -62,7 +62,8 @@ class VHDLParserGenerator:
         """
         for computer_name in self.computer_name_list:
             original_stdout: TextIO = sys.stdout
-            with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\{computer_name}_package.vhd", "a+") as vhdl_package_file:
+            with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\{computer_name}_package.vhd",
+                      "a+") as vhdl_package_file:
                 sys.stdout = vhdl_package_file
                 vhd_package_constants_str: str
                 if "highroller" in computer_name:
@@ -100,12 +101,15 @@ class VHDLParserGenerator:
 
         :return:
         """
-        with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\data_memory.vhd", "a+") as vhdl_data_memory:
+        with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\data_memory.vhd",
+                  "a+") as vhdl_data_memory:
             with StaticUtilities.change_stdout_to_file(vhdl_data_memory):
                 print(self.get_vhdl_data_memory_preamble(), end="")
-                print(self.get_vhdl_data_memory_from_source(), end=f"{'' if not self.data_memory_in_disassembly else self.memory_indent}")
+                print(self.get_vhdl_data_memory_from_source(),
+                      end=f"{'' if not self.data_memory_in_disassembly else self.memory_indent}")
                 print(self.get_vhdl_data_memory_end())
-        StaticUtilities.logger.debug(f"Generated data_memory.vhd{'' if self.data_memory_in_disassembly else '. Note: No data memory found in binary'}")
+        StaticUtilities.logger.debug(
+            f"Generated data_memory.vhd{'' if self.data_memory_in_disassembly else '. Note: No data memory found in binary'}")
 
     def get_vhdl_data_memory_from_source(self) -> str:
         """
@@ -116,7 +120,8 @@ class VHDLParserGenerator:
         :return: str representation of vhdl data memory.
         """
         generated_vhdl_data_mem: str = ""
-        with open(f"{self.disassembler_output_file_directory}\\{self.disassembler_output_file_name}", 'r') as disassembly_file:
+        with open(f"{self.disassembler_output_file_directory}\\{self.disassembler_output_file_name}",
+                  'r') as disassembly_file:
             data_memory_start: int = 0
             cinit_in_generated: bool = True
             generate_begin_comment: bool = True
@@ -138,7 +143,7 @@ class VHDLParserGenerator:
                                 data_lsb: str = data_line_string[-1][2:]
                                 # generated_vhdl_data_mem += f"{self.memory_indent if data_memory_start != data_memory_location else ''}{data_memory_location} => x\"{data_lsb}\",{('  -- Begin .cinit' if not cinit_in_generated else '  -- Begin .data') if generate_begin_comment else ''}\n"  # f"\t-- Begin .cinit\n"
                                 generated_vhdl_data_mem += f"{self.memory_indent if data_memory_start != data_memory_location else ''}{data_memory_location} => x\"{data_lsb}\",{'  -- Begin .data' if generate_begin_comment else ''}\n"
-                                generated_vhdl_data_mem += f"{self.memory_indent}{data_memory_location+1} => x\"{data_msb}\",\n"
+                                generated_vhdl_data_mem += f"{self.memory_indent}{data_memory_location + 1} => x\"{data_msb}\",\n"
                         line = next(disassembly_file)
                         generate_begin_comment = False
                     return generated_vhdl_data_mem
@@ -155,7 +160,8 @@ class VHDLParserGenerator:
         :return: None.
         """
         for computer_name in self.computer_name_list:
-            with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\{computer_name}_memory.vhd", "a+") as vhdl_memory_file:
+            with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\{computer_name}_memory.vhd",
+                      "a+") as vhdl_memory_file:
                 with StaticUtilities.change_stdout_to_file(vhdl_memory_file):
                     print(self.get_vhdl_memory_libraries())
                     print(self.get_vhdl_memory_entity(computer_name))
@@ -184,7 +190,8 @@ use IEEE.numeric_std.all;\n\n"""
          MAB		: in	std_logic_vector(15 downto 0);
          MDB_in  	: out	std_logic_vector(15 downto 0);
          MDB_out  	: in	std_logic_vector(15 downto 0);
-         write	    : in	std_logic);
+         write	    : in	std_logic;
+         Byte       : in    std_logic);
 end entity;\n"""
 
     def get_vhdl_memory_architecture(self, computer_name: str) -> str:
@@ -199,12 +206,12 @@ end entity;\n"""
         :param computer_name: str name of the computer to generate a vhdl memory architecture for.
         :return: str representation of vhdl memory architecture.
         """
-#         return f"""architecture {computer_name}_memory_arch of {computer_name}_memory is\n
-# {self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_asm(computer_name)}{self.get_vhdl_irq_vectors()}{self.get_vhdl_memory_rom_end()}\n
-#     signal EN : std_logic;
-#     {self.get_vhdl_local_en_process()}\n
-#     {self.get_vhdl_memory_rom_process()}\n\n
-# end architecture;"""
+        #         return f"""architecture {computer_name}_memory_arch of {computer_name}_memory is\n
+        # {self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_asm(computer_name)}{self.get_vhdl_irq_vectors()}{self.get_vhdl_memory_rom_end()}\n
+        #     signal EN : std_logic;
+        #     {self.get_vhdl_local_en_process()}\n
+        #     {self.get_vhdl_memory_rom_process()}\n\n
+        # end architecture;"""
         return f"""architecture {computer_name}_memory_arch of {computer_name}_memory is\n
 {self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_with_interrupts(computer_name)}{self.get_vhdl_memory_rom_end()}\n
     signal EN : std_logic;
@@ -232,7 +239,8 @@ constant ROM : rom_type :=("""
         :return: str representation of a line with modification specified by computer_mnemonic_dictionary.
         """
         opcode_hex_chars: list[str] = list(line_str_list[1])
-        opcode_hex_chars[2] = computer_mnemonic_dictionary.get(line_str_list[14]) if computer_mnemonic_dictionary.get(line_str_list[14]) else opcode_hex_chars[2]
+        opcode_hex_chars[2] = computer_mnemonic_dictionary.get(line_str_list[14]) if computer_mnemonic_dictionary.get(
+            line_str_list[14]) else opcode_hex_chars[2]
         line_str_list[1] = ''.join(opcode_hex_chars)
         return ' '.join(line_str_list)
 
@@ -252,7 +260,8 @@ constant ROM : rom_type :=("""
         current_program_memory: int = self.program_memory_start
         computer_mnemonic_dictionary: {str, str} = self.get_computer_mnemonic_dictionary(computer_name)
         StaticUtilities.logger.debug(f"Reading in lines from {self.disassembler_output_file_name} for {computer_name}")
-        for line in open(f"{self.disassembler_output_file_directory}\\{self.disassembler_output_file_name}", 'r').readlines():
+        for line in open(f"{self.disassembler_output_file_directory}\\{self.disassembler_output_file_name}",
+                         'r').readlines():
             unmodified_line: str = line
             line_str_list: list[str] = line.split(' ')
             if len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()):
@@ -379,7 +388,7 @@ constant ROM : rom_type :=("""
                                                                                              computer_mnemonic_dictionary)
                         tab_char: str = "\t"
                         generated_rom_asm_str += f"""{self.memory_indent}{memory_address} => x\"{translated_line[10]}{translated_line[11]}\",\t\t-- {translated_line[:translated_line.index(".")].replace(" ", "").replace(tab_char, "")} {name} {tag_name} {vector}\n"""
-                        generated_rom_asm_str += f"""{self.memory_indent}{memory_address+1} => x\"{translated_line[8]}{translated_line[9]}\",\n"""
+                        generated_rom_asm_str += f"""{self.memory_indent}{memory_address + 1} => x\"{translated_line[8]}{translated_line[9]}\",\n"""
                         line = next(disassembly_file)
                         continue
 
@@ -406,7 +415,7 @@ constant ROM : rom_type :=("""
                                 line_str_list[14] = f"{line_str_list[14]}.W"
                         if (len(line_str_list) >= 15 and line_str_list[
                             14] in computer_mnemonic_dictionary.keys()) or len(
-                                line_str_list) == 14:
+                            line_str_list) == 14:
                             translated_line: str = deepcopy(line)
                             if computer_name != "baseline" and len(line_str_list) != 14:
                                 translated_line = self.translate_opcode_with_mnemonic_dictionary(line_str_list,
@@ -496,8 +505,12 @@ constant ROM : rom_type :=("""
     MEMORY_ROM : process (clk) 
     begin
         if (rising_edge(clk)) then
-            if (EN='1' and write='0') then                      
-              MDB_in <= ROM(to_integer(unsigned(MAB)) + 1 ) & ROM(to_integer(unsigned(MAB))); 
+            if (EN='1' and write='0') then
+                if(Byte = '0') then                      
+                    MDB_in <= ROM(to_integer(unsigned(MAB)) + 1 ) & ROM(to_integer(unsigned(MAB)));
+                else
+                    MDB_in <= x"00" & ROM(to_integer(unsigned(MAB)));
+                end if;
             end if;
         end if;
     end process;"""
@@ -515,10 +528,11 @@ use IEEE.numeric_std.all;
 
 entity data_memory is
     port ( clk  : in  std_logic;
-    MAB    : in  std_logic_vector(15 downto 0);
-    MDB_in   : out std_logic_vector(15 downto 0);
-    MDB_out    : in  std_logic_vector(15 downto 0);
-    write  : in  std_logic);
+    MAB         : in  std_logic_vector(15 downto 0);
+    MDB_in      : out std_logic_vector(15 downto 0);
+    MDB_out     : in  std_logic_vector(15 downto 0);
+    write       : in  std_logic;
+    Byte        : in    std_logic);
 end entity;
 
 architecture data_memory_arch of data_memory is
@@ -570,7 +584,11 @@ architecture data_memory_arch of data_memory is
             if (rising_edge(clk)) then
     -- READ
                 if (EN='1' and write='0') then
-                    MDB_in <= RW(to_integer(unsigned(MAB)) + 1 ) & RW(to_integer(unsigned(MAB)));
+                    if(Byte='0') then
+                        MDB_in <= RW(to_integer(unsigned(MAB)) + 1 ) & RW(to_integer(unsigned(MAB)));
+                    else
+                        MDB_in <= x"00" & RW(to_integer(unsigned(MAB)));
+                    end if;
                 end if;
             end if;
         end process;
@@ -589,7 +607,9 @@ architecture data_memory_arch of data_memory is
 ------------------------------------------------------------------------------------------------
     if (rising_edge(clk)) then
         if (EN='1'  and write='1') then
-            RW(to_integer(unsigned(MAB))+1)   <= MDB_out(15 downto 8);
+            if(Byte='0')then
+                RW(to_integer(unsigned(MAB))+1)   <= MDB_out(15 downto 8);
+            end if;
         end if ;
     end if ;
 ------------------------------------------------------------------------------------------------
@@ -601,15 +621,17 @@ architecture data_memory_arch of data_memory is
 ------------------------------------------------------------------------------------------
 -- Hardware Implementation
 ------------------------------------------------------------------------------------------
-    --MEMORY_WRITE_HIGH_BYTE : process( clk )
-    --begin
-    --  if (rising_edge(clk)) then
-    --      if (EN='1'  and write='1') then
-    --          RW(to_integer(unsigned(MAB))+1)   <= MDB_out(15 downto 8);
-    --      end if ;
-    --  end if ;
-    --end process ; -- MEMORY_WRITE_HIGH_BYTE
-------------------------------------------------------------------------------------------
+--    MEMORY_WRITE_HIGH_BYTE : process( clk )
+--    begin
+--      if (rising_edge(clk)) then
+--          if (EN='1'  and write='1') then
+--            if (Byte='0') then
+--                RW(to_integer(unsigned(MAB))+1)   <= MDB_out(15 downto 8);
+--            end if;
+--          end if ;
+--      end if ;
+--    end process ; -- MEMORY_WRITE_HIGH_BYTE
+--------------------------------------------------------------------------------------------
 
 end architecture;"""
 
@@ -655,7 +677,8 @@ def main() -> None:
     generates the baseline, highroller and lowlife memory files.
     generates the data_memory file.
     """
-    ccs_project: CCSProject = CCSProject(project_name="test_C", source_file="test_C.c", path=f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C")
+    ccs_project: CCSProject = CCSProject(project_name="test_C", source_file="test_C.c",
+                                         path=f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C")
     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
     vhdl_parser_generator.generate_vhdl()
     package_zipper: PackageZipper = PackageZipper()

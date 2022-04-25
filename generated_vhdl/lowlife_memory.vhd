@@ -8,7 +8,8 @@ entity lowlife_memory is
          MAB		: in	std_logic_vector(15 downto 0);
          MDB_in  	: out	std_logic_vector(15 downto 0);
          MDB_out  	: in	std_logic_vector(15 downto 0);
-         write	    : in	std_logic);
+         write	    : in	std_logic;
+         Byte       : in    std_logic);
 end entity;
 
 architecture lowlife_memory_arch of lowlife_memory is
