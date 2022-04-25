@@ -14,6 +14,9 @@ from static_utilities import StaticUtilities
 
 
 class IntOverflowAttack(InstrumentationStrategy):
+    """
+    Instrumentation Strategy for Int Overflow Attack.
+    """
 
     def instrument(self, file_to_instrument: str) -> bool:
         """
@@ -27,7 +30,6 @@ class IntOverflowAttack(InstrumentationStrategy):
             - memory dereference using memory address which is the result of a pointer arithmetic operation (???)
         -Prepend sensitive operations with multiplication of integer values together? Simply add arithmetic operation
             which overflows integer?
-
         :param file_to_instrument: the project containing the source to be modified.
         :return: bool representing if the file was modified.
         """
@@ -79,8 +81,8 @@ class IntOverflowAttack(InstrumentationStrategy):
         file = open(file_to_instrument, 'w')
         file.write(new_text)
         file.close()
-
         return True
+
 
 if __name__ == '__main__':
     x = IntOverflowAttack()

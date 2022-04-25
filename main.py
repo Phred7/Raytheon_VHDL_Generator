@@ -178,7 +178,7 @@ class Main:
         vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
         vhdl_parser_generator.generate_vhdl()
         package_zipper: PackageZipper = PackageZipper()
-        package_zipper.zip_vhdl(zip_file_name="fixing_reset_vector_and_add_cinit_04_23_2022")
+        package_zipper.zip_vhdl(zip_file_name="fixing_generation_04_25_2022")
 
     @staticmethod
     def inject_msp430_exclusively() -> None:
@@ -197,5 +197,5 @@ class Main:
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.generate_vhdl_exclusively()
+    main.demo()
     # Detection.reset_test_project()

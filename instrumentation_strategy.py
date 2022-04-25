@@ -15,7 +15,6 @@ from typing import List, Tuple, Dict
 from static_utilities import StaticUtilities
 
 
-
 class InstrumentationStrategy(ABC):
     """
     This class acts as an interface for instrumentation.
@@ -66,8 +65,8 @@ class InstrumentationStrategy(ABC):
             c_types = desired_types
 
         return [(i, InstrumentationStrategy.c_variable_from_declaration(line, c_types)) for i, line in
-         enumerate(c_lines) if any([c_type in line and not any(
-            [char in line for char in ["(", ")", "[", "]"]]) for c_type in c_types])]
+                enumerate(c_lines) if any([c_type in line and not any(
+                [char in line for char in ["(", ")", "[", "]"]]) for c_type in c_types])]
 
     @staticmethod
     def split_c_code_to_lines(c_block: str) -> List[str]:
@@ -120,9 +119,9 @@ class InstrumentationStrategy(ABC):
                     num_args_discovered += 1
                 elif modified_line[i] == '(':
                     has_found_arguments = True
-            j: int = i+1
+            j: int = i + 1
             paren_depth = 0
-            for index in range(i+1, len(modified_line)):
+            for index in range(i + 1, len(modified_line)):
                 char = modified_line[index]
                 if char in ',)' and not (paren_depth >= 1):
                     j = index
@@ -133,8 +132,8 @@ class InstrumentationStrategy(ABC):
                     elif char == ")":
                         paren_depth -= 1
 
-            beginning = modified_line[:i+1]
-            arg = modified_line[i+1:j]
+            beginning = modified_line[:i + 1]
+            arg = modified_line[i + 1:j]
             end = modified_line[j:]
             beginning = InstrumentationStrategy.undo_string_removal(beginning, variable_mapping)
             arg = InstrumentationStrategy.undo_string_removal(arg, variable_mapping)
@@ -146,14 +145,15 @@ class InstrumentationStrategy(ABC):
 
     @staticmethod
     def line_of_c_code_contains_comparison(line: str,
-                                           comparisons: Tuple[str] = ("==", "!=", ">", "<", ">=", "<=", "&&", "||", "!"),
+                                           comparisons: Tuple[str] = (
+                                                   "==", "!=", ">", "<", ">=", "<=", "&&", "||", "!"),
                                            ) -> bool:
         """
         Identifies whether a comparison between values exists.
-        @param line: The line of code to analyze.
-        @param comparisons: A tuple containing C comparison operators. By default uses all comparison operators;
+        :param line: The line of code to analyze.
+        :param comparisons: A tuple containing C comparison operators. By default uses all comparison operators;
         can pass in a smaller tuple checking for a specific operator.
-        @return: Whether the comparison operator is found in that string. Attempts to exclude non-comparison uses of the
+        :return: Whether the comparison operator is found in that string. Attempts to exclude non-comparison uses of the
         operator, such as less-than vs. bitwise shifting. Does not account for whether comparison operators are found
         within strings.
         """
@@ -161,11 +161,11 @@ class InstrumentationStrategy(ABC):
         for comparison_token in comparisons:
             if comparison_token in new_line:
                 if comparison_token == "<" and "<<" in line:
-                        if line.index("<") != line.index("<<"):
-                            return True
+                    if line.index("<") != line.index("<<"):
+                        return True
                 elif comparison_token == '>' and ">>" in line:
-                        if line.index(">") != line.index(">>"):
-                            return True
+                    if line.index(">") != line.index(">>"):
+                        return True
                 else:
                     return True
         return False

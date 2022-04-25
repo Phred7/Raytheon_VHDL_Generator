@@ -5,10 +5,11 @@ use IEEE.numeric_std.all;
 
 entity data_memory is
     port ( clk  : in  std_logic;
-    MAB    : in  std_logic_vector(15 downto 0);
-    MDB_in   : out std_logic_vector(15 downto 0);
-    MDB_out    : in  std_logic_vector(15 downto 0);
-    write  : in  std_logic);
+    MAB         : in  std_logic_vector(15 downto 0);
+    MDB_in      : out std_logic_vector(15 downto 0);
+    MDB_out     : in  std_logic_vector(15 downto 0);
+    write       : in  std_logic;
+    Byte        : in    std_logic);
 end entity;
 
 architecture data_memory_arch of data_memory is
@@ -52,7 +53,11 @@ architecture data_memory_arch of data_memory is
             if (rising_edge(clk)) then
     -- READ
                 if (EN='1' and write='0') then
-                    MDB_in <= RW(to_integer(unsigned(MAB)) + 1 ) & RW(to_integer(unsigned(MAB)));
+                    if(Byte='0') then
+                        MDB_in <= RW(to_integer(unsigned(MAB)) + 1 ) & RW(to_integer(unsigned(MAB)));
+                    else
+                        MDB_in <= x"00" & RW(to_integer(unsigned(MAB)));
+                    end if;
                 end if;
             end if;
         end process;
@@ -71,7 +76,9 @@ architecture data_memory_arch of data_memory is
 ------------------------------------------------------------------------------------------------
     if (rising_edge(clk)) then
         if (EN='1'  and write='1') then
-            RW(to_integer(unsigned(MAB))+1)   <= MDB_out(15 downto 8);
+            if(Byte='0')then
+                RW(to_integer(unsigned(MAB))+1)   <= MDB_out(15 downto 8);
+            end if;
         end if ;
     end if ;
 ------------------------------------------------------------------------------------------------
@@ -83,14 +90,16 @@ architecture data_memory_arch of data_memory is
 ------------------------------------------------------------------------------------------
 -- Hardware Implementation
 ------------------------------------------------------------------------------------------
-    --MEMORY_WRITE_HIGH_BYTE : process( clk )
-    --begin
-    --  if (rising_edge(clk)) then
-    --      if (EN='1'  and write='1') then
-    --          RW(to_integer(unsigned(MAB))+1)   <= MDB_out(15 downto 8);
-    --      end if ;
-    --  end if ;
-    --end process ; -- MEMORY_WRITE_HIGH_BYTE
-------------------------------------------------------------------------------------------
+--    MEMORY_WRITE_HIGH_BYTE : process( clk )
+--    begin
+--      if (rising_edge(clk)) then
+--          if (EN='1'  and write='1') then
+--            if (Byte='0') then
+--                RW(to_integer(unsigned(MAB))+1)   <= MDB_out(15 downto 8);
+--            end if;
+--          end if ;
+--      end if ;
+--    end process ; -- MEMORY_WRITE_HIGH_BYTE
+--------------------------------------------------------------------------------------------
 
 end architecture;

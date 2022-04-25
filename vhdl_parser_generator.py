@@ -342,7 +342,8 @@ constant ROM : rom_type :=("""
                                 current_tag_name = match.string[:-2]
 
                         if self.ccs_project.c_project():
-                            if "MOV.W   #0x5a80,&WDTCTL_L" in line:
+                            if ".text:main:" in line:
+                                line = next(disassembly_file)
                                 first_instruction_reached = True
                         else:
                             if "MOV.W   #0x3000,SP" in line:
