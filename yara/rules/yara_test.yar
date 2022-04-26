@@ -1,5 +1,3 @@
-import pe
-
 rule Yara_Test {
     meta:
         author = "Phred7"
@@ -7,8 +5,8 @@ rule Yara_Test {
         description = "This is a test of yara rules."
 
     strings:
-        a$ = "xyz"
-        b$ = "abc"
+        $a="xyz" nocase
+        $b="abc" nocase
 
     condition:
         $a or $b
