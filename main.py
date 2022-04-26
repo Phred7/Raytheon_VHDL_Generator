@@ -7,6 +7,8 @@
 """
 import logging
 
+from Tools.scripts.var_access_benchmark import A
+
 from detection import Detection
 from ccs_project import CCSProject
 from disassembler import Disassembler
@@ -85,7 +87,7 @@ class Main:
                              project_name="test_target",
                              path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
                              )
-        instrumentation: Instrumentation = Instrumentation(project, IntOverflowAttack())
+        instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
         instrumentation.instrument()
         results: bool = Main.detection(project, 0.35)
         Main.__generate_vhdl(results)
@@ -178,7 +180,7 @@ class Main:
         vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
         vhdl_parser_generator.generate_vhdl()
         package_zipper: PackageZipper = PackageZipper()
-        package_zipper.zip_vhdl(zip_file_name="fixing_generation_04_25_2022")
+        package_zipper.zip_vhdl(zip_file_name="")
 
     @staticmethod
     def inject_msp430_exclusively() -> None:

@@ -1,4 +1,36 @@
-2022-04-25 14:44:56,223 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
-2022-04-25 14:44:56,224 DEBUG instrumentation instrument **** Instrumentation Build Started ****
-2022-04-25 14:45:05,958 DEBUG instrumentation instrument Phantom workspace unhidden
-2022-04-25 14:45:05,960 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from test_target
+2022-04-25 21:39:11,804 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type AllInstrumentationStrategies initialized
+2022-04-25 21:39:11,805 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-25 21:39:13,520 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-25 21:39:13,521 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from test_target
+2022-04-25 21:39:13,521 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-25 21:39:13,521 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-25 21:39:13,522 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-04-25 21:39:13,524 DEBUG instrument_int_overflow_attack instrument No sensitive operations or comparisons using integers found.
+2022-04-25 21:39:13,526 DEBUG instrumentation instrument Instrumentation on main.c succeeded
+2022-04-25 21:39:17,208 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-25 21:39:17,242 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to test_target
+2022-04-25 21:39:19,301 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-25 21:39:19,301 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-25 21:39:19,302 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-25 21:39:19,302 DEBUG detection __init__ Detection object initialized
+2022-04-25 21:39:19,302 DEBUG main detection Project Hash: 4250b9773d235023f769a1f23636ed92a4c7782646f77b61a77a237a62631848
+2022-04-25 21:39:19,304 WARNING main detection Possible malware detected
+line 1:
+	BufferOverflowAttack: string.h. --string.h contains functions that can be exploited.--
+
+line 2:
+	BufferOverflowAttack: (char* target) {. --Char*'s may be used without specifying a buffer size--
+
+line 3:
+	BufferOverflowAttack: strcpy(. --replace with strncpy or another safe function--
+
+line 24:
+	StringFormatAttack: printf(. --print f--
+	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+line 29:
+	StringFormatAttack: printf(. --print f--
+	StringFormatAttack: %08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x..... --this value is repeated more than 30 times in a row. This data was probably injected.--
+
+
+2022-04-25 21:39:19,305 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
