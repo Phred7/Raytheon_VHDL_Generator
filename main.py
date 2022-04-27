@@ -15,6 +15,7 @@ from disassembler import Disassembler
 from instrument_all_strategies import AllInstrumentationStrategies
 from instrument_buffer_overflow_attack import BufferOverflowAttack
 from instrument_string_format_attack import StringFormatAttack
+from instrument_sw_trigged_failure import SWTriggeredFailure
 from instrumentation import Instrumentation
 from instrument_int_overflow_attack import IntOverflowAttack
 from package_zipper import PackageZipper
@@ -211,8 +212,16 @@ class Main:
         instrumentation: Instrumentation = Instrumentation(project, StringFormatAttack())
         instrumentation.instrument()
 
+    def keyboard_control(self) -> None:
+        project = CCSProject(source_file="keyboard_control_main_capstone.c",
+                             project_name="keyboard_control_vCapstone",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"
+                             )
+        SWTriggeredFailure.reset_keyboard_control_code(project.get_path_to_source_file())
+        instrumentation: Instrumentation = Instrumentation(project, SWTriggeredFailure())
+        instrumentation.instrument()
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.generate()
+    main.keyboard_control()
     # Detection.reset_test_project()

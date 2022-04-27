@@ -8351,3 +8351,82 @@ line 29:
 2022-04-26 11:36:45,847 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
 2022-04-26 11:36:45,851 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
 2022-04-26 11:36:45,854 WARNING package_zipper zip_vhdl Created zip _[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-27 14:22:07,494 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 14:22:07,495 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 14:22:11,182 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 14:22:11,183 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 14:22:11,185 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 14:22:17,877 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-27 14:22:21,264 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-27 14:30:29,649 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 14:30:29,650 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 14:30:38,681 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 14:30:38,683 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 14:30:38,684 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 14:30:44,199 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-27 14:30:44,273 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to keyboard_control_vCapstone
+2022-04-27 14:30:53,230 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-27 14:30:53,231 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-27 15:16:05,087 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 15:16:05,089 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 15:16:13,964 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 15:16:13,966 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 15:16:13,968 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 15:16:19,492 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-27 15:16:19,564 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to keyboard_control_vCapstone
+2022-04-27 15:16:28,671 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-27 15:16:28,671 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-27 15:30:50,206 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 15:30:50,206 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 15:30:53,561 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 15:30:53,562 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 15:30:53,563 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 15:30:59,239 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-27 15:30:59,306 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to keyboard_control_vCapstone
+2022-04-27 15:31:02,708 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-27 15:31:02,709 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-27 15:33:09,437 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 15:33:09,438 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 15:33:12,982 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 15:33:12,984 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 15:33:12,985 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 15:33:19,574 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-27 15:33:19,632 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to keyboard_control_vCapstone
+2022-04-27 15:33:23,430 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-27 15:33:23,430 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-27 15:34:16,012 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 15:34:16,013 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 15:34:19,618 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 15:34:19,619 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 15:34:19,620 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 15:34:25,644 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-27 15:34:25,702 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to keyboard_control_vCapstone
+2022-04-27 15:34:29,421 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-27 15:34:29,421 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-27 15:40:31,300 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 15:40:31,301 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 15:40:35,318 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 15:40:35,320 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 15:40:35,321 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 15:40:42,097 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-27 15:40:42,154 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to keyboard_control_vCapstone
+2022-04-27 15:40:45,792 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-27 15:40:45,792 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-27 15:44:37,575 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 15:44:37,575 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 15:44:41,082 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 15:44:41,083 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 15:44:41,084 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 15:44:47,076 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-27 15:44:47,144 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to keyboard_control_vCapstone
+2022-04-27 15:44:50,814 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-27 15:44:50,814 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-27 15:47:06,722 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 15:47:06,723 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 15:47:15,505 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 15:47:15,508 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 15:47:15,510 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 15:47:21,412 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-27 15:47:21,493 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to keyboard_control_vCapstone
+2022-04-27 15:47:30,678 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-27 15:47:30,678 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
