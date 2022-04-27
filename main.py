@@ -183,6 +183,21 @@ class Main:
         package_zipper.zip_vhdl(zip_file_name="")
 
     @staticmethod
+    def generate() -> None:
+        """
+        Generates VHDL for a source file. Bypasses the rest of the toolchain.
+        :return: None.
+        """
+        project = CCSProject(source_file="main.c",
+                             project_name="test_target",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                             )
+        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=project)
+        vhdl_parser_generator.generate_vhdl()
+        package_zipper: PackageZipper = PackageZipper()
+        package_zipper.zip_vhdl(zip_file_name="")
+
+    @staticmethod
     def inject_msp430_exclusively() -> None:
         """
         Attempts to inject a CCSProject with some vulnerability.
@@ -199,5 +214,5 @@ class Main:
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.demo()
+    main.generate()
     # Detection.reset_test_project()

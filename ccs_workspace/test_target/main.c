@@ -13,12 +13,12 @@ int main(void)
 
 WDTCTL = WDTPW | WDTHOLD;
 
-char* status_htyynvfdxv;
+char* status_rlioyxtbhl;
 
 int status = 0;;
-char* status_nzfedidldp;
-buff_value(status_htyynvfdxv);
-buff_value(status_nzfedidldp);
+char* status_fvdhlgggwe;
+buff_value(status_rlioyxtbhl);
+buff_value(status_fvdhlgggwe);
 
 if (status == 0) {
 
