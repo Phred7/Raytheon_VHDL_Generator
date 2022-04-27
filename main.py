@@ -221,6 +221,7 @@ class Main:
         instrumentation: Instrumentation = Instrumentation(project, SWTriggeredFailure())
         instrumentation.instrument()
 
+
 if __name__ == '__main__':
     main: Main = Main()
     main.keyboard_control()
