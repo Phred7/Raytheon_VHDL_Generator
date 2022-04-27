@@ -7,5 +7,5 @@ rule String_Format_Attack_C {
 	strings:
 		$forced_hex="%08x."
 	condition:
-		#forced_hex > 10
+		#forced_hex > 20
 }
