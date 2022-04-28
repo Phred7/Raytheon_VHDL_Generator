@@ -26,7 +26,7 @@ class Detection:
     def __init__(self, ccs_project: CCSProject, *, pique_bin_bool: bool = True, suppress_pique_bin_logs: bool = True) -> None:
         self.ccs_project: CCSProject = ccs_project
         self.pique_binary_security_quality: float = 0
-        self.pique_binary_security_quality_threshold: float = 0.7  # TODO FIND AN ACTUALLY GOOD VALUE FOR THIS
+        self.pique_binary_security_quality_threshold: float = 0.9
         self.hash_json_file: str = "hashed_disassembly.json"
         self.hashed_files_dict: Dict[str: str] = self.serialize_hash_from_file()
         self._detection_strategy = DetectionInC(self.ccs_project) if self.ccs_project.project_type == ProjectType.C else DetectionInASM(self.ccs_project)
@@ -127,42 +127,3 @@ class Detection:
         if file_name_key not in self.hashed_files_dict:
             return True
         return self.hashed_files_dict[file_name_key] == self.ccs_project.__hash__()
-
-    @staticmethod
-    def reset_test_project() -> None: # TODO: move to StaticUtilities
-        base_file = """
-#include <msp430.h> 
-#include <stdio.h>
-/**
- * main.c
- */
-int main(void)
-{
-	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
-	char message[8] = "MESSAGE";
-	int status = 0;
-	if (status == 0) {
-	    printf(message);
-	} else {
-	    printf("default");
-	}
-	return 0;
-}
-    """
-        with open(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target\main.c", 'w') as file:
-            file.write(base_file)
-
-
-if __name__ == '__main__':
-    Detection.reset_test_project()
-    project: CCSProject = CCSProject(source_file="main.c",
-                                     project_name="test_target",
-                                     path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                                     )
-    instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
-    instrumentation.instrument()
-
-    detection: Detection = Detection(project, pique_bin_bool=False)
-    StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
-    detection.pique_binary_security_quality = 0.2
-    StaticUtilities.logger.debug(f"detection: {'No malware found' if detection.detect() else 'Possible malware detected'}")

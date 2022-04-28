@@ -15,7 +15,6 @@ from typing import List, Tuple, Dict
 from static_utilities import StaticUtilities
 
 
-
 class InstrumentationStrategy(ABC):
     """
     This class acts as an interface for instrumentation.
