@@ -221,8 +221,16 @@ class Main:
         instrumentation: Instrumentation = Instrumentation(project, SWTriggeredFailure())
         instrumentation.instrument()
 
+    def reset_keyboard_control(self) -> None:
+        project = CCSProject(source_file="keyboard_control_main_capstone.c",
+                             project_name="keyboard_control_vCapstone",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"
+                             )
+        SWTriggeredFailure.reset_keyboard_control_code(project.get_path_to_source_file())
+
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.keyboard_control()
-    # Detection.reset_test_project()
+    # main.keyboard_control()
+    main.reset_keyboard_control()
+
