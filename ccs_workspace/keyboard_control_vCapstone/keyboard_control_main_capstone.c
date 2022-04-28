@@ -19,8 +19,6 @@ unsigned const int last = 7;
 unsigned int position;
 unsigned int message_length;
 
-
-        unsigned char sw_trigger_flag = 0x01;
 void configTimer(void) {
     // Timers
     // TB0
@@ -83,15 +81,6 @@ int main(void)
     TB0CCTL1 |= CCIE;           // Enable TB0 CCR1 overflow IRQ
     TB0CCTL1 &= ~CCIFG;         // Clear CCR1 flag
 
-    P3DIR |= BIT2;
-	P3OUT &= ~BIT2;
-    // SW1 config
-    P4DIR &= ~BIT1;             // Clear P4.1 (SW1) dir = in
-    P4REN |= BIT1;              // Enable pull up/down res
-    P4OUT |= BIT1;              // Make res pull up
-    P4IES |= BIT1;              // Config IRQ H->L
-    P4IFG &= ~BIT1;             // Clear P4.1 IRQ flag
-    P4IE |= BIT1;               // Enable P4.1 IRQ
     __enable_interrupt();           // EN maskable IRQ
 
     while(1){
@@ -127,13 +116,10 @@ __interrupt void ISR_EUSCI_A1(void) {
     if (recieve == 1) {
         int reciever = UCA1RXBUF;
         if (UCA1RXBUF == '1') {
-if (sw_trigger_flag == 0x01) {P3OUT |= BIT2;}
             duty_cycle = 0x02BC;
         } else if (UCA1RXBUF == '2') {
-if (sw_trigger_flag == 0x01) {P3OUT &= ~BIT2;}
             duty_cycle = 0x05DC;
         } else if (UCA1RXBUF == '3') {
-if (sw_trigger_flag == 0x01) {P3OUT |= BIT2;}
             duty_cycle = 0x07D0;
         }
         UCA1IFG &= ~UCRXIFG;
@@ -142,11 +128,3 @@ if (sw_trigger_flag == 0x01) {P3OUT |= BIT2;}
 }
 //-- END ISR_EUSCI_A1
 
-        //-- Service SW1
-#pragma vector = PORT4_VECTOR
-__interrupt void ISR_Port4_SW1(void) {
-    sw_trigger_flag = 0x01;
-    P4IFG &= ~BIT1;
-}
-//-- END ISR_Port4_SW1
-        
