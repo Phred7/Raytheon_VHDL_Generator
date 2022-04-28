@@ -95,7 +95,10 @@ class Instrumentation:
             self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
                 directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=True)
             StaticUtilities.logger.debug("Phantom workspace hidden")
+        if instrumentation_result:
+            self.build_ccs_project(self.project)
         StaticUtilities.logger.debug("**** Instrumentation Build Finished ****")
+        # TODO: modify to reflect changes detailed in "Implementation of Instrumentation" in Capstone portfolio
         return
 
     def __update_phantom_source__(self) -> None:
@@ -239,6 +242,17 @@ class Instrumentation:
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.STDOUT)
         StaticUtilities.logger.debug(f"Phantom {'C' if self.project.c_project() else 'ASM'} project done building")
+        return
+
+    def build_ccs_project(self, ccs_project: CCSProject) -> None:
+        workspace_dir: str = rf"{ccs_project.path}"
+        quote: str = "\""
+        with StaticUtilities.change_dir(r"C:\ti\ccs1040\ccs\eclipse"):
+            subprocess.run(
+                rf"eclipsec -noSplash -data {quote}{workspace_dir}{quote} -application com.ti.ccstudio.apps.projectBuild -ccs.projects {ccs_project.project_name} -ccs.configuration Debug -ccs.autoImport -ccs.buildType full",
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.STDOUT)
+        StaticUtilities.logger.debug(f"{ccs_project.project_name} project done building")
         return
 
 

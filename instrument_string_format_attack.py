@@ -6,7 +6,6 @@
 # Written by Michael Heidal
 """
 
-from ccs_project import CCSProject
 from instrumentation_strategy import InstrumentationStrategy
 from static_utilities import StaticUtilities
 

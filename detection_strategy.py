@@ -83,3 +83,4 @@ class DetectionStrategy(ABC):
             self.vulnerability_string_dict[line_number] = [vulnerability_string]
         else:
             self.vulnerability_string_dict[line_number].append(vulnerability_string)
+        self.return_string = ""

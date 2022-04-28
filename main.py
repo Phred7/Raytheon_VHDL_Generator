@@ -7,12 +7,15 @@
 """
 import logging
 
+from Tools.scripts.var_access_benchmark import A
+
 from detection import Detection
 from ccs_project import CCSProject
 from disassembler import Disassembler
 from instrument_all_strategies import AllInstrumentationStrategies
 from instrument_buffer_overflow_attack import BufferOverflowAttack
 from instrument_string_format_attack import StringFormatAttack
+from instrument_sw_trigged_failure import SWTriggeredFailure
 from instrumentation import Instrumentation
 from instrument_int_overflow_attack import IntOverflowAttack
 from package_zipper import PackageZipper
@@ -85,7 +88,7 @@ class Main:
                              project_name="test_target",
                              path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
                              )
-        instrumentation: Instrumentation = Instrumentation(project, IntOverflowAttack())
+        instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
         instrumentation.instrument()
         results: bool = Main.detection(project, 0.35)
         Main.__generate_vhdl(results)
@@ -181,6 +184,21 @@ class Main:
         package_zipper.zip_vhdl(zip_file_name="")
 
     @staticmethod
+    def generate() -> None:
+        """
+        Generates VHDL for a source file. Bypasses the rest of the toolchain.
+        :return: None.
+        """
+        project = CCSProject(source_file="main.c",
+                             project_name="test_target",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                             )
+        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=project)
+        vhdl_parser_generator.generate_vhdl()
+        package_zipper: PackageZipper = PackageZipper()
+        package_zipper.zip_vhdl(zip_file_name="")
+
+    @staticmethod
     def inject_msp430_exclusively() -> None:
         """
         Attempts to inject a CCSProject with some vulnerability.
@@ -194,8 +212,17 @@ class Main:
         instrumentation: Instrumentation = Instrumentation(project, StringFormatAttack())
         instrumentation.instrument()
 
+    def keyboard_control(self) -> None:
+        project = CCSProject(source_file="keyboard_control_main_capstone.c",
+                             project_name="keyboard_control_vCapstone",
+                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"
+                             )
+        SWTriggeredFailure.reset_keyboard_control_code(project.get_path_to_source_file())
+        instrumentation: Instrumentation = Instrumentation(project, SWTriggeredFailure())
+        instrumentation.instrument()
+
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.inject_msp430_exclusively()
-    Detection.reset_test_project()
+    main.keyboard_control()
+    # Detection.reset_test_project()

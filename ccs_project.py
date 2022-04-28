@@ -90,3 +90,6 @@ class CCSProject:
 
     def set_disassembly_file_path(self, path: str):
         self.disassembly_file_path = path
+
+    def get_path_to_source_file(self) -> str:
+        return fr"{self.path}\{self.source_file}"
