@@ -77,12 +77,12 @@ class Main:
         """
         StaticUtilities.logger.setLevel(logging.DEBUG)
         Detection.reset_test_project()
-        # project: CCSProject = CCSProject(source_file="main.c",
-        #                                  project_name="test_target",
-        #                                  path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-        #                                  )
-        # results: bool = Main.detection(project, 0.95)
-        # Main.__generate_vhdl(results)
+        project: CCSProject = CCSProject(source_file="main.c",
+                                         project_name="test_target",
+                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                                         )
+        results: bool = Main.detection(project, 0.95)
+        Main.__generate_vhdl(results)
 
         project = CCSProject(source_file="main.c",
                              project_name="test_target",
@@ -102,7 +102,7 @@ class Main:
         if detection_results:
             vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=project)
             vhdl_parser_generator.generate_vhdl()
-            zip_name: str = ""
+            zip_name: str = "detection_demo"
             package_zipper: PackageZipper = PackageZipper()
             package_zipper.zip_vhdl(zip_file_name=zip_name)
             StaticUtilities.logger.info(f"VHDL generated: \\generated_vhdl\\{zip_name}.zip")
@@ -115,7 +115,7 @@ class Main:
         For debug of this project's workflow and functionality.
         :return: None.
         """
-        StaticUtilities.logger.setLevel(logging.INFO)
+        StaticUtilities.logger.setLevel(logging.DEBUG)
 
         StaticUtilities.logger.warning("Testing No Attacks")
         Detection.reset_test_project()
@@ -224,5 +224,5 @@ class Main:
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.keyboard_control()
+    main.demo()
     # Detection.reset_test_project()
