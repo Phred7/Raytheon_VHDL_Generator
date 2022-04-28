@@ -75,23 +75,24 @@ class Main:
         For demoing instrumentation and detection.
         :return: None.
         """
-        StaticUtilities.logger.setLevel(logging.DEBUG)
+        StaticUtilities.logger.setLevel(logging.INFO)
         Detection.reset_test_project()
         project: CCSProject = CCSProject(source_file="main.c",
                                          project_name="test_target",
                                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
                                          )
         results: bool = Main.detection(project, 0.95)
-        Main.__generate_vhdl(results)
+        # Main.__generate_vhdl(results)
 
         project = CCSProject(source_file="main.c",
                              project_name="test_target",
                              path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
                              )
+        StaticUtilities.logger.info("Instrumenting")
         instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
         instrumentation.instrument()
         results: bool = Main.detection(project, 0.35)
-        Main.__generate_vhdl(results)
+        # Main.__generate_vhdl(results)
 
     @staticmethod
     def __generate_vhdl(detection_results: bool) -> None:
@@ -102,10 +103,10 @@ class Main:
         if detection_results:
             vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=project)
             vhdl_parser_generator.generate_vhdl()
-            zip_name: str = "detection_demo"
-            package_zipper: PackageZipper = PackageZipper()
-            package_zipper.zip_vhdl(zip_file_name=zip_name)
-            StaticUtilities.logger.info(f"VHDL generated: \\generated_vhdl\\{zip_name}.zip")
+            # zip_name: str = "detection_demo"
+            # package_zipper: PackageZipper = PackageZipper()
+            # package_zipper.zip_vhdl(zip_file_name=zip_name)
+            # StaticUtilities.logger.info(f"VHDL generated: \\generated_vhdl\\{zip_name}.zip")
         else:
             StaticUtilities.logger.error(f"VHDL did not generate. Possible malware detected.")
 
@@ -223,6 +224,7 @@ class Main:
 
 
 if __name__ == '__main__':
+    Detection.reset_test_project()
     main: Main = Main()
     main.demo()
-    # Detection.reset_test_project()
+
