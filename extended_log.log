@@ -8629,3 +8629,104 @@ line 29:
 
 
 2022-04-27 21:30:29,367 ERROR main __generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-27 21:59:34,926 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-27 21:59:34,927 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-27 21:59:34,927 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-27 21:59:34,928 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-27 21:59:34,928 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-27 21:59:34,928 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-27 21:59:34,929 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-27 21:59:34,930 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-27 21:59:34,930 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-27 21:59:34,930 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-27 21:59:34,945 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-27 21:59:34,945 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-27 21:59:34,945 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-27 21:59:34,946 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-27 21:59:34,947 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-27 21:59:34,948 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-27 21:59:34,948 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-27 21:59:34,954 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-27 21:59:34,954 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-27 21:59:34,959 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-27 21:59:34,960 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-27 21:59:34,965 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-27 21:59:34,965 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-04-27 21:59:34,967 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-04-27 21:59:34,967 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-04-27 21:59:34,968 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-04-27 21:59:34,968 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-04-27 21:59:34,969 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-04-27 21:59:34,969 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-04-27 21:59:34,970 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-04-27 21:59:34,971 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-04-27 21:59:34,973 INFO package_zipper zip_vhdl Created zip .zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\\generated_vhdl containing 8 files
+2022-04-27 22:00:40,340 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-27 22:00:40,350 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-27 22:16:18,623 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-04-27 22:16:18,624 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-04-27 22:16:18,624 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-04-27 22:16:18,625 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-04-27 22:16:18,625 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-04-27 22:16:18,625 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-04-27 22:16:18,626 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-04-27 22:16:18,626 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-04-27 22:16:18,626 DEBUG disassembler __init__ Disassembler object initialized
+2022-04-27 22:16:18,627 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-04-27 22:16:18,639 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-04-27 22:16:18,639 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-04-27 22:16:18,639 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-04-27 22:16:18,640 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-04-27 22:16:18,640 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-04-27 22:16:18,641 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-04-27 22:16:18,641 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-04-27 22:16:18,643 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-04-27 22:16:18,644 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-04-27 22:16:18,646 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-04-27 22:16:18,646 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-04-27 22:16:18,648 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-04-27 22:16:18,648 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 22:16:18,649 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 22:16:24,524 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-27 22:16:24,534 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 22:16:24,535 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 22:16:24,536 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 22:16:28,232 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-27 22:16:28,260 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to keyboard_control_vCapstone
+2022-04-27 22:16:29,971 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-27 22:16:32,172 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-27 22:16:32,173 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-27 22:18:02,475 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 22:18:02,475 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 22:18:04,643 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 22:18:04,644 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 22:18:04,645 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 22:22:20,334 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 22:22:20,335 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 22:22:22,537 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 22:22:22,538 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 22:22:22,539 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 22:22:26,258 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-27 22:22:26,285 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to keyboard_control_vCapstone
+2022-04-27 22:22:27,874 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-27 22:22:30,402 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-27 22:22:30,402 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-27 22:25:50,930 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-27 22:25:50,931 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-27 22:25:53,117 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-27 22:25:53,118 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-27 22:25:53,119 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-27 22:25:56,762 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-27 22:25:56,787 DEBUG instrumentation __copy_phantom_binary_and_dependencies_to_ccs_project__ Phantom C build copied to keyboard_control_vCapstone
+2022-04-27 22:25:58,338 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-27 22:26:00,929 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-27 22:26:00,929 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-27 22:29:37,377 INFO main <module> **** VHDL Generation Started ****
+2022-04-27 22:29:47,807 INFO main <module> **** VHDL Generation Complete ****
+2022-04-27 22:29:52,199 INFO main <module> **** VHDL Generation Started ****
+2022-04-27 22:29:52,200 INFO main <module> **** VHDL Generation Complete ****
+2022-04-27 22:32:48,229 INFO main <module> **** VHDL Generation Started ****
+2022-04-27 22:32:58,154 INFO main <module> **** VHDL Generation Complete ****
+2022-04-27 22:35:47,437 INFO main <module> **** VHDL Generation Started ****
+2022-04-27 22:35:52,819 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-27 22:36:00,580 INFO main <module> **** VHDL Generation Complete ****

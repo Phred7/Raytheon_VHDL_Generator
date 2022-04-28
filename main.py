@@ -176,12 +176,14 @@ class Main:
         Generates VHDL for a source file. Bypasses the rest of the toolchain.
         :return: None.
         """
-        ccs_project: CCSProject = CCSProject(project_name="test_C", source_file="test_C.c",
-                                             path=f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C")
+        ccs_project = CCSProject(source_file="keyboard_control_main_capstone.c",
+                                 project_name="keyboard_control_vCapstone",
+                                 path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"
+                                 )
         vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
         vhdl_parser_generator.generate_vhdl()
-        package_zipper: PackageZipper = PackageZipper()
-        package_zipper.zip_vhdl(zip_file_name="")
+        # package_zipper: PackageZipper = PackageZipper()
+        # package_zipper.zip_vhdl(zip_file_name="")
 
     @staticmethod
     def generate() -> None:
@@ -230,7 +232,10 @@ class Main:
 
 
 if __name__ == '__main__':
+    StaticUtilities.logger.setLevel(logging.INFO)
+    StaticUtilities.logger.info("**** VHDL Generation Started ****")
     main: Main = Main()
-    # main.keyboard_control()
-    main.reset_keyboard_control()
-
+    # main.generate_vhdl_exclusively()
+    main.keyboard_control()
+    # main.reset_keyboard_control()
+    StaticUtilities.logger.info("**** VHDL Generation Complete ****")

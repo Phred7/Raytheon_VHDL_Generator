@@ -82,7 +82,7 @@ class Instrumentation:
                 # build phantom project
                 self.__build_phantom_project__()
                 # copy binary and dependencies to actual ccs project
-                self.__copy_phantom_binary_and_dependencies_to_ccs_project__()
+                # self.__copy_phantom_binary_and_dependencies_to_ccs_project__()
                 # copy src code from phantom and backup original
                 shutil.copyfile(f"{self.project.path}\\{self.project.source_file}",
                                 f"{self.project.path}\\{self.project.source_file}.bak")
