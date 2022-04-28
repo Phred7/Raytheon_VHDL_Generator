@@ -22,7 +22,7 @@ class PackageZipper:
         self.vhdl_directory: str = rf'\generated_vhdl'
         StaticUtilities.logger.debug(f"{PackageZipper.__name__} object initialized")
 
-    def _zip_write(self, zip_file: ZipFile, file_to_write) -> None:
+    def _zip_write(self, zip_file: ZipFile, file_to_write: str) -> None:
         """
         Writes a file to an existing ZipFile.
         :param zip_file: Instance of ZipFile.

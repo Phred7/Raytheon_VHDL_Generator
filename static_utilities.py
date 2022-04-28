@@ -300,7 +300,7 @@ class StaticUtilities:
             sys.stdout = original_stdout
 
     @staticmethod
-    def extract_zip(path_to_zip: str, extraction_directory) -> None:
+    def extract_zip(path_to_zip: str, extraction_directory: str) -> None:
         import zipfile
         with zipfile.ZipFile(path_to_zip, 'r') as zip_reference:
             zip_reference.extractall(extraction_directory)

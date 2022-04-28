@@ -448,25 +448,6 @@ constant ROM : rom_type :=("""
         return f"""{self.memory_indent}others => x"00");"""
 
     @staticmethod
-    def get_vhdl_reset_vector() -> str:
-        """
-        Gets the str representation of the vhdl reset vectors (interrupts).
-        :return: str representation of the vhdl reset vectors (interrupts).
-        """
-        return "-- o.g. reset--"
-        # return """
-        #                    65534 =>  x"00",\t\t-- Reset Vector = xFFFE:xFFFF
-        #                    65535 =>  x"80",\t\t--  Startup Value = x8000"""
-
-    @staticmethod
-    def get_interrupt_vectors() -> str:
-        """
-        Gets the string representation of all interrupt vectors for the MSP430FR2355.
-        """
-        return """
-        """
-
-    @staticmethod
     def get_vhdl_local_en_process() -> str:
         """
         Gets the str representation of the vhdl local en process.
