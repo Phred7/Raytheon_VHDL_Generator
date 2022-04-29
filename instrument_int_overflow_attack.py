@@ -71,6 +71,7 @@ class IntOverflowAttack(InstrumentationStrategy):
             for line_index, line in enumerate(lines):
                 integer = integer_tup[1]
                 if InstrumentationStrategy.line_of_c_code_contains_comparison(line) and integer in line:
+                    found_int_comparison = True
                     lines[line_index] = f"{integer} = {integer} + INT_MAX;\n{line}"
 
         if not found_sensitive_operation and not found_int_comparison:

@@ -8917,3 +8917,69 @@ line 135:
 2022-04-28 19:15:53,071 DEBUG instrumentation instrument **** Instrumentation Build Started ****
 2022-04-28 19:16:03,689 DEBUG instrumentation instrument Phantom workspace unhidden
 2022-04-28 19:16:03,692 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:28:23,189 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:28:23,190 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:28:23,190 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:28:28,742 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:28:28,745 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:28:28,792 DEBUG instrument_int_overflow_attack instrument No sensitive operations or comparisons using integers found.
+2022-04-28 19:28:28,793 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c failed
+2022-04-28 19:28:35,687 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-28 19:28:35,701 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:28:35,702 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:28:35,702 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:28:35,703 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:28:35,703 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:28:35,703 DEBUG main detection Project Hash: 58c66e1be56c31aa97f1a204ea6be2f8467c2d3c8f3456f44f076562b9d65f6a
+2022-04-28 19:28:35,706 INFO main detection No malware found
+2022-04-28 19:29:01,772 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:29:05,322 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:29:05,323 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:29:15,046 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-28 19:29:15,724 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:29:15,726 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:35:20,755 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:35:25,433 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:35:25,433 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:35:25,434 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:35:30,621 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:35:30,624 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:35:30,641 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 19:35:36,949 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 19:35:44,067 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-28 19:35:44,079 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:35:48,151 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 19:35:48,151 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:35:48,152 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:35:48,152 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:35:48,152 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:35:48,153 DEBUG main detection Project Hash: 7173f857d9df119fcba61a9243d5d9d4ebf42bf45798a7d747adee1d8ef4d882
+2022-04-28 19:35:48,156 INFO main detection No malware found
+2022-04-28 19:45:10,116 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:45:10,116 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:45:10,117 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:45:15,850 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:45:15,852 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:45:15,935 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 19:45:22,755 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 19:45:28,803 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:45:33,640 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 19:45:33,641 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:45:33,641 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:45:33,641 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:45:33,642 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:45:33,643 DEBUG main detection Project Hash: 7173f857d9df119fcba61a9243d5d9d4ebf42bf45798a7d747adee1d8ef4d882
+2022-04-28 19:45:33,650 WARNING main detection Possible malware detected
+line 0:
+	IntOverflowAttack: + INT_MAX. --math operation being preformed with INT_MAX--
+
+line 1:
+	IntOverflowAttack: + INT_MAX. --math operation being preformed with INT_MAX--
+
+line 2:
+	IntOverflowAttack: + INT_MAX. --math operation being preformed with INT_MAX--
+
+line 176:
+	IntOverflowAttack: + INT_MAX. --math operation being preformed with INT_MAX--
+
+

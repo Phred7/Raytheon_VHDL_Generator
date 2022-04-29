@@ -65,8 +65,8 @@ class Instrumentation:
             # TODO: rather than building the phantom project why not build the phantom project to verify that no errors exist and then copy just the src back to the original and build again there.
 
             # un hide the phantom workspace - skipping this step may cause permission issues
-            self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
-                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=False)
+            # self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
+            #     directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=False)
             StaticUtilities.logger.debug("Phantom workspace unhidden")
             # generate phantom workspace and project/s
             self.__generate_phantom_workspace_and_projects__()
@@ -92,8 +92,8 @@ class Instrumentation:
                 StaticUtilities.logger.debug(f"Instrumentation on {self.project.source_file} failed")
 
         finally:
-            self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
-                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=True)
+            # self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
+            #    directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=True)
             StaticUtilities.logger.debug("Phantom workspace hidden")
         if instrumentation_result:
             self.build_ccs_project(self.project)
