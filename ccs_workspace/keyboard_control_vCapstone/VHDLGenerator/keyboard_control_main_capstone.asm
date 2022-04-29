@@ -1,6 +1,6 @@
 ;******************************************************************************
 ;* MSP430 G3 C/C++ Codegen                                              PC v20.2.5.LTS *
-;* Date/Time created: Wed Apr 27 22:35:46 2022                                *
+;* Date/Time created: Thu Apr 28 19:05:46 2022                                *
 ;******************************************************************************
 	.compiler_opts --abi=eabi --diag_wrap=off --hll_source=on --mem_model:code=small --mem_model:data=small --object_format=elf --silicon_version=msp --symdebug:dwarf --symdebug:dwarf_version=3 
 
@@ -394,7 +394,7 @@ $C$DW$32	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$32, DW_AT_decl_line(0x17)
 	.dwattr $C$DW$32, DW_AT_decl_column(0x17)
 
-;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{6D409174-FFA1-4CB9-BDD3-E25B3A9340B3} 
+;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{833B93EE-1DF0-4933-A7DD-7F13DA132D41} 
 	.sect	".text:configTimer"
 	.clink
 	.global	configTimer

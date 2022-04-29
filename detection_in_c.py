@@ -80,7 +80,7 @@ class DetectionInC(DetectionStrategy):
         insecure_patterns: List[str] = [r"(|\b|vsn|sn|vf|s|f|v)printf?\(", "(%08x\.){30,}"]
         insecure_patterns_flags: List[int] = [0, (re.S + re.X)]
         insecure_patterns_recommended_replacement_dict: Dict[str, str] = {
-            insecure_patterns[0]: "--print f--",
+            insecure_patterns[0]: "--print f may be exploited--",
             insecure_patterns[1]: "--this value is repeated more than 30 times in a row. This data was probably injected.--"}
 
         detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns,
@@ -108,4 +108,11 @@ class DetectionInC(DetectionStrategy):
         Attempts to detect an injection attack in this ccs_project.
         :return: True if an injection attack was detected in this file. Otherwise, False.
         """
-        return False
+        insecure_patterns: List[str] = [r"if (sw_trigger_flag == 0x01) {P3OUT |= BIT2;}"]
+        insecure_patterns_flags: List[int] = [0]
+        insecure_patterns_recommended_replacement_dict: Dict[str, str] = {
+            insecure_patterns[0]: "----"}
+        detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns,
+                                                                                               insecure_patterns_flags)
+        return self.__detection_return_logic__(detected_patterns_dict, insecure_patterns_recommended_replacement_dict,
+                                               "InjectionAttack")

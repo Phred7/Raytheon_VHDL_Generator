@@ -8732,3 +8732,188 @@ line 29:
 2022-04-27 22:36:00,580 INFO main <module> **** VHDL Generation Complete ****
 2022-04-27 22:38:15,357 INFO main <module> **** VHDL Generation Started ****
 2022-04-27 22:38:15,357 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 18:39:58,622 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 18:40:19,166 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 18:40:19,170 INFO main detection No malware found
+2022-04-28 18:40:46,762 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 18:40:46,763 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-28 18:40:46,763 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 18:40:51,581 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 18:40:51,582 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 18:40:51,583 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 18:40:58,246 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 18:41:03,214 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 18:41:07,466 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 18:41:07,466 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 18:41:07,466 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 18:41:07,467 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 18:41:07,467 DEBUG detection __init__ Detection object initialized
+2022-04-28 18:41:07,468 DEBUG main detection Project Hash: 7e04b74dd521efb0f70852dacd3011c5d3b2a903ea7321e0bdfc762401b1a535
+2022-04-28 18:41:07,471 INFO main detection No malware found
+2022-04-28 18:43:25,578 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 18:43:25,579 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-28 18:43:25,580 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 18:43:29,972 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 18:43:29,981 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 18:43:29,986 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 18:43:36,621 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 18:43:41,342 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 18:43:45,533 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 18:43:45,533 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 18:43:45,533 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type AllInstrumentationStrategies initialized
+2022-04-28 18:43:45,534 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 18:43:52,347 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-28 18:43:52,362 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 18:43:52,364 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 18:43:52,364 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-28 18:43:52,364 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 18:43:52,364 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-04-28 18:43:52,379 DEBUG instrument_int_overflow_attack instrument No sensitive operations or comparisons using integers found.
+2022-04-28 18:43:52,392 INFO instrument_string_format_attack instrument No print functions found in file.
+2022-04-28 18:43:52,392 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 18:43:58,696 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 18:44:03,975 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 18:44:08,204 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 18:44:08,205 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 18:44:08,205 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 18:44:08,205 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 18:44:08,205 DEBUG detection __init__ Detection object initialized
+2022-04-28 18:44:08,206 DEBUG main detection Project Hash: daf7d4be73fd57d78118c3ec817b45ee077f7a870d8d306bea23e4f11d881698
+2022-04-28 18:44:08,209 WARNING main detection Possible malware detected
+line 1:
+	BufferOverflowAttack: string.h. --string.h contains functions that can be exploited.--
+
+line 2:
+	BufferOverflowAttack: (char* target) {. --Char*'s may be used without specifying a buffer size--
+
+line 3:
+	BufferOverflowAttack: strcpy(. --replace with strncpy or another safe function--
+
+
+2022-04-28 19:04:20,798 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:04:20,799 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type AllInstrumentationStrategies initialized
+2022-04-28 19:04:20,799 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:04:25,191 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:04:25,192 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:04:25,192 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type BufferOverflowAttack initialized
+2022-04-28 19:04:25,192 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:04:25,193 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type StringFormatAttack initialized
+2022-04-28 19:04:25,202 DEBUG instrument_int_overflow_attack instrument No sensitive operations or comparisons using integers found.
+2022-04-28 19:04:25,212 INFO instrument_string_format_attack instrument No print functions found in file.
+2022-04-28 19:04:25,212 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 19:04:31,250 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 19:04:36,049 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:04:40,176 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 19:04:40,176 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:04:40,176 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:04:40,177 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:04:40,177 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:04:40,178 DEBUG main detection Project Hash: e5686356186375b428a12b1764a74e86939363c88b909fc33f9d1212f5c21b63
+2022-04-28 19:04:40,181 WARNING main detection Possible malware detected
+line 1:
+	BufferOverflowAttack: string.h. --string.h contains functions that can be exploited.--
+
+line 2:
+	BufferOverflowAttack: (char* target) {. --Char*'s may be used without specifying a buffer size--
+
+line 3:
+	BufferOverflowAttack: strcpy(. --replace with strncpy or another safe function--
+
+
+2022-04-28 19:04:56,082 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:04:56,084 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-28 19:04:56,084 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:05:00,817 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:05:00,819 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:05:00,821 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 19:05:07,284 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 19:05:12,188 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:05:16,325 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 19:05:16,325 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:05:16,325 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:05:16,325 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:05:16,326 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:05:16,326 DEBUG main detection Project Hash: 7e04b74dd521efb0f70852dacd3011c5d3b2a903ea7321e0bdfc762401b1a535
+2022-04-28 19:05:16,329 WARNING main detection Possible malware detected
+line 129:
+	InjectionAttack: = BIT2;}. ----
+
+line 135:
+	InjectionAttack: = BIT2;}. ----
+
+
+2022-04-28 19:05:47,359 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:05:47,360 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-28 19:05:47,361 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:05:52,017 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:05:52,023 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:05:52,027 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 19:05:58,740 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 19:06:03,502 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:06:07,656 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 19:06:07,657 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:06:07,657 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:06:07,657 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:06:07,657 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:06:07,658 DEBUG main detection Project Hash: 7e04b74dd521efb0f70852dacd3011c5d3b2a903ea7321e0bdfc762401b1a535
+2022-04-28 19:06:07,662 WARNING main detection Possible malware detected
+line 129:
+	InjectionAttack: = BIT2;}. ----
+
+line 135:
+	InjectionAttack: = BIT2;}. ----
+
+
+2022-04-28 19:09:02,958 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:09:04,783 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-28 19:09:04,784 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:09:14,779 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:09:14,782 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:09:14,784 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 19:09:21,987 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 19:09:33,246 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:09:38,884 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 19:09:38,884 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:09:38,885 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:09:38,886 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:09:38,887 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:09:38,888 DEBUG main detection Project Hash: 08ab6bf72f41cf02730998c39597098674a79f2dfa8ff3818a73b3614551bc04
+2022-04-28 19:09:38,901 INFO main detection No malware found
+2022-04-28 19:10:38,216 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:10:38,217 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type SWTriggeredFailure initialized
+2022-04-28 19:10:38,218 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:10:43,374 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:10:43,381 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:10:43,386 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 19:10:49,650 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 19:10:56,835 DEBUG static_utilities _mp_hide_directory Caught <class '_queue.Empty'> exception in _mp_hide_directory
+2022-04-28 19:10:56,850 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:11:01,000 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 19:11:01,001 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:11:01,001 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:11:01,001 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:11:01,002 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:11:01,002 DEBUG main detection Project Hash: 26f2421526f7c26448e13aea233e07471394cae8e49e1a5cad50915cdacd6d13
+2022-04-28 19:11:01,005 INFO main detection No malware found
+2022-04-28 19:15:09,018 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:15:09,019 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:15:09,019 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:15:13,745 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:15:13,747 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:15:13,827 DEBUG instrument_int_overflow_attack instrument No sensitive operations or comparisons using integers found.
+2022-04-28 19:15:13,829 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c failed
+2022-04-28 19:15:18,737 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:15:18,738 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:15:18,738 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:15:18,739 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:15:18,739 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:15:18,740 DEBUG main detection Project Hash: 58c66e1be56c31aa97f1a204ea6be2f8467c2d3c8f3456f44f076562b9d65f6a
+2022-04-28 19:15:18,748 INFO main detection No malware found
+2022-04-28 19:15:33,059 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:15:33,060 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:15:33,061 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:15:49,709 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:15:53,070 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:15:53,071 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:16:03,689 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:16:03,692 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone

@@ -15,7 +15,7 @@ from disassembler import Disassembler
 from instrument_all_strategies import AllInstrumentationStrategies
 from instrument_buffer_overflow_attack import BufferOverflowAttack
 from instrument_string_format_attack import StringFormatAttack
-from instrument_sw_trigged_failure import SWTriggeredFailure
+from instrument_sw_triggered_failure import SWTriggeredFailure
 from instrumentation import Instrumentation
 from instrument_int_overflow_attack import IntOverflowAttack
 from package_zipper import PackageZipper
@@ -232,10 +232,21 @@ class Main:
 
 
 if __name__ == '__main__':
-    StaticUtilities.logger.setLevel(logging.INFO)
-    StaticUtilities.logger.info("**** VHDL Generation Started ****")
     main: Main = Main()
+    main.reset_keyboard_control()
+    project = CCSProject(source_file="keyboard_control_main_capstone.c",
+                         project_name="keyboard_control_vCapstone",
+                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"
+                         )
+    StaticUtilities.logger.setLevel(logging.DEBUG)
+    StaticUtilities.logger.info("**** VHDL Generation Started ****")
+
     # main.generate_vhdl_exclusively()
-    main.keyboard_control()
+    # main.keyboard_control()
+    # instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
+    instrumentation = Instrumentation(project, IntOverflowAttack())
+    instrumentation.instrument()
     # main.reset_keyboard_control()
     StaticUtilities.logger.info("**** VHDL Generation Complete ****")
+
+    results: bool = Main.detection(project, 0.35)

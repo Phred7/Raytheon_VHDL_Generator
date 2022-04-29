@@ -24,22 +24,22 @@ class SWTriggeredFailure(InstrumentationStrategy):
             sw_config_flag: bool = False
             sw_isr_flag: bool = False
             for line in file_to_instrument_iterable:
-                if not global_trigger and "void" in line:
-                    global_trigger = True
-                    output_file_str += f"{self.sw_trigger_global()}\n{line}"
-                elif not sw_config_flag and "TB0CCTL1 &= ~CCIFG;" in line:
+                # if not global_trigger and "void" in line:
+                #     global_trigger = True
+                #     output_file_str += f"{self.sw_trigger_global()}\n{line}"
+                if not sw_config_flag and "TB0CCTL1 &= ~CCIFG;" in line:
                     sw_config_flag = True
                     output_file_str += line
                     output_file_str += self.sw_config()
-                elif not sw_isr_flag and "//-- END ISR_EUSCI_A1" in line:
-                    sw_isr_flag = True
-                    output_file_str += f"{line}{self.sw_isr()}"
+                # elif not sw_isr_flag and "//-- END ISR_EUSCI_A1" in line:
+                #     sw_isr_flag = True
+                #     output_file_str += f"{line}{self.sw_isr()}"
                 elif "UCA1RXBUF == '1'" in line:
-                    output_file_str += f"{line}{'if (sw_trigger_flag == 0x01) {P3OUT |= BIT2;}'}\n"
+                    output_file_str += f"{line}{'P3OUT |= BIT2; // This line has been instrumented for the purposes of this demo'}\n"
                 elif "UCA1RXBUF == '2'" in line:
-                    output_file_str += f"{line}{'if (sw_trigger_flag == 0x01) {P3OUT &= ~BIT2;}'}\n"
+                    output_file_str += f"{line}{'P3OUT &= ~BIT2; // This line has been instrumented for the purposes of this demo'}\n"
                 elif "UCA1RXBUF == '3'" in line:
-                    output_file_str += f"{line}{'if (sw_trigger_flag == 0x01) {P3OUT |= BIT2;}'}\n"
+                    output_file_str += f"{line}{'P3OUT |= BIT2; // This line has been instrumented for the purposes of this demo'}\n"
                 else:
                     output_file_str += line
 
@@ -57,15 +57,9 @@ class SWTriggeredFailure(InstrumentationStrategy):
 
     def sw_config(self) -> str:
         return """
-    P3DIR |= BIT2;
-	P3OUT &= ~BIT2;
-    // SW1 config
-    P4DIR &= ~BIT1;             // Clear P4.1 (SW1) dir = in
-    P4REN |= BIT1;              // Enable pull up/down res
-    P4OUT |= BIT1;              // Make res pull up
-    P4IES |= BIT1;              // Config IRQ H->L
-    P4IFG &= ~BIT1;             // Clear P4.1 IRQ flag
-    P4IE |= BIT1;               // Enable P4.1 IRQ"""
+P3DIR |= BIT2; // This line has been instrumented for the purposes of this demo
+P3OUT &= ~BIT2; // This line has been instrumented for the purposes of this demo
+"""
 
     def sw_isr(self) -> str:
         return """

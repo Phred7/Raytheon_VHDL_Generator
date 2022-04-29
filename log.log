@@ -1,2 +1,5 @@
-2022-04-27 22:38:15,357 INFO main <module> **** VHDL Generation Started ****
-2022-04-27 22:38:15,357 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:15:49,709 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:15:53,070 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:15:53,071 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:16:03,689 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:16:03,692 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
