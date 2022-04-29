@@ -98,7 +98,7 @@ class DetectionInC(DetectionStrategy):
             insecure_patterns[0]: "--malloc or calloc operation detected--",
             insecure_patterns[1]: "--realloc operation detected--",
             insecure_patterns[2]: "--strncpy, strncat or strncmp operation detected--",
-            insecure_patterns[3]: "--math operation being preformed with INT_MAX--"}
+            insecure_patterns[3]: "--math operation being performed with INT_MAX--"}
         detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns,
                                                                                                insecure_patterns_flags)
         return self.__detection_return_logic__(detected_patterns_dict, insecure_patterns_recommended_replacement_dict,
