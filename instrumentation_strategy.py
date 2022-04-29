@@ -45,7 +45,10 @@ class InstrumentationStrategy(ABC):
         line = line.split("=")[0]
 
         for c_type in c_types:
-            line = line.replace(c_type, "")
+            if c_type in line:
+                index = line.index(c_type) + len(c_type)
+                line = line[index+1:]
+
         line = line.replace(" ", "").replace(";", "").replace("\t", "").replace("\n", "")
         return line
 
