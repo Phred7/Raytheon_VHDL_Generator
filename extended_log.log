@@ -8983,3 +8983,84 @@ line 176:
 	IntOverflowAttack: + INT_MAX. --math operation being preformed with INT_MAX--
 
 
+2022-04-28 19:50:24,266 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:50:24,267 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:50:24,267 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:50:24,267 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:50:24,268 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:50:55,998 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:50:55,999 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:50:55,999 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:51:00,755 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:51:00,760 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:51:00,873 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 19:51:06,853 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 19:51:06,855 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:51:10,871 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 19:51:10,871 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:51:10,871 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:51:10,871 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:51:10,872 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:51:10,872 DEBUG main detection Project Hash: 24bba5b67c09a7b820c5d9d2e5794efbfab3a605b58ea137c4062639c7532fc6
+2022-04-28 19:51:10,876 WARNING main detection Possible malware detected
+line 173:
+	IntOverflowAttack: + INT_MAX. --math operation being preformed with INT_MAX--
+
+
+2022-04-28 19:52:25,751 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:52:25,751 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:52:25,752 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:52:30,429 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:52:30,430 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:52:30,454 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 19:52:36,402 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 19:52:36,405 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:52:40,507 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 19:52:40,507 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:52:40,507 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:52:40,508 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:52:40,508 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:52:40,508 DEBUG main detection Project Hash: 24bba5b67c09a7b820c5d9d2e5794efbfab3a605b58ea137c4062639c7532fc6
+2022-04-28 19:52:40,513 WARNING main detection Possible malware detected
+line 173:
+	IntOverflowAttack: + INT_MAX. --math operation being preformed with INT_MAX--
+
+
+2022-04-28 19:53:50,106 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:53:50,106 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:53:50,107 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:53:55,154 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:53:55,164 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:53:55,247 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 19:54:01,773 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 19:54:01,776 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:54:05,914 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 19:54:05,914 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:54:05,915 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:54:05,915 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:54:05,915 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:54:05,916 DEBUG main detection Project Hash: a242c38e2e0d88f60029fe73a04d202c6b8653cf615182641a58f0ac3924080d
+2022-04-28 19:54:05,921 WARNING main detection Possible malware detected
+line 113:
+	IntOverflowAttack: + INT_MAX. --math operation being preformed with INT_MAX--
+
+
+2022-04-28 19:54:47,031 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 19:54:47,032 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 19:54:47,032 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 19:54:52,408 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 19:54:52,410 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 19:54:52,508 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 19:54:59,397 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 19:54:59,400 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 19:55:03,411 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 19:55:03,411 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 19:55:03,411 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 19:55:03,412 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 19:55:03,412 DEBUG detection __init__ Detection object initialized
+2022-04-28 19:55:03,412 DEBUG main detection Project Hash: d8e7f5216f3deac93ba4b42dce69fe6289f1ab7f93227fa7bcf3170ea04cc90d
+2022-04-28 19:55:03,416 WARNING main detection Possible malware detected
+line 114:
+	IntOverflowAttack: + INT_MAX. --math operation being preformed with INT_MAX--
+
+

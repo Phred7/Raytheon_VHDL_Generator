@@ -72,13 +72,13 @@ class IntOverflowAttack(InstrumentationStrategy):
                 integer = integer_tup[1]
                 if InstrumentationStrategy.line_of_c_code_contains_comparison(line) and integer in line:
                     found_int_comparison = True
-                    lines[line_index] = f"{integer} = {integer} + INT_MAX;\n{line}"
+                    lines[line_index] = f"\n{integer} = {integer} + INT_MAX;\n{line}"
 
         if not found_sensitive_operation and not found_int_comparison:
             StaticUtilities.logger.debug("No sensitive operations or comparisons using integers found.")
             return False
 
-        new_text = "".join([line + "\n" for line in lines])
+        new_text = "".join([line + "" for line in lines])
         file = open(file_to_instrument, 'w')
         file.write(new_text)
         file.close()
