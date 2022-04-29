@@ -1,4 +1,3 @@
-#include <limits.h>
 #include <msp430.h> 
 
 
@@ -66,6 +65,9 @@ int main(void)
 	// Ports
 	P3DIR |= BIT0;              // Config P1.0 LED1 (Red) as out
 	P3OUT &= ~BIT0;             // Init val = 0
+	
+	P3DIR |= BIT2;
+    P3OUT &= ~BIT2;
 
 	configTimer();
 
@@ -113,19 +115,22 @@ __interrupt void ISR_EUSCI_A1(void) {
     int recieve;
     recieve = UCA1IFG;
     recieve &= UCRXIFG;
-recieve = recieve + INT_MAX;
-
 
     if (recieve == 1) {
         int reciever = UCA1RXBUF;
         if (UCA1RXBUF == '1') {
+            P3OUT |= BIT2;
             duty_cycle = 0x02BC;
         } else if (UCA1RXBUF == '2') {
+            P3OUT &= ~BIT2;
             duty_cycle = 0x05DC;
         } else if (UCA1RXBUF == '3') {
+            P3OUT |= BIT2;
             duty_cycle = 0x07D0;
         }
         UCA1IFG &= ~UCRXIFG;
     }
 
 }
+//-- END ISR_EUSCI_A1
+

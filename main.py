@@ -91,10 +91,10 @@ class Main:
         instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
         instrumentation.instrument()
         results: bool = Main.detection(project, 0.35)
-        Main.__generate_vhdl(results)
+        Main.generate_vhdl(results)
 
     @staticmethod
-    def __generate_vhdl(detection_results: bool) -> None:
+    def generate_vhdl(detection_results: bool) -> None:
         project: CCSProject = CCSProject(source_file="main.c",
                                          project_name="test_target",
                                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
@@ -124,7 +124,7 @@ class Main:
                                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
                                          )
         results: bool = Main.detection(project, 0.95)
-        Main.__generate_vhdl(results)
+        Main.generate_vhdl(results)
 
         StaticUtilities.logger.warning("Testing BufferOverflowAttack")
         project = CCSProject(source_file="main.c",
@@ -134,7 +134,7 @@ class Main:
         instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
         instrumentation.instrument()
         results: bool = Main.detection(project, 0.35)
-        Main.__generate_vhdl(results)
+        Main.generate_vhdl(results)
 
         StaticUtilities.logger.warning("Testing StringFormatAttack")
         Detection.reset_test_project()
@@ -145,7 +145,7 @@ class Main:
         instrumentation: Instrumentation = Instrumentation(project, StringFormatAttack())
         instrumentation.instrument()
         results: bool = Main.detection(project, 0.35)
-        Main.__generate_vhdl(results)
+        Main.generate_vhdl(results)
 
         StaticUtilities.logger.warning("Testing IntOverflowAttack")
         Detection.reset_test_project()
@@ -156,7 +156,7 @@ class Main:
         instrumentation: Instrumentation = Instrumentation(project, IntOverflowAttack())
         instrumentation.instrument()
         results: bool = Main.detection(project, 0.35)
-        Main.__generate_vhdl(results)
+        Main.generate_vhdl(results)
 
         StaticUtilities.logger.warning("Testing All Attacks at once")
         Detection.reset_test_project()
@@ -167,7 +167,7 @@ class Main:
         instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
         instrumentation.instrument()
         results: bool = Main.detection(project, 0.35)
-        Main.__generate_vhdl(results)
+        Main.generate_vhdl(results)
         return
 
     @staticmethod
@@ -232,21 +232,16 @@ class Main:
 
 
 if __name__ == '__main__':
+    # python C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\main.py
     main: Main = Main()
     main.reset_keyboard_control()
     project = CCSProject(source_file="keyboard_control_main_capstone.c",
                          project_name="keyboard_control_vCapstone",
                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"
                          )
-    StaticUtilities.logger.setLevel(logging.DEBUG)
+    StaticUtilities.logger.setLevel(logging.INFO)
     StaticUtilities.logger.info("**** VHDL Generation Started ****")
-
-    # main.generate_vhdl_exclusively()
-    # main.keyboard_control()
-    # instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
     instrumentation = Instrumentation(project, IntOverflowAttack())
     instrumentation.instrument()
-    # main.reset_keyboard_control()
-    StaticUtilities.logger.info("**** VHDL Generation Complete ****")
-
     results: bool = Main.detection(project, 0.35)
+    main.generate_vhdl(results)

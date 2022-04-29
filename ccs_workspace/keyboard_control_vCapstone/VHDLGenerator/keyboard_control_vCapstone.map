@@ -1,10 +1,10 @@
 ******************************************************************************
                   MSP430 Linker PC v20.2.5                     
 ******************************************************************************
->> Linked Thu Apr 28 19:58:33 2022
+>> Linked Thu Apr 28 21:04:43 2022
 
 OUTPUT FILE NAME:   <keyboard_control_vCapstone.out>
-ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 0000821e
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00008232
 
 
 MEMORY CONFIGURATION
@@ -17,7 +17,7 @@ MEMORY CONFIGURATION
   TLVMEM                00001a00   00000200  00000000  00000200  RWIX
   BOOTCODE              00001c00   00000400  00000000  00000400  RWIX
   RAM                   00002000   00001000  00000084  00000f7c  RWIX
-  FRAM                  00008000   00007f80  0000029c  00007ce4  RWIX
+  FRAM                  00008000   00007f80  000002b0  00007cd0  RWIX
   JTAGSIGNATURE         0000ff80   00000004  00000004  00000000  RWIX  ffff 
   BSLSIGNATURE          0000ff84   00000004  00000004  00000000  RWIX  ffff 
   BSLCONFIGURATIONSIGNA 0000ff88   00000002  00000002  00000000  RWIX  ffff 
@@ -106,28 +106,28 @@ section   page    origin      length       input sections
 
 .const     0    00008010    00000000     UNINITIALIZED
 
-.text      0    00008010    00000284     
+.text      0    00008010    00000298     
                   00008010    0000007c     rts430_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
-                  0000808c    00000054     keyboard_control_main_capstone.obj (.text:ISR_EUSCI_A1)
-                  000080e0    0000004c     rts430_eabi.lib : lsr16.asm.obj (.text)
-                  0000812c    00000042                     : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
-                  0000816e    00000036     keyboard_control_main_capstone.obj (.text:main)
-                  000081a4    0000002c     rts430_eabi.lib : lsl16.asm.obj (.text)
-                  000081d0    0000002a     keyboard_control_main_capstone.obj (.text:configUART)
-                  000081fa    00000024     keyboard_control_main_capstone.obj (.text:configTimer)
-                  0000821e    0000001c     rts430_eabi.lib : boot.c.obj (.text:_c_int00_noargs)
-                  0000823a    00000012                     : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
-                  0000824c    00000012                     : memcpy.c.obj (.text:memcpy)
-                  0000825e    00000010     keyboard_control_main_capstone.obj (.text:ISR_TB0CCR1)
-                  0000826e    00000010     rts430_eabi.lib : epilog.asm.obj (.text)
-                  0000827e    0000000a     keyboard_control_main_capstone.obj (.text:ISR_TB0CCR0)
-                  00008288    00000006     rts430_eabi.lib : exit.c.obj (.text:abort)
-                  0000828e    00000004                     : pre_init.c.obj (.text:_system_pre_init)
-                  00008292    00000002                     : startup.c.obj (.text:_system_post_cinit)
+                  0000808c    00000060     keyboard_control_main_capstone.obj (.text:ISR_EUSCI_A1)
+                  000080ec    0000004c     rts430_eabi.lib : lsr16.asm.obj (.text)
+                  00008138    00000042                     : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  0000817a    0000003e     keyboard_control_main_capstone.obj (.text:main)
+                  000081b8    0000002c     rts430_eabi.lib : lsl16.asm.obj (.text)
+                  000081e4    0000002a     keyboard_control_main_capstone.obj (.text:configUART)
+                  0000820e    00000024     keyboard_control_main_capstone.obj (.text:configTimer)
+                  00008232    0000001c     rts430_eabi.lib : boot.c.obj (.text:_c_int00_noargs)
+                  0000824e    00000012                     : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00008260    00000012                     : memcpy.c.obj (.text:memcpy)
+                  00008272    00000010     keyboard_control_main_capstone.obj (.text:ISR_TB0CCR1)
+                  00008282    00000010     rts430_eabi.lib : epilog.asm.obj (.text)
+                  00008292    0000000a     keyboard_control_main_capstone.obj (.text:ISR_TB0CCR0)
+                  0000829c    00000006     rts430_eabi.lib : exit.c.obj (.text:abort)
+                  000082a2    00000004                     : pre_init.c.obj (.text:_system_pre_init)
+                  000082a6    00000002                     : startup.c.obj (.text:_system_post_cinit)
 
 .text:_isr 
-*          0    00008294    00000008     
-                  00008294    00000008     rts430_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
+*          0    000082a8    00000008     
+                  000082a8    00000008     rts430_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
 
 .data      0    00002000    00000004     UNINITIALIZED
                   00002000    00000004     keyboard_control_main_capstone.obj (.data)
@@ -242,9 +242,9 @@ MODULE SUMMARY
        Module                               code   ro data   rw data
        ------                               ----   -------   -------
     .\
-       keyboard_control_main_capstone.obj   242    6         4      
+       keyboard_control_main_capstone.obj   262    6         4      
     +--+------------------------------------+------+---------+---------+
-       Total:                               242    6         4      
+       Total:                               262    6         4      
                                                                     
     C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\lib\rts430_eabi.lib
        copy_decompress_lzss.c.obj           124    0         0      
@@ -286,7 +286,7 @@ MODULE SUMMARY
        Stack:                               0      0         128    
        Linker Generated:                    0      16        0      
     +--+------------------------------------+------+---------+---------+
-       Grand Total:                         652    66        132    
+       Grand Total:                         672    66        132    
 
 
 LINKER GENERATED COPY TABLES
@@ -384,7 +384,7 @@ address   name
 00000672  BAKMEM9                       
 00000673  BAKMEM9_H                     
 00000672  BAKMEM9_L                     
-00008288  C$$EXIT                       
+0000829c  C$$EXIT                       
 000002ee  CAPTIOCTL                     
 000002ef  CAPTIOCTL_H                   
 000002ee  CAPTIOCTL_L                   
@@ -491,8 +491,8 @@ address   name
 000006c1  ICCSC_H                       
 000006c0  ICCSC_L                       
 0000808c  ISR_EUSCI_A1                  
-0000827e  ISR_TB0CCR0                   
-0000825e  ISR_TB0CCR1                   
+00008292  ISR_TB0CCR0                   
+00008272  ISR_TB0CCR1                   
 000004c4  MAC                           
 000004da  MAC32H                        
 000004db  MAC32H_H                      
@@ -1222,10 +1222,10 @@ address   name
 00008010  __TI_CINIT_Limit              
 00008008  __TI_Handler_Table_Base       
 0000800c  __TI_Handler_Table_Limit      
-00008294  __TI_ISR_TRAP                 
-0000812c  __TI_auto_init_nobinit_nopinit
+000082a8  __TI_ISR_TRAP                 
+00008138  __TI_auto_init_nobinit_nopinit
 00008010  __TI_decompress_lzss          
-0000823a  __TI_decompress_none          
+0000824e  __TI_decompress_none          
 0000ffce  __TI_int22                    
 0000ffd0  __TI_int23                    
 0000ffd2  __TI_int24                    
@@ -1254,58 +1254,58 @@ ffffffff  __TI_pprof_out_hndl
 ffffffff  __TI_prof_data_size           
 ffffffff  __TI_prof_data_start          
 ffffffff  __c_args__                    
-0000827a  __mspabi_func_epilog_1        
-00008278  __mspabi_func_epilog_2        
-00008276  __mspabi_func_epilog_3        
-00008274  __mspabi_func_epilog_4        
-00008272  __mspabi_func_epilog_5        
-00008270  __mspabi_func_epilog_6        
-0000826e  __mspabi_func_epilog_7        
-000081a4  __mspabi_slli                 
-000081cc  __mspabi_slli_1               
-000081ba  __mspabi_slli_10              
-000081b8  __mspabi_slli_11              
-000081b6  __mspabi_slli_12              
-000081b4  __mspabi_slli_13              
-000081b2  __mspabi_slli_14              
-000081b0  __mspabi_slli_15              
-000081ca  __mspabi_slli_2               
-000081c8  __mspabi_slli_3               
-000081c6  __mspabi_slli_4               
-000081c4  __mspabi_slli_5               
-000081c2  __mspabi_slli_6               
-000081c0  __mspabi_slli_7               
-000081be  __mspabi_slli_8               
-000081bc  __mspabi_slli_9               
-000080e0  __mspabi_srli                 
-00008126  __mspabi_srli_1               
-00008102  __mspabi_srli_10              
-000080fe  __mspabi_srli_11              
-000080fa  __mspabi_srli_12              
-000080f6  __mspabi_srli_13              
-000080f2  __mspabi_srli_14              
-000080ee  __mspabi_srli_15              
-00008122  __mspabi_srli_2               
-0000811e  __mspabi_srli_3               
-0000811a  __mspabi_srli_4               
-00008116  __mspabi_srli_5               
-00008112  __mspabi_srli_6               
-0000810e  __mspabi_srli_7               
-0000810a  __mspabi_srli_8               
-00008106  __mspabi_srli_9               
-0000821e  _c_int00_noargs               
+0000828e  __mspabi_func_epilog_1        
+0000828c  __mspabi_func_epilog_2        
+0000828a  __mspabi_func_epilog_3        
+00008288  __mspabi_func_epilog_4        
+00008286  __mspabi_func_epilog_5        
+00008284  __mspabi_func_epilog_6        
+00008282  __mspabi_func_epilog_7        
+000081b8  __mspabi_slli                 
+000081e0  __mspabi_slli_1               
+000081ce  __mspabi_slli_10              
+000081cc  __mspabi_slli_11              
+000081ca  __mspabi_slli_12              
+000081c8  __mspabi_slli_13              
+000081c6  __mspabi_slli_14              
+000081c4  __mspabi_slli_15              
+000081de  __mspabi_slli_2               
+000081dc  __mspabi_slli_3               
+000081da  __mspabi_slli_4               
+000081d8  __mspabi_slli_5               
+000081d6  __mspabi_slli_6               
+000081d4  __mspabi_slli_7               
+000081d2  __mspabi_slli_8               
+000081d0  __mspabi_slli_9               
+000080ec  __mspabi_srli                 
+00008132  __mspabi_srli_1               
+0000810e  __mspabi_srli_10              
+0000810a  __mspabi_srli_11              
+00008106  __mspabi_srli_12              
+00008102  __mspabi_srli_13              
+000080fe  __mspabi_srli_14              
+000080fa  __mspabi_srli_15              
+0000812e  __mspabi_srli_2               
+0000812a  __mspabi_srli_3               
+00008126  __mspabi_srli_4               
+00008122  __mspabi_srli_5               
+0000811e  __mspabi_srli_6               
+0000811a  __mspabi_srli_7               
+00008116  __mspabi_srli_8               
+00008112  __mspabi_srli_9               
+00008232  _c_int00_noargs               
 0000fffe  _reset_vector                 
 00002f80  _stack                        
-00008292  _system_post_cinit            
-0000828e  _system_pre_init              
-00008288  abort                         
-000081fa  configTimer                   
-000081d0  configUART                    
+000082a6  _system_post_cinit            
+000082a2  _system_pre_init              
+0000829c  abort                         
+0000820e  configTimer                   
+000081e4  configUART                    
 00002002  duty_cycle                    
 00008000  fram_rw_start                 
 00008000  fram_rx_start                 
-0000816e  main                          
-0000824c  memcpy                        
+0000817a  main                          
+00008260  memcpy                        
 00002000  period_T                      
 
 
@@ -2232,59 +2232,59 @@ address   name
 00008010  __TI_CINIT_Limit              
 00008010  __TI_decompress_lzss          
 0000808c  ISR_EUSCI_A1                  
-000080e0  __mspabi_srli                 
-000080ee  __mspabi_srli_15              
-000080f2  __mspabi_srli_14              
-000080f6  __mspabi_srli_13              
-000080fa  __mspabi_srli_12              
-000080fe  __mspabi_srli_11              
-00008102  __mspabi_srli_10              
-00008106  __mspabi_srli_9               
-0000810a  __mspabi_srli_8               
-0000810e  __mspabi_srli_7               
-00008112  __mspabi_srli_6               
-00008116  __mspabi_srli_5               
-0000811a  __mspabi_srli_4               
-0000811e  __mspabi_srli_3               
-00008122  __mspabi_srli_2               
-00008126  __mspabi_srli_1               
-0000812c  __TI_auto_init_nobinit_nopinit
-0000816e  main                          
-000081a4  __mspabi_slli                 
-000081b0  __mspabi_slli_15              
-000081b2  __mspabi_slli_14              
-000081b4  __mspabi_slli_13              
-000081b6  __mspabi_slli_12              
-000081b8  __mspabi_slli_11              
-000081ba  __mspabi_slli_10              
-000081bc  __mspabi_slli_9               
-000081be  __mspabi_slli_8               
-000081c0  __mspabi_slli_7               
-000081c2  __mspabi_slli_6               
-000081c4  __mspabi_slli_5               
-000081c6  __mspabi_slli_4               
-000081c8  __mspabi_slli_3               
-000081ca  __mspabi_slli_2               
-000081cc  __mspabi_slli_1               
-000081d0  configUART                    
-000081fa  configTimer                   
-0000821e  _c_int00_noargs               
-0000823a  __TI_decompress_none          
-0000824c  memcpy                        
-0000825e  ISR_TB0CCR1                   
-0000826e  __mspabi_func_epilog_7        
-00008270  __mspabi_func_epilog_6        
-00008272  __mspabi_func_epilog_5        
-00008274  __mspabi_func_epilog_4        
-00008276  __mspabi_func_epilog_3        
-00008278  __mspabi_func_epilog_2        
-0000827a  __mspabi_func_epilog_1        
-0000827e  ISR_TB0CCR0                   
-00008288  C$$EXIT                       
-00008288  abort                         
-0000828e  _system_pre_init              
-00008292  _system_post_cinit            
-00008294  __TI_ISR_TRAP                 
+000080ec  __mspabi_srli                 
+000080fa  __mspabi_srli_15              
+000080fe  __mspabi_srli_14              
+00008102  __mspabi_srli_13              
+00008106  __mspabi_srli_12              
+0000810a  __mspabi_srli_11              
+0000810e  __mspabi_srli_10              
+00008112  __mspabi_srli_9               
+00008116  __mspabi_srli_8               
+0000811a  __mspabi_srli_7               
+0000811e  __mspabi_srli_6               
+00008122  __mspabi_srli_5               
+00008126  __mspabi_srli_4               
+0000812a  __mspabi_srli_3               
+0000812e  __mspabi_srli_2               
+00008132  __mspabi_srli_1               
+00008138  __TI_auto_init_nobinit_nopinit
+0000817a  main                          
+000081b8  __mspabi_slli                 
+000081c4  __mspabi_slli_15              
+000081c6  __mspabi_slli_14              
+000081c8  __mspabi_slli_13              
+000081ca  __mspabi_slli_12              
+000081cc  __mspabi_slli_11              
+000081ce  __mspabi_slli_10              
+000081d0  __mspabi_slli_9               
+000081d2  __mspabi_slli_8               
+000081d4  __mspabi_slli_7               
+000081d6  __mspabi_slli_6               
+000081d8  __mspabi_slli_5               
+000081da  __mspabi_slli_4               
+000081dc  __mspabi_slli_3               
+000081de  __mspabi_slli_2               
+000081e0  __mspabi_slli_1               
+000081e4  configUART                    
+0000820e  configTimer                   
+00008232  _c_int00_noargs               
+0000824e  __TI_decompress_none          
+00008260  memcpy                        
+00008272  ISR_TB0CCR1                   
+00008282  __mspabi_func_epilog_7        
+00008284  __mspabi_func_epilog_6        
+00008286  __mspabi_func_epilog_5        
+00008288  __mspabi_func_epilog_4        
+0000828a  __mspabi_func_epilog_3        
+0000828c  __mspabi_func_epilog_2        
+0000828e  __mspabi_func_epilog_1        
+00008292  ISR_TB0CCR0                   
+0000829c  C$$EXIT                       
+0000829c  abort                         
+000082a2  _system_pre_init              
+000082a6  _system_post_cinit            
+000082a8  __TI_ISR_TRAP                 
 0000ffce  __TI_int22                    
 0000ffd0  __TI_int23                    
 0000ffd2  __TI_int24                    

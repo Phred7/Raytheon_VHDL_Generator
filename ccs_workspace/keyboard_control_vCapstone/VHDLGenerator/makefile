@@ -142,7 +142,6 @@ keyboard_control_vCapstone.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/cl430" -vmsp -Ooff --advice:power=all --define=__COLT430FR2355__ --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --diag_warning=225 --diag_wrap=off --display_error_number -k -z -m"keyboard_control_vCapstone.map" -i"C:/ti/ccs1040/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/lib" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="keyboard_control_vCapstone_linkInfo.xml" --rom_model -o "keyboard_control_vCapstone.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
-	@$(MAKE) --no-print-directory post-build
 
 keyboard_control_vCapstone.hex: $(EXE_OUTPUTS)
 	@echo 'Building secondary target: "$@"'
@@ -150,7 +149,6 @@ keyboard_control_vCapstone.hex: $(EXE_OUTPUTS)
 	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/hex430" --diag_wrap=off -o "keyboard_control_vCapstone.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building secondary target: "$@"'
 	@echo ' '
-	@$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
@@ -159,11 +157,6 @@ clean:
 	-$(RM) "keyboard_control_main_capstone.d" 
 	-$(RM) "keyboard_control_main_capstone.asm" 
 	-@echo 'Finished clean'
-	-@echo ' '
-
-post-build:
-	-@echo 'Gen VHDL'
-	-python C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\main.py
 	-@echo ' '
 
 .PHONY: all clean dependents

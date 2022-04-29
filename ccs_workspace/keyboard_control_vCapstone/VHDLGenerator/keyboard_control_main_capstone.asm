@@ -1,6 +1,6 @@
 ;******************************************************************************
 ;* MSP430 G3 C/C++ Codegen                                              PC v20.2.5.LTS *
-;* Date/Time created: Thu Apr 28 19:58:33 2022                                *
+;* Date/Time created: Thu Apr 28 21:04:42 2022                                *
 ;******************************************************************************
 	.compiler_opts --abi=eabi --diag_wrap=off --hll_source=on --mem_model:code=small --mem_model:data=small --object_format=elf --silicon_version=msp --symdebug:dwarf --symdebug:dwarf_version=3 
 
@@ -315,7 +315,7 @@ $C$DW$25	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$25, DW_AT_decl_line(0x15)
 	.dwattr $C$DW$25, DW_AT_decl_column(0x0e)
 
-;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{2F0F0C13-E36D-4F7C-BAB9-9533424A9A6D} 
+;	C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin\acpia430.exe -@C:\\Users\\wward\\AppData\\Local\\Temp\\{09D5067A-A949-4444-915A-37736696AE0C} 
 	.sect	".text:configTimer"
 	.clink
 	.global	configTimer
@@ -476,51 +476,55 @@ main:
 	.dwpsn	file "../keyboard_control_main_capstone.c",line 68,column 2,is_stmt,isa 0
         BIC.B     #1,&P3OUT+0           ; [] |68| 
 	.dwpsn	file "../keyboard_control_main_capstone.c",line 70,column 2,is_stmt,isa 0
+        OR.B      #4,&P3DIR+0           ; [] |70| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 71,column 5,is_stmt,isa 0
+        BIC.B     #4,&P3OUT+0           ; [] |71| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 73,column 2,is_stmt,isa 0
 $C$DW$31	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$31, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$31, DW_AT_name("configTimer")
 	.dwattr $C$DW$31, DW_AT_TI_call
 
-        CALL      #configTimer          ; [] |70| 
-                                          ; [] |70| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 72,column 2,is_stmt,isa 0
+        CALL      #configTimer          ; [] |73| 
+                                          ; [] |73| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 75,column 2,is_stmt,isa 0
 $C$DW$32	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$32, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$32, DW_AT_name("configUART")
 	.dwattr $C$DW$32, DW_AT_TI_call
 
-        CALL      #configUART           ; [] |72| 
-                                          ; [] |72| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 74,column 5,is_stmt,isa 0
-        BIC.W     #1,&PM5CTL0+0         ; [] |74| 
+        CALL      #configUART           ; [] |75| 
+                                          ; [] |75| 
 	.dwpsn	file "../keyboard_control_main_capstone.c",line 77,column 5,is_stmt,isa 0
-        OR.W      #1,&UCA1IE+0          ; [] |77| 
+        BIC.W     #1,&PM5CTL0+0         ; [] |77| 
 	.dwpsn	file "../keyboard_control_main_capstone.c",line 80,column 5,is_stmt,isa 0
-        OR.W      #16,&TB0CCTL0+0       ; [] |80| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 81,column 5,is_stmt,isa 0
-        BIC.W     #1,&TB0CCTL0+0        ; [] |81| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 82,column 5,is_stmt,isa 0
-        OR.W      #16,&TB0CCTL1+0       ; [] |82| 
+        OR.W      #1,&UCA1IE+0          ; [] |80| 
 	.dwpsn	file "../keyboard_control_main_capstone.c",line 83,column 5,is_stmt,isa 0
-        BIC.W     #1,&TB0CCTL1+0        ; [] |83| 
+        OR.W      #16,&TB0CCTL0+0       ; [] |83| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 84,column 5,is_stmt,isa 0
+        BIC.W     #1,&TB0CCTL0+0        ; [] |84| 
 	.dwpsn	file "../keyboard_control_main_capstone.c",line 85,column 5,is_stmt,isa 0
-        EINT      ; [] |85| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 87,column 11,is_stmt,isa 0
+        OR.W      #16,&TB0CCTL1+0       ; [] |85| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 86,column 5,is_stmt,isa 0
+        BIC.W     #1,&TB0CCTL1+0        ; [] |86| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 88,column 5,is_stmt,isa 0
+        EINT      ; [] |88| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 90,column 11,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 ;*   BEGIN LOOP $C$L1
 ;*
-;*   Loop source line                : 87
-;*   Loop closing brace source line  : 89
+;*   Loop source line                : 90
+;*   Loop closing brace source line  : 92
 ;*   Known Minimum Trip Count        : 1
 ;*   Known Maximum Trip Count        : 4294967295
 ;*   Known Max Trip Count Factor     : 1
 ;* --------------------------------------------------------------------------*
 $C$L1:    
-        JMP       $C$L1                 ; [] |87| 
-                                          ; [] |87| 
+        JMP       $C$L1                 ; [] |90| 
+                                          ; [] |90| 
 ;* --------------------------------------------------------------------------*
 	.dwattr $C$DW$30, DW_AT_TI_end_file("../keyboard_control_main_capstone.c")
-	.dwattr $C$DW$30, DW_AT_TI_end_line(0x5c)
+	.dwattr $C$DW$30, DW_AT_TI_end_line(0x5f)
 	.dwattr $C$DW$30, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$30
@@ -536,14 +540,14 @@ $C$DW$33	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$33, DW_AT_TI_symbol_name("ISR_TB0CCR0")
 	.dwattr $C$DW$33, DW_AT_external
 	.dwattr $C$DW$33, DW_AT_TI_begin_file("../keyboard_control_main_capstone.c")
-	.dwattr $C$DW$33, DW_AT_TI_begin_line(0x61)
+	.dwattr $C$DW$33, DW_AT_TI_begin_line(0x64)
 	.dwattr $C$DW$33, DW_AT_TI_begin_column(0x12)
 	.dwattr $C$DW$33, DW_AT_decl_file("../keyboard_control_main_capstone.c")
-	.dwattr $C$DW$33, DW_AT_decl_line(0x61)
+	.dwattr $C$DW$33, DW_AT_decl_line(0x64)
 	.dwattr $C$DW$33, DW_AT_decl_column(0x12)
 	.dwattr $C$DW$33, DW_AT_TI_interrupt
 	.dwattr $C$DW$33, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 97,column 36,is_stmt,address ISR_TB0CCR0,isa 0
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 100,column 36,is_stmt,address ISR_TB0CCR0,isa 0
 
 	.dwfde $C$DW$CIE, ISR_TB0CCR0
 
@@ -558,11 +562,11 @@ ISR_TB0CCR0:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 98,column 5,is_stmt,isa 0
-        OR.B      #1,&P3OUT+0           ; [] |98| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 99,column 5,is_stmt,isa 0
-        BIC.W     #1,&TB0CCTL0+0        ; [] |99| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 100,column 1,is_stmt,isa 0
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 101,column 5,is_stmt,isa 0
+        OR.B      #1,&P3OUT+0           ; [] |101| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 102,column 5,is_stmt,isa 0
+        BIC.W     #1,&TB0CCTL0+0        ; [] |102| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 103,column 1,is_stmt,isa 0
 $C$DW$34	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$34, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$34, DW_AT_TI_return
@@ -570,7 +574,7 @@ $C$DW$34	.dwtag  DW_TAG_TI_branch
         RETI      ; [] 
         ; [] 
 	.dwattr $C$DW$33, DW_AT_TI_end_file("../keyboard_control_main_capstone.c")
-	.dwattr $C$DW$33, DW_AT_TI_end_line(0x64)
+	.dwattr $C$DW$33, DW_AT_TI_end_line(0x67)
 	.dwattr $C$DW$33, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$33
@@ -586,14 +590,14 @@ $C$DW$35	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$35, DW_AT_TI_symbol_name("ISR_TB0CCR1")
 	.dwattr $C$DW$35, DW_AT_external
 	.dwattr $C$DW$35, DW_AT_TI_begin_file("../keyboard_control_main_capstone.c")
-	.dwattr $C$DW$35, DW_AT_TI_begin_line(0x67)
+	.dwattr $C$DW$35, DW_AT_TI_begin_line(0x6a)
 	.dwattr $C$DW$35, DW_AT_TI_begin_column(0x12)
 	.dwattr $C$DW$35, DW_AT_decl_file("../keyboard_control_main_capstone.c")
-	.dwattr $C$DW$35, DW_AT_decl_line(0x67)
+	.dwattr $C$DW$35, DW_AT_decl_line(0x6a)
 	.dwattr $C$DW$35, DW_AT_decl_column(0x12)
 	.dwattr $C$DW$35, DW_AT_TI_interrupt
 	.dwattr $C$DW$35, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 103,column 36,is_stmt,address ISR_TB0CCR1,isa 0
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 106,column 36,is_stmt,address ISR_TB0CCR1,isa 0
 
 	.dwfde $C$DW$CIE, ISR_TB0CCR1
 
@@ -608,13 +612,13 @@ ISR_TB0CCR1:
 ;* --------------------------------------------------------------------------*
 	.dwcfi	cfa_offset, 2
 	.dwcfi	save_reg_to_mem, 16, -2
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 104,column 5,is_stmt,isa 0
-        MOV.W     &duty_cycle+0,&TB0CCR1+0 ; [] |104| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 105,column 5,is_stmt,isa 0
-        BIC.B     #1,&P3OUT+0           ; [] |105| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 106,column 5,is_stmt,isa 0
-        BIC.W     #1,&TB0CCTL1+0        ; [] |106| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 107,column 1,is_stmt,isa 0
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 107,column 5,is_stmt,isa 0
+        MOV.W     &duty_cycle+0,&TB0CCR1+0 ; [] |107| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 108,column 5,is_stmt,isa 0
+        BIC.B     #1,&P3OUT+0           ; [] |108| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 109,column 5,is_stmt,isa 0
+        BIC.W     #1,&TB0CCTL1+0        ; [] |109| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 110,column 1,is_stmt,isa 0
 $C$DW$36	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$36, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$36, DW_AT_TI_return
@@ -622,7 +626,7 @@ $C$DW$36	.dwtag  DW_TAG_TI_branch
         RETI      ; [] 
         ; [] 
 	.dwattr $C$DW$35, DW_AT_TI_end_file("../keyboard_control_main_capstone.c")
-	.dwattr $C$DW$35, DW_AT_TI_end_line(0x6b)
+	.dwattr $C$DW$35, DW_AT_TI_end_line(0x6e)
 	.dwattr $C$DW$35, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$35
@@ -638,14 +642,14 @@ $C$DW$37	.dwtag  DW_TAG_subprogram
 	.dwattr $C$DW$37, DW_AT_TI_symbol_name("ISR_EUSCI_A1")
 	.dwattr $C$DW$37, DW_AT_external
 	.dwattr $C$DW$37, DW_AT_TI_begin_file("../keyboard_control_main_capstone.c")
-	.dwattr $C$DW$37, DW_AT_TI_begin_line(0x6f)
+	.dwattr $C$DW$37, DW_AT_TI_begin_line(0x72)
 	.dwattr $C$DW$37, DW_AT_TI_begin_column(0x12)
 	.dwattr $C$DW$37, DW_AT_decl_file("../keyboard_control_main_capstone.c")
-	.dwattr $C$DW$37, DW_AT_decl_line(0x6f)
+	.dwattr $C$DW$37, DW_AT_decl_line(0x72)
 	.dwattr $C$DW$37, DW_AT_decl_column(0x12)
 	.dwattr $C$DW$37, DW_AT_TI_interrupt
 	.dwattr $C$DW$37, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 111,column 37,is_stmt,address ISR_EUSCI_A1,isa 0
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 114,column 37,is_stmt,address ISR_EUSCI_A1,isa 0
 
 	.dwfde $C$DW$CIE, ISR_EUSCI_A1
 
@@ -668,16 +672,16 @@ $C$DW$38	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$38, DW_AT_type(*$C$DW$T$10)
 	.dwattr $C$DW$38, DW_AT_location[DW_OP_breg1 0]
 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 114,column 5,is_stmt,isa 0
-        MOV.W     &UCA1IFG+0,0(SP)      ; [] |114| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 115,column 5,is_stmt,isa 0
-        AND.W     #1,0(SP)              ; [] |115| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 116,column 1,is_stmt,isa 0
-        ADD.W     #32767,0(SP)          ; [] |116| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 119,column 5,is_stmt,isa 0
-        CMP.W     #1,0(SP)              ; [] |119| 
-        JNE       $C$L5                 ; [] |119| 
-                                          ; [] |119| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 117,column 5,is_stmt,isa 0
+        MOV.W     &UCA1IFG+0,0(SP)      ; [] |117| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 118,column 5,is_stmt,isa 0
+        AND.W     #1,0(SP)              ; [] |118| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 119,column 1,is_stmt,isa 0
+        ADD.W     #32767,0(SP)          ; [] |119| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 122,column 5,is_stmt,isa 0
+        CMP.W     #1,0(SP)              ; [] |122| 
+        JNE       $C$L5                 ; [] |122| 
+                                          ; [] |122| 
 ;* --------------------------------------------------------------------------*
 
 $C$DW$39	.dwtag  DW_TAG_lexical_block
@@ -689,44 +693,50 @@ $C$DW$40	.dwtag  DW_TAG_variable
 	.dwattr $C$DW$40, DW_AT_type(*$C$DW$T$10)
 	.dwattr $C$DW$40, DW_AT_location[DW_OP_breg1 2]
 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 120,column 22,is_stmt,isa 0
-        MOV.W     &UCA1RXBUF+0,2(SP)    ; [] |120| 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 121,column 9,is_stmt,isa 0
-        CMP.W     #49,&UCA1RXBUF+0      ; [] |121| 
-        JNE       $C$L2                 ; [] |121| 
-                                          ; [] |121| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 123,column 22,is_stmt,isa 0
+        MOV.W     &UCA1RXBUF+0,2(SP)    ; [] |123| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 124,column 9,is_stmt,isa 0
+        CMP.W     #49,&UCA1RXBUF+0      ; [] |124| 
+        JNE       $C$L2                 ; [] |124| 
+                                          ; [] |124| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 122,column 13,is_stmt,isa 0
-        MOV.W     #700,&duty_cycle+0    ; [] |122| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 125,column 13,is_stmt,isa 0
+        OR.B      #4,&P3OUT+0           ; [] |125| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 126,column 13,is_stmt,isa 0
+        MOV.W     #700,&duty_cycle+0    ; [] |126| 
         JMP       $C$L4                 ; [] 
                                           ; [] 
 ;* --------------------------------------------------------------------------*
 $C$L2:    
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 123,column 16,is_stmt,isa 0
-        CMP.W     #50,&UCA1RXBUF+0      ; [] |123| 
-        JNE       $C$L3                 ; [] |123| 
-                                          ; [] |123| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 127,column 16,is_stmt,isa 0
+        CMP.W     #50,&UCA1RXBUF+0      ; [] |127| 
+        JNE       $C$L3                 ; [] |127| 
+                                          ; [] |127| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 124,column 13,is_stmt,isa 0
-        MOV.W     #1500,&duty_cycle+0   ; [] |124| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 128,column 13,is_stmt,isa 0
+        BIC.B     #4,&P3OUT+0           ; [] |128| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 129,column 13,is_stmt,isa 0
+        MOV.W     #1500,&duty_cycle+0   ; [] |129| 
         JMP       $C$L4                 ; [] 
                                           ; [] 
 ;* --------------------------------------------------------------------------*
 $C$L3:    
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 125,column 16,is_stmt,isa 0
-        CMP.W     #51,&UCA1RXBUF+0      ; [] |125| 
-        JNE       $C$L4                 ; [] |125| 
-                                          ; [] |125| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 130,column 16,is_stmt,isa 0
+        CMP.W     #51,&UCA1RXBUF+0      ; [] |130| 
+        JNE       $C$L4                 ; [] |130| 
+                                          ; [] |130| 
 ;* --------------------------------------------------------------------------*
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 126,column 13,is_stmt,isa 0
-        MOV.W     #2000,&duty_cycle+0   ; [] |126| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 131,column 13,is_stmt,isa 0
+        OR.B      #4,&P3OUT+0           ; [] |131| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 132,column 13,is_stmt,isa 0
+        MOV.W     #2000,&duty_cycle+0   ; [] |132| 
 ;* --------------------------------------------------------------------------*
 $C$L4:    
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 128,column 9,is_stmt,isa 0
-        BIC.W     #1,&UCA1IFG+0         ; [] |128| 
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 134,column 9,is_stmt,isa 0
+        BIC.W     #1,&UCA1IFG+0         ; [] |134| 
 	.dwendtag $C$DW$39
 
-	.dwpsn	file "../keyboard_control_main_capstone.c",line 131,column 1,is_stmt,isa 0
+	.dwpsn	file "../keyboard_control_main_capstone.c",line 137,column 1,is_stmt,isa 0
 ;* --------------------------------------------------------------------------*
 $C$L5:    
         ADD.W     #4,SP                 ; [] 
@@ -738,7 +748,7 @@ $C$DW$41	.dwtag  DW_TAG_TI_branch
         RETI      ; [] 
         ; [] 
 	.dwattr $C$DW$37, DW_AT_TI_end_file("../keyboard_control_main_capstone.c")
-	.dwattr $C$DW$37, DW_AT_TI_end_line(0x83)
+	.dwattr $C$DW$37, DW_AT_TI_end_line(0x89)
 	.dwattr $C$DW$37, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$37

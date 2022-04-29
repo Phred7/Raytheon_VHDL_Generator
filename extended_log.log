@@ -9102,3 +9102,56 @@ line 115:
 	IntOverflowAttack: + INT_MAX. --math operation being preformed with INT_MAX--
 
 
+2022-04-28 20:09:36,351 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 20:09:36,351 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 20:09:36,352 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 20:09:36,352 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 20:09:36,353 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 20:09:36,369 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 20:09:42,358 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 20:09:42,361 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 20:09:46,343 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 20:09:46,343 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 20:09:46,343 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 20:09:46,344 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 20:09:46,344 DEBUG detection __init__ Detection object initialized
+2022-04-28 20:09:46,344 DEBUG main detection Project Hash: dc69e0344bc36d9b760e625fb2e03c0b192df921e2a9ece0ff1c29bbdfecc8d4
+2022-04-28 20:09:46,347 WARNING main detection Possible malware detected
+line 115:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+
+2022-04-28 20:36:54,002 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 20:36:54,003 DEBUG instrumentation_strategy __init__ InstrumentationStrategy object of type IntOverflowAttack initialized
+2022-04-28 20:36:54,004 DEBUG instrumentation instrument **** Instrumentation Build Started ****
+2022-04-28 20:36:54,004 DEBUG instrumentation instrument Phantom workspace unhidden
+2022-04-28 20:36:54,006 DEBUG instrumentation __update_phantom_source__ Phantom source updated with source from keyboard_control_vCapstone
+2022-04-28 20:36:54,059 DEBUG instrumentation instrument Instrumentation on keyboard_control_main_capstone.c succeeded
+2022-04-28 20:37:00,292 DEBUG instrumentation __build_phantom_project__ Phantom C project done building
+2022-04-28 20:37:00,295 DEBUG instrumentation instrument Phantom workspace hidden
+2022-04-28 20:37:04,403 DEBUG instrumentation build_ccs_project keyboard_control_vCapstone project done building
+2022-04-28 20:37:04,403 DEBUG instrumentation instrument **** Instrumentation Build Finished ****
+2022-04-28 20:37:04,403 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 20:37:04,405 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-28 20:37:04,405 DEBUG detection __init__ Detection object initialized
+2022-04-28 20:37:04,406 DEBUG main detection Project Hash: dc69e0344bc36d9b760e625fb2e03c0b192df921e2a9ece0ff1c29bbdfecc8d4
+2022-04-28 20:37:04,415 WARNING main detection Possible malware detected
+line 115:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+
+2022-04-28 20:52:03,200 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 20:52:13,225 INFO main <module> **** VHDL Generation Complete ****
+2022-04-28 20:52:13,229 WARNING main detection Possible malware detected
+line 115:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+
+2022-04-28 20:52:13,229 ERROR main generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-28 21:04:25,481 INFO main <module> **** VHDL Generation Started ****
+2022-04-28 21:05:32,084 WARNING main detection Possible malware detected
+line 118:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+
+2022-04-28 21:05:32,084 ERROR main generate_vhdl VHDL did not generate. Possible malware detected.
