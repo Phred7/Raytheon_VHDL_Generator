@@ -224,7 +224,13 @@ class Main:
 
 
 if __name__ == '__main__':
-    Detection.reset_test_project()
+    project = CCSProject(source_file="main.c",
+                         project_name="test_target",
+                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                         )
+    # Detection.reset_test_project()
+    # instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
+    # instrumentation.instrument()
     main: Main = Main()
-    main.demo()
+    results: bool = Main.detection(project, 0.35)
 
