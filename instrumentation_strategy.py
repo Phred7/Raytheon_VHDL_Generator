@@ -163,12 +163,14 @@ class InstrumentationStrategy(ABC):
         new_line, mapping = InstrumentationStrategy.remove_c_strings_from_line(line)
         for comparison_token in comparisons:
             if comparison_token in new_line:
+                if comparison_token == "<" or comparison_token == ">" and "#include" in line:
+                    return False
                 if comparison_token == "<" and "<<" in line:
                     if line.index("<") != line.index("<<"):
-                        return True
+                        continue
                 elif comparison_token == '>' and ">>" in line:
                     if line.index(">") != line.index(">>"):
-                        return True
+                        continue
                 else:
                     return True
         return False
