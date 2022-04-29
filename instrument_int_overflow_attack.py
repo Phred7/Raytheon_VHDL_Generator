@@ -8,7 +8,6 @@
 import random
 from typing import List
 
-from ccs_project import CCSProject
 from instrumentation_strategy import InstrumentationStrategy
 from static_utilities import StaticUtilities
 
@@ -71,8 +70,15 @@ class IntOverflowAttack(InstrumentationStrategy):
             for line_index, line in enumerate(lines):
                 integer = integer_tup[1]
                 if InstrumentationStrategy.line_of_c_code_contains_comparison(line) and integer in line:
-                    found_int_comparison = True
                     lines[line_index] = f"\n{integer} = {integer} + INT_MAX;\n{line}"
+                    already_has_limits: bool = False
+                    for check_line in lines:
+                        if "#include" in line and "limits.h" in line:
+                            already_has_limits = True
+                            break
+                    if not already_has_limits:
+                        lines[0] = f'#include <limits.h>\n{lines[0]}'
+                    found_int_comparison = True
 
         if not found_sensitive_operation and not found_int_comparison:
             StaticUtilities.logger.debug("No sensitive operations or comparisons using integers found.")
