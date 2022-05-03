@@ -9155,3 +9155,64 @@ line 118:
 
 
 2022-04-28 21:05:32,084 ERROR main generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-29 08:46:18,532 INFO main <module> **** VHDL Generation Started ****
+2022-04-29 08:50:13,187 WARNING main detection Possible malware detected
+line 118:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+
+2022-04-29 08:50:13,189 ERROR main generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-29 08:50:21,599 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-29 08:50:21,600 DEBUG detection __init__ Detection object initialized
+2022-04-29 08:50:21,600 DEBUG detection <module> Project Hash: 5540f748ab906973ad2a47861ea5d0ce5c6548b4cd765e2cd09264ea00eee6bb
+2022-04-29 08:50:55,430 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-29 08:50:55,431 DEBUG detection __init__ Detection object initialized
+2022-04-29 08:50:55,431 DEBUG detection <module> Project Hash: 5540f748ab906973ad2a47861ea5d0ce5c6548b4cd765e2cd09264ea00eee6bb
+2022-04-29 08:50:55,435 WARNING detection <module> Possible malware detected
+line 118:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+
+2022-04-29 08:52:21,160 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-29 08:52:21,161 DEBUG detection __init__ Detection object initialized
+2022-04-29 08:52:21,161 DEBUG detection <module> Project Hash: 5540f748ab906973ad2a47861ea5d0ce5c6548b4cd765e2cd09264ea00eee6bb
+2022-04-29 08:52:21,165 WARNING detection <module> Possible malware detected
+line 118:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+
+2022-04-29 08:59:16,758 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-29 08:59:16,759 DEBUG detection __init__ Detection object initialized
+2022-04-29 08:59:16,760 DEBUG detection <module> Project Hash: 5540f748ab906973ad2a47861ea5d0ce5c6548b4cd765e2cd09264ea00eee6bb
+2022-04-29 08:59:16,770 WARNING detection <module> Possible malware detected
+line 118:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+
+2022-04-29 08:59:28,564 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-29 08:59:28,565 DEBUG detection __init__ Detection object initialized
+2022-04-29 08:59:28,566 DEBUG detection <module> Project Hash: 5540f748ab906973ad2a47861ea5d0ce5c6548b4cd765e2cd09264ea00eee6bb
+2022-04-29 08:59:28,577 WARNING detection <module> Possible malware detected
+line 118:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+
+2022-04-29 10:38:07,367 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-29 10:38:07,368 DEBUG detection __init__ Detection object initialized
+2022-04-29 10:38:07,370 DEBUG detection <module> Project Hash: 8c4c9d44538c7eae8eb49cacd0a6e38569924ac035c521d5fa72643dd2d35fcd
+2022-04-29 10:38:07,382 INFO detection <module> No malware found
+2022-04-29 10:38:55,730 INFO main <module> **** VHDL Generation Started ****
+2022-04-29 10:39:14,535 WARNING main detection Possible malware detected
+line 118:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+
+2022-04-29 10:39:14,536 ERROR main generate_vhdl VHDL did not generate. Possible malware detected.
+2022-04-29 10:39:25,082 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-04-29 10:39:25,084 DEBUG detection __init__ Detection object initialized
+2022-04-29 10:39:25,086 DEBUG detection <module> Project Hash: 5540f748ab906973ad2a47861ea5d0ce5c6548b4cd765e2cd09264ea00eee6bb
+2022-04-29 10:39:25,095 WARNING detection <module> Possible malware detected
+line 118:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+

@@ -127,3 +127,18 @@ class Detection:
         if file_name_key not in self.hashed_files_dict:
             return True
         return self.hashed_files_dict[file_name_key] == self.ccs_project.__hash__()
+
+
+if __name__ == "__main__":
+    project = CCSProject(source_file="keyboard_control_main_capstone.c",
+                         project_name="keyboard_control_vCapstone",
+                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"
+                         )
+    detection: Detection = Detection(project, pique_bin_bool=False)
+    StaticUtilities.logger.debug(f"Project Hash: {project.__hash__()}")
+    detection.pique_binary_security_quality = 0.35
+    results: bool = detection.detect()
+    if not results:
+        StaticUtilities.logger.warning(f"Possible malware detected\n{detection.possible_vulnerabilities()}")
+    else:
+        StaticUtilities.logger.info(f"No malware found")

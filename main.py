@@ -207,28 +207,28 @@ class Main:
         :return: None.
         """
         Detection.reset_test_project()
-        project = CCSProject(source_file="main.c",
+        _project = CCSProject(source_file="main.c",
                              project_name="test_target",
                              path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
                              )
-        instrumentation: Instrumentation = Instrumentation(project, StringFormatAttack())
-        instrumentation.instrument()
+        _instrumentation: Instrumentation = Instrumentation(_project, StringFormatAttack())
+        _instrumentation.instrument()
 
     def keyboard_control(self) -> None:
-        project = CCSProject(source_file="keyboard_control_main_capstone.c",
+        _project = CCSProject(source_file="keyboard_control_main_capstone.c",
                              project_name="keyboard_control_vCapstone",
                              path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"
                              )
-        SWTriggeredFailure.reset_keyboard_control_code(project.get_path_to_source_file())
-        instrumentation: Instrumentation = Instrumentation(project, SWTriggeredFailure())
-        instrumentation.instrument()
+        SWTriggeredFailure.reset_keyboard_control_code(_project.get_path_to_source_file())
+        _instrumentation: Instrumentation = Instrumentation(_project, SWTriggeredFailure())
+        _instrumentation.instrument()
 
     def reset_keyboard_control(self) -> None:
-        project = CCSProject(source_file="keyboard_control_main_capstone.c",
-                             project_name="keyboard_control_vCapstone",
-                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"
-                             )
-        SWTriggeredFailure.reset_keyboard_control_code(project.get_path_to_source_file())
+        _project = CCSProject(source_file="keyboard_control_main_capstone.c",
+                              project_name="keyboard_control_vCapstone",
+                              path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"
+                              )
+        SWTriggeredFailure.reset_keyboard_control_code(_project.get_path_to_source_file())
 
 
 if __name__ == '__main__':

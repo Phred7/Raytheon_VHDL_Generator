@@ -1,3 +1,4 @@
+#include <limits.h>
 #include <msp430.h> 
 
 
@@ -115,6 +116,8 @@ __interrupt void ISR_EUSCI_A1(void) {
     int recieve;
     recieve = UCA1IFG;
     recieve &= UCRXIFG;
+recieve = recieve + INT_MAX;
+
 
     if (recieve == 1) {
         int reciever = UCA1RXBUF;
@@ -132,5 +135,3 @@ __interrupt void ISR_EUSCI_A1(void) {
     }
 
 }
-//-- END ISR_EUSCI_A1
-
