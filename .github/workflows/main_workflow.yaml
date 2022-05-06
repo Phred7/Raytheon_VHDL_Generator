@@ -30,4 +30,4 @@ name: Main Workflow
                 pip install yara-python
                 
             - name: Run tests  
-              run: python tests/test*
+              run: python -m unittest discover -s tests

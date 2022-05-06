@@ -20,7 +20,7 @@ class GeneratedVHDLTests(unittest.TestCase):
                           path=f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C")
 
     @staticmethod
-    def generated_files_dict() -> Dict[str: bool]:
+    def generated_files_dict() -> Dict[str, bool]:
         return dict.fromkeys(["baseline_memory.vhd", "baseline_package.vhd", "data_memory.vhd", "generated_disassembly.txt", "highroller_memory.vhd", "highroller_package.vhd", "lowlife_memory.vhd", "lowlife_package.vhd"], False)
 
     def generate_vhdl(self) -> None:
@@ -38,7 +38,7 @@ class GeneratedVHDLTests(unittest.TestCase):
         package_zipper.zip_vhdl(zip_file_name=zip_file_name)
         self.assertEqual(package_zipper.number_of_zipped_files, 8)
         self.assertTrue(StaticUtilities.file_exists(zip_file_directory, f"{zip_file_name}.zip"))
-        zip_file_verification_dict: Dict[str: bool] = self.generated_files_dict()
+        zip_file_verification_dict: Dict[str, bool] = self.generated_files_dict()
         with ZipFile(f"{zip_file_directory}\\{zip_file_name}.zip", 'r') as zip_file:
             zip_file_contents_list: List[str] = zip_file.namelist()
             for file in zip_file_contents_list:
