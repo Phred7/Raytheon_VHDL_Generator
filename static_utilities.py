@@ -72,7 +72,7 @@ class StaticUtilities:
         :raises OSError: If file does not exist.
         :return: None.
         """
-        assert (not os.path.exists(f"{file_directory}\\{file}") or file is None or file == "")
+        assert (os.path.exists(f"{file_directory}\\{file}") or file is None or file == "")
 
     @staticmethod
     def file_exists(file_directory: str, file: str) -> bool:
@@ -91,8 +91,8 @@ class StaticUtilities:
         """
         Checks to see if the specified file exists.
         :param raise_error: If true raises an OS error if the file exists, otherwise returns False.
-        :param file_directory: Location of directory containing the File file.
-        :param file: The name of the File file that should exist.
+        :param file_directory: Location of directory containing the file.
+        :param file: The name of the file that should exist.
         :return: True if the files does not exist, otherwise False.
         """
         if os.path.exists(f"{file_directory}\\{file}"):
