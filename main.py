@@ -6,6 +6,7 @@
 # Written by Michael Heidal and Walker Ward
 """
 import logging
+import pathlib
 
 from Tools.scripts.var_access_benchmark import A
 
@@ -215,8 +216,7 @@ class Main:
     def keyboard_control(self) -> None:
         project = CCSProject(source_file="keyboard_control_main_capstone.c",
                              project_name="keyboard_control_vCapstone",
-                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"
-                             )
+                             path=pathlib.Path(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"))
         SWTriggeredFailure.reset_keyboard_control_code(project.get_path_to_source_file())
         instrumentation: Instrumentation = Instrumentation(project, SWTriggeredFailure())
         instrumentation.instrument()
