@@ -1,7 +1,6 @@
-2022-05-16 15:11:37,150 DEBUG disassembler __init__ Disassembler object initialized
-2022-05-16 15:11:37,151 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
-2022-05-16 15:11:37,151 INFO disassembler disassemble C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\tools\dis430.exe
-2022-05-16 15:11:37,151 INFO disassembler disassemble C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_target\VHDLGenerator\test_target.out
-2022-05-16 15:11:37,151 INFO disassembler disassemble C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\tools\dis430.exe
-2022-05-16 15:11:37,186 DEBUG disassembler disassemble Disassembler exit status: 0
-2022-05-16 15:11:37,187 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-05-16 15:44:44,828 DEBUG disassembler __init__ Disassembler object initialized
+2022-05-16 15:44:44,829 INFO disassembler disassemble C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\tools\dis430.exe
+2022-05-16 15:44:44,829 INFO disassembler disassemble C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_target\VHDLGenerator\test_target.out
+2022-05-16 15:44:44,829 INFO disassembler disassemble C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-05-16 15:44:44,865 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-05-16 15:44:44,865 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly

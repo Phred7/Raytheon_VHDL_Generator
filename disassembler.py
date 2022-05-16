@@ -54,7 +54,7 @@ class Disassembler:
         binary_file_path: pathlib.Path = self.ccs_project.path / self.ccs_project.binary_file_path
         StaticUtilities.logger.info(disassembler_binary_path)
         StaticUtilities.logger.info(binary_file_path)
-        StaticUtilities.logger.info(disassembler_binary_path)
+        StaticUtilities.logger.info(disassembler_output_path)
         self.disassembler_exit_status = subprocess.run(
             rf"{disassembler_binary_path} {binary_file_path} {disassembler_output_path}",
             stdout=subprocess.DEVNULL,

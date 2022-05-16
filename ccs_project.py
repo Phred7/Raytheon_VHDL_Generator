@@ -41,13 +41,13 @@ class CCSProject:
         build_file_path: pathlib.Path = self.path / "VHDLGenerator"
         debug_build_file_path: pathlib.Path = self.path / "Debug"
         if StaticUtilities.file_exists(build_file_path, f"{project_name}.out"):
-            self.binary_file_path = pathlib.Path(f"VHDLGenerator\\{project_name}.out")
+            self.binary_file_path = pathlib.Path(f"VHDLGenerator") / f"{project_name}.out"
         elif StaticUtilities.file_exists(build_file_path, self.source_file.replace(self.source_file[self.source_file.index("."):], ".out")):
-            self.binary_file_path = pathlib.Path(f"VHDLGenerator\\{self.source_file.replace(self.source_file[self.source_file.index('.'):], '.out')}")
+            self.binary_file_path = pathlib.Path(f"VHDLGenerator)") / f"{self.source_file.replace(self.source_file[self.source_file.index('.'):], '.out')}"
         elif StaticUtilities.file_exists(debug_build_file_path, f"{project_name}.out"):
-            self.binary_file_path = pathlib.Path(f"Debug\\{project_name}.out")
+            self.binary_file_path = pathlib.Path("Debug") / f"{project_name}.out"
         else:
-            self.binary_file_path = pathlib.Path(f"Debug\\{self.source_file.replace(self.source_file[self.source_file.index('.'):], '.out')}")
+            self.binary_file_path = pathlib.Path("Debug") / f"{self.source_file.replace(self.source_file[self.source_file.index('.'):], '.out')}"
         self.__project_hash = None
         self.__project_hash_key = None
 
