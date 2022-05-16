@@ -59,12 +59,13 @@ def test_string_format_attack(project: CCSProject) -> None:
 
 
 def main() -> None:
-    instrumentation_strategies: List[Callable] = [test_basic_overwrite, test_buffer_overflow, test_int_overflow, test_string_format_attack]
+    instrumentation_strategies: List[Callable] = [test_basic_overwrite, test_buffer_overflow, test_int_overflow,
+                                                  test_string_format_attack]
     for test in instrumentation_strategies:
         reset_test_project()
         project: CCSProject = CCSProject(source_file="main.c",
                                          project_name="test_target",
-                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                                         path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_target"
                                          )
         StaticUtilities.logger.info(f"Testing {test.__name__}")
         test(project)

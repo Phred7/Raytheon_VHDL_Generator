@@ -1,5 +1,6 @@
 import logging
 import os
+import pathlib
 import unittest
 from typing import List, Dict
 from zipfile import ZipFile
@@ -17,7 +18,7 @@ class GeneratedVHDLTests(unittest.TestCase):
     @staticmethod
     def project() -> CCSProject:
         return CCSProject(project_name="test_C", source_file="test_C.c",
-                          path=f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C")
+                          path=pathlib.Path(f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C"))
 
     @staticmethod
     def generated_files_dict() -> Dict[str, bool]:
@@ -30,7 +31,7 @@ class GeneratedVHDLTests(unittest.TestCase):
     def test_generated_vhdl_package(self) -> None:
         StaticUtilities.logger.info("Testing VHDL Package")
         self.generate_vhdl()
-        zip_file_directory: str = rf"{StaticUtilities.project_root_directory()}\generated_vhdl"
+        zip_file_directory: pathlib.Path = StaticUtilities.project_root_directory() / "generated_vhdl"
         zip_file_name: str = "test_vhdl_generator"
         if StaticUtilities.file_exists(zip_file_directory, f"{zip_file_name}.zip"):
             os.remove(f"{zip_file_directory}\\{zip_file_name}.zip")
