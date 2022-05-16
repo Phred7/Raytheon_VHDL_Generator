@@ -7,6 +7,7 @@
 """
 import codecs
 import os
+import pathlib
 import shutil
 import subprocess
 import sys
@@ -26,7 +27,7 @@ class Instrumentation:
     def __init__(self, project: CCSProject, instrumentation_strategy: InstrumentationStrategy) -> None:
         self.project = project
         self.phantom_project: CCSProject = CCSProject(
-            path=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if self.project.c_project() else 'phantom'}",
+            path=pathlib.Path(f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if self.project.c_project() else 'phantom'}"),
             project_name=f"{'phantom_c' if self.project.c_project() else 'phantom'}",
             source_file=f"{'phantom_c.c' if self.project.c_project() else 'phantom.asm'}")
         self._phantom_is_hidden: bool = True
@@ -60,13 +61,14 @@ class Instrumentation:
         """
         # TODO: should instrumentation copy phantom project to ccs project... then somehow point everything to a 'temp_file' with the instrumented version of the code in the same directory... the code could be built referencing that temp file rather than the phantom project.
         StaticUtilities.logger.debug("**** Instrumentation Build Started ****")
+        phantom_workspace_path: pathlib.Path = StaticUtilities.project_root_directory() / 'ccs_workspace' / 'phantom_workspace'
         try:
             # TODO: make the phantom workspace use a random name only known to instrumentation every time. Nuke the dir after instrumenting... regardless of success.
             # TODO: rather than building the phantom project why not build the phantom project to verify that no errors exist and then copy just the src back to the original and build again there.
 
             # un hide the phantom workspace - skipping this step may cause permission issues
             self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
-                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=False)
+                directory=pathlib.Path(phantom_workspace_path), hide=False)
             StaticUtilities.logger.debug("Phantom workspace unhidden")
             # generate phantom workspace and project/s
             self.__generate_phantom_workspace_and_projects__()
@@ -93,7 +95,7 @@ class Instrumentation:
 
         finally:
             self._phantom_is_hidden = StaticUtilities.multiprocess_hide_directory(
-                directory=f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\", hide=True)
+                directory=phantom_workspace_path, hide=True)
             StaticUtilities.logger.debug("Phantom workspace hidden")
         if instrumentation_result:
             self.build_ccs_project(self.project)
@@ -122,7 +124,7 @@ class Instrumentation:
         :param log: determines whether this method should write logs.
         """
         with StaticUtilities.change_dir(
-                f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if self.project.c_project() else 'phantom'}\\Debug\\"):
+                pathlib.Path(f"{StaticUtilities.project_root_directory()}\\ccs_workspace\\phantom_workspace\\{'phantom_c' if self.project.c_project() else 'phantom'}\\Debug\\")):
             for file_name in os.listdir():
                 if "_tmp" in file_name:
                     continue
@@ -159,13 +161,13 @@ class Instrumentation:
         source_extension: str = source.split('\\')[-1].split('.')[-1] if "." in source.split('\\')[-1] else ""
         source_name: str = source.split('\\')[-1].split('.')[0]
         source_with_extension: str = source_name + (f".{source_extension}" if source_extension != "" else "")
-        source_path: str = source.replace(f"\\{source_with_extension}", "")
+        source_path: pathlib.Path = pathlib.Path(source.replace(f"\\{source_with_extension}", ""))
         destination_extension: str = destination.split('\\')[-1].split('.')[-1] if "." in destination.split('\\')[
             -1] else ""
         destination_name: str = destination.split('\\')[-1].split('.')[0]
         destination_with_extension: str = destination_name + (
             f".{destination_extension}" if destination_extension != "" else "")
-        destination_path: str = destination.replace(f"\\{destination_with_extension}", "")
+        destination_path: pathlib.Path = pathlib.Path(destination.replace(f"\\{destination_with_extension}", ""))
         temp_name_extension: str = "_tmp"
 
         shutil.copyfile(source, f"{source_name}{temp_name_extension}.{source_extension}")
@@ -216,11 +218,11 @@ class Instrumentation:
         Generates the phantom workspace if it does not already exist.
         """
         if not StaticUtilities.file_exists(
-                file_directory=f"{StaticUtilities.project_root_directory()}/ccs_workspace/phantom_workspace/RemoteSystemsTempFiles/",
+                file_directory=pathlib.Path(f"{StaticUtilities.project_root_directory()}/ccs_workspace/phantom_workspace/RemoteSystemsTempFiles/"),
                 file=".project"):
             StaticUtilities.logger.debug(f"Phantom workspace missing")
-            StaticUtilities.extract_zip(path_to_zip=f"{StaticUtilities.project_root_directory()}/phantom_workspace.zip",
-                                        extraction_directory=f"{StaticUtilities.project_root_directory()}/ccs_workspace/")
+            StaticUtilities.extract_zip(path_to_zip=pathlib.Path(f"{StaticUtilities.project_root_directory()}/phantom_workspace.zip"),
+                                        extraction_directory=pathlib.Path(f"{StaticUtilities.project_root_directory()}/ccs_workspace/"))
             StaticUtilities.logger.debug(f"Phantom workspace generated")
         return
 
@@ -236,7 +238,7 @@ class Instrumentation:
         # -ccs.autoImport
         workspace_dir: str = rf"{StaticUtilities.project_root_directory()}\ccs_workspace\phantom_workspace"
         quote: str = "\""
-        with StaticUtilities.change_dir(r"C:\ti\ccs1040\ccs\eclipse"):
+        with StaticUtilities.change_dir(pathlib.Path(r"C:\ti\ccs1040\ccs\eclipse")):
             subprocess.run(
                 rf"eclipsec -noSplash -data {quote}{workspace_dir}{quote} -application com.ti.ccstudio.apps.projectBuild -ccs.projects {'phantom_c' if self.project.c_project() else 'phantom'} -ccs.configuration Debug -ccs.autoImport -ccs.buildType full",
                 stdout=subprocess.DEVNULL,
@@ -247,7 +249,7 @@ class Instrumentation:
     def build_ccs_project(self, ccs_project: CCSProject) -> None:
         workspace_dir: str = rf"{ccs_project.path}"
         quote: str = "\""
-        with StaticUtilities.change_dir(r"C:\ti\ccs1040\ccs\eclipse"):
+        with StaticUtilities.change_dir(pathlib.Path(r"C:\ti\ccs1040\ccs\eclipse")):
             subprocess.run(
                 rf"eclipsec -noSplash -data {quote}{workspace_dir}{quote} -application com.ti.ccstudio.apps.projectBuild -ccs.projects {ccs_project.project_name} -ccs.configuration Debug -ccs.autoImport -ccs.buildType full",
                 stdout=subprocess.DEVNULL,
@@ -259,8 +261,8 @@ class Instrumentation:
 if __name__ == "__main__":
     # asm_ccs_project_main_source_file_name: str = "test_ASM.asm"
     asm_project: CCSProject = CCSProject(project_name=f"test_ASM", source_file="test_ASM.asm",
-                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_ASM")
+                                         path=pathlib.Path(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_ASM"))
     c_project: CCSProject = CCSProject(project_name=f"c_blank", source_file="c_blank.c",
-                                       path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\c_blank")
+                                       path=pathlib.Path(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\c_blank"))
     i = Instrumentation(c_project, instrumentation_strategy=IntOverflowAttack())
     i.instrument()
