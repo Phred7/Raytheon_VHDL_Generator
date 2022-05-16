@@ -23,8 +23,6 @@ class Disassembler:
         self.ccs_project: CCSProject = ccs_project_to_disassemble
         self.disassembler_directory: pathlib.Path = StaticUtilities.project_root_directory() / 'tools'
         self.disassembler_executable: str = 'dis430.exe'
-        # self.disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
-        # self.disassembler_executable: str = r'dis430.exe'
         self.disassembler_output_file_name: str = disassembler_output_file_name
         self.disassembler_output_file_directory: pathlib.Path = pathlib.Path(rf"{StaticUtilities.project_root_directory()}\generated_disassembly")
         self.disassembler_exit_status: int = 0
