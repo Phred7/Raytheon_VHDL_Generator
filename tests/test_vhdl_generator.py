@@ -1,8 +1,3 @@
-import sys
-from static_utilities import StaticUtilities
-
-sys.path.insert(1, str(StaticUtilities.project_root_directory()))
-
 import logging
 import os
 import pathlib
@@ -10,6 +5,7 @@ import unittest
 from typing import List, Dict
 from zipfile import ZipFile
 
+from static_utilities import StaticUtilities
 from ccs_project import CCSProject
 from package_zipper import PackageZipper
 
