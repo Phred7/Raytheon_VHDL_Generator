@@ -6,6 +6,7 @@
 # Written by Walker Ward and Michael Heidal
 """
 import os
+import pathlib
 import subprocess
 
 from ccs_project import CCSProject
@@ -20,10 +21,12 @@ class Disassembler:
 
     def __init__(self, ccs_project_to_disassemble: CCSProject, *, disassembler_output_file_name: str = "generated_disassembly.txt") -> None:
         self.ccs_project: CCSProject = ccs_project_to_disassemble
-        self.disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
-        self.disassembler_executable: str = r'dis430.exe'
+        self.disassembler_directory: pathlib.Path = StaticUtilities.project_root_directory() / 'tools'
+        self.disassembler_executable: str = 'dis430.exe'
+        # self.disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
+        # self.disassembler_executable: str = r'dis430.exe'
         self.disassembler_output_file_name: str = disassembler_output_file_name
-        self.disassembler_output_file_directory: str = rf"{StaticUtilities.project_root_directory()}\generated_disassembly"
+        self.disassembler_output_file_directory: pathlib.Path = pathlib.Path(rf"{StaticUtilities.project_root_directory()}\generated_disassembly")
         self.disassembler_exit_status: int = 0
         StaticUtilities.logger.debug(f"{Disassembler.__name__} object initialized")
 
@@ -43,11 +46,11 @@ class Disassembler:
         StaticUtilities.file_should_exist(self.ccs_project.binary_file_path, self.ccs_project.binary_file_path)
 
         # Check if the output file already exists. If it exists delete in.
-        if os.path.exists(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}"):
+        if os.path.exists(self.disassembler_output_file_directory / self.disassembler_output_file_name):
             os.remove(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
             StaticUtilities.logger.info(
                 rf"Removed {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
-
+        StaticUtilities.logger.info("Calling disassembler")
         self.disassembler_exit_status = subprocess.run(
             rf"{self.disassembler_directory}\{self.disassembler_executable} {self.ccs_project.path}\{self.ccs_project.binary_file_path} {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}",
             stdout=subprocess.DEVNULL,
@@ -59,10 +62,10 @@ class Disassembler:
         else:
             StaticUtilities.logger.info(
                 f'Disassembler generated {self.disassembler_output_file_name} at the directory {self.disassembler_output_file_directory}')
-            self.ccs_project.set_disassembly_file_path(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
+            self.ccs_project.set_disassembly_file_path(pathlib.Path(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}"))
 
 
 if __name__ == '__main__':
-    ccs_project: CCSProject = CCSProject(project_name="test_target", source_file="main.c", path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target")
+    ccs_project: CCSProject = CCSProject(project_name="test_target", source_file="main.c", path=pathlib.Path(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"))
     disassembler: Disassembler = Disassembler(ccs_project_to_disassemble=ccs_project)
     disassembler.disassemble()
