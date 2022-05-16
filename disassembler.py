@@ -44,16 +44,19 @@ class Disassembler:
         StaticUtilities.file_should_exist(self.ccs_project.path, self.ccs_project.source_file)
 
         # Check if the output file already exists. If it exists delete in.
-        if os.path.exists(self.disassembler_output_file_directory / self.disassembler_output_file_name):
-            os.remove(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
+        disassembler_output_path: pathlib.Path = self.disassembler_output_file_directory / self.disassembler_output_file_name
+        if os.path.exists(disassembler_output_path):
+            os.remove(disassembler_output_path)
             StaticUtilities.logger.info(
-                rf"Removed {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
+                rf"Removed {disassembler_output_path}")
 
         disassembler_binary_path: pathlib.Path = self.disassembler_directory / self.disassembler_executable
         binary_file_path: pathlib.Path = self.ccs_project.path / self.ccs_project.binary_file_path
-        disassembler_output_file_path: pathlib.Path = self.disassembler_output_file_directory / self.disassembler_output_file_name
+        StaticUtilities.logger.info(disassembler_binary_path)
+        StaticUtilities.logger.info(binary_file_path)
+        StaticUtilities.logger.info(disassembler_binary_path)
         self.disassembler_exit_status = subprocess.run(
-            rf"{disassembler_binary_path} {binary_file_path} {disassembler_output_file_path}",
+            rf"{disassembler_binary_path} {binary_file_path} {disassembler_output_path}",
             stdout=subprocess.DEVNULL,
             stderr=subprocess.STDOUT)
         StaticUtilities.logger.debug(f"Disassembler exit status: {self.disassembler_exit_status.returncode}")

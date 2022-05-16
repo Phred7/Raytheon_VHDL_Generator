@@ -1,3 +1,8 @@
+import sys
+from static_utilities import StaticUtilities
+
+sys.path.insert(1, str(StaticUtilities.project_root_directory()))
+
 import logging
 import os
 import pathlib
@@ -7,12 +12,11 @@ from zipfile import ZipFile
 
 from ccs_project import CCSProject
 from package_zipper import PackageZipper
-from static_utilities import StaticUtilities
+
 from vhdl_parser_generator import VHDLParserGenerator
 
 
 class GeneratedVHDLTests(unittest.TestCase):
-
     StaticUtilities.logger.setLevel(logging.DEBUG)
 
     @staticmethod
@@ -22,7 +26,9 @@ class GeneratedVHDLTests(unittest.TestCase):
 
     @staticmethod
     def generated_files_dict() -> Dict[str, bool]:
-        return dict.fromkeys(["baseline_memory.vhd", "baseline_package.vhd", "data_memory.vhd", "generated_disassembly.txt", "highroller_memory.vhd", "highroller_package.vhd", "lowlife_memory.vhd", "lowlife_package.vhd"], False)
+        return dict.fromkeys(
+            ["baseline_memory.vhd", "baseline_package.vhd", "data_memory.vhd", "generated_disassembly.txt",
+             "highroller_memory.vhd", "highroller_package.vhd", "lowlife_memory.vhd", "lowlife_package.vhd"], False)
 
     def generate_vhdl(self) -> None:
         vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=self.project())
@@ -46,9 +52,9 @@ class GeneratedVHDLTests(unittest.TestCase):
                 self.assertTrue(file in zip_file_verification_dict, f"{file} should not be in {zip_file_name}.zip")
                 zip_file_verification_dict[file] = True
         for file in zip_file_verification_dict:
-            self.assertTrue(zip_file_verification_dict[file], f"{file} not in {f'{zip_file_contents_list=}'.split('=')[0]}")
+            self.assertTrue(zip_file_verification_dict[file],
+                            f"{file} not in {f'{zip_file_contents_list=}'.split('=')[0]}")
 
     def test_generated_vhdl(self) -> None:
         StaticUtilities.logger.info("Testing VHDL Generation")
         self.generate_vhdl()
-
