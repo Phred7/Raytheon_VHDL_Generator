@@ -1,9 +1,12 @@
 import logging
+import sys
 import os
 import pathlib
 import unittest
 from typing import List, Dict
 from zipfile import ZipFile
+
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
 
 from static_utilities import StaticUtilities
 from ccs_project import CCSProject
