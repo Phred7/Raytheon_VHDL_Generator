@@ -41,7 +41,7 @@ class Disassembler:
         """
 
         # Check if the disassembler input exists.
-        StaticUtilities.file_should_exist(self.ccs_project.binary_file_path, self.ccs_project.binary_file_path)
+        StaticUtilities.file_should_exist(self.ccs_project.path, self.ccs_project.source_file)
 
         # Check if the output file already exists. If it exists delete in.
         if os.path.exists(self.disassembler_output_file_directory / self.disassembler_output_file_name):

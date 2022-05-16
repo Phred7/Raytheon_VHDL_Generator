@@ -1,0 +1,30 @@
+# adapted from https://blog.deepjyoti30.dev/tests-github-python, https://github.com/sleddog/methods-spring-2022/blob/main/.github/workflows/github-actions-demo.yml, https://www.youtube.com/watch?v=GdYdGfmP1oc, https://www.youtube.com/watch?v=lRypYtmbKMs
+
+name: Main Workflow
+on: [push]           
+jobs:
+    tests:
+        runs-on: windows-latest
+        strategy:
+            matrix:
+                python-version: [3.8, 3.9]
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v2
+
+            - name: Set Up Python ${{ matrix.python-version }}
+              uses: actions/setup-python@v2
+              with:
+                python-version: ${{ matrix.python-version }}
+
+            - name: Python version
+              run: python -c "import sys; print(sys.version)"
+
+            - name: Install dependencies    # replace with setup.py or requirements in the future
+              run: |
+                python -m pip install --upgrade pip
+                pip install psutil
+                pip install yara-python
+
+            - name: Run tests  
+              run: python -m unittest discover -s tests

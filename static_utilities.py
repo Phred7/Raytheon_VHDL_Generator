@@ -31,7 +31,6 @@ class StaticUtilities:
     """
     Class containing a set of static methods, components and context managers implemented throughout this project.
     """
-    # _project_root_directory_str: str =
     _project_root_directory_str: pathlib.Path = pathlib.Path(str(pathlib.Path(__file__).parent))
 
     # create logger

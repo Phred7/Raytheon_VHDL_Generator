@@ -8,8 +8,6 @@
 import logging
 import pathlib
 
-from Tools.scripts.var_access_benchmark import A
-
 from detection import Detection
 from ccs_project import CCSProject
 from disassembler import Disassembler
