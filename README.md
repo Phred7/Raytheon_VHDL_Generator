@@ -4,6 +4,7 @@
   1. Implement a soft processor testbed on FPGA with ability to operate with functionally equivalent, heterogeneous processors under basic software operations.
   2. Investigate software toolchain capability to support compile-time hardware diversification.
   3. Investigate survivability of system under a buffer insertion attack.
+  4. Develop a tool capable of detecting 
 - Technical Approach
   - Three functionally equivalent cores with randomized instruction sets are implemented on an FPGA.
   - A voting system monitors the core outputs and produces the correct system result while monitoring for unexpected code execution that would indicate an attack.
