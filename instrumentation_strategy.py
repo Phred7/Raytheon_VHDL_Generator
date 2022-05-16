@@ -117,7 +117,7 @@ class InstrumentationStrategy(ABC):
             num_args_discovered = 0
             i = modified_line.index(function_name.replace(r"\b", ""))
             while num_args_discovered < argument_index or not has_found_arguments:
-                i = i + 1
+                i += 1
                 if modified_line[i] == ',':
                     num_args_discovered += 1
                 elif modified_line[i] == '(':
