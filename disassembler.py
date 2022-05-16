@@ -24,7 +24,7 @@ class Disassembler:
         self.disassembler_directory: pathlib.Path = StaticUtilities.project_root_directory() / 'tools'
         self.disassembler_executable: str = 'dis430.exe'
         self.disassembler_output_file_name: str = disassembler_output_file_name
-        self.disassembler_output_file_directory: pathlib.Path = pathlib.Path(rf"{StaticUtilities.project_root_directory()}\generated_disassembly")
+        self.disassembler_output_file_directory: pathlib.Path = StaticUtilities.project_root_directory() / "generated_disassembly"
         self.disassembler_exit_status: int = 0
         StaticUtilities.logger.debug(f"{Disassembler.__name__} object initialized")
 
@@ -49,8 +49,11 @@ class Disassembler:
             StaticUtilities.logger.info(
                 rf"Removed {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
 
+        disassembler_binary_path: pathlib.Path = self.disassembler_directory / self.disassembler_executable
+        binary_file_path: pathlib.Path = self.ccs_project.path / self.ccs_project.binary_file_path
+        disassembler_output_file_path: pathlib.Path = self.disassembler_output_file_directory / self.disassembler_output_file_name
         self.disassembler_exit_status = subprocess.run(
-            rf"{self.disassembler_directory}\{self.disassembler_executable} {self.ccs_project.path}\{self.ccs_project.binary_file_path} {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}",
+            rf"{disassembler_binary_path} {binary_file_path} {disassembler_output_file_path}",
             stdout=subprocess.DEVNULL,
             stderr=subprocess.STDOUT)
         StaticUtilities.logger.debug(f"Disassembler exit status: {self.disassembler_exit_status.returncode}")
@@ -60,10 +63,10 @@ class Disassembler:
         else:
             StaticUtilities.logger.info(
                 f'Disassembler generated {self.disassembler_output_file_name} at the directory {self.disassembler_output_file_directory}')
-            self.ccs_project.set_disassembly_file_path(pathlib.Path(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}"))
+            self.ccs_project.set_disassembly_file_path(self.disassembler_output_file_directory / self.disassembler_output_file_name)
 
 
 if __name__ == '__main__':
-    ccs_project: CCSProject = CCSProject(project_name="test_target", source_file="main.c", path=pathlib.Path(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"))
+    ccs_project: CCSProject = CCSProject(project_name="test_target", source_file="main.c", path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_target")
     disassembler: Disassembler = Disassembler(ccs_project_to_disassemble=ccs_project)
     disassembler.disassemble()

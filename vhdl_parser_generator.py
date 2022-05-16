@@ -623,7 +623,7 @@ def main() -> None:
     generates the data_memory file.
     """
     ccs_project: CCSProject = CCSProject(project_name="test_C", source_file="test_C.c",
-                                         path=pathlib.Path(f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C"))
+                                         path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_C")
     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
     vhdl_parser_generator.generate_vhdl()
     package_zipper: PackageZipper = PackageZipper()
