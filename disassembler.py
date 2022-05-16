@@ -48,7 +48,7 @@ class Disassembler:
             os.remove(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
             StaticUtilities.logger.info(
                 rf"Removed {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
-        StaticUtilities.logger.info("Calling disassembler")
+
         self.disassembler_exit_status = subprocess.run(
             rf"{self.disassembler_directory}\{self.disassembler_executable} {self.ccs_project.path}\{self.ccs_project.binary_file_path} {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}",
             stdout=subprocess.DEVNULL,

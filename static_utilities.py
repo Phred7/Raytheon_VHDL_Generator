@@ -75,7 +75,7 @@ class StaticUtilities:
         :return: None.
         """
         file_path: pathlib.Path = file_directory / file
-        assert (not os.path.exists(file_path) or file is None or file == "")
+        assert (os.path.exists(file_path) or file is None or file == "")
 
     @staticmethod
     def file_exists(file_directory: pathlib.Path, file: str) -> bool:
