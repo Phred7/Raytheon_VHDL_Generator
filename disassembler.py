@@ -52,6 +52,7 @@ class Disassembler:
 
         disassembler_binary_path: pathlib.Path = self.disassembler_directory / self.disassembler_executable
         binary_file_path: pathlib.Path = self.ccs_project.path / self.ccs_project.binary_file_path
+        StaticUtilities.logger.info(os.getcwd())
         StaticUtilities.logger.info(disassembler_binary_path)
         StaticUtilities.logger.info(binary_file_path)
         StaticUtilities.logger.info(disassembler_output_path)
