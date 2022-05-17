@@ -34,7 +34,7 @@ class GeneratedVHDLTests(unittest.TestCase):
         vhdl_parser_generator.generate_vhdl()
 
     def test_generated_vhdl_package(self) -> None:
-        StaticUtilities.logger.info("Testing VHDL Package")
+        StaticUtilities.logger.info("\n***************Testing VHDL Package***************")
         self.generate_vhdl()
         zip_file_directory: pathlib.Path = StaticUtilities.project_root_directory() / "generated_vhdl"
         zip_file_name: str = "test_vhdl_generator"
@@ -58,5 +58,5 @@ class GeneratedVHDLTests(unittest.TestCase):
                             f"{file} not in {f'{zip_file_contents_list=}'.split('=')[0]}")
 
     def test_generated_vhdl(self) -> None:
-        StaticUtilities.logger.info("Testing VHDL Generation")
+        StaticUtilities.logger.info("\n***************Testing VHDL Generation***************")
         self.generate_vhdl()
