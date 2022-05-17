@@ -82,13 +82,15 @@ class Disassembler:
 
         StaticUtilities.logger.warning(
             f"dis430.exe execute permissions: {os.access(disassembler_binary_path, os.X_OK)}")
-        self.disassembler_exit_status = subprocess.run(
-            rf"{disassembler_binary_path} {binary_file_path} {disassembler_output_path}",
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.STDOUT,
-            #     shell=True,
-            #            capture_output=True,
-            check=True)
+        # self.disassembler_exit_status = subprocess.run(
+        #     rf"{disassembler_binary_path} {binary_file_path} {disassembler_output_path}",
+        #     stdout=subprocess.DEVNULL,
+        #     stderr=subprocess.STDOUT,
+        #     #     shell=True,
+        #     #            capture_output=True,
+        #     check=True)
+        self.disassembler_exit_status = subprocess.Popen([disassembler_binary_path, binary_file_path, disassembler_output_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        output, error = self.disassembler_exit_status.communicate()
         StaticUtilities.logger.debug(f"Disassembler exit status: {self.disassembler_exit_status.returncode}")
         if self.disassembler_exit_status.returncode != 0:
             raise OSError(
