@@ -9,6 +9,9 @@ jobs:
             matrix:
                 python-version: [3.8, 3.9]
         steps:
+            - name: install wine
+              run: sudo apt install wine64
+
             - name: Checkout repo
               uses: actions/checkout@v2
 
