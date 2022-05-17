@@ -625,6 +625,8 @@ def main() -> None:
     """
     ccs_project: CCSProject = CCSProject(project_name="test_C", source_file="test_C.c",
                                          path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_C")
+    # ccs_project: CCSProject = CCSProject(project_name="c_blank", source_file="c_blank.c",
+    #                                      path=StaticUtilities.project_root_directory() / "ccs_workspace" / "c_blank")
     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
     vhdl_parser_generator.generate_vhdl()
     package_zipper: PackageZipper = PackageZipper()

@@ -19,9 +19,14 @@ class GeneratedVHDLTests(unittest.TestCase):
     StaticUtilities.logger.setLevel(logging.DEBUG)
 
     @staticmethod
-    def project() -> CCSProject:
+    def test_c_project() -> CCSProject:
         return CCSProject(project_name="test_C", source_file="test_C.c",
-                          path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_C")
+                          path=StaticUtilities.project_root_directory() / "tests" / "references" / "ccs_projects" / "test_C")
+
+    @staticmethod
+    def blank_c_project() -> CCSProject:
+        return CCSProject(project_name="c_blank", source_file="c_blank.c",
+                          path=StaticUtilities.project_root_directory() / "tests" / "references" / "ccs_projects" / "c_blank")
 
     @staticmethod
     def generated_files_dict() -> Dict[str, bool]:
@@ -29,9 +34,37 @@ class GeneratedVHDLTests(unittest.TestCase):
             ["baseline_memory.vhd", "baseline_package.vhd", "data_memory.vhd", "generated_disassembly.txt",
              "highroller_memory.vhd", "highroller_package.vhd", "lowlife_memory.vhd", "lowlife_package.vhd"], False)
 
-    def generate_vhdl(self) -> None:
-        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=self.project())
+    @staticmethod
+    def path_to_reference_vhdl(project_name: str) -> pathlib.Path:
+        return StaticUtilities.project_root_directory() / "tests" / "references" / "vhdl" / project_name
+
+    def generate_vhdl(self, project: CCSProject) -> None:
+        StaticUtilities.logger.setLevel(logging.INFO)
+        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=project)
         vhdl_parser_generator.generate_vhdl()
+        StaticUtilities.logger.setLevel(logging.DEBUG)
+
+        file_paths: List[pathlib.Path] = []
+        directory: pathlib.Path = StaticUtilities.project_root_directory() / "generated_vhdl"
+        path_to_project_reference_generation_directory: pathlib.Path = self.path_to_reference_vhdl(project.project_name)
+        for file in os.listdir(directory.__str__()):
+            if file.endswith(".vhd") or file == "generated_disassembly.txt":
+                file_paths.append(directory / file)
+        file_paths.append(project.disassembly_file_path)
+        self.assertTrue(len(file_paths) == len(self.generated_files_dict().keys()))
+
+        for file in file_paths:
+            reference_file_path: pathlib.Path = path_to_project_reference_generation_directory / file.parts[-1]
+            generated_file_string: str = ""
+            reference_file_string: str = ""
+            with open(file, 'r') as generated_file:
+                with open(reference_file_path, 'r') as reference_file:
+                    for line_number, lines in enumerate(zip(generated_file, reference_file)):
+                        line_g, line_r = lines
+                        generated_file_string += line_g
+                        reference_file_string += line_r
+                        self.assertTrue(line_g == line_r, f"Line {line_number} does not match in the newly generated version of {file.parts[-1]} and the reference version.\nGenerated line: {line_g}Reference line: {line_r}")
+            self.assertTrue(generated_file_string == reference_file_string, f"The newly generated version of {file.parts[-1]} does not match the reference version")
 
     def test_generated_vhdl_package(self) -> None:
         StaticUtilities.logger.info("\n***************Testing VHDL Package***************")
@@ -57,6 +90,10 @@ class GeneratedVHDLTests(unittest.TestCase):
             self.assertTrue(zip_file_verification_dict[file],
                             f"{file} not in {f'{zip_file_contents_list=}'.split('=')[0]}")
 
-    def test_generated_vhdl(self) -> None:
-        StaticUtilities.logger.info("\n***************Testing VHDL Generation***************")
-        self.generate_vhdl()
+    def test_c_blank_generation_contents(self) -> None:
+        StaticUtilities.logger.info("\n***************Testing VHDL Generation Contents for Blank C Reference Project***************")
+        self.generate_vhdl(self.blank_c_project())
+
+    def test_test_c_generated_vhdl(self) -> None:
+        StaticUtilities.logger.info("\n***************Testing VHDL Generation Contents for Test C Reference Project***************")
+        self.generate_vhdl(self.test_c_project())
