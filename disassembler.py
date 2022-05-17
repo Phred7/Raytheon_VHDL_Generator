@@ -54,9 +54,6 @@ class Disassembler:
 
         disassembler_binary_path: pathlib.Path = self.disassembler_directory / self.disassembler_executable
         binary_file_path: pathlib.Path = self.ccs_project.path / self.ccs_project.binary_file_path
-        StaticUtilities.logger.warning(
-            f"dis430.exe execute permissions: {os.access(disassembler_binary_path, os.X_OK)}")
-        StaticUtilities.logger.info(f"platform: {platform.system()}")
         if platform.system() == "Linux":
             self.disassembler_exit_status = subprocess.Popen(
                 ["wine64", disassembler_binary_path, binary_file_path, disassembler_output_path], stdout=subprocess.PIPE,
