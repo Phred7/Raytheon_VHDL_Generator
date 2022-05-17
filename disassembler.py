@@ -61,10 +61,18 @@ class Disassembler:
         bin: bool = StaticUtilities.file_exists(self.ccs_project.path, self.ccs_project.binary_file_path)
         if dis:
             StaticUtilities.logger.error(f"{self.disassembler_output_file_directory}-/-{self.disassembler_output_file_name} exists")
+        else:
+            StaticUtilities.logger.info(f"{self.disassembler_output_file_directory}-/-{self.disassembler_output_file_name} does not exist")
+
         if not dis_bin:
             StaticUtilities.logger.error(f"{self.disassembler_directory}-/-{self.disassembler_executable} does not exist")
+        else:
+            StaticUtilities.logger.info(f"{self.disassembler_directory}-/-{self.disassembler_executable} exists")
+
         if not bin:
             StaticUtilities.logger.error(f"{self.ccs_project.path}-/-{self.ccs_project.binary_file_path} does not exist")
+        else:
+            StaticUtilities.logger.error(f"{self.ccs_project.path}-/-{self.ccs_project.binary_file_path} exists")
 
         self.disassembler_exit_status = subprocess.run(
             rf"{disassembler_binary_path} {binary_file_path} {disassembler_output_path}",

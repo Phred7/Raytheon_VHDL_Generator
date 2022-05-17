@@ -9194,3 +9194,17 @@ line 29:
 2022-05-17 12:03:01,278 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
 2022-05-17 12:03:01,280 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
 2022-05-17 12:03:01,282 WARNING package_zipper zip_vhdl Created zip test_C - closed loop demo - 2022-05-17_[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-17 12:07:07,956 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-05-17 12:07:07,957 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-05-17 12:07:07,958 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-05-17 12:07:07,959 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-05-17 12:07:07,960 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-05-17 12:07:07,960 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-05-17 12:07:07,961 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-05-17 12:07:07,962 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-05-17 12:07:07,963 DEBUG disassembler __init__ Disassembler object initialized
+2022-05-17 12:07:07,965 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-05-17 12:07:07,966 INFO disassembler disassemble C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-05-17 12:07:07,966 INFO disassembler disassemble C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\tools\dis430.exe
+2022-05-17 12:07:07,966 INFO disassembler disassemble C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\Debug\test_C.out
+2022-05-17 12:07:07,966 INFO disassembler disassemble C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
