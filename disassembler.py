@@ -80,6 +80,7 @@ class Disassembler:
         else:
             StaticUtilities.logger.info(f"{self.ccs_project.path}-/-{self.ccs_project.binary_file_path} exists")
 
+        StaticUtilities.logger.warning(f"dis430.exe execute permissions: {os.access(disassembler_binary_path, os.X_OK)}")
         self.disassembler_exit_status = subprocess.run(
             rf"{disassembler_binary_path} {binary_file_path} {disassembler_output_path}",
             stdout=subprocess.DEVNULL,
