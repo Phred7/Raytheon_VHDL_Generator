@@ -38,17 +38,17 @@ class GeneratedVHDLTests(unittest.TestCase):
         self.generate_vhdl()
         zip_file_directory: pathlib.Path = StaticUtilities.project_root_directory() / "generated_vhdl"
         zip_file_name: str = "test_vhdl_generator"
+        zip_file_path: pathlib.Path = zip_file_directory / f"{zip_file_name}.zip"
         if StaticUtilities.file_exists(zip_file_directory, f"{zip_file_name}.zip"):
-            zip_file_path: pathlib.Path = zip_file_directory / f"{zip_file_name}.zip"
             os.remove(zip_file_path)
         else:
-            StaticUtilities.logger.error(f"Test zip file does not exist at: {zip_file_directory / f'{zip_file_name}.zip'}")
+            StaticUtilities.logger.error(f"Test zip file does not exist at: {zip_file_path}")
         package_zipper: PackageZipper = PackageZipper()
         package_zipper.zip_vhdl(zip_file_name=zip_file_name)
         self.assertEqual(package_zipper.number_of_zipped_files, 8)
         self.assertTrue(StaticUtilities.file_exists(zip_file_directory, f"{zip_file_name}.zip"))
         zip_file_verification_dict: Dict[str, bool] = self.generated_files_dict()
-        with ZipFile(f"{zip_file_directory}\\{zip_file_name}.zip", 'r') as zip_file:
+        with ZipFile(zip_file_path, 'r') as zip_file:
             zip_file_contents_list: List[str] = zip_file.namelist()
             for file in zip_file_contents_list:
                 self.assertTrue(file in zip_file_verification_dict, f"{file} should not be in {zip_file_name}.zip")
