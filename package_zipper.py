@@ -53,8 +53,10 @@ class PackageZipper:
             duplicate_file_modifier += 1
 
         # Zips VHDL package
-        with ZipFile(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}\\{zip_file_name}.zip', 'w') as vhdl_zip_file:
-            with StaticUtilities.change_dir(pathlib.Path(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}')):
+        zip_file_path: pathlib.Path = StaticUtilities.project_root_directory() / self.vhdl_directory / f"{zip_file_name}.zip"
+        vhdl_directory_path: pathlib.Path = StaticUtilities.project_root_directory() / self.vhdl_directory
+        with ZipFile(zip_file_path, 'w') as vhdl_zip_file:
+            with StaticUtilities.change_dir(vhdl_directory_path):
                 for file in os.listdir("."):
                     if file.endswith(".vhd"):
                         self._zip_write(vhdl_zip_file, file)
