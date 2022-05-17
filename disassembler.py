@@ -53,10 +53,10 @@ class Disassembler:
 
         disassembler_binary_path: pathlib.Path = self.disassembler_directory / self.disassembler_executable
         binary_file_path: pathlib.Path = self.ccs_project.path / self.ccs_project.binary_file_path
-        StaticUtilities.logger.info(os.getcwd())
-        StaticUtilities.logger.info(disassembler_binary_path)
-        StaticUtilities.logger.info(binary_file_path)
-        StaticUtilities.logger.info(disassembler_output_path)
+#        StaticUtilities.logger.info(os.getcwd())
+#        StaticUtilities.logger.info(disassembler_binary_path)
+#        StaticUtilities.logger.info(binary_file_path)
+#        StaticUtilities.logger.info(disassembler_output_path)
         dis: bool = StaticUtilities.file_exists(self.disassembler_output_file_directory,
                                                 self.disassembler_output_file_name)
         dis_bin: bool = StaticUtilities.file_exists(self.disassembler_directory, self.disassembler_executable)
@@ -64,28 +64,28 @@ class Disassembler:
         if dis:
             StaticUtilities.logger.error(
                 f"{self.disassembler_output_file_directory}-/-{self.disassembler_output_file_name} exists")
-        else:
-            StaticUtilities.logger.info(
-                f"{self.disassembler_output_file_directory}-/-{self.disassembler_output_file_name} does not exist")
+#        else:
+#            StaticUtilities.logger.info(
+#                f"{self.disassembler_output_file_directory}-/-{self.disassembler_output_file_name} does not exist")
 
         if not dis_bin:
             StaticUtilities.logger.error(
                 f"{self.disassembler_directory}-/-{self.disassembler_executable} does not exist")
-        else:
-            StaticUtilities.logger.info(f"{self.disassembler_directory}-/-{self.disassembler_executable} exists")
+#        else:
+#            StaticUtilities.logger.info(f"{self.disassembler_directory}-/-{self.disassembler_executable} exists")
 
         if not bin:
             StaticUtilities.logger.error(
                 f"{self.ccs_project.path}-/-{self.ccs_project.binary_file_path} does not exist")
-        else:
-            StaticUtilities.logger.info(f"{self.ccs_project.path}-/-{self.ccs_project.binary_file_path} exists")
+#        else:
+#            StaticUtilities.logger.info(f"{self.ccs_project.path}-/-{self.ccs_project.binary_file_path} exists")
 
         self.disassembler_exit_status = subprocess.run(
             rf"{disassembler_binary_path} {binary_file_path} {disassembler_output_path}",
             stdout=subprocess.DEVNULL,
             stderr=subprocess.STDOUT,
             shell=True,
-            capture_output=True,
+#            capture_output=True,
             check=True)
         StaticUtilities.logger.debug(f"Disassembler exit status: {self.disassembler_exit_status.returncode}")
         if self.disassembler_exit_status.returncode != 0:
