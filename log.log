@@ -1,4 +1,22 @@
-2022-05-17 15:20:30,299 INFO test_vhdl_generator test_test_c_generated_vhdl 
+2022-05-17 15:28:34,664 INFO test_vhdl_generator test_c_blank_generation_contents 
+***************Testing VHDL Generation Contents for Blank C Reference Project***************
+2022-05-17 15:28:34,669 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-05-17 15:28:34,706 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-05-17 15:28:34,725 INFO test_vhdl_generator test_generated_vhdl_package 
+***************Testing VHDL Package***************
+2022-05-17 15:28:34,732 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-05-17 15:28:34,750 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-05-17 15:28:34,779 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-05-17 15:28:34,781 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-05-17 15:28:34,782 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-05-17 15:28:34,783 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-05-17 15:28:34,784 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-05-17 15:28:34,784 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-05-17 15:28:34,785 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-05-17 15:28:34,786 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-05-17 15:28:34,788 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-05-17 15:28:34,791 INFO package_zipper zip_vhdl Created zip test_vhdl_generator.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-17 15:28:34,796 INFO test_vhdl_generator test_test_c_generated_vhdl 
 ***************Testing VHDL Generation Contents for Test C Reference Project***************
-2022-05-17 15:20:30,306 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
-2022-05-17 15:20:30,347 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-05-17 15:28:34,802 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-05-17 15:28:34,820 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly

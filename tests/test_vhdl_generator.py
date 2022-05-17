@@ -68,7 +68,7 @@ class GeneratedVHDLTests(unittest.TestCase):
 
     def test_generated_vhdl_package(self) -> None:
         StaticUtilities.logger.info("\n***************Testing VHDL Package***************")
-        self.generate_vhdl()
+        self.generate_vhdl(self.test_c_project())
         zip_file_directory: pathlib.Path = StaticUtilities.project_root_directory() / "generated_vhdl"
         zip_file_name: str = "test_vhdl_generator"
         zip_file_path: pathlib.Path = zip_file_directory / f"{zip_file_name}.zip"
