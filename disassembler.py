@@ -76,8 +76,11 @@ class Disassembler:
 
         self.disassembler_exit_status = subprocess.run(
             rf"{disassembler_binary_path} {binary_file_path} {disassembler_output_path}",
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.STDOUT)
+#            stdout=subprocess.DEVNULL,
+ #           stderr=subprocess.STDOUT, 
+	    shell=True, 
+	    capture_output=True,
+            check=True)
         StaticUtilities.logger.debug(f"Disassembler exit status: {self.disassembler_exit_status.returncode}")
         if self.disassembler_exit_status.returncode != 0:
             raise OSError(
