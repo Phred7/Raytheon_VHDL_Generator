@@ -94,7 +94,7 @@ class Disassembler:
         StaticUtilities.logger.debug(f"Disassembler exit status: {self.disassembler_exit_status.returncode}")
         if self.disassembler_exit_status.returncode != 0:
             raise OSError(
-                f"Disassembler failed to generate disassembly for {self.ccs_project.binary_file_path} with exit status {self.disassembler_exit_status}")
+                f"Disassembler failed to generate disassembly for {self.ccs_project.binary_file_path} with exit status {self.disassembler_exit_status.returncode};\noutput: {output};\nerror: {error}")
         else:
             StaticUtilities.logger.info(
                 f'Disassembler generated {self.disassembler_output_file_name} at the directory {self.disassembler_output_file_directory}')

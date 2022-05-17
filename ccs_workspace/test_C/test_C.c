@@ -32,9 +32,6 @@ int main(void)
     TB0CCR0 = frequency;
     __enable_interrupt();
 
-
-    UCA1IE |= UCRXIE;
-
     unsigned char temp;
     while(1){
         temp = P2IN & (BIT0+BIT1);

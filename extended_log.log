@@ -9842,3 +9842,36 @@ line 29:
 2022-05-17 13:40:34,036 WARNING disassembler disassemble dis430.exe execute permissions: True
 2022-05-17 13:40:34,076 DEBUG disassembler disassemble Disassembler exit status: 0
 2022-05-17 13:40:34,076 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-05-17 13:44:00,869 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-05-17 13:44:00,870 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-05-17 13:44:00,871 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-05-17 13:44:00,871 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-05-17 13:44:00,872 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-05-17 13:44:00,872 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-05-17 13:44:00,873 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-05-17 13:44:00,874 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-05-17 13:44:00,874 DEBUG disassembler __init__ Disassembler object initialized
+2022-05-17 13:44:00,875 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-05-17 13:44:00,876 WARNING disassembler disassemble dis430.exe execute permissions: True
+2022-05-17 13:44:00,892 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-05-17 13:44:00,892 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-05-17 13:44:00,893 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-05-17 13:44:00,894 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-05-17 13:44:00,894 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-05-17 13:44:00,896 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-05-17 13:44:00,896 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-05-17 13:44:00,900 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-05-17 13:44:00,901 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-05-17 13:44:00,905 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-05-17 13:44:00,905 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-05-17 13:44:00,909 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-05-17 13:44:00,910 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-05-17 13:44:00,912 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-05-17 13:44:00,912 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-05-17 13:44:00,913 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-05-17 13:44:00,914 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-05-17 13:44:00,914 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-05-17 13:44:00,915 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-05-17 13:44:00,915 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-05-17 13:44:00,917 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-05-17 13:44:00,919 INFO package_zipper zip_vhdl Created zip test_C - closed loop demo - 2022-05-17.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
