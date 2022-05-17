@@ -72,7 +72,7 @@ class Disassembler:
         if not bin:
             StaticUtilities.logger.error(f"{self.ccs_project.path}-/-{self.ccs_project.binary_file_path} does not exist")
         else:
-            StaticUtilities.logger.error(f"{self.ccs_project.path}-/-{self.ccs_project.binary_file_path} exists")
+            StaticUtilities.logger.info(f"{self.ccs_project.path}-/-{self.ccs_project.binary_file_path} exists")
 
         self.disassembler_exit_status = subprocess.run(
             rf"{disassembler_binary_path} {binary_file_path} {disassembler_output_path}",
