@@ -10273,3 +10273,9 @@ line 29:
 2022-05-17 17:48:55,296 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
 2022-05-17 17:48:55,320 WARNING package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-17_[6].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
 2022-05-17 17:48:55,320 INFO main generate **** Generating VHDL Finished****
+2022-05-17 17:53:06,794 INFO main generate **** Generating VHDL ****
+2022-05-17 17:53:06,797 INFO main detection No malware found
+2022-05-17 17:53:06,799 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-05-17 17:53:06,835 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-05-17 17:53:06,857 INFO package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-17.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-17 17:53:06,857 INFO main generate **** Generating VHDL Finished****
