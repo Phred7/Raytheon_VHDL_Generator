@@ -38,7 +38,7 @@ class DisassemblyParserGenerator:
         # this section removes the last generated assembly file if it exists.
         if os.path.exists(rf"{self.generated_assembly_directory}\{self.generated_assembly_file}"):
             os.remove(rf"{self.generated_assembly_directory}\{self.generated_assembly_file}")
-            StaticUtilities.logger.info(rf"Removed {self.generated_assembly_directory}\{self.generated_assembly_file}")
+            StaticUtilities.logger.debug(rf"Removed {self.generated_assembly_directory}\{self.generated_assembly_file}")
         # the following generates the asm source file from the disassembly file.
         with open(
                 rf"{StaticUtilities.project_root_directory()}\{self.generated_assembly_directory}\{self.generated_assembly_file}",

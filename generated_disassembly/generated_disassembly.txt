@@ -1,5 +1,5 @@
 
-DATA Section .cinit, 0x108 bytes at 0x00008000
+DATA Section .cinit, 0x104 bytes at 0x00008000
 008000:              .cinit:
 008000: ff00             .word 0xff00
 008002: 3800             .word 0x3800
@@ -123,611 +123,564 @@ DATA Section .cinit, 0x108 bytes at 0x00008000
 0080ee: 504f             .word 0x504f
 0080f0: 6061             .word 0x6061
 0080f2: 0070             .word 0x0070
-0080f4: 0117             .word 0x0117
-0080f6: 3d00             .word 0x3d00
-0080f8: e20a             .word 0xe20a
-0080fa: 0f01             .word 0x0f01
-0080fc: ff40             .word 0xff40
-0080fe: 00f0             .word 0x00f0
-008100:              __TI_Handler_Table_Base:
-008100: 81ac             .word 0x81ac
-008102: 8378             .word 0x8378
-008104:              __TI_Handler_Table_Limit:
-008104:              __TI_CINIT_Base:
-008104: 8000             .word 0x8000
-008106: 2000             .word 0x2000
+0080f4: e80f             .word 0xe80f
+0080f6: 3d03             .word 0x3d03
+0080f8: ff00             .word 0xff00
+0080fa: 00f0             .word 0x00f0
+0080fc:              __TI_Handler_Table_Base:
+0080fc: 81c2             .word 0x81c2
+0080fe: 8326             .word 0x8326
+008100:              __TI_Handler_Table_Limit:
+008100:              __TI_CINIT_Base:
+008100: 8000             .word 0x8000
+008102: 2000             .word 0x2000
 
-TEXT Section .text, 0x2b0 bytes at 0x00008108
-008108:              main:
-008108:              .text:main:
-008108: 2183             DECD.W  SP
-00810a: B240             MOV.W   #0x5a80,&WDTCTL_L
-00810c: 805A            
-00810e: CC01            
-008110: 92C3             BIC.W   #1,&PM5CTL0_L
-008112: 3001            
-008114: 5F42             MOV.B   &P1DIR,R15
+TEXT Section .text, 0x262 bytes at 0x00008104
+008104:              main:
+008104:              .text:main:
+008104: 2183             DECD.W  SP
+008106: B240             MOV.W   #0x5a80,&WDTCTL_L
+008108: 805A            
+00810a: CC01            
+00810c: 92C3             BIC.W   #1,&PM5CTL0_L
+00810e: 3001            
+008110: 5F42             MOV.B   &P1DIR,R15
+008112: 0402            
+008114: C243             CLR.B   &P1DIR
 008116: 0402            
-008118: C243             CLR.B   &P1DIR
-00811a: 0402            
-00811c: F2F0             AND.B   #0x00fc,&P2DIR
-00811e: FC00            
-008120: 0502            
-008122: F2D0             BIS.B   #0x0034,&P2DIR
-008124: 3400            
-008126: 0502            
-008128:              $C$L7:
-008128: 3F40             MOV.W   #0x0003,R15
-00812a: 0300            
-00812c: 5FF2             AND.B   &P2IN,R15
-00812e: 0102            
-008130: C14F             MOV.B   R15,0x0000(SP)
-008132: 0000            
-008134: D193             CMP.B   #1,0x0000(SP)
-008136: 0000            
-008138: 0420             JNE     ($C$L8)
-00813a: B240             MOV.W   #0x002f,&set_angle
-00813c: 2F00            
-00813e: 0221            
-008140: 0A3C             JMP     ($C$L10)
-008142:              $C$L8:
-008142: E193             CMP.B   #2,0x0000(SP)
-008144: 0000            
-008146: 0420             JNE     ($C$L9)
-008148: B240             MOV.W   #0x004f,&set_angle
-00814a: 4F00            
-00814c: 0221            
-00814e: 033C             JMP     ($C$L10)
-008150:              $C$L9:
-008150: B240             MOV.W   #0x003d,&set_angle
-008152: 3D00            
-008154: 0221            
-008156:              $C$L10:
-008156: 5F42             MOV.B   &P1IN,R15
-008158: 0002            
-00815a: D14F             MOV.B   0x2000(R15),0x0000(SP)
-00815c: 0020            
-00815e: 0000            
-008160: 6F41             MOV.B   @SP,R15
-008162: 1F92             CMP.W   &set_angle,R15
+008118: F2F0             AND.B   #0x00fc,&P2DIR
+00811a: FC00            
+00811c: 0502            
+00811e: F2D0             BIS.B   #0x0034,&P2DIR
+008120: 3400            
+008122: 0502            
+008124: B2D0             BIS.W   #0x0220,&TB0CTL_L
+008126: 2002            
+008128: 8003            
+00812a: B2D0             BIS.W   #0x0010,&TB0CCTL0_L
+00812c: 1000            
+00812e: 8203            
+008130: 9242             MOV.W   &frequency,&TB0CCR0_L
+008132: 0021            
+008134: 9203            
+008136: 32D2             EINT    
+008138:              $C$L1:
+008138: 3F40             MOV.W   #0x0003,R15
+00813a: 0300            
+00813c: 5FF2             AND.B   &P2IN,R15
+00813e: 0102            
+008140: C14F             MOV.B   R15,0x0000(SP)
+008142: 0000            
+008144: D193             CMP.B   #1,0x0000(SP)
+008146: 0000            
+008148: 0420             JNE     ($C$L2)
+00814a: B240             MOV.W   #0x002f,&set_angle
+00814c: 2F00            
+00814e: 0221            
+008150: 0A3C             JMP     ($C$L4)
+008152:              $C$L2:
+008152: E193             CMP.B   #2,0x0000(SP)
+008154: 0000            
+008156: 0420             JNE     ($C$L3)
+008158: B240             MOV.W   #0x004f,&set_angle
+00815a: 4F00            
+00815c: 0221            
+00815e: 033C             JMP     ($C$L4)
+008160:              $C$L3:
+008160: B240             MOV.W   #0x003d,&set_angle
+008162: 3D00            
 008164: 0221            
-008166: 0B2C             JHS     ($C$L11)
-008168: E2C2             BIC.B   #4,&P2OUT
-00816a: 0302            
-00816c: F2F0             AND.B   #0x00df,&P2OUT
-00816e: DF00            
-008170: 0302            
-008172: 5F42             MOV.B   &set_angle,R15
+008166:              $C$L4:
+008166: 5F42             MOV.B   &P1IN,R15
+008168: 0002            
+00816a: D14F             MOV.B   0x2000(R15),0x0000(SP)
+00816c: 0020            
+00816e: 0000            
+008170: 6F41             MOV.B   @SP,R15
+008172: 1F92             CMP.W   &set_angle,R15
 008174: 0221            
-008176: 6F81             SUB.B   @SP,R15
-008178: C14F             MOV.B   R15,0x0000(SP)
-00817a: 0000            
-00817c: 113C             JMP     ($C$L13)
-00817e:              $C$L11:
-00817e: 6F41             MOV.B   @SP,R15
-008180: 829F             CMP.W   R15,&set_angle
-008182: 0221            
-008184: 092C             JHS     ($C$L12)
-008186: E2C2             BIC.B   #4,&P2OUT
-008188: 0302            
-00818a: F2D0             BIS.B   #0x0020,&P2OUT
-00818c: 2000            
-00818e: 0302            
-008190: D182             SUB.B   &set_angle,0x0000(SP)
+008176: 0B2C             JHS     ($C$L5)
+008178: E2C2             BIC.B   #4,&P2OUT
+00817a: 0302            
+00817c: F2F0             AND.B   #0x00df,&P2OUT
+00817e: DF00            
+008180: 0302            
+008182: 5F42             MOV.B   &set_angle,R15
+008184: 0221            
+008186: 6F81             SUB.B   @SP,R15
+008188: C14F             MOV.B   R15,0x0000(SP)
+00818a: 0000            
+00818c: 0F3C             JMP     ($C$L7)
+00818e:              $C$L5:
+00818e: 6F41             MOV.B   @SP,R15
+008190: 829F             CMP.W   R15,&set_angle
 008192: 0221            
-008194: 0000            
-008196: 043C             JMP     ($C$L13)
-008198:              $C$L12:
-008198: E2D2             BIS.B   #4,&P2OUT
-00819a: 0302            
-00819c: C143             CLR.B   0x0000(SP)
-00819e: 0000            
-0081a0:              $C$L13:
-0081a0: 6F41             MOV.B   @SP,R15
-0081a2: 824F             MOV.W   R15,&frequency
-0081a4: 0021            
-0081a6: B012             CALL    #delay
-0081a8: 2882            
-0081aa: BE3F             JMP     ($C$L7)
-0081ac:              __TI_decompress_lzss:
-0081ac:              .text:decompress:lzss:__TI_decompress_lzss:
-0081ac: 0A12             PUSH    R10
-0081ae: 0912             PUSH    R9
-0081b0: 0812             PUSH    R8
-0081b2: 0A4C             MOV.W   R12,R10
-0081b4:              $C$L1:
-0081b4: 784A             MOV.B   @R10+,R8
-0081b6: 0943             CLR.W   R9
-0081b8: 113C             JMP     ($C$L6)
-0081ba:              $C$L2:
-0081ba: 0E4D             MOV.W   R13,R14
-0081bc: 0E8B             SUB.W   R11,R14
-0081be: 1E83             DEC.W   R14
-0081c0:              $C$L3:
-0081c0: 1D53             INC.W   R13
-0081c2: FD4E             MOV.B   @R14+,0xffff(R13)
-0081c4: FFFF            
-0081c6: 1F83             DEC.W   R15
-0081c8: FB23             JNE     ($C$L3)
-0081ca: 033C             JMP     ($C$L5)
-0081cc:              $C$L4:
-0081cc: 1D53             INC.W   R13
-0081ce: FD4A             MOV.B   @R10+,0xffff(R13)
-0081d0: FFFF            
-0081d2:              $C$L5:
-0081d2: 12C3             CLRC    
-0081d4: 0810             RRC     R8
-0081d6: 1953             INC.W   R9
-0081d8: 3992             CMP.W   #8,R9
-0081da: EC37             JGE     ($C$L1)
-0081dc:              $C$L6:
-0081dc: 18B3             BIT.W   #1,R8
-0081de: F623             JNE     ($C$L4)
-0081e0: 7B4A             MOV.B   @R10+,R11
-0081e2: 7F4A             MOV.B   @R10+,R15
-0081e4: 0C4B             MOV.W   R11,R12
-0081e6: B012             CALL    #__mspabi_slli_4
-0081e8: 5283            
-0081ea: 0B4C             MOV.W   R12,R11
-0081ec: 0C4F             MOV.W   R15,R12
-0081ee: B012             CALL    #__mspabi_srli_4
-0081f0: DC82            
-0081f2: 3CF0             AND.W   #0x000f,R12
-0081f4: 0F00            
-0081f6: 0BDC             BIS.W   R12,R11
-0081f8: 3FF0             AND.W   #0x000f,R15
-0081fa: 0F00            
-0081fc: 3F50             ADD.W   #0x0003,R15
-0081fe: 0300            
-008200: 3F90             CMP.W   #0x0012,R15
-008202: 1200            
-008204: 0C20             JNE     ($C$L8)
-008206: 7E4A             MOV.B   @R10+,R14
-008208: 3EB0             BIT.W   #0x0080,R14
-00820a: 8000            
-00820c: 0724             JEQ     ($C$L7)
-00820e: 7C4A             MOV.B   @R10+,R12
-008210: 4C4C             MOV.B   R12,R12
-008212: B012             CALL    #__mspabi_slli_7
-008214: 4C83            
-008216: 3EF0             AND.W   #0x007f,R14
-008218: 7F00            
-00821a: 0EDC             BIS.W   R12,R14
-00821c:              $C$L7:
-00821c: 0F5E             ADD.W   R14,R15
-00821e:              $C$L8:
-00821e: 3B90             CMP.W   #0x0fff,R11
-008220: FF0F            
-008222: CB23             JNE     ($C$L2)
-008224: 3040             BR      #__mspabi_func_epilog_3
-008226: A483            
-008228:              delay:
-008228:              .text:delay:
-008228: 9253             INC.W   &delayCounter
-00822a: 0421            
-00822c: 8263             ADC.W   &0x2106
-00822e: 0621            
-008230: 9292             CMP.W   &0x210a,&0x2106
-008232: 0A21            
-008234: 0621            
-008236: 3428             JLO     ($C$L6)
-008238: 0420             JNE     ($C$L1)
-00823a: 9292             CMP.W   &delayLength,&delayCounter
-00823c: 0821            
-00823e: 0421            
-008240: 2F28             JLO     ($C$L6)
-008242:              $C$L1:
-008242: 8293             TST.W   &frequency
-008244: 0021            
-008246: 0434             JGE     ($C$L2)
-008248: B2E3             INV.W   &frequency
-00824a: 0021            
-00824c: 9253             INC.W   &frequency
-00824e: 0021            
-008250:              $C$L2:
-008250: 1E42             MOV.W   &frequency,R14
-008252: 0021            
-008254: 3EB0             BIT.W   #0x8000,R14
-008256: 0080            
-008258: 0F7F             SUBC.W  R15,R15
-00825a: 3FE3             INV.W   R15
-00825c: 824E             MOV.W   R14,&delayLength
-00825e: 0821            
-008260: 824F             MOV.W   R15,&0x210a
-008262: 0A21            
-008264: 8293             TST.W   &0x210a
-008266: 0A21            
-008268: 0420             JNE     ($C$L3)
-00826a: B290             CMP.W   #0x000e,&delayLength
-00826c: 0E00            
-00826e: 0821            
-008270: 0628             JLO     ($C$L4)
-008272:              $C$L3:
-008272: B240             MOV.W   #0x000d,&delayLength
-008274: 0D00            
-008276: 0821            
-008278: 8243             CLR.W   &0x210a
-00827a: 0A21            
-00827c: 0A3C             JMP     ($C$L5)
-00827e:              $C$L4:
-00827e: 8293             TST.W   &0x210a
-008280: 0A21            
-008282: 0720             JNE     ($C$L5)
-008284: 8293             TST.W   &delayLength
-008286: 0821            
-008288: 0420             JNE     ($C$L5)
-00828a: 9243             MOV.W   #1,&delayLength
-00828c: 0821            
-00828e: 8243             CLR.W   &0x210a
-008290: 0A21            
-008292:              $C$L5:
-008292: F2E0             XOR.B   #0x0010,&P2OUT
-008294: 1000            
-008296: 0302            
-008298: 8243             CLR.W   &delayCounter
-00829a: 0421            
-00829c: 8243             CLR.W   &0x2106
-00829e: 0621            
-0082a0:              $C$L6:
-0082a0: 3041             RET     
-0082a2:              __mspabi_srli:
-0082a2: 3DF0             AND.W   #0x000f,R13
-0082a4: 0F00            
-0082a6: 3DE0             XOR.W   #0x000f,R13
-0082a8: 0F00            
-0082aa: 0D5D             RLA.W   R13
-0082ac: 0D5D             RLA.W   R13
-0082ae: 005D             ADD.W   R13,PC
-0082b0:              __mspabi_srli_15:
-0082b0: 12C3             CLRC    
-0082b2: 0C10             RRC     R12
-0082b4:              __mspabi_srli_14:
-0082b4: 12C3             CLRC    
-0082b6: 0C10             RRC     R12
-0082b8:              __mspabi_srli_13:
-0082b8: 12C3             CLRC    
-0082ba: 0C10             RRC     R12
-0082bc:              __mspabi_srli_12:
-0082bc: 12C3             CLRC    
-0082be: 0C10             RRC     R12
-0082c0:              __mspabi_srli_11:
-0082c0: 12C3             CLRC    
-0082c2: 0C10             RRC     R12
-0082c4:              __mspabi_srli_10:
-0082c4: 12C3             CLRC    
-0082c6: 0C10             RRC     R12
-0082c8:              __mspabi_srli_9:
-0082c8: 12C3             CLRC    
-0082ca: 0C10             RRC     R12
-0082cc:              __mspabi_srli_8:
-0082cc: 12C3             CLRC    
-0082ce: 0C10             RRC     R12
-0082d0:              __mspabi_srli_7:
-0082d0: 12C3             CLRC    
-0082d2: 0C10             RRC     R12
-0082d4:              __mspabi_srli_6:
-0082d4: 12C3             CLRC    
-0082d6: 0C10             RRC     R12
-0082d8:              __mspabi_srli_5:
-0082d8: 12C3             CLRC    
-0082da: 0C10             RRC     R12
-0082dc:              __mspabi_srli_4:
-0082dc: 12C3             CLRC    
-0082de: 0C10             RRC     R12
-0082e0:              __mspabi_srli_3:
-0082e0: 12C3             CLRC    
-0082e2: 0C10             RRC     R12
-0082e4:              __mspabi_srli_2:
-0082e4: 12C3             CLRC    
-0082e6: 0C10             RRC     R12
-0082e8:              __mspabi_srli_1:
-0082e8: 12C3             CLRC    
-0082ea: 0C10             RRC     R12
-0082ec: 3041             RET     
-0082ee:              __TI_auto_init_nobinit_nopinit:
-0082ee:              .text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit:
-0082ee: 0A12             PUSH    R10
-0082f0: 0912             PUSH    R9
-0082f2: 3F40             MOV.W   #0x8100,R15
-0082f4: 0081            
-0082f6: 3F90             CMP.W   #0x8104,R15
-0082f8: 0481            
-0082fa: 1624             JEQ     ($C$L22)
-0082fc: 3F40             MOV.W   #0x8104,R15
-0082fe: 0481            
-008300: 3F90             CMP.W   #0x8108,R15
-008302: 0881            
-008304: 1124             JEQ     ($C$L22)
-008306: 3A40             MOV.W   #0x8108,R10
-008308: 0881            
-00830a: 3A80             SUB.W   #0x8104,R10
+008194: 092C             JHS     ($C$L6)
+008196: E2C2             BIC.B   #4,&P2OUT
+008198: 0302            
+00819a: F2D0             BIS.B   #0x0020,&P2OUT
+00819c: 2000            
+00819e: 0302            
+0081a0: D182             SUB.B   &set_angle,0x0000(SP)
+0081a2: 0221            
+0081a4: 0000            
+0081a6: 023C             JMP     ($C$L7)
+0081a8:              $C$L6:
+0081a8: E2D2             BIS.B   #4,&P2OUT
+0081aa: 0302            
+0081ac:              $C$L7:
+0081ac: 6F41             MOV.B   @SP,R15
+0081ae: 0C4F             MOV.W   R15,R12
+0081b0: B012             CALL    #__mspabi_slli_6
+0081b2: EA82            
+0081b4: 0C8F             SUB.W   R15,R12
+0081b6: 3F40             MOV.W   #0x0fa0,R15
+0081b8: A00F            
+0081ba: 0F8C             SUB.W   R12,R15
+0081bc: 824F             MOV.W   R15,&frequency
+0081be: 0021            
+0081c0: BB3F             JMP     ($C$L1)
+0081c2:              __TI_decompress_lzss:
+0081c2:              .text:decompress:lzss:__TI_decompress_lzss:
+0081c2: 0A12             PUSH    R10
+0081c4: 0912             PUSH    R9
+0081c6: 0812             PUSH    R8
+0081c8: 0A4C             MOV.W   R12,R10
+0081ca:              $C$L1:
+0081ca: 784A             MOV.B   @R10+,R8
+0081cc: 0943             CLR.W   R9
+0081ce: 113C             JMP     ($C$L6)
+0081d0:              $C$L2:
+0081d0: 0E4D             MOV.W   R13,R14
+0081d2: 0E8B             SUB.W   R11,R14
+0081d4: 1E83             DEC.W   R14
+0081d6:              $C$L3:
+0081d6: 1D53             INC.W   R13
+0081d8: FD4E             MOV.B   @R14+,0xffff(R13)
+0081da: FFFF            
+0081dc: 1F83             DEC.W   R15
+0081de: FB23             JNE     ($C$L3)
+0081e0: 033C             JMP     ($C$L5)
+0081e2:              $C$L4:
+0081e2: 1D53             INC.W   R13
+0081e4: FD4A             MOV.B   @R10+,0xffff(R13)
+0081e6: FFFF            
+0081e8:              $C$L5:
+0081e8: 12C3             CLRC    
+0081ea: 0810             RRC     R8
+0081ec: 1953             INC.W   R9
+0081ee: 3992             CMP.W   #8,R9
+0081f0: EC37             JGE     ($C$L1)
+0081f2:              $C$L6:
+0081f2: 18B3             BIT.W   #1,R8
+0081f4: F623             JNE     ($C$L4)
+0081f6: 7B4A             MOV.B   @R10+,R11
+0081f8: 7F4A             MOV.B   @R10+,R15
+0081fa: 0C4B             MOV.W   R11,R12
+0081fc: B012             CALL    #__mspabi_slli_4
+0081fe: EE82            
+008200: 0B4C             MOV.W   R12,R11
+008202: 0C4F             MOV.W   R15,R12
+008204: B012             CALL    #__mspabi_srli_4
+008206: 7882            
+008208: 3CF0             AND.W   #0x000f,R12
+00820a: 0F00            
+00820c: 0BDC             BIS.W   R12,R11
+00820e: 3FF0             AND.W   #0x000f,R15
+008210: 0F00            
+008212: 3F50             ADD.W   #0x0003,R15
+008214: 0300            
+008216: 3F90             CMP.W   #0x0012,R15
+008218: 1200            
+00821a: 0C20             JNE     ($C$L8)
+00821c: 7E4A             MOV.B   @R10+,R14
+00821e: 3EB0             BIT.W   #0x0080,R14
+008220: 8000            
+008222: 0724             JEQ     ($C$L7)
+008224: 7C4A             MOV.B   @R10+,R12
+008226: 4C4C             MOV.B   R12,R12
+008228: B012             CALL    #__mspabi_slli_7
+00822a: E882            
+00822c: 3EF0             AND.W   #0x007f,R14
+00822e: 7F00            
+008230: 0EDC             BIS.W   R12,R14
+008232:              $C$L7:
+008232: 0F5E             ADD.W   R14,R15
+008234:              $C$L8:
+008234: 3B90             CMP.W   #0x0fff,R11
+008236: FF0F            
+008238: CB23             JNE     ($C$L2)
+00823a: 3040             BR      #__mspabi_func_epilog_3
+00823c: 5283            
+00823e:              __mspabi_srli:
+00823e: 3DF0             AND.W   #0x000f,R13
+008240: 0F00            
+008242: 3DE0             XOR.W   #0x000f,R13
+008244: 0F00            
+008246: 0D5D             RLA.W   R13
+008248: 0D5D             RLA.W   R13
+00824a: 005D             ADD.W   R13,PC
+00824c:              __mspabi_srli_15:
+00824c: 12C3             CLRC    
+00824e: 0C10             RRC     R12
+008250:              __mspabi_srli_14:
+008250: 12C3             CLRC    
+008252: 0C10             RRC     R12
+008254:              __mspabi_srli_13:
+008254: 12C3             CLRC    
+008256: 0C10             RRC     R12
+008258:              __mspabi_srli_12:
+008258: 12C3             CLRC    
+00825a: 0C10             RRC     R12
+00825c:              __mspabi_srli_11:
+00825c: 12C3             CLRC    
+00825e: 0C10             RRC     R12
+008260:              __mspabi_srli_10:
+008260: 12C3             CLRC    
+008262: 0C10             RRC     R12
+008264:              __mspabi_srli_9:
+008264: 12C3             CLRC    
+008266: 0C10             RRC     R12
+008268:              __mspabi_srli_8:
+008268: 12C3             CLRC    
+00826a: 0C10             RRC     R12
+00826c:              __mspabi_srli_7:
+00826c: 12C3             CLRC    
+00826e: 0C10             RRC     R12
+008270:              __mspabi_srli_6:
+008270: 12C3             CLRC    
+008272: 0C10             RRC     R12
+008274:              __mspabi_srli_5:
+008274: 12C3             CLRC    
+008276: 0C10             RRC     R12
+008278:              __mspabi_srli_4:
+008278: 12C3             CLRC    
+00827a: 0C10             RRC     R12
+00827c:              __mspabi_srli_3:
+00827c: 12C3             CLRC    
+00827e: 0C10             RRC     R12
+008280:              __mspabi_srli_2:
+008280: 12C3             CLRC    
+008282: 0C10             RRC     R12
+008284:              __mspabi_srli_1:
+008284: 12C3             CLRC    
+008286: 0C10             RRC     R12
+008288: 3041             RET     
+00828a:              __TI_auto_init_nobinit_nopinit:
+00828a:              .text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit:
+00828a: 0A12             PUSH    R10
+00828c: 0912             PUSH    R9
+00828e: 3F40             MOV.W   #0x80fc,R15
+008290: FC80            
+008292: 3F90             CMP.W   #0x8100,R15
+008294: 0081            
+008296: 1624             JEQ     ($C$L22)
+008298: 3F40             MOV.W   #0x8100,R15
+00829a: 0081            
+00829c: 3F90             CMP.W   #0x8104,R15
+00829e: 0481            
+0082a0: 1124             JEQ     ($C$L22)
+0082a2: 3A40             MOV.W   #0x8104,R10
+0082a4: 0481            
+0082a6: 3A80             SUB.W   #0x8100,R10
+0082a8: 0081            
+0082aa: 0A11             RRA     R10
+0082ac: 0A11             RRA     R10
+0082ae: 3940             MOV.W   #0x8100,R9
+0082b0: 0081            
+0082b2:              $C$L21:
+0082b2: 3C49             MOV.W   @R9+,R12
+0082b4: 7F4C             MOV.B   @R12+,R15
+0082b6: 0F5F             RLA.W   R15
+0082b8: 1F4F             MOV.W   0x80fc(R15),R15
+0082ba: FC80            
+0082bc: 3D49             MOV.W   @R9+,R13
+0082be: 8F12             CALL    R15
+0082c0: 1A83             DEC.W   R10
+0082c2: F723             JNE     ($C$L21)
+0082c4:              $C$L22:
+0082c4: B012             CALL    #_system_post_cinit
+0082c6: 6483            
+0082c8: 3040             BR      #__mspabi_func_epilog_2
+0082ca: 5483            
+0082cc:              __mspabi_slli:
+0082cc: 3DF0             AND.W   #0x000f,R13
+0082ce: 0F00            
+0082d0: 3DE0             XOR.W   #0x000f,R13
+0082d2: 0F00            
+0082d4: 0D5D             RLA.W   R13
+0082d6: 005D             ADD.W   R13,PC
+0082d8:              __mspabi_slli_15:
+0082d8: 0C5C             RLA.W   R12
+0082da:              __mspabi_slli_14:
+0082da: 0C5C             RLA.W   R12
+0082dc:              __mspabi_slli_13:
+0082dc: 0C5C             RLA.W   R12
+0082de:              __mspabi_slli_12:
+0082de: 0C5C             RLA.W   R12
+0082e0:              __mspabi_slli_11:
+0082e0: 0C5C             RLA.W   R12
+0082e2:              __mspabi_slli_10:
+0082e2: 0C5C             RLA.W   R12
+0082e4:              __mspabi_slli_9:
+0082e4: 0C5C             RLA.W   R12
+0082e6:              __mspabi_slli_8:
+0082e6: 0C5C             RLA.W   R12
+0082e8:              __mspabi_slli_7:
+0082e8: 0C5C             RLA.W   R12
+0082ea:              __mspabi_slli_6:
+0082ea: 0C5C             RLA.W   R12
+0082ec:              __mspabi_slli_5:
+0082ec: 0C5C             RLA.W   R12
+0082ee:              __mspabi_slli_4:
+0082ee: 0C5C             RLA.W   R12
+0082f0:              __mspabi_slli_3:
+0082f0: 0C5C             RLA.W   R12
+0082f2:              __mspabi_slli_2:
+0082f2: 0C5C             RLA.W   R12
+0082f4:              __mspabi_slli_1:
+0082f4: 0C5C             RLA.W   R12
+0082f6: 3041             RET     
+0082f8:              _c_int00_noargs:
+0082f8:              .text:_c_int00_noargs:
+0082f8: 3140             MOV.W   #0x3000,SP
+0082fa: 0030            
+0082fc: B012             CALL    #_system_pre_init
+0082fe: 6083            
+008300: 0C93             TST.W   R12
+008302: 0224             JEQ     ($C$L2)
+008304: B012             CALL    #__TI_auto_init_nobinit_nopinit
+008306: 8A82            
+008308:              $C$L2:
+008308: 0C43             CLR.W   R12
+00830a: B012             CALL    #main
 00830c: 0481            
-00830e: 0A11             RRA     R10
-008310: 0A11             RRA     R10
-008312: 3940             MOV.W   #0x8104,R9
-008314: 0481            
-008316:              $C$L21:
-008316: 3C49             MOV.W   @R9+,R12
-008318: 7F4C             MOV.B   @R12+,R15
-00831a: 0F5F             RLA.W   R15
-00831c: 1F4F             MOV.W   0x8100(R15),R15
-00831e: 0081            
-008320: 3D49             MOV.W   @R9+,R13
-008322: 8F12             CALL    R15
-008324: 1A83             DEC.W   R10
-008326: F723             JNE     ($C$L21)
-008328:              $C$L22:
-008328: B012             CALL    #_system_post_cinit
-00832a: B683            
-00832c: 3040             BR      #__mspabi_func_epilog_2
-00832e: A683            
-008330:              __mspabi_slli:
-008330: 3DF0             AND.W   #0x000f,R13
-008332: 0F00            
-008334: 3DE0             XOR.W   #0x000f,R13
-008336: 0F00            
-008338: 0D5D             RLA.W   R13
-00833a: 005D             ADD.W   R13,PC
-00833c:              __mspabi_slli_15:
-00833c: 0C5C             RLA.W   R12
-00833e:              __mspabi_slli_14:
-00833e: 0C5C             RLA.W   R12
-008340:              __mspabi_slli_13:
-008340: 0C5C             RLA.W   R12
-008342:              __mspabi_slli_12:
-008342: 0C5C             RLA.W   R12
-008344:              __mspabi_slli_11:
-008344: 0C5C             RLA.W   R12
-008346:              __mspabi_slli_10:
-008346: 0C5C             RLA.W   R12
-008348:              __mspabi_slli_9:
-008348: 0C5C             RLA.W   R12
-00834a:              __mspabi_slli_8:
-00834a: 0C5C             RLA.W   R12
-00834c:              __mspabi_slli_7:
-00834c: 0C5C             RLA.W   R12
-00834e:              __mspabi_slli_6:
-00834e: 0C5C             RLA.W   R12
-008350:              __mspabi_slli_5:
-008350: 0C5C             RLA.W   R12
-008352:              __mspabi_slli_4:
-008352: 0C5C             RLA.W   R12
-008354:              __mspabi_slli_3:
-008354: 0C5C             RLA.W   R12
-008356:              __mspabi_slli_2:
-008356: 0C5C             RLA.W   R12
-008358:              __mspabi_slli_1:
-008358: 0C5C             RLA.W   R12
-00835a: 3041             RET     
-00835c:              _c_int00_noargs:
-00835c:              .text:_c_int00_noargs:
-00835c: 3140             MOV.W   #0x3000,SP
-00835e: 0030            
-008360: B012             CALL    #_system_pre_init
-008362: B283            
-008364: 0C93             TST.W   R12
-008366: 0224             JEQ     ($C$L2)
-008368: B012             CALL    #__TI_auto_init_nobinit_nopinit
-00836a: EE82            
-00836c:              $C$L2:
-00836c: 0C43             CLR.W   R12
-00836e: B012             CALL    #main
-008370: 0881            
-008372: 1C43             MOV.W   #1,R12
-008374: B012             CALL    #abort
-008376: AC83            
-008378:              __TI_decompress_none:
-008378:              .text:decompress:none:__TI_decompress_none:
-008378: 0F4C             MOV.W   R12,R15
-00837a: 0C4D             MOV.W   R13,R12
-00837c: 3D40             MOV.W   #0x0003,R13
-00837e: 0300            
-008380: 0D5F             ADD.W   R15,R13
-008382: 1E4F             MOV.W   0x0001(R15),R14
-008384: 0100            
-008386: 3040             BR      #memcpy
-008388: 8A83            
-00838a:              memcpy:
-00838a:              .text:memcpy:
-00838a: 0E93             TST.W   R14
-00838c: 0624             JEQ     ($C$L2)
-00838e: 0F4C             MOV.W   R12,R15
-008390:              $C$L1:
-008390: 1F53             INC.W   R15
-008392: FF4D             MOV.B   @R13+,0xffff(R15)
-008394: FFFF            
-008396: 1E83             DEC.W   R14
-008398: FB23             JNE     ($C$L1)
-00839a:              $C$L2:
-00839a: 3041             RET     
-00839c:              __mspabi_func_epilog_7:
-00839c:              __mspabi_func_epilog:
-00839c: 3441             POP.W   R4
-00839e:              __mspabi_func_epilog_6:
-00839e: 3541             POP.W   R5
-0083a0:              __mspabi_func_epilog_5:
-0083a0: 3641             POP.W   R6
-0083a2:              __mspabi_func_epilog_4:
-0083a2: 3741             POP.W   R7
-0083a4:              __mspabi_func_epilog_3:
-0083a4: 3841             POP.W   R8
-0083a6:              __mspabi_func_epilog_2:
-0083a6: 3941             POP.W   R9
-0083a8:              __mspabi_func_epilog_1:
-0083a8: 3A41             POP.W   R10
-0083aa: 3041             RET     
-0083ac:              abort:
-0083ac:              C$$EXIT:
-0083ac:              .text:abort:
-0083ac: 0343             NOP     
-0083ae:              $C$L1:
-0083ae: FF3F             JMP     ($C$L1)
-0083b0: 0343             NOP     
-0083b2:              _system_pre_init:
-0083b2:              .text:_system_pre_init:
-0083b2: 1C43             MOV.W   #1,R12
-0083b4: 3041             RET     
-0083b6:              _system_post_cinit:
-0083b6:              .text:_system_post_cinit:
-0083b6: 3041             RET     
+00830e: 1C43             MOV.W   #1,R12
+008310: B012             CALL    #abort
+008312: 5A83            
+008314:              Timer_ISR:
+008314:              .text:Timer_ISR:
+008314: 9252             ADD.W   &frequency,&TB0CCR0_L
+008316: 0021            
+008318: 9203            
+00831a: F2E0             XOR.B   #0x0010,&P2OUT
+00831c: 1000            
+00831e: 0302            
+008320: 92C3             BIC.W   #1,&TB0CCTL0_L
+008322: 8203            
+008324: 0013             RETI    
+008326:              __TI_decompress_none:
+008326:              .text:decompress:none:__TI_decompress_none:
+008326: 0F4C             MOV.W   R12,R15
+008328: 0C4D             MOV.W   R13,R12
+00832a: 3D40             MOV.W   #0x0003,R13
+00832c: 0300            
+00832e: 0D5F             ADD.W   R15,R13
+008330: 1E4F             MOV.W   0x0001(R15),R14
+008332: 0100            
+008334: 3040             BR      #memcpy
+008336: 3883            
+008338:              memcpy:
+008338:              .text:memcpy:
+008338: 0E93             TST.W   R14
+00833a: 0624             JEQ     ($C$L2)
+00833c: 0F4C             MOV.W   R12,R15
+00833e:              $C$L1:
+00833e: 1F53             INC.W   R15
+008340: FF4D             MOV.B   @R13+,0xffff(R15)
+008342: FFFF            
+008344: 1E83             DEC.W   R14
+008346: FB23             JNE     ($C$L1)
+008348:              $C$L2:
+008348: 3041             RET     
+00834a:              __mspabi_func_epilog_7:
+00834a:              __mspabi_func_epilog:
+00834a: 3441             POP.W   R4
+00834c:              __mspabi_func_epilog_6:
+00834c: 3541             POP.W   R5
+00834e:              __mspabi_func_epilog_5:
+00834e: 3641             POP.W   R6
+008350:              __mspabi_func_epilog_4:
+008350: 3741             POP.W   R7
+008352:              __mspabi_func_epilog_3:
+008352: 3841             POP.W   R8
+008354:              __mspabi_func_epilog_2:
+008354: 3941             POP.W   R9
+008356:              __mspabi_func_epilog_1:
+008356: 3A41             POP.W   R10
+008358: 3041             RET     
+00835a:              abort:
+00835a:              C$$EXIT:
+00835a:              .text:abort:
+00835a: 0343             NOP     
+00835c:              $C$L1:
+00835c: FF3F             JMP     ($C$L1)
+00835e: 0343             NOP     
+008360:              _system_pre_init:
+008360:              .text:_system_pre_init:
+008360: 1C43             MOV.W   #1,R12
+008362: 3041             RET     
+008364:              _system_post_cinit:
+008364:              .text:_system_post_cinit:
+008364: 3041             RET     
 
-TEXT Section .text:_isr, 0x8 bytes at 0x000083b8
-0083b8:              __TI_ISR_TRAP:
-0083b8:              .text:_isr:__TI_ISR_TRAP:
-0083b8:              .text:_isr:
-0083b8: 32D0             BIS.W   #0x0010,SR
-0083ba: 1000            
-0083bc: FD3F             JMP     (__TI_ISR_TRAP)
-0083be: 0343             NOP     
+TEXT Section .text:_isr, 0x8 bytes at 0x00008366
+008366:              __TI_ISR_TRAP:
+008366:              .text:_isr:__TI_ISR_TRAP:
+008366:              .text:_isr:
+008366: 32D0             BIS.W   #0x0010,SR
+008368: 1000            
+00836a: FD3F             JMP     (__TI_ISR_TRAP)
+00836c: 0343             NOP     
 
 DATA Section PORT4, 0x2 bytes at 0x0000ffce
 00ffce:              __TI_int22:
 00ffce:              .int22:
 00ffce:              PORT4:
-00ffce: 83b8             .word 0x83b8
+00ffce: 8366             .word 0x8366
 
 DATA Section PORT3, 0x2 bytes at 0x0000ffd0
 00ffd0:              __TI_int23:
 00ffd0:              .int23:
 00ffd0:              PORT3:
-00ffd0: 83b8             .word 0x83b8
+00ffd0: 8366             .word 0x8366
 
 DATA Section PORT2, 0x2 bytes at 0x0000ffd2
 00ffd2:              __TI_int24:
 00ffd2:              .int24:
 00ffd2:              PORT2:
-00ffd2: 83b8             .word 0x83b8
+00ffd2: 8366             .word 0x8366
 
 DATA Section PORT1, 0x2 bytes at 0x0000ffd4
 00ffd4:              __TI_int25:
 00ffd4:              .int25:
 00ffd4:              PORT1:
-00ffd4: 83b8             .word 0x83b8
+00ffd4: 8366             .word 0x8366
 
 DATA Section SAC1_SAC3, 0x2 bytes at 0x0000ffd6
 00ffd6:              __TI_int26:
 00ffd6:              .int26:
 00ffd6:              SAC1_SAC3:
-00ffd6: 83b8             .word 0x83b8
+00ffd6: 8366             .word 0x8366
 
 DATA Section SAC0_SAC2, 0x2 bytes at 0x0000ffd8
 00ffd8:              __TI_int27:
 00ffd8:              .int27:
 00ffd8:              SAC0_SAC2:
-00ffd8: 83b8             .word 0x83b8
+00ffd8: 8366             .word 0x8366
 
 DATA Section ECOMP0_ECOMP1, 0x2 bytes at 0x0000ffda
 00ffda:              __TI_int28:
 00ffda:              .int28:
 00ffda:              ECOMP0_ECOMP1:
-00ffda: 83b8             .word 0x83b8
+00ffda: 8366             .word 0x8366
 
 DATA Section ADC, 0x2 bytes at 0x0000ffdc
 00ffdc:              __TI_int29:
 00ffdc:              .int29:
 00ffdc:              ADC:
-00ffdc: 83b8             .word 0x83b8
+00ffdc: 8366             .word 0x8366
 
 DATA Section EUSCI_B1, 0x2 bytes at 0x0000ffde
 00ffde:              __TI_int30:
 00ffde:              .int30:
 00ffde:              EUSCI_B1:
-00ffde: 83b8             .word 0x83b8
+00ffde: 8366             .word 0x8366
 
 DATA Section EUSCI_B0, 0x2 bytes at 0x0000ffe0
 00ffe0:              __TI_int31:
 00ffe0:              .int31:
 00ffe0:              EUSCI_B0:
-00ffe0: 83b8             .word 0x83b8
+00ffe0: 8366             .word 0x8366
 
 DATA Section EUSCI_A1, 0x2 bytes at 0x0000ffe2
 00ffe2:              __TI_int32:
 00ffe2:              .int32:
 00ffe2:              EUSCI_A1:
-00ffe2: 83b8             .word 0x83b8
+00ffe2: 8366             .word 0x8366
 
 DATA Section EUSCI_A0, 0x2 bytes at 0x0000ffe4
 00ffe4:              __TI_int33:
 00ffe4:              .int33:
 00ffe4:              EUSCI_A0:
-00ffe4: 83b8             .word 0x83b8
+00ffe4: 8366             .word 0x8366
 
 DATA Section WDT, 0x2 bytes at 0x0000ffe6
 00ffe6:              __TI_int34:
 00ffe6:              .int34:
 00ffe6:              WDT:
-00ffe6: 83b8             .word 0x83b8
+00ffe6: 8366             .word 0x8366
 
 DATA Section RTC, 0x2 bytes at 0x0000ffe8
 00ffe8:              __TI_int35:
 00ffe8:              .int35:
 00ffe8:              RTC:
-00ffe8: 83b8             .word 0x83b8
+00ffe8: 8366             .word 0x8366
 
 DATA Section TIMER3_B1, 0x2 bytes at 0x0000ffea
 00ffea:              __TI_int36:
 00ffea:              .int36:
 00ffea:              TIMER3_B1:
-00ffea: 83b8             .word 0x83b8
+00ffea: 8366             .word 0x8366
 
 DATA Section TIMER3_B0, 0x2 bytes at 0x0000ffec
 00ffec:              __TI_int37:
 00ffec:              .int37:
 00ffec:              TIMER3_B0:
-00ffec: 83b8             .word 0x83b8
+00ffec: 8366             .word 0x8366
 
 DATA Section TIMER2_B1, 0x2 bytes at 0x0000ffee
 00ffee:              __TI_int38:
 00ffee:              .int38:
 00ffee:              TIMER2_B1:
-00ffee: 83b8             .word 0x83b8
+00ffee: 8366             .word 0x8366
 
 DATA Section TIMER2_B0, 0x2 bytes at 0x0000fff0
 00fff0:              __TI_int39:
 00fff0:              .int39:
 00fff0:              TIMER2_B0:
-00fff0: 83b8             .word 0x83b8
+00fff0: 8366             .word 0x8366
 
 DATA Section TIMER1_B1, 0x2 bytes at 0x0000fff2
 00fff2:              __TI_int40:
 00fff2:              .int40:
 00fff2:              TIMER1_B1:
-00fff2: 83b8             .word 0x83b8
+00fff2: 8366             .word 0x8366
 
 DATA Section TIMER1_B0, 0x2 bytes at 0x0000fff4
 00fff4:              __TI_int41:
 00fff4:              .int41:
 00fff4:              TIMER1_B0:
-00fff4: 83b8             .word 0x83b8
+00fff4: 8366             .word 0x8366
 
 DATA Section TIMER0_B1, 0x2 bytes at 0x0000fff6
 00fff6:              __TI_int42:
 00fff6:              .int42:
 00fff6:              TIMER0_B1:
-00fff6: 83b8             .word 0x83b8
+00fff6: 8366             .word 0x8366
 
 DATA Section TIMER0_B0, 0x2 bytes at 0x0000fff8
 00fff8:              __TI_int43:
 00fff8:              .int43:
 00fff8:              TIMER0_B0:
-00fff8: 83b8             .word 0x83b8
+00fff8: 8314             .word 0x8314
 
 DATA Section UNMI, 0x2 bytes at 0x0000fffa
 00fffa:              __TI_int44:
 00fffa:              .int44:
 00fffa:              UNMI:
-00fffa: 83b8             .word 0x83b8
+00fffa: 8366             .word 0x8366
 
 DATA Section SYSNMI, 0x2 bytes at 0x0000fffc
 00fffc:              __TI_int45:
 00fffc:              .int45:
 00fffc:              SYSNMI:
-00fffc: 83b8             .word 0x83b8
+00fffc: 8366             .word 0x8366
 
 DATA Section .reset, 0x2 bytes at 0x0000fffe
 00fffe:              _reset_vector:
 00fffe:              .reset:
-00fffe: 835c             .word 0x835c
+00fffe: 82f8             .word 0x82f8
 
 DATA Section $fill000, 0x4 bytes at 0x0000ff80
 00ff80:              $fill000:
