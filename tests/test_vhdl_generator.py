@@ -21,7 +21,7 @@ class GeneratedVHDLTests(unittest.TestCase):
     @staticmethod
     def project() -> CCSProject:
         return CCSProject(project_name="test_C", source_file="test_C.c",
-                          path=pathlib.Path(f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C"))
+                          path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_C")
 
     @staticmethod
     def generated_files_dict() -> Dict[str, bool]:
@@ -39,7 +39,10 @@ class GeneratedVHDLTests(unittest.TestCase):
         zip_file_directory: pathlib.Path = StaticUtilities.project_root_directory() / "generated_vhdl"
         zip_file_name: str = "test_vhdl_generator"
         if StaticUtilities.file_exists(zip_file_directory, f"{zip_file_name}.zip"):
-            os.remove(f"{zip_file_directory}\\{zip_file_name}.zip")
+            zip_file_path: pathlib.Path = zip_file_directory / f"{zip_file_name}.zip"
+            os.remove(zip_file_path)
+        else:
+            StaticUtilities.logger.error(f"Test zip file does not exist at: {zip_file_directory / f'{zip_file_name}.zip'}")
         package_zipper: PackageZipper = PackageZipper()
         package_zipper.zip_vhdl(zip_file_name=zip_file_name)
         self.assertEqual(package_zipper.number_of_zipped_files, 8)
