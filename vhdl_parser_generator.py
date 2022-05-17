@@ -630,7 +630,7 @@ def main() -> None:
     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
     vhdl_parser_generator.generate_vhdl()
     package_zipper: PackageZipper = PackageZipper()
-    package_zipper.zip_vhdl(zip_file_name=f"{ccs_project.project_name} - closed loop demo - {date.today()}")
+    package_zipper.zip_vhdl(zip_file_name=f"{ccs_project.project_name} - closed loop demo no timer - {date.today()}")
 
 
 if __name__ == '__main__':

@@ -85,13 +85,3 @@ int main(void)
         delay();
     }
 }
-
-//#pragma vector = TIMER0_B0_VECTOR;
-//interrupt void Timer_ISR(){
-////    TB0CCR0+=frequency;
-////    P2OUT ^=BIT4;
-//    //frequency+=1;
-//    TB0CCTL0 &=~ CCIFG;
-////    TB0CCTL0
-//
-//}
