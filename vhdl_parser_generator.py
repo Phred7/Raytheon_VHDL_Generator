@@ -10,6 +10,7 @@ import re
 import sys
 import os
 from copy import deepcopy
+from datetime import date
 from typing import TextIO, List
 
 from ccs_project import CCSProject
@@ -45,6 +46,7 @@ class VHDLParserGenerator:
         """
         Removes the files generated in the last run of main.
         - Removes all files with the vhd file extension
+        - Removes the generated_disassembly.txt file.
         :return: None.
         """
         directory: pathlib.Path = StaticUtilities.project_root_directory() / "generated_vhdl"
@@ -626,7 +628,7 @@ def main() -> None:
     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
     vhdl_parser_generator.generate_vhdl()
     package_zipper: PackageZipper = PackageZipper()
-    package_zipper.zip_vhdl(zip_file_name="04_04_2022")
+    package_zipper.zip_vhdl(zip_file_name=f"{ccs_project.project_name} - closed loop demo - {date.today()}")
 
 
 if __name__ == '__main__':
