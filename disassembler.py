@@ -49,7 +49,7 @@ class Disassembler:
         disassembler_output_path: pathlib.Path = self.disassembler_output_file_directory / self.disassembler_output_file_name
         if os.path.exists(disassembler_output_path):
             os.remove(disassembler_output_path)
-            StaticUtilities.logger.info(
+            StaticUtilities.logger.debug(
                 rf"Removed {disassembler_output_path}")
 
         disassembler_binary_path: pathlib.Path = self.disassembler_directory / self.disassembler_executable
@@ -65,11 +65,11 @@ class Disassembler:
         if self.disassembler_exit_status.returncode != 0:
             if platform.system() != "Windows":
                 StaticUtilities.logger.warning("You are not on Windows. You may need to install wine64 to run /tools/dis430.exe as it is a Windows binary")
-            raise OSError(
-                f"Disassembler failed to generate disassembly for {self.ccs_project.binary_file_path} with exit status {self.disassembler_exit_status.returncode};\noutput: {output};\nerror: {error}")
+            StaticUtilities.logger.error(f"Failed to generate disassembly for {self.ccs_project.binary_file_path} with exit status {self.disassembler_exit_status.returncode};\noutput: {output};\nerror: {error}")
+            exit(1)
         else:
-            StaticUtilities.logger.info(
-                f'Disassembler generated {self.disassembler_output_file_name} at the directory {self.disassembler_output_file_directory}')
+            StaticUtilities.logger.debug(
+                f'Generated {self.disassembler_output_file_name} at the directory {self.disassembler_output_file_directory}')
             self.ccs_project.set_disassembly_file_path(
                 self.disassembler_output_file_directory / self.disassembler_output_file_name)
 

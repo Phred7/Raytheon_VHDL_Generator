@@ -43,7 +43,7 @@ class DetectionInC(DetectionStrategy):
                 if len(vulnerability_string) > 180:
                     vulnerability_string = vulnerability_string[:100] + "..."
                 self.add_vulnerability_to_dict(line_number=line_number,
-                                               vulnerability_string=f"{vulnerability_name}: {vulnerability_string}. {insecure_patterns_recommended_replacement_dict.get(pattern)}\n")
+                                               vulnerability_string=f"{vulnerability_name}: {vulnerability_string}. {insecure_patterns_recommended_replacement_dict.get(pattern)}")
             return True
         return False
 
@@ -92,12 +92,13 @@ class DetectionInC(DetectionStrategy):
         Attempts to detect an int overflow in this ccs_project.
         :return: True if an int overflow was detected in this file otherwise, False.
         """
-        insecure_patterns: List[str] = [r"(malloc|calloc){1}\(", r"realloc\(", r"(strncpy|strncat|strncmp){1}\("]
-        insecure_patterns_flags: List[int] = [0, 0, 0]
+        insecure_patterns: List[str] = [r"(malloc|calloc){1}\(", r"realloc\(", r"(strncpy|strncat|strncmp){1}\(", r"(\+|-|\+=|-=){1}\s*INT_MAX"]
+        insecure_patterns_flags: List[int] = [0, 0, 0, 0]
         insecure_patterns_recommended_replacement_dict: Dict[str, str] = {
             insecure_patterns[0]: "--malloc or calloc operation detected--",
             insecure_patterns[1]: "--realloc operation detected--",
-            insecure_patterns[2]: "--strncpy, strncat or strncmp operation detected--"}
+            insecure_patterns[2]: "--strncpy, strncat or strncmp operation detected--",
+            insecure_patterns[3]: "--math operation being performed with INT_MAX--"}
         detected_patterns_dict: Dict[float, Match[str]] = self.detect_regex_patterns_in_source(insecure_patterns,
                                                                                                insecure_patterns_flags)
         return self.__detection_return_logic__(detected_patterns_dict, insecure_patterns_recommended_replacement_dict,

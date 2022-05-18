@@ -10279,3 +10279,87 @@ line 29:
 2022-05-17 17:53:06,835 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
 2022-05-17 17:53:06,857 INFO package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-17.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
 2022-05-17 17:53:06,857 INFO main generate **** Generating VHDL Finished****
+2022-05-18 10:55:37,032 INFO main generate **** Generating VHDL ****
+2022-05-18 10:55:37,036 INFO main detection No malware found
+2022-05-18 10:55:37,042 INFO disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-05-18 10:55:37,082 INFO disassembler disassemble Disassembler generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-05-18 10:55:37,108 INFO package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 10:55:37,108 INFO main generate **** Generating VHDL Finished****
+2022-05-18 10:57:02,407 INFO main generate **** Generating VHDL ****
+2022-05-18 10:57:02,409 INFO main detection No malware found
+2022-05-18 10:57:02,448 INFO disassembler disassemble Generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-05-18 10:57:02,472 WARNING package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18_[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 10:57:02,472 INFO main generate **** Generating VHDL Finished****
+2022-05-18 10:58:49,188 INFO main generate **** Generating VHDL ****
+2022-05-18 10:58:49,190 INFO main detection No malware found
+2022-05-18 10:58:49,230 ERROR disassembler disassemble Failed to generate disassembly for VHDLGenerator\test_C.out with exit status 0;
+output: b'Disassembling C:\\Users\\wward\\Documents\\GitHub\\Raytheon_VHDL_Generator\\ccs_workspace\\test_C\\VHDLGenerator\\test_C.out into C:\\Users\\wward\\Documents\\GitHub\\Raytheon_VHDL_Generator\\generated_disassembly\\generated_disassembly.txt \r\n';
+error: b''
+2022-05-18 10:59:39,852 INFO main generate **** Generating VHDL ****
+2022-05-18 10:59:39,854 INFO main detection No malware found
+2022-05-18 10:59:39,910 WARNING package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18_[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 10:59:39,910 INFO main generate **** Generating VHDL Finished****
+2022-05-18 11:02:30,127 INFO main generate **** Generating VHDL ****
+2022-05-18 11:02:30,128 INFO main detection No malware found
+2022-05-18 11:02:30,186 INFO package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 11:02:30,187 INFO main generate **** Generating VHDL Finished****
+2022-05-18 11:05:02,462 INFO main generate **** Generating VHDL ****
+2022-05-18 11:05:02,464 INFO main detection No malware found
+2022-05-18 11:05:02,526 INFO package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 11:05:02,527 INFO main generate **** Generating VHDL Finished****
+2022-05-18 11:05:46,686 INFO main generate **** Generating VHDL ****
+2022-05-18 11:05:46,688 INFO main detection No malware found
+2022-05-18 11:05:46,747 INFO package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 11:05:46,747 INFO main generate **** Generating VHDL Finished****
+2022-05-18 11:11:36,787 INFO main generate **** Generating VHDL ****
+2022-05-18 11:11:36,789 INFO main detection No malware found
+2022-05-18 11:11:36,851 WARNING package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18_[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 11:11:36,851 INFO main generate **** Generating VHDL Finished****
+2022-05-18 11:12:03,836 INFO main generate **** Generating VHDL ****
+2022-05-18 11:12:03,837 INFO main detection No malware found
+2022-05-18 11:12:03,897 WARNING package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18_[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 11:12:03,897 INFO main generate **** Generating VHDL Finished****
+2022-05-18 11:15:25,368 INFO main generate **** Generating VHDL ****
+2022-05-18 11:15:25,369 INFO main detection No malware found
+2022-05-18 11:15:25,432 INFO package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 11:15:25,432 INFO main generate **** Generating VHDL Finished****
+2022-05-18 11:17:27,173 INFO main generate **** Generating VHDL ****
+2022-05-18 11:17:27,174 INFO main detection No malware found
+2022-05-18 11:17:27,233 INFO package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 11:17:27,233 INFO main generate **** Generating VHDL Finished****
+2022-05-18 11:56:47,458 INFO main generate **** Generating VHDL ****
+2022-05-18 11:56:47,460 INFO main detection No malware found
+2022-05-18 11:56:47,604 WARNING package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18_[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 11:56:47,604 INFO main generate **** Generating VHDL Finished****
+2022-05-18 12:24:04,650 INFO main generate **** Generating VHDL ****
+2022-05-18 12:24:04,652 INFO main detection No malware found
+2022-05-18 12:24:04,716 INFO package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 12:24:04,716 INFO main generate **** Generating VHDL Finished****
+2022-05-18 12:31:14,430 INFO main generate **** Generating VHDL ****
+2022-05-18 12:31:14,432 INFO main detection No malware found
+2022-05-18 12:31:14,493 WARNING package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18_[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 12:31:14,493 INFO main generate **** Generating VHDL Finished****
+2022-05-18 12:31:56,739 INFO main generate **** Generating VHDL ****
+2022-05-18 12:31:56,748 WARNING main detection Possible malware detected
+line 64:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+
+2022-05-18 12:31:56,748 ERROR main generate **** Generating VHDL Failed ****
+2022-05-18 12:32:10,336 INFO main generate **** Generating VHDL ****
+2022-05-18 12:32:10,340 WARNING main detection Possible malware detected
+line 64:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+
+2022-05-18 12:32:10,340 ERROR main generate **** Generating VHDL Failed ****
+2022-05-18 12:33:14,497 INFO main generate **** Generating VHDL ****
+2022-05-18 12:33:14,501 WARNING main detection Possible malware detected
+line 64:
+	IntOverflowAttack: + INT_MAX. --math operation being performed with INT_MAX--
+
+2022-05-18 12:33:14,501 ERROR main generate **** Generating VHDL Failed ****
+2022-05-18 12:33:45,272 INFO main generate **** Generating VHDL ****
+2022-05-18 12:33:45,276 INFO main detection No malware found
+2022-05-18 12:33:45,341 WARNING package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18_[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 12:33:45,341 INFO main generate **** Generating VHDL Finished****

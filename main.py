@@ -218,7 +218,7 @@ class Main:
         ccs_project = CCSProject(source_file="test_C.c",
                                  project_name="test_C",
                                  path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_C")
-        detection_results: bool = Main.detection(ccs_project, 0.95)
+        detection_results: bool = Main.detection(ccs_project, 0.35)
         if detection_results:
             vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
             vhdl_parser_generator.generate_vhdl()
