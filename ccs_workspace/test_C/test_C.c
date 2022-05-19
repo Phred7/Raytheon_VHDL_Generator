@@ -20,7 +20,7 @@ int main(void)
     // BIT 0 == SW1
     // BIT 1 == SW2
     P2DIR &=~(BIT0+BIT1);
-    // P2drives stepper moto
+    // P2drives stepper motor
     // BIT 2 == EN
     // BIT 4 == STEP
     // BIT 5 == DIR

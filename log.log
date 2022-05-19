@@ -1,4 +1,4 @@
-2022-05-18 12:33:45,272 INFO main generate **** Generating VHDL ****
-2022-05-18 12:33:45,276 INFO main detection No malware found
-2022-05-18 12:33:45,341 WARNING package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18_[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
-2022-05-18 12:33:45,341 INFO main generate **** Generating VHDL Finished****
+2022-05-18 14:15:15,487 INFO main generate **** Generating VHDL ****
+2022-05-18 14:15:15,491 INFO main detection No malware found
+2022-05-18 14:15:15,561 INFO package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-05-18 14:15:15,561 INFO main generate **** Generating VHDL Finished****
