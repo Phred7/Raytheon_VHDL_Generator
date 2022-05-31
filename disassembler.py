@@ -6,6 +6,8 @@
 # Written by Walker Ward and Michael Heidal
 """
 import os
+import pathlib
+import platform
 import subprocess
 
 from ccs_project import CCSProject
@@ -18,12 +20,13 @@ class Disassembler:
     Disassembles an MSP430 binary.
     """
 
-    def __init__(self, ccs_project_to_disassemble: CCSProject, *, disassembler_output_file_name: str = "generated_disassembly.txt") -> None:
+    def __init__(self, ccs_project_to_disassemble: CCSProject, *,
+                 disassembler_output_file_name: str = "generated_disassembly.txt") -> None:
         self.ccs_project: CCSProject = ccs_project_to_disassemble
-        self.disassembler_directory: str = r'C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-msp430_20.2.5.LTS\bin'
-        self.disassembler_executable: str = r'dis430.exe'
+        self.disassembler_directory: pathlib.Path = StaticUtilities.project_root_directory() / 'tools'
+        self.disassembler_executable: str = 'dis430.exe'
         self.disassembler_output_file_name: str = disassembler_output_file_name
-        self.disassembler_output_file_directory: str = rf"{StaticUtilities.project_root_directory()}\generated_disassembly"
+        self.disassembler_output_file_directory: pathlib.Path = StaticUtilities.project_root_directory() / "generated_disassembly"
         self.disassembler_exit_status: int = 0
         StaticUtilities.logger.debug(f"{Disassembler.__name__} object initialized")
 
@@ -43,26 +46,36 @@ class Disassembler:
         StaticUtilities.file_should_exist(self.ccs_project.path, self.ccs_project.source_file)
 
         # Check if the output file already exists. If it exists delete in.
-        if os.path.exists(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}"):
-            os.remove(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
-            StaticUtilities.logger.info(
-                rf"Removed {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
+        disassembler_output_path: pathlib.Path = self.disassembler_output_file_directory / self.disassembler_output_file_name
+        if os.path.exists(disassembler_output_path):
+            os.remove(disassembler_output_path)
+            StaticUtilities.logger.debug(
+                rf"Removed {disassembler_output_path}")
 
-        self.disassembler_exit_status = subprocess.run(
-            rf"{self.disassembler_directory}\{self.disassembler_executable} {self.ccs_project.path}\{self.ccs_project.binary_file_path} {self.disassembler_output_file_directory}\{self.disassembler_output_file_name}",
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.STDOUT)
+        disassembler_binary_path: pathlib.Path = self.disassembler_directory / self.disassembler_executable
+        binary_file_path: pathlib.Path = self.ccs_project.path / self.ccs_project.binary_file_path
+        if platform.system() == "Linux":
+            self.disassembler_exit_status = subprocess.Popen(
+                ["wine64", disassembler_binary_path, binary_file_path, disassembler_output_path], stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE)
+        else:
+            self.disassembler_exit_status = subprocess.Popen([disassembler_binary_path, binary_file_path, disassembler_output_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        output, error = self.disassembler_exit_status.communicate()
         StaticUtilities.logger.debug(f"Disassembler exit status: {self.disassembler_exit_status.returncode}")
         if self.disassembler_exit_status.returncode != 0:
-            raise OSError(
-                f"Disassembler failed to generate disassembly for {self.ccs_project.binary_file_path} with exit status {self.disassembler_exit_status}")
+            if platform.system() != "Windows":
+                StaticUtilities.logger.warning("You are not on Windows. You may need to install wine64 to run /tools/dis430.exe as it is a Windows binary")
+            StaticUtilities.logger.error(f"Failed to generate disassembly for {self.ccs_project.binary_file_path} with exit status {self.disassembler_exit_status.returncode};\noutput: {output};\nerror: {error}")
+            exit(1)
         else:
-            StaticUtilities.logger.info(
-                f'Disassembler generated {self.disassembler_output_file_name} at the directory {self.disassembler_output_file_directory}')
-            self.ccs_project.set_disassembly_file_path(rf"{self.disassembler_output_file_directory}\{self.disassembler_output_file_name}")
+            StaticUtilities.logger.debug(
+                f'Generated {self.disassembler_output_file_name} at the directory {self.disassembler_output_file_directory}')
+            self.ccs_project.set_disassembly_file_path(
+                self.disassembler_output_file_directory / self.disassembler_output_file_name)
 
 
 if __name__ == '__main__':
-    ccs_project: CCSProject = CCSProject(project_name="test_target", source_file="main.c", path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target")
+    ccs_project: CCSProject = CCSProject(project_name="test_target", source_file="main.c",
+                                         path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_target")
     disassembler: Disassembler = Disassembler(ccs_project_to_disassemble=ccs_project)
     disassembler.disassemble()

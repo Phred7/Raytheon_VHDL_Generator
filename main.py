@@ -6,6 +6,8 @@
 # Written by Michael Heidal and Walker Ward
 """
 import logging
+import pathlib
+from datetime import date
 
 from detection import Detection
 from ccs_project import CCSProject
@@ -55,6 +57,177 @@ class Main:
         # package_zipper.zip_vhdl(zip_file_name="port_AB_01_12_2022")
         pass
 
+    # @staticmethod
+    # def demo() -> None:
+    #     """
+    #     For demoing instrumentation and detection.
+    #     :return: None.
+    #     """
+    #     StaticUtilities.logger.setLevel(logging.DEBUG)
+    #     Detection.reset_test_project()
+    #     # project: CCSProject = CCSProject(source_file="main.c",
+    #     #                                  project_name="test_target",
+    #     #                                  path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+    #     #                                  )
+    #     # results: bool = Main.detection(project, 0.95)
+    #     # Main.__generate_vhdl(results)
+    #
+    #     project = CCSProject(source_file="main.c",
+    #                          project_name="test_target",
+    #                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+    #                          )
+    #     instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
+    #     instrumentation.instrument()
+    #     results: bool = Main.detection(project, 0.35)
+    #     Main.__generate_vhdl(results)
+    #
+    # @staticmethod
+    # def __generate_vhdl(detection_results: bool) -> None:
+    #     project: CCSProject = CCSProject(source_file="main.c",
+    #                                      project_name="test_target",
+    #                                      path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+    #                                      )
+    #     if detection_results:
+    #         vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=project)
+    #         vhdl_parser_generator.generate_vhdl()
+    #         zip_name: str = ""
+    #         package_zipper: PackageZipper = PackageZipper()
+    #         package_zipper.zip_vhdl(zip_file_name=zip_name)
+    #         StaticUtilities.logger.info(f"VHDL generated: \\generated_vhdl\\{zip_name}.zip")
+    #     else:
+    #         StaticUtilities.logger.error(f"VHDL did not generate. Possible malware detected.")
+    #
+    # @staticmethod
+    # def debug_main() -> None:
+    #     """
+    #     For debug of this project's workflow and functionality.
+    #     :return: None.
+    #     """
+    #     StaticUtilities.logger.setLevel(logging.INFO)
+    #
+    #     StaticUtilities.logger.warning("Testing No Attacks")
+    #     Detection.reset_test_project()
+    #     project: CCSProject = CCSProject(source_file="main.c",
+    #                                      project_name="test_target",
+    #                                      path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+    #                                      )
+    #     results: bool = Main.detection(project, 0.95)
+    #     Main.__generate_vhdl(results)
+    #
+    #     StaticUtilities.logger.warning("Testing BufferOverflowAttack")
+    #     project = CCSProject(source_file="main.c",
+    #                          project_name="test_target",
+    #                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+    #                          )
+    #     instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
+    #     instrumentation.instrument()
+    #     results: bool = Main.detection(project, 0.35)
+    #     Main.__generate_vhdl(results)
+    #
+    #     StaticUtilities.logger.warning("Testing StringFormatAttack")
+    #     Detection.reset_test_project()
+    #     project = CCSProject(source_file="main.c",
+    #                          project_name="test_target",
+    #                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+    #                          )
+    #     instrumentation: Instrumentation = Instrumentation(project, StringFormatAttack())
+    #     instrumentation.instrument()
+    #     results: bool = Main.detection(project, 0.35)
+    #     Main.__generate_vhdl(results)
+    #
+    #     StaticUtilities.logger.warning("Testing IntOverflowAttack")
+    #     Detection.reset_test_project()
+    #     project = CCSProject(source_file="main.c",
+    #                          project_name="test_target",
+    #                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+    #                          )
+    #     instrumentation: Instrumentation = Instrumentation(project, IntOverflowAttack())
+    #     instrumentation.instrument()
+    #     results: bool = Main.detection(project, 0.35)
+    #     Main.__generate_vhdl(results)
+    #
+    #     StaticUtilities.logger.warning("Testing All Attacks at once")
+    #     Detection.reset_test_project()
+    #     project = CCSProject(source_file="main.c",
+    #                          project_name="test_target",
+    #                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+    #                          )
+    #     instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
+    #     instrumentation.instrument()
+    #     results: bool = Main.detection(project, 0.35)
+    #     Main.__generate_vhdl(results)
+    #     return
+    #
+    # @staticmethod
+    # def generate_vhdl_exclusively() -> None:
+    #     """
+    #     Generates VHDL for a source file. Bypasses the rest of the toolchain.
+    #     :return: None.
+    #     """
+    #     ccs_project: CCSProject = CCSProject(project_name="test_C", source_file="test_C.c",
+    #                                          path=f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C")
+    #     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
+    #     vhdl_parser_generator.generate_vhdl()
+    #     package_zipper: PackageZipper = PackageZipper()
+    #     package_zipper.zip_vhdl(zip_file_name="")
+    #
+    # @staticmethod
+    # def generate() -> None:
+    #     """
+    #     Generates VHDL for a source file. Bypasses the rest of the toolchain.
+    #     :return: None.
+    #     """
+    #     project = CCSProject(source_file="main.c",
+    #                          project_name="test_target",
+    #                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+    #                          )
+    #     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=project)
+    #     vhdl_parser_generator.generate_vhdl()
+    #     package_zipper: PackageZipper = PackageZipper()
+    #     package_zipper.zip_vhdl(zip_file_name="")
+    #
+    # @staticmethod
+    # def inject_msp430_exclusively() -> None:
+    #     """
+    #     Attempts to inject a CCSProject with some vulnerability.
+    #     :return: None.
+    #     """
+    #     Detection.reset_test_project()
+    #     project = CCSProject(source_file="main.c",
+    #                          project_name="test_target",
+    #                          path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+    #                          )
+    #     instrumentation: Instrumentation = Instrumentation(project, StringFormatAttack())
+    #     instrumentation.instrument()
+    #
+    # def keyboard_control(self) -> None:
+    #     project = CCSProject(source_file="keyboard_control_main_capstone.c",
+    #                          project_name="keyboard_control_vCapstone",
+    #                          path=pathlib.Path(rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"))
+    #     SWTriggeredFailure.reset_keyboard_control_code(project.get_path_to_source_file())
+    #     instrumentation: Instrumentation = Instrumentation(project, SWTriggeredFailure())
+    #     instrumentation.instrument()
+
+    @staticmethod
+    def generate() -> None:
+        """
+        Generates VHDL for a source file. Bypasses the rest of the toolchain.
+        :return: None.
+        """
+        StaticUtilities.logger.info(f"**** Generating VHDL ****")
+        ccs_project = CCSProject(source_file="test_C.c",
+                                 project_name="test_C",
+                                 path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_C")
+        detection_results: bool = Main.detection(ccs_project, 0.35)
+        if detection_results:
+            vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
+            vhdl_parser_generator.generate_vhdl()
+            package_zipper: PackageZipper = PackageZipper()
+            package_zipper.zip_vhdl(zip_file_name=f"{ccs_project.project_name} - Raytheon demo - {date.today()}")
+            StaticUtilities.logger.info(f"**** Generating VHDL Finished****")
+        else:
+            StaticUtilities.logger.error(f"**** Generating VHDL Failed ****")
+
     @staticmethod
     def detection(project: CCSProject, security_quality: float) -> bool:
         detection: Detection = Detection(project, pique_bin_bool=False)
@@ -67,160 +240,8 @@ class Main:
             StaticUtilities.logger.info(f"No malware found")
         return results
 
-    @staticmethod
-    def demo() -> None:
-        """
-        For demoing instrumentation and detection.
-        :return: None.
-        """
-        StaticUtilities.logger.setLevel(logging.DEBUG)
-        Detection.reset_test_project()
-        # project: CCSProject = CCSProject(source_file="main.c",
-        #                                  project_name="test_target",
-        #                                  path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-        #                                  )
-        # results: bool = Main.detection(project, 0.95)
-        # Main.__generate_vhdl(results)
-
-        project = CCSProject(source_file="main.c",
-                             project_name="test_target",
-                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                             )
-        instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
-        instrumentation.instrument()
-        results: bool = Main.detection(project, 0.35)
-        Main.__generate_vhdl(results)
-
-    @staticmethod
-    def __generate_vhdl(detection_results: bool) -> None:
-        project: CCSProject = CCSProject(source_file="main.c",
-                                         project_name="test_target",
-                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                                         )
-        if detection_results:
-            vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=project)
-            vhdl_parser_generator.generate_vhdl()
-            zip_name: str = ""
-            package_zipper: PackageZipper = PackageZipper()
-            package_zipper.zip_vhdl(zip_file_name=zip_name)
-            StaticUtilities.logger.info(f"VHDL generated: \\generated_vhdl\\{zip_name}.zip")
-        else:
-            StaticUtilities.logger.error(f"VHDL did not generate. Possible malware detected.")
-
-    @staticmethod
-    def debug_main() -> None:
-        """
-        For debug of this project's workflow and functionality.
-        :return: None.
-        """
-        StaticUtilities.logger.setLevel(logging.INFO)
-
-        StaticUtilities.logger.warning("Testing No Attacks")
-        Detection.reset_test_project()
-        project: CCSProject = CCSProject(source_file="main.c",
-                                         project_name="test_target",
-                                         path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                                         )
-        results: bool = Main.detection(project, 0.95)
-        Main.__generate_vhdl(results)
-
-        StaticUtilities.logger.warning("Testing BufferOverflowAttack")
-        project = CCSProject(source_file="main.c",
-                             project_name="test_target",
-                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                             )
-        instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
-        instrumentation.instrument()
-        results: bool = Main.detection(project, 0.35)
-        Main.__generate_vhdl(results)
-
-        StaticUtilities.logger.warning("Testing StringFormatAttack")
-        Detection.reset_test_project()
-        project = CCSProject(source_file="main.c",
-                             project_name="test_target",
-                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                             )
-        instrumentation: Instrumentation = Instrumentation(project, StringFormatAttack())
-        instrumentation.instrument()
-        results: bool = Main.detection(project, 0.35)
-        Main.__generate_vhdl(results)
-
-        StaticUtilities.logger.warning("Testing IntOverflowAttack")
-        Detection.reset_test_project()
-        project = CCSProject(source_file="main.c",
-                             project_name="test_target",
-                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                             )
-        instrumentation: Instrumentation = Instrumentation(project, IntOverflowAttack())
-        instrumentation.instrument()
-        results: bool = Main.detection(project, 0.35)
-        Main.__generate_vhdl(results)
-
-        StaticUtilities.logger.warning("Testing All Attacks at once")
-        Detection.reset_test_project()
-        project = CCSProject(source_file="main.c",
-                             project_name="test_target",
-                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                             )
-        instrumentation: Instrumentation = Instrumentation(project, AllInstrumentationStrategies())
-        instrumentation.instrument()
-        results: bool = Main.detection(project, 0.35)
-        Main.__generate_vhdl(results)
-        return
-
-    @staticmethod
-    def generate_vhdl_exclusively() -> None:
-        """
-        Generates VHDL for a source file. Bypasses the rest of the toolchain.
-        :return: None.
-        """
-        ccs_project: CCSProject = CCSProject(project_name="test_C", source_file="test_C.c",
-                                             path=f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C")
-        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
-        vhdl_parser_generator.generate_vhdl()
-        package_zipper: PackageZipper = PackageZipper()
-        package_zipper.zip_vhdl(zip_file_name="")
-
-    @staticmethod
-    def generate() -> None:
-        """
-        Generates VHDL for a source file. Bypasses the rest of the toolchain.
-        :return: None.
-        """
-        project = CCSProject(source_file="main.c",
-                             project_name="test_target",
-                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                             )
-        vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=project)
-        vhdl_parser_generator.generate_vhdl()
-        package_zipper: PackageZipper = PackageZipper()
-        package_zipper.zip_vhdl(zip_file_name="")
-
-    @staticmethod
-    def inject_msp430_exclusively() -> None:
-        """
-        Attempts to inject a CCSProject with some vulnerability.
-        :return: None.
-        """
-        Detection.reset_test_project()
-        project = CCSProject(source_file="main.c",
-                             project_name="test_target",
-                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
-                             )
-        instrumentation: Instrumentation = Instrumentation(project, StringFormatAttack())
-        instrumentation.instrument()
-
-    def keyboard_control(self) -> None:
-        project = CCSProject(source_file="keyboard_control_main_capstone.c",
-                             project_name="keyboard_control_vCapstone",
-                             path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\keyboard_control_vCapstone"
-                             )
-        SWTriggeredFailure.reset_keyboard_control_code(project.get_path_to_source_file())
-        instrumentation: Instrumentation = Instrumentation(project, SWTriggeredFailure())
-        instrumentation.instrument()
-
 
 if __name__ == '__main__':
     main: Main = Main()
-    main.keyboard_control()
-    # Detection.reset_test_project()
+    StaticUtilities.logger.setLevel(logging.INFO)
+    main.generate()

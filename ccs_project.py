@@ -6,6 +6,8 @@
 # Written by Walker Ward and Michael Heidal
 """
 import hashlib
+import pathlib
+from copy import deepcopy
 from enum import IntEnum
 from typing import Dict
 
@@ -25,7 +27,7 @@ file_extension: Dict[ProjectType, str] = {
 
 class CCSProject:
     def __init__(self,
-                 path: str,
+                 path: pathlib.Path,
                  source_file: str,
                  *,
                  project_name: str = None,
@@ -35,15 +37,20 @@ class CCSProject:
         self.project_name = project_name                # Name of the project (useful for output)
         self.source_file = source_file                  # The file which is to be instrumented or inspected
         self.disassembly_file_path = ""
-        self.binary_file_path: str = ""
-        if StaticUtilities.file_exists(f"{self.path}\\VHDLGenerator\\", f"{project_name}.out"):
-            self.binary_file_path = f"VHDLGenerator\\{project_name}.out"
-        elif StaticUtilities.file_exists(f"{self.path}\\VHDLGenerator\\", self.source_file.replace(self.source_file[self.source_file.index("."):], ".out")):
-            self.binary_file_path = f"VHDLGenerator\\{self.source_file.replace(self.source_file[self.source_file.index('.'):], '.out')}"
-        elif StaticUtilities.file_exists(f"{self.path}\\Debug\\", f"{project_name}.out"):
-            self.binary_file_path = f"Debug\\{project_name}.out"
+        self.binary_file_path: pathlib.Path
+
+        # this section automatically determines which build to use. Prioritizes VHDLGenerator
+        vhdl_build_file_path: pathlib.Path = self.path / "VHDLGenerator"
+        debug_build_file_path: pathlib.Path = self.path / "Debug"
+        if StaticUtilities.file_exists(vhdl_build_file_path, f"{project_name}.out"):
+            self.binary_file_path = pathlib.Path(f"VHDLGenerator") / f"{project_name}.out"
+        elif StaticUtilities.file_exists(vhdl_build_file_path, self.source_file.replace(self.source_file[self.source_file.index("."):], ".out")):
+            self.binary_file_path = pathlib.Path(f"VHDLGenerator)") / f"{self.source_file.replace(self.source_file[self.source_file.index('.'):], '.out')}"
+        elif StaticUtilities.file_exists(debug_build_file_path, f"{project_name}.out"):
+            self.binary_file_path = pathlib.Path("Debug") / f"{project_name}.out"
         else:
-            self.binary_file_path = f"Debug\\{self.source_file.replace(self.source_file[self.source_file.index('.'):], '.out')}"
+            self.binary_file_path = pathlib.Path("Debug") / f"{self.source_file.replace(self.source_file[self.source_file.index('.'):], '.out')}"
+
         self.__project_hash = None
         self.__project_hash_key = None
 
@@ -78,9 +85,9 @@ class CCSProject:
         # The following including comments borrowed from https://nitratine.net/blog/post/how-to-hash-files-in-python/ until '###########' reached
         if self.__project_hash is None:
             sha256_file_hash_object = hashlib.sha256()  # Create the hash object, can use something other than `.sha256()` if you wish
-            with open(f"{self.path}//{self.source_file}", 'rb') as file_to_hash:  # Open the file to read its bytes
-                bytes_from_file = file_to_hash.read(
-                    StaticUtilities.hash_block_size)  # Read from the file. Take in the amount declared above
+            file_path: pathlib.Path = self.path / self.source_file
+            with open(file_path, 'rb') as file_to_hash:  # Open the file to read its bytes
+                bytes_from_file = file_to_hash.read(StaticUtilities.hash_block_size)  # Read from the file. Take in the amount declared above
                 while len(bytes_from_file) > 0:  # While there is still data being read from the file
                     sha256_file_hash_object.update(bytes_from_file)  # Update the hash
                     bytes_from_file = file_to_hash.read(StaticUtilities.hash_block_size)  # Read the next block from the file
@@ -88,8 +95,8 @@ class CCSProject:
             self.__project_hash = sha256_file_hash_object.hexdigest()
         return self.__project_hash
 
-    def set_disassembly_file_path(self, path: str):
+    def set_disassembly_file_path(self, path: pathlib.Path):
         self.disassembly_file_path = path
 
-    def get_path_to_source_file(self) -> str:
-        return fr"{self.path}\{self.source_file}"
+    def get_path_to_source_file(self) -> pathlib.Path:
+        return self.path / self.source_file

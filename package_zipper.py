@@ -6,6 +6,7 @@
 # Written by Walker Ward
 """
 import os
+import pathlib
 import shutil
 from zipfile import ZipFile
 from static_utilities import StaticUtilities
@@ -17,9 +18,9 @@ class PackageZipper:
     """
     def __init__(self) -> None:
         self.number_of_zipped_files: int = 0
-        self.disassembly_file_directory: str = rf"\generated_disassembly"
-        self.disassembly_file: str = rf"generated_disassembly.txt"
-        self.vhdl_directory: str = rf'\generated_vhdl'
+        self.disassembly_file_directory: str = "generated_disassembly"
+        self.disassembly_file: str = "generated_disassembly.txt"
+        self.vhdl_directory: str = "generated_vhdl"
         StaticUtilities.logger.debug(f"{PackageZipper.__name__} object initialized")
 
     def _zip_write(self, zip_file: ZipFile, file_to_write: str) -> None:
@@ -42,8 +43,9 @@ class PackageZipper:
         self.number_of_zipped_files = 0
         duplicate_file_modifier: int = 0
 
-        # Verifies that this zip file doesnt already exist. If so, gives it a new name until a unique one is chosen.
-        while StaticUtilities.file_exists(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}', f'{zip_file_name}.zip'):
+        # Verifies that this zip file doesn't already exist. If so, gives it a new name until a unique one is chosen.
+        vhdl_file_path: pathlib.Path = StaticUtilities.project_root_directory() / self.vhdl_directory
+        while StaticUtilities.file_exists(vhdl_file_path, f'{zip_file_name}.zip'):
             if duplicate_file_modifier == 0:
                 zip_file_name = f"{zip_file_name}_[0]"
             else:
@@ -51,13 +53,16 @@ class PackageZipper:
             duplicate_file_modifier += 1
 
         # Zips VHDL package
-        with ZipFile(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}\\{zip_file_name}.zip', 'w') as vhdl_zip_file:
-            with StaticUtilities.change_dir(f'{StaticUtilities.project_root_directory()}\\{self.vhdl_directory}'):
+        zip_file_path: pathlib.Path = StaticUtilities.project_root_directory() / self.vhdl_directory / f"{zip_file_name}.zip"
+        vhdl_directory_path: pathlib.Path = StaticUtilities.project_root_directory() / self.vhdl_directory
+        with ZipFile(zip_file_path, 'w') as vhdl_zip_file:
+            with StaticUtilities.change_dir(vhdl_directory_path):
                 for file in os.listdir("."):
                     if file.endswith(".vhd"):
                         self._zip_write(vhdl_zip_file, file)
-            with StaticUtilities.change_dir(f'{StaticUtilities.project_root_directory()}{self.disassembly_file_directory}'):
-                if StaticUtilities.file_exists(".", self.disassembly_file):
+            disassembly_file_path: pathlib.Path = StaticUtilities.project_root_directory() / self.disassembly_file_directory
+            with StaticUtilities.change_dir(disassembly_file_path):
+                if StaticUtilities.file_exists(disassembly_file_path, self.disassembly_file):
                     shutil.copyfile(self.disassembly_file, f"{self.disassembly_file}.cp")
                     self._zip_write(vhdl_zip_file, self.disassembly_file)
                     shutil.copyfile(f"{self.disassembly_file}.cp", self.disassembly_file)

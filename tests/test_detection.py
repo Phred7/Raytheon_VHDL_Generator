@@ -33,7 +33,7 @@ if __name__ == '__main__':
     reset_test_project()
     project: CCSProject = CCSProject(source_file="main.c",
                                      project_name="test_target",
-                                     path=rf"{StaticUtilities.project_root_directory()}\ccs_workspace\test_target"
+                                     path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_target"
                                      )
     instrumentation: Instrumentation = Instrumentation(project, BufferOverflowAttack())
     instrumentation.instrument()
