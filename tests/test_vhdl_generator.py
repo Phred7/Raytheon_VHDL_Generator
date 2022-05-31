@@ -48,6 +48,14 @@ class GeneratedVHDLTests(unittest.TestCase):
             self.assertTrue(zip_file_verification_dict[file], f"{file} not in {f'{zip_file_contents_list=}'.split('=')[0]}")
 
     def test_generated_vhdl(self) -> None:
+        # TODO: verify contents of the generated files.
         StaticUtilities.logger.info("Testing VHDL Generation")
         self.generate_vhdl()
+        for file in self.generated_files_dict():
+            if file == "generated_disassembly.txt":
+                self.assertTrue(
+                    StaticUtilities.file_exists(rf"{StaticUtilities.project_root_directory()}\generated_disassembly", file),
+                    f"{file} not in generated_vhdl directory")
+            else:
+                self.assertTrue(StaticUtilities.file_exists(rf"{StaticUtilities.project_root_directory()}\generated_vhdl", file), f"{file} not in generated_vhdl directory")
 
