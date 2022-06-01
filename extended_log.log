@@ -10966,3 +10966,21 @@ line 64:
 2022-06-01 12:53:07,040 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
 2022-06-01 12:53:07,056 INFO package_zipper zip_vhdl Created zip test_C - 2022-06-01.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C containing 8 files
 2022-06-01 12:53:07,058 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 12:54:55,738 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 12:54:55,739 INFO main generate **** Generating VHDL ****
+2022-06-01 12:54:55,742 INFO main detection No malware found
+2022-06-01 12:54:55,844 WARNING package_zipper zip_vhdl Created zip test_C - 2022-06-01_[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C containing 8 files
+2022-06-01 12:54:55,845 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 12:55:05,216 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 12:55:05,217 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 12:55:05,217 INFO main generate **** Generating VHDL ****
+2022-06-01 12:55:05,220 INFO main detection No malware found
+2022-06-01 12:55:05,326 WARNING package_zipper zip_vhdl Created zip test_C - 2022-06-01_[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C containing 8 files
+2022-06-01 12:55:05,327 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 12:55:53,347 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 12:55:53,347 INFO main discover_project Project name: test_C
+2022-06-01 12:55:53,347 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 12:55:53,347 INFO main generate **** Generating VHDL ****
+2022-06-01 12:55:53,351 INFO main detection No malware found
+2022-06-01 12:55:53,437 WARNING package_zipper zip_vhdl Created zip test_C - 2022-06-01_[2].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C containing 8 files
+2022-06-01 12:55:53,437 INFO main generate **** Generating VHDL Finished ****

@@ -50,7 +50,7 @@ class Main:
 
             StaticUtilities.logger.info(f"**** Discovering CCS Project ****")
             StaticUtilities.logger.debug(f"Project path: {pathlib.Path(project_path.parent)}")
-            StaticUtilities.logger.debug(f"Project name: {project_path.parent.name}")
+            StaticUtilities.logger.info(f"Project name: {project_path.parent.name}")
             StaticUtilities.logger.debug(f"Project src file: {source_file}")
             StaticUtilities.logger.debug(f"Python Root dir: {StaticUtilities.project_root_directory()}")
 
@@ -112,5 +112,5 @@ class Main:
 
 if __name__ == '__main__':
     main: Main = Main()
-    StaticUtilities.logger.setLevel(logging.DEBUG)
+    StaticUtilities.logger.setLevel(logging.INFO)
     main.main()
