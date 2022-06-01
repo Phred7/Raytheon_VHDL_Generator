@@ -12,8 +12,6 @@ from ccs_project import CCSProject, ProjectType
 from detection_in_asm import DetectionInASM
 from detection_in_c import DetectionInC
 from detection_strategy import DetectionStrategy
-from instrument_buffer_overflow_attack import BufferOverflowAttack
-from instrumentation import Instrumentation
 from pique_bin import PiqueBin
 from static_utilities import StaticUtilities
 

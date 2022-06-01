@@ -1,7 +1,6 @@
-2022-06-01 12:55:53,347 INFO main discover_project **** Discovering CCS Project ****
-2022-06-01 12:55:53,347 INFO main discover_project Project name: test_C
-2022-06-01 12:55:53,347 INFO main discover_project **** Discovering CCS Project Finished ****
-2022-06-01 12:55:53,347 INFO main generate **** Generating VHDL ****
-2022-06-01 12:55:53,351 INFO main detection No malware found
-2022-06-01 12:55:53,437 WARNING package_zipper zip_vhdl Created zip test_C - 2022-06-01_[2].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C containing 8 files
-2022-06-01 12:55:53,437 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 13:05:28,162 INFO test_vhdl_generator test_c_blank_generation_contents 
+***************Testing VHDL Generation Contents for Blank C Reference Project***************
+2022-06-01 13:05:28,233 INFO test_vhdl_generator test_generated_vhdl_package 
+***************Testing VHDL Package***************
+2022-06-01 13:05:28,296 INFO test_vhdl_generator test_test_c_generated_vhdl 
+***************Testing VHDL Generation Contents for Test C Reference Project***************

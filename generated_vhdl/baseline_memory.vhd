@@ -996,7 +996,6 @@ shared variable ROM : rom_type :=(32768 => x"00",		-- Begin: .cinit DATA Section
     --          if we try to access it with any other address, it will crash.
     --          So the first thing we need to do is create a local enable that
     --          will only assert when MAB is within x8000 to xFFFF.
-
      LOCAL_EN : process (MAB) 
      begin
          if ( (to_integer(unsigned(MAB)) >= 32768) and (to_integer(unsigned(MAB)) <= 65535)) then
@@ -1005,16 +1004,11 @@ shared variable ROM : rom_type :=(32768 => x"00",		-- Begin: .cinit DATA Section
            EN <= '0';
          end if;
      end process;
-
-
-
     -- Note 2:  The bus system uses a 16-bit Address (MAB)
     --          The MDB_out is also provided as a 16-bit word
     --          However, the memory array is actually built as 8-bit bytes.
     --          So for a given 16-bit MAB, we give MDB_out = HB : LB
     --                                                 or  = RW(MAB+1) : RW(MAB)
-
-
     ADDR_HANDLE : process( MAB )
     begin
         if ( (to_integer(unsigned(MAB)) >= 32768) and (to_integer(unsigned(MAB)) <= 65535)) then
@@ -1025,22 +1019,18 @@ shared variable ROM : rom_type :=(32768 => x"00",		-- Begin: .cinit DATA Section
             low_addr <= 32768;   
         end if;
     end process ; -- ADDR_HANDLE
-
-
     LOW_BYTE : process(clk) 
     begin
         if (rising_edge(clk)) then
             read_value(7 downto 0) <= ROM(low_addr);
         end if;
     end process ; -- LOW_BYTE
-
     WRITE_HIGH_BYTE : process( clk )
     begin
         if (rising_edge(clk)) then
             read_value(15 downto 8)<=ROM(high_addr);
         end if ;
     end process ; -- WRITE_HIGH_BYTE
-
     MDB_out <= read_value;
     --------------------------------------------------------------------------------------------
 
