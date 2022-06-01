@@ -24,3 +24,4 @@ ccs_workspace/.metadata/
 **/46f79c451e652fc4ce7ad5a6f9eb737642077c128e514c889458220ed6985913
 /yara/rules/malware/c_blank/
 /yara/rules/malware/all_instrumentation_build/
+/tools/static_analysis_tools/
