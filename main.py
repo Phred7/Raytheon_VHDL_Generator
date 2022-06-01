@@ -85,7 +85,10 @@ class Main:
             vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
             vhdl_parser_generator.generate_vhdl()
             package_zipper: PackageZipper = PackageZipper()
-            package_zipper.zip_vhdl(zip_file_name=f"{ccs_project.project_name} - {date.today()}", zip_file_directory=ccs_project.path)
+            if pathlib.Path.cwd() != StaticUtilities.project_root_directory():
+                package_zipper.zip_vhdl(zip_file_name=f"{ccs_project.project_name} - {date.today()}", zip_file_directory=ccs_project.path)
+            else:
+                package_zipper.zip_vhdl(zip_file_name=f"{ccs_project.project_name} - {date.today()}")
             StaticUtilities.logger.info(f"**** Generating VHDL Finished ****")
         else:
             StaticUtilities.logger.error(f"**** Generating VHDL Failed ****")

@@ -11,7 +11,6 @@ sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.par
 from static_utilities import StaticUtilities
 from ccs_project import CCSProject
 from package_zipper import PackageZipper
-
 from vhdl_parser_generator import VHDLParserGenerator
 
 
@@ -63,8 +62,10 @@ class GeneratedVHDLTests(unittest.TestCase):
                         line_g, line_r = lines
                         generated_file_string += line_g
                         reference_file_string += line_r
-                        self.assertTrue(line_g == line_r, f"Line {line_number} does not match in the newly generated version of {file.parts[-1]} and the reference version.\nGenerated line: {line_g}Reference line: {line_r}")
-            self.assertTrue(generated_file_string == reference_file_string, f"The newly generated version of {file.parts[-1]} does not match the reference version")
+                        self.assertTrue(line_g == line_r,
+                                        f"Line {line_number} does not match in the newly generated version of {file.parts[-1]} and the reference version.\nGenerated line: {line_g}Reference line: {line_r}")
+            self.assertTrue(generated_file_string == reference_file_string,
+                            f"The newly generated version of {file.parts[-1]} does not match the reference version")
 
     def test_generated_vhdl_package(self) -> None:
         StaticUtilities.logger.info("\n***************Testing VHDL Package***************")
@@ -91,7 +92,8 @@ class GeneratedVHDLTests(unittest.TestCase):
                             f"{file} not in {f'{zip_file_contents_list=}'.split('=')[0]}")
 
     def test_c_blank_generation_contents(self) -> None:
-        StaticUtilities.logger.info("\n***************Testing VHDL Generation Contents for Blank C Reference Project***************")
+        StaticUtilities.logger.info(
+            "\n***************Testing VHDL Generation Contents for Blank C Reference Project***************")
         self.generate_vhdl(self.blank_c_project())
 
     # def test_generated_vhdl(self) -> None:
@@ -107,5 +109,6 @@ class GeneratedVHDLTests(unittest.TestCase):
     #             self.assertTrue(StaticUtilities.file_exists(rf"{StaticUtilities.project_root_directory()}\generated_vhdl", file), f"{file} not in generated_vhdl directory")
 
     def test_test_c_generated_vhdl(self) -> None:
-        StaticUtilities.logger.info("\n***************Testing VHDL Generation Contents for Test C Reference Project***************")
+        StaticUtilities.logger.info(
+            "\n***************Testing VHDL Generation Contents for Test C Reference Project***************")
         self.generate_vhdl(self.test_c_project())

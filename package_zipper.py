@@ -42,7 +42,7 @@ class PackageZipper:
         :return: None.
         """
 
-        if zip_file_directory is pathlib.Path(""):
+        if zip_file_directory == pathlib.Path(""):
             zip_file_directory = StaticUtilities.project_root_directory() / self.vhdl_directory
 
         self.number_of_zipped_files = 0

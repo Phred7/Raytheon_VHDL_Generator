@@ -1,6 +1,6 @@
-2022-06-01 13:05:28,162 INFO test_vhdl_generator test_c_blank_generation_contents 
+2022-06-01 13:25:42,749 INFO test_vhdl_generator test_c_blank_generation_contents 
 ***************Testing VHDL Generation Contents for Blank C Reference Project***************
-2022-06-01 13:05:28,233 INFO test_vhdl_generator test_generated_vhdl_package 
+2022-06-01 13:25:42,809 INFO test_vhdl_generator test_generated_vhdl_package 
 ***************Testing VHDL Package***************
-2022-06-01 13:05:28,296 INFO test_vhdl_generator test_test_c_generated_vhdl 
+2022-06-01 13:25:42,868 INFO test_vhdl_generator test_test_c_generated_vhdl 
 ***************Testing VHDL Generation Contents for Test C Reference Project***************
