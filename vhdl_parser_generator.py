@@ -214,7 +214,7 @@ end architecture;"""
         Generates the vhdl memory rom type as a str.
         :return: str representation of vhdl memory rom type.
         """
-        return """type rom_type is array (32768 to 65535) of std_logic_vector(7 downto 0);  -- this is MAB: x8000 to xFFFF
+        return """type rom_type is array (0 to 32768) of std_logic_vector(7 downto 0);  -- this is MAB: x8000 to xFFFF
     
 shared variable ROM : rom_type :=("""
 
@@ -443,11 +443,11 @@ shared variable ROM : rom_type :=("""
     ADDR_HANDLE : process( MAB )
     begin
         if ( (to_integer(unsigned(MAB)) >= 32768) and (to_integer(unsigned(MAB)) <= 65535)) then
-            high_addr<= to_integer(unsigned(MAB))+1;
-            low_addr<= to_integer(unsigned(MAB));
+            high_addr<= to_integer(unsigned(MAB))+1-32768;
+            low_addr<= to_integer(unsigned(MAB))-32768;
         else
-            high_addr<= 32769;
-            low_addr <= 32768;   
+            high_addr<= 1;
+            low_addr <= 0;   
         end if;
     end process ; -- ADDR_HANDLE
     LOW_BYTE : process(clk) 
@@ -491,7 +491,7 @@ entity data_memory is
     Byte        : in    std_logic);
 end entity;
 architecture data_memory_arch of data_memory is
-    type rw_type is array (8192 to 12287) of std_logic_vector(7 downto 0);  -- this is MAB: x2000 to x2FFF
+    type rw_type is array (0 to 4095) of std_logic_vector(7 downto 0);  -- this is MAB: x2000 to x2FFF
     shared variable RW : rw_type:=("""
 
     @staticmethod
@@ -523,11 +523,11 @@ architecture data_memory_arch of data_memory is
     ADDR_HANDLE : process( MAB )
     begin
         if ( (to_integer(unsigned(MAB)) >= 8192) and (to_integer(unsigned(MAB)) <= 12287)) then
-            high_addr<= to_integer(unsigned(MAB))+1;
-            low_addr<= to_integer(unsigned(MAB));
+            high_addr<= to_integer(unsigned(MAB))+1-8192;
+            low_addr<= to_integer(unsigned(MAB))-8192;
         else
-            high_addr<= 8193;
-            low_addr <= 8192;   
+            high_addr<= 1;
+            low_addr <= 0;   
         end if;
     end process ; -- ADDR_HANDLE
     LOW_BYTE : process(clk) 
