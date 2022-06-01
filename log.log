@@ -1,4 +1,4 @@
-2022-05-18 14:15:15,487 INFO main generate **** Generating VHDL ****
-2022-05-18 14:15:15,491 INFO main detection No malware found
-2022-05-18 14:15:15,561 INFO package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-05-18.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
-2022-05-18 14:15:15,561 INFO main generate **** Generating VHDL Finished****
+2022-05-31 22:15:51,707 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-05-31 22:15:51,708 DEBUG detection __init__ Detection object initialized
+2022-05-31 22:15:52,443 DEBUG detection yara Yara exit status: 0
+2022-05-31 22:15:52,444 DEBUG detection yara Yara output: None

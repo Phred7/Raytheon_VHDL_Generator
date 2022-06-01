@@ -5,6 +5,8 @@
 # Dr. Brock LaMeres
 # Written by Michael Heidal and Walker Ward
 """
+import pathlib
+import subprocess
 from typing import Dict
 import json
 
@@ -23,15 +25,18 @@ class Detection:
     Attempts to detect various forms of malware or vulnerabilities with in a binary and source file pair.
     """
 
-    def __init__(self, ccs_project: CCSProject, *, pique_bin_bool: bool = True, suppress_pique_bin_logs: bool = True) -> None:
+    def __init__(self, ccs_project: CCSProject, *, pique_bin_bool: bool = False,
+                 suppress_pique_bin_logs: bool = True) -> None:
         self.ccs_project: CCSProject = ccs_project
         self.pique_binary_security_quality: float = 0
         self.pique_binary_security_quality_threshold: float = 0.9
         self.hash_json_file: str = "hashed_disassembly.json"
         self.hashed_files_dict: Dict[str: str] = self.serialize_hash_from_file()
-        self._detection_strategy = DetectionInC(self.ccs_project) if self.ccs_project.project_type == ProjectType.C else DetectionInASM(self.ccs_project)
+        self._detection_strategy = DetectionInC(
+            self.ccs_project) if self.ccs_project.project_type == ProjectType.C else DetectionInASM(self.ccs_project)
         if pique_bin_bool:
-            self.pique_bin: PiqueBin = PiqueBin(source_file_name=self.ccs_project.source_file, suppress_printing_bool=suppress_pique_bin_logs)
+            self.pique_bin: PiqueBin = PiqueBin(source_file_name=self.ccs_project.source_file,
+                                                suppress_printing_bool=suppress_pique_bin_logs)
         else:
             self.pique_bin = None
         StaticUtilities.logger.debug(f"{Detection.__name__} object initialized")
@@ -87,7 +92,8 @@ class Detection:
         """
         serialized_object = None
         try:
-            serialized_object = StaticUtilities.serialize_object_from_json(StaticUtilities.project_root_directory(), self.hash_json_file)
+            serialized_object = StaticUtilities.serialize_object_from_json(StaticUtilities.project_root_directory(),
+                                                                           self.hash_json_file)
         except json.decoder.JSONDecodeError:
             return {}
         if isinstance(serialized_object, dict):
@@ -99,7 +105,8 @@ class Detection:
         Writes this hash files dict to a serializable json file.
         :return: None.
         """
-        return StaticUtilities.write_object_to_json(StaticUtilities.project_root_directory(), self.hash_json_file, self.hashed_files_dict)
+        return StaticUtilities.write_object_to_json(StaticUtilities.project_root_directory(), self.hash_json_file,
+                                                    self.hashed_files_dict)
 
     def hashed_file_exists_and_matches_cache(self) -> bool:
         """
@@ -127,3 +134,25 @@ class Detection:
         if file_name_key not in self.hashed_files_dict:
             return True
         return self.hashed_files_dict[file_name_key] == self.ccs_project.__hash__()
+
+    def yara(self) -> None:
+        yara_root_directory: pathlib.Path = StaticUtilities.project_root_directory() / "tools" / "static_analysis_tools" / "yara" / "yara-v4.2.0-1885-win64"
+        tool_executable_path: pathlib.Path = yara_root_directory / "yara64.exe"
+        path_to_yara_rules: pathlib.Path = yara_root_directory / "rules" / "index.yar"
+        path_to_file_to_test: pathlib.Path = yara_root_directory / "malware" / "46f79c451e652fc4ce7ad5a6f9eb737642077c128e514c889458220ed6985913"
+        # exit_status = subprocess.Popen(
+        #     [tool_executable_path, "-w", path_to_yara_rules, path_to_file_to_test], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        exit_status = subprocess.Popen(
+            [tool_executable_path, "-w", path_to_yara_rules, self.ccs_project.disassembly_file_path])  #, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        output, error = exit_status.communicate()
+        StaticUtilities.logger.debug(f"Yara exit status: {exit_status.returncode}")
+        StaticUtilities.logger.debug(f"Yara output: {output}")
+        return
+
+
+if __name__ == "__main__":
+    ccs_project: CCSProject = CCSProject(project_name="test_target", source_file="main.c",
+                                         path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_target")
+    ccs_project.set_disassembly_file_path(ccs_project.path / "VHDLGenerator" / "test_target.out")
+    det: Detection = Detection(ccs_project)
+    det.yara()

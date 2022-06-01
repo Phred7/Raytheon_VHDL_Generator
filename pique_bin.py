@@ -36,7 +36,7 @@ class PiqueBin:
         self.derive: bool = derive
         self.suppress_printing_bool: bool = suppress_printing_bool
         # if not self.binary_file_name == self.default_pique_bin_test_binary:
-        StaticUtilities.file_should_exist(file_directory=self.binary_file_directory, file=self.binary_file_name)
+#         StaticUtilities.file_should_exist(file_directory=self.binary_file_directory, file=self.binary_file_name)
         StaticUtilities.logger.debug(f"{PiqueBin.__name__} object initialized")
         StaticUtilities.logger.warning(f"PIQUE-Bin not fully functional.")
 
