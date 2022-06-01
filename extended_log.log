@@ -11031,3 +11031,29 @@ line 64:
 ***************Testing VHDL Package***************
 2022-06-01 13:25:42,868 INFO test_vhdl_generator test_test_c_generated_vhdl 
 ***************Testing VHDL Generation Contents for Test C Reference Project***************
+2022-06-01 13:26:59,091 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 13:26:59,092 INFO main discover_project Project name: test_C
+2022-06-01 13:26:59,093 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 13:26:59,093 INFO main generate **** Generating VHDL ****
+2022-06-01 13:26:59,096 INFO main detection No malware found
+2022-06-01 13:26:59,187 INFO package_zipper zip_vhdl Created zip test_C - 2022-06-01.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C containing 8 files
+2022-06-01 13:26:59,187 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 14:39:35,435 INFO test_vhdl_generator test_c_blank_generation_contents 
+***************Testing VHDL Generation Contents for Blank C Reference Project***************
+2022-06-01 14:39:35,517 INFO test_vhdl_generator test_generated_vhdl_package 
+***************Testing VHDL Package***************
+2022-06-01 14:39:35,571 INFO test_vhdl_generator test_test_c_generated_vhdl 
+***************Testing VHDL Generation Contents for Test C Reference Project***************
+2022-06-01 14:39:41,711 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 14:39:41,712 INFO main generate **** Generating VHDL ****
+2022-06-01 14:39:41,715 INFO main detection No malware found
+2022-06-01 14:39:41,800 INFO package_zipper zip_vhdl Created zip test_C - 2022-06-01.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-06-01 14:39:41,800 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 14:44:28,595 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 14:44:28,595 INFO main generate **** Generating VHDL ****
+2022-06-01 14:44:28,599 INFO main detection No malware found
+2022-06-01 14:44:28,697 WARNING package_zipper zip_vhdl Created zip test_C - 2022-06-01_[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-06-01 14:44:28,697 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 14:45:15,599 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 14:45:15,600 INFO main generate **** Generating VHDL ****
+2022-06-01 14:45:15,609 INFO main detection No malware found
