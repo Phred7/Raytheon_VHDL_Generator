@@ -243,5 +243,5 @@ class Main:
 
 if __name__ == '__main__':
     main: Main = Main()
-    StaticUtilities.logger.setLevel(logging.INFO)
+    StaticUtilities.logger.setLevel(logging.DEBUG)
     main.generate()

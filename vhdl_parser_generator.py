@@ -187,10 +187,7 @@ use IEEE.numeric_std.all;\n\n"""
         return f"""entity {computer_name}_memory is
     port ( clk	: in	std_logic;
          MAB		: in	std_logic_vector(15 downto 0);
-         MDB_in  	: out	std_logic_vector(15 downto 0);
-         MDB_out  	: in	std_logic_vector(15 downto 0);
-         write	    : in	std_logic;
-         Byte       : in    std_logic);
+         MDB_out  	: out	std_logic_vector(15 downto 0));
 end entity;\n"""
 
     def get_vhdl_memory_architecture(self, computer_name: str) -> str:
@@ -205,17 +202,10 @@ end entity;\n"""
         :param computer_name: str name of the computer to generate a vhdl memory architecture for.
         :return: str representation of vhdl memory architecture.
         """
-        #         return f"""architecture {computer_name}_memory_arch of {computer_name}_memory is\n
-        # {self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_asm(computer_name)}{self.get_vhdl_irq_vectors()}{self.get_vhdl_memory_rom_end()}\n
-        #     signal EN : std_logic;
-        #     {self.get_vhdl_local_en_process()}\n
-        #     {self.get_vhdl_memory_rom_process()}\n\n
-        # end architecture;"""
         return f"""architecture {computer_name}_memory_arch of {computer_name}_memory is\n
 {self.get_vhdl_memory_rom_type()}{self.get_vhdl_memory_rom_with_interrupts(computer_name)}{self.get_vhdl_memory_rom_end()}\n
-    signal EN : std_logic;
-    {self.get_vhdl_local_en_process()}\n
-    {self.get_vhdl_memory_rom_process()}\n\n
+    {self.get_vhdl_signals()}
+    {self.get_vhdl_processes()}\n
 end architecture;"""
 
     @staticmethod
@@ -226,7 +216,7 @@ end architecture;"""
         """
         return """type rom_type is array (32768 to 65535) of std_logic_vector(7 downto 0);  -- this is MAB: x8000 to xFFFF
     
-constant ROM : rom_type :=("""
+shared variable ROM : rom_type :=("""
 
     @staticmethod
     def translate_opcode_with_mnemonic_dictionary(line_str_list: List[str], computer_mnemonic_dictionary: {str, str}) -> str:
@@ -412,10 +402,22 @@ constant ROM : rom_type :=("""
         return f"""{self.memory_indent}others => x"00");"""
 
     @staticmethod
-    def get_vhdl_local_en_process() -> str:
+    def get_vhdl_signals() -> str:
         """
-        Gets the str representation of the vhdl local en process.
-        :return: str representation of the vhdl local en process.
+        Gets the str representation of the vhdl signals.
+        :return: str representation of the vhdl signals.
+        """
+        return """
+    signal high_addr, low_addr : integer;
+    signal read_value : std_logic_vector(15 downto 0);
+    signal EN : std_logic;
+        """
+
+    @staticmethod
+    def get_vhdl_processes() -> str:
+        """
+        Gets the str representation of the vhdl processes.
+        :return: str representation of the vhdl processes.
         """
         return """
     begin
@@ -433,7 +435,45 @@ constant ROM : rom_type :=("""
          else 
            EN <= '0';
          end if;
-     end process;"""
+     end process;
+
+
+
+    -- Note 2:  The bus system uses a 16-bit Address (MAB)
+    --          The MDB_out is also provided as a 16-bit word
+    --          However, the memory array is actually built as 8-bit bytes.
+    --          So for a given 16-bit MAB, we give MDB_out = HB : LB
+    --                                                 or  = RW(MAB+1) : RW(MAB)
+
+
+    ADDR_HANDLE : process( MAB )
+    begin
+        if ( (to_integer(unsigned(MAB)) >= 32768) and (to_integer(unsigned(MAB)) <= 65535)) then
+            high_addr<= to_integer(unsigned(MAB))+1;
+            low_addr<= to_integer(unsigned(MAB));
+        else
+            high_addr<= 32769;
+            low_addr <= 32768;   
+        end if;
+    end process ; -- ADDR_HANDLE
+
+
+    LOW_BYTE : process(clk) 
+    begin
+        if (rising_edge(clk)) then
+            read_value(7 downto 0) <= ROM(low_addr);
+        end if;
+    end process ; -- LOW_BYTE
+
+    WRITE_HIGH_BYTE : process( clk )
+    begin
+        if (rising_edge(clk)) then
+            read_value(15 downto 8)<=ROM(high_addr);
+        end if ;
+    end process ; -- WRITE_HIGH_BYTE
+
+    MDB_out <= read_value;
+    --------------------------------------------------------------------------------------------"""
 
     @staticmethod
     def get_vhdl_memory_rom_process() -> str:
@@ -441,25 +481,7 @@ constant ROM : rom_type :=("""
         Gets the str representation of the vhdl memory rom process.
         :return: str representation of the vhdl memory rom process.
         """
-        return """
-    -- Note 2:  The bus system uses a 16-bit Address (MAB)
-    --          The MDB_out is also provided as a 16-bit word
-    --          However, the memory array is actually built as 8-bit bytes.
-    --          So for a given 16-bit MAB, we give MDB_out = HB : LB
-    --                                                 or  = ROM(MAB);1) : ROM(MAB)
-
-    MEMORY_ROM : process (clk) 
-    begin
-        if (rising_edge(clk)) then
-            if (EN='1' and write='0') then
-                if(Byte = '0') then                      
-                    MDB_in <= ROM(to_integer(unsigned(MAB)) + 1 ) & ROM(to_integer(unsigned(MAB)));
-                else
-                    MDB_in <= x"00" & ROM(to_integer(unsigned(MAB)));
-                end if;
-            end if;
-        end if;
-    end process;"""
+        return """"""
 
     @staticmethod
     def get_vhdl_data_memory_preamble() -> str:
@@ -484,7 +506,7 @@ end entity;
 architecture data_memory_arch of data_memory is
 
     type rw_type is array (8192 to 12287) of std_logic_vector(7 downto 0);  -- this is MAB: x2000 to x2FFF
-    signal RW : rw_type:=("""
+    shared variable RW : rw_type:=("""
 
     @staticmethod
     def get_vhdl_data_memory_end() -> str:
@@ -494,22 +516,12 @@ architecture data_memory_arch of data_memory is
         """
         return f"""others=>x"00");  -- assigned an initial value to the data memory
 
-    -- COLTER CHANGED TO ALLOW QUARTUS TO IMPLEMENT OUTSIDE ALMs
-    -- COMMENT OUT IF COMPILING IN VIVADO
-    attribute ramstyle : string;
-    attribute ramstyle of RW : signal is "M10K"; 
-    -- use the M10K that is on the Cyclone 5 Family and do not worry about matching read during write behavoir
+    signal high_addr, low_addr : integer;
+    signal read_value : std_logic_vector(15 downto 0);
 
-    signal EN : std_logic;
+    signal EN, WENH, WENL : std_logic;
 
     begin
-
-    -- Note 1:  The bus system uses a 16-bit Address (MAB)
-    --          This address size can access locations from x0000 to xFFFF
-    --          But our array is only defined from x2000 to x2FFF and
-    --          if we try to access it with any other address, it will crash.
-    --          So the first thing we need to do is create a local enable that
-    --          will only assert when MAB is within x2000 to x2FFF.
 
     LOCAL_EN : process (MAB)
         begin
@@ -520,65 +532,61 @@ architecture data_memory_arch of data_memory is
             end if;
         end process;
 
+
+
     -- Note 2:  The bus system uses a 16-bit Address (MAB)
     --          The MDB_out is also provided as a 16-bit word
     --          However, the memory array is actually built as 8-bit bytes.
     --          So for a given 16-bit MAB, we give MDB_out = HB : LB
     --                                                 or  = RW(MAB+1) : RW(MAB)
-    MEMORY_READ : process(clk)
-        begin
-            if (rising_edge(clk)) then
-    -- READ
-                if (EN='1' and write='0') then
-                    if(Byte='0') then
-                        MDB_in <= RW(to_integer(unsigned(MAB)) + 1 ) & RW(to_integer(unsigned(MAB)));
-                    else
-                        MDB_in <= x"00" & RW(to_integer(unsigned(MAB)));
-                    end if;
-                end if;
-            end if;
-        end process;
 
-    MEMORY_WRITE_LOW_BYTE : process( clk )
+    WENH<= write and EN and not Byte;
+    WENL<= write and EN;
+
+    ADDR_HANDLE : process( MAB )
+    begin
+        if ( (to_integer(unsigned(MAB)) >= 8192) and (to_integer(unsigned(MAB)) <= 12287)) then
+            high_addr<= to_integer(unsigned(MAB))+1;
+            low_addr<= to_integer(unsigned(MAB));
+        else
+            high_addr<= 8193;
+            low_addr <= 8192;   
+        end if;
+    end process ; -- ADDR_HANDLE
+
+
+    LOW_BYTE : process(clk) 
     begin
         if (rising_edge(clk)) then
-    -- WRITE
-        if (EN='1' and write='1') then
-            RW(to_integer(unsigned(MAB)))      <= MDB_out(7 downto 0);
+            if (WENL='1') then
+                RW(low_addr) := MDB_out(7 downto 0);
+            end if ;
+            read_value(7 downto 0) <= RW(low_addr);
         end if;
-    end if ;
+    end process ; -- LOW_BYTE
 
-------------------------------------------------------------------------------------------------
------- Software Implementation
-------------------------------------------------------------------------------------------------
-    if (rising_edge(clk)) then
-        if (EN='1'  and write='1') then
-            if(Byte='0')then
-                RW(to_integer(unsigned(MAB))+1)   <= MDB_out(15 downto 8);
-            end if;
+    WRITE_HIGH_BYTE : process( clk )
+    begin
+        if (rising_edge(clk)) then
+            if (WENH='1') then
+                RW(high_addr) := MDB_out(15 downto 8);
+            end if ;
+            if (Byte='0') then
+                read_value(15 downto 8)<=RW(high_addr);
+            end if ;
         end if ;
-    end if ;
-------------------------------------------------------------------------------------------------
+    end process ; -- WRITE_HIGH_BYTE
 
-
-    end process ; -- MEMORY_WRITE_LOW_BYTE
-
-
-------------------------------------------------------------------------------------------
--- Hardware Implementation
-------------------------------------------------------------------------------------------
---    MEMORY_WRITE_HIGH_BYTE : process( clk )
---    begin
---      if (rising_edge(clk)) then
---          if (EN='1'  and write='1') then
---            if (Byte='0') then
---                RW(to_integer(unsigned(MAB))+1)   <= MDB_out(15 downto 8);
---            end if;
---          end if ;
---      end if ;
---    end process ; -- MEMORY_WRITE_HIGH_BYTE
---------------------------------------------------------------------------------------------
-
+    MDB_in_HANDL : process( read_value, Byte )
+    begin
+        if (Byte='0') then
+            MDB_in <= read_value;
+        else
+            MDB_in <= x"00" & read_value(7 downto 0);
+        end if ;
+    end process ; -- MDB_in_HANDL
+    --------------------------------------------------------------------------------------------
+	
 end architecture;"""
 
     @staticmethod
