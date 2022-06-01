@@ -1,3 +1,3 @@
-2022-06-01 14:45:15,599 WARNING main discover_project Project is this python project. Using test_C
-2022-06-01 14:45:15,600 INFO main generate **** Generating VHDL ****
-2022-06-01 14:45:15,609 INFO main detection No malware found
+2022-06-01 14:57:55,965 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 14:57:55,966 INFO main generate **** Generating VHDL ****
+2022-06-01 14:57:56,002 INFO main detection No malware found

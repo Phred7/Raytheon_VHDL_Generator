@@ -128,14 +128,14 @@ class VHDLParserGenerator:
             for line in disassembly_file:
                 if not self.data_memory_in_disassembly and "DATA Section .data" in line:
                     data_section_string: List[str] = line.split(" ")
-                    data_memory_start = int(data_section_string[-1], 16)
+                    data_memory_start = int(data_section_string[-1], 16) - 32768  # TODO: replace with method call
                     generated_vhdl_data_mem += f"-- Begin .data\n"
                     self.data_memory_in_disassembly = True
                 elif self.data_memory_in_disassembly or not cinit_in_generated:
                     while line != "\n":
                         if "0x" in line:
                             data_line_string: List[str] = line.split(" ")
-                            data_memory_location: int = int(data_line_string[0].strip(":"), 16)
+                            data_memory_location: int = int(data_line_string[0].strip(":"), 16) - 32768  # TODO: make method call
                             data_line_string[-1] = data_line_string[-1].strip("\n")[2:]
                             if not int(data_line_string[-1], 16) == 0:
                                 data_msb: str = data_line_string[-1][:2]
@@ -273,7 +273,7 @@ shared variable ROM : rom_type :=("""
                         while line != "\n":
                             if "0x" in line and ".word" in line:
                                 data_line_string: List[str] = line.split(" ")
-                                data_memory_location: int = int(data_line_string[0].strip(":"), 16)
+                                data_memory_location: int = int(data_line_string[0].strip(":"), 16) - 32768  # TODO: replace with a method that does this for all generation.
                                 data_line_string[-1] = data_line_string[-1].strip("\n")[2:]
                                 if not int(data_line_string[-1], 16) == 0:
                                     data_msb: str = data_line_string[-1][:2]
@@ -326,8 +326,8 @@ shared variable ROM : rom_type :=("""
                             name = ".reset"
                         line = next(disassembly_file)
 
-                        memory_address = self.get_memory_address_from_line(line) if self.get_memory_address_from_line(
-                            line) != 0 else memory_address
+                        result = self.get_memory_address_from_line(line)
+                        memory_address = result if result != 0 else memory_address
 
                         split_line: List[str] = line.split(" ")
                         tag_name: str = re.match("(\w+|\$):\\n", split_line[14], re.I).string[:-2]

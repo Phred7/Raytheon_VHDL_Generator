@@ -11057,3 +11057,28 @@ line 64:
 2022-06-01 14:45:15,599 WARNING main discover_project Project is this python project. Using test_C
 2022-06-01 14:45:15,600 INFO main generate **** Generating VHDL ****
 2022-06-01 14:45:15,609 INFO main detection No malware found
+2022-06-01 14:47:29,193 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 14:47:29,195 INFO main generate **** Generating VHDL ****
+2022-06-01 14:47:29,223 INFO main detection No malware found
+2022-06-01 14:51:09,517 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 14:51:09,517 INFO main generate **** Generating VHDL ****
+2022-06-01 14:51:09,526 INFO main detection No malware found
+2022-06-01 14:51:18,623 WARNING package_zipper zip_vhdl Created zip test_C - 2022-06-01_[1].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-06-01 14:51:18,623 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 14:52:27,277 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 14:52:27,277 INFO main generate **** Generating VHDL ****
+2022-06-01 14:52:27,281 INFO main detection No malware found
+2022-06-01 14:52:27,383 WARNING package_zipper zip_vhdl Created zip test_C - 2022-06-01_[2].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-06-01 14:52:27,384 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 14:53:30,908 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 14:53:30,910 INFO main generate **** Generating VHDL ****
+2022-06-01 14:53:30,917 INFO main detection No malware found
+2022-06-01 14:56:21,716 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 14:56:21,718 INFO main generate **** Generating VHDL ****
+2022-06-01 14:56:21,761 INFO main detection No malware found
+2022-06-01 14:57:44,417 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 14:57:44,419 INFO main generate **** Generating VHDL ****
+2022-06-01 14:57:44,431 INFO main detection No malware found
+2022-06-01 14:57:55,965 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 14:57:55,966 INFO main generate **** Generating VHDL ****
+2022-06-01 14:57:56,002 INFO main detection No malware found
