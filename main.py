@@ -215,9 +215,12 @@ class Main:
         :return: None.
         """
         StaticUtilities.logger.info(f"**** Generating VHDL ****")
-        ccs_project = CCSProject(source_file="test_C.c",
-                                 project_name="test_C",
-                                 path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_C")
+        # ccs_project = CCSProject(source_file="test_C.c",
+        #                          project_name="test_C",
+        #                          path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_C")
+        ccs_project = CCSProject(source_file="c_blank.c",
+                                 project_name="c_blank",
+                                 path=StaticUtilities.project_root_directory() / "ccs_workspace" / "c_blank")
         detection_results: bool = Main.detection(ccs_project, 0.35)
         if detection_results:
             vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
