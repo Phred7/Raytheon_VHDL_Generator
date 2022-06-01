@@ -11082,3 +11082,27 @@ line 64:
 2022-06-01 14:57:55,965 WARNING main discover_project Project is this python project. Using test_C
 2022-06-01 14:57:55,966 INFO main generate **** Generating VHDL ****
 2022-06-01 14:57:56,002 INFO main detection No malware found
+2022-06-01 15:02:09,713 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 15:02:09,713 INFO main discover_project Project name: test_colt430
+2022-06-01 15:02:09,713 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 15:02:09,713 INFO main generate **** Generating VHDL ****
+2022-06-01 15:02:09,713 INFO main detection No malware found
+2022-06-01 15:02:09,806 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interrupts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-06-01 15:02:09,806 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interrupts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-06-01 15:02:09,806 ERROR vhdl_parser_generator get_vhdl_memory_rom_with_interrupts UnrecognizedInstructionError: The instruction .word in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP
+2022-06-01 15:02:09,823 WARNING package_zipper zip_vhdl Created zip test_colt430 - 2022-06-01_[1].zip in C:\Users\g46k838\workspace_v10\test_colt430 containing 8 files
+2022-06-01 15:02:09,823 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 15:05:50,381 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 15:05:50,381 INFO main discover_project Project name: test_colt430
+2022-06-01 15:05:50,381 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 15:05:50,381 INFO main generate **** Generating VHDL ****
+2022-06-01 15:05:50,381 INFO main detection No malware found
+2022-06-01 15:05:50,459 INFO package_zipper zip_vhdl Created zip test_colt430 - 2022-06-01.zip in C:\Users\g46k838\workspace_v10\test_colt430 containing 8 files
+2022-06-01 15:05:50,459 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 15:37:26,850 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 15:37:26,851 INFO main discover_project Project name: test_colt430
+2022-06-01 15:37:26,851 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 15:37:26,851 INFO main generate **** Generating VHDL ****
+2022-06-01 15:37:26,854 INFO main detection No malware found
+2022-06-01 15:37:26,980 INFO package_zipper zip_vhdl Created zip test_colt430 - 2022-06-01.zip in C:\Users\g46k838\workspace_v10\test_colt430 containing 8 files
+2022-06-01 15:37:26,980 INFO main generate **** Generating VHDL Finished ****

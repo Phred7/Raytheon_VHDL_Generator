@@ -214,7 +214,7 @@ end architecture;"""
         Generates the vhdl memory rom type as a str.
         :return: str representation of vhdl memory rom type.
         """
-        return """type rom_type is array (0 to 32768) of std_logic_vector(7 downto 0);  -- this is MAB: x8000 to xFFFF
+        return """type rom_type is array (0 to 32767) of std_logic_vector(7 downto 0);  -- this is MAB: x8000 to xFFFF
     
 shared variable ROM : rom_type :=("""
 

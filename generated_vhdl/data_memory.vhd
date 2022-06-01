@@ -10,7 +10,7 @@ entity data_memory is
     Byte        : in    std_logic);
 end entity;
 architecture data_memory_arch of data_memory is
-    type rw_type is array (8192 to 12287) of std_logic_vector(7 downto 0);  -- this is MAB: x2000 to x2FFF
+    type rw_type is array (0 to 4095) of std_logic_vector(7 downto 0);  -- this is MAB: x2000 to x2FFF
     shared variable RW : rw_type:=(others=>x"00");  -- assigned an initial value to the data memory
     signal high_addr, low_addr : integer;
     signal read_value : std_logic_vector(15 downto 0);
@@ -34,11 +34,11 @@ architecture data_memory_arch of data_memory is
     ADDR_HANDLE : process( MAB )
     begin
         if ( (to_integer(unsigned(MAB)) >= 8192) and (to_integer(unsigned(MAB)) <= 12287)) then
-            high_addr<= to_integer(unsigned(MAB))+1;
-            low_addr<= to_integer(unsigned(MAB));
+            high_addr<= to_integer(unsigned(MAB))+1-8192;
+            low_addr<= to_integer(unsigned(MAB))-8192;
         else
-            high_addr<= 8193;
-            low_addr <= 8192;   
+            high_addr<= 1;
+            low_addr <= 0;   
         end if;
     end process ; -- ADDR_HANDLE
     LOW_BYTE : process(clk) 
