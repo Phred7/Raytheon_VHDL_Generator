@@ -5,10 +5,12 @@
 # Dr. Brock LaMeres
 # Written by Blake Stanger, Walker Ward and Michael Heidal
 """
+import pathlib
 import re
 import sys
 import os
 from copy import deepcopy
+from datetime import date
 from typing import TextIO, List
 
 from ccs_project import CCSProject
@@ -32,7 +34,7 @@ class VHDLParserGenerator:
         self.ccs_project: CCSProject = ccs_project
         self.program_memory_start: int = 32768
         self.disassembler_output_file_name: str = "generated_disassembly.txt"
-        self.disassembler_output_file_directory: str = rf"{StaticUtilities.project_root_directory()}\generated_disassembly"
+        self.disassembler_output_file_directory: pathlib.Path = StaticUtilities.project_root_directory() / "generated_disassembly"
         self.memory_indent: str = "\t\t\t\t\t\t   "
         self.nop_opcode: str = "0343"
         self.computer_name_list: List[str] = ["baseline", "highroller", "lowlife"]
@@ -44,15 +46,16 @@ class VHDLParserGenerator:
         """
         Removes the files generated in the last run of main.
         - Removes all files with the vhd file extension
+        - Removes the generated_disassembly.txt file.
         :return: None.
         """
-        directory: str = rf'{StaticUtilities.project_root_directory()}\generated_vhdl'
-        for file in os.listdir(directory):
+        directory: pathlib.Path = StaticUtilities.project_root_directory() / "generated_vhdl"
+        for file in os.listdir(directory.__str__()):
             if file.endswith(".vhd"):
-                os.remove(f"{directory}\\{file}")
+                os.remove(directory / file)
                 StaticUtilities.logger.debug(f'Removed {file}')
             elif file == "generated_disassembly.txt":
-                os.remove(f"{directory}\\{file}")
+                os.remove(directory / file)
                 StaticUtilities.logger.debug(f'Removed {file} from \\generated_vhdl\\')
 
     def generate_vhdl_packages(self) -> None:
@@ -62,8 +65,8 @@ class VHDLParserGenerator:
         """
         for computer_name in self.computer_name_list:
             original_stdout: TextIO = sys.stdout
-            with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\{computer_name}_package.vhd",
-                      "a+") as vhdl_package_file:
+            package_path: pathlib.Path = StaticUtilities.project_root_directory() / "generated_vhdl" / f"{computer_name}_package.vhd"
+            with open(package_path, "a+") as vhdl_package_file:
                 sys.stdout = vhdl_package_file
                 vhd_package_constants_str: str
                 if "highroller" in computer_name:
@@ -97,12 +100,8 @@ class VHDLParserGenerator:
                 StaticUtilities.logger.debug(f'Generated {computer_name}_package.vhd')
 
     def generate_vhdl_data_memory(self) -> None:
-        """
-
-        :return:
-        """
-        with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\data_memory.vhd",
-                  "a+") as vhdl_data_memory:
+        data_memory_path: pathlib.Path = StaticUtilities.project_root_directory() / "generated_vhdl" / "data_memory.vhd"
+        with open(data_memory_path, "a+") as vhdl_data_memory:
             with StaticUtilities.change_stdout_to_file(vhdl_data_memory):
                 print(self.get_vhdl_data_memory_preamble(), end="")
                 print(self.get_vhdl_data_memory_from_source(),
@@ -120,8 +119,8 @@ class VHDLParserGenerator:
         :return: str representation of vhdl data memory.
         """
         generated_vhdl_data_mem: str = ""
-        with open(f"{self.disassembler_output_file_directory}\\{self.disassembler_output_file_name}",
-                  'r') as disassembly_file:
+        data_memory_path: pathlib.Path = self.disassembler_output_file_directory / self.disassembler_output_file_name
+        with open(data_memory_path, 'r') as disassembly_file:
             data_memory_start: int = 0
             cinit_in_generated: bool = True
             generate_begin_comment: bool = True
@@ -160,8 +159,8 @@ class VHDLParserGenerator:
         :return: None.
         """
         for computer_name in self.computer_name_list:
-            with open(f"{StaticUtilities.project_root_directory()}\\generated_vhdl\\{computer_name}_memory.vhd",
-                      "a+") as vhdl_memory_file:
+            vhdl_memory_path: pathlib.Path = StaticUtilities.project_root_directory() / "generated_vhdl" / f"{computer_name}_memory.vhd"
+            with open(vhdl_memory_path, "a+") as vhdl_memory_file:
                 with StaticUtilities.change_stdout_to_file(vhdl_memory_file):
                     print(self.get_vhdl_memory_libraries())
                     print(self.get_vhdl_memory_entity(computer_name))
@@ -230,66 +229,31 @@ end architecture;"""
 constant ROM : rom_type :=("""
 
     @staticmethod
-    def translate_opcode_with_mnemonic_dictionary(line_str_list: list[str],
-                                                  computer_mnemonic_dictionary: {str, str}) -> str:
+    def translate_opcode_with_mnemonic_dictionary(line_str_list: List[str], computer_mnemonic_dictionary: {str, str}) -> str:
         """
         Converts the original opcode (hex) to one specified by the dict computer_mnemonic_dictionary based on the original opcodes mnemonic.
         :param line_str_list: A line in the file generated by the disassembler as a list split on spaces.
         :param computer_mnemonic_dictionary: dict containing mnemonics as keys and changes for opcodes as keys.
         :return: str representation of a line with modification specified by computer_mnemonic_dictionary.
         """
-        opcode_hex_chars: list[str] = list(line_str_list[1])
+        opcode_hex_chars: List[str] = list(line_str_list[1])
         opcode_hex_chars[2] = computer_mnemonic_dictionary.get(line_str_list[14]) if computer_mnemonic_dictionary.get(
             line_str_list[14]) else opcode_hex_chars[2]
         line_str_list[1] = ''.join(opcode_hex_chars)
         return ' '.join(line_str_list)
 
-    def get_vhdl_memory_rom_asm(self, computer_name: str) -> str:
+    def get_vhdl_memory_rom_with_interrupts(self, computer_name: str) -> str:
         """
         Generates the vhdl memory rom assembly (asm) as a str for the computer with name computer_name.
          - Reads in from file specified by disassembler_output_file_name at the path disassembler_output_file_directory.
          - Based on computer_name and lines in the specified file, values in opcodes are replaced with values corresponding
             mnemonics (the key) in the dict computer_mnemonic_dictionary.
          - Converts opcodes endian of ASM between BigEndian and LittleEndian.
-         - Stops generating str when the current line contains "SR".
          - Each opcode generates two lines of vhdl memory.
+         - Also generates interrupts and other data sections associated with the current disassembly.
         :param computer_name: str name of the computer to generate the vhdl memory rom asm for.
         :return: str representation of vhdl memory rom asm (program memory).
         """
-        generated_rom_asm_str: str = ""
-        current_program_memory: int = self.program_memory_start
-        computer_mnemonic_dictionary: {str, str} = self.get_computer_mnemonic_dictionary(computer_name)
-        StaticUtilities.logger.debug(f"Reading in lines from {self.disassembler_output_file_name} for {computer_name}")
-        for line in open(f"{self.disassembler_output_file_directory}\\{self.disassembler_output_file_name}",
-                         'r').readlines():
-            unmodified_line: str = line
-            line_str_list: list[str] = line.split(' ')
-            if len(line_str_list) >= 15 and not (line_str_list[14] in computer_mnemonic_dictionary.keys()):
-                if f"{line_str_list[14]}.W" in computer_mnemonic_dictionary.keys():
-                    line_str_list[14] = f"{line_str_list[14]}.W"
-            if (len(line_str_list) >= 15 and line_str_list[14] in computer_mnemonic_dictionary.keys()) or len(
-                    line_str_list) == 14:
-                if computer_name != "baseline" and len(line_str_list) != 14:
-                    line = self.translate_opcode_with_mnemonic_dictionary(line_str_list, computer_mnemonic_dictionary)
-                generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else self.memory_indent}{current_program_memory} => x\"{line[8]}{line[9]}\",\t\t-- {unmodified_line}"""  # -- #\t\t--
-                current_program_memory += 1
-                generated_rom_asm_str += f"""{self.memory_indent}{current_program_memory} => x\"{line[10]}{line[11]}\",\n"""
-                current_program_memory += 1
-                if "SR" in unmodified_line:
-                    StaticUtilities.logger.debug(f"Reached SR in disassembly")
-                    return generated_rom_asm_str
-            elif current_program_memory > 32777 and len(line_str_list) >= 15 and not (
-                    line_str_list[14] in computer_mnemonic_dictionary.keys()) and (":" not in line_str_list[14]):
-                StaticUtilities.logger.error(
-                    f"{UnrecognizedInstructionError.__name__}: The instruction {line_str_list[14]} in the generated disassembly was not recognized by the ComputerMnemonicDictionary verify silicon version is msp not mspx. Replaced with NOP")
-                generated_rom_asm_str += f"""{"" if current_program_memory == 32768 else self.memory_indent}{current_program_memory} => x\"{self.nop_opcode[0]}{self.nop_opcode[1]}\",\t\t-- {UnrecognizedInstructionError.__name__}: Replaced with NOP\n"""  # -- #\t\t--
-                current_program_memory += 1
-                generated_rom_asm_str += f"""{self.memory_indent}{current_program_memory} => x\"{computer_mnemonic_dictionary.get("NOP")}{self.nop_opcode[3]}\",\n"""
-                current_program_memory += 1
-            else:
-                pass
-
-    def get_vhdl_memory_rom_with_interrupts(self, computer_name: str) -> str:
         generated_rom_asm_str: str = ""
         current_tag_name: str = ""
         first_instruction_reached: bool = False
@@ -660,11 +624,13 @@ def main() -> None:
     generates the data_memory file.
     """
     ccs_project: CCSProject = CCSProject(project_name="test_C", source_file="test_C.c",
-                                         path=f"{StaticUtilities.project_root_directory()}//ccs_workspace//test_C")
+                                         path=StaticUtilities.project_root_directory() / "ccs_workspace" / "test_C")
+    # ccs_project: CCSProject = CCSProject(project_name="c_blank", source_file="c_blank.c",
+    #                                      path=StaticUtilities.project_root_directory() / "ccs_workspace" / "c_blank")
     vhdl_parser_generator: VHDLParserGenerator = VHDLParserGenerator(ccs_project=ccs_project)
     vhdl_parser_generator.generate_vhdl()
     package_zipper: PackageZipper = PackageZipper()
-    package_zipper.zip_vhdl(zip_file_name="04_04_2022")
+    package_zipper.zip_vhdl(zip_file_name=f"{ccs_project.project_name} - closed loop demo no timer - {date.today()}")
 
 
 if __name__ == '__main__':

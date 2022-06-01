@@ -31,7 +31,7 @@ class StaticUtilities:
     """
     Class containing a set of static methods, components and context managers implemented throughout this project.
     """
-    _project_root_directory_str: str = str(pathlib.Path(__file__).parent)
+    _project_root_directory_str: pathlib.Path = pathlib.Path(str(pathlib.Path(__file__).parent))
 
     # create logger
     logger: Logger = logging.getLogger(__name__)
@@ -44,9 +44,10 @@ class StaticUtilities:
 
     # setup file logger and add to logger
     try:
-        if os.path.exists(f'{_project_root_directory_str}\\log.log'):
-            os.remove(f'{_project_root_directory_str}\\log.log')
-        file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\log.log')
+        log_path: pathlib.Path = _project_root_directory_str / 'log.log'
+        if os.path.exists(log_path):
+            os.remove(log_path)
+        file_logging_handler = logging.FileHandler(log_path)
         file_logging_handler.setFormatter(
             logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
         file_logging_handler.setLevel(logging.DEBUG)
@@ -55,7 +56,8 @@ class StaticUtilities:
         pass
 
     # setup extended file logger and add to logger
-    extended_file_logging_handler = logging.FileHandler(f'{_project_root_directory_str}\\extended_log.log')
+    extended_log_path: pathlib.Path = _project_root_directory_str / 'extended_log.log'
+    extended_file_logging_handler = logging.FileHandler(extended_log_path)
     extended_file_logging_handler.setFormatter(
         logging.Formatter('%(asctime)s %(levelname)s %(module)s %(funcName)s %(message)s'))
     extended_file_logging_handler.setLevel(logging.DEBUG)
@@ -64,40 +66,43 @@ class StaticUtilities:
     hash_block_size: int = 1000000  # The size of each read from the file_to_hash (1 megabyte)
 
     @staticmethod
-    def file_should_exist(file_directory: str, file: str) -> None:
+    def file_should_exist(file_directory: pathlib.Path, file: str) -> None:
         """
         Asserts that this file is in a given directory.
-        :param file_directory: Location of directory containing the file.
+        :param file_directory: Path to location of file.
         :param file: The name of the file that should exist.
         :raises OSError: If file does not exist.
         :return: None.
         """
-        assert (os.path.exists(f"{file_directory}\\{file}") or file is None or file == "")
+        file_path: pathlib.Path = file_directory / file
+        assert (os.path.exists(file_path) or file is None or file == "")
 
     @staticmethod
-    def file_exists(file_directory: str, file: str) -> bool:
+    def file_exists(file_directory: pathlib.Path, file: str) -> bool:
         """
         Checks the existence of a file in a given directory.
-        :param file_directory: Location of directory containing the file.
+        :param file_directory: Path to location of file.
         :param file: The name of the file that should exist.
         :return: True if the files exists. False if the file does not exist and raise_error is False.
         """
-        if not os.path.exists(f"{file_directory}\\{file}") or file is None or file == "":
+        file_path: pathlib.Path = file_directory / file
+        if not os.path.exists(file_path) or file is None or file == "":
             return False
         return True
 
     @staticmethod
-    def file_should_not_exist(file_directory: str, file: str, *, raise_error: bool = True) -> bool:
+    def file_should_not_exist(file_directory: pathlib.Path, file: str, *, raise_error: bool = True) -> bool:
         """
         Checks to see if the specified file exists.
         :param raise_error: If true raises an OS error if the file exists, otherwise returns False.
-        :param file_directory: Location of directory containing the file.
+        :param file_directory: Path to location of file.
         :param file: The name of the file that should exist.
         :return: True if the files does not exist, otherwise False.
         """
-        if os.path.exists(f"{file_directory}\\{file}"):
+        file_path: pathlib.Path = file_directory / file
+        if os.path.exists(file_path):
             if raise_error:
-                raise OSError(f"{file_directory}\\{file} exist")
+                raise OSError(f"{file_path} exist")
             return False
         return True
 
@@ -114,7 +119,7 @@ class StaticUtilities:
     @staticmethod
     def start_process(process_name: str,
                       executable_name: str,
-                      executable_directory: str,
+                      executable_directory: pathlib.Path,
                       *,
                       service_name: str = "",
                       implement_logger: bool = True,
@@ -133,8 +138,8 @@ class StaticUtilities:
         """
         _process_name: str = process_name
         _executable_name: str = executable_name
-        _executable_directory: str = executable_directory
-        _executable: str = _executable_directory + _executable_name
+        _executable_directory: pathlib.Path = executable_directory
+        _executable: pathlib.Path = _executable_directory / _executable_name
         _service_name: str = service_name
         StaticUtilities.file_should_exist(file_directory=_executable_directory, file=_executable_name)
         if (False if _service_name == "" else not StaticUtilities.service_running(
@@ -169,7 +174,7 @@ class StaticUtilities:
         """
         docker_process_name: str = "Docker Desktop"
         docker_executable_name: str = "Docker Desktop.exe"
-        docker_executable_directory: str = "C:\\Program Files\\Docker\\Docker\\"
+        docker_executable_directory: pathlib.Path = pathlib.Path("C:/Program Files/Docker/Docker/")
         docker_desktop_service_name: str = "com.docker.service"
         timeout: int = 30
         timeout_delay: int = 15
@@ -186,7 +191,7 @@ class StaticUtilities:
         """
         ccs_process_name: str = "Code Composer Studio"
         ccs_exe_name: str = "ccstudio.exe"
-        ccs_exe_dir: str = "C:\\ti\\ccs1040\\ccs\\eclipse\\"
+        ccs_exe_dir: pathlib.Path = pathlib.Path("C:/ti/ccs1040/ccs/eclipse/")
         timeout: int = 5
         timeout_delay: int = 2
         return StaticUtilities.start_process(process_name=ccs_process_name, executable_name=ccs_exe_name,
@@ -269,15 +274,14 @@ class StaticUtilities:
 
     @staticmethod
     @contextmanager
-    def change_dir(destination: str) -> None:
+    def change_dir(destination: pathlib.Path) -> None:
         """
         Static Context Manager to temporarily change the current working directory (cwd).
         :param destination: Location to temporarily change the cwd to.
         :return: None.
         """
-        cwd: str = ""
+        cwd: pathlib.Path = StaticUtilities.project_root_directory()
         try:
-            cwd = StaticUtilities.project_root_directory()
             os.chdir(destination)
             yield
         finally:
@@ -300,21 +304,21 @@ class StaticUtilities:
             sys.stdout = original_stdout
 
     @staticmethod
-    def extract_zip(path_to_zip: str, extraction_directory: str) -> None:
+    def extract_zip(path_to_zip: pathlib.Path, extraction_directory: pathlib.Path) -> None:
         import zipfile
         with zipfile.ZipFile(path_to_zip, 'r') as zip_reference:
             zip_reference.extractall(extraction_directory)
         StaticUtilities.logger.debug(f"{path_to_zip} unzipped into {extraction_directory}")
 
     @staticmethod
-    def multiprocess_hide_directory(directory: str, hide: bool, *, leave_root_hidden: bool = True) -> bool:
+    def multiprocess_hide_directory(directory: pathlib.Path, hide: bool, *, leave_root_hidden: bool = True) -> bool:
         processes: List[Process] = []
         queue: Queue = Queue()
 
         if (not leave_root_hidden) and (not hide):
-            os.system(f"attrib -h {directory[:-1]}")
+            os.system(f"attrib -h {directory}")
         else:
-            os.system(f"attrib +h {directory[:-1]}")
+            os.system(f"attrib +h {directory}")
 
         for (path, name, filenames) in os.walk(directory):
             if not path == directory:
@@ -344,7 +348,7 @@ class StaticUtilities:
         return
 
     @staticmethod
-    def hide_directory_recursively(directory: str, *, log: bool = True) -> bool:
+    def hide_directory_recursively(directory: pathlib.Path, *, log: bool = True) -> bool:
         """
         Hides all the files and directories in a directory specified by directory.
         :param directory: Top level directory to hide contents of as a string.
@@ -366,7 +370,7 @@ class StaticUtilities:
         return True
 
     @staticmethod
-    def un_hide_directory_recursively(directory: str, *, log: bool = True, leave_root_hidden: bool = False) -> None:
+    def un_hide_directory_recursively(directory: pathlib.Path, *, log: bool = True, leave_root_hidden: bool = False) -> None:
         """
         Removes the h (hidden) attribute from all files in a directory recursively.
         :param directory: Directory to un hide all files from recursively.
@@ -389,7 +393,7 @@ class StaticUtilities:
                 StaticUtilities.logger.debug(f"{file} hidden")
 
     @staticmethod
-    def project_root_directory() -> str:
+    def project_root_directory() -> pathlib.Path:
         """
         Get this project's top level directory.
         :return: Str representing the path to this project's top-level directory.
@@ -397,7 +401,7 @@ class StaticUtilities:
         return StaticUtilities._project_root_directory_str
 
     @staticmethod
-    def write_object_to_json(json_file_directory: str, json_file: str, object_to_dump_to_json: object) -> None:
+    def write_object_to_json(json_file_directory: pathlib.Path, json_file: str, object_to_dump_to_json: object) -> None:
         """
         Writes an object to a json file.
         :param json_file_directory: Path to the json file to write to.
@@ -409,16 +413,17 @@ class StaticUtilities:
             json.dump(object_to_dump_to_json, json_file, indent=4)
 
     @staticmethod
-    def serialize_object_from_json(json_file_directory: str, json_file: str) -> object:
+    def serialize_object_from_json(json_file_directory: pathlib.Path, json_file: str) -> object:
         """
         Serializes a python object from a json file.
         :param json_file_directory: Path to the json file to serialize from.
         :param json_file: Name of the json file to serialize from.
         :return: Serialized object from the json_file.
         """
+        json_path: pathlib.Path = json_file_directory / json_file
         if not StaticUtilities.file_exists(json_file_directory, json_file):
             return None
-        with open(f"{json_file_directory}\\{json_file}", 'r') as json_file:
+        with open(json_path, 'r') as json_file:
             return json.load(json_file)
 
 
