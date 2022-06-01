@@ -10569,3 +10569,400 @@ line 64:
 2022-06-01 10:50:26,078 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
 2022-06-01 10:50:26,093 WARNING package_zipper zip_vhdl Created zip test_C - Raytheon demo - 2022-06-01_[3].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
 2022-06-01 10:50:26,093 INFO main generate **** Generating VHDL Finished****
+2022-06-01 11:34:57,249 DEBUG main discover_project Project at: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 11:35:33,623 DEBUG main discover_project Project at: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 11:35:33,624 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 11:36:29,254 DEBUG main discover_project Project is this project
+2022-06-01 11:41:31,734 DEBUG main discover_project Project is this python project
+2022-06-01 11:44:06,001 DEBUG main discover_project Project is this python project
+2022-06-01 11:50:49,674 DEBUG main discover_project Project is this python project
+2022-06-01 12:04:32,762 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\VHDLGenerator
+2022-06-01 12:04:32,763 DEBUG main discover_project Project name: VHDLGenerator
+2022-06-01 12:04:32,763 DEBUG main discover_project Project src file: test_C.asm
+2022-06-01 12:04:32,764 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:07:52,869 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\VHDLGenerator
+2022-06-01 12:07:52,869 DEBUG main discover_project Project name: test_C
+2022-06-01 12:07:52,870 DEBUG main discover_project Project src file: test_C.asm
+2022-06-01 12:07:52,870 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:14:09,799 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\VHDLGenerator
+2022-06-01 12:14:09,800 DEBUG main discover_project Project name: test_C
+2022-06-01 12:14:09,801 DEBUG main discover_project Project src file: test_C.asm
+2022-06-01 12:14:09,801 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:14:35,049 DEBUG main discover_project Project is this python project
+2022-06-01 12:14:42,074 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\VHDLGenerator
+2022-06-01 12:14:42,074 DEBUG main discover_project Project name: test_C
+2022-06-01 12:14:42,075 DEBUG main discover_project Project src file: test_C.asm
+2022-06-01 12:14:42,075 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:17:19,578 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\VHDLGenerator
+2022-06-01 12:17:19,579 DEBUG main discover_project Project name: test_C
+2022-06-01 12:17:19,580 DEBUG main discover_project Project src file: test_C.asm
+2022-06-01 12:17:19,580 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:18:15,560 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\VHDLGenerator
+2022-06-01 12:18:15,560 DEBUG main discover_project Project name: test_C
+2022-06-01 12:18:15,577 DEBUG main discover_project Project src file: generated_source.asm
+2022-06-01 12:18:15,578 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:19:05,171 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\VHDLGenerator
+2022-06-01 12:19:05,171 DEBUG main discover_project Project name: test_C
+2022-06-01 12:19:17,315 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\VHDLGenerator
+2022-06-01 12:19:17,316 DEBUG main discover_project Project name: test_C
+2022-06-01 12:22:35,068 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\VHDLGenerator
+2022-06-01 12:22:35,069 DEBUG main discover_project Project name: test_C
+2022-06-01 12:22:45,909 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C\VHDLGenerator
+2022-06-01 12:22:45,909 DEBUG main discover_project Project name: test_C
+2022-06-01 12:22:45,913 DEBUG main discover_project Project src file: test_C.asm
+2022-06-01 12:22:45,914 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:23:05,928 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:23:05,928 DEBUG main discover_project Project name: test_C
+2022-06-01 12:23:05,931 DEBUG main discover_project Project src file: test_C.asm
+2022-06-01 12:23:05,931 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:23:25,191 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:23:25,191 DEBUG main discover_project Project name: test_C
+2022-06-01 12:23:25,192 DEBUG main discover_project Project src file: None
+2022-06-01 12:23:25,192 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:23:38,543 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:23:38,544 DEBUG main discover_project Project name: test_C
+2022-06-01 12:23:38,547 DEBUG main discover_project Project src file: test_C.asm
+2022-06-01 12:23:38,547 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:23:44,090 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:23:44,092 DEBUG main discover_project Project name: test_C
+2022-06-01 12:24:04,057 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:24:04,059 DEBUG main discover_project Project name: test_C
+2022-06-01 12:26:37,444 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:26:37,445 DEBUG main discover_project Project name: test_C
+2022-06-01 12:26:37,450 DEBUG main discover_project Project src file: test_C.asm
+2022-06-01 12:26:37,450 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:26:40,578 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:26:40,580 DEBUG main discover_project Project name: test_C
+2022-06-01 12:26:40,589 DEBUG main discover_project Project src file: test_C.asm
+2022-06-01 12:26:40,589 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:26:48,971 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:26:48,973 DEBUG main discover_project Project name: test_C
+2022-06-01 12:28:30,812 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:28:30,814 DEBUG main discover_project Project name: test_C
+2022-06-01 12:29:46,192 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:29:46,193 DEBUG main discover_project Project name: test_C
+2022-06-01 12:31:04,057 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:31:04,058 DEBUG main discover_project Project name: test_C
+2022-06-01 12:31:40,541 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:31:40,543 DEBUG main discover_project Project name: test_C
+2022-06-01 12:32:30,219 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:32:30,220 DEBUG main discover_project Project name: test_C
+2022-06-01 12:32:30,222 DEBUG main discover_project Project src file: test_C.c
+2022-06-01 12:32:30,223 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:34:43,579 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 12:34:43,580 INFO main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:34:43,580 INFO main discover_project Project name: test_C
+2022-06-01 12:34:43,580 INFO main discover_project Project src file: test_C.c
+2022-06-01 12:34:43,580 INFO main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:34:43,580 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 12:35:18,431 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 12:35:18,431 INFO main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:35:18,431 INFO main discover_project Project name: test_C
+2022-06-01 12:35:18,431 INFO main discover_project Project src file: test_C.c
+2022-06-01 12:35:18,432 INFO main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:35:18,432 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 12:36:00,282 DEBUG main discover_project Project is this python project
+2022-06-01 12:36:08,991 DEBUG main discover_project Project is this python project
+2022-06-01 12:36:40,695 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 12:36:49,812 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 12:36:49,813 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:36:49,813 DEBUG main discover_project Project name: test_C
+2022-06-01 12:36:49,813 DEBUG main discover_project Project src file: test_C.c
+2022-06-01 12:36:49,814 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:36:49,814 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 12:38:44,317 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 12:38:44,318 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:38:44,318 DEBUG main discover_project Project name: test_C
+2022-06-01 12:38:44,318 DEBUG main discover_project Project src file: test_C.c
+2022-06-01 12:38:44,318 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:38:44,318 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 12:38:44,318 INFO main generate **** Generating VHDL ****
+2022-06-01 12:38:44,320 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-06-01 12:38:44,320 DEBUG detection __init__ Detection object initialized
+2022-06-01 12:40:09,942 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 12:40:09,943 INFO main generate **** Generating VHDL ****
+2022-06-01 12:40:09,943 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-06-01 12:40:09,943 DEBUG detection __init__ Detection object initialized
+2022-06-01 12:40:09,945 DEBUG main detection Project Hash: 4158ae7fa0a852a925524546002136603c8bca7b17b8859ae02b24af77bc8ef7
+2022-06-01 12:40:09,947 INFO main detection No malware found
+2022-06-01 12:40:09,947 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-06-01 12:40:09,948 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-06-01 12:40:09,949 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-06-01 12:40:09,950 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-06-01 12:40:09,951 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-06-01 12:40:09,952 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-06-01 12:40:09,952 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-06-01 12:40:09,953 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-06-01 12:40:09,953 DEBUG disassembler __init__ Disassembler object initialized
+2022-06-01 12:40:09,954 DEBUG disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-06-01 12:40:10,060 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-06-01 12:40:10,060 DEBUG disassembler disassemble Generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-06-01 12:40:10,064 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-06-01 12:40:10,068 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-06-01 12:40:10,070 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-06-01 12:40:10,074 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-06-01 12:40:10,075 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-06-01 12:40:10,081 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-06-01 12:40:10,082 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-06-01 12:40:10,087 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-06-01 12:40:10,089 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-06-01 12:40:10,095 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-06-01 12:40:10,095 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-06-01 12:40:10,098 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-06-01 12:40:10,099 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-06-01 12:40:10,099 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-06-01 12:40:10,100 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-06-01 12:40:10,101 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-06-01 12:40:10,102 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-06-01 12:40:10,102 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-06-01 12:40:10,107 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-06-01 12:40:10,123 INFO package_zipper zip_vhdl Created zip test_C - 2022-06-01.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-06-01 12:40:10,123 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 12:40:18,489 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 12:40:18,490 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:40:18,490 DEBUG main discover_project Project name: test_C
+2022-06-01 12:40:18,490 DEBUG main discover_project Project src file: None
+2022-06-01 12:40:18,490 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:42:32,294 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 12:42:32,294 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:42:32,294 DEBUG main discover_project Project name: test_C
+2022-06-01 12:42:32,294 DEBUG main discover_project Project src file: test_C.c
+2022-06-01 12:42:32,294 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:42:32,295 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 12:42:32,295 INFO main generate **** Generating VHDL ****
+2022-06-01 12:42:32,295 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-06-01 12:42:32,296 DEBUG detection __init__ Detection object initialized
+2022-06-01 12:43:30,125 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 12:43:30,125 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:43:30,125 DEBUG main discover_project Project name: test_C
+2022-06-01 12:43:30,125 DEBUG main discover_project Project src file: test_C.c
+2022-06-01 12:43:30,125 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:43:30,126 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 12:43:30,126 INFO main generate **** Generating VHDL ****
+2022-06-01 12:43:30,126 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-06-01 12:43:30,127 DEBUG detection __init__ Detection object initialized
+2022-06-01 12:43:30,128 DEBUG main detection Project Hash: 4158ae7fa0a852a925524546002136603c8bca7b17b8859ae02b24af77bc8ef7
+2022-06-01 12:43:30,130 INFO main detection No malware found
+2022-06-01 12:43:30,130 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-06-01 12:43:30,131 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-06-01 12:43:30,132 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-06-01 12:43:30,133 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-06-01 12:43:30,133 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-06-01 12:43:30,134 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-06-01 12:43:30,135 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-06-01 12:43:30,135 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-06-01 12:43:30,135 DEBUG disassembler __init__ Disassembler object initialized
+2022-06-01 12:43:30,136 DEBUG disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-06-01 12:43:30,175 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-06-01 12:43:30,175 DEBUG disassembler disassemble Generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-06-01 12:43:30,178 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-06-01 12:43:30,181 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-06-01 12:43:30,184 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-06-01 12:43:30,188 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-06-01 12:43:30,189 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-06-01 12:43:30,194 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-06-01 12:43:30,195 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-06-01 12:43:30,201 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-06-01 12:43:30,202 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-06-01 12:43:30,207 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-06-01 12:43:30,208 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-06-01 12:43:30,210 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-06-01 12:43:30,211 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-06-01 12:43:30,212 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-06-01 12:43:30,213 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-06-01 12:43:30,214 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-06-01 12:43:30,215 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-06-01 12:43:30,215 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-06-01 12:43:30,219 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-06-01 12:43:30,235 WARNING package_zipper zip_vhdl Created zip test_C - 2022-06-01_[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-06-01 12:43:30,236 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 12:49:46,305 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 12:49:46,305 INFO main generate **** Generating VHDL ****
+2022-06-01 12:49:46,306 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-06-01 12:49:46,306 DEBUG detection __init__ Detection object initialized
+2022-06-01 12:49:46,307 DEBUG main detection Project Hash: 4158ae7fa0a852a925524546002136603c8bca7b17b8859ae02b24af77bc8ef7
+2022-06-01 12:49:46,309 INFO main detection No malware found
+2022-06-01 12:49:46,309 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-06-01 12:49:46,310 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-06-01 12:49:46,311 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-06-01 12:49:46,312 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-06-01 12:49:46,313 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-06-01 12:49:46,313 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-06-01 12:49:46,314 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-06-01 12:49:46,314 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-06-01 12:49:46,314 DEBUG disassembler __init__ Disassembler object initialized
+2022-06-01 12:49:46,315 DEBUG disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-06-01 12:49:46,359 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-06-01 12:49:46,359 DEBUG disassembler disassemble Generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-06-01 12:49:46,362 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-06-01 12:49:46,366 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-06-01 12:49:46,369 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-06-01 12:49:46,373 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-06-01 12:49:46,374 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-06-01 12:49:46,380 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-06-01 12:49:46,381 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-06-01 12:49:46,387 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-06-01 12:49:46,388 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-06-01 12:49:46,393 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-06-01 12:49:46,394 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-06-01 12:50:51,550 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 12:50:51,551 INFO main generate **** Generating VHDL ****
+2022-06-01 12:50:51,552 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-06-01 12:50:51,552 DEBUG detection __init__ Detection object initialized
+2022-06-01 12:50:51,553 DEBUG main detection Project Hash: 4158ae7fa0a852a925524546002136603c8bca7b17b8859ae02b24af77bc8ef7
+2022-06-01 12:50:51,554 INFO main detection No malware found
+2022-06-01 12:50:51,555 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-06-01 12:50:51,556 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-06-01 12:50:51,557 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-06-01 12:50:51,557 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-06-01 12:50:51,558 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-06-01 12:50:51,559 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-06-01 12:50:51,559 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-06-01 12:50:51,560 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-06-01 12:50:51,560 DEBUG disassembler __init__ Disassembler object initialized
+2022-06-01 12:50:51,561 DEBUG disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-06-01 12:50:51,597 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-06-01 12:50:51,597 DEBUG disassembler disassemble Generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-06-01 12:50:51,601 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-06-01 12:50:51,603 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-06-01 12:50:51,606 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-06-01 12:50:51,608 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-06-01 12:50:51,610 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-06-01 12:50:51,616 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-06-01 12:50:51,617 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-06-01 12:50:51,622 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-06-01 12:50:51,623 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-06-01 12:50:51,628 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-06-01 12:50:51,629 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-06-01 12:50:51,632 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-06-01 12:50:51,632 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-06-01 12:50:51,633 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-06-01 12:50:51,634 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-06-01 12:50:51,634 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-06-01 12:50:51,635 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-06-01 12:50:51,636 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-06-01 12:50:51,640 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-06-01 12:50:51,659 INFO package_zipper zip_vhdl Created zip test_C - 2022-06-01.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-06-01 12:50:51,659 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 12:51:40,040 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 12:51:40,040 INFO main generate **** Generating VHDL ****
+2022-06-01 12:51:40,041 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-06-01 12:51:40,041 DEBUG detection __init__ Detection object initialized
+2022-06-01 12:51:40,041 DEBUG main detection Project Hash: 4158ae7fa0a852a925524546002136603c8bca7b17b8859ae02b24af77bc8ef7
+2022-06-01 12:51:40,045 INFO main detection No malware found
+2022-06-01 12:51:40,045 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-06-01 12:51:40,046 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-06-01 12:51:40,047 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-06-01 12:51:40,048 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-06-01 12:51:40,049 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-06-01 12:51:40,049 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-06-01 12:51:40,051 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-06-01 12:51:40,051 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-06-01 12:51:40,051 DEBUG disassembler __init__ Disassembler object initialized
+2022-06-01 12:51:40,051 DEBUG disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-06-01 12:51:40,098 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-06-01 12:51:40,098 DEBUG disassembler disassemble Generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-06-01 12:51:40,101 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-06-01 12:51:40,103 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-06-01 12:51:40,106 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-06-01 12:51:40,108 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-06-01 12:51:40,109 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-06-01 12:51:40,116 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-06-01 12:51:40,116 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-06-01 12:51:40,122 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-06-01 12:51:40,122 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-06-01 12:51:40,127 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-06-01 12:51:40,128 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-06-01 12:51:40,130 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-06-01 12:51:40,131 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-06-01 12:51:40,132 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-06-01 12:51:40,133 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-06-01 12:51:40,133 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-06-01 12:51:40,134 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-06-01 12:51:40,135 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-06-01 12:51:40,139 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-06-01 12:51:40,155 INFO package_zipper zip_vhdl Created zip test_C - 2022-06-01.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_vhdl containing 8 files
+2022-06-01 12:51:40,156 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 12:52:25,777 WARNING main discover_project Project is this python project. Using test_C
+2022-06-01 12:52:25,777 INFO main generate **** Generating VHDL ****
+2022-06-01 12:52:25,779 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-06-01 12:52:25,779 DEBUG detection __init__ Detection object initialized
+2022-06-01 12:52:25,779 DEBUG main detection Project Hash: 4158ae7fa0a852a925524546002136603c8bca7b17b8859ae02b24af77bc8ef7
+2022-06-01 12:52:25,781 INFO main detection No malware found
+2022-06-01 12:52:25,782 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-06-01 12:52:25,783 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-06-01 12:52:25,784 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-06-01 12:52:25,785 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-06-01 12:52:25,786 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-06-01 12:52:25,787 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-06-01 12:52:25,788 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-06-01 12:52:25,789 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-06-01 12:52:25,789 DEBUG disassembler __init__ Disassembler object initialized
+2022-06-01 12:52:25,790 DEBUG disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-06-01 12:52:25,831 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-06-01 12:52:25,831 DEBUG disassembler disassemble Generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-06-01 12:52:25,833 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-06-01 12:52:25,836 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-06-01 12:52:25,839 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-06-01 12:52:25,843 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-06-01 12:52:25,844 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-06-01 12:52:25,849 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-06-01 12:52:25,850 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-06-01 12:52:25,857 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-06-01 12:52:25,858 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-06-01 12:52:25,863 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-06-01 12:52:25,863 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-06-01 12:52:25,866 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-06-01 12:52:25,866 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-06-01 12:52:25,867 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-06-01 12:52:25,868 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-06-01 12:52:25,868 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-06-01 12:52:25,869 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-06-01 12:52:25,870 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-06-01 12:52:25,874 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-06-01 12:52:25,889 WARNING package_zipper zip_vhdl Created zip test_C - 2022-06-01_[0].zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C containing 8 files
+2022-06-01 12:52:25,890 INFO main generate **** Generating VHDL Finished ****
+2022-06-01 12:53:06,957 INFO main discover_project **** Discovering CCS Project ****
+2022-06-01 12:53:06,957 DEBUG main discover_project Project path: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C
+2022-06-01 12:53:06,957 DEBUG main discover_project Project name: test_C
+2022-06-01 12:53:06,958 DEBUG main discover_project Project src file: test_C.c
+2022-06-01 12:53:06,958 DEBUG main discover_project Python Root dir: C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator
+2022-06-01 12:53:06,958 INFO main discover_project **** Discovering CCS Project Finished ****
+2022-06-01 12:53:06,958 INFO main generate **** Generating VHDL ****
+2022-06-01 12:53:06,959 DEBUG detection_strategy __init__ DetectionStrategy object of type DetectionInC initialized
+2022-06-01 12:53:06,959 DEBUG detection __init__ Detection object initialized
+2022-06-01 12:53:06,960 DEBUG main detection Project Hash: 4158ae7fa0a852a925524546002136603c8bca7b17b8859ae02b24af77bc8ef7
+2022-06-01 12:53:06,962 INFO main detection No malware found
+2022-06-01 12:53:06,962 DEBUG vhdl_parser_generator __init__ VHDLParserGenerator object initialized
+2022-06-01 12:53:06,963 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_memory.vhd
+2022-06-01 12:53:06,963 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed baseline_package.vhd
+2022-06-01 12:53:06,964 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed data_memory.vhd
+2022-06-01 12:53:06,965 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_memory.vhd
+2022-06-01 12:53:06,965 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed highroller_package.vhd
+2022-06-01 12:53:06,966 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_memory.vhd
+2022-06-01 12:53:06,966 DEBUG vhdl_parser_generator remove_last_generated_vhd_files Removed lowlife_package.vhd
+2022-06-01 12:53:06,967 DEBUG disassembler __init__ Disassembler object initialized
+2022-06-01 12:53:06,967 DEBUG disassembler disassemble Removed C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly\generated_disassembly.txt
+2022-06-01 12:53:07,002 DEBUG disassembler disassemble Disassembler exit status: 0
+2022-06-01 12:53:07,002 DEBUG disassembler disassemble Generated generated_disassembly.txt at the directory C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\generated_disassembly
+2022-06-01 12:53:07,005 DEBUG vhdl_parser_generator generate_vhdl_packages Generated baseline_package.vhd
+2022-06-01 12:53:07,007 DEBUG vhdl_parser_generator generate_vhdl_packages Generated highroller_package.vhd
+2022-06-01 12:53:07,009 DEBUG vhdl_parser_generator generate_vhdl_packages Generated lowlife_package.vhd
+2022-06-01 12:53:07,012 DEBUG vhdl_parser_generator generate_vhdl_data_memory Generated data_memory.vhd. Note: No data memory found in binary
+2022-06-01 12:53:07,013 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for baseline
+2022-06-01 12:53:07,017 DEBUG vhdl_parser_generator generate_vhdl_memory Generated baseline_memory.vhd
+2022-06-01 12:53:07,019 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for highroller
+2022-06-01 12:53:07,024 DEBUG vhdl_parser_generator generate_vhdl_memory Generated highroller_memory.vhd
+2022-06-01 12:53:07,025 DEBUG vhdl_parser_generator get_vhdl_memory_rom_with_interrupts Reading in lines from generated_disassembly.txt for lowlife
+2022-06-01 12:53:07,030 DEBUG vhdl_parser_generator generate_vhdl_memory Generated lowlife_memory.vhd
+2022-06-01 12:53:07,030 DEBUG package_zipper __init__ PackageZipper object initialized
+2022-06-01 12:53:07,032 DEBUG package_zipper _zip_write Zipped baseline_memory.vhd
+2022-06-01 12:53:07,034 DEBUG package_zipper _zip_write Zipped baseline_package.vhd
+2022-06-01 12:53:07,034 DEBUG package_zipper _zip_write Zipped data_memory.vhd
+2022-06-01 12:53:07,035 DEBUG package_zipper _zip_write Zipped highroller_memory.vhd
+2022-06-01 12:53:07,035 DEBUG package_zipper _zip_write Zipped highroller_package.vhd
+2022-06-01 12:53:07,036 DEBUG package_zipper _zip_write Zipped lowlife_memory.vhd
+2022-06-01 12:53:07,036 DEBUG package_zipper _zip_write Zipped lowlife_package.vhd
+2022-06-01 12:53:07,040 DEBUG package_zipper _zip_write Zipped generated_disassembly.txt
+2022-06-01 12:53:07,056 INFO package_zipper zip_vhdl Created zip test_C - 2022-06-01.zip in C:\Users\wward\Documents\GitHub\Raytheon_VHDL_Generator\ccs_workspace\test_C containing 8 files
+2022-06-01 12:53:07,058 INFO main generate **** Generating VHDL Finished ****

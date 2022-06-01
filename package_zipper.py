@@ -34,18 +34,23 @@ class PackageZipper:
         self.number_of_zipped_files += 1
         StaticUtilities.logger.debug(f'Zipped {file_to_write}')
 
-    def zip_vhdl(self, zip_file_name: str = "zip") -> None:
+    def zip_vhdl(self, zip_file_name: str = "zip", zip_file_directory: pathlib.Path = pathlib.Path("")) -> None:
         """
         Creates a zip file containing all vhdl files and a copy of generated_disassembly.txt.
         :param zip_file_name: Name of the zip file. Neglect the file extension.
+        :param zip_file_directory; Path to put the zip file.
         :return: None.
         """
+
+        if zip_file_directory is pathlib.Path(""):
+            zip_file_directory = StaticUtilities.project_root_directory() / self.vhdl_directory
+
         self.number_of_zipped_files = 0
         duplicate_file_modifier: int = 0
 
         # Verifies that this zip file doesn't already exist. If so, gives it a new name until a unique one is chosen.
-        vhdl_file_path: pathlib.Path = StaticUtilities.project_root_directory() / self.vhdl_directory
-        while StaticUtilities.file_exists(vhdl_file_path, f'{zip_file_name}.zip'):
+        vhdl_directory_path: pathlib.Path = StaticUtilities.project_root_directory() / self.vhdl_directory
+        while StaticUtilities.file_exists(zip_file_directory, f'{zip_file_name}.zip'):
             if duplicate_file_modifier == 0:
                 zip_file_name = f"{zip_file_name}_[0]"
             else:
@@ -53,8 +58,7 @@ class PackageZipper:
             duplicate_file_modifier += 1
 
         # Zips VHDL package
-        zip_file_path: pathlib.Path = StaticUtilities.project_root_directory() / self.vhdl_directory / f"{zip_file_name}.zip"
-        vhdl_directory_path: pathlib.Path = StaticUtilities.project_root_directory() / self.vhdl_directory
+        zip_file_path: pathlib.Path = zip_file_directory / f"{zip_file_name}.zip"
         with ZipFile(zip_file_path, 'w') as vhdl_zip_file:
             with StaticUtilities.change_dir(vhdl_directory_path):
                 for file in os.listdir("."):
@@ -70,9 +74,9 @@ class PackageZipper:
 
         # Warns about name changes from duplicate zips.
         if duplicate_file_modifier != 0:
-            StaticUtilities.logger.warning(f'Created zip {zip_file_name}.zip in {StaticUtilities.project_root_directory()}\\{self.vhdl_directory} containing {self.number_of_zipped_files} files')
+            StaticUtilities.logger.warning(f'Created zip {zip_file_name}.zip in {zip_file_directory} containing {self.number_of_zipped_files} files')
         else:
-            StaticUtilities.logger.info(f'Created zip {zip_file_name}.zip in {StaticUtilities.project_root_directory()}\\{self.vhdl_directory} containing {self.number_of_zipped_files} files')
+            StaticUtilities.logger.info(f'Created zip {zip_file_name}.zip in {zip_file_directory} containing {self.number_of_zipped_files} files')
         return None
 
 
