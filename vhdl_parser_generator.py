@@ -128,14 +128,14 @@ class VHDLParserGenerator:
             for line in disassembly_file:
                 if not self.data_memory_in_disassembly and "DATA Section .data" in line:
                     data_section_string: List[str] = line.split(" ")
-                    data_memory_start = int(data_section_string[-1], 16) - 32768  # TODO: replace with method call
+                    data_memory_start = int(data_section_string[-1], 16) - 8192  # TODO: replace with method call
                     generated_vhdl_data_mem += f"-- Begin .data\n"
                     self.data_memory_in_disassembly = True
                 elif self.data_memory_in_disassembly or not cinit_in_generated:
                     while line != "\n":
                         if "0x" in line:
                             data_line_string: List[str] = line.split(" ")
-                            data_memory_location: int = int(data_line_string[0].strip(":"), 16) - 32768  # TODO: make method call
+                            data_memory_location: int = int(data_line_string[0].strip(":"), 16) - 8192  # TODO: make method call
                             data_line_string[-1] = data_line_string[-1].strip("\n")[2:]
                             if not int(data_line_string[-1], 16) == 0:
                                 data_msb: str = data_line_string[-1][:2]
