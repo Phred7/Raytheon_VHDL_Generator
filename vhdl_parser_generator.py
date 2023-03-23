@@ -329,10 +329,14 @@ shared variable ROM : rom_type :=("""
                         result = self.get_memory_address_from_line(line)
                         memory_address = result if result != 0 else memory_address
 
-                        split_line: List[str] = line.split(" ")
-                        tag_name: str = re.match("(\w+|\$):\\n", split_line[14], re.I).string[:-2]
+                        if ((not self.ccs_project.c_project()) and (name == ".reset")):
+                            split_line = str(line).split(" ")
+                            tag_name: str = "_reset_vector"
+                        else:
+                            split_line: List[str] = line.split(" ")
+                            tag_name: str = re.match("(\w+|\$):\\n", split_line[14], re.I).string[:-2]
 
-                        split_line = str(next(disassembly_file)).split(" ")
+                            split_line = str(next(disassembly_file)).split(" ")
                         vector: str = re.search("\.?(\w+|\d+)", split_line[14], re.I).string[1:-2]
                         if tag_name != "_reset_vector":
                             split_line = str(next(disassembly_file)).split(" ")
