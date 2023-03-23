@@ -317,7 +317,7 @@ shared variable ROM : rom_type :=("""
                             line = next(disassembly_file)
 
                         # Handles Data and Text sections that shouldn't be generated
-                        if "DATA Section $" in line or "TEXT Section" in line:  # "DATA Section .reset" in line
+                        if "DATA Section $" in line or "TEXT Section" in line or ".data" in line:  # "DATA Section .reset" in line
                             line = next(disassembly_file)
                             continue
 
